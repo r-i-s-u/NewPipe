@@ -17,6 +17,9 @@ kotlin {
     jvmToolchain(21)
 
     compilerOptions {
+        freeCompilerArgs.addAll(
+            "-Xexpect-actual-classes"
+        )
         optIn.addAll(
             "androidx.compose.material3.ExperimentalMaterial3Api",
             "androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
@@ -65,6 +68,8 @@ kotlin {
 
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.annotations)
+
+            implementation(libs.russhwolf.settings)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -72,6 +77,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.jetbrains.compose.preview)
             implementation(libs.androidx.activity)
+            implementation(libs.androidx.preference)
         }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
