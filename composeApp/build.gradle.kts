@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.compose)
     alias(libs.plugins.jetbrains.compose.multiplatform)
     alias(libs.plugins.koin)
+    alias(libs.plugins.jetbrains.kotlinx.serialization)
 }
 
 kotlin {
@@ -65,6 +66,7 @@ kotlin {
 
             implementation(libs.jetbrains.navigation3.ui)
             implementation(libs.jetbrains.lifecycle.navigation3)
+            implementation(libs.kotlinx.serialization.json)
 
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.annotations)

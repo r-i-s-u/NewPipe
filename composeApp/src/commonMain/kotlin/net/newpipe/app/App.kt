@@ -6,18 +6,19 @@
 package net.newpipe.app
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import net.newpipe.app.di.KoinApp
+import net.newpipe.app.navigation.Screen
 import net.newpipe.app.theme.AppTheme
 import org.koin.compose.KoinApplication
 import org.koin.plugin.module.dsl.koinConfiguration
 
+/**
+ * Entry point for the multiplatform compose application
+ */
 @Composable
-@Preview
-fun App() {
+fun App(startDestination: Screen? = null) {
     KoinApplication(configuration = koinConfiguration<KoinApp>()) {
         AppTheme {
-
         }
     }
 }
