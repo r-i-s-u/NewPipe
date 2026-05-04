@@ -9,7 +9,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.core.content.IntentCompat
+import kotlinx.serialization.json.Json
 import net.newpipe.Constants
 import net.newpipe.app.navigation.Screen
 
@@ -21,14 +21,13 @@ class ComposeActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        val startDestination = IntentCompat.getParcelableExtra(
-            intent,
-            Constants.INTENT_SCREEN_KEY,
-            Screen::class.java
-        )!!
-
         setContent {
-            App(startDestination)
+            App(
+                // TODO: Change when everything is in compose and this is the primary activity
+                startDestination = Json.decodeFromString<Screen>(
+                    intent.getStringExtra(Constants.INTENT_SCREEN_KEY)!!
+                )
+            )
         }
     }
 }

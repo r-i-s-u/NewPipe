@@ -7,6 +7,7 @@ package net.newpipe.app.extensions
 
 import android.content.Context
 import android.content.Intent
+import kotlinx.serialization.json.Json
 import net.newpipe.Constants
 import net.newpipe.app.ComposeActivity
 import net.newpipe.app.navigation.Screen
@@ -16,6 +17,6 @@ import kotlin.jvm.java
  * Navigates to a given compose destination
  */
 fun Context.navigateTo(screen: Screen) = Intent(this, ComposeActivity::class.java).also { intent ->
-    intent.putExtra(Constants.INTENT_SCREEN_KEY, screen.name)
+    intent.putExtra(Constants.INTENT_SCREEN_KEY, Json.encodeToString(screen))
     startActivity(intent)
 }

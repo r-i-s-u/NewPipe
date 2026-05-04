@@ -18,8 +18,8 @@ import kotlinx.serialization.modules.polymorphic
 @Serializable
 sealed interface Screen : NavKey {
 
-    val name: String
-        get() = this::class.simpleName.toString()
+    @Serializable
+    data object About : Screen
 }
 
 /**

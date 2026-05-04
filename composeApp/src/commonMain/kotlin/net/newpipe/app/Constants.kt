@@ -1,0 +1,19 @@
+/*
+ * SPDX-FileCopyrightText: 2026 NewPipe e.V. <https://newpipe-ev.de>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+package net.newpipe.app
+
+object Constants {
+
+    const val URL_GITHUB = "https://github.com/TeamNewPipe/NewPipe"
+    const val URL_DONATION = "https://newpipe.net/donate/"
+    const val URL_WEBSITE = "https://newpipe.net/"
+    const val URL_PRIVACY = "https://newpipe.net/legal/privacy/"
+    const val URL_FAQ = "https://newpipe.net/FAQ/"
+    const val URL_LICENSE = "https://github.com/TeamNewPipe/NewPipe/blob/master/LICENSE"
+
+    // TODO: CHANGE IT TO RESPECT THE MAIN APP MODULE
+    const val CODE_VERSION = "1.0.0"
+}

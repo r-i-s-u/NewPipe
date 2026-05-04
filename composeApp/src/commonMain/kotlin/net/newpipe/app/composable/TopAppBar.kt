@@ -1,0 +1,76 @@
+/*
+ * SPDX-FileCopyrightText: 2026 NewPipe e.V. <https://newpipe-ev.de>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+package net.newpipe.app.composable
+
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewWrapper
+import net.newpipe.app.preview.ThemePreviewProvider
+import newpipe.composeapp.generated.resources.Res
+import newpipe.composeapp.generated.resources.ic_arrow_back
+import newpipe.composeapp.generated.resources.navigate_back
+import newpipe.composeapp.generated.resources.title_activity_about
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+
+/**
+ * A top app bar composable to be used with Scaffold
+ * @param modifier The modifier to be applied to the composable
+ * @param title Title of the screen
+ * @param navigationIcon Icon for the navigation button
+ * @param onNavigateUp Action when user clicks the navigation icon
+ * @param actions Actions to display on the top app bar (for e.g. menu)
+ */
+@Composable
+fun TopAppBar(
+    modifier: Modifier = Modifier,
+    title: String? = null,
+    navigationIcon: Painter = painterResource(Res.drawable.ic_arrow_back),
+    onNavigateUp: (() -> Unit)? = null,
+    actions: @Composable (RowScope.() -> Unit) = {}
+) {
+    TopAppBar(
+        modifier = modifier,
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            scrolledContainerColor = MaterialTheme.colorScheme.primaryContainer,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        ),
+        title = { if (title != null) Text(text = title) },
+        navigationIcon = {
+            if (onNavigateUp != null) {
+                IconButton(onClick = onNavigateUp) {
+                    Icon(
+                        painter = navigationIcon,
+                        contentDescription = stringResource(Res.string.navigate_back)
+                    )
+                }
+            }
+        },
+        actions = actions
+    )
+}
+
+@PreviewWrapper(ThemePreviewProvider::class)
+@Preview(showBackground = true)
+@Composable
+private fun TopAppBarPreview() {
+    TopAppBar(
+        title = stringResource(Res.string.title_activity_about),
+        onNavigateUp = {}
+    )
+}

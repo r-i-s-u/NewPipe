@@ -9,10 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import net.newpipe.app.screen.about.AboutScreen
 
 /**
  * Navigation display for compose screens
- * @param startDestination Starting destination for the activity/app, defaults to about
+ * @param startDestination Starting destination for the app
  */
 @Composable
 fun NavDisplay(startDestination: Screen) {
@@ -21,6 +22,11 @@ fun NavDisplay(startDestination: Screen) {
     NavDisplay(
         backStack = backstack,
         entryProvider = entryProvider {
+            entry<Screen.About> {
+                AboutScreen(
+                    onNavigateUp =  {}
+                )
+            }
         }
     )
 }

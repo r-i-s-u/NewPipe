@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.jetbrains.compose.multiplatform)
     alias(libs.plugins.koin)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
+    alias(libs.plugins.about.libraries)
 }
 
 kotlin {
@@ -72,6 +73,8 @@ kotlin {
             implementation(libs.koin.annotations)
 
             implementation(libs.russhwolf.settings)
+
+            implementation(libs.about.libraries.compose.m3)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -106,4 +109,15 @@ compose.desktop {
 
 koinCompiler {
     userLogs = true // See what the compiler plugin detects
+}
+
+// Run ./gradlew exportLibraryDefinitions to generate/update the libraries and license definitions
+aboutLibraries {
+    collect {
+        fetchRemoteLicense = true
+    }
+    export {
+        outputFile = file("src/commonMain/composeResources/files/aboutlibraries.json")
+        prettyPrint = true
+    }
 }

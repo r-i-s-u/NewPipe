@@ -7,6 +7,7 @@ package net.newpipe.app
 
 import androidx.compose.runtime.Composable
 import net.newpipe.app.di.KoinApp
+import net.newpipe.app.navigation.NavDisplay
 import net.newpipe.app.navigation.Screen
 import net.newpipe.app.theme.AppTheme
 import org.koin.compose.KoinApplication
@@ -14,11 +15,13 @@ import org.koin.plugin.module.dsl.koinConfiguration
 
 /**
  * Entry point for the multiplatform compose application
+ * @param startDestination Starting destination for the activity/app, defaults to about
  */
 @Composable
-fun App(startDestination: Screen? = null) {
+fun App(startDestination: Screen = Screen.About) {
     KoinApplication(configuration = koinConfiguration<KoinApp>()) {
         AppTheme {
+            NavDisplay(startDestination)
         }
     }
 }
