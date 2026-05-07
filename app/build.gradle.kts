@@ -199,6 +199,9 @@ sonar {
 }
 
 dependencies {
+    // Compose UI
+    implementation(project(":composeApp"))
+
     /** Desugaring **/
     coreLibraryDesugaring(libs.android.desugar)
 
@@ -228,7 +231,6 @@ dependencies {
     implementation(libs.androidx.room.rxjava3)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.swiperefreshlayout)
-    implementation(libs.androidx.viewpager2)
     implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.work.rxjava3)
     implementation(libs.google.android.material)

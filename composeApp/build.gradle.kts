@@ -33,7 +33,7 @@ kotlin {
         namespace = "net.newpipe.app"
         compileSdk {
             version = release(36) {
-                minorApiLevel = 1
+                minorApiLevel = 0
             }
         }
         minSdk = 23
@@ -65,7 +65,9 @@ kotlin {
 
             implementation(libs.jetbrains.lifecycle.viewmodel)
 
-            implementation(libs.jetbrains.navigation3.ui)
+            // Use API as java compiler cannot see NavKey for some reason
+            api(libs.jetbrains.navigation3.ui)
+
             implementation(libs.jetbrains.lifecycle.navigation3)
             implementation(libs.kotlinx.serialization.json)
 
