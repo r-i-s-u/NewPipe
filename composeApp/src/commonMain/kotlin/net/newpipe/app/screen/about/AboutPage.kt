@@ -59,88 +59,87 @@ import newpipe.composeapp.generated.resources.website_title
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
-@Composable
-fun AboutPage() {
-    val links = listOf(
-        Link(
-            title = Res.string.faq_title,
-            description = Res.string.faq_description,
-            action = Res.string.faq,
-            url = Constants.URL_FAQ
-        ),
-        Link(
-            title = Res.string.contribution_title,
-            description = Res.string.contribution_encouragement,
-            action = Res.string.view_on_github,
-            url = Constants.URL_GITHUB
-        ),
-        Link(
-            title = Res.string.donation_title,
-            description = Res.string.donation_encouragement,
-            action = Res.string.give_back,
-            url = Constants.URL_DONATION
-        ),
-        Link(
-            title = Res.string.website_title,
-            description = Res.string.website_encouragement,
-            action = Res.string.open_in_browser,
-            url = Constants.URL_WEBSITE
-        ),
-        Link(
-            title = Res.string.privacy_policy_title,
-            description = Res.string.privacy_policy_encouragement,
-            action = Res.string.read_privacy_policy,
-            url = Constants.URL_PRIVACY
-        )
+private val DEFAULT_LINKS = listOf(
+    Link(
+        title = Res.string.faq_title,
+        description = Res.string.faq_description,
+        action = Res.string.faq,
+        url = Constants.URL_FAQ
+    ),
+    Link(
+        title = Res.string.contribution_title,
+        description = Res.string.contribution_encouragement,
+        action = Res.string.view_on_github,
+        url = Constants.URL_GITHUB
+    ),
+    Link(
+        title = Res.string.donation_title,
+        description = Res.string.donation_encouragement,
+        action = Res.string.give_back,
+        url = Constants.URL_DONATION
+    ),
+    Link(
+        title = Res.string.website_title,
+        description = Res.string.website_encouragement,
+        action = Res.string.open_in_browser,
+        url = Constants.URL_WEBSITE
+    ),
+    Link(
+        title = Res.string.privacy_policy_title,
+        description = Res.string.privacy_policy_encouragement,
+        action = Res.string.read_privacy_policy,
+        url = Constants.URL_PRIVACY
     )
+)
 
+@Composable
+fun AboutPage(links: List<Link> = DEFAULT_LINKS) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(spaceNormal),
         verticalArrangement = Arrangement.spacedBy(spaceXXSmall)
     ) {
-        item { PageHeader() }
+        // Page Header
+        item {
+            Column(
+                modifier = Modifier
+                    .padding(spaceLarge)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Image(
+                    modifier = Modifier
+                        .requiredSize(iconTVDPI)
+                        .clip(CircleShape)
+                        .background(color = logoBackground),
+                    painter = painterResource(Res.drawable.ic_foreground),
+                    contentDescription = stringResource(Res.string.app_name),
+                )
+                Spacer(modifier = Modifier.height(spaceXSmall))
+                Text(
+                    text = stringResource(Res.string.app_name),
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = Constants.CODE_VERSION,
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = stringResource(Res.string.app_description),
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
 
+        // Links about NewPipe
         items(items = links, key = { link -> link.url }) { link ->
             LinkListItem(
                 link = link
             )
         }
-    }
-}
-
-@Composable
-private fun PageHeader() {
-    Column(
-        modifier = Modifier
-            .padding(spaceLarge)
-            .fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            modifier = Modifier
-                .requiredSize(iconTVDPI)
-                .clip(CircleShape)
-                .background(color = logoBackground),
-            painter = painterResource(Res.drawable.ic_foreground),
-            contentDescription = stringResource(Res.string.app_name),
-        )
-        Spacer(modifier = Modifier.height(spaceXSmall))
-        Text(
-            text = stringResource(Res.string.app_name),
-            style = MaterialTheme.typography.titleLarge,
-            textAlign = TextAlign.Center
-        )
-        Text(
-            text = Constants.CODE_VERSION,
-            style = MaterialTheme.typography.titleMedium,
-            textAlign = TextAlign.Center
-        )
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = stringResource(Res.string.app_description),
-            textAlign = TextAlign.Center
-        )
     }
 }
 
