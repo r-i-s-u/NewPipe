@@ -43,6 +43,13 @@ kotlin {
             enable = true
         }
 
+        optimization {
+            consumerKeepRules.apply {
+                publish = true
+                file("consumer-proguard-rules.pro")
+            }
+        }
+
         withHostTest {
             isIncludeAndroidResources = true
         }
