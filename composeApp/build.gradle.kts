@@ -42,6 +42,15 @@ kotlin {
         androidResources {
             enable = true
         }
+
+        withHostTest {
+            isIncludeAndroidResources = true
+        }
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }.configure {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
     }
 
     listOf(
@@ -81,16 +90,32 @@ kotlin {
             implementation(libs.about.libraries.compose.m3)
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.core)
+            implementation(libs.jetbrains.compose.test.ui)
         }
         androidMain.dependencies {
             implementation(libs.jetbrains.compose.preview)
             implementation(libs.androidx.activity)
             implementation(libs.androidx.preference)
         }
+        val androidDeviceTest by getting {
+            dependencies {
+                implementation(libs.androidx.compose.test.ui.manifest)
+                implementation(libs.androidx.compose.test.ui.junit)
+
+                // Needed because androidx.compose.test.ui.junit pulls an older dependency
+                // which crashes on new Android versions
+                implementation(libs.androidx.test.espresso.core)
+            }
+        }
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.jetbrains.coroutines.swing)
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
         }
     }
 }
