@@ -18,10 +18,13 @@ import org.koin.plugin.module.dsl.koinConfiguration
  * @param startDestination Starting destination for the activity/app, defaults to about
  */
 @Composable
-fun App(startDestination: Screen = Screen.About) {
+fun App(startDestination: Screen = Screen.About, onCloseRequest : () -> Unit) {
     KoinApplication(configuration = koinConfiguration<KoinApp>()) {
         AppTheme {
-            NavDisplay(startDestination)
+            NavDisplay(
+                startDestination = startDestination,
+                onCloseRequest = onCloseRequest
+            )
         }
     }
 }

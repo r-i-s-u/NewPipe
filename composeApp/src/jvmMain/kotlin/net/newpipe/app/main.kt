@@ -16,6 +16,6 @@ import org.jetbrains.compose.resources.stringResource
  */
 fun main() = application {
     Window(onCloseRequest = ::exitApplication, title = stringResource(Res.string.app_name)) {
-        App()
+        App(onCloseRequest = ::exitApplication)
     }
 }

@@ -26,7 +26,8 @@ class ComposeActivity : ComponentActivity() {
                 // TODO: Change when everything is in compose and this is the primary activity
                 startDestination = Json.decodeFromString<Screen>(
                     intent.getStringExtra(Constants.INTENT_SCREEN_KEY)!!
-                )
+                ),
+                onCloseRequest = ::finish
             )
         }
     }

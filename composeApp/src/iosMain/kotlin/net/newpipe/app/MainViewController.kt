@@ -6,5 +6,11 @@
 package net.newpipe.app
 
 import androidx.compose.ui.window.ComposeUIViewController
+import platform.posix.exit
 
-fun MainViewController() = ComposeUIViewController { App() }
+fun MainViewController() = ComposeUIViewController {
+    App(
+        // TODO: Remove this as Apple doesn't likes quitting app manually
+        onCloseRequest = { exit(0) }
+    )
+}
