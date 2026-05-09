@@ -1,0 +1,28 @@
+/*
+ * SPDX-FileCopyrightText: 2026 NewPipe e.V. <https://newpipe-ev.de>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+package net.newpipe.app.platform
+
+import co.touchlab.kermit.Logger
+import org.koin.core.annotation.ComponentScan
+import org.koin.core.annotation.Configuration
+import org.koin.core.annotation.Module
+import org.koin.core.annotation.Singleton
+import java.awt.Desktop
+import java.net.URI
+
+/**
+ * Handles sharing of data and information on JVM
+ */
+@Singleton(binds = [ShareHandler::class])
+class JvmShareHandler : ShareHandler {
+
+    override fun openUrlInBrowser(url: String) {
+        when {
+            Desktop.isDesktopSupported() -> Desktop.getDesktop().browse(URI(url))
+            else -> Logger.e(messageString = "Unsupported platform! Cannot open URL in browser")
+        }
+    }
+}

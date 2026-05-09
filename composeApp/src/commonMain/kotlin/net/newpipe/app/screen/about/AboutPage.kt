@@ -93,7 +93,10 @@ private val DEFAULT_LINKS = listOf(
 )
 
 @Composable
-fun AboutPage(links: List<Link> = DEFAULT_LINKS) {
+fun AboutPage(
+    links: List<Link> = DEFAULT_LINKS,
+    onOpenUrl: (url: String) -> Unit = {}
+) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         contentPadding = PaddingValues(spaceNormal),
@@ -137,7 +140,8 @@ fun AboutPage(links: List<Link> = DEFAULT_LINKS) {
         // Links about NewPipe
         items(items = links, key = { link -> link.url }) { link ->
             LinkListItem(
-                link = link
+                link = link,
+                onAction = { onOpenUrl(link.url) }
             )
         }
     }

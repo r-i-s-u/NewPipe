@@ -24,23 +24,30 @@ import androidx.compose.ui.tooling.preview.PreviewWrapper
 import androidx.compose.ui.util.fastForEachIndexed
 import kotlinx.coroutines.launch
 import net.newpipe.app.composable.TopAppBar
+import net.newpipe.app.platform.ShareHandler
 import net.newpipe.app.preview.ThemePreviewProvider
 import org.jetbrains.compose.resources.stringResource
 import net.newpipe.app.screen.about.navigation.Page
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.title_activity_about
+import org.koin.compose.koinInject
 
 @Composable
-fun AboutScreen(onNavigateUp: () -> Unit) {
+fun AboutScreen(
+    onNavigateUp: () -> Unit,
+    shareHandler: ShareHandler = koinInject()
+) {
     ScreenContent(
-        onNavigateUp = onNavigateUp
+        onNavigateUp = onNavigateUp,
+        onOpenUrl = { url -> shareHandler.openUrlInBrowser(url) }
     )
 }
 
 @Composable
 private fun ScreenContent(
     pages: List<Page> = listOf(Page.ABOUT, Page.LICENSE),
-    onNavigateUp: () -> Unit = {}
+    onNavigateUp: () -> Unit = {},
+    onOpenUrl: (url: String) -> Unit = {}
 ) {
     Scaffold(
         topBar = {
@@ -78,7 +85,7 @@ private fun ScreenContent(
 
             HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->
                 when (pages[page]) {
-                    Page.ABOUT -> AboutPage()
+                    Page.ABOUT -> AboutPage(onOpenUrl = onOpenUrl)
                     Page.LICENSE -> LicensePage()
                 }
             }

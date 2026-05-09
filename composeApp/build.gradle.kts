@@ -95,6 +95,8 @@ kotlin {
             implementation(libs.russhwolf.settings)
 
             implementation(libs.about.libraries.compose.m3)
+
+            implementation(libs.touchlab.kermit)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test.core)
@@ -104,6 +106,7 @@ kotlin {
             implementation(libs.jetbrains.compose.preview)
             implementation(libs.androidx.activity)
             implementation(libs.androidx.preference)
+            implementation(libs.androidx.browser)
         }
         val androidDeviceTest by getting {
             dependencies {
