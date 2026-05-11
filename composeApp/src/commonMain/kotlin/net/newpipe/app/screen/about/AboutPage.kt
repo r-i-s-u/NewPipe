@@ -118,7 +118,7 @@ fun AboutPage(
                         .clip(CircleShape)
                         .background(color = logoBackground),
                     painter = painterResource(Res.drawable.ic_foreground),
-                    contentDescription = stringResource(Res.string.app_name),
+                    contentDescription = stringResource(Res.string.app_name)
                 )
                 Spacer(modifier = Modifier.height(spaceXSmall))
                 Text(

@@ -10,14 +10,14 @@ import androidx.compose.ui.test.isDisplayed
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.v2.runComposeUiTest
+import kotlin.test.Test
+import kotlin.test.assertTrue
 import net.newpipe.app.model.Link
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.contribution_encouragement
 import newpipe.composeapp.generated.resources.contribution_title
 import newpipe.composeapp.generated.resources.view_on_github
 import org.jetbrains.compose.resources.getString
-import kotlin.test.Test
-import kotlin.test.assertTrue
 
 @OptIn(ExperimentalTestApi::class)
 class LinkListItemTest {

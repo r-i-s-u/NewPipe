@@ -27,7 +27,7 @@ fun NavDisplay(startDestination: Screen, onCloseRequest: () -> Unit) {
         entryProvider = entryProvider {
             entry<Screen.About> {
                 AboutScreen(
-                    onNavigateUp =  ::onNavigateUp
+                    onNavigateUp = ::onNavigateUp
                 )
             }
         }

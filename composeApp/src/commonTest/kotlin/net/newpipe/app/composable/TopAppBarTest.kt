@@ -11,13 +11,13 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.v2.runComposeUiTest
+import kotlin.test.Test
+import kotlin.test.assertTrue
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.navigate_back
 import newpipe.composeapp.generated.resources.title_activity_about
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
-import kotlin.test.Test
-import kotlin.test.assertTrue
 
 @OptIn(ExperimentalTestApi::class)
 class TopAppBarTest {
@@ -36,7 +36,7 @@ class TopAppBarTest {
         setContent {
             TopAppBar(
                 title = stringResource(Res.string.title_activity_about),
-                onNavigateUp =  { navigationBackClicked = true }
+                onNavigateUp = { navigationBackClicked = true }
             )
         }
 

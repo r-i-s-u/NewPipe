@@ -7,8 +7,8 @@ package net.newpipe.app.di.settings
 
 import com.russhwolf.settings.PreferencesSettings
 import com.russhwolf.settings.Settings
-import org.koin.core.annotation.Singleton
 import java.util.prefs.Preferences
+import org.koin.core.annotation.Singleton
 
 /**
  * Settings for JVM devices based on Java Preferences

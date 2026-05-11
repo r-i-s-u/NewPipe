@@ -52,7 +52,7 @@ private val lightScheme = lightColorScheme(
     surfaceContainerLow = surfaceContainerLowLight,
     surfaceContainer = surfaceContainerLight,
     surfaceContainerHigh = surfaceContainerHighLight,
-    surfaceContainerHighest = surfaceContainerHighestLight,
+    surfaceContainerHighest = surfaceContainerHighestLight
 )
 
 private val darkScheme = darkColorScheme(
@@ -90,7 +90,7 @@ private val darkScheme = darkColorScheme(
     surfaceContainerLow = surfaceContainerLowDark,
     surfaceContainer = surfaceContainerDark,
     surfaceContainerHigh = surfaceContainerHighDark,
-    surfaceContainerHighest = surfaceContainerHighestDark,
+    surfaceContainerHighest = surfaceContainerHighestDark
 )
 
 private val blackScheme = darkScheme.copy(surface = Color.Black)
@@ -101,14 +101,14 @@ private val blackScheme = darkScheme.copy(surface = Color.Black)
 @Composable
 fun currentColorScheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    settings: Settings = koinInject(),
+    settings: Settings = koinInject()
 ): ColorScheme {
-    val nightScheme = when(settings.getString("night_theme", "dark_theme")) {
+    val nightScheme = when (settings.getString("night_theme", "dark_theme")) {
         "black_theme" -> blackScheme
         else -> darkScheme
     }
 
-    return when(settings.getString("theme", "auto_device_theme")) {
+    return when (settings.getString("theme", "auto_device_theme")) {
         "light_theme" -> lightScheme
         "dark_theme" -> darkScheme
         "black_theme" -> blackScheme

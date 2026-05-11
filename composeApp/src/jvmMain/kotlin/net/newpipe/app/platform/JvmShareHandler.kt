@@ -6,12 +6,12 @@
 package net.newpipe.app.platform
 
 import co.touchlab.kermit.Logger
+import java.awt.Desktop
+import java.net.URI
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Configuration
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Singleton
-import java.awt.Desktop
-import java.net.URI
 
 /**
  * Handles sharing of data and information on JVM

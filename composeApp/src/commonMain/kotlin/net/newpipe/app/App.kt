@@ -22,7 +22,7 @@ import org.koin.plugin.module.dsl.koinConfiguration
 @Composable
 fun App(
     startDestination: Screen = Screen.About,
-    onCloseRequest : () -> Unit,
+    onCloseRequest: () -> Unit,
     withKoin: @Composable () -> Unit = {}
 ) {
     KoinApplication(configuration = koinConfiguration<KoinApp>()) {

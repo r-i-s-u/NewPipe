@@ -27,11 +27,11 @@ import kotlinx.coroutines.launch
 import net.newpipe.app.composable.TopAppBar
 import net.newpipe.app.platform.ShareHandler
 import net.newpipe.app.preview.ThemePreviewProvider
-import org.jetbrains.compose.resources.stringResource
 import net.newpipe.app.screen.about.navigation.Page
 import net.newpipe.app.theme.currentServiceScheme
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.title_activity_about
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 
 @Composable
@@ -100,7 +100,7 @@ private fun ScreenContent(
                 }
             }
 
-            HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState,) { page ->
+            HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState) { page ->
                 when (pages[page]) {
                     Page.ABOUT -> AboutPage(onOpenUrl = onOpenUrl)
                     Page.LICENSE -> LicensePage()

@@ -7,11 +7,11 @@ package net.newpipe.app.extensions
 
 import android.content.Context
 import android.content.Intent
+import kotlin.jvm.java
 import kotlinx.serialization.json.Json
 import net.newpipe.Constants
 import net.newpipe.app.ComposeActivity
 import net.newpipe.app.navigation.Screen
-import kotlin.jvm.java
 
 /**
  * Navigates to a given compose destination

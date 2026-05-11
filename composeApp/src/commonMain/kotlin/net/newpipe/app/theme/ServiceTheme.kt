@@ -36,7 +36,7 @@ val soundCLoudLightScheme = lightColorScheme(
 )
 
 val soundCloudDarkScheme = darkColorScheme(
-    primaryContainer =  Color(0xFFA35300),
+    primaryContainer = Color(0xFFA35300),
     onPrimaryContainer = Color(0xFFFFFFFF)
 )
 
