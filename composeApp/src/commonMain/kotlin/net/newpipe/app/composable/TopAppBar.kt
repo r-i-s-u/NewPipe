@@ -8,15 +8,15 @@ package net.newpipe.app.composable
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewWrapper
+import net.newpipe.app.model.currentServiceTopAppBarColors
 import net.newpipe.app.preview.ThemePreviewProvider
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.ic_arrow_back
@@ -39,17 +39,12 @@ fun TopAppBar(
     title: String? = null,
     navigationIcon: Painter = painterResource(Res.drawable.ic_arrow_back),
     onNavigateUp: (() -> Unit)? = null,
+    colors: TopAppBarColors = currentServiceTopAppBarColors(),
     actions: @Composable (RowScope.() -> Unit) = {}
 ) {
     TopAppBar(
         modifier = modifier,
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            scrolledContainerColor = MaterialTheme.colorScheme.primaryContainer,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-        ),
+        colors = colors,
         title = { if (title != null) Text(text = title) },
         navigationIcon = {
             if (onNavigateUp != null) {

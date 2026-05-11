@@ -16,4 +16,6 @@ object Constants {
 
     // TODO: CHANGE IT TO RESPECT THE MAIN APP MODULE
     const val CODE_VERSION = "1.0.0"
+
+    const val KEY_STREAMING_SERVICE = "service"
 }

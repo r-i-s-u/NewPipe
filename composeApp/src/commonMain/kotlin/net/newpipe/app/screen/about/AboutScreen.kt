@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SecondaryTabRow
@@ -24,6 +25,7 @@ import androidx.compose.ui.tooling.preview.PreviewWrapper
 import androidx.compose.ui.util.fastForEachIndexed
 import kotlinx.coroutines.launch
 import net.newpipe.app.composable.TopAppBar
+import net.newpipe.app.model.currentServiceScheme
 import net.newpipe.app.platform.ShareHandler
 import net.newpipe.app.preview.ThemePreviewProvider
 import org.jetbrains.compose.resources.stringResource
@@ -47,7 +49,8 @@ fun AboutScreen(
 private fun ScreenContent(
     pages: List<Page> = listOf(Page.ABOUT, Page.LICENSE),
     onNavigateUp: () -> Unit = {},
-    onOpenUrl: (url: String) -> Unit = {}
+    onOpenUrl: (url: String) -> Unit = {},
+    serviceScheme: ColorScheme = currentServiceScheme()
 ) {
     Scaffold(
         topBar = {
@@ -67,13 +70,18 @@ private fun ScreenContent(
 
             SecondaryTabRow(
                 modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                containerColor = serviceScheme.primaryContainer,
                 selectedTabIndex = pagerState.currentPage
             ) {
                 pages.fastForEachIndexed { index, _ ->
                     Tab(
                         selected = pagerState.currentPage == index,
-                        text = { Text(text = stringResource(pages[index].localizedTitle)) },
+                        text = {
+                            Text(
+                                text = stringResource(pages[index].localizedTitle),
+                                color = serviceScheme.onPrimaryContainer
+                            )
+                        },
                         onClick = {
                             coroutineScope.launch {
                                 pagerState.animateScrollToPage(index)
