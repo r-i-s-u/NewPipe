@@ -21,12 +21,16 @@ import net.newpipe.app.theme.youTubeLightScheme
  * Supported services in the NewPipe app and minor information about them for UI decisions.
  * @property serviceId ID of the service as defined in NewPipeExtractor
  * @property serviceName Name of the service as defined in NewPipeExtractor
+ * @property lightScheme Light color scheme to reflect the brand
+ * @property darkScheme Dark color scheme to reflect the brand
+ * @property isSchemeColorDensityLight Whether this brand's color schemes are of lighter density.
  */
 enum class Service(
     val serviceId: Int,
     val serviceName: String,
     val lightScheme: ColorScheme,
-    val darkScheme: ColorScheme
+    val darkScheme: ColorScheme,
+    val isSchemeColorDensityLight: Boolean = false
 ) {
     YOUTUBE(
         serviceId = 0,

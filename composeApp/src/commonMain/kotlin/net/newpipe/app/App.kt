@@ -16,9 +16,15 @@ import org.koin.plugin.module.dsl.koinConfiguration
 /**
  * Entry point for the multiplatform compose application
  * @param startDestination Starting destination for the activity/app, defaults to about
+ * @param onCloseRequest Callback to close the app
+ * @param withKoin Additional logic to execute after initialising Koin and setting content
  */
 @Composable
-fun App(startDestination: Screen = Screen.About, onCloseRequest : () -> Unit) {
+fun App(
+    startDestination: Screen = Screen.About,
+    onCloseRequest : () -> Unit,
+    withKoin: @Composable () -> Unit = {}
+) {
     KoinApplication(configuration = koinConfiguration<KoinApp>()) {
         AppTheme {
             NavDisplay(
@@ -26,5 +32,6 @@ fun App(startDestination: Screen = Screen.About, onCloseRequest : () -> Unit) {
                 onCloseRequest = onCloseRequest
             )
         }
+        withKoin()
     }
 }
