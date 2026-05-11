@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewWrapper
-import net.newpipe.app.model.currentServiceTopAppBarColors
 import net.newpipe.app.preview.ThemePreviewProvider
+import net.newpipe.app.theme.currentServiceTopAppBarColors
 import newpipe.composeapp.generated.resources.Res
 import newpipe.composeapp.generated.resources.ic_arrow_back
 import newpipe.composeapp.generated.resources.navigate_back
