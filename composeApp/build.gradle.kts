@@ -15,6 +15,24 @@ plugins {
     alias(libs.plugins.about.libraries)
 }
 
+// Better than adding a third-party dependency for something as simple as this
+// https://stackoverflow.com/a/74771876/8446131
+val buildConfigGenerator by tasks.registering(Sync::class) {
+    val buildConfigPackage = "net.newpipe.app"
+    val rawClass = """
+        package $buildConfigPackage
+
+        object BuildConfig {
+            const val VERSION_NAME = "$NEWPIPE_VERSION_NAME"
+        }
+    """.trimIndent()
+    from(resources.text.fromString(rawClass)) {
+        rename { "BuildConfig.kt" }
+        into(buildConfigPackage.replace(".", "/"))
+    }
+    into(layout.buildDirectory.dir("generated/kotlin/"))
+}
+
 kotlin {
     jvmToolchain(21)
 
@@ -32,12 +50,12 @@ kotlin {
     android {
         namespace = "net.newpipe.app"
         compileSdk {
-            version = release(36) {
-                minorApiLevel = 1
+            version = release(NEWPIPE_VERSION_SDK_COMPILE_MAJOR) {
+                minorApiLevel = NEWPIPE_VERSION_SDK_COMPILE_MINOR
             }
         }
         minSdk {
-            version = release(23)
+            version = release(NEWPIPE_VERSION_SDK_MINOR)
         }
         androidResources {
             enable = true
@@ -73,30 +91,33 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.jetbrains.compose.runtime)
-            implementation(libs.jetbrains.compose.foundation)
-            implementation(libs.jetbrains.compose.material3)
-            implementation(libs.jetbrains.compose.ui)
-            implementation(libs.jetbrains.compose.resources)
-            implementation(libs.jetbrains.compose.preview)
+        commonMain {
+            kotlin.srcDir(buildConfigGenerator.map { it.destinationDir })
+            dependencies {
+                implementation(libs.jetbrains.compose.runtime)
+                implementation(libs.jetbrains.compose.foundation)
+                implementation(libs.jetbrains.compose.material3)
+                implementation(libs.jetbrains.compose.ui)
+                implementation(libs.jetbrains.compose.resources)
+                implementation(libs.jetbrains.compose.preview)
 
-            implementation(libs.jetbrains.lifecycle.viewmodel)
+                implementation(libs.jetbrains.lifecycle.viewmodel)
 
-            // Use API as java compiler cannot see NavKey for some reason
-            api(libs.jetbrains.navigation3.ui)
+                // Use API as java compiler cannot see NavKey for some reason
+                api(libs.jetbrains.navigation3.ui)
 
-            implementation(libs.jetbrains.lifecycle.navigation3)
-            implementation(libs.kotlinx.serialization.json)
+                implementation(libs.jetbrains.lifecycle.navigation3)
+                implementation(libs.kotlinx.serialization.json)
 
-            implementation(libs.koin.compose.viewmodel)
-            implementation(libs.koin.annotations)
+                implementation(libs.koin.compose.viewmodel)
+                implementation(libs.koin.annotations)
 
-            implementation(libs.russhwolf.settings)
+                implementation(libs.russhwolf.settings)
 
-            implementation(libs.about.libraries.compose.m3)
+                implementation(libs.about.libraries.compose.m3)
 
-            implementation(libs.touchlab.kermit)
+                implementation(libs.touchlab.kermit)
+            }
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test.core)
@@ -140,8 +161,8 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "net.newpipe.app"
-            packageVersion = "1.0.0"
+            packageName = NEWPIPE_APPLICATION_ID_NEW
+            packageVersion = NEWPIPE_VERSION_NAME
         }
     }
 }

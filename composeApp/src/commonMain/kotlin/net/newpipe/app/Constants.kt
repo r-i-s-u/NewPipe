@@ -14,8 +14,5 @@ object Constants {
     const val URL_FAQ = "https://newpipe.net/FAQ/"
     const val URL_LICENSE = "https://github.com/TeamNewPipe/NewPipe/blob/master/LICENSE"
 
-    // TODO: CHANGE IT TO RESPECT THE MAIN APP MODULE
-    const val CODE_VERSION = "1.0.0"
-
     const val KEY_STREAMING_SERVICE = "service"
 }
