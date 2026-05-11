@@ -16,10 +16,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.Modifier.Companion
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewWrapper
 import androidx.compose.ui.util.fastForEachIndexed
@@ -71,6 +73,15 @@ private fun ScreenContent(
             SecondaryTabRow(
                 modifier = Modifier.fillMaxWidth(),
                 containerColor = serviceScheme.primaryContainer,
+                indicator = {
+                    TabRowDefaults.SecondaryIndicator(
+                        modifier = Modifier.tabIndicatorOffset(
+                            selectedTabIndex = pagerState.currentPage,
+                            matchContentSize = false
+                        ),
+                        color = serviceScheme.onPrimaryContainer
+                    )
+                },
                 selectedTabIndex = pagerState.currentPage
             ) {
                 pages.fastForEachIndexed { index, _ ->
