@@ -12,7 +12,7 @@
     <!-- AboutScreen -->
     <string name="title_activity_about">About NewPipe</string>
     <string name="title_licenses">Third-party Licenses</string>
-    <string name="copyright">© %1$s by %2$s under %3$s</string>
+    <string name="license">By %1$s under %2$s</string>
     <string name="tab_about">About \u0026 FAQ</string>
     <string name="tab_licenses">Licenses</string>
     <string name="app_description">Libre lightweight streaming on Android.</string>
@@ -34,4 +34,5 @@
     <string name="faq_description">If you are having trouble using the app, be sure to check out these answers to common questions!</string>
     <string name="faq">View on website</string>
     <string name="open_in_browser">Open in browser</string>
+    <string name="done">Done</string>
 </resources>

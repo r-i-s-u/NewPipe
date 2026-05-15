@@ -78,7 +78,6 @@ webkit = "1.15.0"
 work = "2.11.2"
 
 [libraries]
-about-libraries-compose-m3 = { group = "com.mikepenz", name = "aboutlibraries-compose-m3", version.ref = "about-libraries" }
 acra-core = { module = "ch.acra:acra-core", version.ref = "acra" }
 android-desugar = { module = "com.android.tools:desugar_jdk_libs_nio", version.ref = "desugar" }
 androidx-activity = { module = "androidx.activity:activity-compose", version.ref = "activity" }

@@ -114,8 +114,6 @@ kotlin {
 
                 implementation(libs.russhwolf.settings)
 
-                implementation(libs.about.libraries.compose.m3)
-
                 implementation(libs.touchlab.kermit)
             }
         }
@@ -173,9 +171,6 @@ koinCompiler {
 
 // Run ./gradlew exportLibraryDefinitions to generate/update the libraries and license definitions
 aboutLibraries {
-    collect {
-        fetchRemoteLicense = true
-    }
     export {
         outputFile = file("src/commonMain/composeResources/files/aboutlibraries.json")
         prettyPrint = true

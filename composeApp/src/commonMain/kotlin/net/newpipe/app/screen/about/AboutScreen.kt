@@ -103,7 +103,7 @@ private fun ScreenContent(
             HorizontalPager(modifier = Modifier.fillMaxSize(), state = pagerState) { page ->
                 when (pages[page]) {
                     Page.ABOUT -> AboutPage(onOpenUrl = onOpenUrl)
-                    Page.LICENSE -> LicensePage()
+                    Page.LICENSE -> LicensePage(onOpenUrl = onOpenUrl)
                 }
             }
         }
