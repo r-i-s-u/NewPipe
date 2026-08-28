@@ -39,7 +39,7 @@
         android:theme="@style/OpeningTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".MainActivity"
+            android:name=".download.DownloadActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTask">
@@ -67,38 +67,11 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
-        <service
-            android:name=".player.PlayerService"
-            android:exported="true"
-            android:foregroundServiceType="mediaPlayback">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService"/>
-            </intent-filter>
-        </service>
-
-        <activity
-            android:name=".player.PlayQueueActivity"
-            android:exported="false"
-            android:label="@string/title_activity_play_queue"
-            android:launchMode="singleTask" />
-
+   
         <activity
             android:name=".settings.SettingsActivity"
             android:exported="false"
             android:label="@string/settings" />
-
-        <activity
-            android:name=".about.AboutActivity"
-            android:exported="false"
-            android:label="@string/title_activity_about" />
-
-        <service
-            android:name=".local.feed.service.FeedLoadService"
-            android:foregroundServiceType="dataSync" />
 
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
@@ -118,22 +91,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ExitActivity"
-            android:exported="false"
-            android:label="@string/general_error"
-            android:theme="@android:style/Theme.NoDisplay" />
-
-        <activity
-            android:name=".error.ErrorActivity"
-            android:exported="false" />
-
         <!-- giga get related -->
-        <activity
-            android:name=".download.DownloadActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:launchMode="singleTask" />
 
         <service android:name="us.shandian.giga.service.DownloadManagerService"
             android:foregroundServiceType="dataSync" />
@@ -148,11 +106,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".error.ReCaptchaActivity"
-            android:exported="false"
-            android:label="@string/recaptcha" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
