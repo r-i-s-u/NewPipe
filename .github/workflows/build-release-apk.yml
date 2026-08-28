@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: 'master'
+          ref: 'download'
 
       - uses: actions/setup-java@v5
         with:
@@ -31,6 +31,18 @@ jobs:
           # assume there is only one APK in that folder
           mv app/build/outputs/apk/release/*.apk "app/build/outputs/apk/release/NewPipe_v$VERSION_NAME.apk"
 
+      - uses: ilharp/sign-android-release@v2
+        name: "Sign app APK"
+        id: sign_app
+        env:
+           ANDROID_SIGNING_KEY: ${{ secrets.SIGNING_KEY_STORE }}
+        with:
+          releaseDir: app/build/outputs/apk/release
+          signingKey: ${{ secrets.SIGNING_KEY_STORE }}
+          keyAlias: ${{ secrets.SIGNING_KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          
       - name: "Upload APK"
         uses: actions/upload-artifact@v7
         with:
