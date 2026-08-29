@@ -13,7 +13,7 @@ class PickerIconItem(
     @DrawableRes
     val iconRes: Int = icon.getDrawableRes()
 
-    override fun getLayout(): Int = R.layout.picker_icon_item
+    override fun getLayout(): Int = 0
 
     override fun bind(viewBinding: PickerIconItemBinding, position: Int) {
         viewBinding.iconView.setImageResource(iconRes)

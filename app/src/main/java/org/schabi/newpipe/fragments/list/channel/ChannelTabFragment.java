@@ -76,7 +76,7 @@ public class ChannelTabFragment extends BaseListInfoFragment<InfoItem, ChannelTa
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_channel_tab, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     @Override

@@ -17,7 +17,7 @@ class GroupsHeader(
         const val PAYLOAD_UPDATE_ICONS = 1
     }
 
-    override fun getLayout(): Int = R.layout.subscription_groups_header
+    override fun getLayout(): Int = 0
 
     override fun bind(
         viewBinding: SubscriptionGroupsHeaderBinding,

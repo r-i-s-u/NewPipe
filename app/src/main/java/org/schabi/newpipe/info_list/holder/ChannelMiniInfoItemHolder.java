@@ -34,7 +34,7 @@ public class ChannelMiniInfoItemHolder extends InfoItemHolder {
 
     public ChannelMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder,
                                      final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_channel_mini_item, parent);
+        this(infoItemBuilder, 0, parent);
     }
 
     @Override

@@ -21,7 +21,7 @@ data class FeedGroupCardGridItem(
         }
     }
 
-    override fun getLayout(): Int = R.layout.feed_group_card_grid_item
+    override fun getLayout(): Int = 0
 
     override fun bind(viewBinding: FeedGroupCardGridItemBinding, position: Int) {
         viewBinding.title.text = name

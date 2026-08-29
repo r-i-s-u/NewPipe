@@ -165,7 +165,7 @@ public class SelectChannelFragment extends DialogFragment {
         public SelectChannelItemHolder onCreateViewHolder(final ViewGroup parent,
                                                           final int viewType) {
             final View item = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.select_channel_item, parent, false);
+                    .inflate(0, parent, false);
             return new SelectChannelItemHolder(item);
         }
 

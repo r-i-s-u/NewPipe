@@ -104,7 +104,7 @@ public final class BookmarkFragment extends BaseLocalListFragment<List<PlaylistL
         if (!useAsFrontPage) {
             setTitle(activity.getString(R.string.tab_bookmarks));
         }
-        return inflater.inflate(R.layout.fragment_bookmarks, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     @Override
