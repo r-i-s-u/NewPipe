@@ -28,7 +28,7 @@ public class NotificationActionsPreference extends Preference {
 
     public NotificationActionsPreference(final Context context, final AttributeSet attrs) {
         super(context, attrs);
-        setLayoutResource(R.layout.settings_notification);
+        setLayoutResource(0);
     }
 
 

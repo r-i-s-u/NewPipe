@@ -17,7 +17,7 @@ public class LocalBookmarkPlaylistItemHolder extends LocalPlaylistItemHolder {
 
     public LocalBookmarkPlaylistItemHolder(final LocalItemBuilder infoItemBuilder,
                                            final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_playlist_bookmark_item, parent);
+        this(infoItemBuilder, 0, parent);
     }
 
     LocalBookmarkPlaylistItemHolder(final LocalItemBuilder infoItemBuilder, final int layoutId,

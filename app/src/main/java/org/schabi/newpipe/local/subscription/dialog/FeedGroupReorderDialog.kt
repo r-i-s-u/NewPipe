@@ -44,7 +44,7 @@ class FeedGroupReorderDialog : DialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_feed_group_reorder, container)
+        return inflater.inflate(0, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

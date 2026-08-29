@@ -103,7 +103,7 @@ public class SubscriptionsImportFragment extends BaseFragment {
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_import, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     /*/////////////////////////////////////////////////////////////////////////

@@ -8,6 +8,6 @@ import org.schabi.newpipe.local.LocalItemBuilder;
 public class LocalPlaylistGridItemHolder extends LocalPlaylistItemHolder {
     public LocalPlaylistGridItemHolder(final LocalItemBuilder infoItemBuilder,
                                        final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_playlist_grid_item, parent);
+        super(infoItemBuilder, 0, parent);
     }
 }

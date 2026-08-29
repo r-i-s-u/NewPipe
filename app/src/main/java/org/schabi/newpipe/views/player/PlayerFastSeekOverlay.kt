@@ -24,7 +24,7 @@ class PlayerFastSeekOverlay(context: Context, attrs: AttributeSet?) :
     private var wasForwarding: Boolean = false
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.player_fast_seek_overlay, this, true)
+        LayoutInflater.from(context).inflate(0, this, true)
 
         secondsView = findViewById(R.id.seconds_view)
         circleClipTapView = findViewById(R.id.circle_clip_tap_view)

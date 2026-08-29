@@ -20,7 +20,7 @@ import java.util.Set;
  *     <li>...</li>
  * </ul>
  *
- * E.g. used by the preference search.
+ * E.g. used by the preference search
  */
 public final class SettingsResourceRegistry {
 
@@ -29,19 +29,19 @@ public final class SettingsResourceRegistry {
     private final Set<SettingRegistryEntry> registeredEntries = new HashSet<>();
 
     private SettingsResourceRegistry() {
-        add(MainSettingsFragment.class, R.xml.main_settings).setSearchable(false);
+        add(MainSettingsFragment.class, 0).setSearchable(false);
 
-        add(AppearanceSettingsFragment.class, R.xml.appearance_settings);
-        add(ContentSettingsFragment.class, R.xml.content_settings);
-        add(DebugSettingsFragment.class, R.xml.debug_settings).setSearchable(false);
+        add(AppearanceSettingsFragment.class, 0);
+        add(ContentSettingsFragment.class, 0);
+        add(DebugSettingsFragment.class, 0).setSearchable(false);
         add(DownloadSettingsFragment.class, R.xml.download_settings);
-        add(HistorySettingsFragment.class, R.xml.history_settings);
-        add(NotificationSettingsFragment.class, R.xml.notifications_settings);
-        add(PlayerNotificationSettingsFragment.class, R.xml.player_notification_settings);
-        add(UpdateSettingsFragment.class, R.xml.update_settings);
-        add(VideoAudioSettingsFragment.class, R.xml.video_audio_settings);
-        add(ExoPlayerSettingsFragment.class, R.xml.exoplayer_settings);
-        add(BackupRestoreSettingsFragment.class, R.xml.backup_restore_settings);
+        add(HistorySettingsFragment.class, 0);
+        add(NotificationSettingsFragment.class, 0);
+        add(PlayerNotificationSettingsFragment.class, 0);
+        add(UpdateSettingsFragment.class, 0);
+        add(VideoAudioSettingsFragment.class, 0);
+        add(ExoPlayerSettingsFragment.class, 0);
+        add(BackupRestoreSettingsFragment.class, 0);
     }
 
     private SettingRegistryEntry add(

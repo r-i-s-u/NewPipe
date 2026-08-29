@@ -90,7 +90,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_subscription, container, false)
+        return inflater.inflate(0, container, false)
     }
 
     override fun onPause() {

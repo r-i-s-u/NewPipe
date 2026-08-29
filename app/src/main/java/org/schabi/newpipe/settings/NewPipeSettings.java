@@ -50,16 +50,16 @@ public final class NewPipeSettings {
         MigrationManager.runMigrationsIfNeeded(context);
 
         // readAgain is true so that if new settings are added their default value is set
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.video_audio_settings, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
         PreferenceManager.setDefaultValues(context, R.xml.download_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.appearance_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.history_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.content_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.player_notification_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.update_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.debug_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.backup_restore_settings, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
+        PreferenceManager.setDefaultValues(context, 0, true);
 
         saveDefaultVideoDownloadDirectory(context);
         saveDefaultAudioDownloadDirectory(context);

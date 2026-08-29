@@ -171,7 +171,7 @@ public class PlayQueueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 return new HFHolder(footer);
             case ITEM_VIEW_TYPE_ID:
                 return new PlayQueueItemHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.play_queue_item, parent, false));
+                        .inflate(0, parent, false));
             default:
                 Log.e(TAG, "Attempting to create view holder with undefined type: " + type);
                 return new FallbackViewHolder(new View(parent.getContext()));

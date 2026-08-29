@@ -95,7 +95,7 @@ public class StatisticsPlaylistFragment
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_playlist, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     @Override

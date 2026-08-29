@@ -17,7 +17,7 @@ data class PickerSubscriptionItem(
     var isSelected: Boolean = false
 ) : BindableItem<PickerSubscriptionItemBinding>() {
     override fun getId(): Long = subscriptionEntity.uid
-    override fun getLayout(): Int = R.layout.picker_subscription_item
+    override fun getLayout(): Int = 0
     override fun getSpanSize(spanCount: Int, position: Int): Int = 1
 
     override fun bind(viewBinding: PickerSubscriptionItemBinding, position: Int) {

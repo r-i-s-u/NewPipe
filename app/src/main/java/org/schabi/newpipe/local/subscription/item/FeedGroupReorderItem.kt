@@ -28,7 +28,7 @@ data class FeedGroupReorderItem(
         }
     }
 
-    override fun getLayout(): Int = R.layout.feed_group_reorder_item
+    override fun getLayout(): Int = 0
 
     override fun bind(viewBinding: FeedGroupReorderItemBinding, position: Int) {
         viewBinding.groupName.text = name

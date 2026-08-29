@@ -23,7 +23,7 @@ class FeedGroupCarouselItem(
     private var carouselLayoutManager: LinearLayoutManager? = null
     private var listState: Parcelable? = null
 
-    override fun getLayout() = R.layout.feed_item_carousel
+    override fun getLayout() = 0
 
     fun onSaveInstanceState(): Parcelable? {
         listState = carouselLayoutManager?.onSaveInstanceState()

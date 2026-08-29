@@ -52,7 +52,7 @@ public class CommentInfoItemHolder extends InfoItemHolder {
 
     public CommentInfoItemHolder(final InfoItemBuilder infoItemBuilder,
                                  final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_comment_item, parent);
+        super(infoItemBuilder, 0, parent);
 
         itemRoot = itemView.findViewById(R.id.itemRoot);
         itemThumbnailView = itemView.findViewById(R.id.itemThumbnailView);
