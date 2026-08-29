@@ -102,8 +102,8 @@ public final class PlayQueueActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(final Menu m) {
         this.menu = m;
-        getMenuInflater().inflate(R.menu.menu_play_queue, m);
-        getMenuInflater().inflate(R.menu.menu_play_queue_bg, m);
+        getMenuInflater().inflate(0, m);
+        getMenuInflater().inflate(0, m);
         buildAudioTrackMenu();
         onMaybeMuteChanged();
         // to avoid null reference

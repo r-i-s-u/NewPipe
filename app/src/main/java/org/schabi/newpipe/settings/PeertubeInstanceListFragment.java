@@ -133,7 +133,7 @@ public class PeertubeInstanceListFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull final Menu menu,
                                     @NonNull final MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_chooser_fragment, menu);
+        inflater.inflate(0, menu);
     }
 
     @Override

@@ -79,7 +79,7 @@ class NotificationModeConfigFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_notifications_channels, menu)
+        inflater.inflate(0, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

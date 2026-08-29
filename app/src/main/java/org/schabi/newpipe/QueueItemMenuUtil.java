@@ -34,7 +34,7 @@ public final class QueueItemMenuUtil {
                 new ContextThemeWrapper(context, R.style.DarkPopupMenu);
 
         final PopupMenu popupMenu = new PopupMenu(themeWrapper, view);
-        popupMenu.inflate(R.menu.menu_play_queue_item);
+        popupMenu.inflate(0);
 
         if (hideDetails) {
             popupMenu.getMenu().findItem(R.id.menu_item_details).setVisible(false);

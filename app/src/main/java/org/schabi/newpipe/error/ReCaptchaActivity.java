@@ -113,7 +113,7 @@ public class ReCaptchaActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_recaptcha, menu);
+        getMenuInflater().inflate(0, menu);
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

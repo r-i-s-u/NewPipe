@@ -141,7 +141,7 @@ public class ChannelFragment extends BaseStateFragment<ChannelInfo>
                 @Override
                 public void onCreateMenu(@NonNull final Menu menu,
                                          @NonNull final MenuInflater inflater) {
-                    inflater.inflate(R.menu.menu_channel, menu);
+                    inflater.inflate(0, menu);
 
                     if (DEBUG) {
                         Log.d(TAG, "onCreateOptionsMenu() called with: "

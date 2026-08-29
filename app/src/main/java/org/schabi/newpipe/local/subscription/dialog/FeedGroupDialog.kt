@@ -249,7 +249,7 @@ class FeedGroupDialog : DialogFragment(), BackPressable {
         }
 
         val headerMenu = feedGroupCreateBinding.subscriptionsHeaderToolbar.menu
-        requireActivity().menuInflater.inflate(R.menu.menu_feed_group_dialog, headerMenu)
+        requireActivity().menuInflater.inflate(0, headerMenu)
 
         headerMenu.findItem(R.id.action_search).setOnMenuItemClickListener {
             showSearch()

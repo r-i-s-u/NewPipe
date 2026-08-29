@@ -174,7 +174,7 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
                     + "menu = [" + menu + "], inflater = [" + inflater + "]");
         }
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_playlist, menu);
+        inflater.inflate(0, menu);
 
         playlistBookmarkButton = menu.findItem(R.id.menu_item_bookmark);
         updateBookmarkButtons();

@@ -281,7 +281,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                     + "menu = [" + menu + "], inflater = [" + inflater + "]");
         }
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_local_playlist, menu);
+        inflater.inflate(0, menu);
     }
 
     @Override

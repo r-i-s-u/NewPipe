@@ -47,7 +47,7 @@ public class MainSettingsFragment extends BasePreferenceFragment {
         // -- Link settings activity and register menu --
         settingsActivity = (SettingsActivity) getActivity();
 
-        inflater.inflate(R.menu.menu_settings_main_fragment, menu);
+        inflater.inflate(0, menu);
 
         final MenuItem menuSearchItem = menu.getItem(0);
 
