@@ -102,7 +102,7 @@ public class KioskFragment extends BaseListInfoFragment<StreamInfoItem, KioskInf
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_base_list, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     /*//////////////////////////////////////////////////////////////////////////
