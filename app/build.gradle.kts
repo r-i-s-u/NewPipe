@@ -48,6 +48,8 @@ configure<ApplicationExtension> {
             version = release(NEWPIPE_VERSION_SDK_TARGET)
         }
 
+        resourceConfigurations += listOf("en")
+
         versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: NEWPIPE_VERSION_CODE
 
         versionName = NEWPIPE_VERSION_NAME
