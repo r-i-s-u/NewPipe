@@ -91,6 +91,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".error.ErrorActivity"
+            android:exported="false" />
+        
         <!-- giga get related -->
 
         <service android:name="us.shandian.giga.service.DownloadManagerService"
