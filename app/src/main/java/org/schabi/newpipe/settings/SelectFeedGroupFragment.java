@@ -67,7 +67,7 @@ public class SelectFeedGroupFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.select_feed_group_fragment, container, false);
+        final View v = inflater.inflate(0, container, false);
         recyclerView = v.findViewById(R.id.items_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         final SelectFeedGroupAdapter feedGroupAdapter = new SelectFeedGroupAdapter();

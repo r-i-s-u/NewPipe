@@ -54,7 +54,7 @@ public final class PlaylistAppendDialog extends PlaylistDialog {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dialog_playlists, container);
+        return inflater.inflate(0, container);
     }
 
     @Override

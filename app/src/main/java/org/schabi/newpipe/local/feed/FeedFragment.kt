@@ -129,7 +129,7 @@ class FeedFragment : BaseStateFragment<FeedState>() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+        return inflater.inflate(0, container, false)
     }
 
     override fun onViewCreated(rootView: View, savedInstanceState: Bundle?) {

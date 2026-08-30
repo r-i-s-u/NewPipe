@@ -23,11 +23,11 @@ object PlayButtonHelper {
     /**
      * Initialize [OnClickListener][View.OnClickListener]
      * and [OnLongClickListener][OnLongClickListener] for playlist control
-     * buttons defined in [R.layout.playlist_control].
+     * buttons defined in [0].
      *
      * @param activity The activity to use for the [Toast][Toast].
      * @param playlistControlBinding The binding of the
-     * [playlist control layout][R.layout.playlist_control].
+     * [playlist control layout][0].
      * @param fragment The fragment to get the play queue from.
      */
     @JvmStatic

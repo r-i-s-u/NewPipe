@@ -52,7 +52,7 @@ public class SelectKioskFragment extends DialogFragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.select_kiosk_fragment, container, false);
+        final View v = inflater.inflate(0, container, false);
         final RecyclerView recyclerView = v.findViewById(R.id.items_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         try {
@@ -107,7 +107,7 @@ public class SelectKioskFragment extends DialogFragment {
         @NonNull
         public SelectKioskItemHolder onCreateViewHolder(final ViewGroup parent, final int type) {
             final View item = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.select_kiosk_item, parent, false);
+                    .inflate(0, parent, false);
             return new SelectKioskItemHolder(item);
         }
 

@@ -28,7 +28,7 @@ public abstract class PlaylistItemHolder extends LocalItemHolder {
     }
 
     public PlaylistItemHolder(final LocalItemBuilder infoItemBuilder, final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_playlist_mini_item, parent);
+        this(infoItemBuilder, 0, parent);
     }
 
     @Override

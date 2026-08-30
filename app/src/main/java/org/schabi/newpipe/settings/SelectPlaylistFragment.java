@@ -57,7 +57,7 @@ public class SelectPlaylistFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.select_playlist_fragment, container, false);
+        final View v = inflater.inflate(0, container, false);
         progressBar = v.findViewById(R.id.progressBar);
         recyclerView = v.findViewById(R.id.items_list);
         emptyView = v.findViewById(R.id.empty_state_view);
@@ -145,7 +145,7 @@ public class SelectPlaylistFragment extends DialogFragment {
         public SelectPlaylistItemHolder onCreateViewHolder(final ViewGroup parent,
                                                            final int viewType) {
             final View item = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_playlist_mini_item, parent, false);
+                    .inflate(0, parent, false);
             return new SelectPlaylistItemHolder(item);
         }
 

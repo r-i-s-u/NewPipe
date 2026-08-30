@@ -118,7 +118,7 @@ public class StreamItemAdapter<T extends Stream, U extends Stream> extends BaseA
         View convertView = view;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(
-                    R.layout.stream_quality_item, parent, false);
+                    0, parent, false);
         }
 
         final ImageView woSoundIconView = convertView.findViewById(R.id.wo_sound_icon);

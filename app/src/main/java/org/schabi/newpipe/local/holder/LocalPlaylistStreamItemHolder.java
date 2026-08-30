@@ -45,7 +45,7 @@ public class LocalPlaylistStreamItemHolder extends LocalItemHolder {
 
     public LocalPlaylistStreamItemHolder(final LocalItemBuilder infoItemBuilder,
                                          final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_stream_playlist_item, parent);
+        this(infoItemBuilder, 0, parent);
     }
 
     @Override

@@ -12,6 +12,6 @@ public class RemotePlaylistCardItemHolder extends RemotePlaylistItemHolder {
 
     public RemotePlaylistCardItemHolder(final LocalItemBuilder infoItemBuilder,
                                         final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_playlist_card_item, parent);
+        super(infoItemBuilder, 0, parent);
     }
 }

@@ -56,7 +56,7 @@ class StreamSegmentItem(
         super.bind(viewHolder, position, payloads)
     }
 
-    override fun getLayout() = R.layout.item_stream_segment
+    override fun getLayout() = 0
 
     override fun initializeViewBinding(view: View) = ItemStreamSegmentBinding.bind(view)
 }

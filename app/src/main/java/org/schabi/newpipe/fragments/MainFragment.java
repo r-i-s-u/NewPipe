@@ -97,7 +97,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     @Override

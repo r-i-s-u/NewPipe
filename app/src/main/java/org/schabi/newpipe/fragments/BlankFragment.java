@@ -41,7 +41,7 @@ public class BlankFragment extends BaseFragment {
     public View onCreateView(final LayoutInflater inflater, @Nullable final ViewGroup container,
                              final Bundle savedInstanceState) {
         setTitle("NewPipe");
-        final View view = inflater.inflate(R.layout.fragment_blank, container, false);
+        final View view = inflater.inflate(0, container, false);
         if (errorInfo != null) {
             errorPanel = new ErrorPanelHelper(this, view, null);
             errorPanel.showError(errorInfo);

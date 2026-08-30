@@ -114,7 +114,7 @@ class FeedGroupDialog : DialogFragment(), BackPressable {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dialog_feed_group_create, container)
+        return inflater.inflate(0, container)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

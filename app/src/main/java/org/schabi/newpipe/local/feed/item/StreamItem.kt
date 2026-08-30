@@ -45,10 +45,10 @@ data class StreamItem(
     enum class ItemVersion { NORMAL, MINI, GRID, CARD }
 
     override fun getLayout(): Int = when (itemVersion) {
-        ItemVersion.NORMAL -> R.layout.list_stream_item
-        ItemVersion.MINI -> R.layout.list_stream_mini_item
-        ItemVersion.GRID -> R.layout.list_stream_grid_item
-        ItemVersion.CARD -> R.layout.list_stream_card_item
+        ItemVersion.NORMAL -> 0
+        ItemVersion.MINI -> 0
+        ItemVersion.GRID -> 0
+        ItemVersion.CARD -> 0
     }
 
     override fun initializeViewBinding(view: View) = ListStreamItemBinding.bind(view)

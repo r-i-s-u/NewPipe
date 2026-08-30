@@ -81,7 +81,7 @@ public final class AddTabDialog {
         public View getView(final int position, final View view, final ViewGroup parent) {
             View convertView = view;
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.list_choose_tabs_dialog, parent, false);
+                convertView = inflater.inflate(0, parent, false);
             }
 
             final ChooseTabListItem item = getItem(position);

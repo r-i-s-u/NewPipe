@@ -65,7 +65,7 @@ public class ChooseTabsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_choose_tabs, container, false);
+        return inflater.inflate(0, container, false);
     }
 
     @Override
@@ -348,7 +348,7 @@ public class ChooseTabsFragment extends Fragment {
         @Override
         public ChooseTabsFragment.SelectedTabsAdapter.TabViewHolder onCreateViewHolder(
                 @NonNull final ViewGroup parent, final int viewType) {
-            final View view = inflater.inflate(R.layout.list_choose_tabs, parent, false);
+            final View view = inflater.inflate(0, parent, false);
             return new ChooseTabsFragment.SelectedTabsAdapter.TabViewHolder(view);
         }
 

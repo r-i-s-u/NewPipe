@@ -22,9 +22,9 @@ class ChannelItem(
     enum class ItemVersion { NORMAL, MINI, GRID }
 
     override fun getLayout(): Int = when (itemVersion) {
-        ItemVersion.NORMAL -> R.layout.list_channel_item
-        ItemVersion.MINI -> R.layout.list_channel_mini_item
-        ItemVersion.GRID -> R.layout.list_channel_grid_item
+        ItemVersion.NORMAL -> 0
+        ItemVersion.MINI -> 0
+        ItemVersion.GRID -> 0
     }
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {

@@ -41,7 +41,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
     }
 
     public StreamMiniInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        this(infoItemBuilder, R.layout.list_stream_mini_item, parent);
+        this(infoItemBuilder, 0, parent);
     }
 
     @Override

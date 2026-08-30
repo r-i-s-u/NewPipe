@@ -11,6 +11,6 @@ import org.schabi.newpipe.info_list.InfoItemBuilder;
 public class StreamCardInfoItemHolder extends StreamInfoItemHolder {
 
     public StreamCardInfoItemHolder(final InfoItemBuilder infoItemBuilder, final ViewGroup parent) {
-        super(infoItemBuilder, R.layout.list_stream_card_item, parent);
+        super(infoItemBuilder, 0, parent);
     }
 }
