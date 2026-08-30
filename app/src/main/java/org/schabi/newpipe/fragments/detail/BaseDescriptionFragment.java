@@ -130,7 +130,7 @@ public abstract class BaseDescriptionFragment extends BaseFragment {
         final String buttonLabel = getString(R.string.description_select_disable);
         binding.detailSelectDescriptionButton.setContentDescription(buttonLabel);
         TooltipCompat.setTooltipText(binding.detailSelectDescriptionButton, buttonLabel);
-        binding.detailSelectDescriptionButton.setImageResource(R.drawable.ic_close);
+        binding.detailSelectDescriptionButton.setImageResource(0);
     }
 
     private void disableDescriptionSelection() {
@@ -145,7 +145,7 @@ public abstract class BaseDescriptionFragment extends BaseFragment {
         final String buttonLabel = getString(R.string.description_select_enable);
         binding.detailSelectDescriptionButton.setContentDescription(buttonLabel);
         TooltipCompat.setTooltipText(binding.detailSelectDescriptionButton, buttonLabel);
-        binding.detailSelectDescriptionButton.setImageResource(R.drawable.ic_select_all);
+        binding.detailSelectDescriptionButton.setImageResource(0);
     }
 
     protected void addMetadataItem(final LayoutInflater inflater,

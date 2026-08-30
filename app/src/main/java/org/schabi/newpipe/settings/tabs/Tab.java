@@ -200,7 +200,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_crop_portrait;
+            return 0;
         }
 
         @Override
@@ -225,7 +225,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_tv;
+            return 0;
         }
 
         @Override
@@ -251,7 +251,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_subscriptions;
+            return 0;
         }
 
         @Override
@@ -276,7 +276,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_bookmark;
+            return 0;
         }
 
         @Override
@@ -301,7 +301,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_history;
+            return 0;
         }
 
         @Override
@@ -431,7 +431,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_tv;
+            return 0;
         }
 
         @Override
@@ -573,7 +573,7 @@ public abstract class Tab {
         @DrawableRes
         @Override
         public int getTabIconRes(final Context context) {
-            return R.drawable.ic_bookmark;
+            return 0;
         }
 
         @Override
@@ -665,7 +665,7 @@ public abstract class Tab {
         private int iconId;
 
         private FeedGroupTab() {
-            this((long) -1, NO_NAME, R.drawable.ic_asterisk);
+            this((long) -1, NO_NAME, 0);
         }
 
         public FeedGroupTab(final Long feedGroupId, final String feedGroupName,
@@ -712,7 +712,7 @@ public abstract class Tab {
         protected void readDataFromJson(final JsonObject jsonObject) {
             feedGroupId = jsonObject.getLong(JSON_FEED_GROUP_ID_KEY, -1);
             feedGroupName = jsonObject.getString(JSON_FEED_GROUP_NAME_KEY, NO_NAME);
-            iconId = jsonObject.getInt(JSON_FEED_GROUP_ICON_KEY, R.drawable.ic_asterisk);
+            iconId = jsonObject.getInt(JSON_FEED_GROUP_ICON_KEY, 0);
         }
 
         @Override

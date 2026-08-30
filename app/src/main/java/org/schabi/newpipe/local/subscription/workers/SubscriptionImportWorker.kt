@@ -168,14 +168,14 @@ class SubscriptionImportWorker(
         val maxProgress = subscriptions.size
         val notification = NotificationCompat
             .Builder(context, NOTIFICATION_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_newpipe_triangle_white)
+            .setSmallIcon(0)
             .setOngoing(true)
             .setProgress(maxProgress, progress, progress == 0)
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
             .setContentTitle(title)
             .setContentText(text)
             .addAction(
-                R.drawable.ic_close,
+                0,
                 context.getString(R.string.cancel),
                 WorkManager.getInstance(context).createCancelPendingIntent(id)
             ).apply {

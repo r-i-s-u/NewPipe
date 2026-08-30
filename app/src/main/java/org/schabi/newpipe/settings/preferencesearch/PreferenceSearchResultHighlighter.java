@@ -104,7 +104,7 @@ public final class PreferenceSearchResultHighlighter {
         final Drawable highlightIcon =
                 AppCompatResources.getDrawable(
                         prefsFragment.requireContext(),
-                        R.drawable.ic_play_arrow);
+                        0);
         highlightIcon.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
         prefResult.setIcon(highlightIcon);
 

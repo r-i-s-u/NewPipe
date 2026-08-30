@@ -35,17 +35,17 @@ object KioskTranslator {
     @JvmStatic
     fun getKioskIcon(kioskId: String): Int {
         return when (kioskId) {
-            "Trending", "Top 50", "New & hot", "conferences" -> R.drawable.ic_whatshot
-            "Local" -> R.drawable.ic_home
-            "Recently added", "recent" -> R.drawable.ic_add_circle_outline
-            "Most liked" -> R.drawable.ic_thumb_up
-            "live" -> R.drawable.ic_live_tv
-            "Featured" -> R.drawable.ic_stars
-            "Radio" -> R.drawable.ic_radio
-            "trending_gaming" -> R.drawable.ic_videogame_asset
-            "trending_music" -> R.drawable.ic_music_note
-            "trending_movies_and_shows" -> R.drawable.ic_movie
-            "trending_podcasts_episodes" -> R.drawable.ic_podcasts
+            "Trending", "Top 50", "New & hot", "conferences" -> 0
+            "Local" -> 0
+            "Recently added", "recent" -> 0
+            "Most liked" -> 0
+            "live" -> 0
+            "Featured" -> 0
+            "Radio" -> 0
+            "trending_gaming" -> 0
+            "trending_music" -> 0
+            "trending_movies_and_shows" -> 0
+            "trending_podcasts_episodes" -> 0
             else -> 0
         }
     }

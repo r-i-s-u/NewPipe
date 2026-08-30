@@ -92,12 +92,12 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_PLAY_PREVIOUS,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_previous_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_notification_previous);
+                            0);
                 } else {
                     return new NotificationActionData(ACTION_FAST_REWIND,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_rewind_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_controls_rewind);
+                            0);
                 }
 
             case NotificationConstants.SMART_FORWARD_NEXT:
@@ -105,12 +105,12 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_PLAY_NEXT,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_next_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_notification_next);
+                            0);
                 } else {
                     return new NotificationActionData(ACTION_FAST_FORWARD,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_fastforward_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_controls_fastforward);
+                            0);
                 }
 
             case NotificationConstants.PLAY_PAUSE_BUFFERING:
@@ -119,7 +119,7 @@ public final class NotificationActionData {
                         || player.getCurrentState() == Player.STATE_BUFFERING) {
                     return new NotificationActionData(ACTION_PLAY_PAUSE,
                             ctx.getString(R.string.notification_action_buffering),
-                            R.drawable.ic_hourglass_top);
+                            0);
                 }
 
                 // fallthrough
@@ -128,7 +128,7 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_PLAY_PAUSE,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_pause_description),
-                            R.drawable.ic_replay);
+                            0);
                 } else if (player.isPlaying()
                         || player.getCurrentState() == Player.STATE_PREFLIGHT
                         || player.getCurrentState() == Player.STATE_BLOCKED
@@ -136,12 +136,12 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_PLAY_PAUSE,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_pause_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_notification_pause);
+                            0);
                 } else {
                     return new NotificationActionData(ACTION_PLAY_PAUSE,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_play_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_notification_play);
+                            0);
                 }
 
             case NotificationConstants.REPEAT:
@@ -149,20 +149,17 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_REPEAT,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_repeat_all_description),
-                            com.google.android.exoplayer2.ext.mediasession.R.drawable
-                                    .exo_media_action_repeat_all);
+                            0);
                 } else if (player.getRepeatMode() == REPEAT_MODE_ONE) {
                     return new NotificationActionData(ACTION_REPEAT,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_repeat_one_description),
-                            com.google.android.exoplayer2.ext.mediasession.R.drawable
-                                    .exo_media_action_repeat_one);
+                            0);
                 } else /* player.getRepeatMode() == REPEAT_MODE_OFF */ {
                     return new NotificationActionData(ACTION_REPEAT,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_repeat_off_description),
-                            com.google.android.exoplayer2.ext.mediasession.R.drawable
-                                    .exo_media_action_repeat_off);
+                            0);
                 }
 
             case NotificationConstants.SHUFFLE:
@@ -170,17 +167,17 @@ public final class NotificationActionData {
                     return new NotificationActionData(ACTION_SHUFFLE,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_shuffle_on_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_controls_shuffle_on);
+                            0);
                 } else {
                     return new NotificationActionData(ACTION_SHUFFLE,
                             ctx.getString(com.google.android.exoplayer2.ui.R.string
                                     .exo_controls_shuffle_off_description),
-                            com.google.android.exoplayer2.ui.R.drawable.exo_controls_shuffle_off);
+                            0);
                 }
 
             case NotificationConstants.CLOSE:
                 return new NotificationActionData(ACTION_CLOSE, ctx.getString(R.string.close),
-                        R.drawable.ic_close);
+                        0);
 
             case NotificationConstants.NOTHING:
             default:

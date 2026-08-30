@@ -536,15 +536,15 @@ public final class PlayQueueActivity extends AppCompatActivity
         final ImageButton playPauseButton = queueControlBinding.controlPlayPause;
         switch (state) {
             case Player.STATE_PAUSED:
-                playPauseButton.setImageResource(R.drawable.ic_play_arrow);
+                playPauseButton.setImageResource(0);
                 playPauseButton.setContentDescription(getString(R.string.play));
                 break;
             case Player.STATE_PLAYING:
-                playPauseButton.setImageResource(R.drawable.ic_pause);
+                playPauseButton.setImageResource(0);
                 playPauseButton.setContentDescription(getString(R.string.pause));
                 break;
             case Player.STATE_COMPLETED:
-                playPauseButton.setImageResource(R.drawable.ic_replay);
+                playPauseButton.setImageResource(0);
                 playPauseButton.setContentDescription(getString(R.string.replay));
                 break;
             default:
@@ -571,15 +571,15 @@ public final class PlayQueueActivity extends AppCompatActivity
         switch (repeatMode) {
             case com.google.android.exoplayer2.Player.REPEAT_MODE_OFF:
                 queueControlBinding.controlRepeat.setImageResource(
-                        com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_off);
+                        0);
                 break;
             case com.google.android.exoplayer2.Player.REPEAT_MODE_ONE:
                 queueControlBinding.controlRepeat.setImageResource(
-                        com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_one);
+                        0);
                 break;
             case com.google.android.exoplayer2.Player.REPEAT_MODE_ALL:
                 queueControlBinding.controlRepeat.setImageResource(
-                        com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_all);
+                        0);
                 break;
         }
 
@@ -604,7 +604,7 @@ public final class PlayQueueActivity extends AppCompatActivity
 
             //2) Icon change accordingly to current App Theme
             // using rootView.getContext() because getApplicationContext() didn't work
-            item.setIcon(player.isMuted() ? R.drawable.ic_volume_off : R.drawable.ic_volume_up);
+            item.setIcon(player.isMuted() ? 0 : 0);
         }
     }
 

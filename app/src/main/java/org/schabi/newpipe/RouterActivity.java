@@ -513,16 +513,16 @@ public class RouterActivity extends AppCompatActivity {
                                                          final LinkType linkType) {
         final AdapterChoiceItem showInfo = new AdapterChoiceItem(
                 getString(R.string.show_info_key), getString(R.string.show_info),
-                R.drawable.ic_info_outline);
+                0);
         final AdapterChoiceItem videoPlayer = new AdapterChoiceItem(
                 getString(R.string.video_player_key), getString(R.string.video_player),
-                R.drawable.ic_play_arrow);
+                0);
         final AdapterChoiceItem backgroundPlayer = new AdapterChoiceItem(
                 getString(R.string.background_player_key), getString(R.string.background_player),
-                R.drawable.ic_headset);
+                0);
         final AdapterChoiceItem popupPlayer = new AdapterChoiceItem(
                 getString(R.string.popup_player_key), getString(R.string.popup_player),
-                R.drawable.ic_picture_in_picture);
+                0);
 
         final List<AdapterChoiceItem> returnedItems = new ArrayList<>();
         returnedItems.add(showInfo); // Always present
@@ -557,7 +557,7 @@ public class RouterActivity extends AppCompatActivity {
                 // since those can not be added to a playlist
                 returnedItems.add(new AdapterChoiceItem(getString(R.string.add_to_playlist_key),
                         getString(R.string.add_to_playlist),
-                        R.drawable.ic_playlist_add));
+                        0));
             }
         } else {
             // LinkType.NONE is never present because it's filtered out before

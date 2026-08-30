@@ -26,12 +26,12 @@ object ServiceHelper {
     @DrawableRes
     fun getIcon(serviceId: Int): Int {
         return when (serviceId) {
-            0 -> R.drawable.ic_smart_display
-            1 -> R.drawable.ic_cloud
-            2 -> R.drawable.ic_placeholder_media_ccc
-            3 -> R.drawable.ic_placeholder_peertube
-            4 -> R.drawable.ic_placeholder_bandcamp
-            else -> R.drawable.ic_circle
+            0 -> 0
+            1 -> 0
+            2 -> 0
+            3 -> 0
+            4 -> 0
+            else -> 0
         }
     }
 

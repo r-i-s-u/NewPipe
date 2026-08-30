@@ -301,13 +301,13 @@ public class StatisticsPlaylistFragment
         if (sortMode == StatisticSortMode.LAST_PLAYED) {
             sortMode = StatisticSortMode.MOST_PLAYED;
             setTitle(getString(R.string.title_most_played));
-            headerBinding.sortButtonIcon.setImageResource(R.drawable.ic_history);
+            headerBinding.sortButtonIcon.setImageResource(0);
             headerBinding.sortButtonText.setText(R.string.title_last_played);
         } else {
             sortMode = StatisticSortMode.LAST_PLAYED;
             setTitle(getString(R.string.title_last_played));
             headerBinding.sortButtonIcon.setImageResource(
-                R.drawable.ic_filter_list);
+                0);
             headerBinding.sortButtonText.setText(R.string.title_most_played);
         }
         startLoading(true);

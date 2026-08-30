@@ -189,7 +189,7 @@ public class PeertubeInstanceListFragment extends Fragment {
 
         new AlertDialog.Builder(c)
                 .setTitle(R.string.peertube_instance_add_title)
-                .setIcon(R.drawable.ic_placeholder_peertube)
+                .setIcon(0)
                 .setView(dialogBinding.getRoot())
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.ok, (dialog1, which) -> {
@@ -391,7 +391,7 @@ public class PeertubeInstanceListFragment extends Fragment {
                         lastChecked = itemBinding.selectInstanceRB;
                     }
                 });
-                itemBinding.instanceIcon.setImageResource(R.drawable.ic_placeholder_peertube);
+                itemBinding.instanceIcon.setImageResource(0);
             }
         }
     }

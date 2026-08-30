@@ -53,9 +53,9 @@ class SuggestionListAdapter :
         fun updateFrom(item: SuggestionItem) {
             binding.itemSuggestionIcon.setImageResource(
                 if (item.fromHistory) {
-                    R.drawable.ic_history
+                    0
                 } else {
-                    R.drawable.ic_search
+                    0
                 }
             )
             binding.itemSuggestionQuery.text = item.query

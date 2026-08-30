@@ -339,7 +339,7 @@ public class DownloadDialog extends DialogFragment
         }
 
         toolbar.setTitle(R.string.download_dialog_title);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setNavigationIcon(R.drawable.ic_close);
         toolbar.inflateMenu(R.menu.dialog_url);
         toolbar.setNavigationOnClickListener(v -> dismiss());
         toolbar.setNavigationContentDescription(R.string.cancel);

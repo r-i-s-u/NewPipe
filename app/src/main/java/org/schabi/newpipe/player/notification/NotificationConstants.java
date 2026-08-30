@@ -78,17 +78,17 @@ public final class NotificationConstants {
     @DrawableRes
     public static final int[] ACTION_ICONS = {
             0,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_previous,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_next,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_rewind,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_fastforward,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_previous,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_next,
-            R.drawable.ic_pause,
-            R.drawable.ic_hourglass_top,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_repeat_all,
-            com.google.android.exoplayer2.ui.R.drawable.exo_icon_shuffle_on,
-            R.drawable.ic_close,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
     };
 
 

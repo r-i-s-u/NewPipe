@@ -40,28 +40,28 @@ object CoilHelper {
         target: ImageView,
         images: List<Image>
     ) {
-        loadImageDefault(target, images, R.drawable.placeholder_person)
+        loadImageDefault(target, images, 0)
     }
 
     fun loadAvatar(
         target: ImageView,
         url: String?
     ) {
-        loadImageDefault(target, url, R.drawable.placeholder_person)
+        loadImageDefault(target, url, 0)
     }
 
     fun loadThumbnail(
         target: ImageView,
         images: List<Image>
     ) {
-        loadImageDefault(target, images, R.drawable.placeholder_thumbnail_video)
+        loadImageDefault(target, images, 0)
     }
 
     fun loadThumbnail(
         target: ImageView,
         url: String?
     ) {
-        loadImageDefault(target, url, R.drawable.placeholder_thumbnail_video)
+        loadImageDefault(target, url, 0)
     }
 
     fun loadScaledDownThumbnail(
@@ -71,7 +71,7 @@ object CoilHelper {
     ): Disposable {
         val url = ImageStrategy.choosePreferredImage(images)
         val request =
-            getImageRequest(context, url, R.drawable.placeholder_thumbnail_video)
+            getImageRequest(context, url, 0)
                 .target(target)
                 .transformations(
                     object : Transformation() {
@@ -114,28 +114,28 @@ object CoilHelper {
         images: List<Image>
     ) {
         val url = ImageStrategy.choosePreferredImage(images)
-        loadImageDefault(target, url, R.drawable.placeholder_thumbnail_video, false)
+        loadImageDefault(target, url, 0, false)
     }
 
     fun loadBanner(
         target: ImageView,
         images: List<Image>
     ) {
-        loadImageDefault(target, images, R.drawable.placeholder_channel_banner)
+        loadImageDefault(target, images, 0)
     }
 
     fun loadPlaylistThumbnail(
         target: ImageView,
         images: List<Image>
     ) {
-        loadImageDefault(target, images, R.drawable.placeholder_thumbnail_playlist)
+        loadImageDefault(target, images, 0)
     }
 
     fun loadPlaylistThumbnail(
         target: ImageView,
         url: String?
     ) {
-        loadImageDefault(target, url, R.drawable.placeholder_thumbnail_playlist)
+        loadImageDefault(target, url, 0)
     }
 
     private fun loadImageDefault(

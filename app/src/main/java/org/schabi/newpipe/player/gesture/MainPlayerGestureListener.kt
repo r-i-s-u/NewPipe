@@ -94,10 +94,10 @@ class MainPlayerGestureListener(
             AppCompatResources.getDrawable(
                 player.context,
                 when {
-                    currentProgressPercent <= 0 -> R.drawable.ic_volume_off
-                    currentProgressPercent < 0.25 -> R.drawable.ic_volume_mute
-                    currentProgressPercent < 0.75 -> R.drawable.ic_volume_down
-                    else -> R.drawable.ic_volume_up
+                    currentProgressPercent <= 0 -> 0
+                    currentProgressPercent < 0.25 -> 0
+                    currentProgressPercent < 0.75 -> 0
+                    else -> 0
                 }
             )
         )
@@ -140,9 +140,9 @@ class MainPlayerGestureListener(
             AppCompatResources.getDrawable(
                 player.context,
                 when {
-                    currentProgressPercent < 0.25 -> R.drawable.ic_brightness_low
-                    currentProgressPercent < 0.75 -> R.drawable.ic_brightness_medium
-                    else -> R.drawable.ic_brightness_high
+                    currentProgressPercent < 0.25 -> 0
+                    currentProgressPercent < 0.75 -> 0
+                    else -> 0
                 }
             )
         )

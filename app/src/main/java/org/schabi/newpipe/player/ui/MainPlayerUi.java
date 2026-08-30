@@ -284,7 +284,7 @@ public final class MainPlayerUi extends VideoPlayerUi implements View.OnLayoutCh
         binding.primaryControls.getLayoutParams().width = MATCH_PARENT;
         binding.secondaryControls.setVisibility(View.INVISIBLE);
         binding.moreOptionsButton.setImageDrawable(AppCompatResources.getDrawable(context,
-                R.drawable.ic_expand_more));
+                0));
         binding.share.setVisibility(View.VISIBLE);
         binding.openInBrowser.setVisibility(View.VISIBLE);
         binding.switchMute.setVisibility(View.VISIBLE);
@@ -887,8 +887,8 @@ public final class MainPlayerUi extends VideoPlayerUi implements View.OnLayoutCh
                 || isVerticalVideo || DeviceUtils.isTablet(context)
                 ? View.VISIBLE : View.GONE);
         binding.screenRotationButton.setImageDrawable(AppCompatResources.getDrawable(context,
-                isFullscreen ? R.drawable.ic_fullscreen_exit
-                        : R.drawable.ic_fullscreen));
+                isFullscreen ? 0
+                        : 0));
     }
 
     @Override

@@ -127,7 +127,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
         val importSubMenu = menu.addSubMenu(R.string.import_from)
 
         addMenuItemToSubmenu(importSubMenu, R.string.previous_export) { importExportHelper.onImportPreviousSelected() }
-            .setIcon(R.drawable.ic_backup)
+            .setIcon(0)
 
         for (service in ServiceList.all()) {
             val subscriptionExtractor = service.subscriptionExtractor ?: continue
@@ -145,7 +145,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
         val exportSubMenu = menu.addSubMenu(R.string.export_to)
 
         addMenuItemToSubmenu(exportSubMenu, R.string.file) { importExportHelper.onExportSelected() }
-            .setIcon(R.drawable.ic_save)
+            .setIcon(0)
     }
 
     private fun addMenuItemToSubmenu(

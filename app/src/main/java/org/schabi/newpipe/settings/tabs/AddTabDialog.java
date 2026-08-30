@@ -59,7 +59,7 @@ public final class AddTabDialog {
         private DialogListAdapter(final Context context, final ChooseTabListItem[] items) {
             this.inflater = LayoutInflater.from(context);
             this.items = items;
-            this.fallbackIcon = R.drawable.ic_whatshot;
+            this.fallbackIcon = 0;
         }
 
         @Override

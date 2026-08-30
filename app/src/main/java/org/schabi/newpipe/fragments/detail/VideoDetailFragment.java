@@ -901,21 +901,21 @@ public final class VideoDetailFragment
         if (shouldShowComments()) {
             pageAdapter.addFragment(
                     CommentsFragment.getInstance(serviceId, url, title), COMMENTS_TAB_TAG);
-            tabIcons.add(R.drawable.ic_comment);
+            tabIcons.add(0);
             tabContentDescriptions.add(R.string.comments_tab_description);
         }
 
         if (showRelatedItems && binding.relatedItemsLayout == null) {
             // temp empty fragment. will be updated in handleResult
             pageAdapter.addFragment(EmptyFragment.newInstance(false), RELATED_TAB_TAG);
-            tabIcons.add(R.drawable.ic_art_track);
+            tabIcons.add(0);
             tabContentDescriptions.add(R.string.related_items_tab_description);
         }
 
         if (showDescription) {
             // temp empty fragment. will be updated in handleResult
             pageAdapter.addFragment(EmptyFragment.newInstance(false), DESCRIPTION_TAB_TAG);
-            tabIcons.add(R.drawable.ic_description);
+            tabIcons.add(0);
             tabContentDescriptions.add(R.string.description_tab_description);
         }
 
@@ -1415,7 +1415,7 @@ public final class VideoDetailFragment
     @Override
     public void handleError() {
         super.handleError();
-        setErrorImage(R.drawable.not_available_monkey);
+        setErrorImage(0);
 
         if (binding.relatedItemsLayout != null) { // hide related streams for tablets
             binding.relatedItemsLayout.setVisibility(View.INVISIBLE);
@@ -1648,7 +1648,7 @@ public final class VideoDetailFragment
                 info.getVideoStreams().isEmpty() && info.getVideoOnlyStreams().isEmpty();
         binding.detailControlsPopup.setVisibility(noVideoStreams ? View.GONE : View.VISIBLE);
         binding.detailThumbnailPlayButton.setImageResource(
-                noVideoStreams ? R.drawable.ic_headset_shadow : R.drawable.ic_play_arrow_shadow);
+                noVideoStreams ? 0 : 0);
     }
 
     private void displayUploaderAsSubChannel(final StreamInfo info) {
@@ -2467,8 +2467,8 @@ public final class VideoDetailFragment
 
     private void setOverlayPlayPauseImage(final boolean playerIsPlaying) {
         final int drawable = playerIsPlaying
-                ? R.drawable.ic_pause
-                : R.drawable.ic_play_arrow;
+                ? 0
+                : 0;
         binding.overlayPlayPauseButton.setImageResource(drawable);
     }
 

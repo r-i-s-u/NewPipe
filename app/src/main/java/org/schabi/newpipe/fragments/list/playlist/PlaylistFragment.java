@@ -317,7 +317,7 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
                     .getColorStateList(requireContext(), R.color.transparent_background_color));
             headerBinding.uploaderAvatarView.setImageDrawable(
                     AppCompatResources.getDrawable(requireContext(),
-                    R.drawable.ic_radio)
+                    0)
             );
         } else {
             CoilHelper.INSTANCE.loadAvatar(headerBinding.uploaderAvatarView,
@@ -481,10 +481,10 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
         }
 
         final int drawable = playlistEntity == null
-                ? R.drawable.ic_playlist_add : R.drawable.ic_playlist_add_check;
+                ? 0 : 0;
 
         final int titleRes = playlistEntity == null
-                ? R.string.bookmark_playlist : R.string.unbookmark_playlist;
+                ? 0 : 0;
 
         playlistBookmarkButton.setIcon(drawable);
         playlistBookmarkButton.setTitle(titleRes);

@@ -773,15 +773,15 @@ public abstract class VideoPlayerUi extends PlayerUi implements SeekBar.OnSeekBa
         switch (action) {
             case PLAY:
                 button.setContentDescription(context.getString(R.string.play));
-                button.setImageResource(R.drawable.ic_play_arrow);
+                button.setImageResource(0);
                 break;
             case PAUSE:
                 button.setContentDescription(context.getString(R.string.pause));
-                button.setImageResource(R.drawable.ic_pause);
+                button.setImageResource(0);
                 break;
             case REPLAY:
                 button.setContentDescription(context.getString(R.string.replay));
-                button.setImageResource(R.drawable.ic_replay);
+                button.setImageResource(0);
                 break;
         }
     }
@@ -956,13 +956,13 @@ public abstract class VideoPlayerUi extends PlayerUi implements SeekBar.OnSeekBa
 
         if (repeatMode == REPEAT_MODE_ALL) {
             binding.repeatButton.setImageResource(
-                    com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_all);
+                    0);
         } else if (repeatMode == REPEAT_MODE_ONE) {
             binding.repeatButton.setImageResource(
-                    com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_one);
+                    0);
         } else /* repeatMode == REPEAT_MODE_OFF */ {
             binding.repeatButton.setImageResource(
-                    com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_off);
+                    0);
         }
     }
 
@@ -980,7 +980,7 @@ public abstract class VideoPlayerUi extends PlayerUi implements SeekBar.OnSeekBa
 
     private void setMuteButton(final boolean isMuted) {
         binding.switchMute.setImageDrawable(AppCompatResources.getDrawable(context, isMuted
-                ? R.drawable.ic_volume_off : R.drawable.ic_volume_up));
+                ? 0 : 0));
     }
 
     private void setShuffleButton(final boolean shuffled) {
@@ -990,10 +990,10 @@ public abstract class VideoPlayerUi extends PlayerUi implements SeekBar.OnSeekBa
     private void setRepeatButton(final int repeatMode) {
         final int resId = switch (repeatMode) {
             case REPEAT_MODE_ALL
-                    -> com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_all;
+                    -> 0;
             case REPEAT_MODE_ONE
-                    -> com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_one;
-            default -> com.google.android.exoplayer2.ui.R.drawable.exo_controls_repeat_off;
+                    -> 0;
+            default -> 0;
         };
         binding.repeatButton.setImageResource(resId);
     }

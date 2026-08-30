@@ -128,12 +128,12 @@ class MediaBrowserImpl(
                         createRootMediaItem(
                             ID_BOOKMARKS,
                             context.resources.getString(R.string.tab_bookmarks_short),
-                            R.drawable.ic_bookmark_white
+                            0
                         ),
                         createRootMediaItem(
                             ID_HISTORY,
                             context.resources.getString(R.string.action_history),
-                            R.drawable.ic_history_white
+                            0
                         )
                     )
                 )
