@@ -136,7 +136,7 @@
 
                 <include
                     android:id="@+id/subscriptions_header_search_container"
-                    layout="@layout/toolbar_search"
+                    layout="@layout/toolbar_search_layout"
                     android:visibility="gone" />
 
             </androidx.appcompat.widget.Toolbar>
