@@ -94,7 +94,7 @@
             android:paddingBottom="16dp"
             android:visibility="gone"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/picker_icon_item"
+            
             tools:spanCount="7" />
 
         <LinearLayout
@@ -138,7 +138,7 @@
 
                 <include
                     android:id="@+id/subscriptions_header_search_container"
-                    layout="@layout/toolbar_search_layout"
+                    
                     android:visibility="gone" />
 
             </androidx.appcompat.widget.Toolbar>
@@ -151,7 +151,7 @@
                 android:padding="2dp"
                 tools:itemCount="200"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:listitem="@layout/picker_subscription_item"
+                
                 tools:spanCount="4" />
         </LinearLayout>
 
@@ -193,7 +193,7 @@
             android:layout_centerVertical="true"
             android:minWidth="0dp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_delete"
+            
             android:visibility="gone"
             tools:ignore="ContentDescription"
             tools:visibility="visible" />

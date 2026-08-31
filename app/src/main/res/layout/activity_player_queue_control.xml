@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="org.schabi.newpipe.player.PlayQueueActivity">
+>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar">
+>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -21,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
-            android:theme="@style/ToolbarTheme"
+            
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/app_name" />
 
@@ -35,7 +34,7 @@
         android:layout_below="@id/appbar"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/play_queue_item" />
+        tools:listitem="@null" />
 
     <org.schabi.newpipe.views.NewPipeTextView
         android:id="@+id/seek_display"
@@ -174,7 +173,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_repeat"
+            
             app:tint="?attr/colorAccent"
             tools:ignore="ContentDescription" />
 
@@ -189,7 +188,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_previous"
+            
             android:tint="?attr/colorAccent"
             tools:ignore="ContentDescription" />
 
@@ -204,7 +203,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/exo_controls_rewind"
+            
             app:tint="?attr/colorAccent" />
 
         <ImageButton
@@ -219,7 +218,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_pause"
+            
             app:tint="?attr/colorAccent"
             tools:ignore="ContentDescription" />
 
@@ -254,7 +253,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/exo_controls_fastforward"
+            
             app:tint="?attr/colorAccent" />
 
         <androidx.appcompat.widget.AppCompatImageButton
@@ -268,7 +267,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_next"
+            
             android:tint="?attr/colorAccent"
             tools:ignore="ContentDescription" />
 
@@ -284,7 +283,7 @@
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_shuffle"
+            
             app:tint="?attr/colorAccent"
             tools:ignore="ContentDescription" />
 

@@ -14,11 +14,10 @@
         android:ellipsize="end"
         android:focusable="true"
         android:maxLines="2"
-        android:paddingHorizontal="@dimen/video_item_search_padding"
-        android:paddingTop="@dimen/video_item_search_padding"
+        
         android:paddingBottom="6dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="@dimen/playlist_detail_title_text_size"
+        
         tools:text="Mix musics #23 title Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum" />
 
     <org.schabi.newpipe.views.NewPipeTextView
@@ -30,8 +29,7 @@
         android:ellipsize="end"
         android:gravity="right|center_vertical"
         android:maxLines="1"
-        android:paddingHorizontal="@dimen/video_item_search_padding"
-        android:textSize="@dimen/playlist_detail_subtext_size"
+        
         tools:ignore="RtlHardcoded"
         tools:text="234 videos" />
 
@@ -39,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/playlist_control"
-        layout="@layout/playlist_control"
+        
         android:layout_below="@id/playlist_stream_count" />
 
 </RelativeLayout>

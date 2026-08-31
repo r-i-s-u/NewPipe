@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:focusable="false"
-        android:src="@drawable/placeholder_person"
+        
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/CircularImageView"
@@ -57,7 +57,7 @@
         android:layout_height="21sp"
         android:layout_marginEnd="@dimen/video_item_detail_like_margin"
         android:contentDescription="@string/detail_likes_img_view_description"
-        android:src="@drawable/ic_thumb_up"
+        
         app:layout_constraintBottom_toBottomOf="@+id/uploadDate"
         app:layout_constraintEnd_toStartOf="@+id/thumbsUpCount"
         app:layout_constraintTop_toTopOf="@+id/authorName" />
@@ -82,7 +82,7 @@
         android:layout_height="21sp"
         android:layout_marginEnd="4dp"
         android:contentDescription="@string/detail_heart_img_view_description"
-        android:src="@drawable/ic_heart"
+        
         app:layout_constraintBottom_toBottomOf="@+id/uploadDate"
         app:layout_constraintEnd_toStartOf="@+id/pinnedImage"
         app:layout_constraintTop_toTopOf="@+id/authorName"
@@ -105,7 +105,7 @@
         android:layout_height="21sp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/detail_pinned_comment_view_description"
-        android:src="@drawable/ic_pin"
+        
         app:layout_constraintBottom_toBottomOf="@+id/uploadDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/authorName" />

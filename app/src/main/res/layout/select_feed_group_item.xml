@@ -18,7 +18,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="3dp"
         android:layout_marginRight="8dp"
-        android:src="@drawable/ic_computer"
+        
         tools:ignore="RtlHardcoded" />
 
     <org.schabi.newpipe.views.NewPipeTextView
