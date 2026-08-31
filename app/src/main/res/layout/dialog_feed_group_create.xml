@@ -56,7 +56,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <org.schabi.newpipe.views.NewPipeTextView
                 android:id="@+id/selected_subscription_count_view"
                 android:layout_width="wrap_content"
@@ -94,7 +93,6 @@
             android:paddingBottom="16dp"
             android:visibility="gone"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            
             tools:spanCount="7" />
 
         <LinearLayout
@@ -138,7 +136,7 @@
 
                 <include
                     android:id="@+id/subscriptions_header_search_container"
-                    
+                    layout="@layout/toolbar_search"
                     android:visibility="gone" />
 
             </androidx.appcompat.widget.Toolbar>
@@ -151,7 +149,6 @@
                 android:padding="2dp"
                 tools:itemCount="200"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                
                 tools:spanCount="4" />
         </LinearLayout>
 
@@ -193,7 +190,6 @@
             android:layout_centerVertical="true"
             android:minWidth="0dp"
             android:scaleType="centerInside"
-            
             android:visibility="gone"
             tools:ignore="ContentDescription"
             tools:visibility="visible" />
