@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/contrast_background_color">
+
+    <org.schabi.newpipe.views.NewPipeTextView
+        android:id="@+id/playlist_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:maxLines="2"
+        
+        android:paddingBottom="6dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        
+        tools:text="Mix musics #23 title Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum" />
+
+    <org.schabi.newpipe.views.NewPipeTextView
+        android:id="@+id/playlist_stream_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/playlist_title_view"
+        android:layout_alignParentLeft="true"
+        android:ellipsize="end"
+        android:gravity="right|center_vertical"
+        android:maxLines="1"
+        
+        tools:ignore="RtlHardcoded"
+        tools:text="234 videos" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/playlist_control"
+        
+        android:layout_below="@id/playlist_stream_count" />
+
+</RelativeLayout>
