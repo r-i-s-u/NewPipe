@@ -1,0 +1,32 @@
+name: Auto-fix malformed XML
+
+on:
+  push:
+    branches: [download]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: download
+          fetch-depth: 0
+      - name: Fix and remove temporary workflow
+        run: |
+          file="app/src/main/res/layout/fragment_video_detail.xml"
+          sed -i '/^[[:space:]]*android:[[:space:]]*$/d' "$file"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$file"
+          if ! git diff --cached --quiet; then
+            git commit -m "Fix malformed XML attribute"
+            git push origin HEAD:download
+          fi
+          git rm -f .github/workflows/fix-xml-auto.yml .github/workflows/fix-xml.yml
+          git commit -m "Remove temporary XML fix workflows"
+          git push origin HEAD:download
