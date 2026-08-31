@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="6dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_volume_off"
+        
         tools:ignore="ContentDescription,RtlHardcoded" />
 
     <org.schabi.newpipe.views.NewPipeTextView
