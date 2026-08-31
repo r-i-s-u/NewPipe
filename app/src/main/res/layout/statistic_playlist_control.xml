@@ -21,7 +21,6 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            
             tools:ignore="ContentDescription,RtlHardcoded" />
 
         <org.schabi.newpipe.views.NewPipeTextView
@@ -39,6 +38,6 @@
 
     <include
         android:id="@+id/playlist_control"
-         />
+        layout="@layout/playlist_control" />
 
 </LinearLayout>
