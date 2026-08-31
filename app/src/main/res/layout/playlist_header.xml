@@ -40,12 +40,11 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/uploader_avatar_view"
-                
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:padding="0.7dp"
-                
-
                 app:strokeColor="#ffffff"
                 app:strokeWidth="1dp" />
 
@@ -108,7 +107,7 @@
 
         <include
             android:id="@+id/playlist_control"
-            />
+            layout="@layout/playlist_control" />
     </LinearLayout>
 
 </RelativeLayout>
