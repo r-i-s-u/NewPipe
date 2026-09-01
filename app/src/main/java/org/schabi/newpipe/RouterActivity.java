@@ -616,7 +616,7 @@ public class RouterActivity extends AppCompatActivity {
                     .apply();
         }
 
-        if (selectedChoiceKey.equals(getString(R.string.popup_player_key))
+        if (selectedChoiceKey.equals(getString(R.string.download_key))
                 && !PermissionHelper.isPopupEnabledElseAsk(this)) {
             finish();
             return;
@@ -631,7 +631,7 @@ public class RouterActivity extends AppCompatActivity {
             return;
         }
 
-        if (selectedChoiceKey.equals(getString(R.string.add_to_playlist_key))) {
+        if (selectedChoiceKey.equals(getString(R.string.download_key))) {
             selectionIsAddToPlaylist = true;
             openAddToPlaylistDialog();
             return;
@@ -639,7 +639,7 @@ public class RouterActivity extends AppCompatActivity {
 
         // stop and bypass FetcherService if InfoScreen was selected since
         // StreamDetailFragment can fetch data itself
-        if (selectedChoiceKey.equals(getString(R.string.show_info_key))
+        if (selectedChoiceKey.equals(getString(R.string.download_key))
                 || canHandleChoiceLikeShowInfo(selectedChoiceKey)) {
             disposables.add(Observable
                     .fromCallable(() -> NavigationHelper.getIntentByLink(this, currentUrl))
@@ -665,7 +665,7 @@ public class RouterActivity extends AppCompatActivity {
     }
 
     private boolean canHandleChoiceLikeShowInfo(final String selectedChoiceKey) {
-        if (!selectedChoiceKey.equals(getString(R.string.video_player_key))) {
+        if (!selectedChoiceKey.equals(getString(R.string.download_key))) {
             return false;
         }
         // "video player" can be handled like "show info" (because VideoDetailFragment can load
@@ -677,7 +677,7 @@ public class RouterActivity extends AppCompatActivity {
         }
 
         final boolean isExtVideoEnabled = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean(getString(R.string.use_external_video_player_key), false);
+                .getBoolean(getString(R.string.download_key), false);
         // ...it's not done via an external player
         if (isExtVideoEnabled) {
             return false;
