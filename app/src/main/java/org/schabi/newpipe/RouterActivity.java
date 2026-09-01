@@ -285,6 +285,7 @@ public class RouterActivity extends AppCompatActivity {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.unsupported_url)
                 .setMessage(R.string.unsupported_url_dialog_message)
+                .setIcon(R.drawable.ic_share)
                 .setPositiveButton(R.string.open_in_browser,
                         (dialog, which) -> ShareUtils.openUrlInBrowser(this, url))
                 .setNegativeButton(R.string.share,
@@ -300,12 +301,14 @@ public class RouterActivity extends AppCompatActivity {
 
         final ChoiceAvailabilityChecker choiceChecker = new ChoiceAvailabilityChecker(
                 getChoicesForService(currentService, currentLinkType),
-                preferences.getString(getString(R.string.download_key),
-                        getString(R.string.download_key)));
+                preferences.getString(getString(R.string.preferred_open_action_key),
+                        getString(R.string.preferred_open_action_default)));
 
         // Check for non-player related choices
         if (choiceChecker.isAvailableAndSelected(
-                R.string.download_key)) {
+                R.string.show_info_key,
+                R.string.download_key,
+                R.string.add_to_playlist_key)) {
             handleChoice(choiceChecker.getSelectedChoiceKey());
             return;
         }
