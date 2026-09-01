@@ -612,7 +612,7 @@ public class RouterActivity extends AppCompatActivity {
         if (validChoicesList.contains(selectedChoiceKey)) {
             PreferenceManager.getDefaultSharedPreferences(this).edit()
                     .putString(getString(
-                            R.string.preferred_open_action_last_selected_key), selectedChoiceKey)
+                            R.string.download_key), selectedChoiceKey)
                     .apply();
         }
 
