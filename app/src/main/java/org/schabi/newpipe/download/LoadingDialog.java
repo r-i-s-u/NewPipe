@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
 import org.schabi.newpipe.MainActivity;
@@ -67,17 +66,8 @@ public class LoadingDialog extends DialogFragment {
     public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dialogLoadingBinding = DownloadLoadingDialogBinding.bind(view);
-        initToolbar(dialogLoadingBinding.toolbarLayout.toolbar);
     }
 
-    private void initToolbar(final Toolbar toolbar) {
-        if (DEBUG) {
-            Log.d(TAG, "initToolbar() called with: toolbar = [" + toolbar + "]");
-        }
-        toolbar.setTitle(requireContext().getString(title));
-        toolbar.setNavigationOnClickListener(v -> dismiss());
-
-    }
 
     @Override
     public void onDestroyView() {
