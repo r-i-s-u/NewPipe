@@ -301,7 +301,7 @@ public class RouterActivity extends AppCompatActivity {
 
         final ChoiceAvailabilityChecker choiceChecker = new ChoiceAvailabilityChecker(
                 getChoicesForService(currentService, currentLinkType),
-                preferences.getString(getString(R.string.preferred_open_action_key),
+                preferences.getString(getString(R.string.download_key),
                         getString(R.string.preferred_open_action_default)));
 
         // Check for non-player related choices
