@@ -2,18 +2,12 @@
 <resources>
 
     <!-- Follows service's primary color -->
-    <style name="ServiceColoredButton" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">?attr/colorPrimary</item>
-        <item name="android:textColor">@color/subscribe_text_color</item>
-        <item name="colorControlHighlight">@color/dark_ripple_color</item>
+    <style name="ServiceColoredButton">
     </style>
 
 
     <!--File picker styles-->
     <style name="FilePickerThemeLight" parent="NNF_BaseTheme.Light">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_primary_color</item>
-        <item name="colorAccent">@color/light_settings_accent_color</item>
 
         <item name="actionColor">@color/white</item>
         <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
@@ -25,9 +19,6 @@
     </style>
 
     <style name="FilePickerThemeDark" parent="NNF_BaseTheme">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_primary_color</item>
-        <item name="colorAccent">@color/dark_settings_accent_color</item>
 
         <item name="actionColor">@color/white</item>
         <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
@@ -39,15 +30,9 @@
     </style>
 
     <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.DayNight.Dialog.Alert">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_primary_color</item>
-        <item name="colorAccent">@color/light_settings_accent_color</item>
     </style>
 
     <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_primary_color</item>
-        <item name="colorAccent">@color/dark_settings_accent_color</item>
     </style>
 
     <style name="PlayQueueItemTextTheme">
