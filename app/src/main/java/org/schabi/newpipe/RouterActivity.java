@@ -429,7 +429,7 @@ public class RouterActivity extends AppCompatActivity {
             // open future streams always like this one, because "always" button was used by user
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 preferences.edit()
-                        .putString(getString(R.string.preferred_open_action_key), choice.key)
+                        .putString(getString(R.string.download_key), choice.key)
                         .apply();
             }
         };
