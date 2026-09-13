@@ -311,6 +311,8 @@ dependencies {
     implementation(libs.ocpsoft.prettytime)
 
 }
+
+aboutLibraries {
     library {
         exclusionPatterns = listOf(
             Pattern.compile("^com\\.github\\.TeamNewPipe:NewPipeExtractor$"),
