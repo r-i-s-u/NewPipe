@@ -66,6 +66,10 @@ public class LoadingDialog extends DialogFragment {
     public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dialogLoadingBinding = DownloadLoadingDialogBinding.bind(view);
+
+if (getDialog() != null && getDialog().getWindow() != null) {
+    getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+}
     }
 
 
