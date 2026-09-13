@@ -310,33 +310,7 @@ dependencies {
     // Date and time formatting
     implementation(libs.ocpsoft.prettytime)
 
-    // Debugging and memory leak detection
-    debugImplementation(libs.squareup.leakcanary.watcher)
-    debugImplementation(libs.squareup.leakcanary.plumber)
-    debugImplementation(libs.squareup.leakcanary.core)
-    // Debug bridge for Android
-    debugImplementation(libs.facebook.stetho.core)
-    debugImplementation(libs.facebook.stetho.okhttp3)
-
-    // Testing
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito.core)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.androidx.room.testing)
-    androidTestImplementation(libs.assertj.core)
 }
-
-aboutLibraries {
-    collect {
-        configPath = file("../config/aboutlibraries")
-    }
-    export {
-        outputFile = file("../shared/src/androidMain/assets/aboutlibraries.json")
-        prettyPrint = true
-        excludeFields.addAll("organization", "scm", "funding")
-    }
     library {
         exclusionPatterns = listOf(
             Pattern.compile("^com\\.github\\.TeamNewPipe:NewPipeExtractor$"),
