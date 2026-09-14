@@ -1,8 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/stroke">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/toolbar_layout"
@@ -46,28 +45,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/video"
-            android:button="@null"
-            android:background="@drawable/radio_button_selector"
-            android:paddingStart="8dp"/>
+            android:text="@string/video" />
 
         <RadioButton
             android:id="@+id/audio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/audio"
-            android:button="@null"
-            android:background="@drawable/radio_button_selector"
-            android:paddingStart="8dp"/>
+            android:text="@string/audio" />
 
         <RadioButton
             android:id="@+id/subtitle_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/caption_setting_title"
-            android:button="@null"
-            android:background="@drawable/radio_button_selector"
-            android:paddingStart="8dp"/>
+            android:text="@string/caption_setting_title" />
     </RadioGroup>
 
     <Spinner
