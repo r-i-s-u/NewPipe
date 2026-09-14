@@ -50,7 +50,7 @@
             android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
-            android:button="@drawable/radio_button_selecter"/>
+            android:button="@drawable/radio_button_selector"/>
 
         <RadioButton
             android:id="@+id/audio_button"
@@ -60,7 +60,7 @@
             android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
-            android:button="@drawable/radio_button_selecter"/>
+            android:button="@drawable/radio_button_selector"/>
 
         <RadioButton
             android:id="@+id/subtitle_button"
@@ -70,7 +70,7 @@
             android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
-            android:button="@drawable/radio_button_selecter"/>
+            android:button="@drawable/radio_button_selector"/>
     </RadioGroup>
 
     <Spinner
