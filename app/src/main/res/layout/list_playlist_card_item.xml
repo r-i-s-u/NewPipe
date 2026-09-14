@@ -54,7 +54,7 @@
         android:layout_width="@dimen/player_main_buttons_min_width"
         android:layout_height="@dimen/player_main_buttons_min_width"
         android:layout_marginStart="8dp"
-        android:src="@drawable/ic_playlist_play"
+        
         android:tint="@color/duration_text_color"
         app:layout_constraintBottom_toBottomOf="@id/videoCountOverlay"
         app:layout_constraintEnd_toEndOf="@id/videoCountOverlay"

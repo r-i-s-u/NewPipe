@@ -134,11 +134,11 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
+                
                 android:clickable="true"
                 android:focusable="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_pause"
+            
                 android:contentDescription="@string/pause"
                 app:tint="?attr/colorAccent" />
 
@@ -199,7 +199,7 @@
                 android:gravity="center"
                 android:minWidth="50dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_previous"
+                
                 android:tint="?attr/colorAccent"
                 android:contentDescription="@string/previous_stream" />
 
@@ -214,7 +214,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_repeat"
+                
                 android:contentDescription="@string/notification_action_repeat"
                 app:tint="?attr/colorAccent" />
 
@@ -235,7 +235,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_shuffle"
+                
                 android:contentDescription="@string/notification_action_shuffle"
                 app:tint="?attr/colorAccent" />
 
@@ -253,7 +253,7 @@
                 android:gravity="center"
                 android:minWidth="50dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_next"
+                
                 android:tint="?attr/colorAccent"
                 android:contentDescription="@string/next_stream" />
         </RelativeLayout>

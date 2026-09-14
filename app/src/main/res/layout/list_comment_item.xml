@@ -30,7 +30,7 @@
         android:layout_marginEnd="@dimen/video_item_detail_pinned_right_margin"
         android:layout_toEndOf="@+id/itemThumbnailView"
         android:contentDescription="@string/detail_pinned_comment_view_description"
-        android:src="@drawable/ic_pin" />
+         />
 
     <org.schabi.newpipe.views.NewPipeTextView
         android:id="@+id/itemTitleView"
@@ -63,7 +63,7 @@
         android:layout_alignBottom="@+id/replies_button"
         android:layout_toEndOf="@+id/itemThumbnailView"
         android:contentDescription="@string/detail_likes_img_view_description"
-        android:src="@drawable/ic_thumb_up" />
+         />
 
     <org.schabi.newpipe.views.NewPipeTextView
         android:id="@+id/detail_thumbs_up_count_view"
@@ -88,7 +88,7 @@
         android:layout_marginStart="@dimen/video_item_detail_heart_margin"
         android:layout_toEndOf="@+id/detail_thumbs_up_count_view"
         android:contentDescription="@string/detail_heart_img_view_description"
-        android:src="@drawable/ic_heart" />
+         />
 
     <Button
         android:id="@+id/replies_button"

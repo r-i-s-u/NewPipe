@@ -27,7 +27,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         
         android:padding="8dp"
-        tools:src="@drawable/ic_apps" />
+         />
 
     <ImageButton
         android:id="@+id/header_sort"

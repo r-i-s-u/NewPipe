@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/action_append_playlist"
-        android:icon="@drawable/ic_playlist_add"
+        
         android:title="@string/add_to_playlist"
         android:visible="true"
         app:showAsAction="ifRoom" />
@@ -28,7 +28,7 @@
 
     <item
         android:id="@+id/action_mute"
-        android:icon="@drawable/ic_volume_off"
+        
         android:title="@string/mute"
         android:visible="true"
         app:showAsAction="ifRoom" />

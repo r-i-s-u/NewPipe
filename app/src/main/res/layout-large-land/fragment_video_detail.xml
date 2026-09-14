@@ -65,7 +65,7 @@
                             android:layout_height="64dp"
                             android:layout_gravity="center"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/ic_play_arrow_shadow"
+                            
                             android:visibility="invisible"
                             tools:ignore="ContentDescription"
                             tools:visibility="visible" />
@@ -199,7 +199,7 @@
                             android:layout_gravity="top|end"
                             android:layout_marginTop="11dp"
                             android:layout_marginEnd="10dp"
-                            android:src="@drawable/ic_expand_more"
+                            
                             tools:ignore="ContentDescription" />
 
                     </FrameLayout>
@@ -353,7 +353,7 @@
                                     android:layout_height="@dimen/video_item_detail_like_image_height"
                                     android:layout_below="@id/detail_view_count_view"
                                     android:contentDescription="@string/detail_likes_img_view_description"
-                                    android:src="@drawable/ic_thumb_up" />
+                                     />
 
                                 <org.schabi.newpipe.views.NewPipeTextView
                                     android:id="@+id/detail_thumbs_up_count_view"
@@ -377,7 +377,7 @@
                                     android:layout_marginLeft="12dp"
                                     android:layout_toRightOf="@id/detail_thumbs_up_count_view"
                                     android:contentDescription="@string/detail_dislikes_img_view_description"
-                                    android:src="@drawable/ic_thumb_down"
+                                    
                                     tools:ignore="RtlHardcoded" />
 
                                 <org.schabi.newpipe.views.NewPipeTextView
@@ -702,7 +702,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/title_activity_play_queue"
                 android:scaleType="center"
-                android:src="@drawable/ic_list"
+                
                 tools:ignore="ContentDescription,RtlHardcoded" />
 
             <ImageButton
@@ -714,7 +714,7 @@
                 android:focusable="true"
                 android:focusedByDefault="true"
                 android:scaleType="center"
-                android:src="@drawable/ic_play_arrow" />
+                 />
 
             <ImageButton
                 android:id="@+id/overlay_close_button"
@@ -724,7 +724,7 @@
                 android:contentDescription="@string/close"
                 android:paddingRight="8dp"
                 android:scaleType="center"
-                android:src="@drawable/ic_close"
+                
                 tools:ignore="RtlSymmetry" />
 
         </LinearLayout>

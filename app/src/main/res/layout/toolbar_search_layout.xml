@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:contentDescription="@string/search"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_close"
+            
             app:tint="?attr/toolbarSearchColor"
             tools:ignore="RtlHardcoded" />
     </FrameLayout>
