@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/player_controls_top_background"
+        
         android:visibility="gone" />
 
     <View
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/player_controls_background"
+        
         android:visibility="gone" />
 
     <ImageView

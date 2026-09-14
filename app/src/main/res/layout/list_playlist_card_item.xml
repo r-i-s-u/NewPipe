@@ -51,8 +51,7 @@
             when placed next to the video count -->
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/playIcon"
-        android:layout_width="@dimen/player_main_buttons_min_width"
-        android:layout_height="@dimen/player_main_buttons_min_width"
+    
         android:layout_marginStart="8dp"
         
         android:tint="@color/duration_text_color"
