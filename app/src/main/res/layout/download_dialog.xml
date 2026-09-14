@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/video"
-            android:background="@00000000"
+            android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
             android:button="@drawable/radio_button_selecter"/>
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/audio"
-            android:background="@00000000"
+            android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
             android:button="@drawable/radio_button_selecter"/>
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/caption_setting_title"
-            android:background="@00000000"
+            android:background="@null"
             android:paddingLeft="2.0dip"            
             android:layout_marginRight="4.0dip"
             android:button="@drawable/radio_button_selecter"/>
@@ -151,6 +151,7 @@
             android:id="@+id/threads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:max="31"
             android:progress="3" />
     </LinearLayout>
