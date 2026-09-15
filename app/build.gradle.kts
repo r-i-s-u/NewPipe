@@ -146,7 +146,7 @@ ksp {
 }
 
 // Custom dependency configuration for ktlint
-val ktlint by configurations.creating
+val ktlint = configurations.create("ktlint")
 
 checkstyle {
     configDirectory = rootProject.file("checkstyle")
