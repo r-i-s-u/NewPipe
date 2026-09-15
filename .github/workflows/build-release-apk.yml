@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: 'download'
+          ref: 'test'
 
       - uses: actions/setup-java@v5
         with:
