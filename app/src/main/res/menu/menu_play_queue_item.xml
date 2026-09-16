@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_remove"
+        />
+    <item
+        android:id="@+id/menu_item_details" />
+    <item
+        android:id="@+id/menu_item_append_playlist"
+         />
+    <item
+        android:id="@+id/menu_item_channel_details"
+         />
+    <item
+        android:id="@+id/menu_item_share"
+         />
+    <item
+        android:id="@+id/menu_item_download"
+         />
 </menu>

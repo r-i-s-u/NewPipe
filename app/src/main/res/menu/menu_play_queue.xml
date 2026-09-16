@@ -1,3 +1,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_append_playlist"
+         />
+
+
+    <item
+        android:id="@+id/action_playback_speed"
+         />
+
+    <item
+        android:id="@+id/action_audio_track"
+        >
+        <menu />
+    </item>
+
+    <item
+        android:id="@+id/action_mute"
+         />
+
+    <item
+        android:id="@+id/action_settings"
+         />
+
+    <item
+        android:id="@+id/action_system_audio"
+         />
+
+    <item
+        android:id="@+id/action_switch_main"
+         />
 </menu>
