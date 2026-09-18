@@ -25,8 +25,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.jakewharton.processphoenix.ProcessPhoenix;
 
-import net.newpipe.app.extensions.ContextKt;
-import net.newpipe.app.navigation.Destination;
 
 import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.NewPipeDatabase;
@@ -681,10 +679,6 @@ public final class NavigationHelper {
         final Intent mIntent = new Intent(context, RouterActivity.class);
         mIntent.setData(Uri.parse(url));
         context.startActivity(mIntent);
-    }
-
-    public static void openAbout(final Context context) {
-        ContextKt.navigateTo(context, Destination.About.INSTANCE);
     }
 
     public static void openSettings(final Context context) {
