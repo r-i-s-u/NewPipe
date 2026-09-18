@@ -392,9 +392,6 @@ public class MainActivity extends AppCompatActivity {
             case ITEM_ID_DONATION:
                 ShareUtils.openUrlInBrowser(this, getString(R.string.donation_url));
                 break;
-            case ITEM_ID_ABOUT:
-                NavigationHelper.openAbout(this);
-                break;
         }
     }
 
