@@ -13,7 +13,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
     alias(libs.plugins.sonarqube)
-    alias(libs.plugins.about.libraries)
     checkstyle
 }
 
@@ -36,10 +35,10 @@ configure<ApplicationExtension> {
             minorApiLevel = NEWPIPE_VERSION_SDK_COMPILE_MINOR
         }
     }
-    namespace = NEWPIPE_APPLICATION_ID_OLD
+    namespace = NEWPIPE_APPLICATION_ID
 
     defaultConfig {
-        applicationId = NEWPIPE_APPLICATION_ID_OLD
+        applicationId = NEWPIPE_APPLICATION_ID
         resValue("string", "app_name", "NewPipe")
         minSdk {
             version = release(NEWPIPE_VERSION_SDK_MIN)
@@ -221,7 +220,6 @@ dependencies {
     coreLibraryDesugaring(libs.android.desugar)
 
     // NewPipe libraries
-    implementation(projects.shared)
     implementation(libs.newpipe.nanojson)
     implementation(libs.newpipe.extractor)
     implementation(libs.newpipe.filepicker)
@@ -310,13 +308,4 @@ dependencies {
     // Date and time formatting
     implementation(libs.ocpsoft.prettytime)
 
-}
-
-aboutLibraries {
-    library {
-        exclusionPatterns = listOf(
-            Pattern.compile("^com\\.github\\.TeamNewPipe:NewPipeExtractor$"),
-            Pattern.compile("^com\\.evernote:android-state$")
-        )
-    }
 }
