@@ -1,1 +1,0 @@
-To jest aktualizacja poprawiająca działanie transmisji na żywo na stronie media.ccc.de. Miłego hakowania!

@@ -1,1 +1,0 @@
-Detta är en snabbkorrigeringsversion som fixar direktsändningar från media.ccc.de. Lycka till med hackandet!
