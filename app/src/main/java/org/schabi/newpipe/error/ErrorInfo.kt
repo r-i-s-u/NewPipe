@@ -175,9 +175,6 @@ class ErrorInfo private constructor(
         ): ErrorMessage {
             return when {
 
-                throwable is PlaybackResolver.ResolverException ->
-                    ErrorMessage(R.string.player_stream_failure)
-
                 // content not available exceptions
                 throwable is AccountTerminatedException ->
                     throwable.message
