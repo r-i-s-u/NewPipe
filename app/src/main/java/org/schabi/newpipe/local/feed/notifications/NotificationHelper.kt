@@ -73,7 +73,7 @@ class NotificationHelper(val context: Context) {
             PendingIntentCompat.getActivity(context, data.pseudoId, intent, 0, false)
         )
 
-        val avatarIcon =
+        val avatarIcon: android.graphics.Bitmap? = null
         summaryBuilder.setLargeIcon(avatarIcon)
 
         // Show individual stream notifications, set channel icon only if there is actually one
