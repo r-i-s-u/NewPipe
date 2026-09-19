@@ -9,7 +9,6 @@ import org.schabi.newpipe.R
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.OnClickGesture
-import org.schabi.newpipe.util.image.CoilHelper
 
 class ChannelItem(
     private val infoItem: ChannelInfoItem,
@@ -39,7 +38,6 @@ class ChannelItem(
             itemChannelDescriptionView.text = infoItem.description
         }
 
-        CoilHelper.loadAvatar(itemThumbnailView, infoItem.thumbnails)
 
         gesturesListener?.run {
             viewHolder.root.setOnClickListener { selected(infoItem) }

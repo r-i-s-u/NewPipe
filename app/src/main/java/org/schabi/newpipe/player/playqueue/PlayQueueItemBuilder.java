@@ -7,7 +7,6 @@ import android.view.View;
 
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 public class PlayQueueItemBuilder {
     private static final String TAG = PlayQueueItemBuilder.class.toString();
@@ -33,7 +32,6 @@ public class PlayQueueItemBuilder {
             holder.itemDurationView.setVisibility(View.GONE);
         }
 
-        CoilHelper.INSTANCE.loadThumbnail(holder.itemThumbnailView, item.getThumbnails());
 
         holder.itemRoot.setOnClickListener(view -> {
             if (onItemClickListener != null) {

@@ -21,7 +21,6 @@ import org.schabi.newpipe.extractor.stream.StreamType.POST_LIVE_STREAM
 import org.schabi.newpipe.extractor.stream.StreamType.VIDEO_STREAM
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.StreamTypeUtil
-import org.schabi.newpipe.util.image.CoilHelper
 
 data class StreamItem(
     val streamWithState: StreamWithState,
@@ -101,7 +100,6 @@ data class StreamItem(
             viewBinding.itemProgressView.visibility = View.GONE
         }
 
-        CoilHelper.loadThumbnail(viewBinding.itemThumbnailView, stream.thumbnailUrl)
 
         if (itemVersion != ItemVersion.MINI) {
             viewBinding.itemAdditionalDetails.text =

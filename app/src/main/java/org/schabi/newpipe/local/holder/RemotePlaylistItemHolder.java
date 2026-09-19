@@ -9,7 +9,6 @@ import org.schabi.newpipe.local.LocalItemBuilder;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.ServiceHelper;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 import java.time.format.DateTimeFormatter;
 
@@ -44,7 +43,6 @@ public class RemotePlaylistItemHolder extends PlaylistItemHolder {
             itemUploaderView.setText(ServiceHelper.getNameOfServiceById(item.getServiceId()));
         }
 
-        CoilHelper.INSTANCE.loadPlaylistThumbnail(itemThumbnailView, item.getThumbnailUrl());
 
         super.updateFromItem(localItem, historyRecordManager, dateTimeFormatter);
     }

@@ -53,14 +53,12 @@ import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
-import org.schabi.newpipe.util.image.CoilHelper;
 import org.schabi.newpipe.util.image.ImageStrategy;
 
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
-import coil3.util.CoilUtils;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -578,9 +576,6 @@ public class ChannelFragment extends BaseStateFragment<ChannelInfo>
     @Override
     public void showLoading() {
         super.showLoading();
-        CoilUtils.dispose(binding.channelAvatarView);
-        CoilUtils.dispose(binding.channelBannerImage);
-        CoilUtils.dispose(binding.subChannelAvatarView);
         animate(binding.channelSubscribeButton, false, 100);
     }
 
@@ -591,15 +586,11 @@ public class ChannelFragment extends BaseStateFragment<ChannelInfo>
         setInitialData(result.getServiceId(), result.getOriginalUrl(), result.getName());
 
         if (ImageStrategy.shouldLoadImages() && !result.getBanners().isEmpty()) {
-            CoilHelper.INSTANCE.loadBanner(binding.channelBannerImage, result.getBanners());
         } else {
             // do not waste space for the banner, if the user disabled images or there is not one
             binding.channelBannerImage.setImageDrawable(null);
         }
 
-        CoilHelper.INSTANCE.loadAvatar(binding.channelAvatarView, result.getAvatars());
-        CoilHelper.INSTANCE.loadAvatar(binding.subChannelAvatarView,
-                result.getParentChannelAvatars());
 
         binding.channelTitleView.setText(result.getName());
         binding.channelSubscriberView.setVisibility(View.VISIBLE);

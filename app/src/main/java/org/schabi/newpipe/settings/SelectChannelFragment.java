@@ -25,7 +25,6 @@ import org.schabi.newpipe.database.subscription.SubscriptionEntity;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.local.subscription.SubscriptionManager;
 import org.schabi.newpipe.util.ThemeHelper;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 import java.util.List;
 import java.util.Vector;
@@ -174,7 +173,6 @@ public class SelectChannelFragment extends DialogFragment {
             final SubscriptionEntity entry = subscriptions.get(position);
             holder.titleView.setText(entry.getName());
             holder.view.setOnClickListener(view -> clickedItem(position));
-            CoilHelper.INSTANCE.loadAvatar(holder.thumbnailView, entry.getAvatarUrl());
         }
 
         @Override

@@ -27,7 +27,6 @@ import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.local.playlist.LocalPlaylistManager;
 import org.schabi.newpipe.local.playlist.RemotePlaylistManager;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 import java.util.List;
 import java.util.Vector;
@@ -157,14 +156,10 @@ public class SelectPlaylistFragment extends DialogFragment {
             if (selectedItem instanceof PlaylistMetadataEntry entry) {
                 holder.titleView.setText(entry.getOrderingName());
                 holder.view.setOnClickListener(view -> clickedItem(position));
-                CoilHelper.INSTANCE.loadPlaylistThumbnail(holder.thumbnailView,
-                        entry.getThumbnailUrl());
 
             } else if (selectedItem instanceof PlaylistRemoteEntity entry) {
                 holder.titleView.setText(entry.getOrderingName());
                 holder.view.setOnClickListener(view -> clickedItem(position));
-                CoilHelper.INSTANCE.loadPlaylistThumbnail(holder.thumbnailView,
-                        entry.getThumbnailUrl());
             }
         }
 

@@ -125,7 +125,6 @@ import org.schabi.newpipe.util.ListHelper;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.SerializedCache;
 import org.schabi.newpipe.util.StreamTypeUtil;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 import java.util.List;
 import java.util.Objects;

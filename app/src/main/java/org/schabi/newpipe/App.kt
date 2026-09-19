@@ -8,12 +8,6 @@ import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import androidx.preference.PreferenceManager
-import coil3.ImageLoader
-import coil3.SingletonImageLoader
-import coil3.network.okhttp.OkHttpNetworkFetcherFactory
-import coil3.request.allowRgb565
-import coil3.request.crossfade
-import coil3.util.DebugLogger
 import com.jakewharton.processphoenix.ProcessPhoenix
 import io.reactivex.rxjava3.exceptions.CompositeException
 import io.reactivex.rxjava3.exceptions.MissingBackpressureException
@@ -59,8 +53,7 @@ import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
  * along with NewPipe.  If not, see <http://www.gnu.org/licenses/>.
  */
 open class App :
-    Application(),
-    SingletonImageLoader.Factory {
+    Application() {
     var isFirstRun = false
         private set
     var notificationsRequested = false
@@ -126,14 +119,6 @@ open class App :
         YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
     }
 
-    override fun newImageLoader(context: Context): ImageLoader = ImageLoader
-        .Builder(this)
-        .logger(if (BuildConfig.DEBUG) DebugLogger() else null)
-        .allowRgb565(getSystemService<ActivityManager>()!!.isLowRamDevice)
-        .crossfade(true)
-        .components {
-            add(OkHttpNetworkFetcherFactory(callFactory = DownloaderImpl.getInstance().client))
-        }.build()
 
     protected open fun getDownloader(): Downloader {
         val downloader = DownloaderImpl.init(null)

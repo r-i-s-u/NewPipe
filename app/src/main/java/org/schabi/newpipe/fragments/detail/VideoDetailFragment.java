@@ -118,7 +118,6 @@ import org.schabi.newpipe.util.StreamTypeUtil;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.external_communication.KoreUtils;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
-import org.schabi.newpipe.util.image.CoilHelper;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -129,7 +128,6 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
-import coil3.util.CoilUtils;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -1519,10 +1517,6 @@ public final class VideoDetailFragment
             }
         }
 
-        CoilUtils.dispose(binding.detailThumbnailImageView);
-        CoilUtils.dispose(binding.detailSubChannelThumbnailView);
-        CoilUtils.dispose(binding.overlayThumbnail);
-        CoilUtils.dispose(binding.detailUploaderThumbnailView);
         binding.detailThumbnailImageView.setImageBitmap(null);
         binding.detailSubChannelThumbnailView.setImageBitmap(null);
     }
@@ -1613,8 +1607,6 @@ public final class VideoDetailFragment
         binding.detailSecondaryControlPanel.setVisibility(View.GONE);
 
         checkUpdateProgressInfo(info);
-        CoilHelper.INSTANCE.loadDetailsThumbnail(binding.detailThumbnailImageView,
-                info.getThumbnails());
         showMetaInfoInTextView(info.getMetaInfo(), binding.detailMetaInfoTextView,
                 binding.detailMetaInfoSeparator, disposables);
 
@@ -1664,8 +1656,6 @@ public final class VideoDetailFragment
             binding.detailUploaderTextView.setVisibility(View.GONE);
         }
 
-        CoilHelper.INSTANCE.loadAvatar(binding.detailSubChannelThumbnailView,
-                info.getUploaderAvatars());
         binding.detailSubChannelThumbnailView.setVisibility(View.VISIBLE);
         binding.detailUploaderThumbnailView.setVisibility(View.GONE);
     }
@@ -1696,11 +1686,7 @@ public final class VideoDetailFragment
             binding.detailUploaderTextView.setVisibility(View.GONE);
         }
 
-        CoilHelper.INSTANCE.loadAvatar(binding.detailSubChannelThumbnailView,
-                info.getSubChannelAvatars());
         binding.detailSubChannelThumbnailView.setVisibility(View.VISIBLE);
-        CoilHelper.INSTANCE.loadAvatar(binding.detailUploaderThumbnailView,
-                info.getUploaderAvatars());
         binding.detailUploaderThumbnailView.setVisibility(View.VISIBLE);
     }
 
@@ -2462,7 +2448,6 @@ public final class VideoDetailFragment
         binding.overlayTitleTextView.setText(isEmpty(overlayTitle) ? "" : overlayTitle);
         binding.overlayChannelTextView.setText(isEmpty(uploader) ? "" : uploader);
         binding.overlayThumbnail.setImageDrawable(null);
-        CoilHelper.INSTANCE.loadDetailsThumbnail(binding.overlayThumbnail, thumbnails);
     }
 
     private void setOverlayPlayPauseImage(final boolean playerIsPlaying) {

@@ -20,7 +20,6 @@ import org.schabi.newpipe.R
 import org.schabi.newpipe.extractor.stream.StreamInfoItem
 import org.schabi.newpipe.local.feed.service.FeedUpdateInfo
 import org.schabi.newpipe.util.NavigationHelper
-import org.schabi.newpipe.util.image.CoilHelper
 
 /**
  * Helper for everything related to show notifications about new streams to the user.
@@ -75,7 +74,6 @@ class NotificationHelper(val context: Context) {
         )
 
         val avatarIcon =
-            CoilHelper.loadBitmapBlocking(context, data.avatarUrl, R.drawable.ic_newpipe_triangle_white)
         summaryBuilder.setLargeIcon(avatarIcon)
 
         // Show individual stream notifications, set channel icon only if there is actually one

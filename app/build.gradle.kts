@@ -284,8 +284,6 @@ dependencies {
     implementation(libs.lisawray.groupie.viewbinding)
 
     // Image loading
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.okhttp)
 
     // Markdown library for Android
     implementation(libs.noties.markwon.core)

@@ -7,7 +7,6 @@ import org.schabi.newpipe.R
 import org.schabi.newpipe.databinding.ItemStreamSegmentBinding
 import org.schabi.newpipe.extractor.stream.StreamSegment
 import org.schabi.newpipe.util.Localization
-import org.schabi.newpipe.util.image.CoilHelper
 
 class StreamSegmentItem(
     private val item: StreamSegment,
@@ -21,7 +20,6 @@ class StreamSegmentItem(
     var isSelected = false
 
     override fun bind(viewBinding: ItemStreamSegmentBinding, position: Int) {
-        CoilHelper.loadThumbnail(viewBinding.previewImage, item.previewUrl)
         viewBinding.textViewTitle.text = item.title
         if (item.channelName == null) {
             viewBinding.textViewChannel.visibility = View.GONE
