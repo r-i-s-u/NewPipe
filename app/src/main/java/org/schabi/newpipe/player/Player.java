@@ -46,7 +46,6 @@ import static org.schabi.newpipe.util.ListHelper.getPopupResolutionIndex;
 import static org.schabi.newpipe.util.ListHelper.getResolutionIndex;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
-import static coil3.Image_androidKt.toBitmap;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -131,7 +130,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import coil3.target.Target;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;

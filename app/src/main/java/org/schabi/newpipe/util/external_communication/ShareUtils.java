@@ -1,7 +1,6 @@
 package org.schabi.newpipe.util.external_communication;
 
 import static org.schabi.newpipe.MainActivity.DEBUG;
-import static coil3.Image_androidKt.toBitmap;
 
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -32,9 +31,6 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
-import coil3.SingletonImageLoader;
-import coil3.disk.DiskCache;
-import coil3.memory.MemoryCache;
 
 public final class ShareUtils {
     private static final String TAG = ShareUtils.class.getSimpleName();

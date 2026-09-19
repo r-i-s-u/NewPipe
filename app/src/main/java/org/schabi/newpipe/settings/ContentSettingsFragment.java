@@ -23,7 +23,6 @@ import org.schabi.newpipe.util.image.PreferredImageQuality;
 
 import java.util.Locale;
 
-import coil3.SingletonImageLoader;
 
 public class ContentSettingsFragment extends BasePreferenceFragment {
     private String youtubeRestrictedModeEnabledKey;
