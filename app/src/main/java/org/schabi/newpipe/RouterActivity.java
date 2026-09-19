@@ -64,8 +64,6 @@ import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.local.dialog.PlaylistDialog;
 import org.schabi.newpipe.player.PlayerType;
-import org.schabi.newpipe.player.helper.PlayerHelper;
-import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.ChannelTabPlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlaylistPlayQueue;
@@ -541,10 +539,6 @@ public class RouterActivity extends AppCompatActivity {
             // Enqueue is only shown if the current queue is not empty.
             // However, if the playqueue or the player is cleared after this item was chosen and
             // while the item is extracted, it will automatically fall back to background player.
-            if (PlayerHolder.getInstance().getQueueSize() > 0) {
-                returnedItems.add(new AdapterChoiceItem(getString(R.string.enqueue_key),
-                        getString(R.string.enqueue_stream), R.drawable.ic_add));
-            }
 
             if (linkType == LinkType.STREAM) {
                 // download is redundant for linkType CHANNEL AND PLAYLIST
@@ -672,9 +666,6 @@ public class RouterActivity extends AppCompatActivity {
         // the stream instead of FetcherService) when...
 
         // ...Autoplay is enabled
-        if (!PlayerHelper.isAutoplayAllowedByUser(getThemeWrapperContext())) {
-            return false;
-        }
 
         final boolean isExtVideoEnabled = PreferenceManager.getDefaultSharedPreferences(this)
                 .getBoolean(getString(R.string.use_external_video_player_key), false);
@@ -684,8 +675,7 @@ public class RouterActivity extends AppCompatActivity {
         }
 
         // ...the player is not running or in normal Video-mode/type
-        final PlayerType playerType = PlayerHolder.getInstance().getType();
-        return playerType == null || playerType == PlayerType.MAIN;
+        return true;
     }
 
     public static class PersistentFragment extends Fragment {

@@ -56,14 +56,9 @@ import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionsImportFragment;
-import org.schabi.newpipe.player.PlayQueueActivity;
-import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.player.PlayerIntentType;
-import org.schabi.newpipe.player.PlayerService;
 import org.schabi.newpipe.player.PlayerType;
 import org.schabi.newpipe.player.TimestampChangeData;
-import org.schabi.newpipe.player.helper.PlayerHelper;
-import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.settings.SettingsActivity;
@@ -85,38 +80,6 @@ public final class NavigationHelper {
     // Players
     //////////////////////////////////////////////////////////////////////////*/
     /* INTENT */
-    @NonNull
-    public static <T> Intent getPlayerIntent(@NonNull final Context context,
-                                             @NonNull final Class<T> targetClazz,
-                                             @Nullable final PlayQueue playQueue,
-                                             @NonNull final PlayerIntentType playerIntentType) {
-        final String cacheKey = Optional.ofNullable(playQueue)
-                .map(queue -> SerializedCache.getInstance().put(queue, PlayQueue.class))
-                .orElse(null);
-        return new Intent(context, targetClazz)
-                .putExtra(Player.PLAY_QUEUE_KEY, cacheKey)
-                .putExtra(Player.PLAYER_TYPE, PlayerType.MAIN)
-                .putExtra(PlayerService.SHOULD_START_FOREGROUND_EXTRA, true)
-                .putExtra(Player.PLAYER_INTENT_TYPE, playerIntentType);
-    }
-
-    @NonNull
-    public static Intent getPlayerTimestampIntent(@NonNull final Context context,
-                                                  @NonNull final TimestampChangeData data) {
-        return new Intent(context, PlayerService.class)
-                .putExtra(Player.PLAYER_INTENT_TYPE, PlayerIntentType.TimestampChange)
-                .putExtra(Player.PLAYER_INTENT_DATA, data);
-    }
-
-    @NonNull
-    public static <T> Intent getPlayerEnqueueNextIntent(@NonNull final Context context,
-                                                        @NonNull final Class<T> targetClazz,
-                                                        @Nullable final PlayQueue playQueue) {
-        return getPlayerIntent(context, targetClazz, playQueue, PlayerIntentType.EnqueueNext)
-                // see comment in `getPlayerEnqueueIntent` as to why `resumePlayback` is false
-                .putExtra(Player.RESUME_PLAYBACK, false);
-    }
-
     /* PLAY */
     public static void playOnMainPlayer(final AppCompatActivity activity,
                                         @NonNull final PlayQueue playQueue) {
@@ -142,77 +105,24 @@ public final class NavigationHelper {
     public static void playOnPopupPlayer(final Context context,
                                          final PlayQueue queue,
                                          final boolean resumePlayback) {
-        if (!PermissionHelper.isPopupEnabledElseAsk(context)) {
-            return;
-        }
-
-        Toast.makeText(context, R.string.popup_playing_toast, Toast.LENGTH_SHORT).show();
-
-        final var intent = getPlayerIntent(context, PlayerService.class, queue,
-                PlayerIntentType.AllOthers)
-                .putExtra(Player.PLAYER_TYPE, PlayerType.POPUP)
-                .putExtra(Player.RESUME_PLAYBACK, resumePlayback);
-        ContextCompat.startForegroundService(context, intent);
     }
 
     public static void playOnBackgroundPlayer(final Context context,
                                               final PlayQueue queue,
                                               final boolean resumePlayback) {
-        Toast.makeText(context, R.string.background_player_playing_toast, Toast.LENGTH_SHORT)
-                .show();
-
-        final Intent intent = getPlayerIntent(context, PlayerService.class, queue,
-                PlayerIntentType.AllOthers)
-                .putExtra(Player.PLAYER_TYPE, PlayerType.AUDIO)
-                .putExtra(Player.RESUME_PLAYBACK, resumePlayback);
-        ContextCompat.startForegroundService(context, intent);
     }
 
     /* ENQUEUE */
     public static void enqueueOnPlayer(final Context context,
                                        final PlayQueue queue,
                                        final PlayerType playerType) {
-        if (playerType == PlayerType.POPUP && !PermissionHelper.isPopupEnabledElseAsk(context)) {
-            return;
-        }
-
-        Toast.makeText(context, R.string.enqueued, Toast.LENGTH_SHORT).show();
-
-        // when enqueueing `resumePlayback` is always `false` since:
-        // - if there is a video already playing, the value of `resumePlayback` just doesn't make
-        //   any difference.
-        // - if there is nothing already playing, it is useful for the enqueue action to have a
-        //   slightly different behaviour than the normal play action: the latter resumes playback,
-        //   the former doesn't. (note that enqueue can be triggered when nothing is playing only
-        //   by long pressing the video detail fragment, playlist or channel controls
-        final Intent intent = getPlayerIntent(context, PlayerService.class, queue,
-                PlayerIntentType.Enqueue)
-                .putExtra(Player.RESUME_PLAYBACK, false)
-                .putExtra(Player.PLAYER_TYPE, playerType);
-        ContextCompat.startForegroundService(context, intent);
     }
 
     public static void enqueueOnPlayer(final Context context, final PlayQueue queue) {
-        PlayerType playerType = PlayerHolder.getInstance().getType();
-        if (playerType == null) {
-            Log.e(TAG, "Enqueueing but no player is open; defaulting to background player");
-            playerType = PlayerType.AUDIO;
-        }
-
-        enqueueOnPlayer(context, queue, playerType);
     }
 
     /* ENQUEUE NEXT */
     public static void enqueueNextOnPlayer(final Context context, final PlayQueue queue) {
-        PlayerType playerType = PlayerHolder.getInstance().getType();
-        if (playerType == null) {
-            Log.e(TAG, "Enqueueing next but no player is open; defaulting to background player");
-            playerType = PlayerType.AUDIO;
-        }
-        Toast.makeText(context, R.string.enqueued_next, Toast.LENGTH_SHORT).show();
-        final Intent intent = getPlayerEnqueueNextIntent(context, PlayerService.class, queue)
-                .putExtra(Player.PLAYER_TYPE, playerType);
-        ContextCompat.startForegroundService(context, intent);
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -412,21 +322,8 @@ public final class NavigationHelper {
                                                @Nullable final PlayQueue playQueue,
                                                final boolean switchingPlayers) {
 
-        final boolean autoPlay;
-        @Nullable final PlayerType playerType = PlayerHolder.getInstance().getType();
-        if (playerType == null) {
-            // no player open
-            autoPlay = PlayerHelper.isAutoplayAllowedByUser(context);
-        } else if (switchingPlayers) {
-            // switching player to main player
-            autoPlay = PlayerHolder.getInstance().isPlaying(); // keep play/pause state
-        } else if (playerType == PlayerType.MAIN) {
-            // opening new stream while already playing in main player
-            autoPlay = PlayerHelper.isAutoplayAllowedByUser(context);
-        } else {
-            // opening new stream while already playing in another player
-            autoPlay = false;
-        }
+        final boolean autoPlay = false;
+        @Nullable final PlayerType playerType = null;
 
         final RunnableWithVideoDetailFragment onVideoDetailFragmentReady = detailFragment -> {
             expandMainPlayer(detailFragment.requireActivity());
@@ -435,8 +332,7 @@ public final class NavigationHelper {
                 // Situation when user switches from players to main player. All needed data is
                 // here, we can start watching (assuming newQueue equals playQueue).
                 // Starting directly in fullscreen if the previous player type was popup.
-                detailFragment.openVideoPlayer(playerType == PlayerType.POPUP
-                        || PlayerHelper.isStartMainPlayerFullscreenEnabled(context));
+                detailFragment.openVideoPlayer(false);
             } else {
                 if (switchingPlayers && playerType == PlayerType.POPUP) {
                     detailFragment.setForceFullscreen(true);
@@ -641,7 +537,7 @@ public final class NavigationHelper {
         if (playQueue != null) {
             final String cacheKey = SerializedCache.getInstance().put(playQueue, PlayQueue.class);
             if (cacheKey != null) {
-                intent.putExtra(Player.PLAY_QUEUE_KEY, cacheKey);
+                intent.putExtra("play_queue_key", cacheKey);
             }
         }
         context.startActivity(intent);
@@ -695,18 +591,6 @@ public final class NavigationHelper {
         }
     }
 
-    public static Intent getPlayQueueActivityIntent(final Context context) {
-        final Intent intent = new Intent(context, PlayQueueActivity.class);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        }
-        return intent;
-    }
-
-    public static void openPlayQueue(final Context context) {
-        final Intent intent = new Intent(context, PlayQueueActivity.class);
-        context.startActivity(intent);
-    }
 
     /*//////////////////////////////////////////////////////////////////////////
     // Link handling

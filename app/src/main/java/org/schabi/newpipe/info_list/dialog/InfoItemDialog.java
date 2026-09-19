@@ -23,7 +23,6 @@ import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.StreamType;
-import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.util.StreamTypeUtil;
 import org.schabi.newpipe.util.external_communication.KoreUtils;
 
@@ -252,14 +251,6 @@ public final class InfoItemDialog {
          * @return the current {@link Builder} instance
          */
         public Builder addEnqueueEntriesIfNeeded() {
-            final PlayerHolder holder = PlayerHolder.getInstance();
-            if (holder.isPlayQueueReady()) {
-                addEntry(StreamDialogDefaultEntry.ENQUEUE);
-
-                if (holder.getQueuePosition() < holder.getQueueSize() - 1) {
-                    addEntry(StreamDialogDefaultEntry.ENQUEUE_NEXT);
-                }
-            }
             return this;
         }
 

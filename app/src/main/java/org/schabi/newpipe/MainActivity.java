@@ -77,9 +77,7 @@ import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
 import org.schabi.newpipe.local.feed.notifications.NotificationWorker;
-import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.player.event.OnKeyDownListener;
-import org.schabi.newpipe.player.helper.PlayerHolder;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;
@@ -821,7 +819,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (linkType) {
                     case STREAM:
                         final String intentCacheKey = intent.getStringExtra(
-                                Player.PLAY_QUEUE_KEY);
+                                "play_queue_key");
                         final PlayQueue playQueue = intentCacheKey != null
                                 ? SerializedCache.getInstance()
                                 .take(intentCacheKey, PlayQueue.class)
@@ -880,34 +878,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if (PlayerHolder.getInstance().isPlayerOpen()) {
-            // if the player is already open, no need for a broadcast receiver
-            openMiniPlayerIfMissing();
-        } else {
-            // listen for player start intent being sent around
-            broadcastReceiver = new BroadcastReceiver() {
-                @Override
-                public void onReceive(final Context context, final Intent intent) {
-                    if (Objects.equals(intent.getAction(),
-                            VideoDetailFragment.ACTION_PLAYER_STARTED)
-                            && PlayerHolder.getInstance().isPlayerOpen()) {
-                        openMiniPlayerIfMissing();
-                        // At this point the player is added 100%, we can unregister. Other actions
-                        // are useless since the fragment will not be removed after that.
-                        unregisterReceiver(broadcastReceiver);
-                        broadcastReceiver = null;
-                    }
-                }
-            };
-            final IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(VideoDetailFragment.ACTION_PLAYER_STARTED);
-            ContextCompat.registerReceiver(this, broadcastReceiver, intentFilter,
-                    ContextCompat.RECEIVER_EXPORTED);
-
-            // If the PlayerHolder is not bound yet, but the service is running, try to bind to it.
-            // Once the connection is established, the ACTION_PLAYER_STARTED will be sent.
-            PlayerHolder.getInstance().tryBindIfNeeded(this);
-        }
     }
 
     private void openDetailFragmentFromCommentReplies(

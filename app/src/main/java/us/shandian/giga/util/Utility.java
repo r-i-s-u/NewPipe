@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.exoplayer2.util.Util;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.streams.io.SharpInputStream;
@@ -195,7 +194,7 @@ public class Utility {
             throws IOException {
         ByteString byteString;
         try (var inputStream = new SharpInputStream(source.getStream())) {
-            byteString = ByteString.of(Util.toByteArray(inputStream));
+            byteString = okio.Okio.buffer(okio.Okio.source(inputStream)).readByteString();
         }
         if (algorithmId == R.id.md5) {
             byteString = byteString.md5();

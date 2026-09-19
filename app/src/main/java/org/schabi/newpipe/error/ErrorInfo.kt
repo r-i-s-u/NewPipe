@@ -4,9 +4,6 @@ import android.content.Context
 import android.os.Parcelable
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import com.google.android.exoplayer2.ExoPlaybackException
-import com.google.android.exoplayer2.upstream.HttpDataSource
-import com.google.android.exoplayer2.upstream.Loader
 import java.net.UnknownHostException
 import kotlinx.parcelize.Parcelize
 import org.schabi.newpipe.R
@@ -27,8 +24,6 @@ import org.schabi.newpipe.extractor.exceptions.SoundCloudGoPlusContentException
 import org.schabi.newpipe.extractor.exceptions.UnsupportedContentInCountryException
 import org.schabi.newpipe.extractor.exceptions.YoutubeMusicPremiumContentException
 import org.schabi.newpipe.ktx.isNetworkRelated
-import org.schabi.newpipe.player.mediasource.FailedMediaSource
-import org.schabi.newpipe.player.resolver.PlaybackResolver
 import org.schabi.newpipe.util.text.getText
 
 /**
@@ -179,39 +174,6 @@ class ErrorInfo private constructor(
             serviceId: Int?
         ): ErrorMessage {
             return when {
-                // player exceptions
-                // some may be IOException, so do these checks before isNetworkRelated!
-                throwable is ExoPlaybackException -> {
-                    val cause = throwable.cause
-                    when {
-                        cause is HttpDataSource.InvalidResponseCodeException -> {
-                            if (cause.responseCode == 403) {
-                                if (serviceId == YouTube.serviceId) {
-                                    ErrorMessage(R.string.youtube_player_http_403)
-                                } else {
-                                    ErrorMessage(R.string.player_http_403)
-                                }
-                            } else {
-                                ErrorMessage(R.string.player_http_invalid_status, cause.responseCode.toString())
-                            }
-                        }
-
-                        cause is Loader.UnexpectedLoaderException && cause.cause is ExtractionException ->
-                            getMessage(throwable, action, serviceId)
-
-                        throwable.type == ExoPlaybackException.TYPE_SOURCE ->
-                            ErrorMessage(R.string.player_stream_failure)
-
-                        throwable.type == ExoPlaybackException.TYPE_UNEXPECTED ->
-                            ErrorMessage(R.string.player_recoverable_failure)
-
-                        else ->
-                            ErrorMessage(R.string.player_unrecoverable_failure)
-                    }
-                }
-
-                throwable is FailedMediaSource.FailedMediaSourceException ->
-                    getMessage(throwable.cause, action, serviceId)
 
                 throwable is PlaybackResolver.ResolverException ->
                     ErrorMessage(R.string.player_stream_failure)

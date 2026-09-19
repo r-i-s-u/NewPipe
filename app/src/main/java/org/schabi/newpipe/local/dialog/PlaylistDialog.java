@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentManager;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.database.stream.model.StreamEntity;
 import org.schabi.newpipe.local.playlist.LocalPlaylistManager;
-import org.schabi.newpipe.player.Player;
 import org.schabi.newpipe.util.StateSaver;
 
 import java.util.List;
@@ -162,20 +161,4 @@ public abstract class PlaylistDialog extends DialogFragment implements StateSave
      * @param fragmentManager the fragment manager to use to show the dialog
      * @return the disposable that was created
      */
-    public static Disposable showForPlayQueue(
-            final Player player,
-            @NonNull final FragmentManager fragmentManager) {
-
-        final List<StreamEntity> streamEntities = Stream.of(player.getPlayQueue())
-                .filter(Objects::nonNull)
-                .flatMap(playQueue -> playQueue.getStreams().stream())
-                .map(StreamEntity::new)
-                .collect(Collectors.toList());
-        if (streamEntities.isEmpty()) {
-            return Disposable.empty();
-        }
-
-        return PlaylistDialog.createCorrespondingDialog(player.getContext(), streamEntities,
-                dialog -> dialog.show(fragmentManager, "PlaylistDialog"));
-    }
 }

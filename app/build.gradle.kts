@@ -270,14 +270,6 @@ dependencies {
     implementation(libs.squareup.okhttp.brotli)
 
     // Media player
-    implementation(libs.google.exoplayer.core)
-    implementation(libs.google.exoplayer.dash)
-    implementation(libs.google.exoplayer.database)
-    implementation(libs.google.exoplayer.datasource)
-    implementation(libs.google.exoplayer.hls)
-    implementation(libs.google.exoplayer.mediasession)
-    implementation(libs.google.exoplayer.smoothstreaming)
-    implementation(libs.google.exoplayer.ui)
 
     // Manager for complex RecyclerView layouts
     implementation(libs.lisawray.groupie.core)
