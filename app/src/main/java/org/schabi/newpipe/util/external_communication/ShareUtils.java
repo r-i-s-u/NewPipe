@@ -369,22 +369,7 @@ public final class ShareUtils {
             // Save the image in memory to the application's cache because we need a URI to the
             // image to generate a ClipData which will show the share sheet, and so an image file
             final Context applicationContext = context.getApplicationContext();
-            final var loader = SingletonImageLoader.get(context);
-            final var value = loader.getMemoryCache()
-                    .get(new MemoryCache.Key(thumbnailUrl, Collections.emptyMap()));
-
-            final Bitmap cachedBitmap;
-            if (value != null) {
-                cachedBitmap = toBitmap(value.getImage());
-            } else {
-                try (var snapshot = loader.getDiskCache().openSnapshot(thumbnailUrl)) {
-                    if (snapshot != null) {
-                        cachedBitmap = BitmapFactory.decodeFile(snapshot.getData().toString());
-                    } else {
-                        cachedBitmap = null;
-                    }
-                }
-            }
+            final Bitmap cachedBitmap = null;
 
             if (cachedBitmap == null) {
                 return null;

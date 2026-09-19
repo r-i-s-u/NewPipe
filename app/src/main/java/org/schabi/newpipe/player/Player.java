@@ -197,7 +197,6 @@ public final class Player implements PlaybackListener, Listener {
     @Nullable
     private Bitmap currentThumbnail;
     @Nullable
-    private coil3.request.Disposable thumbnailDisposable;
 
     /*//////////////////////////////////////////////////////////////////////////
     // Player
@@ -887,10 +886,6 @@ public final class Player implements PlaybackListener, Listener {
                     + thumbnails.size() + "]");
         }
 
-        // Cancel any ongoing image loading
-        if (thumbnailDisposable != null) {
-            thumbnailDisposable.dispose();
-        }
 
         // Unset currentThumbnail, since it is now outdated. This ensures it is not used in media
         // session metadata while the new thumbnail is being loaded by Coil.
@@ -899,33 +894,6 @@ public final class Player implements PlaybackListener, Listener {
             return;
         }
 
-        // scale down the notification thumbnail for performance
-        final var thumbnailTarget = new Target() {
-            @Override
-            public void onError(@Nullable final coil3.Image error) {
-                Log.e(TAG, "Thumbnail - onError() called");
-                // there is a new thumbnail, so e.g. the end screen thumbnail needs to change, too.
-                onThumbnailLoaded(null);
-            }
-
-            @Override
-            public void onStart(@Nullable final coil3.Image placeholder) {
-                if (DEBUG) {
-                    Log.d(TAG, "Thumbnail - onStart() called");
-                }
-            }
-
-            @Override
-            public void onSuccess(@NonNull final coil3.Image result) {
-                if (DEBUG) {
-                    Log.d(TAG, "Thumbnail - onSuccess() called with: drawable = [" + result + "]");
-                }
-                // there is a new thumbnail, so e.g. the end screen thumbnail needs to change, too.
-                onThumbnailLoaded(toBitmap(result));
-            }
-        };
-        thumbnailDisposable = CoilHelper.INSTANCE
-                .loadScaledDownThumbnail(context, thumbnails, thumbnailTarget);
     }
 
 

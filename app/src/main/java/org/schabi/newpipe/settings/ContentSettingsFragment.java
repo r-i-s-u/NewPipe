@@ -73,9 +73,6 @@ public class ContentSettingsFragment extends BasePreferenceFragment {
             (preference, newValue) -> {
                 ImageStrategy.setPreferredImageQuality(PreferredImageQuality
                     .fromPreferenceKey(requireContext(), (String) newValue));
-                final var loader = SingletonImageLoader.get(preference.getContext());
-                loader.getMemoryCache().clear();
-                loader.getDiskCache().clear();
                 Toast.makeText(preference.getContext(),
                                 R.string.thumbnail_cache_wipe_complete_notice, Toast.LENGTH_SHORT)
                         .show();
