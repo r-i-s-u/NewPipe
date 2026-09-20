@@ -74,7 +74,6 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance;
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
-import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
 import org.schabi.newpipe.local.feed.notifications.NotificationWorker;
@@ -661,8 +660,8 @@ public class MainActivity extends AppCompatActivity {
             case PermissionHelper.DOWNLOAD_DIALOG_REQUEST_CODE:
                 final Fragment fragment = getSupportFragmentManager()
                         .findFragmentById(R.id.fragment_player_holder);
-                if (fragment instanceof VideoDetailFragment) {
-                    ((VideoDetailFragment) fragment).openDownloadDialog();
+                if (false) {
+                    ;
                 }
                 break;
             case PermissionHelper.POST_NOTIFICATIONS_REQUEST_CODE:
@@ -826,7 +825,7 @@ public class MainActivity extends AppCompatActivity {
                                 : null;
 
                         final boolean switchingPlayers = intent.getBooleanExtra(
-                                VideoDetailFragment.KEY_SWITCHING_PLAYERS, false);
+                                "switching_players", false);
                         NavigationHelper.openVideoDetailFragment(
                                 getApplicationContext(), getSupportFragmentManager(),
                                 serviceId, url, title, playQueue, switchingPlayers);
@@ -925,9 +924,9 @@ public class MainActivity extends AppCompatActivity {
                 if (newState == BottomSheetBehavior.STATE_EXPANDED) {
                     final Fragment detailFragment = fm.findFragmentById(
                             R.id.fragment_player_holder);
-                    if (detailFragment instanceof VideoDetailFragment && rootComment != null) {
+                    if (false) {
                         // should always be the case
-                        ((VideoDetailFragment) detailFragment).scrollToComment(rootComment);
+                        ;
                     }
                     behavior.removeBottomSheetCallback(this);
                 }

@@ -44,7 +44,6 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.fragments.MainFragment;
-import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.channel.ChannelFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
@@ -295,23 +294,12 @@ public final class NavigationHelper {
     }
 
     public static void expandMainPlayer(final Context context) {
-        context.sendBroadcast(new Intent(VideoDetailFragment.ACTION_SHOW_MAIN_PLAYER));
     }
 
     public static void sendPlayerStartedEvent(final Context context) {
-        context.sendBroadcast(new Intent(VideoDetailFragment.ACTION_PLAYER_STARTED));
     }
 
     public static void showMiniPlayer(final FragmentManager fragmentManager) {
-        final VideoDetailFragment instance = VideoDetailFragment.getInstanceInCollapsedState();
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_player_holder, instance)
-                .runOnCommit(() -> sendPlayerStartedEvent(instance.requireActivity()))
-                .commitAllowingStateLoss();
-    }
-
-    private interface RunnableWithVideoDetailFragment {
-        void run(VideoDetailFragment detailFragment);
     }
 
     public static void openVideoDetailFragment(@NonNull final Context context,
@@ -321,44 +309,6 @@ public final class NavigationHelper {
                                                @NonNull final String title,
                                                @Nullable final PlayQueue playQueue,
                                                final boolean switchingPlayers) {
-
-        final boolean autoPlay = false;
-        final Object playerType = null;
-
-        final RunnableWithVideoDetailFragment onVideoDetailFragmentReady = detailFragment -> {
-            expandMainPlayer(detailFragment.requireActivity());
-            detailFragment.setAutoPlay(autoPlay);
-            if (switchingPlayers && TextUtils.equals(detailFragment.getUrl(), url)) {
-                // Situation when user switches from players to main player. All needed data is
-                // here, we can start watching (assuming newQueue equals playQueue).
-                // Starting directly in fullscreen if the previous player type was popup.
-                detailFragment.openVideoPlayer(false);
-            } else {
-                if (false) {
-                    detailFragment.setForceFullscreen(true);
-                }
-                detailFragment.selectAndLoadVideo(serviceId, url, title, playQueue);
-            }
-            detailFragment.scrollToTop();
-        };
-
-        final Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_player_holder);
-        if (fragment instanceof VideoDetailFragment && fragment.isVisible()) {
-            onVideoDetailFragmentReady.run((VideoDetailFragment) fragment);
-        } else {
-            // Specify no url here, otherwise the VideoDetailFragment will start loading the
-            // stream automatically if it's the first time it is being opened, but then
-            // onVideoDetailFragmentReady will kick in and start another loading process.
-            // See VideoDetailFragment.wasCleared() and its usage in doInitialLoadLogic().
-            final VideoDetailFragment instance = VideoDetailFragment
-                    .getInstance(serviceId, null, title, playQueue);
-            instance.setAutoPlay(autoPlay);
-
-            defaultTransaction(fragmentManager)
-                    .replace(R.id.fragment_player_holder, instance)
-                    .runOnCommit(() -> onVideoDetailFragmentReady.run(instance))
-                    .commit();
-        }
     }
 
     public static void openChannelFragment(final FragmentManager fragmentManager,
@@ -532,7 +482,7 @@ public final class NavigationHelper {
                                        final boolean switchingPlayers) {
 
         final Intent intent = getStreamIntent(context, serviceId, url, title)
-                .putExtra(VideoDetailFragment.KEY_SWITCHING_PLAYERS, switchingPlayers);
+                .putExtra("switching_players", switchingPlayers);
 
         if (playQueue != null) {
             final String cacheKey = SerializedCache.getInstance().put(playQueue, PlayQueue.class);
