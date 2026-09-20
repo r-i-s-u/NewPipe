@@ -1,5 +1,6 @@
 package org.schabi.newpipe.fragments.detail;
 
+import org.schabi.newpipe.player.event.OnKeyDownListener;
 import static android.text.TextUtils.isEmpty;
 import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.COMMENTS;
 import static org.schabi.newpipe.extractor.stream.StreamExtractor.NO_AGE_LIMIT;
@@ -87,9 +88,6 @@ import org.schabi.newpipe.ktx.AnimationType;
 import org.schabi.newpipe.local.dialog.PlaylistDialog;
 import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
-import org.schabi.newpipe.player.PlayerIntentType;
-import org.schabi.newpipe.player.PlayerType;
-import org.schabi.newpipe.player.event.OnKeyDownListener;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.player.playqueue.SinglePlayQueue;

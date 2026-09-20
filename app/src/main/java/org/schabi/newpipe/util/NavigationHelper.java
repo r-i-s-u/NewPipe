@@ -56,9 +56,6 @@ import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionsImportFragment;
-import org.schabi.newpipe.player.PlayerIntentType;
-import org.schabi.newpipe.player.PlayerType;
-import org.schabi.newpipe.player.TimestampChangeData;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.settings.SettingsActivity;
@@ -69,7 +66,7 @@ import java.util.Optional;
 
 public final class NavigationHelper {
     public static Intent getPlayerTimestampIntent(final Context context, final Object data) {
-        return new Intent();
+        return new Intent(context, org.schabi.newpipe.MainActivity.class);
     }
     public static final String MAIN_FRAGMENT_TAG = "main_fragment_tag";
     public static final String SEARCH_FRAGMENT_TAG = "search_fragment_tag";
@@ -118,7 +115,7 @@ public final class NavigationHelper {
     /* ENQUEUE */
     public static void enqueueOnPlayer(final Context context,
                                        final PlayQueue queue,
-                                       final PlayerType playerType) {
+                                       final Object playerType) {
     }
 
     public static void enqueueOnPlayer(final Context context, final PlayQueue queue) {
@@ -326,7 +323,7 @@ public final class NavigationHelper {
                                                final boolean switchingPlayers) {
 
         final boolean autoPlay = false;
-        @Nullable final PlayerType playerType = null;
+        final Object playerType = null;
 
         final RunnableWithVideoDetailFragment onVideoDetailFragmentReady = detailFragment -> {
             expandMainPlayer(detailFragment.requireActivity());
@@ -337,7 +334,7 @@ public final class NavigationHelper {
                 // Starting directly in fullscreen if the previous player type was popup.
                 detailFragment.openVideoPlayer(false);
             } else {
-                if (switchingPlayers && playerType == PlayerType.POPUP) {
+                if (false) {
                     detailFragment.setForceFullscreen(true);
                 }
                 detailFragment.selectAndLoadVideo(serviceId, url, title, playQueue);

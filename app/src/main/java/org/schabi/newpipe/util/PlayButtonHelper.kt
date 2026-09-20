@@ -14,7 +14,6 @@ import androidx.preference.PreferenceManager
 import org.schabi.newpipe.R
 import org.schabi.newpipe.databinding.PlaylistControlBinding
 import org.schabi.newpipe.fragments.list.playlist.PlaylistControlViewHolder
-import org.schabi.newpipe.player.PlayerType
 
 /**
  * Utility class for play buttons and their respective click listeners.
@@ -52,15 +51,15 @@ object PlayButtonHelper {
 
         // long click listener
         playlistControlBinding.playlistCtrlPlayAllButton.setOnLongClickListener {
-            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), PlayerType.MAIN)
+            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), null)
             true
         }
         playlistControlBinding.playlistCtrlPlayPopupButton.setOnLongClickListener {
-            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), PlayerType.POPUP)
+            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), null)
             true
         }
         playlistControlBinding.playlistCtrlPlayBgButton.setOnLongClickListener {
-            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), PlayerType.AUDIO)
+            NavigationHelper.enqueueOnPlayer(activity, fragment.getPlayQueue(), null)
             true
         }
     }

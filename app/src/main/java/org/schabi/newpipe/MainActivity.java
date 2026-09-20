@@ -20,6 +20,7 @@
 
 package org.schabi.newpipe;
 
+import org.schabi.newpipe.player.event.OnKeyDownListener;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -77,7 +78,6 @@ import org.schabi.newpipe.fragments.detail.VideoDetailFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
 import org.schabi.newpipe.local.feed.notifications.NotificationWorker;
-import org.schabi.newpipe.player.event.OnKeyDownListener;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;

@@ -1,5 +1,6 @@
 package us.shandian.giga.service;
 
+import org.schabi.newpipe.player.helper.LockManager;
 import static org.schabi.newpipe.BuildConfig.APPLICATION_ID;
 import static org.schabi.newpipe.BuildConfig.DEBUG;
 
@@ -41,7 +42,6 @@ import androidx.preference.PreferenceManager;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
-import org.schabi.newpipe.player.helper.LockManager;
 import org.schabi.newpipe.streams.io.StoredDirectoryHelper;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
 import org.schabi.newpipe.util.Localization;

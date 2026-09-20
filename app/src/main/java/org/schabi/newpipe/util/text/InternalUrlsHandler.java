@@ -10,7 +10,6 @@ import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.LinkHandlerFactory;
-import org.schabi.newpipe.player.TimestampChangeData;
 import org.schabi.newpipe.util.NavigationHelper;
 
 import java.util.regex.Matcher;
@@ -91,7 +90,7 @@ public final class InternalUrlsHandler {
         }
 
         final Intent intent = NavigationHelper.getPlayerTimestampIntent(context,
-                new TimestampChangeData(
+                java.util.Arrays.asList(
                         service.getServiceId(),
                         cleanUrl,
                         seconds
