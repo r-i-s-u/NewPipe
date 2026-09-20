@@ -54,3 +54,5 @@
 }
 
 # See https://github.com/TeamNewPipe/NewPipe/issues/13508
+
+-dontwarn org.mozilla.**
