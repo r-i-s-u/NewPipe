@@ -299,3 +299,7 @@ dependencies {
     implementation(libs.ocpsoft.prettytime)
 
 }
+
+configurations.all {
+    exclude(group = "org.mozilla", module = "rhino")
+}
