@@ -65,8 +65,8 @@ public class CustomBottomSheetBehavior extends BottomSheetBehavior<FrameLayout> 
                             && globalRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                         // Makes bottom part of the player draggable in portrait when
                         // playbackControlRoot is hidden
-                        if (element == R.id.bottomControls
-                                && child.findViewById(R.id.playbackControlRoot)
+                        if (element == 0
+                                && child.findViewById(0)
                                 .getVisibility() != View.VISIBLE) {
                             return super.onInterceptTouchEvent(parent, child, event);
                         }

@@ -68,6 +68,9 @@ import java.util.List;
 import java.util.Optional;
 
 public final class NavigationHelper {
+    public static Intent getPlayerTimestampIntent(final Context context, final Object data) {
+        return new Intent();
+    }
     public static final String MAIN_FRAGMENT_TAG = "main_fragment_tag";
     public static final String SEARCH_FRAGMENT_TAG = "search_fragment_tag";
 

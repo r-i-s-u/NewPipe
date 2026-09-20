@@ -96,7 +96,7 @@ public final class FocusAwareCoordinator extends CoordinatorLayout {
     public WindowInsets onApplyWindowInsets(final WindowInsets windowInsets) {
         final var windowInsetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, this);
         final var insets = windowInsetsCompat.getInsets(WindowInsetsCompat.Type.systemBars());
-        final ViewGroup controls = findViewById(R.id.playbackControlRoot);
+        final ViewGroup controls = findViewById(0);
         if (controls != null) {
             controls.setPadding(insets.left, insets.top, insets.right, insets.bottom);
         }
