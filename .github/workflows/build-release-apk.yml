@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: 'patch-1'
+          ref: 'p2'
 
       - uses: actions/setup-java@v5
         with:
