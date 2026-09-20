@@ -49,7 +49,6 @@ navigation3 = "1.1.1"
 okhttp = "5.5.0"
 phoenix = "3.0.0"
 preference = "1.2.1"
-prettytime = "5.0.8.Final"
 recyclerview = "1.4.0"
 room = "2.8.4"
 runner = "1.7.0"
@@ -145,7 +144,6 @@ newpipe-filepicker = { module = "com.github.TeamNewPipe:NoNonsense-FilePicker", 
 newpipe-nanojson = { module = "com.github.TeamNewPipe:nanojson", version.ref = "teamnewpipe-nanojson" }
 noties-markwon-core = { module = "io.noties.markwon:core", version.ref = "markwon" }
 noties-markwon-linkify = { module = "io.noties.markwon:linkify", version.ref = "markwon" }
-ocpsoft-prettytime = { module = "org.ocpsoft.prettytime:prettytime", version.ref = "prettytime" }
 pinterest-ktlint = { module = "com.pinterest.ktlint:ktlint-cli", version.ref = "ktlint" }
 puppycrawl-checkstyle = { module = "com.puppycrawl.tools:checkstyle", version.ref = "checkstyle" }
 reactivex-rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }

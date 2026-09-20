@@ -22,8 +22,6 @@ import androidx.core.math.MathUtils;
 import androidx.core.os.LocaleListCompat;
 import androidx.preference.PreferenceManager;
 
-import org.ocpsoft.prettytime.PrettyTime;
-import org.ocpsoft.prettytime.units.Decade;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.ListExtractor;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
@@ -67,7 +65,6 @@ import java.util.stream.Collectors;
 public final class Localization {
     private static final String TAG = Localization.class.toString();
     public static final String DOT_SEPARATOR = " • ";
-    private static PrettyTime prettyTime;
 
     private Localization() { }
 
@@ -369,18 +366,16 @@ public final class Localization {
     // Pretty Time
     //////////////////////////////////////////////////////////////////////////*/
 
-    public static void initPrettyTime(@NonNull final PrettyTime time) {
-        prettyTime = time;
+    public static void initPrettyTime(final Object time) {
         // Do not use decades as YouTube doesn't either.
-        prettyTime.removeUnit(Decade.class);
     }
 
-    public static PrettyTime resolvePrettyTime() {
-        return new PrettyTime(getAppLocale());
+    public static Object resolvePrettyTime() {
+        return null;
     }
 
     public static String relativeTime(@NonNull final OffsetDateTime offsetDateTime) {
-        return prettyTime.formatUnrounded(offsetDateTime);
+        return android.text.format.DateUtils.getRelativeTimeSpanString(offsetDateTime.toInstant().toEpochMilli(), System.currentTimeMillis(), android.text.format.DateUtils.MINUTE_IN_MILLIS).toString();
     }
 
     /**

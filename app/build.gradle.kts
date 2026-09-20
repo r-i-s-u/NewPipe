@@ -296,10 +296,9 @@ dependencies {
     implementation(libs.jakewharton.rxbinding)
 
     // Date and time formatting
-    implementation(libs.ocpsoft.prettytime)
 
 }
 
 configurations.all {
-    exclude(group = "org.mozilla", module = "rhino")
+    exclude(group = "org.mozilla")
 }
