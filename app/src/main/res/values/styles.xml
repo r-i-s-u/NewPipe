@@ -53,19 +53,6 @@
         <item name="colorAccent">@color/dark_youtube_accent_color</item>
         <item name="android:windowBackground">@color/dark_background_color</item>
         <item name="windowBackground">@color/dark_background_color</item>
-
-        <item name="separator_color">@color/dark_separator_color</item>
-        <item name="contrast_background_color">@color/dark_contrast_background_color</item>
-        <item name="checked_selector">@drawable/selector_checked_dark</item>
-        <item name="focused_selector">@drawable/selector_focused_dark</item>
-        <item name="toolbar_shadow">@drawable/toolbar_shadow_dark</item>
-        <item name="selector">@drawable/selector_dark</item>
-        <item name="colorControlHighlight">@color/dark_ripple_color</item>
-        <item name="progress_horizontal_drawable">@drawable/progress_youtube_horizontal_dark</item>
-        <item name="card_item_background_color">@color/dark_card_item_background_color</item>
-        <item name="card_item_contrast_color">@color/dark_card_item_contrast_color</item>
-        <item name="border_color">@color/dark_border_color</item>
-        <item name="dashed_border">@drawable/dashed_border_dark</item>
     </style>
     <style name="Base.DarkTheme" parent="Base.V21.DarkTheme" />
     <style name="DarkTheme" parent="Base.DarkTheme"/>
