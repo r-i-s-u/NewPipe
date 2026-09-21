@@ -22,7 +22,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:shapeAppearance="@style/CircularImageView"
-            tools:src="@drawable/placeholder_person" />
+            tools:src="@null" />
 
         <org.schabi.newpipe.views.NewPipeTextView
             android:id="@+id/title_view"

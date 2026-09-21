@@ -16,7 +16,7 @@
         android:layout_height="@dimen/channel_item_card_thumbnail_image_size"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/detail_uploader_thumbnail_view_description"
-        android:src="@drawable/placeholder_person"
+        android:src="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/CircularImageView"

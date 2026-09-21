@@ -10,7 +10,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:background="?attr/toolbar_shadow" />
+        android:background="@null" />
 
     <LinearLayout
         android:id="@+id/empty_state_view"
