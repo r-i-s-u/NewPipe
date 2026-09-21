@@ -49,8 +49,6 @@ import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
-import org.schabi.newpipe.local.bookmark.BookmarkFragment;
-import org.schabi.newpipe.local.feed.FeedFragment;
 import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
@@ -409,17 +407,9 @@ public final class NavigationHelper {
 
     public static void openFeedFragment(final FragmentManager fragmentManager, final long groupId,
                                         @Nullable final String groupName) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, FeedFragment.newInstance(groupId, groupName))
-                .addToBackStack(null)
-                .commit();
     }
 
     public static void openBookmarksFragment(final FragmentManager fragmentManager) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, new BookmarkFragment())
-                .addToBackStack(null)
-                .commit();
     }
 
     public static void openSubscriptionFragment(final FragmentManager fragmentManager) {

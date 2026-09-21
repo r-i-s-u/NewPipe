@@ -76,7 +76,6 @@ import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
-import org.schabi.newpipe.local.feed.notifications.NotificationWorker;
 import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;
@@ -189,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                 PermissionHelper.POST_NOTIFICATIONS_REQUEST_CODE)) {
             // Schedule worker for checking for new streams and creating corresponding notifications
             // if this is enabled by the user.
-            NotificationWorker.initialize(this);
         }
         if (!UpdateSettingsFragment.wasUserAskedForConsent(this)
                 && !App.getInstance().isFirstRun()
@@ -665,7 +663,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case PermissionHelper.POST_NOTIFICATIONS_REQUEST_CODE:
-                NotificationWorker.initialize(this);
                 break;
         }
     }

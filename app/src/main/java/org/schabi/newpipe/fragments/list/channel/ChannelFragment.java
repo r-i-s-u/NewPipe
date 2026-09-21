@@ -43,7 +43,6 @@ import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.fragments.BaseStateFragment;
 import org.schabi.newpipe.fragments.detail.TabAdapter;
 import org.schabi.newpipe.ktx.AnimationType;
-import org.schabi.newpipe.local.feed.notifications.NotificationHelper;
 import org.schabi.newpipe.local.subscription.SubscriptionManager;
 import org.schabi.newpipe.util.ChannelTabHelper;
 import org.schabi.newpipe.util.Constants;
@@ -274,7 +273,7 @@ public class ChannelFragment extends BaseStateFragment<ChannelInfo>
                 .map(List::isEmpty)
                 .distinctUntilChanged()
                 .skip(1) // channel has just been opened
-                .filter(x -> NotificationHelper.areNewStreamsNotificationsEnabled(requireContext()))
+                .filter(x -> false)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(isEmpty -> {
                     if (!isEmpty) {
@@ -421,7 +420,7 @@ public class ChannelFragment extends BaseStateFragment<ChannelInfo>
         }
         if (subscription != null) {
             menuNotifyButton.setEnabled(
-                    NotificationHelper.areNewStreamsNotificationsEnabled(requireContext())
+                    false
             );
             menuNotifyButton.setChecked(
                     subscription.getNotificationMode() == NotificationMode.ENABLED

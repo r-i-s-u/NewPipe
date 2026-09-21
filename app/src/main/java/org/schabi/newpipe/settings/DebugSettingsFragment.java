@@ -9,7 +9,6 @@ import org.schabi.newpipe.R;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
-import org.schabi.newpipe.local.feed.notifications.NotificationWorker;
 
 import java.util.Optional;
 
@@ -52,7 +51,6 @@ public class DebugSettingsFragment extends BasePreferenceFragment {
         }
 
         checkNewStreamsPreference.setOnPreferenceClickListener(preference -> {
-            NotificationWorker.runNow(preference.getContext());
             return true;
         });
 

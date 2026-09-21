@@ -23,8 +23,6 @@ import org.schabi.newpipe.fragments.list.channel.ChannelFragment;
 import org.schabi.newpipe.fragments.list.kiosk.DefaultKioskFragment;
 import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistFragment;
-import org.schabi.newpipe.local.bookmark.BookmarkFragment;
-import org.schabi.newpipe.local.feed.FeedFragment;
 import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
@@ -255,8 +253,8 @@ public abstract class Tab {
         }
 
         @Override
-        public FeedFragment getFragment(final Context context) {
-            return new FeedFragment();
+        public Fragment getFragment(final Context context) {
+            return new Fragment();
         }
     }
 
@@ -280,8 +278,8 @@ public abstract class Tab {
         }
 
         @Override
-        public BookmarkFragment getFragment(final Context context) {
-            return new BookmarkFragment();
+        public Fragment getFragment(final Context context) {
+            return new Fragment();
         }
     }
 
@@ -697,8 +695,8 @@ public abstract class Tab {
         }
 
         @Override
-        public FeedFragment getFragment(final Context context) {
-            return FeedFragment.newInstance(feedGroupId, feedGroupName);
+        public Fragment getFragment(final Context context) {
+            return new Fragment();
         }
 
         @Override
