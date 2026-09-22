@@ -14,7 +14,6 @@ import org.schabi.newpipe.extractor.localization.DateWrapper
 import org.schabi.newpipe.extractor.stream.StreamInfo
 import org.schabi.newpipe.extractor.stream.StreamInfoItem
 import org.schabi.newpipe.extractor.stream.StreamType
-import org.schabi.newpipe.player.playqueue.PlayQueueItem
 import org.schabi.newpipe.util.image.ImageStrategy
 
 @Entity(
@@ -82,18 +81,6 @@ data class StreamEntity(
         thumbnailUrl = ImageStrategy.imageListToDbUrl(info.thumbnails), viewCount = info.viewCount,
         textualUploadDate = info.textualUploadDate, uploadDate = info.uploadDate?.offsetDateTime(),
         isUploadDateApproximation = info.uploadDate?.isApproximation
-    )
-
-    @Ignore
-    constructor(item: PlayQueueItem) : this(
-        serviceId = item.serviceId,
-        url = item.url,
-        title = item.title,
-        streamType = item.streamType,
-        duration = item.duration,
-        uploader = item.uploader,
-        uploaderUrl = item.uploaderUrl,
-        thumbnailUrl = ImageStrategy.imageListToDbUrl(item.thumbnails)
     )
 
     fun toStreamInfoItem(): StreamInfoItem {
