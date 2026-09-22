@@ -85,8 +85,7 @@ public class DownloadActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(final MenuItem item) {
         final int id = item.getItemId();
         if (id == R.id.download_settings) {
-            startActivity(new android.content.Intent(this, org.schabi.newpipe.settings.SettingsActivity.class)
-                    .putExtra("newpipe_settings_fragment", "org.schabi.newpipe.settings.DownloadSettingsFragment"));
+            startActivity(new android.content.Intent(this, org.schabi.newpipe.settings.DownloadSettingsActivity.class));
             return true;
         } else if (id == android.R.id.home) {
             onBackPressed();

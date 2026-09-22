@@ -73,6 +73,11 @@
             android:exported="false"
             android:label="@string/settings" />
 
+        <activity
+            android:name=".settings.DownloadSettingsActivity"
+            android:exported="false"
+            android:label="@string/settings" />
+
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="dataSync"
