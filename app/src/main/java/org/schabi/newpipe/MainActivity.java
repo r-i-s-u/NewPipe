@@ -76,7 +76,6 @@ import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
 import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
-import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;
 import org.schabi.newpipe.util.Constants;
@@ -814,12 +813,7 @@ public class MainActivity extends AppCompatActivity {
                 assert linkType != null;
                 switch (linkType) {
                     case STREAM:
-                        final String intentCacheKey = intent.getStringExtra(
-                                "play_queue_key");
-                        final PlayQueue playQueue = intentCacheKey != null
-                                ? SerializedCache.getInstance()
-                                .take(intentCacheKey, PlayQueue.class)
-                                : null;
+                        final Object playQueue = null;
 
                         final boolean switchingPlayers = intent.getBooleanExtra(
                                 "switching_players", false);

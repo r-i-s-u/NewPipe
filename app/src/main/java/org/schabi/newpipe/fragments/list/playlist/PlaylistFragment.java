@@ -45,8 +45,6 @@ import org.schabi.newpipe.info_list.dialog.InfoItemDialog;
 import org.schabi.newpipe.info_list.dialog.StreamDialogDefaultEntry;
 import org.schabi.newpipe.local.dialog.PlaylistDialog;
 import org.schabi.newpipe.local.playlist.RemotePlaylistManager;
-import org.schabi.newpipe.player.playqueue.PlayQueue;
-import org.schabi.newpipe.player.playqueue.PlaylistPlayQueue;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -141,7 +139,7 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
         infoListAdapter.setUseMiniVariant(true);
     }
 
-    private PlayQueue getPlayQueueStartingAt(final StreamInfoItem infoItem) {
+    private Object getPlayQueueStartingAt(final StreamInfoItem infoItem) {
         return getPlayQueue(Math.max(infoListAdapter.getItemsList().indexOf(infoItem), 0));
     }
 
@@ -360,24 +358,12 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
         PlayButtonHelper.initPlaylistControlClickListener(activity, playlistControlBinding, this);
     }
 
-    public PlayQueue getPlayQueue() {
+    public Object getPlayQueue() {
         return getPlayQueue(0);
     }
 
-    private PlayQueue getPlayQueue(final int index) {
-        final List<StreamInfoItem> infoItems = new ArrayList<>();
-        for (final InfoItem i : infoListAdapter.getItemsList()) {
-            if (i instanceof StreamInfoItem) {
-                infoItems.add((StreamInfoItem) i);
-            }
-        }
-        return new PlaylistPlayQueue(
-                currentInfo.getServiceId(),
-                currentInfo.getUrl(),
-                currentInfo.getNextPage(),
-                infoItems,
-                index
-        );
+    private Object getPlayQueue(final int index) {
+        return null;
     }
 
     /*//////////////////////////////////////////////////////////////////////////
