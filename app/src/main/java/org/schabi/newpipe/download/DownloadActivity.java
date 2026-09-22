@@ -83,16 +83,17 @@ public class DownloadActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.download_settings:
-                startActivity(new android.content.Intent(this, org.schabi.newpipe.settings.SettingsActivity.class)
-                        .putExtra("newpipe_settings_fragment", "org.schabi.newpipe.settings.DownloadSettingsFragment"));
-                return true;
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        final int id = item.getItemId();
+        if (id == R.id.download_settings) {
+            startActivity(new android.content.Intent(this, org.schabi.newpipe.settings.SettingsActivity.class)
+                    .putExtra("newpipe_settings_fragment", "org.schabi.newpipe.settings.DownloadSettingsFragment"));
+            return true;
+        } else if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
         }
     }
 }
