@@ -55,12 +55,7 @@ public final class QueueItemMenuUtil {
             } else if (itemId == R.id.menu_item_append_playlist) {
                 PlaylistDialog.createCorrespondingDialog(
                         context,
-                        List.of(new StreamEntity(
-                                item.getServiceId(), item.getUrl(), item.getTitle(),
-                                item.getStreamType(), item.getDuration(), item.getUploader(),
-                                item.getUploaderUrl(),
-                                org.schabi.newpipe.util.image.ImageStrategy.imageListToDbUrl(
-                                        item.getThumbnails()))),
+                        List.of(new StreamEntity(item)),
                         dialog -> dialog.show(
                                 fragmentManager,
                                 "QueueItemMenuUtil@append_playlist"
