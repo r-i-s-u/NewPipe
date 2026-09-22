@@ -72,6 +72,11 @@ public class SettingsActivity extends AppCompatActivity implements
         Bridge.restoreInstanceState(this, savedInstanceBundle);
         final boolean restored = savedInstanceBundle != null;
 
+        final String forcedFragment = getIntent().getStringExtra("newpipe_settings_fragment");
+        if (forcedFragment != null) {
+            showSettingsFragment(instantiateFragment(forcedFragment));
+        }
+
         final SettingsLayoutBinding settingsLayoutBinding =
                 SettingsLayoutBinding.inflate(getLayoutInflater());
         setContentView(settingsLayoutBinding.getRoot());
