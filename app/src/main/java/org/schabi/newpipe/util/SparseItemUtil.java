@@ -16,6 +16,7 @@ import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
+import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 
 import java.util.function.Consumer;
 
@@ -45,7 +46,18 @@ public final class SparseItemUtil {
      */
     public static void fetchItemInfoIfSparse(@NonNull final Context context,
                                              @NonNull final StreamInfoItem item,
-                                             @NonNull final Consumer<Object> callback) {
+                                             @NonNull final Consumer<SinglePlayQueue> callback) {
+        if ((StreamTypeUtil.isLiveStream(item.getStreamType()) || item.getDuration() >= 0)
+                && !isNullOrEmpty(item.getUploaderUrl())) {
+            // if the duration is >= 0 (provided that the item is not a livestream) and there is an
+            // uploader url, probably all info is already there, so there is no need to fetch it
+            callback.accept(new SinglePlayQueue(item));
+            return;
+        }
+
+        // either the duration or the uploader url are not available, so fetch more info
+        fetchStreamInfoAndSaveToDatabase(context, item.getServiceId(), item.getUrl(),
+                streamInfo -> callback.accept(new SinglePlayQueue(streamInfo)));
     }
 
     /**

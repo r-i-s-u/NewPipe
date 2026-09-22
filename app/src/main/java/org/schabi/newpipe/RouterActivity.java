@@ -63,6 +63,10 @@ import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.local.dialog.PlaylistDialog;
+import org.schabi.newpipe.player.playqueue.ChannelTabPlayQueue;
+import org.schabi.newpipe.player.playqueue.PlayQueue;
+import org.schabi.newpipe.player.playqueue.PlaylistPlayQueue;
+import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 import org.schabi.newpipe.util.ChannelTabHelper;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.DeviceUtils;
@@ -981,7 +985,7 @@ public class RouterActivity extends AppCompatActivity {
                 final boolean isExtAudioEnabled = preferences.getBoolean(
                         getString(R.string.use_external_audio_player_key), false);
 
-                final Object playQueue = null;
+                final PlayQueue playQueue;
                 if (info instanceof StreamInfo) {
                     if (choice.playerChoice.equals(backgroundPlayerKey) && isExtAudioEnabled) {
                         NavigationHelper.playOnExternalAudioPlayer(this, (StreamInfo) info);
@@ -990,16 +994,21 @@ public class RouterActivity extends AppCompatActivity {
                         NavigationHelper.playOnExternalVideoPlayer(this, (StreamInfo) info);
                         return;
                     }
+                    playQueue = new SinglePlayQueue((StreamInfo) info);
                 } else if (info instanceof ChannelInfo) {
                     final Optional<ListLinkHandler> playableTab = ((ChannelInfo) info).getTabs()
                             .stream()
                             .filter(ChannelTabHelper::isStreamsTab)
                             .findFirst();
 
-                    if (!playableTab.isPresent()) {
+                    if (playableTab.isPresent()) {
+                        playQueue = new ChannelTabPlayQueue(info.getServiceId(), playableTab.get());
+                    } else {
                         return; // there is no playable tab
                     }
-                } else if (!(info instanceof PlaylistInfo)) {
+                } else if (info instanceof PlaylistInfo) {
+                    playQueue = new PlaylistPlayQueue((PlaylistInfo) info);
+                } else {
                     return;
                 }
 

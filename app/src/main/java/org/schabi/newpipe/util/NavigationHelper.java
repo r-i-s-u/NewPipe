@@ -53,6 +53,8 @@ import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionsImportFragment;
+import org.schabi.newpipe.player.playqueue.PlayQueue;
+import org.schabi.newpipe.player.playqueue.PlayQueueItem;
 import org.schabi.newpipe.settings.SettingsActivity;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
 
@@ -77,35 +79,47 @@ public final class NavigationHelper {
     /* INTENT */
     /* PLAY */
     public static void playOnMainPlayer(final AppCompatActivity activity,
-                                        @NonNull final Object playQueue) {
+                                        @NonNull final PlayQueue playQueue) {
+        final PlayQueueItem item = playQueue.getItem();
+        if (item != null) {
+            openVideoDetailFragment(activity, activity.getSupportFragmentManager(),
+                    item.getServiceId(), item.getUrl(), item.getTitle(), playQueue,
+                    false);
+        }
     }
 
     public static void playOnMainPlayer(final Context context,
-                                        @NonNull final Object playQueue,
+                                        @NonNull final PlayQueue playQueue,
                                         final boolean switchingPlayers) {
+        final PlayQueueItem item = playQueue.getItem();
+        if (item != null) {
+            openVideoDetail(context,
+                    item.getServiceId(), item.getUrl(), item.getTitle(), playQueue,
+                    switchingPlayers);
+        }
     }
 
     public static void playOnPopupPlayer(final Context context,
-                                         final Object queue,
+                                         final PlayQueue queue,
                                          final boolean resumePlayback) {
     }
 
     public static void playOnBackgroundPlayer(final Context context,
-                                              final Object queue,
+                                              final PlayQueue queue,
                                               final boolean resumePlayback) {
     }
 
     /* ENQUEUE */
     public static void enqueueOnPlayer(final Context context,
-                                       final Object queue,
+                                       final PlayQueue queue,
                                        final Object playerType) {
     }
 
-    public static void enqueueOnPlayer(final Context context, final Object queue) {
+    public static void enqueueOnPlayer(final Context context, final PlayQueue queue) {
     }
 
     /* ENQUEUE NEXT */
-    public static void enqueueNextOnPlayer(final Context context, final Object queue) {
+    public static void enqueueNextOnPlayer(final Context context, final PlayQueue queue) {
     }
 
     /*//////////////////////////////////////////////////////////////////////////
@@ -291,7 +305,7 @@ public final class NavigationHelper {
                                                final int serviceId,
                                                @Nullable final String url,
                                                @NonNull final String title,
-                                               @Nullable final Object playQueue,
+                                               @Nullable final PlayQueue playQueue,
                                                final boolean switchingPlayers) {
     }
 
@@ -454,11 +468,18 @@ public final class NavigationHelper {
                                        final int serviceId,
                                        final String url,
                                        @NonNull final String title,
-                                       @Nullable final Object playQueue,
+                                       @Nullable final PlayQueue playQueue,
                                        final boolean switchingPlayers) {
 
         final Intent intent = getStreamIntent(context, serviceId, url, title)
                 .putExtra("switching_players", switchingPlayers);
+
+        if (playQueue != null) {
+            final String cacheKey = SerializedCache.getInstance().put(playQueue, PlayQueue.class);
+            if (cacheKey != null) {
+                intent.putExtra("play_queue_key", cacheKey);
+            }
+        }
         context.startActivity(intent);
     }
 

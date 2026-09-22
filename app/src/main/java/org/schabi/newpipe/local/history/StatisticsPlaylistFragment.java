@@ -32,6 +32,8 @@ import org.schabi.newpipe.fragments.list.playlist.PlaylistControlViewHolder;
 import org.schabi.newpipe.info_list.dialog.InfoItemDialog;
 import org.schabi.newpipe.info_list.dialog.StreamDialogDefaultEntry;
 import org.schabi.newpipe.local.BaseLocalListFragment;
+import org.schabi.newpipe.player.playqueue.PlayQueue;
+import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 import org.schabi.newpipe.settings.HistorySettingsFragment;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
@@ -311,7 +313,7 @@ public class StatisticsPlaylistFragment
         startLoading(true);
     }
 
-    private Object getPlayQueueStartingAt(final StreamStatisticsEntry infoItem) {
+    private PlayQueue getPlayQueueStartingAt(final StreamStatisticsEntry infoItem) {
         return getPlayQueue(Math.max(itemListAdapter.getItemsList().indexOf(infoItem), 0));
     }
 
@@ -363,12 +365,23 @@ public class StatisticsPlaylistFragment
     }
 
     @Override
-    public Object getPlayQueue() {
+    public PlayQueue getPlayQueue() {
         return getPlayQueue(0);
     }
 
-    private Object getPlayQueue(final int index) {
-        return null;
+    private PlayQueue getPlayQueue(final int index) {
+        if (itemListAdapter == null) {
+            return new SinglePlayQueue(Collections.emptyList(), 0);
+        }
+
+        final List<LocalItem> infoItems = itemListAdapter.getItemsList();
+        final List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
+        for (final LocalItem item : infoItems) {
+            if (item instanceof StreamStatisticsEntry) {
+                streamInfoItems.add(((StreamStatisticsEntry) item).toStreamInfoItem());
+            }
+        }
+        return new SinglePlayQueue(streamInfoItems, index);
     }
 
     private enum StatisticSortMode {
