@@ -23,7 +23,7 @@
             android:layout_marginRight="12dp"
             tools:ignore="ContentDescription,RtlHardcoded" />
 
-        <org.schabi.newpipe.views.NewPipeTextView
+        <TextView
             android:id="@+id/sortButtonText"
             android:layout_width="match_parent"
             android:layout_height="50dp"

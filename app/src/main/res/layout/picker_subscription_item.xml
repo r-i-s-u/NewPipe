@@ -24,7 +24,7 @@
             app:shapeAppearance="@style/CircularImageView"
             tools:src="@null" />
 
-        <org.schabi.newpipe.views.NewPipeTextView
+        <TextView
             android:id="@+id/title_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

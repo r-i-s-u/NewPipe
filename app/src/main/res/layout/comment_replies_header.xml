@@ -18,7 +18,7 @@
         app:shapeAppearance="@style/CircularImageView"
         tools:ignore="RtlHardcoded" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/authorName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@tools:sample/lorem/random" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/uploadDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toStartOf="@+id/thumbsUpCount"
         app:layout_constraintTop_toTopOf="@+id/authorName" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/thumbsUpCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/authorName" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/commentContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

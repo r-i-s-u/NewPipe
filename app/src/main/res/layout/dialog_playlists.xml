@@ -22,7 +22,7 @@
             
             tools:ignore="ContentDescription,RtlHardcoded" />
 
-        <org.schabi.newpipe.views.NewPipeTextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_toRightOf="@+id/newPlaylistIcon"
@@ -34,7 +34,7 @@
             tools:ignore="RtlHardcoded" />
     </RelativeLayout>
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/playlist_duplicate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

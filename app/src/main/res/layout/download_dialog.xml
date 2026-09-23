@@ -8,7 +8,7 @@
         android:id="@+id/toolbar_layout"
         layout="@layout/toolbar_layout" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/file_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         android:minWidth="150dp"
         tools:visibility="gone" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/audio_track_present_in_video_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
         android:text="@string/audio_track_present_in_video"
         android:textSize="12sp" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/threads_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
         android:layout_marginBottom="12dp"
         android:orientation="horizontal">
 
-        <org.schabi.newpipe.views.NewPipeTextView
+        <TextView
             android:id="@+id/threads_count"
             android:layout_width="25dp"
             android:layout_height="match_parent"
@@ -156,7 +156,7 @@
             android:progress="3" />
     </LinearLayout>
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/threads_layout"

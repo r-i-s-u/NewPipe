@@ -21,7 +21,7 @@
         
         tools:ignore="RtlHardcoded" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/itemDurationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         tools:text="1:09:10" />
 
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/itemVideoTitleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         
         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique vitae sem vitae blanditLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum" />
 
-    <org.schabi.newpipe.views.NewPipeTextView
+    <TextView
         android:id="@+id/itemUploaderView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
