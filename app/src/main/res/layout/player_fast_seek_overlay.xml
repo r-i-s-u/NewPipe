@@ -5,23 +5,3 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.schabi.newpipe.views.player.CircleClipTapView
-        android:id="@+id/circle_clip_tap_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="false"
-        android:focusable="false" />
-
-    <org.schabi.newpipe.views.player.SecondsView
-        android:id="@+id/seconds_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:focusable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="percent"
-        app:layout_constraintWidth_percent="0.5" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
