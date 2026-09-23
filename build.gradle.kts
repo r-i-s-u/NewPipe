@@ -15,13 +15,8 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.android.legacy.kapt) apply false
     alias(libs.plugins.google.ksp) apply false
-    alias(libs.plugins.jetbrains.kotlin.compose) apply false
-    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
-    alias(libs.plugins.jetbrains.kotlin.multiplatform) apply false
-    alias(libs.plugins.jetbrains.compose.multiplatform) apply false
     alias(libs.plugins.jetbrains.kotlin.parcelize) apply false
     alias(libs.plugins.jetbrains.kotlinx.serialization) apply false
     alias(libs.plugins.sonarqube) apply false
-    alias(libs.plugins.koin) apply false
     alias(libs.plugins.about.libraries) apply false
 }
