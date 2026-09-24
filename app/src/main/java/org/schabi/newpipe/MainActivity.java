@@ -572,15 +572,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(final int keyCode, final KeyEvent event) {
-        final Fragment fragment = getSupportFragmentManager()
-                .findFragmentById(R.id.fragment_player_holder);
-        if (fragment instanceof OnKeyDownListener
-                && !bottomSheetHiddenOrCollapsed()) {
-            // Provide keyDown event to fragment which then sends this event
-            // to the main player service
-            return ((OnKeyDownListener) fragment).onKeyDown(keyCode)
-                    || super.onKeyDown(keyCode, event);
-        }
         return super.onKeyDown(keyCode, event);
     }
 
