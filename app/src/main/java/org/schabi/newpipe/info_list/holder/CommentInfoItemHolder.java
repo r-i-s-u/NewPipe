@@ -174,3 +174,5 @@ public class CommentInfoItemHolder extends InfoItemHolder {
         NavigationHelper.openCommentAuthorIfPresent((FragmentActivity) itemBuilder.getContext(),
                 item);
     }
+
+}
