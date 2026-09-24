@@ -236,18 +236,6 @@ public class PlaylistFragment extends BaseListInfoFragment<StreamInfoItem, Playl
                     currentInfo == null ? List.of() : currentInfo.getThumbnails());
         } else if (itemId == R.id.menu_item_bookmark) {
             onBookmarkClicked();
-        } else if (itemId == R.id.menu_item_append_playlist) {
-            if (currentInfo != null) {
-                disposables.add(PlaylistDialog.createCorrespondingDialog(
-                        getContext(),
-                        getPlayQueue()
-                                .getStreams()
-                                .stream()
-                                .map(StreamEntity::new)
-                                .collect(Collectors.toList()),
-                        dialog -> dialog.show(getFM(), TAG)
-                ));
-            }
         } else {
             return super.onOptionsItemSelected(item);
         }
