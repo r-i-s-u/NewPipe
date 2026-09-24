@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             app:behavior_hideable="true"
-            app:behavior_peekHeight="0dp"
+            app:behavior_peekHeight="0dp" />
 
     </org.schabi.newpipe.views.FocusAwareCoordinator>
 
