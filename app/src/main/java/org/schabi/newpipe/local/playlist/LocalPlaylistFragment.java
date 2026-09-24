@@ -54,8 +54,6 @@ import org.schabi.newpipe.fragments.list.playlist.PlaylistControlViewHolder;
 import org.schabi.newpipe.info_list.dialog.InfoItemDialog;
 import org.schabi.newpipe.info_list.dialog.StreamDialogDefaultEntry;
 import org.schabi.newpipe.local.BaseLocalListFragment;
-import org.schabi.newpipe.player.playqueue.PlayQueue;
-import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
@@ -693,7 +691,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     // Utils
     //////////////////////////////////////////////////////////////////////////*/
 
-    private PlayQueue getPlayQueueStartingAt(final PlaylistStreamEntry infoItem) {
+    private Object getPlayQueueStartingAt(final PlaylistStreamEntry infoItem) {
         return getPlayQueue(Math.max(itemListAdapter.getItemsList().indexOf(infoItem), 0));
     }
 
@@ -757,23 +755,12 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
     }
 
     @Override
-    public PlayQueue getPlayQueue() {
+    public Object getPlayQueue() {
         return getPlayQueue(0);
     }
 
-    private PlayQueue getPlayQueue(final int index) {
-        if (itemListAdapter == null) {
-            return new SinglePlayQueue(Collections.emptyList(), 0);
-        }
-
-        final List<LocalItem> infoItems = itemListAdapter.getItemsList();
-        final List<StreamInfoItem> streamInfoItems = new ArrayList<>(infoItems.size());
-        for (final LocalItem item : infoItems) {
-            if (item instanceof PlaylistStreamEntry) {
-                streamInfoItems.add(((PlaylistStreamEntry) item).toStreamInfoItem());
-            }
-        }
-        return new SinglePlayQueue(streamInfoItems, index);
+    private Object getPlayQueue(final int index) {
+        return null;
     }
 
     /**

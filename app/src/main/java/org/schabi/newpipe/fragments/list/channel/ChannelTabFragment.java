@@ -24,8 +24,6 @@ import org.schabi.newpipe.extractor.linkhandler.ReadyChannelTabListLinkHandler;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.fragments.list.BaseListInfoFragment;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistControlViewHolder;
-import org.schabi.newpipe.player.playqueue.ChannelTabPlayQueue;
-import org.schabi.newpipe.player.playqueue.PlayQueue;
 import org.schabi.newpipe.util.ChannelTabHelper;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.PlayButtonHelper;
@@ -158,13 +156,7 @@ public class ChannelTabFragment extends BaseListInfoFragment<InfoItem, ChannelTa
     }
 
     @Override
-    public PlayQueue getPlayQueue() {
-        final List<StreamInfoItem> streamItems = infoListAdapter.getItemsList().stream()
-                .filter(StreamInfoItem.class::isInstance)
-                .map(StreamInfoItem.class::cast)
-                .collect(Collectors.toList());
-
-        return new ChannelTabPlayQueue(currentInfo.getServiceId(), tabHandler,
-                currentInfo.getNextPage(), streamItems, 0);
+    public Object getPlayQueue() {
+        return null;
     }
 }

@@ -1,6 +1,5 @@
 package us.shandian.giga.service;
 
-import org.schabi.newpipe.player.helper.LockManager;
 import static org.schabi.newpipe.BuildConfig.APPLICATION_ID;
 import static org.schabi.newpipe.BuildConfig.DEBUG;
 
