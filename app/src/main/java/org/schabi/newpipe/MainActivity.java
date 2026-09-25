@@ -801,6 +801,11 @@ public class MainActivity extends AppCompatActivity {
                     case CHANNEL:
                         NavigationHelper.openChannelFragment(getSupportFragmentManager(),
                                 serviceId, url, title);
+                        break;
+                    case PLAYLIST:
+                        NavigationHelper.openPlaylistFragment(getSupportFragmentManager(),
+                                serviceId, url, title);
+                        break;
                 }
             } else if (intent.hasExtra(Constants.KEY_OPEN_SEARCH)) {
                 String searchString = intent.getStringExtra(Constants.KEY_SEARCH_STRING);
