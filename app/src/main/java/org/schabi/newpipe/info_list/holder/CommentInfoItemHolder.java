@@ -174,3 +174,35 @@ public class CommentInfoItemHolder extends InfoItemHolder {
         NavigationHelper.openCommentAuthorIfPresent((FragmentActivity) itemBuilder.getContext(),
                 item);
     }
+
+    private void openCommentReplies(@NonNull final CommentsInfoItem item) {
+        NavigationHelper.openCommentRepliesFragment((FragmentActivity) itemBuilder.getContext(),
+                item);
+    }
+
+    private void allowLinkFocus() {
+        itemContentView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private void denyLinkFocus() {
+        itemContentView.setMovementMethod(null);
+    }
+
+    private boolean shouldFocusLinks() {
+        if (itemView.isInTouchMode()) {
+            return false;
+        }
+
+        final URLSpan[] urls = itemContentView.getUrls();
+
+        return urls != null && urls.length != 0;
+    }
+
+    private void determineMovementMethod() {
+        if (shouldFocusLinks()) {
+            allowLinkFocus();
+        } else {
+            denyLinkFocus();
+        }
+    }
+}
