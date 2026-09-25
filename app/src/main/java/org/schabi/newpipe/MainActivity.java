@@ -73,7 +73,6 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance;
 import org.schabi.newpipe.fragments.BackPressable;
 import org.schabi.newpipe.fragments.MainFragment;
-import org.schabi.newpipe.fragments.list.comments.CommentRepliesFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
 import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;
@@ -600,13 +599,6 @@ public class MainActivity extends AppCompatActivity {
                 if (((BackPressable) fragment).onBackPressed()) {
                     return;
                 }
-            } else if (fragment instanceof CommentRepliesFragment) {
-                // expand DetailsFragment if CommentRepliesFragment was opened
-                // to show the top level comments again
-                // Expand DetailsFragment if CommentRepliesFragment was opened
-                // and no other CommentRepliesFragments are on top of the back stack
-                // to show the top level comments again.
-                openDetailFragmentFromCommentReplies(fm, false);
             }
 
         } else {
@@ -684,12 +676,7 @@ public class MainActivity extends AppCompatActivity {
         final FragmentManager fm = getSupportFragmentManager();
         final Fragment fragment = fm.findFragmentById(R.id.fragment_holder);
 
-        if (fragment instanceof CommentRepliesFragment) {
-            // Expand DetailsFragment if CommentRepliesFragment was opened
-            // and no other CommentRepliesFragments are on top of the back stack
-            // to show the top level comments again.
-            openDetailFragmentFromCommentReplies(fm, true);
-        } else if (!NavigationHelper.tryGotoSearchFragment(fm)) {
+        if (!NavigationHelper.tryGotoSearchFragment(fm)) {
             // If search fragment wasn't found in the backstack go to the main fragment
             NavigationHelper.gotoMainFragment(fm);
         }
@@ -874,10 +861,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // the root comment is the comment for which the user opened the replies page
-        @Nullable final CommentRepliesFragment repliesFragment =
-                (CommentRepliesFragment) fm.findFragmentByTag(CommentRepliesFragment.TAG);
-        @Nullable final CommentsInfoItem rootComment =
-                repliesFragment == null ? null : repliesFragment.getCommentsInfoItem();
+        @Nullable final CommentsInfoItem rootComment = null;
 
         // sometimes this function pops the backstack, other times it's handled by the system
         if (popBackStack) {
@@ -886,9 +870,7 @@ public class MainActivity extends AppCompatActivity {
 
         // only expand the bottom sheet back if there are no more nested comment replies fragments
         // stacked under the one that is currently being popped
-        if (CommentRepliesFragment.TAG.equals(fragmentUnderEntryName)) {
-            return;
-        }
+        
 
         final BottomSheetBehavior<FragmentContainerView> behavior = BottomSheetBehavior
                 .from(mainBinding.fragmentPlayerHolder);
