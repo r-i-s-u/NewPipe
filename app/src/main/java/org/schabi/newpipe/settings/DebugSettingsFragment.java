@@ -1,0 +1,91 @@
+package org.schabi.newpipe.settings;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.preference.Preference;
+
+import org.schabi.newpipe.R;
+import org.schabi.newpipe.error.ErrorInfo;
+import org.schabi.newpipe.error.ErrorUtil;
+import org.schabi.newpipe.error.UserAction;
+
+import java.util.Optional;
+
+public class DebugSettingsFragment extends BasePreferenceFragment {
+    private static final String DUMMY = "Dummy";
+
+    @Override
+    public void onCreatePreferences(final Bundle savedInstanceState, final String rootKey) {
+        addPreferencesFromResourceRegistry();
+
+        final Preference allowHeapDumpingPreference =
+                requirePreference(R.string.allow_heap_dumping_key);
+        final Preference showMemoryLeaksPreference =
+                requirePreference(R.string.show_memory_leaks_key);
+        final Preference checkNewStreamsPreference =
+                requirePreference(R.string.check_new_streams_key);
+        final Preference crashTheAppPreference =
+                requirePreference(R.string.crash_the_app_key);
+        final Preference showErrorSnackbarPreference =
+                requirePreference(R.string.show_error_snackbar_key);
+        final Preference createErrorNotificationPreference =
+                requirePreference(R.string.create_error_notification_key);
+
+
+        final Optional<DebugSettingsBVDLeakCanaryAPI> optBVLeakCanary = getBVDLeakCanary();
+
+        allowHeapDumpingPreference.setEnabled(optBVLeakCanary.isPresent());
+        showMemoryLeaksPreference.setEnabled(optBVLeakCanary.isPresent());
+
+        if (optBVLeakCanary.isPresent()) {
+            final DebugSettingsBVDLeakCanaryAPI pdLeakCanary = optBVLeakCanary.get();
+
+            showMemoryLeaksPreference.setOnPreferenceClickListener(preference -> {
+                startActivity(pdLeakCanary.getNewLeakDisplayActivityIntent());
+                return true;
+            });
+        } else {
+            allowHeapDumpingPreference.setSummary(R.string.leak_canary_not_available);
+            showMemoryLeaksPreference.setSummary(R.string.leak_canary_not_available);
+        }
+
+        checkNewStreamsPreference.setOnPreferenceClickListener(preference -> {
+            return true;
+        });
+
+        crashTheAppPreference.setOnPreferenceClickListener(preference -> {
+            throw new RuntimeException(DUMMY);
+        });
+
+        showErrorSnackbarPreference.setOnPreferenceClickListener(preference -> {
+            ErrorUtil.showUiErrorSnackbar(DebugSettingsFragment.this,
+                    DUMMY, new RuntimeException(DUMMY));
+            return true;
+        });
+
+        createErrorNotificationPreference.setOnPreferenceClickListener(preference -> {
+            ErrorUtil.createNotification(requireContext(),
+                    new ErrorInfo(new RuntimeException(DUMMY), UserAction.UI_ERROR, DUMMY));
+            return true;
+        });
+    }
+
+    private Optional<DebugSettingsBVDLeakCanaryAPI> getBVDLeakCanary() {
+        try {
+            return Optional.of((DebugSettingsBVDLeakCanaryAPI)
+                    Class.forName(DebugSettingsBVDLeakCanaryAPI.IMPL_CLASS)
+                            .getDeclaredConstructor()
+                            .newInstance());
+        } catch (final Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    public interface DebugSettingsBVDLeakCanaryAPI {
+        String IMPL_CLASS =
+                "org.schabi.newpipe.settings.DebugSettingsBVDLeakCanary";
+
+        Intent getNewLeakDisplayActivityIntent();
+    }
+}
