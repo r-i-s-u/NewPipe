@@ -672,7 +672,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void onHomeButtonPressed() {
         final FragmentManager fm = getSupportFragmentManager();
-        if (!NavigationHelper.tryGotoSearchFragment(fm)) {
+        final Fragment fragment = fm.findFragmentById(R.id.fragment_holder); else if (!NavigationHelper.tryGotoSearchFragment(fm)) {
             // If search fragment wasn't found in the backstack go to the main fragment
             NavigationHelper.gotoMainFragment(fm);
         }
