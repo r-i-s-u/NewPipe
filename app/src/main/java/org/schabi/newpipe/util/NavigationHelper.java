@@ -44,10 +44,7 @@ import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.stream.VideoStream;
 import org.schabi.newpipe.fragments.MainFragment;
-import org.schabi.newpipe.fragments.list.playlist.PlaylistFragment;
 import org.schabi.newpipe.fragments.list.search.SearchFragment;
-import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
-import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionsImportFragment;
 import org.schabi.newpipe.settings.SettingsActivity;
@@ -333,15 +330,6 @@ public final class NavigationHelper {
 
     public static void closeCommentRepliesFragments(@NonNull final FragmentActivity activity) {
     }
-    public static void openPlaylistFragment(final FragmentManager fragmentManager,
-                                            final int serviceId, final String url,
-                                            @NonNull final String name) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, PlaylistFragment.getInstance(serviceId, url, name))
-                .addToBackStack(null)
-                .commit();
-    }
-
     public static void openFeedFragment(final FragmentManager fragmentManager) {
         openFeedFragment(fragmentManager, FeedGroupEntity.GROUP_ALL_ID, null);
     }
@@ -364,30 +352,6 @@ public final class NavigationHelper {
                                          final String kioskId) throws ExtractionException {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, KioskFragment.getInstance(serviceId, kioskId))
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public static void openLocalPlaylistFragment(final FragmentManager fragmentManager,
-                                                 final long playlistId, final String name) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, LocalPlaylistFragment.getInstance(playlistId,
-                        name == null ? "" : name))
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public static void openStatisticFragment(final FragmentManager fragmentManager) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, new StatisticsPlaylistFragment())
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public static void openSubscriptionsImportFragment(final FragmentManager fragmentManager,
-                                                       final int serviceId) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, SubscriptionsImportFragment.getInstance(serviceId))
                 .addToBackStack(null)
                 .commit();
     }
