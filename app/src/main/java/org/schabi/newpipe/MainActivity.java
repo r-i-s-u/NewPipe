@@ -324,7 +324,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (groupId == R.id.menu_options_about_group) {
             optionsAboutSelected(item);
-            }
         } else {
             return false;
         }
@@ -419,7 +418,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (servicesShown) {
             showServices();
-            }
         } else {
             try {
                 addDrawerMenuForCurrentService();
@@ -601,7 +599,6 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-            }
         } else {
             final Fragment fragmentPlayer = getSupportFragmentManager()
                     .findFragmentById(R.id.fragment_player_holder);
@@ -618,7 +615,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
             finish();
-            }
         } else {
             super.onBackPressed();
         }
@@ -740,7 +736,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             handleIntent(getIntent());
-            }
         } else {
             NavigationHelper.gotoMainFragment(getSupportFragmentManager());
         }
@@ -764,7 +759,6 @@ public class MainActivity extends AppCompatActivity {
                 toolbarLayoutBinding.toolbar.setNavigationOnClickListener(v -> mainBinding.getRoot()
                         .open());
                 mainBinding.getRoot().setDrawerLockMode(DrawerLayout.LOCK_MODE_UNDEFINED);
-            }
             }
         } else {
             mainBinding.getRoot().setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -820,7 +814,6 @@ public class MainActivity extends AppCompatActivity {
                         serviceId,
                         searchString);
 
-            }
             } else {
                 NavigationHelper.gotoMainFragment(getSupportFragmentManager());
             }
@@ -900,10 +893,8 @@ public class MainActivity extends AppCompatActivity {
         if (supportedLanguages.contains(locale.getLanguage())) {
             if ("zh".equals(locale.getLanguage())) {
                 return kaoBaseUrl + ("TW".equals(locale.getCountry()) ? "zh-TW" : "zh-CN");
-            }
             } else {
                 return kaoBaseUrl + locale.getLanguage();
-            }
             }
         } else {
             return kaoBaseUrl;
