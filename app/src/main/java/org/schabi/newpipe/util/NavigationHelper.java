@@ -333,6 +333,7 @@ public final class NavigationHelper {
 
     public static void closeCommentRepliesFragments(@NonNull final FragmentActivity activity) {
     }
+
     public static void openPlaylistFragment(final FragmentManager fragmentManager,
                                             final int serviceId, final String url,
                                             @NonNull final String name) {
@@ -356,14 +357,6 @@ public final class NavigationHelper {
     public static void openSubscriptionFragment(final FragmentManager fragmentManager) {
         defaultTransaction(fragmentManager)
                 .replace(R.id.fragment_holder, new SubscriptionFragment())
-                .addToBackStack(null)
-                .commit();
-    }
-
-    public static void openKioskFragment(final FragmentManager fragmentManager, final int serviceId,
-                                         final String kioskId) throws ExtractionException {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, KioskFragment.getInstance(serviceId, kioskId))
                 .addToBackStack(null)
                 .commit();
     }
