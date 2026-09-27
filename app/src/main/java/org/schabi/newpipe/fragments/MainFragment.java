@@ -40,8 +40,6 @@ import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
-import org.schabi.newpipe.settings.tabs.Tab;
-import org.schabi.newpipe.settings.tabs.TabsManager;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
@@ -54,10 +52,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     private FragmentMainBinding binding;
     private SelectedTabsPagerAdapter pagerAdapter;
 
-    private final List<Tab> tabsList = new ArrayList<>();
-    private TabsManager tabsManager;
 
-    private boolean hasTabsChanged = false;
 
     private SharedPreferences prefs;
     private boolean youtubeRestrictedModeEnabled;
@@ -73,18 +68,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        tabsManager = TabsManager.getManager(activity);
-        tabsManager.setSavedTabsListener(() -> {
-            if (DEBUG) {
-                Log.d(TAG, "TabsManager.SavedTabsChangeListener: "
-                        + "onTabsChanged called, isResumed = " + isResumed());
-            }
-            if (isResumed()) {
-                setupTabs();
-            } else {
-                hasTabsChanged = true;
-            }
-        });
 
         prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
         youtubeRestrictedModeEnabledKey = getString(R.string.youtube_restricted_mode_enabled);
@@ -109,7 +92,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
         binding.mainTabLayout.setupWithViewPager(binding.pager);
         binding.mainTabLayout.addOnTabSelectedListener(this);
 
-        setupTabs();
         updateTabLayoutPosition();
     }
 
@@ -119,10 +101,9 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
 
         final boolean newYoutubeRestrictedModeEnabled =
                 prefs.getBoolean(youtubeRestrictedModeEnabledKey, false);
-        if (youtubeRestrictedModeEnabled != newYoutubeRestrictedModeEnabled || hasTabsChanged) {
+        if (youtubeRestrictedModeEnabled != newYoutubeRestrictedModeEnabled) {
             youtubeRestrictedModeEnabled = newYoutubeRestrictedModeEnabled;
-            setupTabs();
-        }
+            }
 
         final boolean newMainTabsPosition = prefs.getBoolean(mainTabsPositionKey, false);
         if (mainTabsPositionBottom != newMainTabsPosition) {
@@ -134,7 +115,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     @Override
     public void onDestroy() {
         super.onDestroy();
-        tabsManager.unsetSavedTabsListener();
         if (binding != null) {
             binding.pager.setAdapter(null);
             binding = null;
@@ -185,24 +165,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     // Tabs
     //////////////////////////////////////////////////////////////////////////*/
 
-    private void setupTabs() {
-        tabsList.clear();
-        tabsList.addAll(tabsManager.getTabs());
-
-        if (pagerAdapter == null || !pagerAdapter.sameTabs(tabsList)) {
-            pagerAdapter = new SelectedTabsPagerAdapter(requireContext(),
-                    getChildFragmentManager(), tabsList);
-        }
-
-        binding.pager.setAdapter(null);
-        binding.pager.setAdapter(pagerAdapter);
-
-        updateTabsIconAndDescription();
-        updateTitleForTab(binding.pager.getCurrentItem());
-
-        hasTabsChanged = false;
-    }
-
     private void updateTabsIconAndDescription() {
         for (int i = 0; i < tabsList.size(); i++) {
             final TabLayout.Tab tabToSet = binding.mainTabLayout.getTabAt(i);
@@ -212,10 +174,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
                 tabToSet.setContentDescription(tab.getTabName(requireContext()));
             }
         }
-    }
-
-    private void updateTitleForTab(final int tabPosition) {
-        setTitle(tabsList.get(tabPosition).getTabName(requireContext()));
     }
 
     public void commitPlaylistTabs() {
