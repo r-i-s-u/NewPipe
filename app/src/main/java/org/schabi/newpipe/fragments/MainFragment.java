@@ -26,8 +26,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapterMenuWorkaround;
 import androidx.preference.PreferenceManager;
 import androidx.viewpager.widget.ViewPager;
 
@@ -39,7 +37,6 @@ import org.schabi.newpipe.databinding.FragmentMainBinding;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
-import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.ThemeHelper;
@@ -50,7 +47,6 @@ import java.util.List;
 
 public class MainFragment extends BaseFragment implements TabLayout.OnTabSelectedListener {
     private FragmentMainBinding binding;
-    private SelectedTabsPagerAdapter pagerAdapter;
 
 
 
@@ -165,23 +161,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
     // Tabs
     //////////////////////////////////////////////////////////////////////////*/
 
-    private void updateTabsIconAndDescription() {
-        for (int i = 0; i < tabsList.size(); i++) {
-            final TabLayout.Tab tabToSet = binding.mainTabLayout.getTabAt(i);
-            if (tabToSet != null) {
-                final Tab tab = tabsList.get(i);
-                tabToSet.setIcon(tab.getTabIconRes(requireContext()));
-                tabToSet.setContentDescription(tab.getTabName(requireContext()));
-            }
-        }
-    }
-
-    public void commitPlaylistTabs() {
-        pagerAdapter.getLocalPlaylistFragments()
-                .stream()
-                .forEach(LocalPlaylistFragment::saveImmediate);
-    }
-
     private void updateTabLayoutPosition() {
         final ScrollableTabLayout tabLayout = binding.mainTabLayout;
         final ViewPager viewPager = binding.pager;
@@ -219,7 +198,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
         if (DEBUG) {
             Log.d(TAG, "onTabSelected() called with: selectedTab = [" + selectedTab + "]");
         }
-        updateTitleForTab(selectedTab.getPosition());
     }
 
     @Override
@@ -230,72 +208,6 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
         if (DEBUG) {
             Log.d(TAG, "onTabReselected() called with: tab = [" + tab + "]");
         }
-        updateTitleForTab(tab.getPosition());
     }
 
-    public static final class SelectedTabsPagerAdapter
-            extends FragmentStatePagerAdapterMenuWorkaround {
-        private final Context context;
-        private final List<Tab> internalTabsList;
-        /**
-         * Keep reference to LocalPlaylistFragments, because their data can be modified by the user
-         * during runtime and changes are not committed immediately. However, in some cases,
-         * the changes need to be committed immediately by calling
-         * {@link LocalPlaylistFragment#saveImmediate()}.
-         * The fragments are removed when {@link LocalPlaylistFragment#onDestroy()} is called.
-         */
-        private final List<LocalPlaylistFragment> localPlaylistFragments = new ArrayList<>();
-
-        private SelectedTabsPagerAdapter(final Context context,
-                                         final FragmentManager fragmentManager,
-                                         final List<Tab> tabsList) {
-            super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            this.context = context;
-            this.internalTabsList = new ArrayList<>(tabsList);
-        }
-
-        @NonNull
-        @Override
-        public Fragment getItem(final int position) {
-            final Tab tab = internalTabsList.get(position);
-
-            final Fragment fragment;
-            try {
-                fragment = tab.getFragment(context);
-            } catch (final Throwable t) {
-                return new BlankFragment(new ErrorInfo(t, UserAction.GETTING_MAIN_SCREEN_TAB,
-                        "Tab " + tab.getClass().getSimpleName() + ":" + tab.getTabName(context)));
-            }
-
-            if (fragment instanceof BaseFragment) {
-                ((BaseFragment) fragment).useAsFrontPage(true);
-            }
-
-            if (fragment instanceof LocalPlaylistFragment) {
-                localPlaylistFragments.add((LocalPlaylistFragment) fragment);
-            }
-
-            return fragment;
-        }
-
-        public List<LocalPlaylistFragment> getLocalPlaylistFragments() {
-            return localPlaylistFragments;
-        }
-
-        @Override
-        public int getItemPosition(@NonNull final Object object) {
-            // Causes adapter to reload all Fragments when
-            // notifyDataSetChanged is called
-            return POSITION_NONE;
-        }
-
-        @Override
-        public int getCount() {
-            return internalTabsList.size();
-        }
-
-        public boolean sameTabs(final List<Tab> tabsToCompare) {
-            return internalTabsList.equals(tabsToCompare);
-        }
-    }
 }
