@@ -15,17 +15,11 @@ import org.schabi.newpipe.database.LocalItem.LocalItemType;
 import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
-import org.schabi.newpipe.extractor.NewPipe;
-import org.schabi.newpipe.extractor.StreamingService;
-import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.fragments.BlankFragment;
-import org.schabi.newpipe.fragments.list.kiosk.DefaultKioskFragment;
-import org.schabi.newpipe.fragments.list.kiosk.KioskFragment;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistFragment;
 import org.schabi.newpipe.local.history.StatisticsPlaylistFragment;
 import org.schabi.newpipe.local.playlist.LocalPlaylistFragment;
 import org.schabi.newpipe.local.subscription.SubscriptionFragment;
-import org.schabi.newpipe.util.KioskTranslator;
 import org.schabi.newpipe.util.ServiceHelper;
 
 import java.util.Objects;
@@ -83,10 +77,7 @@ public abstract class Tab {
         }
 
         if (jsonObject != null) {
-            switch (type) {
-                case KIOSK:
-                    return new KioskTab(jsonObject);
-                case CHANNEL:
+            switch (type) {                case CHANNEL:
                     return new ChannelTab(jsonObject);
                 case PLAYLIST:
                     return new PlaylistTab(jsonObject);
@@ -153,14 +144,10 @@ public abstract class Tab {
     //////////////////////////////////////////////////////////////////////////*/
 
     public enum Type {
-        BLANK(new BlankTab()),
-        DEFAULT_KIOSK(new DefaultKioskTab()),
-        SUBSCRIPTIONS(new SubscriptionsTab()),
+        BLANK(new BlankTab()),        SUBSCRIPTIONS(new SubscriptionsTab()),
         FEED(new FeedTab()),
         BOOKMARKS(new BookmarksTab()),
-        HISTORY(new HistoryTab()),
-        KIOSK(new KioskTab()),
-        CHANNEL(new ChannelTab()),
+        HISTORY(new HistoryTab()),        CHANNEL(new ChannelTab()),
         PLAYLIST(new PlaylistTab()),
         FEEDGROUP(new FeedGroupTab());
 
@@ -307,90 +294,6 @@ public abstract class Tab {
         }
     }
 
-    public static class KioskTab extends Tab {
-        public static final int ID = 5;
-        private static final String JSON_KIOSK_SERVICE_ID_KEY = "service_id";
-        private static final String JSON_KIOSK_ID_KEY = "kiosk_id";
-        private int kioskServiceId;
-        private String kioskId;
-
-        private KioskTab() {
-            this(-1, NO_ID);
-        }
-
-        public KioskTab(final int kioskServiceId, final String kioskId) {
-            this.kioskServiceId = kioskServiceId;
-            this.kioskId = kioskId;
-        }
-
-        public KioskTab(final JsonObject jsonObject) {
-            super(jsonObject);
-        }
-
-        @Override
-        public int getTabId() {
-            return ID;
-        }
-
-        @Override
-        public String getTabName(final Context context) {
-            return KioskTranslator.getTranslatedKioskName(kioskId, context);
-        }
-
-        @DrawableRes
-        @Override
-        public int getTabIconRes(final Context context) {
-            final int kioskIcon = KioskTranslator.getKioskIcon(kioskId);
-
-            if (kioskIcon <= 0) {
-                throw new IllegalStateException("Kiosk ID is not valid: \"" + kioskId + "\"");
-            }
-
-            return kioskIcon;
-        }
-
-        @Override
-        public KioskFragment getFragment(final Context context) throws ExtractionException {
-            return KioskFragment.getInstance(kioskServiceId, kioskId);
-        }
-
-        @Override
-        protected void writeDataToJson(final JsonStringWriter writerSink) {
-            writerSink.value(JSON_KIOSK_SERVICE_ID_KEY, kioskServiceId)
-                    .value(JSON_KIOSK_ID_KEY, kioskId);
-        }
-
-        @Override
-        protected void readDataFromJson(final JsonObject jsonObject) {
-            kioskServiceId = jsonObject.getInt(JSON_KIOSK_SERVICE_ID_KEY, -1);
-            kioskId = jsonObject.getString(JSON_KIOSK_ID_KEY, NO_ID);
-        }
-
-        @Override
-        public boolean equals(final Object obj) {
-            if (!(obj instanceof KioskTab)) {
-                return false;
-            }
-            final KioskTab other = (KioskTab) obj;
-            return super.equals(obj)
-                    && kioskServiceId == other.kioskServiceId
-                    && kioskId.equals(other.kioskId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(getTabId(), kioskServiceId, kioskId);
-        }
-
-        public int getKioskServiceId() {
-            return kioskServiceId;
-        }
-
-        public String getKioskId() {
-            return kioskId;
-        }
-    }
-
     public static class ChannelTab extends Tab {
         public static final int ID = 6;
         private static final String JSON_CHANNEL_SERVICE_ID_KEY = "channel_service_id";
@@ -477,45 +380,6 @@ public abstract class Tab {
 
         public String getChannelName() {
             return channelName;
-        }
-    }
-
-    public static class DefaultKioskTab extends Tab {
-        public static final int ID = 7;
-
-        @Override
-        public int getTabId() {
-            return ID;
-        }
-
-        @Override
-        public String getTabName(final Context context) {
-            return KioskTranslator.getTranslatedKioskName(getDefaultKioskId(context), context);
-        }
-
-        @DrawableRes
-        @Override
-        public int getTabIconRes(final Context context) {
-            return KioskTranslator.getKioskIcon(getDefaultKioskId(context));
-        }
-
-        @Override
-        public DefaultKioskFragment getFragment(final Context context) {
-            return new DefaultKioskFragment();
-        }
-
-        private String getDefaultKioskId(final Context context) {
-            final int kioskServiceId = ServiceHelper.getSelectedServiceId(context);
-
-            String kioskId = "";
-            try {
-                final StreamingService service = NewPipe.getService(kioskServiceId);
-                kioskId = service.getKioskList().getDefaultKioskId();
-            } catch (final ExtractionException e) {
-                ErrorUtil.showSnackbar(context, new ErrorInfo(e,
-                        UserAction.REQUESTED_KIOSK, "Loading default kiosk for selected service"));
-            }
-            return kioskId;
         }
     }
 

@@ -78,7 +78,6 @@ import org.schabi.newpipe.settings.UpdateSettingsFragment;
 import org.schabi.newpipe.settings.migration.MigrationManager;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.DeviceUtils;
-import org.schabi.newpipe.util.KioskTranslator;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PeertubeHelper;
@@ -377,7 +376,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayoutBinding.navigation.getMenu().removeGroup(R.id.menu_services_group);
         drawerLayoutBinding.navigation.getMenu().removeGroup(R.id.menu_tabs_group);
-        drawerLayoutBinding.navigation.getMenu().removeGroup(R.id.menu_kiosks_group);
         drawerLayoutBinding.navigation.getMenu().removeGroup(R.id.menu_options_about_group);
 
         // Show up or down arrow

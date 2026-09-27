@@ -32,7 +32,6 @@ import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.settings.SelectChannelFragment;
-import org.schabi.newpipe.settings.SelectKioskFragment;
 import org.schabi.newpipe.settings.SelectPlaylistFragment;
 import org.schabi.newpipe.settings.SelectFeedGroupFragment;
 import org.schabi.newpipe.settings.tabs.AddTabDialog.ChooseTabListItem;
@@ -175,12 +174,6 @@ public class ChooseTabsFragment extends Fragment {
         }
 
         switch (type) {
-            case KIOSK:
-                final SelectKioskFragment selectKioskFragment = new SelectKioskFragment();
-                selectKioskFragment.setOnSelectedListener((serviceId, kioskId, kioskName) ->
-                        addTab(new Tab.KioskTab(serviceId, kioskId)));
-                selectKioskFragment.show(getParentFragmentManager(), "select_kiosk");
-                return;
             case CHANNEL:
                 final SelectChannelFragment selectChannelFragment = new SelectChannelFragment();
                 selectChannelFragment.setOnSelectedListener((serviceId, url, name) ->
@@ -231,22 +224,10 @@ public class ChooseTabsFragment extends Fragment {
                                 tab.getTabIconRes(context)));
                     }
                     break;
-                case KIOSK:
-                    returnList.add(new ChooseTabListItem(tab.getTabId(),
-                            getString(R.string.kiosk_page_summary),
-                            0));
-                    break;
                 case CHANNEL:
                     returnList.add(new ChooseTabListItem(tab.getTabId(),
                             getString(R.string.channel_page_summary),
                             tab.getTabIconRes(context)));
-                    break;
-                case DEFAULT_KIOSK:
-                    if (!tabList.contains(tab)) {
-                        returnList.add(new ChooseTabListItem(tab.getTabId(),
-                                getString(R.string.default_kiosk_page_summary),
-                                0));
-                    }
                     break;
                 case PLAYLIST:
                     returnList.add(new ChooseTabListItem(tab.getTabId(),
@@ -396,11 +377,6 @@ public class ChooseTabsFragment extends Fragment {
                 switch (type) {
                     case BLANK:
                         return getString(R.string.blank_page_summary);
-                    case DEFAULT_KIOSK:
-                        return getString(R.string.default_kiosk_page_summary);
-                    case KIOSK:
-                        return getNameOfServiceById(((Tab.KioskTab) tab).getKioskServiceId())
-                                + "/" + tab.getTabName(requireContext());
                     case CHANNEL:
                         return getNameOfServiceById(((Tab.ChannelTab) tab).getChannelServiceId())
                                 + "/" + tab.getTabName(requireContext());

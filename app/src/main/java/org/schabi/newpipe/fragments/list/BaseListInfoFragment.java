@@ -258,7 +258,6 @@ public abstract class BaseListInfoFragment<I extends InfoItem, L extends ListInf
     @Override
     public void showEmptyState() {
         // show "no streams" for SoundCloud; otherwise "no videos"
-        // showing "no live streams" is handled in KioskFragment
         if (emptyStateView != null) {
             if (currentInfo.getService() == SoundCloud) {
                 setEmptyStateMessage(R.string.no_streams);

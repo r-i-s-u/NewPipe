@@ -163,61 +163,14 @@ public final class SettingMigrations {
     private static final Migration MIGRATION_6_7 = new Migration(6, 7) {
         @Override
         protected void migrate(@NonNull final Context context) {
-            // The SoundCloud Top 50 Kiosk was removed in the extractor,
-            // so we remove the corresponding tab if it exists.
-            final TabsManager tabsManager = TabsManager.getManager(context);
-            final List<Tab> tabs = tabsManager.getTabs();
-            final List<Tab> cleanedTabs = tabs.stream()
-                    .filter(tab -> !(tab instanceof Tab.KioskTab kioskTab
-                            && kioskTab.getKioskServiceId() == SoundCloud.getServiceId()
-                            && kioskTab.getKioskId().equals("Top 50")))
-                    .collect(Collectors.toUnmodifiableList());
-            if (tabs.size() != cleanedTabs.size()) {
-                tabsManager.saveTabs(cleanedTabs);
-                // create an AlertDialog to inform the user about the change
-                MigrationManager.addMigrationInfo(uiContext ->
-                        MigrationManager.createMigrationInfoDialog(
-                                uiContext,
-                                uiContext.getString(R.string.migration_info_6_7_title),
-                                uiContext.getString(R.string.migration_info_6_7_message))
-                                .show());
-            }
+            // no-op
         }
     };
 
     private static final Migration MIGRATION_7_8 = new Migration(7, 8) {
         @Override
         protected void migrate(@NonNull final Context context) {
-            // YouTube remove the combined Trending kiosk, see
-            // https://github.com/TeamNewPipe/NewPipe/discussions/12445 for more information.
-            // If the user has a dedicated YouTube/Trending kiosk tab,
-            // it is removed and replaced with the new live kiosk tab.
-            // The default trending kiosk tab is not touched
-            // because it uses the default kiosk provided by the extractor
-            // and is thus updated automatically.
-            final TabsManager tabsManager = TabsManager.getManager(context);
-            final List<Tab> tabs = tabsManager.getTabs();
-            final List<Tab> cleanedTabs = tabs.stream()
-                    .filter(tab -> !(tab instanceof Tab.KioskTab kioskTab
-                            && kioskTab.getKioskServiceId() == YouTube.getServiceId()
-                            && kioskTab.getKioskId().equals("Trending")))
-                    .collect(Collectors.toUnmodifiableList());
-            if (tabs.size() != cleanedTabs.size()) {
-                tabsManager.saveTabs(cleanedTabs);
-            }
-
-            final boolean hasDefaultTrendingTab = tabs.stream()
-                    .anyMatch(tab -> tab instanceof Tab.DefaultKioskTab);
-
-            if (tabs.size() != cleanedTabs.size() || hasDefaultTrendingTab) {
-                // User is informed about the change
-                MigrationManager.addMigrationInfo(uiContext ->
-                        MigrationManager.createMigrationInfoDialog(
-                                        uiContext,
-                                        uiContext.getString(R.string.migration_info_7_8_title),
-                                        uiContext.getString(R.string.migration_info_7_8_message))
-                                .show());
-            }
+            // no-op
         }
     };
 
