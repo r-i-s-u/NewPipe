@@ -49,7 +49,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 public class StatisticsPlaylistFragment
         extends BaseLocalListFragment<List<StreamStatisticsEntry>, Void>
-        implements PlaylistControlViewHolder {
+        {
     private final CompositeDisposable disposables = new CompositeDisposable();
     @State
     Parcelable itemsListState;

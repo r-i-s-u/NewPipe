@@ -73,7 +73,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistStreamEntry>, Void>
-        implements PlaylistControlViewHolder, DebounceSavable {
+        implements DebounceSavable {
 
     private static final int MINIMUM_INITIAL_DRAG_VELOCITY = 12;
     @State
