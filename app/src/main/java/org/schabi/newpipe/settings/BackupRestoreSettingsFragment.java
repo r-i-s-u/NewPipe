@@ -23,9 +23,6 @@ import com.grack.nanojson.JsonParserException;
 
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.error.ErrorInfo;
-import org.schabi.newpipe.error.ErrorUtil;
-import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.local.subscription.SubscriptionsImportExportHelper;
 import org.schabi.newpipe.settings.export.BackupFileLocator;
 import org.schabi.newpipe.settings.export.ImportExportManager;
