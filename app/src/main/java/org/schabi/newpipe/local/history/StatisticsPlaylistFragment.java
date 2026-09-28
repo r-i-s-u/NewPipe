@@ -34,7 +34,6 @@ import org.schabi.newpipe.local.BaseLocalListFragment;
 import org.schabi.newpipe.settings.HistorySettingsFragment;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.OnClickGesture;
-import org.schabi.newpipe.util.PlayButtonHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
