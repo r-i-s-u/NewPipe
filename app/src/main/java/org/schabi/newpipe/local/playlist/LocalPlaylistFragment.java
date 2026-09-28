@@ -2,6 +2,7 @@ package org.schabi.newpipe.local.playlist;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static org.schabi.newpipe.error.ErrorUtil.showUiErrorSnackbar;
 import static org.schabi.newpipe.ktx.ViewUtils.animate;
 import static org.schabi.newpipe.local.playlist.ExportPlaylistKt.export;
 import static org.schabi.newpipe.local.playlist.PlayListShareMode.JUST_URLS;
@@ -45,6 +46,8 @@ import org.schabi.newpipe.database.stream.model.StreamEntity;
 import org.schabi.newpipe.databinding.DialogEditTextBinding;
 import org.schabi.newpipe.databinding.LocalPlaylistHeaderBinding;
 import org.schabi.newpipe.databinding.PlaylistControlBinding;
+import org.schabi.newpipe.error.ErrorInfo;
+import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.fragments.list.playlist.PlaylistControlViewHolder;
 import org.schabi.newpipe.info_list.dialog.InfoItemDialog;
@@ -123,7 +126,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
             } else {
                 hideLoading();
                 if (state instanceof LocalPlaylistViewModel.WorkState.Error error) {
-                    /* error removed */;
+                    showError(new ErrorInfo(error.getThrowable(), UserAction.REQUESTED_BOOKMARK,
+                            "Playlist operation"));
                 }
             }
         });
@@ -406,7 +410,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
                     ShareUtils.shareText(context, name, content);
                 },
-                throwable -> {}
+                throwable -> showUiErrorSnackbar(this, "Sharing playlist", throwable)
             )
         );
     }
@@ -494,7 +498,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         final Disposable disposable = playlistManager.renamePlaylist(playlistId, title)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(longs -> { /*Do nothing on success*/ }, throwable ->
-                        /* error removed */;
+                        showError(new ErrorInfo(throwable, UserAction.REQUESTED_BOOKMARK,
+                                "Renaming playlist")));
         disposables.add(disposable);
     }
 
@@ -517,7 +522,8 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                 .changePlaylistThumbnail(playlistId, thumbnailStreamId, isPermanent)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(ignore -> successToast.show(), throwable ->
-                        /* error removed */;
+                        showError(new ErrorInfo(throwable, UserAction.REQUESTED_BOOKMARK,
+                                "Changing playlist thumbnail")));
         disposables.add(disposable);
     }
 
