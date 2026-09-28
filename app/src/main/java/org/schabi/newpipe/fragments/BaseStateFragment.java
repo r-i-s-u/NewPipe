@@ -17,6 +17,9 @@ import com.evernote.android.state.State;
 
 import org.schabi.newpipe.BaseFragment;
 import org.schabi.newpipe.R;
+import org.schabi.newpipe.error.ErrorInfo;
+import org.schabi.newpipe.error.ErrorPanelHelper;
+import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.util.InfoCache;
 
 import java.util.concurrent.atomic.AtomicBoolean;
