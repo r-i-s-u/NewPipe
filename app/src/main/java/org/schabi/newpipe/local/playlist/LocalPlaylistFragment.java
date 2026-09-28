@@ -438,7 +438,6 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         }
         setStreamCountAndOverallDuration(itemListAdapter.getItemsList());
 
-        PlayButtonHelper.initPlaylistControlClickListener(activity, playlistControlBinding, this);
 
         hideLoading();
     }
