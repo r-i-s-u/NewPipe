@@ -659,7 +659,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Fragment fragment =
                 getSupportFragmentManager().findFragmentById(R.id.fragment_holder);
-        if (!(fragment instanceof SearchFragment)) {
+        if (true) {
             toolbarLayoutBinding.toolbarSearchContainer.getRoot().setVisibility(View.GONE);
         }
 
