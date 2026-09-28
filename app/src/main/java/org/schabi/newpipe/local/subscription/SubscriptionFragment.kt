@@ -358,11 +358,7 @@ class SubscriptionFragment : BaseStateFragment<SubscriptionState>() {
                 }
             }
 
-            is SubscriptionState.ErrorState -> {
-                result.error?.let {
-                    showError(ErrorInfo(result.error, UserAction.SOMETHING_ELSE, "Subscriptions"))
-                }
-            }
+            is SubscriptionState.ErrorState -> {}
         }
     }
 
