@@ -30,7 +30,6 @@ import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
-import org.schabi.newpipe.database.feed.model.FeedGroupEntity;
 import org.schabi.newpipe.download.DownloadActivity;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.extractor.NewPipe;
@@ -343,13 +342,7 @@ public final class NavigationHelper {
                 .commit();
     }
 
-    public static void openFeedFragment(final FragmentManager fragmentManager) {
-        openFeedFragment(fragmentManager, FeedGroupEntity.GROUP_ALL_ID, null);
-    }
 
-    public static void openFeedFragment(final FragmentManager fragmentManager, final long groupId,
-                                        @Nullable final String groupName) {
-    }
 
     public static void openBookmarksFragment(final FragmentManager fragmentManager) {
     }
