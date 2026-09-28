@@ -122,9 +122,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                 showLoading();
             } else {
                 hideLoading();
-                if (state instanceof LocalPlaylistViewModel.WorkState.Error error) {
-                    /* error removed */;
-                }
+
             }
         });
 
@@ -493,8 +491,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
 
         final Disposable disposable = playlistManager.renamePlaylist(playlistId, title)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(longs -> { /*Do nothing on success*/ }, throwable ->
-                        /* error removed */;
+                .subscribe(longs -> { /*Do nothing on success*/ }, throwable -> {});
         disposables.add(disposable);
     }
 
@@ -516,8 +513,7 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         final Disposable disposable = playlistManager
                 .changePlaylistThumbnail(playlistId, thumbnailStreamId, isPermanent)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(ignore -> successToast.show(), throwable ->
-                        /* error removed */;
+                .subscribe(ignore -> successToast.show(), throwable -> {});
         disposables.add(disposable);
     }
 
