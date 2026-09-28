@@ -266,10 +266,6 @@ public final class NavigationHelper {
 
     public static void openSearchFragment(final FragmentManager fragmentManager,
                                           final int serviceId, final String searchString) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, SearchFragment.getInstance(serviceId, searchString))
-                .addToBackStack(SEARCH_FRAGMENT_TAG)
-                .commit();
     }
 
     public static void expandMainPlayer(final Context context) {
