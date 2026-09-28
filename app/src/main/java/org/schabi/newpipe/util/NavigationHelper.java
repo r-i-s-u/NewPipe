@@ -336,10 +336,6 @@ public final class NavigationHelper {
     public static void openPlaylistFragment(final FragmentManager fragmentManager,
                                             final int serviceId, final String url,
                                             @NonNull final String name) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, PlaylistFragment.getInstance(serviceId, url, name))
-                .addToBackStack(null)
-                .commit();
     }
 
     public static void openFeedFragment(final FragmentManager fragmentManager) {

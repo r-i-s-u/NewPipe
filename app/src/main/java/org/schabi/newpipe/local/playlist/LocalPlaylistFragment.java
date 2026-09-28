@@ -745,11 +745,6 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
         }
     }
 
-    @Override
-    public Object getPlayQueue() {
-        return getPlayQueue(0);
-    }
-
     private Object getPlayQueue(final int index) {
         return null;
     }

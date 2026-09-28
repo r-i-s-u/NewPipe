@@ -270,7 +270,6 @@ public class StatisticsPlaylistFragment
             itemsListState = null;
         }
 
-        PlayButtonHelper.initPlaylistControlClickListener(activity, playlistControlBinding, this);
 
         headerBinding.sortButton.setOnClickListener(view -> toggleSortMode());
 
@@ -360,10 +359,6 @@ public class StatisticsPlaylistFragment
         }
     }
 
-    @Override
-    public Object getPlayQueue() {
-        return getPlayQueue(0);
-    }
 
     private Object getPlayQueue(final int index) {
         return null;
