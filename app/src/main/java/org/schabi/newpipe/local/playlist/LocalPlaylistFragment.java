@@ -105,9 +105,6 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
      * The pager adapter that the fragment is created from when it is used as frontpage, i.e.
      * {@link #useAsFrontPage} is {@link true}.
      */
-    @Nullable
-    private MainFragment.SelectedTabsPagerAdapter tabsPagerAdapter = null;
-
     public static LocalPlaylistFragment getInstance(final long playlistId, final String name) {
         final var instance = new LocalPlaylistFragment();
         instance.setInitialData(playlistId, name);
@@ -813,9 +810,5 @@ public class LocalPlaylistFragment extends BaseLocalListFragment<List<PlaylistSt
                 .show();
     }
 
-    public void setTabsPagerAdapter(
-            @Nullable final MainFragment.SelectedTabsPagerAdapter tabsPagerAdapter) {
-        this.tabsPagerAdapter = tabsPagerAdapter;
-    }
 }
 
