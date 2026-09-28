@@ -122,5 +122,10 @@ class NotificationsSettingsFragment : BasePreferenceFragment(), OnSharedPreferen
         preference.summary = "$notified/${subscriptions.size}"
     }
 
-    private fun onError(e: Throwable) {}
+    private fun onError(e: Throwable) {
+        ErrorUtil.showSnackbar(
+            this,
+            ErrorInfo(e, UserAction.SUBSCRIPTION_GET, "Get subscriptions list")
+        )
+    }
 }

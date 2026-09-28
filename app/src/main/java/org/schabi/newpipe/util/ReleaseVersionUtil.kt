@@ -6,6 +6,9 @@ import java.time.Instant
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import org.schabi.newpipe.App
+import org.schabi.newpipe.error.ErrorInfo
+import org.schabi.newpipe.error.ErrorUtil.Companion.createNotification
+import org.schabi.newpipe.error.UserAction
 
 object ReleaseVersionUtil {
     // Public key of the certificate that is used in NewPipe release versions
@@ -22,6 +25,10 @@ object ReleaseVersionUtil {
         try {
             PackageInfoCompat.hasSignatures(app.packageManager, app.packageName, certificates, false)
         } catch (e: PackageManager.NameNotFoundException) {
+            createNotification(
+                app,
+                ErrorInfo(e, UserAction.CHECK_FOR_NEW_APP_VERSION, "Could not find package info")
+            )
             false
         }
     }
