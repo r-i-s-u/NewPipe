@@ -78,8 +78,7 @@ public class SelectChannelFragment extends DialogFragment {
         emptyView.setVisibility(View.GONE);
 
 
-        // subscription removed
-                .subscribe(getSubscriptionObserver());
+
 
         return v;
     }
