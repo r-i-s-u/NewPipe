@@ -20,7 +20,7 @@ data class FeedGroupEntity(
     var name: String,
 
     @ColumnInfo(name = ICON)
-    var icon: FeedGroupIcon,
+    var icon: Int = 0,
 
     @ColumnInfo(name = SORT_ORDER)
     var sortOrder: Long = -1

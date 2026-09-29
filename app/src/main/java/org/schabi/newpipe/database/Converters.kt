@@ -39,13 +39,5 @@ class Converters {
         return streamType.name
     }
 
-    @TypeConverter
-    fun integerOf(feedGroupIcon: FeedGroupIcon): Int {
-        return feedGroupIcon.id
-    }
 
-    @TypeConverter
-    fun feedGroupIconOf(id: Int): FeedGroupIcon {
-        return FeedGroupIcon.entries.first { it.id == id }
-    }
 }
