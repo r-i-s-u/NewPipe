@@ -100,10 +100,5 @@ loader = null // removed
     }
 
     private fun updateNotificationMode(item: SubscriptionItem, @NotificationMode mode: Int) {
-        disposables.add(
-// removed
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
     }
 }
