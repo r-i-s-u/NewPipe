@@ -142,7 +142,7 @@ class FeedDatabaseManager(context: Context) {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun createGroup(name: String, icon: FeedGroupIcon): Maybe<Long> {
+    fun createGroup(name: String, icon: Int = 0): Maybe<Long> {
         return Maybe.fromCallable { feedGroupTable.insert(FeedGroupEntity(0, name, icon)) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

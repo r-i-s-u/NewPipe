@@ -29,11 +29,9 @@ class NotificationModeConfigFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var loader: Disposable? = null
     private lateinit var adapter: NotificationModeConfigAdapter
-    private lateinit var subscriptionManager: SubscriptionManager
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        subscriptionManager = SubscriptionManager(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +57,7 @@ class NotificationModeConfigFragment : Fragment() {
         }
         binding.recyclerView.adapter = adapter
         loader?.dispose()
-        loader = subscriptionManager.subscriptions()
+loader = null // removed
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(adapter::update)
     }
@@ -103,7 +101,7 @@ class NotificationModeConfigFragment : Fragment() {
 
     private fun updateNotificationMode(item: SubscriptionItem, @NotificationMode mode: Int) {
         disposables.add(
-            subscriptionManager.updateNotificationMode(item.serviceId, item.url, mode)
+// removed
                 .subscribeOn(Schedulers.io())
                 .subscribe()
         )
