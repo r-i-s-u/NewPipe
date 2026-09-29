@@ -57,9 +57,7 @@ class NotificationModeConfigFragment : Fragment() {
         }
         binding.recyclerView.adapter = adapter
         loader?.dispose()
-loader = null // removed
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(adapter::update)
+loader = null
     }
 
     override fun onDestroyView() {

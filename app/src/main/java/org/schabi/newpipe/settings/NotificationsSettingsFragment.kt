@@ -89,9 +89,7 @@ class NotificationsSettingsFragment : BasePreferenceFragment(), OnSharedPreferen
 
         // (Re-)Create loader
         loader?.dispose()
-        loader = null // removed
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(this::updateSubscriptions, this::onError)
+        loader = null
     }
 
     override fun onPause() {
