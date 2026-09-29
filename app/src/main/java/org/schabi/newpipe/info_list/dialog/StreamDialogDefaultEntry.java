@@ -89,22 +89,7 @@ public enum StreamDialogDefaultEntry {
                 + "by using InfoItemDialog.Builder.setAction()");
     }),
 
-    /**
-     * Opens a {@link PlaylistDialog} to either append the stream to a playlist
-     * or create a new playlist if there are no local playlists.
-     */
-    APPEND_PLAYLIST(R.string.add_to_playlist, (fragment, item) ->
-        PlaylistDialog.createCorrespondingDialog(
-                fragment.getContext(),
-                List.of(new StreamEntity(item)),
-                dialog -> dialog.show(
-                        fragment.getParentFragmentManager(),
-                        "StreamDialogEntry@"
-                                + (dialog instanceof PlaylistAppendDialog ? "append" : "create")
-                                + "_playlist"
-                )
-        )
-    ),
+
 
     PLAY_WITH_KODI(R.string.play_with_kodi_title, (fragment, item) ->
             KoreUtils.playWithKore(fragment.requireContext(), Uri.parse(item.getUrl()))),

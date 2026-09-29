@@ -32,16 +32,12 @@ public final class SettingsResourceRegistry {
         add(MainSettingsFragment.class, R.xml.main_settings).setSearchable(false);
 
         add(AppearanceSettingsFragment.class, R.xml.main_settings);
-        add(ContentSettingsFragment.class, R.xml.main_settings);
-        add(DebugSettingsFragment.class, R.xml.main_settings).setSearchable(false);
         add(DownloadSettingsFragment.class, R.xml.download_settings);
         add(HistorySettingsFragment.class, R.xml.main_settings);
         add(NotificationSettingsFragment.class, R.xml.main_settings);
         add(PlayerNotificationSettingsFragment.class, R.xml.main_settings);
         add(UpdateSettingsFragment.class, R.xml.main_settings);
         add(VideoAudioSettingsFragment.class, R.xml.main_settings);
-        add(ExoPlayerSettingsFragment.class, R.xml.main_settings);
-        add(BackupRestoreSettingsFragment.class, R.xml.main_settings);
     }
 
     private SettingRegistryEntry add(
