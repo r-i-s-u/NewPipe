@@ -6,7 +6,6 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import org.schabi.newpipe.database.feed.model.FeedGroupEntity.Companion.FEED_GROUP_TABLE
 import org.schabi.newpipe.database.feed.model.FeedGroupEntity.Companion.SORT_ORDER
-import org.schabi.newpipe.local.subscription.FeedGroupIcon
 
 @Entity(
     tableName = FEED_GROUP_TABLE,
