@@ -106,7 +106,7 @@ public class SelectFeedGroupFragment extends DialogFragment {
             final FeedGroupEntity entry = feedGroups.get(position);
             onSelectedListener
                     .onFeedGroupSelected(entry.getUid(), entry.getName(),
-                            entry.getIcon().getDrawableResource());
+                            0);
         }
         dismiss();
     }
@@ -175,7 +175,7 @@ public class SelectFeedGroupFragment extends DialogFragment {
             final FeedGroupEntity entry = feedGroups.get(position);
             holder.titleView.setText(entry.getName());
             holder.view.setOnClickListener(view -> clickedItem(position));
-            holder.thumbnailView.setImageResource(entry.getIcon().getDrawableResource());
+            holder.thumbnailView.setImageResource(0);
         }
 
         @Override

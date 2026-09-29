@@ -342,10 +342,6 @@ public final class NavigationHelper {
     }
 
     public static void openSubscriptionFragment(final FragmentManager fragmentManager) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, new SubscriptionFragment())
-                .addToBackStack(null)
-                .commit();
     }
 
     public static void openLocalPlaylistFragment(final FragmentManager fragmentManager,
@@ -353,18 +349,10 @@ public final class NavigationHelper {
     }
 
     public static void openStatisticFragment(final FragmentManager fragmentManager) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, new StatisticsPlaylistFragment())
-                .addToBackStack(null)
-                .commit();
     }
 
     public static void openSubscriptionsImportFragment(final FragmentManager fragmentManager,
                                                        final int serviceId) {
-        defaultTransaction(fragmentManager)
-                .replace(R.id.fragment_holder, SubscriptionsImportFragment.getInstance(serviceId))
-                .addToBackStack(null)
-                .commit();
     }
 
     /*//////////////////////////////////////////////////////////////////////////

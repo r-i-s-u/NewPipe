@@ -78,10 +78,7 @@ public class SelectChannelFragment extends DialogFragment {
         emptyView.setVisibility(View.GONE);
 
 
-        final SubscriptionManager subscriptionManager = new SubscriptionManager(requireContext());
-        subscriptionManager.subscriptions().toObservable()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        // subscription removed
                 .subscribe(getSubscriptionObserver());
 
         return v;
