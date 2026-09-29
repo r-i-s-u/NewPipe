@@ -13,7 +13,6 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
 import org.schabi.newpipe.ktx.ViewUtils;
-import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.DependentPreferenceHelper;
 import org.schabi.newpipe.util.Localization;
 import org.schabi.newpipe.util.StreamTypeUtil;

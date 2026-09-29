@@ -31,7 +31,6 @@ import org.schabi.newpipe.info_list.holder.StreamCardInfoItemHolder;
 import org.schabi.newpipe.info_list.holder.StreamGridInfoItemHolder;
 import org.schabi.newpipe.info_list.holder.StreamInfoItemHolder;
 import org.schabi.newpipe.info_list.holder.StreamMiniInfoItemHolder;
-import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.FallbackViewHolder;
 import org.schabi.newpipe.util.OnClickGesture;
 

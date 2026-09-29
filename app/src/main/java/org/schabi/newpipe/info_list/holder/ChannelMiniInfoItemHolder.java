@@ -12,7 +12,6 @@ import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.channel.ChannelInfoItem;
 import org.schabi.newpipe.extractor.utils.Utils;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
-import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.Localization;
 
 public class ChannelMiniInfoItemHolder extends InfoItemHolder {

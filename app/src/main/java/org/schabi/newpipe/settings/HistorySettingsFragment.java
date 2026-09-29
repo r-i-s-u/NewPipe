@@ -14,7 +14,6 @@ import org.schabi.newpipe.error.ErrorInfo;
 import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.error.ReCaptchaActivity;
 import org.schabi.newpipe.error.UserAction;
-import org.schabi.newpipe.local.history.HistoryRecordManager;
 import org.schabi.newpipe.util.InfoCache;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
