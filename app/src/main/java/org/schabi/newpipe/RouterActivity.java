@@ -62,7 +62,6 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
-import org.schabi.newpipe.local.dialog.PlaylistDialog;
 import org.schabi.newpipe.util.ChannelTabHelper;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.DeviceUtils;
@@ -803,37 +802,10 @@ public class RouterActivity extends AppCompatActivity {
                     })));
         }
 
-        private void openAddToPlaylistDialog(final int currentServiceId, final String currentUrl) {
-            inFlight(true);
-            disposables.add(ExtractorHelper.getStreamInfo(currentServiceId, currentUrl, false)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .compose(this::pleaseWait)
-                    .subscribe(
-                            info -> getActivityContext().ifPresent(context ->
-                                    PlaylistDialog.createCorrespondingDialog(context,
-                                            List.of(new StreamEntity(info)),
-                                            playlistDialog -> runOnVisible(ctx -> {
-                                                // dismiss listener to be handled by FragmentManager
-                                                final FragmentManager fm =
-                                                        ctx.getSupportFragmentManager();
-                                                playlistDialog.show(fm, "addToPlaylistDialog");
-                                            })
-                                    )),
-                            throwable -> runOnVisible(ctx -> handleError(ctx, new ErrorInfo(
-                                    throwable, UserAction.REQUESTED_STREAM,
-                                    "Tried to add " + currentUrl + " to a playlist",
-                                    ((RouterActivity) ctx).currentService.getServiceId(),
-                                    currentUrl)
-                            ))
-                    )
-            );
-        }
+        private void openAddToPlaylistDialog(final int currentServiceId, final String currentUrl) {}
     }
 
-    private void openAddToPlaylistDialog() {
-        getPersistFragment().openAddToPlaylistDialog(currentServiceId, currentUrl);
-    }
+    private void openAddToPlaylistDialog() {}
 
     private void openDownloadDialog() {
         getPersistFragment().openDownloadDialog(currentServiceId, currentUrl);
