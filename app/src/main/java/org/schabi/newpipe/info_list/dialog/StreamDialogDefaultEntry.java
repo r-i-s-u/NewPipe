@@ -120,7 +120,6 @@ public enum StreamDialogDefaultEntry {
             ShareUtils.openUrlInBrowser(fragment.requireContext(), item.getUrl())),
 
 
-    MARK_AS_WATCHED(R.string.mark_as_watched, (fragment, item) ->
         new HistoryRecordManager(fragment.getContext())
                 .markAsWatched(item)
                 .doOnError(error -> {

@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.database.stream.model.StreamStateEntity;
 import org.schabi.newpipe.extractor.InfoItem;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.info_list.InfoItemBuilder;
@@ -58,14 +57,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
                     R.color.duration_background_color));
             itemDurationView.setVisibility(View.VISIBLE);
 
-            if (false) {
-                itemProgressView.setVisibility(View.VISIBLE);
-                itemProgressView.setMax((int) item.getDuration());
-                itemProgressView.setProgress((int) TimeUnit.MILLISECONDS
-                        .toSeconds(state2.getProgressMillis()));
-            } else {
-                itemProgressView.setVisibility(View.GONE);
-            }
+            itemProgressView.setVisibility(View.GONE);
         } else if (StreamTypeUtil.isLiveStream(item.getStreamType())) {
             itemDurationView.setText(R.string.duration_live);
             itemDurationView.setBackgroundColor(ContextCompat.getColor(itemBuilder.getContext(),
