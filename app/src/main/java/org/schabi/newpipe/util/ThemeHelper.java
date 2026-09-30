@@ -339,8 +339,7 @@ public final class ThemeHelper {
      * @return true:use grid layout, false:use list layout
      */
     public static boolean shouldUseGridLayout(final Context context) {
-        final ItemViewMode mode = getItemViewMode(context);
-        return mode == ItemViewMode.GRID;
+        return false;
     }
 
     /**
@@ -359,30 +358,7 @@ public final class ThemeHelper {
      * @param context to read preference and parse string
      * @return Returns one of ItemViewMode
      */
-    public static ItemViewMode getItemViewMode(final Context context) {
-        final String listMode = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.list_view_mode_key),
-                        context.getString(R.string.list_view_mode_value));
-        final ItemViewMode result;
-        if (listMode.equals(context.getString(R.string.list_view_mode_list_key))) {
-            result = ItemViewMode.LIST;
-        } else if (listMode.equals(context.getString(R.string.list_view_mode_grid_key))) {
-            result = ItemViewMode.GRID;
-        } else if (listMode.equals(context.getString(R.string.list_view_mode_card_key))) {
-            result = ItemViewMode.CARD;
-        } else {
-            // Auto mode - evaluate whether to use Grid based on screen real estate.
-            final Configuration configuration = context.getResources().getConfiguration();
-            final boolean useGrid = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-                    && configuration.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
-            if (useGrid) {
-                result = ItemViewMode.GRID;
-            } else {
-                result = ItemViewMode.LIST;
-            }
-        }
-        return result;
-    }
+    public static Object getItemViewMode(final Context context) { return null; }
 
     /**
      * Calculates the number of grid stream info items that can fit horizontally on the screen. The
