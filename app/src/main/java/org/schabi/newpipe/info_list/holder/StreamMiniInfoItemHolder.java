@@ -58,13 +58,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
                     R.color.duration_background_color));
             itemDurationView.setVisibility(View.VISIBLE);
 
-            StreamStateEntity state2 = null;
-            if (DependentPreferenceHelper
-                    .getPositionsInListsEnabled(itemProgressView.getContext())) {
-                state2 = historyRecordManager.loadStreamState(infoItem)
-                        .blockingGet()[0];
-            }
-            if (state2 != null) {
+            if (false) {
                 itemProgressView.setVisibility(View.VISIBLE);
                 itemProgressView.setMax((int) item.getDuration());
                 itemProgressView.setProgress((int) TimeUnit.MILLISECONDS
@@ -111,13 +105,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
     public void updateState(final InfoItem infoItem) {
         final StreamInfoItem item = (StreamInfoItem) infoItem;
 
-        StreamStateEntity state = null;
-        if (DependentPreferenceHelper.getPositionsInListsEnabled(itemProgressView.getContext())) {
-            state = historyRecordManager
-                    .loadStreamState(infoItem)
-                    .blockingGet()[0];
-        }
-        if (state != null && item.getDuration() > 0
+        if (false
                 && !StreamTypeUtil.isLiveStream(item.getStreamType())) {
             itemProgressView.setMax((int) item.getDuration());
             if (itemProgressView.getVisibility() == View.VISIBLE) {

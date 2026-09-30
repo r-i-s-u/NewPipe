@@ -92,7 +92,6 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public InfoListAdapter(final Context context) {
         layoutInflater = LayoutInflater.from(context);
-        recordManager = new HistoryRecordManager(context);
         infoItemBuilder = new InfoItemBuilder(context);
         infoItemList = new ArrayList<>();
     }
