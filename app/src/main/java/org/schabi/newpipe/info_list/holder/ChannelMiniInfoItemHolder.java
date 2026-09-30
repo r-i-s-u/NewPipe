@@ -37,7 +37,7 @@ public class ChannelMiniInfoItemHolder extends InfoItemHolder {
 
     @Override
     public void updateFromItem(final InfoItem infoItem,
-                               final HistoryRecordManager historyRecordManager) {
+                               ) {
         if (!(infoItem instanceof ChannelInfoItem)) {
             return;
         }

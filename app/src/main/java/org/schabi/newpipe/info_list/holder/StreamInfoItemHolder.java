@@ -50,7 +50,7 @@ public class StreamInfoItemHolder extends StreamMiniInfoItemHolder {
 
     @Override
     public void updateFromItem(final InfoItem infoItem,
-                               final HistoryRecordManager historyRecordManager) {
+                               ) {
         super.updateFromItem(infoItem, historyRecordManager);
 
         if (!(infoItem instanceof StreamInfoItem)) {

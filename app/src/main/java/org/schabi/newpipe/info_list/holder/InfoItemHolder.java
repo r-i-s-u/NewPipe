@@ -41,5 +41,5 @@ public abstract class InfoItemHolder extends RecyclerView.ViewHolder {
                                         HistoryRecordManager historyRecordManager);
 
     public void updateState(final InfoItem infoItem,
-                            final HistoryRecordManager historyRecordManager) { }
+                            ) { }
 }

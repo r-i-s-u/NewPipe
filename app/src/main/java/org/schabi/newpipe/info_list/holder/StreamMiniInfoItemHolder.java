@@ -44,7 +44,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
 
     @Override
     public void updateFromItem(final InfoItem infoItem,
-                               final HistoryRecordManager historyRecordManager) {
+                               ) {
         if (!(infoItem instanceof StreamInfoItem)) {
             return;
         }
@@ -110,7 +110,7 @@ public class StreamMiniInfoItemHolder extends InfoItemHolder {
 
     @Override
     public void updateState(final InfoItem infoItem,
-                            final HistoryRecordManager historyRecordManager) {
+                            ) {
         final StreamInfoItem item = (StreamInfoItem) infoItem;
 
         StreamStateEntity state = null;
