@@ -21,7 +21,6 @@ import java.net.SocketException
 import org.acra.ACRA.init
 import org.acra.ACRA.isACRASenderServiceProcess
 import org.acra.config.CoreConfigurationBuilder
-import org.schabi.newpipe.error.ReCaptchaActivity
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.downloader.Downloader
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
@@ -129,7 +128,7 @@ open class App :
     protected fun setCookiesToDownloader(downloader: DownloaderImpl) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val key = getString(R.string.recaptcha_cookies_key)
-        downloader.setCookie(ReCaptchaActivity.RECAPTCHA_COOKIES_KEY, prefs.getString(key, null))
+        downloader.setCookie("recaptcha_cookies", prefs.getString(key, null))
         downloader.updateYoutubeRestrictedModeCookies(this)
     }
 
