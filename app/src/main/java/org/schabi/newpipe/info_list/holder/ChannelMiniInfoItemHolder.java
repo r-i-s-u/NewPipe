@@ -36,8 +36,7 @@ public class ChannelMiniInfoItemHolder extends InfoItemHolder {
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
-                               ) {
+    public void updateFromItem(final InfoItem infoItem) {
         if (!(infoItem instanceof ChannelInfoItem)) {
             return;
         }

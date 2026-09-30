@@ -78,8 +78,7 @@ public class CommentInfoItemHolder extends InfoItemHolder {
     }
 
     @Override
-    public void updateFromItem(final InfoItem infoItem,
-                               ) {
+    public void updateFromItem(final InfoItem infoItem) {
         if (!(infoItem instanceof CommentsInfoItem item)) {
             return;
         }
