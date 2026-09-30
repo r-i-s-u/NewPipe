@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 
+import org.schabi.newpipe.error.ReCaptchaActivity;
 import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.extractor.downloader.Request;
 import org.schabi.newpipe.extractor.downloader.Response;
@@ -79,7 +80,7 @@ public final class DownloaderImpl extends Downloader {
                 ? getCookie(YOUTUBE_RESTRICTED_MODE_COOKIE_KEY) : null;
 
         // Recaptcha cookie is always added TODO: not sure if this is necessary
-        return Stream.of(youtubeCookie, getCookie("recaptcha_cookies"))
+        return Stream.of(youtubeCookie, getCookie(ReCaptchaActivity.RECAPTCHA_COOKIES_KEY))
                 .filter(Objects::nonNull)
                 .flatMap(cookies -> Arrays.stream(cookies.split("; *")))
                 .distinct()
