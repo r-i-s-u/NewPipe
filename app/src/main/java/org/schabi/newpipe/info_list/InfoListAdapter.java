@@ -82,7 +82,6 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private final LayoutInflater layoutInflater;
     private final InfoItemBuilder infoItemBuilder;
     private final List<InfoItem> infoItemList;
-    private final HistoryRecordManager recordManager;
 
     private boolean useMiniVariant = false;
     private boolean showFooter = false;
@@ -335,7 +334,7 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof InfoItemHolder) {
             ((InfoItemHolder) holder).updateFromItem(
                     // If header is present, offset the items by -1
-                    infoItemList.get(hasHeader() ? position - 1 : position), recordManager);
+                    infoItemList.get(hasHeader() ? position - 1 : position));
         }
     }
 

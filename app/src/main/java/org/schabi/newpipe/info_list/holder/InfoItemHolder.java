@@ -37,8 +37,7 @@ public abstract class InfoItemHolder extends RecyclerView.ViewHolder {
         this.itemBuilder = infoItemBuilder;
     }
 
-    public abstract void updateFromItem(InfoItem infoItem,
-                                        HistoryRecordManager historyRecordManager);
+    public abstract void updateFromItem(InfoItem infoItem);
 
     public void updateState(final InfoItem infoItem) { }
 }
