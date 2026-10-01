@@ -147,7 +147,7 @@ public class MainFragment extends BaseFragment implements TabLayout.OnTabSelecte
                 NavigationHelper.openSearchFragment(getFM(),
                         ServiceHelper.getSelectedServiceId(activity), "");
             } catch (final Exception e) {
-                ErrorUtil.showUiErrorSnackbar(this, "Opening search fragment", e);
+                // error removed
             }
             return true;
         }

@@ -882,8 +882,7 @@ public class DownloadDialog extends DialogFragment
                         mainStorage.getTag());
             }
         } catch (final Exception e) {
-            ErrorUtil.createNotification(requireContext(),
-                    new ErrorInfo(e, UserAction.DOWNLOAD_FAILED, "Getting storage"));
+
             return;
         }
 

@@ -51,7 +51,7 @@ public final class MigrationManager {
         try {
             MIGRATION_INFO.get(0).accept(context);
         } catch (final Exception e) {
-            ErrorUtil.showUiErrorSnackbar(context, "Showing migration info to the user", e);
+            // error removed
             // Remove the migration that caused the error and continue with the next one
             MIGRATION_INFO.remove(0);
             showUserInfoIfPresent(context);
