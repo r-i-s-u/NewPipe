@@ -22,10 +22,7 @@ object ReleaseVersionUtil {
         try {
             PackageInfoCompat.hasSignatures(app.packageManager, app.packageName, certificates, false)
         } catch (e: PackageManager.NameNotFoundException) {
-            createNotification(
-                app,
-                ErrorInfo(e, UserAction.CHECK_FOR_NEW_APP_VERSION, "Could not find package info")
-            )
+
             false
         }
     }

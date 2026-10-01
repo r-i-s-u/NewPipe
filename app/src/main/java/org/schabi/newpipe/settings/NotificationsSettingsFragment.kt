@@ -116,9 +116,6 @@ class NotificationsSettingsFragment : BasePreferenceFragment(), OnSharedPreferen
     }
 
     private fun onError(e: Throwable) {
-        ErrorUtil.showSnackbar(
-            this,
-            ErrorInfo(e, UserAction.SUBSCRIPTION_GET, "Get subscriptions list")
-        )
+
     }
 }

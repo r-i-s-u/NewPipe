@@ -128,7 +128,6 @@ open class App :
     protected fun setCookiesToDownloader(downloader: DownloaderImpl) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val key = getString(R.string.recaptcha_cookies_key)
-        downloader.setCookie(ReCaptchaActivity.RECAPTCHA_COOKIES_KEY, prefs.getString(key, null))
         downloader.updateYoutubeRestrictedModeCookies(this)
     }
 
