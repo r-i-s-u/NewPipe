@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.util.Consumer;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.error.ErrorUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,7 +24,6 @@ import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.database.AppDatabase;
 import org.schabi.newpipe.database.feed.model.FeedGroupEntity;
-import org.schabi.newpipe.error.ErrorUtil;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.List;

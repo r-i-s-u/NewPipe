@@ -6,9 +6,6 @@ import java.time.Instant
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import org.schabi.newpipe.App
-import org.schabi.newpipe.error.ErrorInfo
-import org.schabi.newpipe.error.ErrorUtil.Companion.createNotification
-import org.schabi.newpipe.error.UserAction
 
 object ReleaseVersionUtil {
     // Public key of the certificate that is used in NewPipe release versions
