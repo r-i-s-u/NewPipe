@@ -879,7 +879,6 @@ public class RouterActivity extends AppCompatActivity {
 
         public void handleChoice(final Choice choice) {
             Single<? extends Info> single = null;
-            UserAction userAction = null;
 
             switch (choice.linkType) {
                 case STREAM:

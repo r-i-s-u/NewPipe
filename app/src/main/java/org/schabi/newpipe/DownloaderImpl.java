@@ -79,7 +79,7 @@ public final class DownloaderImpl extends Downloader {
                 ? getCookie(YOUTUBE_RESTRICTED_MODE_COOKIE_KEY) : null;
 
         // Recaptcha cookie is always added TODO: not sure if this is necessary
-        return Stream.of(youtubeCookie, getCookie(ReCaptchaActivity.RECAPTCHA_COOKIES_KEY))
+        return Stream.of(youtubeCookie)
                 .filter(Objects::nonNull)
                 .flatMap(cookies -> Arrays.stream(cookies.split("; *")))
                 .distinct()
