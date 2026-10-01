@@ -312,7 +312,7 @@ public final class NavigationHelper {
             openChannelFragment(activity.getSupportFragmentManager(), comment.getServiceId(),
                     comment.getUploaderUrl(), comment.getUploaderName());
         } catch (final Exception e) {
-            ErrorUtil.showUiErrorSnackbar(activity, "Opening channel fragment", e);
+            // error removed
         }
     }
 

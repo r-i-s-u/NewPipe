@@ -63,9 +63,7 @@ public class DebounceSaver {
         return debouncedSaveSignal
                 .debounce(saveDebounceMillis, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(ignored -> debounceSavable.saveImmediate(), throwable ->
-                        debounceSavable.showError(new ErrorInfo(throwable,
-                                UserAction.SOMETHING_ELSE, "Debounced saver")));
+                .subscribe(ignored -> debounceSavable.saveImmediate(), throwable -> {});
     }
 
     public void setHasChangesToSave() {
