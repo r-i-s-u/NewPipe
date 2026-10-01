@@ -544,9 +544,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         // add report button for non-HTTP errors (range 100-599)
         if (mission.errObject != null && (mission.errCode < 100 || mission.errCode >= 600)) {
             @StringRes final int mMsg = msg;
-            builder.setPositiveButton(R.string.error_report_title, (dialog, which) ->
-                    // error removed
-            );
+
         }
 
         builder.setNegativeButton(R.string.ok, (dialog, which) -> dialog.cancel())
