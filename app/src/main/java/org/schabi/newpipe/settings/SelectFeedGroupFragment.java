@@ -137,8 +137,7 @@ public class SelectFeedGroupFragment extends DialogFragment {
 
             @Override
             public void onError(@NonNull final Throwable exception) {
-                ErrorUtil.showUiErrorSnackbar(SelectFeedGroupFragment.this,
-                        "Loading Feed Groups", exception);
+                // error removed
             }
 
             @Override

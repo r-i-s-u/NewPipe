@@ -130,8 +130,7 @@ public class SelectChannelFragment extends DialogFragment {
 
             @Override
             public void onError(@NonNull final Throwable exception) {
-                ErrorUtil.showUiErrorSnackbar(SelectChannelFragment.this,
-                        "Loading subscription", exception);
+                // error removed
             }
 
             @Override

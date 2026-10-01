@@ -384,27 +384,21 @@ public class DownloadDialog extends DialogFragment
                             == R.id.video_button) {
                         setupVideoSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading video stream size", currentInfo))));
+                }, throwable -> {}));
         disposables.add(StreamInfoWrapper.fetchMoreInfoForWrapper(getWrappedAudioStreams())
                 .subscribe(result -> {
                     if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
                             == R.id.audio_button) {
                         setupAudioSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading audio stream size", currentInfo))));
+                }, throwable -> {}));
         disposables.add(StreamInfoWrapper.fetchMoreInfoForWrapper(wrappedSubtitleStreams)
                 .subscribe(result -> {
                     if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
                             == R.id.subtitle_button) {
                         setupSubtitleSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading subtitle stream size", currentInfo))));
+                }, throwable -> {}));
     }
 
     private void setupAudioTrackSpinner() {
