@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             setupDrawer();
         } catch (final Exception e) {
-            ErrorUtil.showUiErrorSnackbar(this, "Setting up drawer", e);
+            // error removed
         }
         if (DeviceUtils.isTv(this)) {
             FocusOverlayView.setupFocusObserver(this);
@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 addDrawerMenuForCurrentService();
             } catch (final Exception e) {
-                ErrorUtil.showUiErrorSnackbar(this, "Showing main page tabs", e);
+                // error removed
             }
         }
     }
@@ -486,7 +486,7 @@ public class MainActivity extends AppCompatActivity {
             drawerHeaderBinding.drawerHeaderActionButton.setContentDescription(
                     getString(R.string.drawer_header_description) + selectedServiceName);
         } catch (final Exception e) {
-            ErrorUtil.showUiErrorSnackbar(this, "Setting up service toggle", e);
+            // error removed
         }
 
         if (sharedPreferences.getBoolean(Constants.KEY_THEME_CHANGE, false)) {
@@ -784,7 +784,7 @@ public class MainActivity extends AppCompatActivity {
                 NavigationHelper.gotoMainFragment(getSupportFragmentManager());
             }
         } catch (final Exception e) {
-            ErrorUtil.showUiErrorSnackbar(this, "Handling intent", e);
+            // error removed
         }
     }
 

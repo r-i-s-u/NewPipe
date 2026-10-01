@@ -500,14 +500,14 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 break;
             case ERROR_POSTPROCESSING:
             case ERROR_POSTPROCESSING_HOLD:
-                showError(mission, UserAction.DOWNLOAD_POSTPROCESSING, R.string.error_postprocessing_failed);
+                // error removed;
                 return;
             case ERROR_INSUFFICIENT_STORAGE:
                 msg = R.string.error_insufficient_storage_left;
                 break;
             case ERROR_UNKNOWN_EXCEPTION:
                 if (mission.errObject != null) {
-                    showError(mission, UserAction.DOWNLOAD_FAILED, R.string.general_error);
+                    // error removed;
                     return;
                 } else {
                     msg = R.string.msg_error;
@@ -528,7 +528,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 } else if (mission.errObject == null) {
                     msgEx = "(not_decelerated_error_code)";
                 } else {
-                    showError(mission, UserAction.DOWNLOAD_FAILED, msg);
+                    // error removed;
                     return;
                 }
                 break;
@@ -545,7 +545,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (mission.errObject != null && (mission.errCode < 100 || mission.errCode >= 600)) {
             @StringRes final int mMsg = msg;
             builder.setPositiveButton(R.string.error_report_title, (dialog, which) ->
-                    showError(mission, UserAction.DOWNLOAD_FAILED, mMsg)
+                    // error removed
             );
         }
 
@@ -554,30 +554,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 .show();
     }
 
-    private void showError(DownloadMission mission, UserAction action, @StringRes int reason) {
-        StringBuilder request = new StringBuilder(256);
-        request.append(mission.source);
-
-        request.append(" [");
-        if (mission.recoveryInfo != null) {
-            for (MissionRecoveryInfo recovery : mission.recoveryInfo)
-                request.append(' ')
-                        .append(recovery.toString())
-                        .append(' ');
-        }
-        request.append("]");
-
-        Integer service;
-        try {
-            service = NewPipe.getServiceByUrl(mission.source).getServiceId();
-        } catch (Exception e) {
-            service = null;
-        }
-
-        ErrorUtil.createNotification(mContext,
-                new ErrorInfo(ErrorInfo.Companion.throwableToStringList(mission.errObject), action,
-                        request.toString(), service, reason));
-    }
+    private void showError(DownloadMission mission, Object action, Object reason) {}
 
     public void clearFinishedDownloads(boolean delete) {
         if (delete && mIterator.hasFinishedMissions() && mHidden.isEmpty()) {

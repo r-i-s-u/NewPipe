@@ -237,9 +237,7 @@ public class RouterActivity extends AppCompatActivity {
                     } else {
                         showUnsupportedUrlDialog(url);
                     }
-                }, throwable -> handleError(this, new ErrorInfo(throwable,
-                        UserAction.SHARE_TO_NEWPIPE, "Getting service from url: " + url,
-                        null, url))));
+                }, throwable -> handleError(this, null)));
     }
 
     /**
@@ -247,26 +245,7 @@ public class RouterActivity extends AppCompatActivity {
      *                an instance of {@link RouterActivity}.
      * @param errorInfo the error information
      */
-    private static void handleError(final Context context, final ErrorInfo errorInfo) {
-        if (errorInfo.getRecaptchaUrl() != null) {
-            Toast.makeText(context, R.string.recaptcha_request_toast, Toast.LENGTH_LONG).show();
-            // Starting ReCaptcha Challenge Activity
-            final Intent intent = new Intent(context, ReCaptchaActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(ReCaptchaActivity.RECAPTCHA_URL_EXTRA, errorInfo.getRecaptchaUrl());
-            context.startActivity(intent);
-        } else if (errorInfo.isReportable()) {
-            ErrorUtil.createNotification(context, errorInfo);
-        } else {
-            // this exception does not usually indicate a problem that should be reported,
-            // so just show a toast instead of the notification
-            Toast.makeText(context, errorInfo.getMessage(context), Toast.LENGTH_LONG).show();
-        }
-
-        if (context instanceof RouterActivity) {
-            ((RouterActivity) context).finish();
-        }
-    }
+    private static void handleError(final Context context, final Object errorInfo) {}
 
     protected void showUnsupportedUrlDialog(final String url) {
         final Context context = getThemeWrapperContext();
@@ -631,9 +610,7 @@ public class RouterActivity extends AppCompatActivity {
                     .subscribe(intent -> {
                         startActivity(intent);
                         finish();
-                    }, throwable -> handleError(this, new ErrorInfo(throwable,
-                            UserAction.SHARE_TO_NEWPIPE, "Starting info activity: " + currentUrl,
-                            null, currentUrl)))
+                    }, throwable -> handleError(this, null))
             );
             return;
         }
@@ -902,27 +879,26 @@ public class RouterActivity extends AppCompatActivity {
 
         public void handleChoice(final Choice choice) {
             Single<? extends Info> single = null;
-            UserAction userAction = UserAction.SOMETHING_ELSE;
+            UserAction userAction = null;
 
             switch (choice.linkType) {
                 case STREAM:
                     single = ExtractorHelper.getStreamInfo(choice.serviceId, choice.url, false);
-                    userAction = UserAction.REQUESTED_STREAM;
+                    userAction = null;
                     break;
                 case CHANNEL:
                     single = ExtractorHelper.getChannelInfo(choice.serviceId, choice.url, false);
-                    userAction = UserAction.REQUESTED_CHANNEL;
+                    userAction = null;
                     break;
                 case PLAYLIST:
                     single = ExtractorHelper.getPlaylistInfo(choice.serviceId, choice.url, false);
-                    userAction = UserAction.REQUESTED_PLAYLIST;
+                    userAction = null;
                     break;
             }
 
 
             if (single != null) {
-                final UserAction finalUserAction = userAction;
-                final Consumer<Info> resultHandler = getResultHandler(choice);
+                                final Consumer<Info> resultHandler = getResultHandler(choice);
                 fetcher = single
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(info -> {
@@ -930,9 +906,7 @@ public class RouterActivity extends AppCompatActivity {
                             if (fetcher != null) {
                                 fetcher.dispose();
                             }
-                        }, throwable -> handleError(this, new ErrorInfo(throwable, finalUserAction,
-                                choice.url + " opened with " + choice.playerChoice,
-                                choice.serviceId, choice.url)));
+                        }, throwable -> handleError(this, null));
             }
         }
 

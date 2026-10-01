@@ -10,5 +10,4 @@ public interface DebounceSavable {
      */
     void saveImmediate();
 
-    void showError(ErrorInfo errorInfo);
 }
