@@ -883,15 +883,12 @@ public class RouterActivity extends AppCompatActivity {
             switch (choice.linkType) {
                 case STREAM:
                     single = ExtractorHelper.getStreamInfo(choice.serviceId, choice.url, false);
-                    userAction = null;
                     break;
                 case CHANNEL:
                     single = ExtractorHelper.getChannelInfo(choice.serviceId, choice.url, false);
-                    userAction = null;
                     break;
                 case PLAYLIST:
                     single = ExtractorHelper.getPlaylistInfo(choice.serviceId, choice.url, false);
-                    userAction = null;
                     break;
             }
 

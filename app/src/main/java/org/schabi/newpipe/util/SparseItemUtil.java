@@ -96,10 +96,7 @@ public final class SparseItemUtil {
                             .streamDAO().upsert(new StreamEntity(result)))
                             .subscribeOn(Schedulers.io())
                             .observeOn(Schedulers.io())
-                            .doOnError(throwable ->
-                                    ErrorUtil.createNotification(context,
-                                            new ErrorInfo(throwable, UserAction.REQUESTED_STREAM,
-                                                    "Saving stream info to database", result)))
+                            .doOnError(throwable -> {})
                             .subscribe();
 
                     // call callback on main thread with the obtained result
