@@ -101,9 +101,6 @@ public final class SparseItemUtil {
 
                     // call callback on main thread with the obtained result
                     callback.accept(result);
-                }, throwable -> ErrorUtil.createNotification(context,
-                        new ErrorInfo(throwable, UserAction.REQUESTED_STREAM,
-                                "Loading stream info: " + url, serviceId, url)
-                ));
+                }, throwable -> {});
     }
 }
