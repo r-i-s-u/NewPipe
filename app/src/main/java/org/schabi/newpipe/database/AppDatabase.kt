@@ -15,10 +15,6 @@ import org.schabi.newpipe.database.feed.model.FeedEntity
 import org.schabi.newpipe.database.feed.model.FeedGroupEntity
 import org.schabi.newpipe.database.feed.model.FeedGroupSubscriptionEntity
 import org.schabi.newpipe.database.feed.model.FeedLastUpdatedEntity
-import org.schabi.newpipe.database.history.dao.SearchHistoryDAO
-import org.schabi.newpipe.database.history.dao.StreamHistoryDAO
-import org.schabi.newpipe.database.history.model.SearchHistoryEntry
-import org.schabi.newpipe.database.history.model.StreamHistoryEntity
 import org.schabi.newpipe.database.playlist.dao.PlaylistDAO
 import org.schabi.newpipe.database.playlist.dao.PlaylistRemoteDAO
 import org.schabi.newpipe.database.playlist.dao.PlaylistStreamDAO
@@ -37,9 +33,7 @@ import org.schabi.newpipe.database.subscription.SubscriptionEntity
     version = Migrations.DB_VER_9,
     entities = [
         SubscriptionEntity::class,
-        SearchHistoryEntry::class,
         StreamEntity::class,
-        StreamHistoryEntity::class,
         StreamStateEntity::class,
         PlaylistEntity::class,
         PlaylistStreamEntity::class,
@@ -56,9 +50,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun playlistDAO(): PlaylistDAO
     abstract fun playlistRemoteDAO(): PlaylistRemoteDAO
     abstract fun playlistStreamDAO(): PlaylistStreamDAO
-    abstract fun searchHistoryDAO(): SearchHistoryDAO
     abstract fun streamDAO(): StreamDAO
-    abstract fun streamHistoryDAO(): StreamHistoryDAO
     abstract fun streamStateDAO(): StreamStateDAO
     abstract fun subscriptionDAO(): SubscriptionDAO
 
