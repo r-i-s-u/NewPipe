@@ -107,20 +107,7 @@ abstract class StreamDAO : BasicDAO<StreamEntity> {
         }
     }
 
-    @Query(
-        """
-        DELETE FROM streams WHERE
-
-        NOT EXISTS (SELECT 1 FROM stream_history sh
-        WHERE sh.stream_id = streams.uid)
-
-        AND NOT EXISTS (SELECT 1 FROM playlist_stream_join ps
-        WHERE ps.stream_id = streams.uid)
-
-        AND NOT EXISTS (SELECT 1 FROM feed f
-        WHERE f.stream_id = streams.uid)
-        """
-    )
+    @Query("DELETE FROM streams")
     abstract fun deleteOrphans(): Int
 
     /**
