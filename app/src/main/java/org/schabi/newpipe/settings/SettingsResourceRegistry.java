@@ -35,7 +35,6 @@ public final class SettingsResourceRegistry {
         add(DownloadSettingsFragment.class, R.xml.download_settings);
         add(NotificationSettingsFragment.class, R.xml.main_settings);
         add(PlayerNotificationSettingsFragment.class, R.xml.main_settings);
-        add(UpdateSettingsFragment.class, R.xml.main_settings);
         add(VideoAudioSettingsFragment.class, R.xml.main_settings);
     }
 
