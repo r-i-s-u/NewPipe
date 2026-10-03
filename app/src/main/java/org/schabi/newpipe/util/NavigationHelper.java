@@ -327,9 +327,7 @@ public final class NavigationHelper {
                                             @NonNull final String name) {
     }
 
-    public static void openFeedFragment(final FragmentManager fragmentManager) {
-        openFeedFragment(fragmentManager, FeedGroupEntity.GROUP_ALL_ID, null);
-    }
+    public static void openFeedFragment(final FragmentManager fragmentManager) {}
 
     public static void openFeedFragment(final FragmentManager fragmentManager, final long groupId,
                                         @Nullable final String groupName) {

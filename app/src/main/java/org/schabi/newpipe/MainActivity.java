@@ -181,11 +181,7 @@ public class MainActivity extends AppCompatActivity {
             // Schedule worker for checking for new streams and creating corresponding notifications
             // if this is enabled by the user.
         }
-        if (!UpdateSettingsFragment.wasUserAskedForConsent(this)
-                && !App.getInstance().isFirstRun()
-                && ReleaseVersionUtil.INSTANCE.isReleaseApk()) {
-            UpdateSettingsFragment.askForConsentToUpdateChecks(this);
-        }
+
 
         // ReleaseVersionUtil.INSTANCE.isReleaseApk() will be true only for main official build
         // We want every release build (nightly, nightly-refactor) to show the popup
