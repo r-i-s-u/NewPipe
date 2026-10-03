@@ -89,13 +89,6 @@ public final class SparseItemUtil {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(result -> {
-                    // save to database in the background (not on main thread)
-                    Completable.fromAction(() -> NewPipeDatabase.getInstance(context)
-                            .streamDAO().upsert(new StreamEntity(result)))
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.io())
-                            .doOnError(throwable -> {})
-                            .subscribe();
 
                     // call callback on main thread with the obtained result
                     callback.accept(result);

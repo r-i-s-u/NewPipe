@@ -476,8 +476,6 @@ public final class NavigationHelper {
      * @param activity the activity to finish
      */
     public static void restartApp(final Activity activity) {
-        NewPipeDatabase.close();
-
         ProcessPhoenix.triggerRebirth(activity.getApplicationContext());
     }
 }
