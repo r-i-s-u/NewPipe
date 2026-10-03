@@ -44,7 +44,6 @@ import androidx.preference.PreferenceManager;
 import com.evernote.android.state.State;
 import com.livefront.bridge.Bridge;
 
-import org.schabi.newpipe.database.stream.model.StreamEntity;
 import org.schabi.newpipe.databinding.ListRadioIconItemBinding;
 import org.schabi.newpipe.databinding.SingleChoiceDialogViewBinding;
 import org.schabi.newpipe.download.DownloadDialog;

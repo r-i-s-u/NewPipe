@@ -27,7 +27,6 @@ import com.jakewharton.processphoenix.ProcessPhoenix;
 
 
 import org.schabi.newpipe.MainActivity;
-import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
 import org.schabi.newpipe.download.DownloadActivity;
