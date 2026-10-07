@@ -25,7 +25,6 @@ import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
 import org.schabi.newpipe.extractor.Image;
-import org.schabi.newpipe.util.image.ImageStrategy;
 
 import java.nio.file.Files;
 import java.util.Collections;
@@ -247,8 +246,7 @@ public final class ShareUtils {
         // See https://developer.android.com/training/sharing/send#adding-rich-content-previews
         // If loading of images has been disabled, don't try to generate a content preview
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-                && !TextUtils.isEmpty(imagePreviewUrl)
-                && ImageStrategy.shouldLoadImages()) {
+                && !TextUtils.isEmpty(imagePreviewUrl)) {
 
             final ClipData clipData = generateClipDataForImagePreview(context, imagePreviewUrl);
             if (clipData != null) {
@@ -266,21 +264,21 @@ public final class ShareUtils {
      * <p>
      * For Android 10+ users, a content preview is shown, which includes the title of the shared
      * content and an image preview the content, if the preferred image chosen by {@link
-     * ImageStrategy#choosePreferredImage(List)} is in the image cache.
+     * the first image} is in the image cache.
      * </p>
      *
      * @param context the context to use
      * @param title   the title of the content
      * @param content the content to share
      * @param images  a set of possible {@link Image}s of the subject, among which to choose with
-     *                {@link ImageStrategy#choosePreferredImage(List)} since that's likely to
+     *                the first image since that's likely to
      *                provide an image that is in Coil's cache
      */
     public static void shareText(@NonNull final Context context,
                                  @NonNull final String title,
                                  final String content,
                                  final List<Image> images) {
-        shareText(context, title, content, ImageStrategy.choosePreferredImage(images));
+        shareText(context, title, content, (images == null || images.isEmpty() ? null : images.get(0).getUrl()));
     }
 
     /**

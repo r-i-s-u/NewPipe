@@ -14,7 +14,6 @@ import org.schabi.newpipe.extractor.localization.DateWrapper
 import org.schabi.newpipe.extractor.stream.StreamInfo
 import org.schabi.newpipe.extractor.stream.StreamInfoItem
 import org.schabi.newpipe.extractor.stream.StreamType
-import org.schabi.newpipe.util.image.ImageStrategy
 
 @Entity(
     tableName = STREAM_TABLE,
@@ -68,7 +67,7 @@ data class StreamEntity(
         serviceId = item.serviceId, url = item.url, title = item.name,
         streamType = item.streamType, duration = item.duration, uploader = item.uploaderName,
         uploaderUrl = item.uploaderUrl,
-        thumbnailUrl = ImageStrategy.imageListToDbUrl(item.thumbnails), viewCount = item.viewCount,
+        thumbnailUrl = item.thumbnails.firstOrNull()?.url, viewCount = item.viewCount,
         textualUploadDate = item.textualUploadDate, uploadDate = item.uploadDate?.offsetDateTime(),
         isUploadDateApproximation = item.uploadDate?.isApproximation
     )
@@ -78,7 +77,7 @@ data class StreamEntity(
         serviceId = info.serviceId, url = info.url, title = info.name,
         streamType = info.streamType, duration = info.duration, uploader = info.uploaderName,
         uploaderUrl = info.uploaderUrl,
-        thumbnailUrl = ImageStrategy.imageListToDbUrl(info.thumbnails), viewCount = info.viewCount,
+        thumbnailUrl = info.thumbnails.firstOrNull()?.url, viewCount = info.viewCount,
         textualUploadDate = info.textualUploadDate, uploadDate = info.uploadDate?.offsetDateTime(),
         isUploadDateApproximation = info.uploadDate?.isApproximation
     )
@@ -88,7 +87,7 @@ data class StreamEntity(
         item.duration = duration
         item.uploaderName = uploader
         item.uploaderUrl = uploaderUrl
-        item.thumbnails = ImageStrategy.dbUrlToImageList(thumbnailUrl)
+        item.thumbnails = (thumbnailUrl?.let { listOf(org.schabi.newpipe.extractor.Image(it, org.schabi.newpipe.extractor.Image.HEIGHT_UNKNOWN, org.schabi.newpipe.extractor.Image.WIDTH_UNKNOWN, org.schabi.newpipe.extractor.Image.ResolutionLevel.UNKNOWN)) } ?: emptyList())
 
         if (viewCount != null) item.viewCount = viewCount as Long
         item.textualUploadDate = textualUploadDate

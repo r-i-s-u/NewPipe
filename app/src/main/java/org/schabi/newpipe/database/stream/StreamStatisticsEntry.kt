@@ -14,7 +14,6 @@ import org.schabi.newpipe.database.LocalItem
 import org.schabi.newpipe.database.stream.model.StreamEntity
 import org.schabi.newpipe.database.stream.model.StreamStateEntity.Companion.STREAM_PROGRESS_MILLIS
 import org.schabi.newpipe.extractor.stream.StreamInfoItem
-import org.schabi.newpipe.util.image.ImageStrategy
 
 data class StreamStatisticsEntry(
     @Embedded
@@ -47,7 +46,7 @@ data class StreamStatisticsEntry(
             duration = streamEntity.duration
             uploaderName = streamEntity.uploader
             uploaderUrl = streamEntity.uploaderUrl
-            thumbnails = ImageStrategy.dbUrlToImageList(streamEntity.thumbnailUrl)
+            thumbnails = (streamEntity.thumbnailUrl?.let { listOf(org.schabi.newpipe.extractor.Image(it, org.schabi.newpipe.extractor.Image.HEIGHT_UNKNOWN, org.schabi.newpipe.extractor.Image.WIDTH_UNKNOWN, org.schabi.newpipe.extractor.Image.ResolutionLevel.UNKNOWN)) } ?: emptyList())
         }
     }
 

@@ -30,8 +30,6 @@ import org.schabi.newpipe.util.BridgeStateSaverInitializer
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.ServiceHelper
 import org.schabi.newpipe.util.StateSaver
-import org.schabi.newpipe.util.image.ImageStrategy
-import org.schabi.newpipe.util.image.PreferredImageQuality
 import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
 
 /*
@@ -101,17 +99,7 @@ open class App :
 
         ServiceHelper.initServices(this)
 
-        // Initialize image loader
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        ImageStrategy.setPreferredImageQuality(
-            PreferredImageQuality.fromPreferenceKey(
-                this,
-                prefs.getString(
-                    getString(R.string.image_quality_key),
-                    getString(R.string.image_quality_default)
-                )
-            )
-        )
 
         configureRxJavaErrorHandler()
 
