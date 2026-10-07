@@ -19,7 +19,7 @@
         android:layout_marginBottom="6dp"
         android:text="@string/msg_name" />
 
-    <org.schabi.newpipe.views.NewPipeEditText
+    <EditText
         android:id="@+id/file_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

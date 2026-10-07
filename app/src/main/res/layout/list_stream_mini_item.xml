@@ -60,7 +60,7 @@
         android:textSize="@dimen/video_item_search_uploader_text_size"
         tools:text="Uploader" />
 
-    <org.schabi.newpipe.views.AnimatedProgressBar
+    <ProgressBar
         android:id="@+id/itemProgressView"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="wrap_content"

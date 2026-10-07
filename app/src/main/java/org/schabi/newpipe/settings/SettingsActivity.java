@@ -30,7 +30,6 @@ import org.schabi.newpipe.databinding.SettingsLayoutBinding;
 import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ReleaseVersionUtil;
 import org.schabi.newpipe.util.ThemeHelper;
-import org.schabi.newpipe.views.FocusOverlayView;
 
 import java.util.concurrent.TimeUnit;
 
@@ -85,9 +84,6 @@ public class SettingsActivity extends AppCompatActivity implements
                     .commit();
         }
 
-        if (DeviceUtils.isTv(this)) {
-            FocusOverlayView.setupFocusObserver(this);
-        }
     }
 
     @Override

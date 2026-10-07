@@ -67,7 +67,6 @@ import org.schabi.newpipe.util.PermissionHelper;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
 import org.schabi.newpipe.util.urlfinder.UrlFinder;
-import org.schabi.newpipe.views.FocusOverlayView;
 
 import java.io.Serializable;
 import java.lang.ref.Reference;
@@ -470,9 +469,6 @@ public class RouterActivity extends AppCompatActivity {
 
         alertDialogChoice.show();
 
-        if (DeviceUtils.isTv(this)) {
-            FocusOverlayView.setupFocusObserver(alertDialogChoice);
-        }
     }
 
     private List<AdapterChoiceItem> getChoicesForService(final StreamingService service,

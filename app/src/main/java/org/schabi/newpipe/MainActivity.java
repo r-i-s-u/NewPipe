@@ -84,7 +84,6 @@ import org.schabi.newpipe.util.ServiceHelper;
 import org.schabi.newpipe.util.StateSaver;
 import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
-import org.schabi.newpipe.views.FocusOverlayView;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -170,9 +169,6 @@ public class MainActivity extends AppCompatActivity {
             setupDrawer();
         } catch (final Exception e) {
             // error removed
-        }
-        if (DeviceUtils.isTv(this)) {
-            FocusOverlayView.setupFocusObserver(this);
         }
         openMiniPlayerUponPlayerStarted();
 

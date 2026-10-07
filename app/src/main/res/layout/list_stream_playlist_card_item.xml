@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@id/itemVideoTitleView"
         tools:text="Uploader" />
 
-    <org.schabi.newpipe.views.AnimatedProgressBar
+    <ProgressBar
         android:id="@+id/itemProgressView"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="0dp"

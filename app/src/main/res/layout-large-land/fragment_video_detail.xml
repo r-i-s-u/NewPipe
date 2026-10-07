@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         tools:ignore="RtlHardcoded">
 
-        <org.schabi.newpipe.views.FocusAwareCoordinator
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/detail_main_content"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
                 app:elevation="0dp"
                 app:layout_behavior="com.google.android.material.appbar.FlingBehavior">
 
-                <org.schabi.newpipe.views.CustomCollapsingToolbarLayout
+                <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_scrollFlags="scroll">
@@ -137,7 +137,7 @@
                             tools:text="12:38"
                             tools:visibility="visible" />
 
-                        <org.schabi.newpipe.views.AnimatedProgressBar
+                        <ProgressBar
                             android:id="@+id/position_view"
                             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                             android:layout_width="match_parent"
@@ -159,7 +159,7 @@
 
                     </FrameLayout>
 
-                </org.schabi.newpipe.views.CustomCollapsingToolbarLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
 
                 <!-- CONTENT -->
                 <RelativeLayout
@@ -613,7 +613,7 @@
                 app:tabIconTint="?attr/colorAccent"
                 app:tabIndicatorGravity="top" />
 
-        </org.schabi.newpipe.views.FocusAwareCoordinator>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/relatedItemsLayout"
