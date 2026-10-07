@@ -20,9 +20,9 @@
 package org.schabi.newpipe.util;
 
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
-import static org.schabi.newpipe.util.text.TextLinkifier.SET_LINK_MOVEMENT_METHOD;
 
 import android.content.Context;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -51,7 +51,6 @@ import org.schabi.newpipe.extractor.search.SearchInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
 import org.schabi.newpipe.extractor.suggestion.SuggestionExtractor;
-import org.schabi.newpipe.util.text.TextLinkifier;
 
 import java.util.Collections;
 import java.util.List;
@@ -336,9 +335,9 @@ public final class ExtractorHelper {
             }
 
             metaInfoSeparator.setVisibility(View.VISIBLE);
-            TextLinkifier.fromHtml(metaInfoTextView, stringBuilder.toString(),
-                    HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_HEADING, null, null, disposables,
-                    SET_LINK_MOVEMENT_METHOD);
+            metaInfoTextView.setText(HtmlCompat.fromHtml(stringBuilder.toString(),
+                    HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_HEADING));
+            metaInfoTextView.setMovementMethod(LinkMovementMethod.getInstance());
         }
     }
 
