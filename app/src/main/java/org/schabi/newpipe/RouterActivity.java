@@ -58,7 +58,6 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
-import org.schabi.newpipe.util.ChannelTabHelper;
 import org.schabi.newpipe.util.Constants;
 import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ExtractorHelper;
@@ -925,14 +924,6 @@ public class RouterActivity extends AppCompatActivity {
                         return;
                     }
                 } else if (info instanceof ChannelInfo) {
-                    final Optional<ListLinkHandler> playableTab = ((ChannelInfo) info).getTabs()
-                            .stream()
-                            .filter(ChannelTabHelper::isStreamsTab)
-                            .findFirst();
-
-                    if (!playableTab.isPresent()) {
-                        return; // there is no playable tab
-                    }
                 } else if (!(info instanceof PlaylistInfo)) {
                     return;
                 }
