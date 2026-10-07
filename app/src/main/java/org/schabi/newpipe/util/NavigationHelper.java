@@ -27,7 +27,6 @@ import com.jakewharton.processphoenix.ProcessPhoenix;
 
 
 import org.schabi.newpipe.MainActivity;
-import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
 import org.schabi.newpipe.download.DownloadActivity;
@@ -477,8 +476,6 @@ public final class NavigationHelper {
      * @param activity the activity to finish
      */
     public static void restartApp(final Activity activity) {
-        NewPipeDatabase.close();
-
         ProcessPhoenix.triggerRebirth(activity.getApplicationContext());
     }
 }
