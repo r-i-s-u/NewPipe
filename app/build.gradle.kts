@@ -281,9 +281,6 @@ dependencies {
     implementation(libs.noties.markwon.core)
     implementation(libs.noties.markwon.linkify)
 
-    // Crash reporting
-    compileOnly(libs.google.autoservice.annotations)
-    ksp(libs.zacsweers.autoservice.compiler)
 
     // Properly restarting
     implementation(libs.jakewharton.phoenix)

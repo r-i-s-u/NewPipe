@@ -9,8 +9,6 @@ activity = "1.13.0"
 agp = "9.3.1"
 appcompat = "1.8.0"
 assertj = "3.27.7"
-autoservice-google = "1.1.1"
-autoservice-zacsweers = "1.2.0"
 bridge = "v2.0.2"
 browser = "1.10.0"
 cardview = "1.0.0"
@@ -105,7 +103,6 @@ assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 evernote-statesaver-compiler = { module = "com.evernote:android-state-processor", version.ref = "statesaver" }
 evernote-statesaver-core = { module = "com.evernote:android-state", version.ref = "statesaver" }
 google-android-material = { module = "com.google.android.material:material", version.ref = "material" }
-google-autoservice-annotations = { module = "com.google.auto.service:auto-service-annotations", version.ref = "autoservice-google" }
 jakewharton-phoenix = { module = "com.jakewharton:process-phoenix", version.ref = "phoenix" }
 jakewharton-rxbinding = { module = "com.jakewharton.rxbinding4:rxbinding", version.ref = "rxbinding" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
@@ -131,7 +128,6 @@ squareup-leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-androi
 squareup-leakcanary-watcher = { module = "com.squareup.leakcanary:leakcanary-object-watcher-android", version.ref = "leakcanary" }
 squareup-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 squareup-okhttp-brotli = { module = "com.squareup.okhttp3:okhttp-brotli", version.ref = "okhttp" }
-zacsweers-autoservice-compiler = { module = "dev.zacsweers.autoservice:auto-service-ksp", version.ref = "autoservice-zacsweers" }
 
 [plugins]
 about-libraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "about-libraries" }
