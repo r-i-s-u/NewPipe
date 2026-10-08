@@ -282,7 +282,6 @@ dependencies {
     implementation(libs.noties.markwon.linkify)
 
     // Crash reporting
-    implementation(libs.acra.core)
     compileOnly(libs.google.autoservice.annotations)
     ksp(libs.zacsweers.autoservice.compiler)
 

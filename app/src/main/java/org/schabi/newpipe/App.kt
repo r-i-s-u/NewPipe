@@ -18,9 +18,6 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import java.io.IOException
 import java.io.InterruptedIOException
 import java.net.SocketException
-import org.acra.ACRA.init
-import org.acra.ACRA.isACRASenderServiceProcess
-import org.acra.config.CoreConfigurationBuilder
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.downloader.Downloader
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
@@ -58,11 +55,6 @@ open class App :
 
     fun setNotificationsRequested() {
         notificationsRequested = true
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        initACRA()
     }
 
     override fun onCreate() {
@@ -185,21 +177,6 @@ open class App :
                 }
             }
         )
-    }
-
-    /**
-     * Called in [.attachBaseContext] after calling the `super` method.
-     * Should be overridden if MultiDex is enabled, since it has to be initialized before ACRA.
-     */
-    protected fun initACRA() {
-        if (isACRASenderServiceProcess()) {
-            return
-        }
-
-        val acraConfig =
-            CoreConfigurationBuilder()
-                .withBuildConfigClass(BuildConfig::class.java)
-        init(this, acraConfig)
     }
 
     private fun initNotificationChannels() {
