@@ -29,13 +29,9 @@ public final class SettingsResourceRegistry {
     private final Set<SettingRegistryEntry> registeredEntries = new HashSet<>();
 
     private SettingsResourceRegistry() {
-        add(MainSettingsFragment.class, R.xml.main_settings).setSearchable(false);
 
-        add(AppearanceSettingsFragment.class, R.xml.main_settings);
         add(DownloadSettingsFragment.class, R.xml.download_settings);
         add(NotificationSettingsFragment.class, R.xml.main_settings);
-        add(PlayerNotificationSettingsFragment.class, R.xml.main_settings);
-        add(VideoAudioSettingsFragment.class, R.xml.main_settings);
     }
 
     private SettingRegistryEntry add(

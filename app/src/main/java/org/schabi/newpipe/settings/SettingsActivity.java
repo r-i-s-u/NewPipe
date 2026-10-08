@@ -80,7 +80,7 @@ public class SettingsActivity extends AppCompatActivity implements
 
         if (!restored) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.settings_fragment_holder, new MainSettingsFragment())
+                    .replace(R.id.settings_fragment_holder, new DownloadSettingsFragment())
                     .commit();
         }
 
