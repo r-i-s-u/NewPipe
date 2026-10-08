@@ -34,6 +34,13 @@ public class DownloadActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+        if (android.os.Build.VERSION.SDK_INT >= 33
+                && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)
+                != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(
+                    new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1001);
+        }
+
         final ActivityDownloaderBinding downloaderBinding =
                 ActivityDownloaderBinding.inflate(getLayoutInflater());
         setContentView(downloaderBinding.getRoot());
