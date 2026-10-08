@@ -13,7 +13,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
     alias(libs.plugins.sonarqube)
-    checkstyle
 }
 
 val gitWorkingBranch = providers.exec {
@@ -148,29 +147,6 @@ ksp {
 // Custom dependency configuration for ktlint
 val ktlint by configurations.creating
 
-checkstyle {
-    configDirectory = rootProject.file("checkstyle")
-    isIgnoreFailures = false
-    isShowViolations = true
-    toolVersion = libs.versions.checkstyle.get()
-}
-
-tasks.register<Checkstyle>("runCheckstyle") {
-    source("src")
-    include("**/*.java")
-    exclude("**/gen/**")
-    exclude("**/R.java")
-    exclude("**/BuildConfig.java")
-    exclude("main/java/us/shandian/giga/**")
-
-    classpath = configurations.getByName("checkstyle")
-
-    isShowViolations = true
-
-    reports {
-        xml.required = true
-        html.required = true
-    }
 }
 
 val outputDir = project.layout.buildDirectory.dir("reports/ktlint/")
@@ -225,7 +201,6 @@ dependencies {
     implementation(libs.newpipe.filepicker)
 
     // Checkstyle
-    checkstyle(libs.puppycrawl.checkstyle)
     ktlint(libs.pinterest.ktlint)
 
     // AndroidX

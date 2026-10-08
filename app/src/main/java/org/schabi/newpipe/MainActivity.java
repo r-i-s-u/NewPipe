@@ -190,21 +190,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostCreate(final Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        final App app = App.getInstance();
-
-        if (sharedPreferences.getBoolean(app.getString(R.string.update_app_key), false)
-                && sharedPreferences
-                .getBoolean(app.getString(R.string.update_check_consent_key), false)) {
-            // Start the worker which is checking all conditions
-            // and eventually searching for a new version.
-            NewVersionWorker.enqueueNewVersionCheckingWork(app, false);
-        }
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
         sharedPrefEditor.putBoolean(KEY_IS_IN_BACKGROUND, false).apply();
