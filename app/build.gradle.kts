@@ -9,7 +9,6 @@ import java.util.regex.Pattern
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.legacy.kapt)
-    alias(libs.plugins.google.ksp)
     alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
     alias(libs.plugins.sonarqube)
@@ -141,9 +140,6 @@ configure<ApplicationExtension> {
     }
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-}
 
 // Custom dependency configuration for ktlint
 val ktlint by configurations.creating
@@ -238,16 +234,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.localbroadcastmanager)
-    implementation(libs.androidx.media)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.rxjava3)
-    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.viewpager2)
-    implementation(libs.androidx.work.runtime)
-    implementation(libs.androidx.work.rxjava3)
     implementation(libs.google.android.material)
     implementation(libs.androidx.webkit)
 
@@ -278,8 +268,6 @@ dependencies {
     // Image loading
 
     // Markdown library for Android
-    implementation(libs.noties.markwon.core)
-    implementation(libs.noties.markwon.linkify)
 
 
     // Properly restarting
