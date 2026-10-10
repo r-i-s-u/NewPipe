@@ -20,9 +20,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.evernote.android.state.State;
 import com.jakewharton.rxbinding4.widget.RxTextView;
-import com.livefront.bridge.Bridge;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.SettingsLayoutBinding;
@@ -67,7 +65,6 @@ public class SettingsActivity extends AppCompatActivity implements
         setTheme(ThemeHelper.getSettingsThemeStyle(this));
 
         super.onCreate(savedInstanceBundle);
-        Bridge.restoreInstanceState(this, savedInstanceBundle);
         final boolean restored = savedInstanceBundle != null;
 
 
@@ -88,7 +85,6 @@ public class SettingsActivity extends AppCompatActivity implements
     @Override
     protected void onSaveInstanceState(@NonNull final Bundle outState) {
         super.onSaveInstanceState(outState);
-        Bridge.saveInstanceState(this, outState);
     }
 
     @Override

@@ -41,8 +41,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
-import com.evernote.android.state.State;
-import com.livefront.bridge.Bridge;
 
 import org.schabi.newpipe.databinding.ListRadioIconItemBinding;
 import org.schabi.newpipe.databinding.SingleChoiceDialogViewBinding;
@@ -87,11 +85,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  */
 public class RouterActivity extends AppCompatActivity {
     protected final CompositeDisposable disposables = new CompositeDisposable();
-    @State
     protected int currentServiceId = -1;
-    @State
     protected LinkType currentLinkType;
-    @State
     protected int selectedRadioPosition = -1;
     protected int selectedPreviously = -1;
     protected String currentUrl;
@@ -126,7 +121,6 @@ public class RouterActivity extends AppCompatActivity {
         getWindow().setAttributes(params);
 
         super.onCreate(savedInstanceState);
-        Bridge.restoreInstanceState(this, savedInstanceState);
 
         // FragmentManager will take care to recreate (Playlist|Download)Dialog when screen rotates
         // We used to .setOnDismissListener(dialog -> finish()); when creating these DialogFragments
@@ -171,7 +165,6 @@ public class RouterActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull final Bundle outState) {
         super.onSaveInstanceState(outState);
-        Bridge.saveInstanceState(this, outState);
     }
 
     @Override

@@ -38,8 +38,6 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
-import com.evernote.android.state.State;
-import com.livefront.bridge.Bridge;
 import com.nononsenseapps.filepicker.Utils;
 
 import org.schabi.newpipe.R;
@@ -89,21 +87,13 @@ public class DownloadDialog extends DialogFragment
     private static final String TAG = "DialogFragment";
     private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
-    @State
     StreamInfo currentInfo;
-    @State
     StreamInfoWrapper<VideoStream> wrappedVideoStreams;
-    @State
     StreamInfoWrapper<SubtitlesStream> wrappedSubtitleStreams;
-    @State
     AudioTracksWrapper wrappedAudioTracks;
-    @State
     int selectedAudioTrackIndex;
-    @State
     int selectedVideoIndex; // set in the constructor
-    @State
     int selectedAudioIndex = 0; // default to the first item
-    @State
     int selectedSubtitleIndex = 0; // default to the first item
 
     private StoredDirectoryHelper mainStorageAudio = null;
@@ -209,7 +199,6 @@ public class DownloadDialog extends DialogFragment
         context = getContext();
 
         setStyle(STYLE_NO_TITLE, ThemeHelper.getDialogTheme(context));
-        Bridge.restoreInstanceState(this, savedInstanceState);
 
         this.audioTrackAdapter = new AudioTrackAdapter(wrappedAudioTracks);
         this.subtitleStreamsAdapter = new StreamItemAdapter<>(wrappedSubtitleStreams);
@@ -367,7 +356,6 @@ public class DownloadDialog extends DialogFragment
     @Override
     public void onSaveInstanceState(@NonNull final Bundle outState) {
         super.onSaveInstanceState(outState);
-        Bridge.saveInstanceState(this, outState);
     }
 
 
