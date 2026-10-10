@@ -16,7 +16,6 @@ import org.schabi.newpipe.R
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.ServiceList
 import org.schabi.newpipe.extractor.StreamingService
-import org.schabi.newpipe.extractor.services.peertube.PeertubeInstance
 import org.schabi.newpipe.ktx.getStringSafe
 
 object ServiceHelper {
@@ -136,29 +135,10 @@ object ServiceHelper {
 
     @JvmStatic
     fun getCacheExpirationMillis(serviceId: Int): Long {
-        return if (serviceId == ServiceList.SoundCloud.serviceId) {
-            TimeUnit.MILLISECONDS.convert(5, TimeUnit.MINUTES)
-        } else {
-            TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS)
-        }
+        return TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS)
     }
 
     fun initService(context: Context, serviceId: Int) {
-        if (serviceId == ServiceList.PeerTube.serviceId) {
-            val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-            val json = sharedPreferences.getString(
-                context.getString(R.string.peertube_selected_instance_key),
-                null
-            ) ?: return
-
-            val jsonObject = runCatching { JsonParser.`object`().from(json) }
-                .getOrElse { return@initService }
-
-            ServiceList.PeerTube.instance = PeertubeInstance(
-                jsonObject.getString("url"),
-                jsonObject.getString("name")
-            )
-        }
     }
 
     @JvmStatic
