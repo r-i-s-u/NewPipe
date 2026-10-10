@@ -556,7 +556,7 @@ public class RouterActivity extends AppCompatActivity {
     private void handleText() {
         final String searchString = getIntent().getStringExtra(Intent.EXTRA_TEXT);
         final int serviceId = getIntent().getIntExtra(Constants.KEY_SERVICE_ID, 0);
-        final Intent intent = new Intent(getThemeWrapperContext(), org.schabi.newpipe.download.MainActivity.class);
+        final Intent intent = new Intent(getThemeWrapperContext(), org.schabi.newpipe.MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         NavigationHelper.openSearch(getThemeWrapperContext(), serviceId, searchString);
