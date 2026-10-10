@@ -49,15 +49,6 @@ public final class NewPipeSettings {
 
         // readAgain is true so that if new settings are added their default value is set
         PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.download_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
-        PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
 
         saveDefaultVideoDownloadDirectory(context);
         saveDefaultAudioDownloadDirectory(context);
