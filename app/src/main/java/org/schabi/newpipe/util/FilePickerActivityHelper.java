@@ -138,6 +138,24 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
         }
 
         @Override
+        protected boolean hasPermission(@NonNull final File path) {
+            return android.os.Build.VERSION.SDK_INT >= 30
+                    ? Environment.isExternalStorageManager()
+                    : super.hasPermission(path);
+        }
+
+        @Override
+        protected void handlePermission(@NonNull final File path) {
+            if (android.os.Build.VERSION.SDK_INT >= 30) {
+                startActivity(new android.content.Intent(
+                        android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                        Uri.parse("package:" + requireContext().getPackageName())));
+            } else {
+                super.handlePermission(path);
+            }
+        }
+
+        @Override
         public void onLoadFinished(@NonNull final Loader<SortedList<File>> loader,
                                    final SortedList<File> data) {
             super.onLoadFinished(loader, data);
