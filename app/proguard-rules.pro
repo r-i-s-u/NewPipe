@@ -1,7 +1,5 @@
 # https://developer.android.com/build/shrink-code
 
-## Helps debug release versions
--dontobfuscate
 
 ## Rules for NewPipeExtractor
 -keep class org.schabi.newpipe.extractor.timeago.patterns.** { *; }
@@ -30,8 +28,6 @@
     private void readObject(java.io.ObjectInputStream);
 }
 
-## For some reason NotificationModeConfigFragment wasn't kept (only referenced in a preference xml)
--keep class org.schabi.newpipe.settings.notifications.** { *; }
 
 # Prevent R8 from stripping or renaming Protobuf internal fields
 -keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
@@ -56,3 +52,6 @@
 # See https://github.com/TeamNewPipe/NewPipe/issues/13508
 
 -dontwarn org.mozilla.**
+
+-repackageclasses ''
+-allowaccessmodification

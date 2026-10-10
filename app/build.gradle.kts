@@ -35,6 +35,10 @@ configure<ApplicationExtension> {
         }
     }
     namespace = NEWPIPE_APPLICATION_ID
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
 
     defaultConfig {
         applicationId = NEWPIPE_APPLICATION_ID
@@ -134,6 +138,8 @@ configure<ApplicationExtension> {
             excludes += setOf(
                 "META-INF/README.md",
                 "META-INF/CHANGES",
+                "META-INF/androidx/**", "META-INF/*.version", "META-INF/*.kotlin_module",
+                "google/protobuf/**", "kotlin/**", "DebugProbesKt.bin", "kotlin-tooling-metadata.json",
                 "META-INF/COPYRIGHT" // "COPYRIGHT" belongs to RxJava...
             )
         }
