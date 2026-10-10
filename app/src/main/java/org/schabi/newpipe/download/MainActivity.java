@@ -19,7 +19,7 @@ import org.schabi.newpipe.util.ThemeHelper;
 import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.ui.fragment.MissionsFragment;
 
-public class DownloadActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String MISSIONS_FRAGMENT_TAG = "fragment_tag";
 
