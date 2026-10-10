@@ -40,7 +40,6 @@ mockitoCore = "5.23.0"
 multiplatform = "1.11.1"
 navigation3 = "1.1.1"
 okhttp = "5.5.0"
-phoenix = "3.0.0"
 preference = "1.2.1"
 recyclerview = "1.4.0"
 runner = "1.7.0"
@@ -91,7 +90,6 @@ assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 evernote-statesaver-compiler = { module = "com.evernote:android-state-processor", version.ref = "statesaver" }
 evernote-statesaver-core = { module = "com.evernote:android-state", version.ref = "statesaver" }
 google-android-material = { module = "com.google.android.material:material", version.ref = "material" }
-jakewharton-phoenix = { module = "com.jakewharton:process-phoenix", version.ref = "phoenix" }
 jakewharton-rxbinding = { module = "com.jakewharton.rxbinding4:rxbinding", version.ref = "rxbinding" }
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 junit = { module = "junit:junit", version.ref = "junit" }

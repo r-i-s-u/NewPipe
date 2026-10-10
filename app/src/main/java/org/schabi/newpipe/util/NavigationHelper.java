@@ -23,7 +23,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.jakewharton.processphoenix.ProcessPhoenix;
 
 
 import org.schabi.newpipe.R;
@@ -336,15 +335,5 @@ public final class NavigationHelper {
         return getOpenIntent(context, url, serviceId, StreamingService.LinkType.STREAM)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(Constants.KEY_TITLE, title);
-    }
-
-    /**
-     * Finish this <code>Activity</code> as well as all <code>Activities</code> running below it
-     * and then start <code>MainActivity</code>.
-     *
-     * @param activity the activity to finish
-     */
-    public static void restartApp(final Activity activity) {
-        ProcessPhoenix.triggerRebirth(activity.getApplicationContext());
     }
 }

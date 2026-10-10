@@ -8,7 +8,6 @@ import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import androidx.preference.PreferenceManager
-import com.jakewharton.processphoenix.ProcessPhoenix
 import io.reactivex.rxjava3.exceptions.CompositeException
 import io.reactivex.rxjava3.exceptions.MissingBackpressureException
 import io.reactivex.rxjava3.exceptions.OnErrorNotImplementedException
@@ -61,11 +60,6 @@ open class App :
         super.onCreate()
 
         instance = this
-
-        if (ProcessPhoenix.isPhoenixProcess(this)) {
-            Log.i(TAG, "This is a phoenix process! Aborting initialization of App[onCreate]")
-            return
-        }
 
         // check if the last used preference version is set
         // to determine whether this is the first app run

@@ -264,7 +264,6 @@ dependencies {
 
 
     // Properly restarting
-    implementation(libs.jakewharton.phoenix)
 
     // Reactive extensions for Java VM
     implementation(libs.reactivex.rxjava)
