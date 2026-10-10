@@ -23,8 +23,10 @@ import org.schabi.newpipe.extractor.downloader.Downloader
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
 import org.schabi.newpipe.ktx.hasAssignableCause
 import org.schabi.newpipe.settings.NewPipeSettings
+import org.schabi.newpipe.util.BridgeStateSaverInitializer
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.ServiceHelper
+import org.schabi.newpipe.util.StateSaver
 import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
 
 /*
@@ -83,6 +85,8 @@ open class App :
         )
         Localization.initPrettyTime(Localization.resolvePrettyTime())
 
+        BridgeStateSaverInitializer.init(this)
+        StateSaver.init(this)
         initNotificationChannels()
 
         ServiceHelper.initServices(this)
