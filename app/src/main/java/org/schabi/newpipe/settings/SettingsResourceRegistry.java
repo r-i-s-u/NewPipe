@@ -31,7 +31,6 @@ public final class SettingsResourceRegistry {
     private SettingsResourceRegistry() {
 
         add(DownloadSettingsFragment.class, R.xml.download_settings);
-        add(NotificationSettingsFragment.class, R.xml.main_settings);
     }
 
     private SettingRegistryEntry add(

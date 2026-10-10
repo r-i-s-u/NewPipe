@@ -13,7 +13,6 @@ import androidx.preference.PreferenceManager;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.settings.migration.MigrationManager;
 import org.schabi.newpipe.util.DeviceUtils;
 
 import java.io.File;
@@ -47,7 +46,6 @@ public final class NewPipeSettings {
 
     public static void initSettings(final Context context) {
         // first run migrations, then setDefaultValues, since the latter requires the correct types
-        MigrationManager.runMigrationsIfNeeded(context);
 
         // readAgain is true so that if new settings are added their default value is set
         PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
