@@ -15,7 +15,6 @@ import androidx.documentfile.provider.DocumentFile;
 
 import com.nononsenseapps.filepicker.Utils;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 
@@ -31,7 +30,7 @@ import us.shandian.giga.io.FileStream;
 import us.shandian.giga.io.FileStreamSAF;
 
 public class StoredFileHelper implements Serializable {
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     private static final String TAG = StoredFileHelper.class.getSimpleName();
 
     private static final long serialVersionUID = 0L;

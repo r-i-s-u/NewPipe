@@ -42,7 +42,6 @@ import com.evernote.android.state.State;
 import com.livefront.bridge.Bridge;
 import com.nononsenseapps.filepicker.Utils;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.DownloadDialogBinding;
 import org.schabi.newpipe.extractor.MediaFormat;
@@ -88,7 +87,7 @@ import us.shandian.giga.service.MissionState;
 public class DownloadDialog extends DialogFragment
         implements RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
     private static final String TAG = "DialogFragment";
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
     @State
     StreamInfo currentInfo;

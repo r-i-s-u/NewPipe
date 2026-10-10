@@ -1,6 +1,6 @@
 package org.schabi.newpipe.util;
 
-import static org.schabi.newpipe.MainActivity.DEBUG;
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

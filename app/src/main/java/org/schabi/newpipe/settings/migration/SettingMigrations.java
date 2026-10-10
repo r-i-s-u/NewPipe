@@ -1,6 +1,6 @@
 package org.schabi.newpipe.settings.migration;
 
-import static org.schabi.newpipe.MainActivity.DEBUG;
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 import static org.schabi.newpipe.extractor.ServiceList.SoundCloud;
 import static org.schabi.newpipe.extractor.ServiceList.YouTube;
 

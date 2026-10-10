@@ -24,7 +24,6 @@ import com.evernote.android.state.State;
 import com.jakewharton.rxbinding4.widget.RxTextView;
 import com.livefront.bridge.Bridge;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.SettingsLayoutBinding;
 import org.schabi.newpipe.util.DeviceUtils;
@@ -56,7 +55,7 @@ import java.util.concurrent.TimeUnit;
 public class SettingsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
     private static final String TAG = "SettingsActivity";
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
     @IdRes
     private static final int FRAGMENT_HOLDER_ID = R.id.settings_fragment_holder;

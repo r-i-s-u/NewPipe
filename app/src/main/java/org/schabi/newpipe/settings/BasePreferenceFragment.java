@@ -11,14 +11,13 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.Objects;
 
 public abstract class BasePreferenceFragment extends PreferenceFragmentCompat {
     protected final String TAG = getClass().getSimpleName() + "@" + Integer.toHexString(hashCode());
-    protected static final boolean DEBUG = MainActivity.DEBUG;
+    protected static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
     SharedPreferences defaultPreferences;
 

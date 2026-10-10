@@ -226,18 +226,13 @@ dependencies {
 
     // AndroidX
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.cardview)
-    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core)
     implementation(libs.androidx.documentfile)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.viewmodel)
-    implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.swiperefreshlayout)
-    implementation(libs.androidx.viewpager2)
     implementation(libs.google.android.material)
     implementation(libs.androidx.webkit)
 
@@ -262,8 +257,6 @@ dependencies {
     // Media player
 
     // Manager for complex RecyclerView layouts
-    implementation(libs.lisawray.groupie.core)
-    implementation(libs.lisawray.groupie.viewbinding)
 
     // Image loading
 

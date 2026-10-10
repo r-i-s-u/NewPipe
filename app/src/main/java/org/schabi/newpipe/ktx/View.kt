@@ -19,7 +19,7 @@ import androidx.core.view.isVisible
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 
 // logs in this class are disabled by default since it's usually not useful,
-// you can enable them by setting this flag to MainActivity.DEBUG
+// you can enable them by setting this flag to org.schabi.newpipe.BuildConfig.DEBUG
 private const val DEBUG = false
 private const val TAG = "ViewUtils"
 

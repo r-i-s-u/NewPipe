@@ -16,7 +16,7 @@ import com.livefront.bridge.Bridge;
 
 public abstract class BaseFragment extends Fragment {
     protected final String TAG = getClass().getSimpleName() + "@" + Integer.toHexString(hashCode());
-    protected static final boolean DEBUG = MainActivity.DEBUG;
+    protected static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     protected AppCompatActivity activity;
     //These values are used for controlling fragments when they are part of the frontpage
     @State

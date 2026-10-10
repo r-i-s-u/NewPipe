@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.DialogFragment;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.DownloadLoadingDialogBinding;
 
@@ -20,7 +19,7 @@ import org.schabi.newpipe.databinding.DownloadLoadingDialogBinding;
  */
 public class LoadingDialog extends DialogFragment {
     private static final String TAG = "LoadingDialog";
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     private DownloadLoadingDialogBinding dialogLoadingBinding;
     private final @StringRes int title;
 

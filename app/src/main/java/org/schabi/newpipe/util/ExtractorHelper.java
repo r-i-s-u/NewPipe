@@ -32,7 +32,6 @@ import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
 import androidx.preference.PreferenceManager;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.Info;
 import org.schabi.newpipe.extractor.InfoItem;
@@ -260,7 +259,7 @@ public final class ExtractorHelper {
         return Maybe.defer(() -> {
             //noinspection unchecked
             final I info = (I) CACHE.getFromKey(serviceId, url, cacheType);
-            if (MainActivity.DEBUG) {
+            if (org.schabi.newpipe.BuildConfig.DEBUG) {
                 Log.d(TAG, "loadFromCache() called, info > " + info);
             }
 

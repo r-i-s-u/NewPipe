@@ -26,7 +26,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.jakewharton.processphoenix.ProcessPhoenix;
 
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
 import org.schabi.newpipe.download.DownloadActivity;
@@ -49,7 +48,7 @@ import java.util.Optional;
 
 public final class NavigationHelper {
     public static Intent getPlayerTimestampIntent(final Context context, final Object data) {
-        return new Intent(context, org.schabi.newpipe.MainActivity.class);
+        return new Intent(context, org.schabi.newpipe.download.DownloadActivity.class);
     }
     public static final String MAIN_FRAGMENT_TAG = "main_fragment_tag";
     public static final String SEARCH_FRAGMENT_TAG = "search_fragment_tag";
@@ -247,7 +246,7 @@ public final class NavigationHelper {
     }
 
     public static boolean tryGotoSearchFragment(final FragmentManager fragmentManager) {
-        if (MainActivity.DEBUG) {
+        if (org.schabi.newpipe.BuildConfig.DEBUG) {
             for (int i = 0; i < fragmentManager.getBackStackEntryCount(); i++) {
                 Log.d("NavigationHelper", "tryGoToSearchFragment() [" + i + "]"
                         + " = [" + fragmentManager.getBackStackEntryAt(i) + "]");
@@ -355,7 +354,7 @@ public final class NavigationHelper {
 
     public static void openSearch(final Context context, final int serviceId,
                                   final String searchString) {
-        final Intent mIntent = new Intent(context, MainActivity.class);
+        final Intent mIntent = new Intent(context, org.schabi.newpipe.download.DownloadActivity.class);
         mIntent.putExtra(Constants.KEY_SERVICE_ID, serviceId);
         mIntent.putExtra(Constants.KEY_SEARCH_STRING, searchString);
         mIntent.putExtra(Constants.KEY_OPEN_SEARCH, true);
@@ -396,7 +395,7 @@ public final class NavigationHelper {
     }
 
     public static void openMainActivity(final Context context) {
-        final Intent mIntent = new Intent(context, MainActivity.class);
+        final Intent mIntent = new Intent(context, org.schabi.newpipe.download.DownloadActivity.class);
         mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(mIntent);
@@ -429,7 +428,7 @@ public final class NavigationHelper {
 
     private static Intent getOpenIntent(final Context context, final String url,
                                         final int serviceId, final StreamingService.LinkType type) {
-        final Intent mIntent = new Intent(context, MainActivity.class);
+        final Intent mIntent = new Intent(context, org.schabi.newpipe.download.DownloadActivity.class);
         mIntent.putExtra(Constants.KEY_SERVICE_ID, serviceId);
         mIntent.putExtra(Constants.KEY_URL, url);
         mIntent.putExtra(Constants.KEY_LINK_TYPE, type);

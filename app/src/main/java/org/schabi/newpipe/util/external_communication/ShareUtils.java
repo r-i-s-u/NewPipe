@@ -1,6 +1,6 @@
 package org.schabi.newpipe.util.external_communication;
 
-import static org.schabi.newpipe.MainActivity.DEBUG;
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
