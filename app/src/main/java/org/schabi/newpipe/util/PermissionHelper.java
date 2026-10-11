@@ -28,8 +28,14 @@ public final class PermissionHelper {
     private PermissionHelper() { }
 
     public static boolean checkStoragePermissions(final Activity activity, final int requestCode) {
-        if (NewPipeSettings.useStorageAccessFramework(activity)) {
-            return true; // Storage permissions are not needed for SAF
+        if (android.os.Build.VERSION.SDK_INT >= 30) {
+            if (android.os.Environment.isExternalStorageManager()) {
+                return true;
+            }
+            activity.startActivity(new android.content.Intent(
+                    android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                    android.net.Uri.parse("package:" + activity.getPackageName())));
+            return false;
         }
 
         if (!checkReadStoragePermissions(activity, requestCode)) {

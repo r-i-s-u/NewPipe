@@ -59,13 +59,6 @@ public class DownloadSettingsFragment extends BasePreferenceFragment {
         prefPathAudio = findPreference(downloadPathAudioPreference);
         prefStorageAsk = findPreference(downloadStorageAsk);
 
-        final SwitchPreferenceCompat prefUseSaf = findPreference(storageUseSafPreference);
-        prefUseSaf.setChecked(NewPipeSettings.useStorageAccessFramework(ctx));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            prefUseSaf.setEnabled(false);
-            prefUseSaf.setSummary(R.string.downloads_storage_use_saf_summary_api_29);
-            prefStorageAsk.setSummary(R.string.downloads_storage_ask_summary_no_saf_notice);
-        }
 
         updatePreferencesSummary();
         updatePathPickers(!defaultPreferences.getBoolean(downloadStorageAsk, false));

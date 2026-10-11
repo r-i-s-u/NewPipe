@@ -85,14 +85,6 @@
         app:singleLineTitle="false"
         app:iconSpaceReserved="false" />
 
-    <SwitchPreferenceCompat
-        android:defaultValue="true"
-        android:key="@string/storage_use_saf"
-        android:summary="@string/downloads_storage_use_saf_summary"
-        android:title="@string/downloads_storage_use_saf_title"
-        app:singleLineTitle="false"
-        app:iconSpaceReserved="false" />
-
     <Preference
         android:dialogTitle="@string/download_path_dialog_title"
         android:key="@string/download_path_video_key"
