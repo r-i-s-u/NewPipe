@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import org.schabi.newpipe.databinding.ActivityDownloaderBinding;
 import org.schabi.newpipe.util.DeviceUtils;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.ui.fragment.MissionsFragment;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         i.setClass(this, DownloadManagerService.class);
         startService(i);
 
-        ThemeHelper.setTheme(this);
 
         super.onCreate(savedInstanceState);
 

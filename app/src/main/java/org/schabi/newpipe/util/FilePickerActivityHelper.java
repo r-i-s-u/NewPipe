@@ -36,7 +36,7 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
-        if (ThemeHelper.isLightThemeSelected(this)) {
+        if ((getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK) != android.content.res.Configuration.UI_MODE_NIGHT_YES) {
             this.setTheme(R.style.FilePickerThemeLight);
         } else {
             this.setTheme(R.style.FilePickerThemeDark);

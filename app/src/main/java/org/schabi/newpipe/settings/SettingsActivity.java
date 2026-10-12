@@ -6,12 +6,10 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import org.schabi.newpipe.util.ThemeHelper;
 
 public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-        setTheme(ThemeHelper.getSettingsThemeStyle(this));
         super.onCreate(savedInstanceState);
 
         if (getSupportActionBar() != null) {
