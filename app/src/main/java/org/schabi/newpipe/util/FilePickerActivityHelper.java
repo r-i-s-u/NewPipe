@@ -91,7 +91,20 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
         @Override
         public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                                  final Bundle savedInstanceState) {
-            return super.onCreateView(inflater, container, savedInstanceState);
+            final View root = super.onCreateView(inflater, container, savedInstanceState);
+            final View nameView = root.findViewById(
+                    com.nononsenseapps.filepicker.R.id.nnf_text_filename);
+            if (nameView instanceof android.widget.EditText) {
+                final android.widget.EditText nameEdit = (android.widget.EditText) nameView;
+                nameEdit.setSingleLine(false);
+                nameEdit.setHorizontallyScrolling(false);
+                nameEdit.setMaxLines(6);
+                // filenames must not contain line breaks
+                nameEdit.setFilters(new android.text.InputFilter[]{
+                        (src, start, end, dest, ds, de) -> src.toString().contains("\n")
+                                ? src.toString().replace("\n", "") : null});
+            }
+            return root;
         }
 
         @NonNull
