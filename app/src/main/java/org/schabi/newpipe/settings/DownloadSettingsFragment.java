@@ -29,6 +29,52 @@ import java.io.File;
 import java.io.IOException;
 
 public class DownloadSettingsFragment extends BasePreferenceFragment {
+
+    @Override
+    public void onDisplayPreferenceDialog(@androidx.annotation.NonNull final androidx.preference.Preference preference) {
+        final android.content.Context c = requireContext();
+        if (preference instanceof androidx.preference.ListPreference) {
+            final androidx.preference.ListPreference lp = (androidx.preference.ListPreference) preference;
+            new com.google.android.material.dialog.MaterialAlertDialogBuilder(c)
+                    .setTitle(lp.getDialogTitle() != null ? lp.getDialogTitle() : lp.getTitle())
+                    .setSingleChoiceItems(lp.getEntries(), lp.findIndexOfValue(lp.getValue()),
+                            (d, which) -> {
+                                final String v = lp.getEntryValues()[which].toString();
+                                if (lp.callChangeListener(v)) {
+                                    lp.setValue(v);
+                                }
+                                d.dismiss();
+                            })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } else if (preference instanceof androidx.preference.EditTextPreference) {
+            final androidx.preference.EditTextPreference ep = (androidx.preference.EditTextPreference) preference;
+            final android.widget.FrameLayout box = new android.widget.FrameLayout(c);
+            final int pad = (int) (24 * getResources().getDisplayMetrics().density);
+            box.setPadding(pad, pad / 2, pad, 0);
+            final com.google.android.material.textfield.TextInputLayout til =
+                    new com.google.android.material.textfield.TextInputLayout(c, null,
+                            com.google.android.material.R.attr.textInputOutlinedStyle);
+            final com.google.android.material.textfield.TextInputEditText et =
+                    new com.google.android.material.textfield.TextInputEditText(til.getContext());
+            et.setText(ep.getText());
+            til.addView(et);
+            box.addView(til);
+            new com.google.android.material.dialog.MaterialAlertDialogBuilder(c)
+                    .setTitle(ep.getDialogTitle() != null ? ep.getDialogTitle() : ep.getTitle())
+                    .setView(box)
+                    .setPositiveButton(android.R.string.ok, (d, w) -> {
+                        final String v = String.valueOf(et.getText());
+                        if (ep.callChangeListener(v)) {
+                            ep.setText(v);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } else {
+            super.onDisplayPreferenceDialog(preference);
+        }
+    }
     public static final boolean IGNORE_RELEASE_ON_OLD_PATH = true;
     private String downloadPathVideoPreference;
     private String downloadPathAudioPreference;

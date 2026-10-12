@@ -34,6 +34,7 @@
         app:useSimpleSummaryProvider="true" />
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="false"
         android:key="@string/show_higher_resolutions_key"
         android:summary="@string/show_higher_resolutions_summary"
@@ -62,6 +63,7 @@
         app:useSimpleSummaryProvider="true" />
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="true"
         android:key="@string/prefer_original_audio_key"
         android:summary="@string/prefer_original_audio_summary"
@@ -70,6 +72,7 @@
         app:iconSpaceReserved="false"/>
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="false"
         android:key="@string/prefer_descriptive_audio_key"
         android:summary="@string/prefer_descriptive_audio_summary"
@@ -78,6 +81,7 @@
         app:iconSpaceReserved="false"/>
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="false"
         android:key="@string/downloads_storage_ask"
         android:summary="@string/downloads_storage_ask_summary"
@@ -130,6 +134,7 @@
         app:iconSpaceReserved="false" />
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="false"
         android:key="@string/downloads_cross_network"
         android:summary="@string/pause_downloads_on_mobile_desc"
@@ -138,6 +143,7 @@
         app:iconSpaceReserved="false" />
 
     <SwitchPreferenceCompat
+        android:widgetLayout="@layout/preference_widget_material_switch"
         android:defaultValue="true"
         android:key="@string/downloads_queue_limit"
         android:summary="@string/enable_queue_limit_desc"
