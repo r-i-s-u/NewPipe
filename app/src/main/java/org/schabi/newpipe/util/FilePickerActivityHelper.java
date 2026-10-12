@@ -43,14 +43,18 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
         }
         super.onCreate(savedInstanceState);
 
+        final View decor = getWindow().getDecorView();
         final View content = findViewById(android.R.id.content);
-        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(content, (v, insets) -> {
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(decor, (v, insets) -> {
             final androidx.core.graphics.Insets bars = insets.getInsets(
                     androidx.core.view.WindowInsetsCompat.Type.systemBars()
-                            | androidx.core.view.WindowInsetsCompat.Type.displayCutout());
-            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+                            | androidx.core.view.WindowInsetsCompat.Type.displayCutout()
+                            | androidx.core.view.WindowInsetsCompat.Type.ime());
+            content.setPadding(bars.left, bars.top, bars.right, bars.bottom);
             return androidx.core.view.WindowInsetsCompat.CONSUMED;
         });
+        androidx.core.view.ViewCompat.requestApplyInsets(decor);
+
     }
 
     @Override
