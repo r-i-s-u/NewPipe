@@ -11,6 +11,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import org.schabi.newpipe.util.ThemeHelper;
 
 import java.util.Objects;
 
@@ -36,13 +37,13 @@ public abstract class BasePreferenceFragment extends PreferenceFragmentCompat {
                               @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(rootView, savedInstanceState);
         setDivider(null);
-        requireActivity().setTitle(getPreferenceScreen().getTitle());
+        ThemeHelper.setTitleToAppCompatActivity(getActivity(), getPreferenceScreen().getTitle());
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        requireActivity().setTitle(getPreferenceScreen().getTitle());
+        ThemeHelper.setTitleToAppCompatActivity(getActivity(), getPreferenceScreen().getTitle());
     }
 
     @NonNull
