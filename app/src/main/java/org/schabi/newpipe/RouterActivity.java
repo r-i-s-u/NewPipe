@@ -1,10 +1,7 @@
 package org.schabi.newpipe;
 
-import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.AUDIO;
-import static org.schabi.newpipe.extractor.StreamingService.ServiceInfo.MediaCapability.VIDEO;
 
 import android.annotation.SuppressLint;
-import android.app.IntentService;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,8 +27,6 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.ServiceCompat;
 import androidx.core.math.MathUtils;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -48,17 +43,11 @@ import org.schabi.newpipe.databinding.ListRadioIconItemBinding;
 import org.schabi.newpipe.databinding.SingleChoiceDialogViewBinding;
 import org.schabi.newpipe.download.DownloadDialog;
 import org.schabi.newpipe.download.LoadingDialog;
-import org.schabi.newpipe.extractor.Info;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.StreamingService.LinkType;
-import org.schabi.newpipe.extractor.channel.ChannelInfo;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
-import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
-import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
-import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.util.Constants;
-import org.schabi.newpipe.util.DeviceUtils;
 import org.schabi.newpipe.util.ExtractorHelper;
 import org.schabi.newpipe.util.NavigationHelper;
 import org.schabi.newpipe.util.PermissionHelper;
@@ -66,7 +55,6 @@ import org.schabi.newpipe.util.ThemeHelper;
 import org.schabi.newpipe.util.external_communication.ShareUtils;
 import org.schabi.newpipe.util.urlfinder.UrlFinder;
 
-import java.io.Serializable;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -79,7 +67,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
@@ -97,7 +84,6 @@ public class RouterActivity extends AppCompatActivity {
     protected String currentUrl;
     private StreamingService currentService;
     private boolean selectionIsDownload = false;
-    private boolean selectionIsAddToPlaylist = false;
     private AlertDialog alertDialogChoice = null;
     private FragmentManager.FragmentLifecycleCallbacks dismissListener = null;
 
@@ -153,7 +139,6 @@ public class RouterActivity extends AppCompatActivity {
             currentUrl = getUrl(getIntent());
 
             if (TextUtils.isEmpty(currentUrl)) {
-                handleText();
                 finish();
             }
         }
@@ -242,7 +227,11 @@ public class RouterActivity extends AppCompatActivity {
      *                an instance of {@link RouterActivity}.
      * @param errorInfo the error information
      */
-    private static void handleError(final Context context, final Object errorInfo) {}
+    private static void handleError(final Context context, final Object errorInfo) {
+        if (context instanceof RouterActivity) {
+            ((RouterActivity) context).finish();
+        }
+    }
 
     protected void showUnsupportedUrlDialog(final String url) {
         final Context context = getThemeWrapperContext();
@@ -263,63 +252,17 @@ public class RouterActivity extends AppCompatActivity {
                 .getDefaultSharedPreferences(this);
 
         final ChoiceAvailabilityChecker choiceChecker = new ChoiceAvailabilityChecker(
-                getChoicesForService(currentService, currentLinkType),
+                getChoicesForService(currentLinkType),
                 preferences.getString(getString(R.string.download_key),
                         getString(R.string.download_key)));
 
         // Check for non-player related choices
         if (choiceChecker.isAvailableAndSelected(
                 R.string.show_info_key,
-                R.string.download_key,
-                R.string.add_to_playlist_key)) {
+                R.string.download_key)) {
             handleChoice(choiceChecker.getSelectedChoiceKey());
             return;
         }
-        // Check if the choice is player related
-        if (choiceChecker.isAvailableAndSelected(
-                R.string.video_player_key,
-                R.string.background_player_key,
-                R.string.popup_player_key,
-                R.string.enqueue_key)) {
-
-            final String selectedChoice = choiceChecker.getSelectedChoiceKey();
-
-            final boolean isExtVideoEnabled = preferences.getBoolean(
-                    getString(R.string.use_external_video_player_key), false);
-            final boolean isExtAudioEnabled = preferences.getBoolean(
-                    getString(R.string.use_external_audio_player_key), false);
-            final boolean isVideoPlayerSelected =
-                    selectedChoice.equals(getString(R.string.video_player_key))
-                            || selectedChoice.equals(getString(R.string.popup_player_key));
-            final boolean isAudioPlayerSelected =
-                    selectedChoice.equals(getString(R.string.background_player_key));
-            final boolean isEnqueueSelected =
-                    selectedChoice.equals(getString(R.string.enqueue_key));
-
-            if (currentLinkType != LinkType.STREAM
-                    && ((isExtAudioEnabled && isAudioPlayerSelected)
-                    || (isExtVideoEnabled && isVideoPlayerSelected))
-            ) {
-                Toast.makeText(this, R.string.external_player_unsupported_link_type,
-                        Toast.LENGTH_LONG).show();
-                handleChoice(getString(R.string.show_info_key));
-                return;
-            }
-
-            final var capabilities = currentService.getServiceInfo().getMediaCapabilities();
-
-            // Check if the service supports the choice
-            if ((isVideoPlayerSelected && capabilities.contains(VIDEO))
-                    || (isAudioPlayerSelected && capabilities.contains(AUDIO))
-                    || (isEnqueueSelected && (capabilities.contains(VIDEO)
-                    || capabilities.contains(AUDIO)))) {
-                handleChoice(selectedChoice);
-            } else {
-                handleChoice(getString(R.string.show_info_key));
-            }
-            return;
-        }
-
         // Default / Ask always
         final List<AdapterChoiceItem> availableChoices = choiceChecker.getAvailableChoices();
         switch (availableChoices.size()) {
@@ -404,7 +347,7 @@ public class RouterActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.just_once, dialogButtonsClickListener)
                 .setPositiveButton(R.string.always, dialogButtonsClickListener)
                 .setOnDismissListener(dialog -> {
-                    if (!selectionIsDownload && !selectionIsAddToPlaylist) {
+                    if (!selectionIsDownload) {
                         finish();
                     }
                 })
@@ -469,72 +412,15 @@ public class RouterActivity extends AppCompatActivity {
 
     }
 
-    private List<AdapterChoiceItem> getChoicesForService(final StreamingService service,
-                                                         final LinkType linkType) {
-        final AdapterChoiceItem showInfo = new AdapterChoiceItem(
-                getString(R.string.show_info_key), getString(R.string.show_info),
-                0);
-        final AdapterChoiceItem videoPlayer = new AdapterChoiceItem(
-                getString(R.string.video_player_key), getString(R.string.video_player),
-                0);
-        final AdapterChoiceItem backgroundPlayer = new AdapterChoiceItem(
-                getString(R.string.background_player_key), getString(R.string.background_player),
-                0);
-        final AdapterChoiceItem popupPlayer = new AdapterChoiceItem(
-                getString(R.string.popup_player_key), getString(R.string.popup_player),
-                0);
-
-        final List<AdapterChoiceItem> returnedItems = new ArrayList<>();
-        returnedItems.add(showInfo); // Always present
-
-        final var capabilities = service.getServiceInfo().getMediaCapabilities();
-
-        if (linkType == LinkType.STREAM || linkType == LinkType.PLAYLIST) {
-            if (capabilities.contains(VIDEO)) {
-                returnedItems.add(videoPlayer);
-                returnedItems.add(popupPlayer);
-            }
-            if (capabilities.contains(AUDIO)) {
-                returnedItems.add(backgroundPlayer);
-            }
-
-            // Enqueue is only shown if the current queue is not empty.
-            // However, if the playqueue or the player is cleared after this item was chosen and
-            // while the item is extracted, it will automatically fall back to background player.
-
-            if (linkType == LinkType.STREAM) {
-                // download is redundant for linkType CHANNEL AND PLAYLIST
-                // (till playlist downloading is not supported )
-                returnedItems.add(new AdapterChoiceItem(getString(R.string.download_key),
-                        getString(R.string.download),
-                        R.drawable.ic_file_download));
-
-                // Add to playlist is not necessary for CHANNEL and PLAYLIST linkType
-                // since those can not be added to a playlist
-                returnedItems.add(new AdapterChoiceItem(getString(R.string.add_to_playlist_key),
-                        getString(R.string.add_to_playlist),
-                        0));
-            }
-        } else {
-            // LinkType.NONE is never present because it's filtered out before
-            // channels and playlist can be played as they contain a list of videos
-            final SharedPreferences preferences = PreferenceManager
-                    .getDefaultSharedPreferences(this);
-            final boolean isExtVideoEnabled = preferences.getBoolean(
-                    getString(R.string.use_external_video_player_key), false);
-            final boolean isExtAudioEnabled = preferences.getBoolean(
-                    getString(R.string.use_external_audio_player_key), false);
-
-            if (capabilities.contains(VIDEO) && !isExtVideoEnabled) {
-                returnedItems.add(videoPlayer);
-                returnedItems.add(popupPlayer);
-            }
-            if (capabilities.contains(AUDIO) && !isExtAudioEnabled) {
-                returnedItems.add(backgroundPlayer);
-            }
+    private List<AdapterChoiceItem> getChoicesForService(final LinkType linkType) {
+        final List<AdapterChoiceItem> items = new ArrayList<>();
+        items.add(new AdapterChoiceItem(getString(R.string.show_info_key),
+                getString(R.string.show_info), 0));
+        if (linkType == LinkType.STREAM) {
+            items.add(new AdapterChoiceItem(getString(R.string.download_key),
+                    getString(R.string.download), R.drawable.ic_file_download));
         }
-
-        return returnedItems;
+        return items;
     }
 
     protected Context getThemeWrapperContext() {
@@ -553,14 +439,6 @@ public class RouterActivity extends AppCompatActivity {
         positiveButton.setEnabled(state);
     }
 
-    private void handleText() {
-        final String searchString = getIntent().getStringExtra(Intent.EXTRA_TEXT);
-        final int serviceId = getIntent().getIntExtra(Constants.KEY_SERVICE_ID, 0);
-        final Intent intent = new Intent(getThemeWrapperContext(), org.schabi.newpipe.MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        NavigationHelper.openSearch(getThemeWrapperContext(), serviceId, searchString);
-    }
 
     private void handleChoice(final String selectedChoiceKey) {
         final List<String> validChoicesList = Arrays.asList(getResources()
@@ -572,11 +450,6 @@ public class RouterActivity extends AppCompatActivity {
                     .apply();
         }
 
-        if (selectedChoiceKey.equals(getString(R.string.popup_player_key))
-                && !PermissionHelper.isPopupEnabledElseAsk(this)) {
-            finish();
-            return;
-        }
 
         if (selectedChoiceKey.equals(getString(R.string.download_key))) {
             if (PermissionHelper.checkStoragePermissions(this,
@@ -587,16 +460,10 @@ public class RouterActivity extends AppCompatActivity {
             return;
         }
 
-        if (selectedChoiceKey.equals(getString(R.string.add_to_playlist_key))) {
-            selectionIsAddToPlaylist = true;
-            openAddToPlaylistDialog();
-            return;
-        }
 
         // stop and bypass FetcherService if InfoScreen was selected since
         // StreamDetailFragment can fetch data itself
-        if (selectedChoiceKey.equals(getString(R.string.show_info_key))
-                || canHandleChoiceLikeShowInfo(selectedChoiceKey)) {
+        if (selectedChoiceKey.equals(getString(R.string.show_info_key))) {
             disposables.add(Observable
                     .fromCallable(() -> NavigationHelper.getIntentByLink(this, currentUrl))
                     .subscribeOn(Schedulers.io())
@@ -609,34 +476,10 @@ public class RouterActivity extends AppCompatActivity {
             return;
         }
 
-        final Intent intent = new Intent(this, FetcherService.class);
-        final Choice choice = new Choice(currentService.getServiceId(), currentLinkType,
-                currentUrl, selectedChoiceKey);
-        intent.putExtra(FetcherService.KEY_CHOICE, choice);
-        startService(intent);
 
         finish();
     }
 
-    private boolean canHandleChoiceLikeShowInfo(final String selectedChoiceKey) {
-        if (!selectedChoiceKey.equals(getString(R.string.video_player_key))) {
-            return false;
-        }
-        // "video player" can be handled like "show info" (because VideoDetailFragment can load
-        // the stream instead of FetcherService) when...
-
-        // ...Autoplay is enabled
-
-        final boolean isExtVideoEnabled = PreferenceManager.getDefaultSharedPreferences(this)
-                .getBoolean(getString(R.string.use_external_video_player_key), false);
-        // ...it's not done via an external player
-        if (isExtVideoEnabled) {
-            return false;
-        }
-
-        // ...the player is not running or in normal Video-mode/type
-        return true;
-    }
 
     public static class PersistentFragment extends Fragment {
         private WeakReference<AppCompatActivity> weakContext;
@@ -769,10 +612,8 @@ public class RouterActivity extends AppCompatActivity {
                     })));
         }
 
-        private void openAddToPlaylistDialog(final int currentServiceId, final String currentUrl) {}
     }
 
-    private void openAddToPlaylistDialog() {}
 
     private void openDownloadDialog() {
         getPersistFragment().openDownloadDialog(currentServiceId, currentUrl);
@@ -820,145 +661,7 @@ public class RouterActivity extends AppCompatActivity {
         }
     }
 
-    private static class Choice implements Serializable {
-        final int serviceId;
-        final String url;
-        final String playerChoice;
-        final LinkType linkType;
 
-        Choice(final int serviceId, final LinkType linkType,
-               final String url, final String playerChoice) {
-            this.serviceId = serviceId;
-            this.linkType = linkType;
-            this.url = url;
-            this.playerChoice = playerChoice;
-        }
-
-        @NonNull
-        @Override
-        public String toString() {
-            return serviceId + ":" + url + " > " + linkType + " ::: " + playerChoice;
-        }
-    }
-
-    public static class FetcherService extends IntentService {
-
-        public static final String KEY_CHOICE = "key_choice";
-        private static final int ID = 456;
-        private Disposable fetcher;
-
-        public FetcherService() {
-            super(FetcherService.class.getSimpleName());
-        }
-
-        @Override
-        public void onCreate() {
-            super.onCreate();
-            startForeground(ID, createNotification().build());
-        }
-
-        @Override
-        protected void onHandleIntent(@Nullable final Intent intent) {
-            if (intent == null) {
-                return;
-            }
-
-            final Serializable serializable = intent.getSerializableExtra(KEY_CHOICE);
-            if (!(serializable instanceof Choice)) {
-                return;
-            }
-            final Choice playerChoice = (Choice) serializable;
-            handleChoice(playerChoice);
-        }
-
-        public void handleChoice(final Choice choice) {
-            Single<? extends Info> single = null;
-
-            switch (choice.linkType) {
-                case STREAM:
-                    single = ExtractorHelper.getStreamInfo(choice.serviceId, choice.url, false);
-                    break;
-                case CHANNEL:
-                    single = ExtractorHelper.getChannelInfo(choice.serviceId, choice.url, false);
-                    break;
-                case PLAYLIST:
-                    single = ExtractorHelper.getPlaylistInfo(choice.serviceId, choice.url, false);
-                    break;
-            }
-
-
-            if (single != null) {
-                                final Consumer<Info> resultHandler = getResultHandler(choice);
-                fetcher = single
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(info -> {
-                            resultHandler.accept(info);
-                            if (fetcher != null) {
-                                fetcher.dispose();
-                            }
-                        }, throwable -> handleError(this, null));
-            }
-        }
-
-        public Consumer<Info> getResultHandler(final Choice choice) {
-            return info -> {
-                final String videoPlayerKey = getString(R.string.video_player_key);
-                final String backgroundPlayerKey = getString(R.string.background_player_key);
-                final String popupPlayerKey = getString(R.string.popup_player_key);
-
-                final SharedPreferences preferences = PreferenceManager
-                        .getDefaultSharedPreferences(this);
-                final boolean isExtVideoEnabled = preferences.getBoolean(
-                        getString(R.string.use_external_video_player_key), false);
-                final boolean isExtAudioEnabled = preferences.getBoolean(
-                        getString(R.string.use_external_audio_player_key), false);
-
-                final Object playQueue = null;
-                if (info instanceof StreamInfo) {
-                    if (choice.playerChoice.equals(backgroundPlayerKey) && isExtAudioEnabled) {
-                        NavigationHelper.playOnExternalAudioPlayer(this, (StreamInfo) info);
-                        return;
-                    } else if (choice.playerChoice.equals(videoPlayerKey) && isExtVideoEnabled) {
-                        NavigationHelper.playOnExternalVideoPlayer(this, (StreamInfo) info);
-                        return;
-                    }
-                } else if (info instanceof ChannelInfo) {
-                } else if (!(info instanceof PlaylistInfo)) {
-                    return;
-                }
-
-                if (choice.playerChoice.equals(videoPlayerKey)) {
-                    NavigationHelper.playOnMainPlayer(this, playQueue, false);
-                } else if (choice.playerChoice.equals(backgroundPlayerKey)) {
-                    NavigationHelper.playOnBackgroundPlayer(this, playQueue, true);
-                } else if (choice.playerChoice.equals(popupPlayerKey)) {
-                    NavigationHelper.playOnPopupPlayer(this, playQueue, true);
-                } else if (choice.playerChoice.equals(getString(R.string.enqueue_key))) {
-                    NavigationHelper.enqueueOnPlayer(this, playQueue);
-                }
-            };
-        }
-
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-            ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE);
-            if (fetcher != null) {
-                fetcher.dispose();
-            }
-        }
-
-        private NotificationCompat.Builder createNotification() {
-            return new NotificationCompat.Builder(this, getString(R.string.notification_channel_id))
-                    .setOngoing(true)
-                    .setSmallIcon(R.drawable.ic_newpipe_triangle_white)
-                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                    .setContentTitle(
-                            getString(R.string.preferred_player_fetcher_notification_title))
-                    .setContentText(
-                            getString(R.string.preferred_player_fetcher_notification_message));
-        }
-    }
 
     /*//////////////////////////////////////////////////////////////////////////
     // Utils
