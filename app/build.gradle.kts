@@ -123,6 +123,7 @@ configure<ApplicationExtension> {
 
     androidResources {
         generateLocaleConfig = true
+        additionalParameters.addAll(listOf("--preferred-density", "xxhdpi"))
     }
 
     buildFeatures {
