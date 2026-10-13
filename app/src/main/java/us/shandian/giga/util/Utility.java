@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -136,9 +135,7 @@ public class Utility {
         return FileType.UNKNOWN;
     }
 
-    @ColorInt
 
-    @ColorInt
 
     @DrawableRes
     public static int getIconForFileType(FileType type) {
