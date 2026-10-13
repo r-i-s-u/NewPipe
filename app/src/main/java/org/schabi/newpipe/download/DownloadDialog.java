@@ -207,7 +207,7 @@ public class DownloadDialog extends DialogFragment
         // dialog is being dismissed in onViewCreated()
         context = getContext();
 
-        setStyle(STYLE_NO_TITLE, ThemeHelper.getDialogTheme(context));
+        setStyle(STYLE_NO_TITLE, com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog);
         Bridge.restoreInstanceState(this, savedInstanceState);
 
         this.audioTrackAdapter = new AudioTrackAdapter(wrappedAudioTracks);
