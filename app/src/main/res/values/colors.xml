@@ -69,12 +69,6 @@
     <color name="bluegray">#607D8B</color>
 
     <!-- GigaGet download Theme colors -->
-    <color name="audio_left_to_load_color">@android:color/transparent</color>
-    <color name="audio_already_load_color">@android:color/transparent</color>
-    <color name="video_left_to_load_color">@android:color/transparent</color>
-    <color name="video_already_load_color">@android:color/transparent</color>
-    <color name="subtitle_left_to_load_color">@android:color/transparent</color>
-    <color name="subtitle_already_load_color">@android:color/transparent</color>
 
     <!-- GigaGet Component colors -->
     <color name="white">#FFFFFF</color>

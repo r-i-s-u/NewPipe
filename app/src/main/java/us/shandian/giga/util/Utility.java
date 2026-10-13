@@ -137,45 +137,8 @@ public class Utility {
     }
 
     @ColorInt
-    public static int getBackgroundForFileType(Context ctx, FileType type) {
-        int colorRes;
-        switch (type) {
-            case MUSIC:
-                colorRes = R.color.audio_left_to_load_color;
-                break;
-            case VIDEO:
-                colorRes = R.color.video_left_to_load_color;
-                break;
-            case SUBTITLE:
-                colorRes = R.color.subtitle_left_to_load_color;
-                break;
-            default:
-                colorRes = R.color.gray;
-        }
-
-        return ContextCompat.getColor(ctx, colorRes);
-    }
 
     @ColorInt
-    public static int getForegroundForFileType(Context ctx, FileType type) {
-        int colorRes;
-        switch (type) {
-            case MUSIC:
-                colorRes = R.color.audio_already_load_color;
-                break;
-            case VIDEO:
-                colorRes = R.color.video_already_load_color;
-                break;
-            case SUBTITLE:
-                colorRes = R.color.subtitle_already_load_color;
-                break;
-            default:
-                colorRes = R.color.gray;
-                break;
-        }
-
-        return ContextCompat.getColor(ctx, colorRes);
-    }
 
     @DrawableRes
     public static int getIconForFileType(FileType type) {

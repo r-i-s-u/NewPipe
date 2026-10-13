@@ -53,52 +53,6 @@ public class ProgressDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        int width = getBounds().width();
-        int height = getBounds().height();
-
-        Paint paint = new Paint();
-
-        paint.setColor(mBackgroundColor);
-        canvas.drawRect(0, 0, width, height, paint);
-
-        paint.setColor(mForegroundColor);
-
-        if (mMarqueeLine != null) {
-            if (mMarqueeSize < 1) setupMarquee(width, height);
-
-            int size = mMarqueeSize;
-            Paint paint2 = new Paint();
-            paint2.setColor(mForegroundColor);
-            paint2.setStrokeWidth(size);
-            paint2.setStyle(Paint.Style.STROKE);
-
-            size *= 2;
-
-            if (mMarqueeProgress >= size) {
-                mMarqueeProgress = 1;
-            } else {
-                mMarqueeProgress++;
-            }
-
-            // render marquee
-            width += size * 2;
-            Path marquee = new Path();
-            for (int i = -size; i < width; i += size) {
-                marquee.addPath(mMarqueeLine, ((float)i + mMarqueeProgress), 0);
-            }
-            marquee.close();
-
-            canvas.drawPath(marquee, paint2);// draw marquee
-
-            if (System.currentTimeMillis() >= mMarqueeNext) {
-                // program next update
-                mMarqueeNext = System.currentTimeMillis() + MARQUEE_INTERVAL;
-                mMarqueeHandler.postDelayed(this::invalidateSelf, MARQUEE_INTERVAL);
-            }
-            return;
-        }
-
-        canvas.drawRect(0, 0, (int) (mProgress * width), height, paint);
     }
 
     @Override
@@ -113,7 +67,7 @@ public class ProgressDrawable extends Drawable {
 
     @Override
     public int getOpacity() {
-        return PixelFormat.OPAQUE;
+        return PixelFormat.TRANSPARENT;
     }
 
     @Override
