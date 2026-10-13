@@ -232,6 +232,7 @@ dependencies {
 
     // AndroidX
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.cardview)
     implementation(libs.androidx.core)
     implementation(libs.androidx.documentfile)
     implementation(libs.androidx.fragment)
