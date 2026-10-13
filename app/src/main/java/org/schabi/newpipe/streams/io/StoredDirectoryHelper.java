@@ -19,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.documentfile.provider.DocumentFile;
 
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 
 import java.io.FileDescriptor;
@@ -386,7 +385,7 @@ public class StoredDirectoryHelper {
     }
 
     public static Intent getPicker(final Context ctx) {
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             return new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
                     .putExtra("android.content.extra.SHOW_ADVANCED", true)
                     .addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION

@@ -52,7 +52,6 @@ import org.schabi.newpipe.extractor.stream.Stream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
 import org.schabi.newpipe.extractor.stream.VideoStream;
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.streams.io.NoFileManagerSafeGuard;
 import org.schabi.newpipe.streams.io.StoredDirectoryHelper;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
@@ -791,7 +790,7 @@ public class DownloadDialog extends DialogFragment
         }
 
         if (!askForSavePath && (mainStorage == null
-                || mainStorage.isDirect() == NewPipeSettings.useStorageAccessFramework(context)
+                || mainStorage.isDirect() == false
                 || mainStorage.isInvalidSafStorage())) {
             // Pick new download folder if one of:
             // - Download folder is not set
@@ -812,14 +811,14 @@ public class DownloadDialog extends DialogFragment
 
         if (askForSavePath) {
             final Uri initialPath;
-            if (NewPipeSettings.useStorageAccessFramework(context)) {
+            if (false) {
                 initialPath = null;
             } else {
                 final File initialSavePath;
                 if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId() == R.id.audio_button) {
-                    initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MUSIC);
+                    initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MUSIC);
                 } else {
-                    initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MOVIES);
+                    initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MOVIES);
                 }
                 initialPath = Uri.parse(initialSavePath.getAbsolutePath());
             }

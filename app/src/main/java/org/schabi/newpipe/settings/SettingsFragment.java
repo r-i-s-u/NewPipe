@@ -28,11 +28,59 @@ import org.schabi.newpipe.util.FilePickerActivityHelper;
 import java.io.File;
 import java.io.IOException;
 
-public class DownloadSettingsFragment extends BasePreferenceFragment {
+public class SettingsFragment extends androidx.preference.PreferenceFragmentCompat {
+
+    protected final String TAG = getClass().getSimpleName() + "@" + Integer.toHexString(hashCode());
+    protected static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
+    private android.content.SharedPreferences defaultPreferences;
+
+    public static void initSettings(final android.content.Context context) {
+        androidx.preference.PreferenceManager.setDefaultValues(context, R.xml.main_settings, true);
+        saveDefaultDirectory(context, R.string.download_path_video_key,
+                android.os.Environment.DIRECTORY_MOVIES);
+        saveDefaultDirectory(context, R.string.download_path_audio_key,
+                android.os.Environment.DIRECTORY_MUSIC);
+    }
+
+    private static void saveDefaultDirectory(final android.content.Context context,
+                                             final int keyId, final String dirName) {
+        final android.content.SharedPreferences prefs =
+                androidx.preference.PreferenceManager.getDefaultSharedPreferences(context);
+        final String key = context.getString(keyId);
+        final String path = prefs.getString(key, null);
+        if (path != null && !path.isEmpty()) {
+            return;
+        }
+        final java.io.File dir = new java.io.File(
+                android.os.Environment.getExternalStorageDirectory(), dirName);
+        prefs.edit().putString(key, new java.io.File(dir, "NewPipe").toURI().toString()).apply();
+    }
+
+    @Override
+    public void onCreate(@androidx.annotation.Nullable final android.os.Bundle savedInstanceState) {
+        defaultPreferences = androidx.preference.PreferenceManager
+                .getDefaultSharedPreferences(requireActivity());
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@androidx.annotation.NonNull final android.view.View rootView,
+                              @androidx.annotation.Nullable final android.os.Bundle savedInstanceState) {
+        super.onViewCreated(rootView, savedInstanceState);
+        setDivider(null);
+        org.schabi.newpipe.util.ThemeHelper.setTitleToAppCompatActivity(
+                getActivity(), getPreferenceScreen().getTitle());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        org.schabi.newpipe.util.ThemeHelper.setTitleToAppCompatActivity(
+                getActivity(), getPreferenceScreen().getTitle());
+    }
     public static final boolean IGNORE_RELEASE_ON_OLD_PATH = true;
     private String downloadPathVideoPreference;
     private String downloadPathAudioPreference;
-    private String storageUseSafPreference;
 
     private Preference prefPathVideo;
     private Preference prefPathAudio;
@@ -48,11 +96,10 @@ public class DownloadSettingsFragment extends BasePreferenceFragment {
 
     @Override
     public void onCreatePreferences(final Bundle savedInstanceState, final String rootKey) {
-        addPreferencesFromResourceRegistry();
+        addPreferencesFromResource(R.xml.main_settings);
 
         downloadPathVideoPreference = getString(R.string.download_path_video_key);
         downloadPathAudioPreference = getString(R.string.download_path_audio_key);
-        storageUseSafPreference = getString(R.string.storage_use_saf);
         final String downloadStorageAsk = getString(R.string.downloads_storage_ask);
 
         prefPathVideo = findPreference(downloadPathVideoPreference);
@@ -161,17 +208,7 @@ public class DownloadSettingsFragment extends BasePreferenceFragment {
 
         final String key = preference.getKey();
 
-        if (key.equals(storageUseSafPreference)) {
-            if (!NewPipeSettings.useStorageAccessFramework(ctx)) {
-                NewPipeSettings.saveDefaultVideoDownloadDirectory(ctx);
-                NewPipeSettings.saveDefaultAudioDownloadDirectory(ctx);
-            } else {
-                defaultPreferences.edit().putString(downloadPathVideoPreference, null)
-                        .putString(downloadPathAudioPreference, null).apply();
-            }
-            updatePreferencesSummary();
-            return true;
-        } else if (key.equals(downloadPathVideoPreference)) {
+        if (key.equals(downloadPathVideoPreference)) {
             launchDirectoryPicker(requestDownloadVideoPathLauncher);
         } else if (key.equals(downloadPathAudioPreference)) {
             launchDirectoryPicker(requestDownloadAudioPathLauncher);

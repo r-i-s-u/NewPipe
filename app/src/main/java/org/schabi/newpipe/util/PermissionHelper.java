@@ -18,7 +18,6 @@ import androidx.core.content.ContextCompat;
 
 import org.schabi.newpipe.App;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.settings.NewPipeSettings;
 
 public final class PermissionHelper {
     public static final int POST_NOTIFICATIONS_REQUEST_CODE = 779;

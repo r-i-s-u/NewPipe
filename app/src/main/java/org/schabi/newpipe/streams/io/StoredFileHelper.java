@@ -15,7 +15,6 @@ import androidx.documentfile.provider.DocumentFile;
 
 import com.nononsenseapps.filepicker.Utils;
 
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 
 import java.io.File;
@@ -482,7 +481,7 @@ public class StoredFileHelper implements Serializable {
 
     public static Intent getPicker(@NonNull final Context ctx,
                                    @NonNull final String mimeType) {
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             return new Intent(Intent.ACTION_OPEN_DOCUMENT)
                     .putExtra("android.content.extra.SHOW_ADVANCED", true)
                     .setType(mimeType)
@@ -510,7 +509,7 @@ public class StoredFileHelper implements Serializable {
                                       @NonNull final String mimeType,
                                       @Nullable final Uri initialPath) {
         final Intent i;
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             i = new Intent(Intent.ACTION_CREATE_DOCUMENT)
                     .putExtra("android.content.extra.SHOW_ADVANCED", true)
                     .setType(mimeType)
@@ -536,7 +535,7 @@ public class StoredFileHelper implements Serializable {
                                                          @Nullable final Uri initialPath,
                                                          @Nullable final String filename) {
 
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             if (initialPath == null) {
                 return intent; // nothing to do, no initial path provided
             }

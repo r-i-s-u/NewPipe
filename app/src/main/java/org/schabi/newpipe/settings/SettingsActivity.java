@@ -21,7 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             final FragmentTransaction transaction =
                     getSupportFragmentManager().beginTransaction();
-            transaction.replace(android.R.id.content, new DownloadSettingsFragment());
+            transaction.replace(android.R.id.content, new SettingsFragment());
             transaction.commit();
         }
     }
