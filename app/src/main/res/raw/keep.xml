@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="strict"
+    tools:discard="@drawable/abc_ab_share_pack_mtrl_alpha,@drawable/abc_tab_indicator_mtrl_alpha,@drawable/abc_btn_check_to_on_mtrl_*" />
