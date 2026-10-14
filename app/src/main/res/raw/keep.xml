@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
     tools:shrinkMode="strict"
-    tools:discard="@drawable/mtrl_*,@color/mtrl_*,@layout/mtrl_*,@anim/mtrl_*,@animator/mtrl_*,@interpolator/mtrl_*,@dimen/mtrl_*,@integer/mtrl_*,@string/mtrl_*,@bool/mtrl_*,@drawable/abc_ab_*,@drawable/abc_tab_*,@drawable/abc_cab_*,@drawable/abc_btn_check_*,@drawable/abc_menu_hardkey_panel_mtrl_mult" />
+    tools:discard="@drawable/$mtrl_*,@drawable/$abc_*,@drawable/mtrl_*,@color/mtrl_*,@layout/mtrl_*,@anim/mtrl_*,@animator/mtrl_*,@interpolator/mtrl_*,@dimen/mtrl_*,@integer/mtrl_*,@string/mtrl_*,@bool/mtrl_*,@drawable/abc_ab_*,@drawable/abc_tab_*,@drawable/abc_cab_*,@drawable/abc_btn_check_*,@drawable/abc_menu_hardkey_panel_mtrl_mult" />
