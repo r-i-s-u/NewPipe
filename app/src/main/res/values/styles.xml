@@ -1,7 +1,10 @@
 <resources>
 
     <!-- Opening Theme -->
-    <style name="Base.V21.OpeningTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.V21.OpeningTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="dialogTheme">@style/Theme.AppCompat.Dialog</item>
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@android:color/transparent</item>
@@ -14,7 +17,10 @@
     <style name="OpeningTheme" parent="Base.OpeningTheme" />
 
     <!-- Base Theme -->
-    <style name="Base.V21" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.V21" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="dialogTheme">@style/Theme.AppCompat.Dialog</item>
         <item name="actionColor">@color/white</item>
         <item name="floatingActionButtonStyle">@style/FloatingActionButtonTheme</item>
         <item name="toolbarSearchColor">@color/white</item>
@@ -24,6 +30,9 @@
 
     <!-- Light Theme -->
     <style name="Base.V21.LightTheme" parent="Base">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
+        <item name="dialogTheme">@style/Theme.AppCompat.Light.Dialog</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="windowBackground">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
@@ -34,6 +43,9 @@
 
     <!-- Dark Theme -->
     <style name="Base.V21.DarkTheme" parent="Base">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="dialogTheme">@style/Theme.AppCompat.Dialog</item>
         <item name="android:windowBackground">@android:color/black</item>
         <item name="windowBackground">@android:color/black</item>
         <item name="colorPrimaryDark">@android:color/black</item>
@@ -44,6 +56,9 @@
 
     <!-- Black Theme -->
     <style name="Base.V21.BlackTheme" parent="DarkTheme">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="materialAlertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+        <item name="dialogTheme">@style/Theme.AppCompat.Dialog</item>
     </style>
     <style name="Base.BlackTheme" parent="Base.V21.BlackTheme" />
     <style name="BlackTheme" parent="Base.BlackTheme"/>
