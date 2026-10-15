@@ -13,12 +13,6 @@
         android:gravity="center_vertical"
         android:minHeight="?attr/actionBarSize">
 
-        <include
-            android:id="@+id/toolbar_search_container"
-            layout="@layout/toolbar_search_layout"
-            android:visibility="gone"
-            tools:visibility="visible" />
-
     </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>
