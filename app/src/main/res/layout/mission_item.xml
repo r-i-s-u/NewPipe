@@ -31,7 +31,6 @@
 
             <ImageView
                 android:id="@+id/item_more"
-                style="?attr/buttonBarButtonStyle"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:layout_alignParentRight="true"
@@ -39,8 +38,7 @@
                 android:layout_marginRight="1dp"
                 android:contentDescription="TODO"
                 android:scaleType="center"
-                
-                app:tint="?attr/actionColor" />
+                android:icon="@drawable/ic_more_vert"/>
 
         </RelativeLayout>
 
