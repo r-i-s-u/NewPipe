@@ -32,7 +32,7 @@ object FilenameUtils {
 
         val replacementChar = sharedPreferences.getStringSafe(
             context.getString(R.string.settings_file_replacement_character_key),
-            "_"
+            ""
         )
         val selectedCharset = sharedPreferences.getStringSafe(
             context.getString(R.string.settings_file_charset_key),
