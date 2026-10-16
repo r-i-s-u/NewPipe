@@ -15,7 +15,7 @@
         <item name="colorError">@color/m3_error</item>
     </style>
     <style name="Base" parent="Base.V21"/>
-
+<style name="ThemeOverlay.App.MaterialSwitch" parent="Theme.Material3.DayNight.NoActionBar" />
     <!-- Light Theme -->
     <style name="Base.V21.LightTheme" parent="Base">
         <item name="android:windowBackground">@android:color/white</item>
