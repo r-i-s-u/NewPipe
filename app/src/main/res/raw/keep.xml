@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="strict"
+    tools:discard="
+        @color/m3_assist_chip_*,
+        @color/m3_bottom_sheet_*,
+        @color/m3_button_*,
+        @color/m3_calendar_*,
+        @color/m3_card_*,
+        @color/m3_checkbox_*,
+        @color/m3_chip_*,
+        @color/m3_efab_*,
+        @color/m3_fab_*,
+        @color/m3_filled_icon_button_*,
+        @color/m3_icon_button_*,
+        @color/m3_list_item_*,
+        @color/m3_navigation_*,
+        @color/m3_radiobutton_*,
+        @color/m3_segmented_*,
+        @color/m3_simple_item_*,
+        @color/m3_slider_*,
+        @color/m3_standard_toolbar_*,
+        @color/m3_tabs_*,
+        @color/m3_text_button_*,
+        @color/m3_textfield_*,
+        @color/m3_timepicker_*" />
