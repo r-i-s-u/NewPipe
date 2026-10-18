@@ -10,12 +10,14 @@
     <!-- Light Theme -->
     <style name="Base.V27.LightTheme" parent="Base.V21.LightTheme">
         <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="Base.LightTheme" parent="Base.V27.LightTheme" />
 
     <!-- Dark Theme -->
     <style name="Base.V27.DarkTheme" parent="Base.V21.DarkTheme">
         <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
     <style name="Base.DarkTheme" parent="Base.V27.DarkTheme" />
 
