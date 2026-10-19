@@ -8,6 +8,8 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="nnf_separator_color">@color/white</item>
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeLight</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="FilePickerThemeDark" parent="NNF_BaseTheme">
         <item name="actionColor">@color/white</item>
@@ -15,6 +17,8 @@
         <item name="android:windowBackground">@android:color/black</item>
         <item name="nnf_separator_color">@android:color/black</item>
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeDark</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
     <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.DayNight.Dialog.Alert">
     </style>
