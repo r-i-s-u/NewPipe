@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<color name="material_grey_800">#000000</color>
 <color name="m3_primary">#000000</color>
 <color name="m3_on_primary">#FFFFFF</color>
 <color name="m3_primary_container">#E0E0E0</color>
@@ -9,8 +10,7 @@
 <color name="m3_on_surface_variant">#616161</color>
 <color name="m3_surface_variant">#E0E0E0</color>
 <color name="m3_outline">#757575</color>
-
-    <color name="contrastColor">@color/black</color>
+ <color name="contrastColor">@color/black</color>
     <color name="defaultIconTint">@color/black</color>
         <color name="stroke_color">#1e000000</color>
     <color name="ic_launcher_background">#CD201F</color>
