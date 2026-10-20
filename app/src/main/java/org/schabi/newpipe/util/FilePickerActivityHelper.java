@@ -88,6 +88,39 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
     //////////////////////////////////////////////////////////////////////////*/
 
     public static class CustomFilePickerFragment extends FilePickerFragment {
+
+        @Override
+        public void onViewCreated(@NonNull final View view,
+                                  @Nullable final Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            androidx.appcompat.widget.Toolbar toolbar = findToolbar(view);
+            if (toolbar == null) {
+                toolbar = findToolbar(requireActivity().findViewById(android.R.id.content));
+            }
+            if (toolbar != null) {
+                toolbar.setNavigationIcon(R.drawable.ic_picker_close);
+                toolbar.setNavigationOnClickListener(v -> {
+                    requireActivity().setResult(android.app.Activity.RESULT_CANCELED);
+                    requireActivity().finish();
+                });
+            }
+        }
+
+        private static androidx.appcompat.widget.Toolbar findToolbar(final View v) {
+            if (v instanceof androidx.appcompat.widget.Toolbar) {
+                return (androidx.appcompat.widget.Toolbar) v;
+            }
+            if (v instanceof ViewGroup) {
+                final ViewGroup group = (ViewGroup) v;
+                for (int i = 0; i < group.getChildCount(); i++) {
+                    final androidx.appcompat.widget.Toolbar found = findToolbar(group.getChildAt(i));
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+            return null;
+        }
         @Override
         public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                                  final Bundle savedInstanceState) {
