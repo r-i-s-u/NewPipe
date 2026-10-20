@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="6dp"
-    app:cardBackgroundColor="?card_background"
+    app:cardBackgroundColor="@color/card_background"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
