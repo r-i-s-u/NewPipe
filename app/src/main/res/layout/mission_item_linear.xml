@@ -2,8 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp"
+    app:cardCornerRadius="6dp"
+    app:cardBackgroundColor="?card_background"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
