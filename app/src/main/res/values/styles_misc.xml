@@ -4,7 +4,6 @@
     <!--File picker styles-->
     <style name="FilePickerThemeLight" parent="NNF_BaseTheme.Light">
         <item name="actionColor">@color/white</item>
-        <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="nnf_separator_color">@color/white</item>
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeLight</item>
@@ -15,7 +14,6 @@
     </style>
     <style name="FilePickerThemeDark" parent="NNF_BaseTheme">
         <item name="actionColor">@color/white</item>
-        <item name="nnf_toolbarTheme">@style/ToolbarTheme</item>
         <item name="android:windowBackground">@android:color/black</item>
         <item name="nnf_separator_color">@android:color/black</item>
         <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeDark</item>
@@ -28,30 +26,5 @@
     </style>
     <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
     </style>
-
-    <style name="PlayQueueItemTextTheme">
-    </style>
-    <style name="PlayQueueItemTitle">
-    </style>
-    <style name="PlayQueueItemSubtitle">
-    </style>
-    <style name="FloatingActionButtonTheme">
-    </style>
-    <style name="DarkPopupMenu"/>
-    <style name="ToolbarTheme">
-    </style>
-    <style name="ToolbarPopupTheme">
-    </style>
-    <style name="ContrastToolbarTheme">
-    </style>
-    <style name="WhiteTintTheme">
-    </style>
-    <style name="ContrastTintTheme">
-    </style>
-    <style name="ToolbarSearchInputTheme">
-    </style>
-    <style name="CircularImageView">
-    </style>
-    <style name="ServiceColoredButton">
-    </style>
+    
 </resources>
