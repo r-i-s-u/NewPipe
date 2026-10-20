@@ -85,6 +85,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="4dp"
             android:contentDescription="TODO"
+            app:tint="@color/white" 
             android:scaleType="centerInside"
             android:icon="@drawable/ic_more_vert"/>
 

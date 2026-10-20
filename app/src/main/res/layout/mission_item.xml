@@ -41,6 +41,7 @@
                 android:layout_marginRight="1dp"
                 android:contentDescription="TODO"
                 android:scaleType="center"
+                app:tint="@color/white" 
                 android:icon="@drawable/ic_more_vert"/>
 
         </RelativeLayout>
