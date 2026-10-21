@@ -652,47 +652,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             applyChanges();
             checkMasterButtonsVisibility();
             return true;
-        } else if (id == R.id.md5 || id == R.id.sha1) {
-            final StoredFileHelper storage = h.item.mission.storage;
-            if (!storage.existsAsFile()) {
-                Toast.makeText(mContext, R.string.missing_file, Toast.LENGTH_SHORT).show();
-                mDeleter.append(h.item.mission, true);
-                applyChanges();
-                return true;
-            }
-            final NotificationManager notificationManager
-                    = ContextCompat.getSystemService(mContext, NotificationManager.class);
-            final NotificationCompat.Builder progressNotificationBuilder
-                    = new NotificationCompat.Builder(mContext,
-                    mContext.getString(R.string.hash_channel_id))
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setSmallIcon(R.drawable.ic_newpipe_triangle_white)
-                    .setContentTitle(mContext.getString(R.string.msg_calculating_hash))
-                    .setContentText(mContext.getString(R.string.msg_wait))
-                    .setProgress(0, 0, true)
-                    .setOngoing(true);
-
-            notificationManager.notify(HASH_NOTIFICATION_ID, progressNotificationBuilder
-                    .build());
-            compositeDisposable.add(
-                    Observable.fromCallable(() -> Utility.checksum(storage, id))
-                            .subscribeOn(Schedulers.computation())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(result -> {
-                                ShareUtils.copyToClipboard(mContext, result);
-                                notificationManager.cancel(HASH_NOTIFICATION_ID);
-                            })
-            );
-            return true;
-        } else if (id == R.id.source) {
-            try {
-                Intent intent = NavigationHelper.getIntentByLink(mContext, h.item.mission.source);
-                intent.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-                mContext.startActivity(intent);
-            } catch (Exception e) {
-                Log.w(TAG, "Selected item has a invalid source", e);
-            }
-            return true;
         }
         return false;
     }
@@ -830,8 +789,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         MenuItem queue;
         MenuItem showError;
         MenuItem delete;
-        MenuItem source;
-        MenuItem checksum;
 
         long lastTimestamp = -1;
         double lastDone;
@@ -866,8 +823,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             queue = menu.findItem(R.id.queue);
             showError = menu.findItem(R.id.error_message_view);
             delete = menu.findItem(R.id.delete);
-            source = menu.findItem(R.id.source);
-            checksum = menu.findItem(R.id.checksum);
 
             itemView.setHapticFeedbackEnabled(true);
 
@@ -892,8 +847,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             queue.setVisible(false);
             showError.setVisible(false);
             delete.setVisible(false);
-            source.setVisible(false);
-            checksum.setVisible(false);
 
             DownloadMission mission = item.mission instanceof DownloadMission ? (DownloadMission) item.mission : null;
 
@@ -931,12 +884,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             } else {
                 open.setVisible(true);
                 delete.setVisible(true);
-                checksum.setVisible(true);
             }
 
-            if (item.mission.source != null && !item.mission.source.isEmpty()) {
-                source.setVisible(true);
-            }
 
             popupMenu.show();
         }
