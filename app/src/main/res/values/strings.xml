@@ -259,6 +259,77 @@
     <string name="permission_display_over_apps">Give permission to display over other apps</string>
     <string name="permission_display_over_apps_message">In order to use the Popup Player, please select %1$s in the following Android settings menu and enable %2$s.</string>
     <string name="permission_display_over_apps_permission_name">“Allow display over other apps”</string>
+    <!-- error activity -->
+    <string name="error_report_notification_title">NewPipe encountered an error, tap to report</string>
+    <string name="error_report_notification_toast">An error occurred, see the notification</string>
+    <string name="sorry_string">Sorry, that should not have happened.</string>
+    <string name="error_report_button_text">Report via e-mail</string>
+    <string name="copy_for_github">Copy formatted report</string>
+    <string name="error_report_open_issue_button_text">Report on GitHub</string>
+    <string name="error_report_open_github_notice">Please check whether an issue discussing your crash already exists. When creating duplicate tickets, you take time from us which we could spend with fixing the actual bug.</string>
+    <string name="error_snackbar_message">Sorry, something went wrong.</string>
+    <string name="error_snackbar_action">Report</string>
+    <string name="what_device_headline">Info:</string>
+    <string name="what_happened_headline">What happened:</string>
+    <string name="info_labels">What:\nRequest:\nContent Language:\nContent Country:\nApp Language:\nService:\nTimestamp:\nPackage:\nVersion:\nOS version:</string>
+    <string name="your_comment">Your comment (in English):</string>
+    <string name="error_details_headline">Details:</string>
+    <!-- Content descriptions (for better accessibility) -->
+    <string name="detail_thumbnail_view_description">Play video, duration:</string>
+    <string name="detail_uploader_thumbnail_view_description">Uploader\'s avatar thumbnail</string>
+    <string name="detail_likes_img_view_description">Likes</string>
+    <string name="detail_dislikes_img_view_description">Dislikes</string>
+    <string name="comments_tab_description">Comments</string>
+    <string name="related_items_tab_description">Related items</string>
+    <string name="description_tab_description">Description</string>
+    <string name="search_no_results">No results</string>
+    <string name="empty_list_subtitle">Nothing here but crickets</string>
+    <string name="import_subscriptions_hint">Import or export subscriptions from the 3-dot menu</string>
+    <string name="detail_drag_description">Drag to reorder</string>
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
+    <string name="retry">Retry</string>
+    <string name="short_thousand">%sK</string>
+    <string name="short_million">%sM</string>
+    <string name="short_billion">%sB</string>
+    <string name="drawer_header_description">Toggle service, currently selected:</string>
+    <!--Zero don't get selected (in some languages) as it is not a "special case" for android-->
+    <string name="no_subscribers">No subscribers</string>
+    <plurals name="subscribers">
+        <item quantity="one">%s subscriber</item>
+        <item quantity="other">%s subscribers</item>
+    </plurals>
+    <string name="subscribers_count_not_available">Subscriber count unavailable</string>
+    <string name="no_views">No views</string>
+    <plurals name="views">
+        <item quantity="one">%s view</item>
+        <item quantity="other">%s views</item>
+    </plurals>
+    <string name="no_one_watching">No one is watching</string>
+    <plurals name="watching">
+        <item quantity="one">%s watching</item>
+        <item quantity="other">%s watching</item>
+    </plurals>
+    <string name="no_one_listening">No one is listening</string>
+    <plurals name="listening">
+        <item quantity="one">%s listener</item>
+        <item quantity="other">%s listeners</item>
+    </plurals>
+    <string name="no_videos">No videos</string>
+    <string name="more_than_100_videos">100+ videos</string>
+    <string name="infinite_videos">∞ videos</string>
+    <plurals name="videos">
+        <item quantity="one">%s video</item>
+        <item quantity="other">%s videos</item>
+    </plurals>
+    <string name="no_comments">No comments</string>
+    <string name="comments_are_disabled">Comments are disabled</string>
+    <string name="no_streams">No streams</string>
+    <string name="no_live_streams">No live streams</string>
+    <plurals name="new_streams">
+        <item quantity="one">%s new stream</item>
+        <item quantity="other">%s new streams</item>
+    </plurals>
     <!-- Missions -->
     <string name="start">Start</string>
     <string name="pause">Pause</string>
@@ -283,6 +354,12 @@
     <string name="no_dir_yet">No download folder set yet, choose the default download folder now</string>
     <string name="msg_popup_permission">This permission is needed to\nopen in popup mode</string>
     <string name="one_item_deleted">1 item deleted.</string>
+    <!-- reCAPTCHA -->
+    <string name="title_activity_recaptcha">reCAPTCHA challenge</string>
+    <string name="subtitle_activity_recaptcha">Press \"Done\" when solved</string>
+    <string name="recaptcha_request_toast">reCAPTCHA challenge requested</string>
+    <string name="recaptcha_solve">Solve</string>
+    <string name="done">Done</string>
     <!-- Downloads -->
     <string name="settings_category_downloads_title">Download</string>
     <string name="settings_file_charset_title">Allowed characters in filenames</string>
@@ -345,6 +422,30 @@
     <!-- Kiosk Names -->
     <string name="trending">Trending</string>
     <string name="top_50">Top 50</string>
+    <string name="new_and_hot">New and hot</string>
+    <string name="local">Local</string>
+    <string name="recently_added">Recently added</string>
+    <string name="most_liked">Most liked</string>
+    <string name="conferences">Conferences</string>
+    <!-- Play Queue -->
+    <string name="title_activity_play_queue">Play queue</string>
+    <string name="play_queue_remove">Remove</string>
+    <string name="play_queue_stream_detail">Details</string>
+    <string name="play_queue_audio_settings">Audio Settings</string>
+    <string name="play_queue_audio_track">Audio: %s</string>
+    <string name="audio_track">Audio track</string>
+    <string name="hold_to_append">Hold to enqueue</string>
+    <string name="show_channel_details">Show channel details</string>
+    <string name="enqueue_stream">Enqueue</string>
+    <string name="enqueued">Enqueued</string>
+    <string name="enqueue_next_stream">Enqueue next</string>
+    <string name="enqueued_next">Enqueued next</string>
+    <string name="start_here_on_background">Start playing in the background</string>
+    <string name="start_here_on_popup">Start playing in a popup</string>
+    <string name="loading_stream_details">Loading stream details…</string>
+    <!-- Drawer -->
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
     <!-- Preferred player -->
     <string name="preferred_open_action_settings_title">Preferred \'open\' action</string>
     <string name="preferred_open_action_settings_summary">Default action when opening content — %s</string>
@@ -398,6 +499,61 @@
     <string name="check_new_streams">Run check for new streams</string>
     <string name="crash_the_app">Crash the app</string>
     <string name="show_error_snackbar">Show an error snackbar</string>
+    <string name="create_error_notification">Create an error notification</string>
+    <!-- Subscriptions import/export -->
+    <plurals name="export_subscriptions">
+        <item quantity="one">Exporting %d subscription…</item>
+        <item quantity="other">Exporting %d subscriptions…</item>
+    </plurals>
+    <plurals name="load_subscriptions">
+        <item quantity="one">Loading %d subscription…</item>
+        <item quantity="other">Loading %d subscriptions…</item>
+    </plurals>
+    <plurals name="import_subscriptions">
+        <item quantity="one">Importing %d subscription…</item>
+        <item quantity="other">Importing %d subscriptions…</item>
+    </plurals>
+    <string name="import_title">Import</string>
+    <string name="import_from">Import from</string>
+    <string name="export_to">Export to</string>
+    <string name="import_ongoing">Importing…</string>
+    <string name="export_ongoing">Exporting…</string>
+    <string name="import_file_title">Import file</string>
+    <string name="previous_export">Previous export</string>
+    <string name="import_subscriptions_title">Import subscriptions"</string>
+    <string name="export_subscriptions_title">Export subscriptions</string>
+    <string name="import_subscriptions_summary">Import subscriptions from a previous .json export"</string>
+    <string name="export_subscriptions_summary">Export your subscriptions to a .json file</string>
+    <string name="import_from_previous_export">Import from previous export</string>
+    <string name="subscriptions_import_unsuccessful">Could not import subscriptions</string>
+    <string name="subscriptions_export_unsuccessful">Could not export subscriptions</string>
+    <string name="import_youtube_instructions">Import YouTube subscriptions from Google takeout:
+\n
+\n1. Go to this URL: %1$s
+\n2. Log in when asked
+\n3. Click on \"All data included\", then on \"Deselect all\", then select only \"subscriptions\" and click \"OK\"
+\n4. Click on \"Next step\" and then on \"Create export\"
+\n5. Click on the \"Download\" button after it appears
+\n6. Click on IMPORT FILE below and select the downloaded .zip file
+\n7. [If the .zip import fails] Extract the .csv file (usually under \"YouTube and YouTube Music/subscriptions/subscriptions.csv\"), click on IMPORT FILE below and select the extracted csv file</string>
+    <string name="import_soundcloud_instructions">Import a SoundCloud profile by typing either the URL or your ID:\n\n1. Enable \"desktop mode\" in a web-browser (the site is not available for mobile devices)\n2. Go to this URL: %1$s\n3. Log in when asked\n4. Copy the profile URL you were redirected to.</string>
+    <string name="import_soundcloud_instructions_hint">yourID, soundcloud.com/yourid</string>
+    <string name="import_network_expensive_warning">Keep in mind this operation can be network expensive.\n\nDo you want to continue?</string>
+    <!-- Playback Parameters -->
+    <string name="playback_speed_control">Playback Speed Controls</string>
+    <string name="playback_tempo">Tempo</string>
+    <string name="playback_pitch">Pitch</string>
+    <string name="unhook_checkbox">Unhook (may cause distortion)</string>
+    <string name="skip_silence_checkbox">Fast-forward during silence</string>
+    <string name="playback_step">Step</string>
+    <string name="playback_reset">Reset</string>
+    <string name="percent">Percent</string>
+    <string name="semitone">Semitone</string>
+    <!-- GDPR dialog -->
+    <string name="start_accept_privacy_policy">In order to comply with the European General Data Protection Regulation (GDPR), we hereby draw your attention to NewPipe\'s privacy policy. Please read it carefully.
+\nYou must accept it to send us the bug report.</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
     <!-- Limit mobile data usage  -->
     <string name="limit_data_usage_none_description">No limit</string>
     <string name="limit_mobile_data_usage_title">Limit resolution when using mobile data</string>
