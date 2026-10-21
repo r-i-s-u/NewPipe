@@ -1,33 +1,25 @@
 package us.shandian.giga.util;
 
-import android.content.Context;
 import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
 import android.util.Log;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.streams.io.SharpInputStream;
-import org.schabi.newpipe.streams.io.StoredFileHelper;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.util.Locale;
 
-import okio.ByteString;
 
 public class Utility {
 
@@ -150,19 +142,6 @@ public class Utility {
         }
     }
 
-    public static String checksum(final StoredFileHelper source, final int algorithmId)
-            throws IOException {
-        ByteString byteString;
-        try (var inputStream = new SharpInputStream(source.getStream())) {
-            byteString = okio.Okio.buffer(okio.Okio.source(inputStream)).readByteString();
-        }
-        if (algorithmId == R.id.md5) {
-            byteString = byteString.md5();
-        } else if (algorithmId == R.id.sha1) {
-            byteString = byteString.sha1();
-        }
-        return byteString.hex();
-    }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static boolean mkdir(File p, boolean allDirs) {
