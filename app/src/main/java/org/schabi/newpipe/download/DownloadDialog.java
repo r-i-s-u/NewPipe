@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -300,10 +302,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
         selectedSubtitleIndex = getSubtitleIndexBy(subtitleStreamsAdapter.getAll());
 
         dialogBinding.qualitySpinner.setOnItemSelectedListener(this);
-        dialogBinding.qualitySpinner.setOnItemClickListener((p, v, pos, id) -> {
-            dialogBinding.qualitySpinner.setItemChecked(pos, true);
-            onItemSelected(p, v, pos, id);
-        });
+        bindList(dialogBinding.qualitySpinner);
+        bindList(dialogBinding.audioStreamSpinner);
         dialogBinding.audioStreamSpinner.setOnItemSelectedListener(this);
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
         dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
@@ -336,6 +336,33 @@ public class DownloadDialog extends BottomSheetDialogFragment
         okButton.setEnabled(false); // disable until the download service connection is done
         dialogBinding.cancelButton.setOnClickListener(v -> dismiss());
         dialogBinding.downloadButton.setOnClickListener(v -> prepareSelectedDownload());
+    }
+
+    private void bindList(final ListView list) {
+        list.setOnItemClickListener((parent, v, pos, id) -> {
+            list.setItemChecked(pos, true);
+            ((BaseAdapter) list.getAdapter()).notifyDataSetChanged();
+            onItemSelected(parent, v, pos, id);
+        });
+    }
+
+    private void fitList(final ListView list) {
+        final int count = list.getAdapter() == null ? 0 : list.getAdapter().getCount();
+        final ViewGroup.LayoutParams lp = list.getLayoutParams();
+        lp.height = count * (int) (56 * getResources().getDisplayMetrics().density);
+        list.setLayoutParams(lp);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getDialog() instanceof com.google.android.material.bottomsheet.BottomSheetDialog) {
+            final var behavior = ((com.google.android.material.bottomsheet.BottomSheetDialog)
+                    getDialog()).getBehavior();
+            behavior.setState(
+                    com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
+            behavior.setSkipCollapsed(true);
+        }
     }
 
     @Override
@@ -404,6 +431,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setAdapter(audioStreamsAdapter);
         dialogBinding.audioStreamSpinner.setSelection(selectedAudioIndex);
+        dialogBinding.audioStreamSpinner.setItemChecked(selectedAudioIndex, true);
+        fitList(dialogBinding.audioStreamSpinner);
         dialogBinding.audioStreamSpinner.setVisibility(View.VISIBLE);
         dialogBinding.audioTrackSpinner.setVisibility(
                 wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
@@ -418,6 +447,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.qualitySpinner.setAdapter(videoStreamsAdapter);
         dialogBinding.qualitySpinner.setSelection(selectedVideoIndex);
         dialogBinding.qualitySpinner.setItemChecked(selectedVideoIndex, true);
+        fitList(dialogBinding.qualitySpinner);
         dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
@@ -441,6 +471,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.qualitySpinner.setAdapter(subtitleStreamsAdapter);
         dialogBinding.qualitySpinner.setSelection(selectedSubtitleIndex);
         dialogBinding.qualitySpinner.setItemChecked(selectedSubtitleIndex, true);
+        fitList(dialogBinding.qualitySpinner);
         dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setVisibility(View.GONE);

@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Checkable;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -201,6 +203,11 @@ public class StreamItemAdapter<T extends Stream, U extends Stream> extends BaseA
 
         qualityView.setText(qualityString);
         woSoundIconView.setVisibility(woSoundIconVisibility);
+
+        final View radio = convertView.findViewById(R.id.stream_radio);
+        if (radio instanceof Checkable && parent instanceof ListView) {
+            ((Checkable) radio).setChecked(((ListView) parent).isItemChecked(position));
+        }
 
         return convertView;
     }
