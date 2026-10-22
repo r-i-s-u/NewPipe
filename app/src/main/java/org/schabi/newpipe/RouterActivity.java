@@ -581,11 +581,6 @@ public class RouterActivity extends AppCompatActivity {
                     context.runOnUiThread(() -> {
                         // Getting the stream info usually takes a moment
                         // Notifying the user here to ensure that no confusion arises
-                        final Toast toast = Toast.makeText(context,
-                                getString(R.string.processing_may_take_a_moment),
-                                Toast.LENGTH_LONG);
-                        toast.show();
-                        emitter.setCancellable(toast::cancel);
             }))));
         }
 
