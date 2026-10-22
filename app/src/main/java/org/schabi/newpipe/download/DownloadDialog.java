@@ -339,10 +339,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
     }
 
     private void bindList(final ListView list) {
-        list.setOnTouchListener((v, e) -> {
-            v.getParent().requestDisallowInterceptTouchEvent(true);
-            return false;
-        });
         list.setOnItemClickListener((parent, v, pos, id) -> {
             list.setItemChecked(pos, true);
             ((BaseAdapter) list.getAdapter()).notifyDataSetChanged();
@@ -352,9 +348,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
     private void fitList(final ListView list) {
         final int count = list.getAdapter() == null ? 0 : list.getAdapter().getCount();
-        final float rows = Math.min(count, 5.5f);
         final ViewGroup.LayoutParams lp = list.getLayoutParams();
-        lp.height = (int) (rows * 48 * getResources().getDisplayMetrics().density);
+        lp.height = count * (int) (48 * getResources().getDisplayMetrics().density);
         list.setLayoutParams(lp);
     }
 
