@@ -306,10 +306,19 @@ public class DownloadDialog extends BottomSheetDialogFragment
         bindList(dialogBinding.audioStreamSpinner);
         dialogBinding.audioStreamSpinner.setOnItemSelectedListener(this);
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
-        dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
+        dialogBinding.videoAudioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            dialogBinding.captionsChip.setChecked(checkedId == R.id.subtitle_button);
+            onCheckedChanged(group, checkedId);
+        });
 
         initButtons();
         setupDownloadOptions();
+        dialogBinding.captionsChip.setVisibility(
+                wrappedSubtitleStreams.getStreamsList().isEmpty() ? View.GONE : View.VISIBLE);
+        dialogBinding.captionsChip.setOnClickListener(v -> {
+            dialogBinding.subtitleButton.setChecked(true);
+            dialogBinding.captionsChip.setChecked(true);
+        });
 
         prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
 
