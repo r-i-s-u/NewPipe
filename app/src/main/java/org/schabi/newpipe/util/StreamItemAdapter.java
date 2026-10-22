@@ -105,8 +105,11 @@ public class StreamItemAdapter<T extends Stream, U extends Stream> extends BaseA
 
     @Override
     public View getView(final int position, final View convertView, final ViewGroup parent) {
-        return getCustomView(((Spinner) parent).getSelectedItemPosition(),
-                convertView, parent, false);
+        if (parent instanceof Spinner) {
+            return getCustomView(((Spinner) parent).getSelectedItemPosition(),
+                    convertView, parent, false);
+        }
+        return getCustomView(position, convertView, parent, true);
     }
 
     @NonNull
