@@ -112,6 +112,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private View okButton = null;
     private Context context = null;
     private boolean askForSavePath;
+    private boolean languageOpen = false;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -349,18 +350,56 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 audioStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
         dialogBinding.captionsHeader.setVisibility(
                 subtitleStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
-        dialogBinding.videoHeader.setOnClickListener(
-                v -> dialogBinding.videoButton.setChecked(true));
-        dialogBinding.audioHeader.setOnClickListener(
-                v -> dialogBinding.audioButton.setChecked(true));
-        dialogBinding.captionsHeader.setOnClickListener(
-                v -> dialogBinding.subtitleButton.setChecked(true));
+
+        dialogBinding.videoHeader.setOnClickListener(v -> {
+            languageOpen = false;
+            dialogBinding.videoButton.setChecked(true);
+            applySections();
+        });
+        dialogBinding.audioHeader.setOnClickListener(v -> {
+            languageOpen = false;
+            dialogBinding.audioButton.setChecked(true);
+            applySections();
+        });
+        dialogBinding.captionsHeader.setOnClickListener(v -> {
+            languageOpen = false;
+            dialogBinding.subtitleButton.setChecked(true);
+            applySections();
+        });
+        dialogBinding.langHeader.setOnClickListener(v -> {
+            languageOpen = !languageOpen;
+            applySections();
+        });
+
         dialogBinding.captionsSpinner.setOnItemClickListener((parent, v, pos, id) -> {
             selectedSubtitleIndex = pos;
             dialogBinding.captionsSpinner.setItemChecked(pos, true);
             ((BaseAdapter) dialogBinding.captionsSpinner.getAdapter()).notifyDataSetChanged();
         });
+        dialogBinding.audioTrackSpinner.setOnItemClickListener((parent, v, pos, id) -> {
+            dialogBinding.audioTrackSpinner.setItemChecked(pos, true);
+            ((BaseAdapter) dialogBinding.audioTrackSpinner.getAdapter()).notifyDataSetChanged();
+            languageOpen = false;
+            onItemSelected(parent, v, pos, id);
+            applySections();
+        });
         applySections();
+    }
+
+    private boolean isLanguageAvailable() {
+        if (wrappedAudioTracks == null || wrappedAudioTracks.size() <= 1) {
+            return false;
+        }
+        final int checked = dialogBinding.videoAudioGroup.getCheckedRadioButtonId();
+        if (checked == R.id.audio_button) {
+            return true;
+        }
+        if (checked == R.id.video_button && videoStreamsAdapter != null
+                && selectedVideoIndex >= 0
+                && selectedVideoIndex < videoStreamsAdapter.getCount()) {
+            return videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
+        }
+        return false;
     }
 
     private void applySections() {
@@ -368,14 +407,37 @@ public class DownloadDialog extends BottomSheetDialogFragment
             return;
         }
         final int checked = dialogBinding.videoAudioGroup.getCheckedRadioButtonId();
+        final boolean video = checked == R.id.video_button;
+        final boolean audio = checked == R.id.audio_button;
+        final boolean captions = checked == R.id.subtitle_button;
+        final boolean langAvailable = isLanguageAvailable();
+        if (!langAvailable) {
+            languageOpen = false;
+        }
+        final boolean lang = languageOpen;
+
+        dialogBinding.qualitySpinner.setVisibility(video && !lang ? View.VISIBLE : View.GONE);
+        dialogBinding.audioStreamSpinner.setVisibility(
+                audio && !lang ? View.VISIBLE : View.GONE);
+        dialogBinding.captionsSpinner.setVisibility(captions ? View.VISIBLE : View.GONE);
+        dialogBinding.langHeader.setVisibility(langAvailable ? View.VISIBLE : View.GONE);
+        dialogBinding.audioTrackSpinner.setVisibility(
+                langAvailable && lang ? View.VISIBLE : View.GONE);
+        dialogBinding.audioTrackPresentInVideoText.setVisibility(
+                video && wrappedAudioTracks.size() > 1 && !langAvailable
+                        ? View.VISIBLE : View.GONE);
+
         dialogBinding.videoChevron.setImageResource(
-                checked == R.id.video_button ? R.drawable.chev_up : R.drawable.chev_down);
+                video && !lang ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.audioChevron.setImageResource(
-                checked == R.id.audio_button ? R.drawable.chev_up : R.drawable.chev_down);
+                audio && !lang ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.captionsChevron.setImageResource(
-                checked == R.id.subtitle_button ? R.drawable.chev_up : R.drawable.chev_down);
-        dialogBinding.captionsSpinner.setVisibility(
-                checked == R.id.subtitle_button ? View.VISIBLE : View.GONE);
+                captions ? R.drawable.chev_up : R.drawable.chev_down);
+        dialogBinding.langChevron.setImageResource(
+                lang ? R.drawable.chev_up : R.drawable.chev_down);
+
+        dialogBinding.threadsTextView.setVisibility(captions ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsLayout.setVisibility(captions ? View.GONE : View.VISIBLE);
     }
 
     private void bindList(final ListView list) {
@@ -460,6 +522,9 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
         dialogBinding.audioTrackSpinner.setAdapter(audioTrackAdapter);
         dialogBinding.audioTrackSpinner.setSelection(selectedAudioTrackIndex);
+        dialogBinding.audioTrackSpinner.setItemChecked(selectedAudioTrackIndex, true);
+        fitList(dialogBinding.audioTrackSpinner);
+        applySections();
     }
 
     private void setupAudioSpinner() {
@@ -467,16 +532,12 @@ public class DownloadDialog extends BottomSheetDialogFragment
             return;
         }
 
-        dialogBinding.qualitySpinner.setVisibility(View.GONE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setAdapter(audioStreamsAdapter);
         dialogBinding.audioStreamSpinner.setSelection(selectedAudioIndex);
         dialogBinding.audioStreamSpinner.setItemChecked(selectedAudioIndex, true);
         fitList(dialogBinding.audioStreamSpinner);
-        dialogBinding.audioStreamSpinner.setVisibility(View.VISIBLE);
-        dialogBinding.audioTrackSpinner.setVisibility(
-                wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(View.GONE);
+        applySections();
     }
 
     private void setupVideoSpinner() {
@@ -488,19 +549,12 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.qualitySpinner.setSelection(selectedVideoIndex);
         dialogBinding.qualitySpinner.setItemChecked(selectedVideoIndex, true);
         fitList(dialogBinding.qualitySpinner);
-        dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
         setRadioButtonsState(true);
-        dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
-        onVideoStreamSelected();
+        applySections();
     }
 
     private void onVideoStreamSelected() {
-        final boolean isVideoOnly = videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
-
-        dialogBinding.audioTrackSpinner.setVisibility(
-                isVideoOnly && wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(
-                !isVideoOnly && wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
+        applySections();
     }
 
     private void setupSubtitleSpinner() {
@@ -511,11 +565,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.captionsSpinner.setAdapter(subtitleStreamsAdapter);
         dialogBinding.captionsSpinner.setItemChecked(selectedSubtitleIndex, true);
         fitList(dialogBinding.captionsSpinner);
-        dialogBinding.qualitySpinner.setVisibility(View.GONE);
         setRadioButtonsState(true);
-        dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
-        dialogBinding.audioTrackSpinner.setVisibility(View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(View.GONE);
+        applySections();
     }
 
 

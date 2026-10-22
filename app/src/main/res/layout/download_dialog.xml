@@ -144,6 +144,47 @@
                 tools:visibility="gone" />
 
             <LinearLayout
+                android:id="@+id/lang_header"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/lang_chevron"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/chev_down" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/audio_track_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="12dp"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"
+                tools:listitem="@layout/stream_quality_item" />
+
+            <LinearLayout
                 android:id="@+id/captions_header"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -183,15 +224,7 @@
                 android:visibility="gone"
                 tools:listitem="@layout/stream_quality_item" />
 
-            <Spinner
-                android:id="@+id/audio_track_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="12dp"
-                android:minWidth="150dp"
-                tools:visibility="gone" />
+            
 
             <TextView
                 android:id="@+id/audio_track_present_in_video_text"
