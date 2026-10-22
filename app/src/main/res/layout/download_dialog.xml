@@ -34,6 +34,7 @@
 
             <TextView
                 android:id="@+id/file_name_text_view"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -44,6 +45,7 @@
 
             <EditText
                 android:id="@+id/file_name"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -66,31 +68,52 @@
                     android:id="@+id/video_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4.0dip"
-                    android:background="@null"
-                    android:button="@drawable/radio_button_selector"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/chip_bg"
+                    android:button="@null"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:textColor="@color/chip_text"
+                    android:textSize="14sp"
                     android:checked="true"
-                    android:paddingLeft="2.0dip"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/video" />
 
                 <RadioButton
                     android:id="@+id/audio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4.0dip"
-                    android:background="@null"
-                    android:button="@drawable/radio_button_selector"
-                    android:paddingLeft="2.0dip"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/chip_bg"
+                    android:button="@null"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:textColor="@color/chip_text"
+                    android:textSize="14sp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/audio" />
 
                 <RadioButton
                     android:id="@+id/subtitle_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4.0dip"
-                    android:background="@null"
-                    android:button="@drawable/radio_button_selector"
-                    android:paddingLeft="2.0dip"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/chip_bg"
+                    android:button="@null"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:textColor="@color/chip_text"
+                    android:textSize="14sp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/caption_setting_title" />
             </RadioGroup>
 
@@ -170,16 +193,6 @@
                     android:max="31"
                     android:progress="3" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:text="@string/streams_not_yet_supported_removed"
-                android:textSize="12sp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
