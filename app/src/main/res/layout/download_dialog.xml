@@ -57,6 +57,41 @@
 
             
 
+            
+
+            
+
+            
+
+            
+
+            <LinearLayout
+                android:id="@+id/video_header"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/video"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/video_chevron"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/chev_down" />
+            </LinearLayout>
+
             <ListView
                 android:id="@+id/quality_spinner"
                 android:layout_width="match_parent"
@@ -69,25 +104,32 @@
                 android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/stream_quality_item" />
 
-            <Spinner
-                android:id="@+id/audio_track_spinner"
+            <LinearLayout
+                android:id="@+id/audio_header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="12dp"
-                android:minWidth="150dp"
-                tools:visibility="gone" />
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-            <Spinner
-                android:id="@+id/captions_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="12dp"
-                android:minWidth="150dp"
-                tools:listitem="@layout/stream_quality_item" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/audio"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/audio_chevron"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/chev_down" />
+            </LinearLayout>
 
             <ListView
                 android:id="@+id/audio_stream_spinner"
@@ -99,6 +141,56 @@
                 android:choiceMode="singleChoice"
                 android:divider="@null"
                 android:nestedScrollingEnabled="false"
+                tools:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/captions_header"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/caption_setting_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/captions_chevron"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="4dp"
+                    android:src="@drawable/chev_down" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/captions_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="12dp"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"
+                tools:listitem="@layout/stream_quality_item" />
+
+            <Spinner
+                android:id="@+id/audio_track_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="12dp"
+                android:minWidth="150dp"
                 tools:visibility="gone" />
 
             <TextView
@@ -151,59 +243,31 @@
     </androidx.core.widget.NestedScrollView>
 
     <RadioGroup
-                android:id="@+id/video_audio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-        android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="left"
-                android:orientation="horizontal"
-                tools:ignore="RtlHardcoded">
+        android:id="@+id/video_audio_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
 
-                <RadioButton
-                    android:id="@+id/video_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:background="@drawable/chip_bg"
-                    android:button="@null"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:textColor="@color/chip_text"
-                    android:textSize="14sp"
-                    android:checked="true"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/video" />
+        <RadioButton
+            android:id="@+id/video_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/video" />
 
-                <RadioButton
-                    android:id="@+id/audio_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:background="@drawable/chip_bg"
-                    android:button="@null"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:textColor="@color/chip_text"
-                    android:textSize="14sp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/audio" />
+        <RadioButton
+            android:id="@+id/audio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/audio" />
 
-                <RadioButton
+        <RadioButton
             android:id="@+id/subtitle_button"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@null"
-            android:button="@null"
-            android:padding="0dp" />
-            </RadioGroup>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/caption_setting_title" />
+    </RadioGroup>
 
     <View
         android:layout_width="match_parent"
