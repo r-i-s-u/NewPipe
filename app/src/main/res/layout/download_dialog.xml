@@ -65,7 +65,7 @@
                 android:layout_marginBottom="12dp"
                 android:choiceMode="singleChoice"
                 android:divider="@null"
-                android:nestedScrollingEnabled="true"
+                android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/stream_quality_item" />
 
             <Spinner
@@ -87,7 +87,7 @@
                 android:layout_marginBottom="12dp"
                 android:choiceMode="singleChoice"
                 android:divider="@null"
-                android:nestedScrollingEnabled="true"
+                android:nestedScrollingEnabled="false"
                 tools:visibility="gone" />
 
             <TextView
