@@ -306,18 +306,35 @@ public class DownloadDialog extends BottomSheetDialogFragment
         bindList(dialogBinding.audioStreamSpinner);
         dialogBinding.audioStreamSpinner.setOnItemSelectedListener(this);
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
-        dialogBinding.videoAudioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            dialogBinding.captionsChip.setChecked(checkedId == R.id.subtitle_button);
-            onCheckedChanged(group, checkedId);
-        });
+        dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
 
         initButtons();
         setupDownloadOptions();
-        dialogBinding.captionsChip.setVisibility(
+        dialogBinding.captionsSpinner.setAdapter(subtitleStreamsAdapter);
+        dialogBinding.captionsSpinner.setSelection(selectedSubtitleIndex);
+        dialogBinding.captionsSpinner.setVisibility(
                 wrappedSubtitleStreams.getStreamsList().isEmpty() ? View.GONE : View.VISIBLE);
-        dialogBinding.captionsChip.setOnClickListener(v -> {
-            dialogBinding.subtitleButton.setChecked(true);
-            dialogBinding.captionsChip.setChecked(true);
+        dialogBinding.captionsSpinner.setOnTouchListener((v, e) -> {
+            if (e.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                dialogBinding.subtitleButton.setChecked(true);
+            }
+            return false;
+        });
+        dialogBinding.captionsSpinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View v,
+                                       final int pos, final long id) {
+                if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
+                        == R.id.subtitle_button) {
+                    selectedSubtitleIndex = pos;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // nothing to do
+            }
         });
 
         prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
@@ -481,7 +498,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.qualitySpinner.setSelection(selectedSubtitleIndex);
         dialogBinding.qualitySpinner.setItemChecked(selectedSubtitleIndex, true);
         fitList(dialogBinding.qualitySpinner);
-        dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
+        dialogBinding.qualitySpinner.setVisibility(View.GONE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
         dialogBinding.audioTrackSpinner.setVisibility(View.GONE);
