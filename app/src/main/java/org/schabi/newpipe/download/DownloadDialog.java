@@ -375,13 +375,12 @@ public class DownloadDialog extends BottomSheetDialogFragment
             selectedSubtitleIndex = pos;
             dialogBinding.captionsSpinner.setItemChecked(pos, true);
             ((BaseAdapter) dialogBinding.captionsSpinner.getAdapter()).notifyDataSetChanged();
+            syncRadios(dialogBinding.captionsSpinner);
         });
         dialogBinding.audioTrackSpinner.setOnItemClickListener((parent, v, pos, id) -> {
             dialogBinding.audioTrackSpinner.setItemChecked(pos, true);
-            ((BaseAdapter) dialogBinding.audioTrackSpinner.getAdapter()).notifyDataSetChanged();
-            languageOpen = false;
+            syncRadios(dialogBinding.audioTrackSpinner);
             onItemSelected(parent, v, pos, id);
-            applySections();
         });
         applySections();
     }
@@ -436,14 +435,29 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.langChevron.setImageResource(
                 lang ? R.drawable.chev_up : R.drawable.chev_down);
 
-        dialogBinding.threadsTextView.setVisibility(captions ? View.GONE : View.VISIBLE);
-        dialogBinding.threadsLayout.setVisibility(captions ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsTextView.setVisibility(
+                captions || lang ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsLayout.setVisibility(
+                captions || lang ? View.GONE : View.VISIBLE);
+    }
+
+    private void syncRadios(final ListView list) {
+        list.post(() -> {
+            for (int i = 0; i < list.getChildCount(); i++) {
+                final View r = list.getChildAt(i).findViewById(R.id.stream_radio);
+                if (r instanceof android.widget.Checkable) {
+                    ((android.widget.Checkable) r).setChecked(
+                            list.isItemChecked(list.getFirstVisiblePosition() + i));
+                }
+            }
+        });
     }
 
     private void bindList(final ListView list) {
         list.setOnItemClickListener((parent, v, pos, id) -> {
             list.setItemChecked(pos, true);
             ((BaseAdapter) list.getAdapter()).notifyDataSetChanged();
+            syncRadios(list);
             onItemSelected(parent, v, pos, id);
         });
     }
@@ -453,6 +467,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         final ViewGroup.LayoutParams lp = list.getLayoutParams();
         lp.height = count * (int) (48 * getResources().getDisplayMetrics().density);
         list.setLayoutParams(lp);
+        syncRadios(list);
     }
 
     @Override
