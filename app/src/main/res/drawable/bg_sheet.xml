@@ -1,4 +1,9 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#0F0F0F"/>
-    <corners android:topLeftRadius="12dp" android:topRightRadius="12dp"/>
-</shape>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="8dp"
+    android:insetRight="8dp"
+    android:insetBottom="8dp">
+    <shape>
+        <solid android:color="#0F0F0F"/>
+        <corners android:radius="16dp"/>
+    </shape>
+</inset>
