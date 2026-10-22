@@ -111,11 +111,13 @@
     </style>
 
     <style name="RouterActivityThemeDark" parent="Base.RouterActivityThemeDark" />
-
-    <style name="DownloadSheetTheme" parent="Theme.Material3.Dark.BottomSheetDialog">
+    <style name="DownloadSheetTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
         <item name="bottomSheetStyle">@style/DownloadSheet</item>
     </style>
-    <style name="DownloadSheet" parent="Widget.Material3.BottomSheet">
+    <style name="DownloadSheet" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_sheet</item>
     </style>
 </resources>
