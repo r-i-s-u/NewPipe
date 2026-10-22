@@ -300,6 +300,10 @@ public class DownloadDialog extends BottomSheetDialogFragment
         selectedSubtitleIndex = getSubtitleIndexBy(subtitleStreamsAdapter.getAll());
 
         dialogBinding.qualitySpinner.setOnItemSelectedListener(this);
+        dialogBinding.qualitySpinner.setOnItemClickListener((p, v, pos, id) -> {
+            dialogBinding.qualitySpinner.setItemChecked(pos, true);
+            onItemSelected(p, v, pos, id);
+        });
         dialogBinding.audioStreamSpinner.setOnItemSelectedListener(this);
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
         dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
@@ -413,6 +417,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
         dialogBinding.qualitySpinner.setAdapter(videoStreamsAdapter);
         dialogBinding.qualitySpinner.setSelection(selectedVideoIndex);
+        dialogBinding.qualitySpinner.setItemChecked(selectedVideoIndex, true);
         dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
@@ -435,6 +440,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
         dialogBinding.qualitySpinner.setAdapter(subtitleStreamsAdapter);
         dialogBinding.qualitySpinner.setSelection(selectedSubtitleIndex);
+        dialogBinding.qualitySpinner.setItemChecked(selectedSubtitleIndex, true);
         dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setVisibility(View.GONE);

@@ -117,14 +117,16 @@
                     android:text="@string/caption_setting_title" />
             </RadioGroup>
 
-            <Spinner
+            <ListView
                 android:id="@+id/quality_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="260dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
                 android:layout_marginBottom="12dp"
-                android:minWidth="150dp"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:nestedScrollingEnabled="true"
                 tools:listitem="@layout/stream_quality_item" />
 
             <Spinner
