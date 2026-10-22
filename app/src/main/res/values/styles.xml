@@ -112,4 +112,10 @@
 
     <style name="RouterActivityThemeDark" parent="Base.RouterActivityThemeDark" />
 
+    <style name="DownloadSheetTheme" parent="Theme.Material3.Dark.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/DownloadSheet</item>
+    </style>
+    <style name="DownloadSheet" parent="Widget.Material3.BottomSheet">
+        <item name="android:background">@drawable/bg_sheet</item>
+    </style>
 </resources>

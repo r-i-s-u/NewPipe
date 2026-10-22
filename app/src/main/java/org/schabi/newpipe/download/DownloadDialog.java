@@ -35,10 +35,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.collection.SparseArrayCompat;
 import androidx.documentfile.provider.DocumentFile;
-import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
 import com.evernote.android.state.State;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.livefront.bridge.Bridge;
 import com.nononsenseapps.filepicker.Utils;
 
@@ -65,7 +65,6 @@ import org.schabi.newpipe.util.SecondaryStreamHelper;
 import org.schabi.newpipe.util.SimpleOnSeekBarChangeListener;
 import org.schabi.newpipe.util.StreamItemAdapter;
 import org.schabi.newpipe.util.StreamItemAdapter.StreamInfoWrapper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -83,7 +82,7 @@ import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.service.DownloadManagerService.DownloadManagerBinder;
 import us.shandian.giga.service.MissionState;
 
-public class DownloadDialog extends DialogFragment
+public class DownloadDialog extends BottomSheetDialogFragment
         implements RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
     private static final String TAG = "DialogFragment";
     private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
@@ -108,7 +107,7 @@ public class DownloadDialog extends DialogFragment
     private StoredDirectoryHelper mainStorageAudio = null;
     private StoredDirectoryHelper mainStorageVideo = null;
     private DownloadManager downloadManager = null;
-    private MenuItem okButton = null;
+    private View okButton = null;
     private Context context = null;
     private boolean askForSavePath;
 
@@ -207,7 +206,7 @@ public class DownloadDialog extends DialogFragment
         // dialog is being dismissed in onViewCreated()
         context = getContext();
 
-        setStyle(STYLE_NO_TITLE, ThemeHelper.getDialogTheme(context));
+        setStyle(STYLE_NORMAL, R.style.DownloadSheetTheme);
         Bridge.restoreInstanceState(this, savedInstanceState);
 
         this.audioTrackAdapter = new AudioTrackAdapter(wrappedAudioTracks);
@@ -305,7 +304,7 @@ public class DownloadDialog extends DialogFragment
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
         dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
 
-        initToolbar(dialogBinding.toolbarLayout.toolbar);
+        initButtons();
         setupDownloadOptions();
 
         prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
@@ -328,27 +327,11 @@ public class DownloadDialog extends DialogFragment
         fetchStreamsSize();
     }
 
-    private void initToolbar(final Toolbar toolbar) {
-        if (DEBUG) {
-            Log.d(TAG, "initToolbar() called with: toolbar = [" + toolbar + "]");
-        }
-
-        toolbar.setTitle(R.string.download_dialog_title);
-        toolbar.setNavigationIcon(R.drawable.ic_close);
-        toolbar.inflateMenu(R.menu.dialog_url);
-        toolbar.setNavigationOnClickListener(v -> dismiss());
-        toolbar.setNavigationContentDescription(R.string.cancel);
-
-        okButton = toolbar.getMenu().findItem(R.id.okay);
+    private void initButtons() {
+        okButton = dialogBinding.downloadButton;
         okButton.setEnabled(false); // disable until the download service connection is done
-
-        toolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.okay) {
-                prepareSelectedDownload();
-                return true;
-            }
-            return false;
-        });
+        dialogBinding.cancelButton.setOnClickListener(v -> dismiss());
+        dialogBinding.downloadButton.setOnClickListener(v -> prepareSelectedDownload());
     }
 
     @Override
