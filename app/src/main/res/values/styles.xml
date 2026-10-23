@@ -112,6 +112,10 @@
 
     <style name="RouterActivityThemeDark" parent="Base.RouterActivityThemeDark" />
     <style name="DownloadSheetTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
