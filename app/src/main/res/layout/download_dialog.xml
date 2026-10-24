@@ -29,7 +29,7 @@
                 android:paddingRight="24dp"
                 android:paddingBottom="8dp"
                 android:text="@string/download_dialog_title"
-                android:textColor="#FFFFFF"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="20sp" />
 
             <TextView
@@ -80,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/video"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -88,7 +88,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down" />
+                    android:src="@drawable/chev_down"
+                    android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
             <ListView
@@ -119,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/audio"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -127,7 +128,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down" />
+                    android:src="@drawable/chev_down"
+                    android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
             <ListView
@@ -159,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Language"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -167,7 +169,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down" />
+                    android:src="@drawable/chev_down"
+                    android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
             <ListView
@@ -199,7 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/caption_setting_title"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -207,7 +210,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down" />
+                    android:src="@drawable/chev_down"
+                    android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
             <ListView
@@ -253,7 +257,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/msg_threads"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?android:attr/textColorPrimary"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -261,7 +265,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_up" />
+                    android:src="@drawable/chev_up"
+                    android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
             <LinearLayout
@@ -323,7 +328,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#1FFFFFFF" />
+        android:background="?attr/dlDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -345,7 +350,7 @@
             android:text="@string/cancel"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:textColor="#3EA6FF" />
+            android:textColor="?attr/dlAccent" />
 
         <Button
             android:id="@+id/download_button"
@@ -357,6 +362,6 @@
             android:text="@string/download_dialog_title"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:textColor="#0F0F0F" />
+            android:textColor="?attr/dlOnAccent" />
     </LinearLayout>
 </LinearLayout>

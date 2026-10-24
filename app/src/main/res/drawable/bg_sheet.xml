@@ -3,7 +3,7 @@
     android:insetRight="8dp"
     android:insetBottom="8dp">
     <shape>
-        <solid android:color="#0F0F0F"/>
+        <solid android:color="?attr/dlSheetBg"/>
         <corners android:radius="16dp"/>
     </shape>
 </inset>

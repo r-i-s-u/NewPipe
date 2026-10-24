@@ -211,7 +211,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
         // dialog is being dismissed in onViewCreated()
         context = getContext();
 
-        setStyle(STYLE_NORMAL, R.style.DownloadSheetTheme);
+        setStyle(STYLE_NORMAL, isLightTheme(context)
+                ? R.style.DownloadSheetThemeLight : R.style.DownloadSheetTheme);
         Bridge.restoreInstanceState(this, savedInstanceState);
 
         this.audioTrackAdapter = new AudioTrackAdapter(wrappedAudioTracks);
@@ -464,6 +465,17 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 }
             }
         });
+    }
+
+    private static boolean isLightTheme(final Context ctx) {
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        if (!ctx.getTheme().resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
+            return false;
+        }
+        final int color = tv.resourceId != 0
+                ? androidx.core.content.ContextCompat.getColor(ctx, tv.resourceId)
+                : tv.data;
+        return androidx.core.graphics.ColorUtils.calculateLuminance(color) < 0.5;
     }
 
     private void bindList(final ListView list) {

@@ -1,13 +1,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true">
         <shape>
-            <solid android:color="#FFFFFF"/>
+            <solid android:color="?attr/dlChipOn"/>
             <corners android:radius="8dp"/>
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="#272727"/>
+            <solid android:color="?attr/dlSurface"/>
             <corners android:radius="8dp"/>
         </shape>
     </item>
