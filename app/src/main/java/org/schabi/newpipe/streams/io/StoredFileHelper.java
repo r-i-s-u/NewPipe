@@ -29,6 +29,31 @@ import us.shandian.giga.io.FileStream;
 import us.shandian.giga.io.FileStreamSAF;
 
 public class StoredFileHelper implements Serializable {
+
+    public boolean rename(final String newName) {
+        if (source == null || newName == null || newName.isEmpty()) {
+            return false;
+        }
+        try {
+            if (docFile == null) {
+                if (ioPath == null) {
+                    return false;
+                }
+                final Path dest = ioPath.resolveSibling(newName);
+                if (Files.exists(dest)) {
+                    return false;
+                }
+                ioPath = Files.move(ioPath, dest);
+            } else if (!docFile.renameTo(newName)) {
+                return false;
+            }
+        } catch (final Exception e) {
+            return false;
+        }
+        source = getUri().toString();
+        srcName = newName;
+        return true;
+    }
     private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     private static final String TAG = StoredFileHelper.class.getSimpleName();
 

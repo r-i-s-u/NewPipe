@@ -639,7 +639,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             }
         }
 
-        if (id == R.id.menu_item_share) {
+        if (id == R.id.rename) {
+            showRenameDialog(h.item.mission);
+            return true;
+        } else if (id == R.id.menu_item_share) {
             shareFile(h.item.mission);
             return true;
         } else if (id == R.id.delete) {// delete the entry and the file
@@ -654,6 +657,43 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             return true;
         }
         return false;
+    }
+
+    private void showRenameDialog(@NonNull final Mission mission) {
+        final String current = mission.storage.getName();
+        final int dot = current.lastIndexOf('.');
+        final String base = dot > 0 ? current.substring(0, dot) : current;
+        final String ext = dot > 0 ? current.substring(dot) : "";
+
+        final android.widget.EditText input = new android.widget.EditText(mContext);
+        input.setSingleLine(true);
+        input.setText(base);
+        input.setSelection(base.length());
+
+        final int pad = (int) (24 * mContext.getResources().getDisplayMetrics().density);
+        final android.widget.FrameLayout box = new android.widget.FrameLayout(mContext);
+        box.setPadding(pad, pad / 2, pad, 0);
+        box.addView(input);
+
+        new androidx.appcompat.app.AlertDialog.Builder(mContext)
+                .setTitle(R.string.mission_rename)
+                .setView(box)
+                .setPositiveButton(android.R.string.ok, (d, w) -> {
+                    final String name = input.getText().toString()
+                            .replaceAll("[\\\\/:*?\"<>|]", "_").trim();
+                    if (name.isEmpty() || (name + ext).equals(current)) {
+                        return;
+                    }
+                    if (mDownloadManager.renameFinishedMission(mission, name + ext)) {
+                        notifyDataSetChanged();
+                    } else {
+                        android.widget.Toast.makeText(mContext,
+                                R.string.mission_rename_failed,
+                                android.widget.Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     public void applyChanges() {
@@ -839,6 +879,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
 
         private void showPopupMenu() {
+            popupMenu.getMenu().findItem(R.id.rename)
+                    .setVisible(item.mission instanceof FinishedMission);
             retry.setVisible(false);
             cancel.setVisible(false);
             start.setVisible(false);
