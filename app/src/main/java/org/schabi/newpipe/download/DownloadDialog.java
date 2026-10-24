@@ -113,6 +113,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private Context context = null;
     private boolean askForSavePath;
     private boolean languageOpen = false;
+    private boolean sectionOpen = true;
+    private boolean threadsOpen = true;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -351,23 +353,18 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.captionsHeader.setVisibility(
                 subtitleStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
 
-        dialogBinding.videoHeader.setOnClickListener(v -> {
-            languageOpen = false;
-            dialogBinding.videoButton.setChecked(true);
-            applySections();
-        });
-        dialogBinding.audioHeader.setOnClickListener(v -> {
-            languageOpen = false;
-            dialogBinding.audioButton.setChecked(true);
-            applySections();
-        });
-        dialogBinding.captionsHeader.setOnClickListener(v -> {
-            languageOpen = false;
-            dialogBinding.subtitleButton.setChecked(true);
-            applySections();
-        });
+        dialogBinding.videoHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.video_button));
+        dialogBinding.audioHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.audio_button));
+        dialogBinding.captionsHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.subtitle_button));
         dialogBinding.langHeader.setOnClickListener(v -> {
             languageOpen = !languageOpen;
+            applySections();
+        });
+        dialogBinding.threadsHeader.setOnClickListener(v -> {
+            threadsOpen = !threadsOpen;
             applySections();
         });
 
@@ -385,20 +382,31 @@ public class DownloadDialog extends BottomSheetDialogFragment
         applySections();
     }
 
+    private void onSectionHeaderClicked(@IdRes final int id) {
+        final boolean sameMode =
+                dialogBinding.videoAudioGroup.getCheckedRadioButtonId() == id;
+        if (sameMode && !languageOpen) {
+            sectionOpen = !sectionOpen;
+        } else {
+            sectionOpen = true;
+            languageOpen = false;
+            dialogBinding.videoAudioGroup.check(id);
+        }
+        applySections();
+    }
+
     private boolean isLanguageAvailable() {
         if (wrappedAudioTracks == null || wrappedAudioTracks.size() <= 1) {
             return false;
         }
         final int checked = dialogBinding.videoAudioGroup.getCheckedRadioButtonId();
-        if (checked == R.id.audio_button) {
-            return true;
+        if (checked == R.id.video_button) {
+            return videoStreamsAdapter != null
+                    && selectedVideoIndex >= 0
+                    && selectedVideoIndex < videoStreamsAdapter.getCount()
+                    && videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
         }
-        if (checked == R.id.video_button && videoStreamsAdapter != null
-                && selectedVideoIndex >= 0
-                && selectedVideoIndex < videoStreamsAdapter.getCount()) {
-            return videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
-        }
-        return false;
+        return true;
     }
 
     private void applySections() {
@@ -414,11 +422,14 @@ public class DownloadDialog extends BottomSheetDialogFragment
             languageOpen = false;
         }
         final boolean lang = languageOpen;
+        final boolean show = sectionOpen && !lang;
 
-        dialogBinding.qualitySpinner.setVisibility(video && !lang ? View.VISIBLE : View.GONE);
+        dialogBinding.qualitySpinner.setVisibility(
+                video && show ? View.VISIBLE : View.GONE);
         dialogBinding.audioStreamSpinner.setVisibility(
-                audio && !lang ? View.VISIBLE : View.GONE);
-        dialogBinding.captionsSpinner.setVisibility(captions ? View.VISIBLE : View.GONE);
+                audio && show ? View.VISIBLE : View.GONE);
+        dialogBinding.captionsSpinner.setVisibility(
+                captions && show ? View.VISIBLE : View.GONE);
         dialogBinding.langHeader.setVisibility(langAvailable ? View.VISIBLE : View.GONE);
         dialogBinding.audioTrackSpinner.setVisibility(
                 langAvailable && lang ? View.VISIBLE : View.GONE);
@@ -427,18 +438,20 @@ public class DownloadDialog extends BottomSheetDialogFragment
                         ? View.VISIBLE : View.GONE);
 
         dialogBinding.videoChevron.setImageResource(
-                video && !lang ? R.drawable.chev_up : R.drawable.chev_down);
+                video && show ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.audioChevron.setImageResource(
-                audio && !lang ? R.drawable.chev_up : R.drawable.chev_down);
+                audio && show ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.captionsChevron.setImageResource(
-                captions ? R.drawable.chev_up : R.drawable.chev_down);
+                captions && show ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.langChevron.setImageResource(
                 lang ? R.drawable.chev_up : R.drawable.chev_down);
 
-        dialogBinding.threadsTextView.setVisibility(
-                captions || lang ? View.GONE : View.VISIBLE);
+        final boolean hideThreads = captions || lang;
+        dialogBinding.threadsHeader.setVisibility(hideThreads ? View.GONE : View.VISIBLE);
         dialogBinding.threadsLayout.setVisibility(
-                captions || lang ? View.GONE : View.VISIBLE);
+                hideThreads || !threadsOpen ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsChevron.setImageResource(
+                threadsOpen ? R.drawable.chev_up : R.drawable.chev_down);
     }
 
     private void syncRadios(final ListView list) {
