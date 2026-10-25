@@ -390,6 +390,10 @@ public abstract class Postprocessing implements Serializable {
         }
     }
 
+    byte[] coverBytes() {
+        return streamInfo == null ? null : fetchThumbnail();
+    }
+
     byte[] metadataBox() {
         if (streamInfo == null) {
             return null;
