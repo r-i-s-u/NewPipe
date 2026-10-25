@@ -272,6 +272,79 @@ public abstract class Postprocessing implements Serializable {
         return null;
     }
 
+    private static boolean isDark(final int px) {
+        return ((px >> 16) & 0xFF) < 10 && ((px >> 8) & 0xFF) < 10 && (px & 0xFF) < 10;
+    }
+
+    private static boolean rowDark(final android.graphics.Bitmap b, final int y, final int x0,
+                                   final int x1, final int[] buf) {
+        final int n = x1 - x0;
+        b.getPixels(buf, 0, n, x0, y, n, 1);
+        int bad = 0;
+        for (int i = 0; i < n; i++) {
+            if (!isDark(buf[i])) {
+                bad++;
+            }
+        }
+        return bad * 200 <= n;
+    }
+
+    private static boolean colDark(final android.graphics.Bitmap b, final int x, final int y0,
+                                   final int y1, final int[] buf) {
+        final int n = y1 - y0;
+        b.getPixels(buf, 0, 1, x, y0, 1, n);
+        int bad = 0;
+        for (int i = 0; i < n; i++) {
+            if (!isDark(buf[i])) {
+                bad++;
+            }
+        }
+        return bad * 200 <= n;
+    }
+
+    /** Removes black bars and returns a centred square crop (like album art). */
+    private static android.graphics.Bitmap squareCover(final android.graphics.Bitmap src) {
+        try {
+            final int w = src.getWidth();
+            final int h = src.getHeight();
+            final int[] buf = new int[Math.max(w, h)];
+            int top = 0;
+            int bottom = h;
+            int left = 0;
+            int right = w;
+            while (top < bottom - 1 && rowDark(src, top, 0, w, buf)) {
+                top++;
+            }
+            while (bottom > top + 1 && rowDark(src, bottom - 1, 0, w, buf)) {
+                bottom--;
+            }
+            while (left < right - 1 && colDark(src, left, top, bottom, buf)) {
+                left++;
+            }
+            while (right > left + 1 && colDark(src, right - 1, top, bottom, buf)) {
+                right--;
+            }
+            int cw = right - left;
+            int ch = bottom - top;
+            if ((long) cw * ch < (long) w * h / 10) {
+                // almost everything is black: keep the original picture
+                left = 0;
+                top = 0;
+                cw = w;
+                ch = h;
+            }
+            final int side = Math.min(cw, ch);
+            final int x = left + (cw - side) / 2;
+            final int y = top + (ch - side) / 2;
+            if (side == w && side == h) {
+                return src;
+            }
+            return android.graphics.Bitmap.createBitmap(src, x, y, side, side);
+        } catch (final Throwable t) {
+            return src;
+        }
+    }
+
     private static byte[] downloadImage(final String url) {
         java.net.HttpURLConnection con = null;
         try {
@@ -299,16 +372,14 @@ public abstract class Postprocessing implements Serializable {
             }
             final boolean jpeg = (data[0] & 0xFF) == 0xFF && (data[1] & 0xFF) == 0xD8;
             final boolean png = (data[0] & 0xFF) == 0x89 && data[1] == 'P';
-            if (jpeg || png) {
-                return data;
-            }
             final android.graphics.Bitmap bmp =
                     android.graphics.BitmapFactory.decodeByteArray(data, 0, data.length);
             if (bmp == null) {
-                return null;
+                return (jpeg || png) ? data : null;
             }
+            final android.graphics.Bitmap cover = squareCover(bmp);
             final java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
-            bmp.compress(android.graphics.Bitmap.CompressFormat.JPEG, 95, out);
+            cover.compress(android.graphics.Bitmap.CompressFormat.JPEG, 95, out);
             return out.toByteArray();
         } catch (final Exception e) {
             return null;
