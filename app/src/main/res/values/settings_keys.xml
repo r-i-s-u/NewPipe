@@ -447,7 +447,7 @@
     <!-- FileName Downloads  -->
     <string name="settings_file_charset_key">file_rename_charset</string>
     <string name="settings_file_replacement_character_key">file_replacement_character</string>
-    <string name="settings_file_replacement_character_default_value">_</string>
+    <string name="settings_file_replacement_character_default_value"></string>
 
 
     <string name="charset_letters_and_digits_value">CHARSET_LETTERS_AND_DIGITS</string>
