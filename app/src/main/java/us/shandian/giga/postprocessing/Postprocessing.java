@@ -241,40 +241,81 @@ public abstract class Postprocessing implements Serializable {
     }
 
     private byte[] fetchThumbnail() {
+        final java.util.ArrayList<String> urls = new java.util.ArrayList<>();
         try {
-            String url = null;
+            if (streamInfo.getServiceId() == 0 && streamInfo.getId() != null) {
+                final String base = "https://i.ytimg.com/vi/" + streamInfo.getId() + "/";
+                urls.add(base + "maxresdefault.jpg");
+                urls.add(base + "hq720.jpg");
+            }
+            String best = null;
             int bestHeight = -2;
             for (final var image : streamInfo.getThumbnails()) {
                 if (image.getUrl() != null && image.getHeight() > bestHeight) {
                     bestHeight = image.getHeight();
-                    url = image.getUrl();
+                    best = image.getUrl();
                 }
             }
-            if (url == null) {
-                return null;
+            if (best != null) {
+                urls.add(best);
             }
+        } catch (final Exception ignored) {
+            // use whatever was collected
+        }
 
-            final java.net.HttpURLConnection con =
-                    (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
+        for (final String url : urls) {
+            final byte[] data = downloadImage(url);
+            if (data != null) {
+                return data;
+            }
+        }
+        return null;
+    }
+
+    private static byte[] downloadImage(final String url) {
+        java.net.HttpURLConnection con = null;
+        try {
+            con = (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
             con.setConnectTimeout(8000);
             con.setReadTimeout(8000);
             con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            if (con.getResponseCode() != 200) {
+                return null;
+            }
+            final java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
             try (java.io.InputStream in = con.getInputStream()) {
-                final java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
                 final byte[] buf = new byte[16 * 1024];
                 int n;
                 while ((n = in.read(buf)) > 0) {
                     bytes.write(buf, 0, n);
-                    if (bytes.size() > 1_500_000) {
+                    if (bytes.size() > 4_000_000) {
                         return null;
                     }
                 }
-                return bytes.toByteArray();
-            } finally {
-                con.disconnect();
             }
+            final byte[] data = bytes.toByteArray();
+            if (data.length < 1024) {
+                return null;
+            }
+            final boolean jpeg = (data[0] & 0xFF) == 0xFF && (data[1] & 0xFF) == 0xD8;
+            final boolean png = (data[0] & 0xFF) == 0x89 && data[1] == 'P';
+            if (jpeg || png) {
+                return data;
+            }
+            final android.graphics.Bitmap bmp =
+                    android.graphics.BitmapFactory.decodeByteArray(data, 0, data.length);
+            if (bmp == null) {
+                return null;
+            }
+            final java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            bmp.compress(android.graphics.Bitmap.CompressFormat.JPEG, 95, out);
+            return out.toByteArray();
         } catch (final Exception e) {
             return null;
+        } finally {
+            if (con != null) {
+                con.disconnect();
+            }
         }
     }
 
