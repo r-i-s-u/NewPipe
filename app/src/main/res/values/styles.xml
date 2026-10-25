@@ -176,4 +176,21 @@
     <style name="DownloadSheet" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_sheet</item>
     </style>
+
+    <style name="MissionPopupMenuDark" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup_dark</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+    <style name="MissionPopupMenuLight" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup_light</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+    <style name="MissionPopupDark">
+        <item name="popupMenuStyle">@style/MissionPopupMenuDark</item>
+        <item name="android:popupMenuStyle">@style/MissionPopupMenuDark</item>
+    </style>
+    <style name="MissionPopupLight">
+        <item name="popupMenuStyle">@style/MissionPopupMenuLight</item>
+        <item name="android:popupMenuStyle">@style/MissionPopupMenuLight</item>
+    </style>
 </resources>

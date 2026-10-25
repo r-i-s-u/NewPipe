@@ -696,6 +696,19 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 .show();
     }
 
+    private static android.content.Context popupContext(final android.content.Context base) {
+        boolean light = false;
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        if (base.getTheme().resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
+            final int color = tv.resourceId != 0
+                    ? androidx.core.content.ContextCompat.getColor(base, tv.resourceId)
+                    : tv.data;
+            light = androidx.core.graphics.ColorUtils.calculateLuminance(color) < 0.5;
+        }
+        return new android.view.ContextThemeWrapper(base,
+                light ? R.style.MissionPopupLight : R.style.MissionPopupDark);
+    }
+
     public void applyChanges() {
         mIterator.start();
         DiffUtil.calculateDiff(mIterator, true).dispatchUpdatesTo(this);
@@ -938,7 +951,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
 
         private PopupMenu buildPopup(final View button) {
-            PopupMenu popup = new PopupMenu(mContext, button);
+            PopupMenu popup = new PopupMenu(popupContext(mContext), button, android.view.Gravity.END);
             popup.inflate(R.menu.mission);
             popup.setOnMenuItemClickListener(option -> handlePopupItem(this, option));
 

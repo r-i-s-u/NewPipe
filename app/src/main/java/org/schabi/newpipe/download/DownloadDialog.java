@@ -115,6 +115,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private boolean languageOpen = false;
     private boolean sectionOpen = true;
     private boolean threadsOpen = true;
+    private boolean filenameOpen = true;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -373,6 +374,10 @@ public class DownloadDialog extends BottomSheetDialogFragment
             threadsOpen = !threadsOpen;
             applySections();
         });
+        dialogBinding.filenameHeader.setOnClickListener(v -> {
+            filenameOpen = !filenameOpen;
+            applySections();
+        });
 
         dialogBinding.captionsSpinner.setOnItemClickListener((parent, v, pos, id) -> {
             selectedSubtitleIndex = pos;
@@ -451,6 +456,10 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 captions && show ? R.drawable.chev_up : R.drawable.chev_down);
         dialogBinding.langChevron.setImageResource(
                 lang ? R.drawable.chev_up : R.drawable.chev_down);
+
+        dialogBinding.fileName.setVisibility(filenameOpen ? View.VISIBLE : View.GONE);
+        dialogBinding.filenameChevron.setImageResource(
+                filenameOpen ? R.drawable.chev_up : R.drawable.chev_down);
 
         final boolean hideThreads = captions || lang;
         dialogBinding.threadsHeader.setVisibility(hideThreads ? View.GONE : View.VISIBLE);
