@@ -197,6 +197,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         Utility.FileType type = Utility.getFileType(item.mission.kind, item.mission.storage.getName());
 
         h.icon.setImageResource(Utility.getIconForFileType(type));
+        MissionThumbs.load(h.icon.getContext(), item.mission, h.icon);
         h.name.setText(item.mission.storage.getName());
 
 
