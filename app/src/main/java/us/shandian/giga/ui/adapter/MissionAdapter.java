@@ -867,8 +867,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             itemView.setHapticFeedbackEnabled(true);
 
             itemView.setOnClickListener(v -> {
-                if (item.mission instanceof FinishedMission)
-                    viewWithFileProvider(item.mission);
+                if (item.mission instanceof FinishedMission) {
+                    if (!(org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage)
+                            && org.schabi.newpipe.download.MiniPlayerSheet.show(
+                                    mContext, item.mission.storage))) {
+                        viewWithFileProvider(item.mission);
+                    }
+                }
             });
 
             itemView.setOnLongClickListener(v -> {
