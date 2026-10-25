@@ -19,6 +19,7 @@ class Mp4FromDashMuxer extends Postprocessing {
         Mp4FromDashWriter muxer = new Mp4FromDashWriter(sources);
         muxer.parseSources();
         muxer.selectTracks(0, 0);
+        applyMetadata(muxer);
         muxer.build(out);
 
         return OK_RESULT;

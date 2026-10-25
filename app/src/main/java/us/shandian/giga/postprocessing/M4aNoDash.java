@@ -34,6 +34,7 @@ class M4aNoDash extends Postprocessing {
         muxer.setMainBrand(0x4D344120);// binary string "M4A "
         muxer.parseSources();
         muxer.selectTracks(0);
+        applyMetadata(muxer);
         muxer.build(out);
 
         return OK_RESULT;

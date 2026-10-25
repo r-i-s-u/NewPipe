@@ -233,6 +233,51 @@ public abstract class Postprocessing implements Serializable {
      */
     abstract int process(SharpStream out, SharpStream... sources) throws IOException;
 
+    void applyMetadata(final org.schabi.newpipe.streams.Mp4FromDashWriter muxer) {
+        if (streamInfo != null) {
+            muxer.setMetadata(streamInfo.getName(), streamInfo.getUploaderName(),
+                    fetchThumbnail());
+        }
+    }
+
+    private byte[] fetchThumbnail() {
+        try {
+            String url = null;
+            int bestHeight = -2;
+            for (final var image : streamInfo.getThumbnails()) {
+                if (image.getUrl() != null && image.getHeight() > bestHeight) {
+                    bestHeight = image.getHeight();
+                    url = image.getUrl();
+                }
+            }
+            if (url == null) {
+                return null;
+            }
+
+            final java.net.HttpURLConnection con =
+                    (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
+            con.setConnectTimeout(8000);
+            con.setReadTimeout(8000);
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            try (java.io.InputStream in = con.getInputStream()) {
+                final java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
+                final byte[] buf = new byte[16 * 1024];
+                int n;
+                while ((n = in.read(buf)) > 0) {
+                    bytes.write(buf, 0, n);
+                    if (bytes.size() > 1_500_000) {
+                        return null;
+                    }
+                }
+                return bytes.toByteArray();
+            } finally {
+                con.disconnect();
+            }
+        } catch (final Exception e) {
+            return null;
+        }
+    }
+
     String getArgumentAt(int index, String defaultValue) {
         if (args == null || index >= args.length) {
             return defaultValue;

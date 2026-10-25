@@ -112,6 +112,57 @@ public class Mp4FromDashWriter {
         }
     }
 
+    // ---- iTunes-style tags (title / artist / cover) written into moov/udta ----
+    private byte[] udtaBox = null;
+
+    public void setMetadata(final String title, final String artist, final byte[] cover) {
+        final java.util.ArrayList<byte[]> items = new java.util.ArrayList<>();
+        if (title != null && !title.isEmpty()) {
+            items.add(metaItem(0xA96E616D, 1,
+                    title.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+        }
+        if (artist != null && !artist.isEmpty()) {
+            items.add(metaItem(0xA9415254, 1,
+                    artist.getBytes(java.nio.charset.StandardCharsets.UTF_8)));
+        }
+        if (cover != null && cover.length > 8) {
+            final boolean jpeg = (cover[0] & 0xFF) == 0xFF && (cover[1] & 0xFF) == 0xD8;
+            final boolean png = (cover[0] & 0xFF) == 0x89 && cover[1] == 'P'
+                    && cover[2] == 'N' && cover[3] == 'G';
+            if (jpeg || png) {
+                items.add(metaItem(0x636F7672, jpeg ? 13 : 14, cover));
+            }
+        }
+        if (items.isEmpty()) {
+            udtaBox = null;
+            return;
+        }
+        final byte[] hdlr = {0, 0, 0, 0x21, 'h', 'd', 'l', 'r', 0, 0, 0, 0, 0, 0, 0, 0,
+                'm', 'd', 'i', 'r', 'a', 'p', 'p', 'l', 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        final byte[] ilst = mp4Box(0x696C7374, items.toArray(new byte[0][]));
+        final byte[] meta = mp4Box(0x6D657461, new byte[4], hdlr, ilst);
+        udtaBox = mp4Box(0x75647461, meta);
+    }
+
+    private static byte[] mp4Box(final int type, final byte[]... parts) {
+        int size = 8;
+        for (final byte[] part : parts) {
+            size += part.length;
+        }
+        final ByteBuffer box = ByteBuffer.allocate(size);
+        box.putInt(size).putInt(type);
+        for (final byte[] part : parts) {
+            box.put(part);
+        }
+        return box.array();
+    }
+
+    private static byte[] metaItem(final int type, final int dataType, final byte[] value) {
+        final ByteBuffer data = ByteBuffer.allocate(8 + value.length);
+        data.putInt(dataType).putInt(0).put(value);
+        return mp4Box(type, mp4Box(0x64617461, data.array()));
+    }
+
     public void setMainBrand(final int brand) {
         overrideMainBrand = brand;
     }
@@ -718,6 +769,10 @@ public class Mp4FromDashWriter {
                     new RuntimeException("bad track matrix length (expected 36) in track n°" + i);
             }
             makeTrak(i, durations[i], defaultMediaTime[i], tablesInfo[i], is64);
+        }
+
+        if (udtaBox != null) {
+            auxWrite(udtaBox);
         }
 
         return lengthFor(start);
