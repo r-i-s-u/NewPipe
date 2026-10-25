@@ -319,6 +319,14 @@ public abstract class Postprocessing implements Serializable {
         }
     }
 
+    byte[] metadataBox() {
+        if (streamInfo == null) {
+            return null;
+        }
+        return org.schabi.newpipe.streams.Mp4Tagger.buildUdta(
+                streamInfo.getName(), streamInfo.getUploaderName(), fetchThumbnail());
+    }
+
     String getArgumentAt(int index, String defaultValue) {
         if (args == null || index >= args.length) {
             return defaultValue;
