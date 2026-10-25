@@ -6,8 +6,8 @@
 	<androidx.recyclerview.widget.RecyclerView android:id="@android:id/list" android:focusable="true" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/nnf_buttons_container" android:layout_below="@id/nnf_picker_toolbar" />
 	<FrameLayout android:id="@id/nnf_buttons_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
 		<LinearLayout android:orientation="horizontal" android:id="@id/nnf_button_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
-			<Button android:id="@id/nnf_button_cancel" android:layout_width="0.0dip" android:layout_height="48.0dip" android:text="@string/nnf_list_cancel" android:layout_weight="1.0" style="?borderlessButtonStyle" />
-			<Button android:id="@id/nnf_button_ok" android:layout_width="0.0dip" android:layout_height="48.0dip" android:text="@string/nnf_list_ok" android:layout_weight="1.0" style="?borderlessButtonStyle" />
+			<Button android:id="@id/nnf_button_cancel" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="48.0dip" android:text="@string/nnf_list_cancel" android:layout_weight="1.0" style="?borderlessButtonStyle" />
+			<Button android:id="@id/nnf_button_ok" android:layout_width="0.0dip" android:layout_height="48.0dip" android:layout_margin="12.0dip" android:layout_weight="1.0" android:background="@drawable/bg_picker_button" android:text="@string/file_picker_use_this" android:textAllCaps="false" android:textColor="?android:attr/colorBackground" android:textSize="14.0sp" android:textStyle="bold" />
 		</LinearLayout>
 		<LinearLayout android:orientation="horizontal" android:id="@id/nnf_newfile_button_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
 			<EditText android:id="@id/nnf_text_filename" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="0.0dip" android:layout_height="48.0dip" android:hint="@string/nnf_filename" android:maxLines="1" android:layout_weight="1.0" />
