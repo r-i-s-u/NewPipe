@@ -34,7 +34,6 @@
 
             <TextView
                 android:id="@+id/file_name_text_view"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -45,7 +44,6 @@
 
             <EditText
                 android:id="@+id/file_name"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

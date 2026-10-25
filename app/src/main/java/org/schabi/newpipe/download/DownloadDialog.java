@@ -351,8 +351,13 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 videoStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
         dialogBinding.audioHeader.setVisibility(
                 audioStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
-        dialogBinding.captionsHeader.setVisibility(
-                subtitleStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
+        dialogBinding.captionsHeader.setVisibility(View.GONE);
+        dialogBinding.captionsSpinner.setVisibility(View.GONE);
+        if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
+                == R.id.subtitle_button) {
+            dialogBinding.videoAudioGroup.check(videoStreamsAdapter.getCount() > 0
+                    ? R.id.video_button : R.id.audio_button);
+        }
 
         dialogBinding.videoHeader.setOnClickListener(
                 v -> onSectionHeaderClicked(R.id.video_button));

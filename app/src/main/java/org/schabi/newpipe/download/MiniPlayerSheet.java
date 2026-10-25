@@ -1,11 +1,15 @@
 package org.schabi.newpipe.download;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.TypedValue;
@@ -17,6 +21,9 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleEventObserver;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -29,6 +36,8 @@ import java.util.Locale;
 public final class MiniPlayerSheet {
     private static final String[] AUDIO_EXT =
             {".m4a", ".opus", ".mp3", ".ogg", ".aac", ".flac", ".wav", ".weba"};
+
+    private static BottomSheetDialog currentDialog;
 
     private MiniPlayerSheet() {
     }
@@ -64,6 +73,17 @@ public final class MiniPlayerSheet {
         return ColorUtils.calculateLuminance(color) < 0.5;
     }
 
+    private static LifecycleOwner findOwner(final Context context) {
+        Context c = context;
+        while (c instanceof ContextWrapper) {
+            if (c instanceof LifecycleOwner) {
+                return (LifecycleOwner) c;
+            }
+            c = ((ContextWrapper) c).getBaseContext();
+        }
+        return c instanceof LifecycleOwner ? (LifecycleOwner) c : null;
+    }
+
     private static String format(final int ms) {
         final int sec = Math.max(0, (ms + 999) / 1000);
         return String.format(Locale.US, "%d:%02d", sec / 60, sec % 60);
@@ -71,6 +91,15 @@ public final class MiniPlayerSheet {
 
     /** @return true if the player sheet was shown. */
     public static boolean show(final Context context, final StoredFileHelper storage) {
+        if (currentDialog != null) {
+            try {
+                currentDialog.dismiss();
+            } catch (final Exception ignored) {
+                // already gone
+            }
+            currentDialog = null;
+        }
+
         final MediaPlayer player = new MediaPlayer();
         try {
             player.setAudioAttributes(new AudioAttributes.Builder()
@@ -137,7 +166,8 @@ public final class MiniPlayerSheet {
                 ? total : artist.trim() + " \u2022 " + total);
         seek.setMax(duration);
 
-        final Controller controller = new Controller(player, seek, remaining, playView, duration);
+        final Controller controller =
+                new Controller(context, player, seek, remaining, playView, duration);
         seek.setOnSeekBarChangeListener(controller);
         playView.setOnClickListener(v -> controller.toggle());
         player.setOnCompletionListener(mp -> controller.onCompleted());
@@ -145,13 +175,35 @@ public final class MiniPlayerSheet {
             controller.onCompleted();
             return true;
         });
-        dialog.setOnDismissListener(d -> controller.release());
+
+        // pause as soon as the app leaves the foreground (recents, home, screen off)
+        final LifecycleOwner owner = findOwner(context);
+        final LifecycleEventObserver observer = (source, event) -> {
+            if (event == Lifecycle.Event.ON_PAUSE) {
+                controller.pauseIfPlaying();
+            }
+        };
+        if (owner != null) {
+            owner.getLifecycle().addObserver(observer);
+        }
+
+        dialog.setOnDismissListener(d -> {
+            if (owner != null) {
+                owner.getLifecycle().removeObserver(observer);
+            }
+            controller.release();
+            if (currentDialog == dialog) {
+                currentDialog = null;
+            }
+        });
+        currentDialog = dialog;
 
         dialog.show();
         final BottomSheetBehavior<FrameLayout> behavior = dialog.getBehavior();
         behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         behavior.setSkipCollapsed(true);
 
+        controller.requestFocus();
         player.start();
         controller.refresh();
         return true;
@@ -164,16 +216,59 @@ public final class MiniPlayerSheet {
         private final ImageView playButton;
         private final int duration;
         private final Handler handler = new Handler(Looper.getMainLooper());
+        private final AudioManager audioManager;
+        private AudioFocusRequest focusRequest;
+        private final AudioManager.OnAudioFocusChangeListener focusListener = change -> {
+            if (change == AudioManager.AUDIOFOCUS_LOSS
+                    || change == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
+                pauseIfPlaying();
+            }
+        };
         private boolean dragging = false;
         private boolean released = false;
 
-        Controller(final MediaPlayer player, final SeekBar seek, final TextView remaining,
-                   final ImageView playButton, final int duration) {
+        Controller(final Context context, final MediaPlayer player, final SeekBar seek,
+                   final TextView remaining, final ImageView playButton, final int duration) {
             this.player = player;
             this.seek = seek;
             this.remaining = remaining;
             this.playButton = playButton;
             this.duration = duration;
+            this.audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        }
+
+        void requestFocus() {
+            if (audioManager == null) {
+                return;
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (focusRequest == null) {
+                    focusRequest = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                            .setAudioAttributes(new AudioAttributes.Builder()
+                                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                                    .build())
+                            .setOnAudioFocusChangeListener(focusListener)
+                            .build();
+                }
+                audioManager.requestAudioFocus(focusRequest);
+            } else {
+                audioManager.requestAudioFocus(focusListener, AudioManager.STREAM_MUSIC,
+                        AudioManager.AUDIOFOCUS_GAIN);
+            }
+        }
+
+        void abandonFocus() {
+            if (audioManager == null) {
+                return;
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (focusRequest != null) {
+                    audioManager.abandonAudioFocusRequest(focusRequest);
+                }
+            } else {
+                audioManager.abandonAudioFocus(focusListener);
+            }
         }
 
         void toggle() {
@@ -183,9 +278,24 @@ public final class MiniPlayerSheet {
             if (player.isPlaying()) {
                 player.pause();
             } else {
+                requestFocus();
                 player.start();
             }
             refresh();
+        }
+
+        void pauseIfPlaying() {
+            if (released) {
+                return;
+            }
+            try {
+                if (player.isPlaying()) {
+                    player.pause();
+                    refresh();
+                }
+            } catch (final IllegalStateException ignored) {
+                // player already released
+            }
         }
 
         void refresh() {
@@ -222,11 +332,13 @@ public final class MiniPlayerSheet {
             seek.setProgress(0);
             remaining.setText("-" + format(duration));
             playButton.setImageResource(R.drawable.ic_play_arrow);
+            abandonFocus();
         }
 
         void release() {
             released = true;
             handler.removeCallbacks(this);
+            abandonFocus();
             try {
                 player.release();
             } catch (final Exception ignored) {
