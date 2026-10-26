@@ -4,10 +4,10 @@
             android:insetTop="2dp"
             android:insetBottom="2dp">
             <shape>
-                <solid android:color="?attr/dlSurface"/>
+                <solid android:color="@color/dl_surface"/>
                 <stroke
                     android:width="1dp"
-                    android:color="?attr/dlAccent"/>
+                    android:color="@color/dl_accent"/>
                 <corners android:radius="12dp"/>
             </shape>
         </inset>

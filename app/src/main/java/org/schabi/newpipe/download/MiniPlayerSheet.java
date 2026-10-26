@@ -12,15 +12,12 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -61,16 +58,6 @@ public final class MiniPlayerSheet {
             }
         }
         return false;
-    }
-
-    private static boolean isLightTheme(final Context ctx) {
-        final TypedValue tv = new TypedValue();
-        if (!ctx.getTheme().resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
-            return false;
-        }
-        final int color = tv.resourceId != 0
-                ? ContextCompat.getColor(ctx, tv.resourceId) : tv.data;
-        return ColorUtils.calculateLuminance(color) < 0.5;
     }
 
     private static LifecycleOwner findOwner(final Context context) {
@@ -142,9 +129,8 @@ public final class MiniPlayerSheet {
         }
         final int duration = Math.max(player.getDuration(), 1);
 
-        final boolean light = isLightTheme(context);
-        final BottomSheetDialog dialog = new BottomSheetDialog(context,
-                light ? R.style.DownloadSheetThemeLight : R.style.DownloadSheetTheme);
+        final BottomSheetDialog dialog =
+                new BottomSheetDialog(context, R.style.DownloadSheetTheme);
         dialog.setContentView(R.layout.mini_player);
 
         final ImageView coverView = dialog.findViewById(R.id.mini_cover);

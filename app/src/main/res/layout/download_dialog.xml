@@ -345,7 +345,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/dlDivider" />
+        android:background="@color/dl_divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -367,7 +367,7 @@
             android:text="@string/cancel"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:textColor="?attr/dlAccent" />
+            android:textColor="@color/dl_accent" />
 
         <Button
             android:id="@+id/download_button"
@@ -379,6 +379,6 @@
             android:text="@string/download_dialog_title"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:textColor="?attr/dlOnAccent" />
+            android:textColor="@color/dl_on_accent" />
     </LinearLayout>
 </LinearLayout>

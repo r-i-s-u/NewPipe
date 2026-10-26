@@ -137,7 +137,7 @@
     </style>
 
     <style name="RouterActivityThemeDark" parent="Base.RouterActivityThemeDark" />
-    <style name="DownloadSheetTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="DownloadSheetTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
@@ -146,51 +146,22 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
         <item name="bottomSheetStyle">@style/DownloadSheet</item>
-        <item name="dlSheetBg">#000000</item>
-        <item name="dlSurface">#272727</item>
-        <item name="dlChipOn">#FFFFFF</item>
-        <item name="dlChipText">@color/chip_text_dark</item>
-        <item name="dlAccent">#3EA6FF</item>
-        <item name="dlOnAccent">#0F0F0F</item>
-        <item name="dlOutline">#FFFFFF</item>
-        <item name="dlDivider">#1FFFFFFF</item>
-    </style>
-    <style name="DownloadSheetThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
-        <item name="bottomSheetStyle">@style/DownloadSheet</item>
-        <item name="dlSheetBg">#FFFFFF</item>
-        <item name="dlSurface">#F2F2F2</item>
-        <item name="dlChipOn">#0F0F0F</item>
-        <item name="dlChipText">@color/chip_text_light</item>
-        <item name="dlAccent">#065FD4</item>
-        <item name="dlOnAccent">#FFFFFF</item>
-        <item name="dlOutline">#0F0F0F</item>
-        <item name="dlDivider">#1F000000</item>
     </style>
     <style name="DownloadSheet" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_sheet</item>
     </style>
 
-    <style name="MissionPopupMenuDark" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:popupBackground">@drawable/bg_popup_dark</item>
+
+    <style name="MissionPopupText" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/dl_popup_text</item>
+    </style>
+    <style name="MissionPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
         <item name="android:popupElevation">8dp</item>
     </style>
-    <style name="MissionPopupMenuLight" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:popupBackground">@drawable/bg_popup_light</item>
-        <item name="android:popupElevation">8dp</item>
-    </style>
-    <style name="MissionPopupDark">
-        <item name="popupMenuStyle">@style/MissionPopupMenuDark</item>
-        <item name="android:popupMenuStyle">@style/MissionPopupMenuDark</item>
-    </style>
-    <style name="MissionPopupLight">
-        <item name="popupMenuStyle">@style/MissionPopupMenuLight</item>
-        <item name="android:popupMenuStyle">@style/MissionPopupMenuLight</item>
+    <style name="MissionPopup">
+        <item name="popupMenuStyle">@style/MissionPopupMenu</item>
+        <item name="android:popupMenuStyle">@style/MissionPopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/MissionPopupText</item>
     </style>
 </resources>
