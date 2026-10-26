@@ -100,6 +100,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     private static final int HASH_NOTIFICATION_ID = 123790;
 
     private final Context mContext;
+    private static final int MENU_SHARE = 9001;
+    private static final int MENU_DELETE = 9002;
+    private static final int MENU_SELECT_ALL = 9003;
+    private static final int MENU_DELETE_ENTRY = 9004;
+    private final java.util.LinkedHashSet<Mission> mSelected = new java.util.LinkedHashSet<>();
+    private androidx.appcompat.view.ActionMode mActionMode;
+    private RecyclerView mRecycler;
     private final LayoutInflater mInflater;
     private final DownloadManager mDownloadManager;
     private final Deleter mDeleter;
@@ -198,6 +205,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         h.icon.setImageResource(Utility.getIconForFileType(type));
         MissionThumbs.load(h.icon.getContext(), item.mission, h.icon);
+        bindSelection(h);
         h.name.setText(item.mission.storage.getName());
 
 
@@ -701,6 +709,220 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         return new android.view.ContextThemeWrapper(base, R.style.MissionPopup);
     }
 
+    // ---------------- multi selection ----------------
+    private final androidx.appcompat.view.ActionMode.Callback mSelectionCallback =
+            new androidx.appcompat.view.ActionMode.Callback() {
+                @Override
+                public boolean onCreateActionMode(final androidx.appcompat.view.ActionMode mode,
+                                                  final Menu menu) {
+                    menu.add(Menu.NONE, MENU_SHARE, 1, R.string.share)
+                            .setIcon(R.drawable.ic_share)
+                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                    menu.add(Menu.NONE, MENU_DELETE, 2, R.string.delete_file)
+                            .setIcon(R.drawable.ic_delete)
+                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                    menu.add(Menu.NONE, MENU_SELECT_ALL, 3, R.string.mission_select_all)
+                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+                    menu.add(Menu.NONE, MENU_DELETE_ENTRY, 4, R.string.mission_delete_history)
+                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(final androidx.appcompat.view.ActionMode mode,
+                                                   final Menu menu) {
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(final androidx.appcompat.view.ActionMode mode,
+                                                   final MenuItem item) {
+                    final int id = item.getItemId();
+                    if (id == MENU_SHARE) {
+                        shareSelected();
+                        return true;
+                    } else if (id == MENU_DELETE) {
+                        deleteSelected(true);
+                        return true;
+                    } else if (id == MENU_DELETE_ENTRY) {
+                        deleteSelected(false);
+                        return true;
+                    } else if (id == MENU_SELECT_ALL) {
+                        selectAll();
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override
+                public void onDestroyActionMode(final androidx.appcompat.view.ActionMode mode) {
+                    mActionMode = null;
+                    mSelected.clear();
+                    refreshSelectionViews();
+                }
+            };
+
+    @Override
+    public void onAttachedToRecyclerView(@NonNull final RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        mRecycler = recyclerView;
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(@NonNull final RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+        if (mRecycler == recyclerView) {
+            mRecycler = null;
+        }
+    }
+
+    private boolean isSelecting() {
+        return mActionMode != null;
+    }
+
+    private boolean beginSelection(final Mission first) {
+        if (!(mContext instanceof androidx.appcompat.app.AppCompatActivity)) {
+            return false;
+        }
+        mSelected.add(first);
+        mActionMode = ((androidx.appcompat.app.AppCompatActivity) mContext)
+                .startSupportActionMode(mSelectionCallback);
+        if (mActionMode == null) {
+            mSelected.clear();
+            return false;
+        }
+        updateSelectionUi();
+        refreshSelectionViews();
+        return true;
+    }
+
+    private void toggleSelection(final Mission mission) {
+        if (!(mission instanceof FinishedMission) || mActionMode == null) {
+            return;
+        }
+        if (!mSelected.remove(mission)) {
+            mSelected.add(mission);
+        }
+        if (mSelected.isEmpty()) {
+            finishSelection();
+            return;
+        }
+        updateSelectionUi();
+        refreshSelectionViews();
+    }
+
+    private void finishSelection() {
+        if (mActionMode != null) {
+            mActionMode.finish();
+        }
+    }
+
+    private void selectAll() {
+        for (int i = 0; i < mIterator.getOldListSize(); i++) {
+            final DownloadManager.MissionItem it = mIterator.getItem(i);
+            if (it != null && it.mission instanceof FinishedMission) {
+                mSelected.add(it.mission);
+            }
+        }
+        updateSelectionUi();
+        refreshSelectionViews();
+    }
+
+    private void updateSelectionUi() {
+        if (mActionMode == null) {
+            return;
+        }
+        long total = 0;
+        for (final Mission m : mSelected) {
+            total += m.length;
+        }
+        mActionMode.setTitle(mContext.getString(R.string.mission_selected, mSelected.size()));
+        mActionMode.setSubtitle(Utility.formatBytes(total));
+    }
+
+    private void deleteSelected(final boolean deleteFile) {
+        final ArrayList<Mission> missions = new ArrayList<>(mSelected);
+        finishSelection();
+        for (final Mission m : missions) {
+            mDeleter.append(m, deleteFile);
+        }
+        applyChanges();
+        checkMasterButtonsVisibility();
+    }
+
+    private void shareSelected() {
+        final ArrayList<Uri> uris = new ArrayList<>();
+        String mime = null;
+        for (final Mission m : mSelected) {
+            if (checkInvalidFile(m)) {
+                continue;
+            }
+            uris.add(resolveShareableUri(m));
+            final String t = resolveMimeType(m);
+            mime = mime == null ? t : (mime.equals(t) ? mime : DEFAULT_MIME_TYPE);
+        }
+        if (uris.isEmpty()) {
+            return;
+        }
+        final Intent send;
+        if (uris.size() == 1) {
+            send = new Intent(Intent.ACTION_SEND);
+            send.putExtra(Intent.EXTRA_STREAM, uris.get(0));
+        } else {
+            send = new Intent(Intent.ACTION_SEND_MULTIPLE);
+            send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+        }
+        send.setType(mime == null ? DEFAULT_MIME_TYPE : mime);
+        send.addFlags(FLAG_GRANT_READ_URI_PERMISSION);
+        final Intent chooser = createChooser(send, null);
+        chooser.addFlags(FLAG_ACTIVITY_NEW_TASK);
+        chooser.addFlags(FLAG_GRANT_READ_URI_PERMISSION);
+        mContext.startActivity(chooser);
+        finishSelection();
+    }
+
+    private void refreshSelectionViews() {
+        if (mRecycler == null) {
+            return;
+        }
+        for (int i = 0; i < mRecycler.getChildCount(); i++) {
+            final ViewHolder vh = mRecycler.getChildViewHolder(mRecycler.getChildAt(i));
+            if (vh instanceof ViewHolderItem) {
+                bindSelection((ViewHolderItem) vh);
+            }
+        }
+    }
+
+    private int themeColor(final int attr) {
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        if (!mContext.getTheme().resolveAttribute(attr, tv, true)) {
+            return Color.GRAY;
+        }
+        return tv.resourceId != 0 ? ContextCompat.getColor(mContext, tv.resourceId) : tv.data;
+    }
+
+    private void bindSelection(final ViewHolderItem h) {
+        final boolean finished = h.item != null && h.item.mission instanceof FinishedMission;
+        final boolean show = finished && mActionMode != null;
+        final boolean selected = show && mSelected.contains(h.item.mission);
+        if (h.check != null) {
+            h.check.setVisibility(show ? View.VISIBLE : View.GONE);
+            if (show) {
+                h.check.setImageResource(
+                        selected ? R.drawable.ic_select_on : R.drawable.ic_select_off);
+                h.check.setColorFilter(selected
+                        ? ContextCompat.getColor(mContext, R.color.dl_accent)
+                        : themeColor(android.R.attr.textColorSecondary));
+            }
+        }
+        if (h.more != null) {
+            h.more.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
+        }
+        if (h.root != null) {
+            h.root.setBackgroundResource(selected ? R.drawable.bg_item_selected : 0);
+        }
+    }
+
     public void applyChanges() {
         mIterator.start();
         DiffUtil.calculateDiff(mIterator, true).dispatchUpdatesTo(this);
@@ -823,6 +1045,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         TextView name;
         TextView size;
         TextView date;
+        View root;
+        ImageView check;
+        ImageView more;
         ProgressDrawable progress;
 
         PopupMenu popupMenu;
@@ -852,10 +1077,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             icon = itemView.findViewById(R.id.item_icon);
             size = itemView.findViewById(R.id.item_size);
             date = itemView.findViewById(R.id.item_date);
+            root = itemView.findViewById(R.id.item_root);
+            check = itemView.findViewById(R.id.item_check);
 
             name.setSelected(true);
 
             ImageView button = itemView.findViewById(R.id.item_more);
+            more = button;
             popupMenu = buildPopup(button);
             button.setOnClickListener(v -> showPopupMenu());
 
@@ -872,6 +1100,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             itemView.setHapticFeedbackEnabled(true);
 
             itemView.setOnClickListener(v -> {
+                if (isSelecting()) {
+                    toggleSelection(item.mission);
+                    return;
+                }
                 if (item.mission instanceof FinishedMission) {
                     if (!(org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage)
                             && org.schabi.newpipe.download.MiniPlayerSheet.show(
@@ -883,7 +1115,15 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
             itemView.setOnLongClickListener(v -> {
                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                showPopupMenu();
+                if (item != null && item.mission instanceof FinishedMission) {
+                    if (isSelecting()) {
+                        toggleSelection(item.mission);
+                    } else if (!beginSelection(item.mission)) {
+                        showPopupMenu();
+                    }
+                } else {
+                    showPopupMenu();
+                }
                 return true;
             });
         }

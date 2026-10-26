@@ -12,4 +12,5 @@
     <color name="dl_popup_bg">#FFFFFF</color>
     <color name="dl_popup_stroke">#1F000000</color>
     <color name="dl_popup_text">#0F0F0F</color>
+    <color name="dl_selected_bg">#DDE3F3</color>
 </resources>

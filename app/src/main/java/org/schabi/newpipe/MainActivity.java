@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         startService(i);
 
         ThemeHelper.setTheme(this);
+        getTheme().applyStyle(R.style.DownloadsActionMode, true);
 
         super.onCreate(savedInstanceState);
 
