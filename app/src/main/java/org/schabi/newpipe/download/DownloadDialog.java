@@ -115,7 +115,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private boolean languageOpen = false;
     private boolean sectionOpen = true;
     private boolean threadsOpen = true;
-    private boolean filenameOpen = true;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -373,10 +372,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
             threadsOpen = !threadsOpen;
             applySections();
         });
-        dialogBinding.filenameHeader.setOnClickListener(v -> {
-            filenameOpen = !filenameOpen;
-            applySections();
-        });
+        dialogBinding.editNameButton.setOnClickListener(v -> showRenameDialog());
 
         dialogBinding.captionsSpinner.setOnItemClickListener((parent, v, pos, id) -> {
             selectedSubtitleIndex = pos;
@@ -456,10 +452,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.langChevron.setImageResource(
                 lang ? R.drawable.chev_up : R.drawable.chev_down);
 
-        dialogBinding.fileName.setVisibility(filenameOpen ? View.VISIBLE : View.GONE);
-        dialogBinding.filenameChevron.setImageResource(
-                filenameOpen ? R.drawable.chev_up : R.drawable.chev_down);
-
         final boolean hideThreads = captions || lang;
         dialogBinding.threadsHeader.setVisibility(hideThreads ? View.GONE : View.VISIBLE);
         dialogBinding.threadsLayout.setVisibility(
@@ -478,6 +470,31 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 }
             }
         });
+    }
+
+    private void showRenameDialog() {
+        final android.widget.EditText input = new android.widget.EditText(requireContext());
+        input.setSingleLine(false);
+        input.setMaxLines(4);
+        input.setText(dialogBinding.fileName.getText());
+        input.setSelection(input.getText().length());
+
+        final int pad = (int) (24 * getResources().getDisplayMetrics().density);
+        final android.widget.FrameLayout box = new android.widget.FrameLayout(requireContext());
+        box.setPadding(pad, pad / 2, pad, 0);
+        box.addView(input);
+
+        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle(R.string.msg_name)
+                .setView(box)
+                .setPositiveButton(android.R.string.ok, (dlg, which) -> {
+                    final String name = input.getText().toString().replace("\n", "").trim();
+                    if (!name.isEmpty() && dialogBinding != null) {
+                        dialogBinding.fileName.setText(name);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void bindList(final ListView list) {
