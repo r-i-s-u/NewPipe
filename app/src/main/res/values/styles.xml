@@ -1,135 +1,118 @@
 <resources>
 
-    <!-- Opening Theme -->
-    <style name="Base.V21.OpeningTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@android:color/transparent</item>
-        <item name="colorPrimaryDark">@android:color/transparent</item>
-        <item name="colorAccent">@android:color/transparent</item>
-
-        <item name="android:windowBackground">@drawable/splash_background</item>
-    </style>
-    <style name="Base.OpeningTheme" parent="Base.V21.OpeningTheme">
-        <item name="android:navigationBarColor">@color/light_youtube_primary_color</item>
-    </style>
-    <style name="OpeningTheme" parent="Base.OpeningTheme" />
-
     <!-- Base Theme -->
     <style name="Base.V21" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="actionColor">@color/white</item>
-        <item name="floatingActionButtonStyle">@style/FloatingActionButtonTheme</item>
-        <item name="toolbarSearchColor">@color/white</item>
-        <item name="colorControlActivated">?attr/colorPrimary</item>
+       <item name="android:homeAsUpIndicator">@null</item>
     </style>
+   <style name="Widget.App.MaterialSwitch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+    <item name="enforceMaterialTheme">false</item>
+   </style>
     <style name="Base" parent="Base.V21"/>
-
     <!-- Light Theme -->
     <style name="Base.V21.LightTheme" parent="Base">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_primary_color</item>
-        <item name="colorAccent">@color/light_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/light_background_color</item>
-        <item name="windowBackground">@color/light_background_color</item>
-
-        <item name="separator_color">@color/light_separator_color</item>
-        <item name="contrast_background_color">@color/light_contrast_background_color</item>
-        <item name="checked_selector">@drawable/selector_checked_light</item>
-        <item name="focused_selector">@drawable/selector_focused_light</item>
-        <item name="toolbar_shadow">@drawable/toolbar_shadow_light</item>
-        <item name="selector">@drawable/selector_light</item>
-        <item name="colorControlHighlight">@color/light_ripple_color</item>
-        <item name="progress_horizontal_drawable">@drawable/progress_youtube_horizontal_light</item>
-        <item name="card_item_background_color">@color/light_card_item_background_color</item>
-        <item name="card_item_contrast_color">@color/light_card_item_contrast_color</item>
-        <item name="border_color">@color/light_border_color</item>
-        <item name="dashed_border">@drawable/dashed_border_light</item>
-    </style>
-    <style name="Base.LightTheme" parent="Base.V21.LightTheme" />
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowBackground">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">#FF3EA6FF</item>
+        <item name="colorPrimary">#000000</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E0E0E0</item>
+        <item name="colorOnPrimaryContainer">#000000</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#000000</item>
+        <item name="colorOnSurfaceVariant">#616161</item>
+        <item name="colorSurfaceContainerHighest">#E0E0E0</item>
+        <item name="colorOutline">#757575</item>
+     </style>
+     <style name="Base.LightTheme" parent="Base.V21.LightTheme" />
     <style name="LightTheme" parent="Base.LightTheme"/>
 
     <!-- Dark Theme -->
     <style name="Base.V21.DarkTheme" parent="Base">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_primary_color</item>
-        <item name="colorAccent">@color/dark_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/dark_background_color</item>
-        <item name="windowBackground">@color/dark_background_color</item>
-
-        <item name="separator_color">@color/dark_separator_color</item>
-        <item name="contrast_background_color">@color/dark_contrast_background_color</item>
-        <item name="checked_selector">@drawable/selector_checked_dark</item>
-        <item name="focused_selector">@drawable/selector_focused_dark</item>
-        <item name="toolbar_shadow">@drawable/toolbar_shadow_dark</item>
-        <item name="selector">@drawable/selector_dark</item>
-        <item name="colorControlHighlight">@color/dark_ripple_color</item>
-        <item name="progress_horizontal_drawable">@drawable/progress_youtube_horizontal_dark</item>
-        <item name="card_item_background_color">@color/dark_card_item_background_color</item>
-        <item name="card_item_contrast_color">@color/dark_card_item_contrast_color</item>
-        <item name="border_color">@color/dark_border_color</item>
-        <item name="dashed_border">@drawable/dashed_border_dark</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="windowBackground">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">#FF065FD4</item>
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorPrimaryContainer">#424242</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+        <item name="colorSurface">#000000</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorOnSurfaceVariant">#BDBDBD</item>
+        <item name="colorSurfaceContainerHighest">#303030</item>
+        <item name="colorOutline">#9E9E9E</item>
     </style>
     <style name="Base.DarkTheme" parent="Base.V21.DarkTheme" />
     <style name="DarkTheme" parent="Base.DarkTheme"/>
 
     <!-- Black Theme -->
     <style name="Base.V21.BlackTheme" parent="DarkTheme">
-        <item name="android:windowBackground">@color/black_background_color</item>
-        <item name="windowBackground">@color/black_background_color</item>
-
-        <item name="separator_color">@color/black_separator_color</item>
-        <item name="contrast_background_color">@color/black_contrast_background_color</item>
-
-        <item name="card_item_background_color">@color/black_card_item_background_color</item>
-        <item name="card_item_contrast_color">@color/black_card_item_contrast_color</item>
-        <item name="border_color">@color/black_border_color</item>
-        <item name="dashed_border">@drawable/dashed_border_black</item>
     </style>
     <style name="Base.BlackTheme" parent="Base.V21.BlackTheme" />
     <style name="BlackTheme" parent="Base.BlackTheme"/>
 
     <!-- Dialogs -->
     <style name="LightDialogTheme" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_primary_color</item>
-        <item name="colorAccent">@color/light_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/light_dialog_background_color</item>
-        <item name="windowBackground">@color/light_dialog_background_color</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@android:color/black</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowBackground">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="DarkDialogTheme" parent="Theme.AppCompat.DayNight.Dialog">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_primary_color</item>
-        <item name="colorAccent">@color/dark_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/dark_dialog_background_color</item>
-        <item name="windowBackground">@color/dark_dialog_background_color</item>
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="windowBackground">@android:color/black</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="LightDialogMinWidthTheme" parent="Theme.AppCompat.DayNight.Dialog.MinWidth">
-        <item name="colorPrimary">@color/light_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/light_youtube_primary_color</item>
-        <item name="colorAccent">@color/light_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/light_dialog_background_color</item>
-        <item name="windowBackground">@color/light_dialog_background_color</item>
     </style>
 
     <style name="DarkDialogMinWidthTheme" parent="Theme.AppCompat.DayNight.Dialog.MinWidth">
-        <item name="colorPrimary">@color/dark_youtube_primary_color</item>
-        <item name="colorPrimaryDark">@color/dark_youtube_primary_color</item>
-        <item name="colorAccent">@color/dark_youtube_accent_color</item>
-        <item name="android:windowBackground">@color/dark_dialog_background_color</item>
-        <item name="windowBackground">@color/dark_dialog_background_color</item>
     </style>
 
     <!-- Settings -->
     <style name="LightSettingsTheme" parent="LightTheme">
-        <item name="colorAccent">@color/light_settings_accent_color</item>
     </style>
 
     <style name="DarkSettingsTheme" parent="DarkTheme">
-        <item name="colorAccent">@color/dark_settings_accent_color</item>
     </style>
 
     <style name="BlackSettingsTheme" parent="BlackTheme">
-        <item name="colorAccent">@color/black_settings_accent_color</item>
+    </style>
+
+    <!--File picker styles-->
+    <style name="FilePickerThemeLight" parent="NNF_BaseTheme.Light">
+        <item name="actionColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="nnf_separator_color">@color/white</item>
+        <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeLight</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+    <style name="FilePickerThemeDark" parent="NNF_BaseTheme">
+        <item name="actionColor">@color/white</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="nnf_separator_color">@android:color/black</item>
+        <item name="alertDialogTheme">@style/FilePickerAlertDialogThemeDark</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+    <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    </style>
+    <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
     </style>
 
     <!-- Router Activity -->
@@ -154,5 +137,31 @@
     </style>
 
     <style name="RouterActivityThemeDark" parent="Base.RouterActivityThemeDark" />
+    <style name="DownloadSheetTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/DownloadSheet</item>
+    </style>
+    <style name="DownloadSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_sheet</item>
+    </style>
 
+
+    <style name="MissionPopupText" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/dl_popup_text</item>
+    </style>
+    <style name="MissionPopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+    <style name="MissionPopup">
+        <item name="popupMenuStyle">@style/MissionPopupMenu</item>
+        <item name="android:popupMenuStyle">@style/MissionPopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/MissionPopupText</item>
+    </style>
 </resources>

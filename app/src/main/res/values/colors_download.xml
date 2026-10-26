@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dl_sheet_bg">#FFFFFF</color>
+    <color name="dl_surface">#F2F2F2</color>
+    <color name="dl_chip_on">#0F0F0F</color>
+    <color name="dl_chip_on_text">#FFFFFF</color>
+    <color name="dl_chip_text">#0F0F0F</color>
+    <color name="dl_accent">#065FD4</color>
+    <color name="dl_on_accent">#FFFFFF</color>
+    <color name="dl_outline">#0F0F0F</color>
+    <color name="dl_divider">#1F000000</color>
+    <color name="dl_popup_bg">#FFFFFF</color>
+    <color name="dl_popup_stroke">#1F000000</color>
+    <color name="dl_popup_text">#0F0F0F</color>
+</resources>

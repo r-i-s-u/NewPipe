@@ -59,9 +59,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.error.ErrorInfo;
-import org.schabi.newpipe.error.ErrorUtil;
-import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
 import org.schabi.newpipe.util.Localization;
@@ -200,9 +197,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         Utility.FileType type = Utility.getFileType(item.mission.kind, item.mission.storage.getName());
 
         h.icon.setImageResource(Utility.getIconForFileType(type));
+        MissionThumbs.load(h.icon.getContext(), item.mission, h.icon);
         h.name.setText(item.mission.storage.getName());
 
-        h.progress.setColors(Utility.getBackgroundForFileType(mContext, type), Utility.getForegroundForFileType(mContext, type));
 
         if (h.item.mission instanceof DownloadMission) {
             DownloadMission mission = (DownloadMission) item.mission;
@@ -503,14 +500,14 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 break;
             case ERROR_POSTPROCESSING:
             case ERROR_POSTPROCESSING_HOLD:
-                showError(mission, UserAction.DOWNLOAD_POSTPROCESSING, R.string.error_postprocessing_failed);
+                // error removed;
                 return;
             case ERROR_INSUFFICIENT_STORAGE:
                 msg = R.string.error_insufficient_storage_left;
                 break;
             case ERROR_UNKNOWN_EXCEPTION:
                 if (mission.errObject != null) {
-                    showError(mission, UserAction.DOWNLOAD_FAILED, R.string.general_error);
+                    // error removed;
                     return;
                 } else {
                     msg = R.string.msg_error;
@@ -531,7 +528,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 } else if (mission.errObject == null) {
                     msgEx = "(not_decelerated_error_code)";
                 } else {
-                    showError(mission, UserAction.DOWNLOAD_FAILED, msg);
+                    // error removed;
                     return;
                 }
                 break;
@@ -547,9 +544,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         // add report button for non-HTTP errors (range 100-599)
         if (mission.errObject != null && (mission.errCode < 100 || mission.errCode >= 600)) {
             @StringRes final int mMsg = msg;
-            builder.setPositiveButton(R.string.error_report_title, (dialog, which) ->
-                    showError(mission, UserAction.DOWNLOAD_FAILED, mMsg)
-            );
+
         }
 
         builder.setNegativeButton(R.string.ok, (dialog, which) -> dialog.cancel())
@@ -557,30 +552,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 .show();
     }
 
-    private void showError(DownloadMission mission, UserAction action, @StringRes int reason) {
-        StringBuilder request = new StringBuilder(256);
-        request.append(mission.source);
-
-        request.append(" [");
-        if (mission.recoveryInfo != null) {
-            for (MissionRecoveryInfo recovery : mission.recoveryInfo)
-                request.append(' ')
-                        .append(recovery.toString())
-                        .append(' ');
-        }
-        request.append("]");
-
-        Integer service;
-        try {
-            service = NewPipe.getServiceByUrl(mission.source).getServiceId();
-        } catch (Exception e) {
-            service = null;
-        }
-
-        ErrorUtil.createNotification(mContext,
-                new ErrorInfo(ErrorInfo.Companion.throwableToStringList(mission.errObject), action,
-                        request.toString(), service, reason));
-    }
+    private void showError(DownloadMission mission, Object action, Object reason) {}
 
     public void clearFinishedDownloads(boolean delete) {
         if (delete && mIterator.hasFinishedMissions() && mHidden.isEmpty()) {
@@ -668,7 +640,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             }
         }
 
-        if (id == R.id.menu_item_share) {
+        if (id == R.id.rename) {
+            showRenameDialog(h.item.mission);
+            return true;
+        } else if (id == R.id.menu_item_share) {
             shareFile(h.item.mission);
             return true;
         } else if (id == R.id.delete) {// delete the entry and the file
@@ -681,49 +656,49 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             applyChanges();
             checkMasterButtonsVisibility();
             return true;
-        } else if (id == R.id.md5 || id == R.id.sha1) {
-            final StoredFileHelper storage = h.item.mission.storage;
-            if (!storage.existsAsFile()) {
-                Toast.makeText(mContext, R.string.missing_file, Toast.LENGTH_SHORT).show();
-                mDeleter.append(h.item.mission, true);
-                applyChanges();
-                return true;
-            }
-            final NotificationManager notificationManager
-                    = ContextCompat.getSystemService(mContext, NotificationManager.class);
-            final NotificationCompat.Builder progressNotificationBuilder
-                    = new NotificationCompat.Builder(mContext,
-                    mContext.getString(R.string.hash_channel_id))
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setSmallIcon(R.drawable.ic_newpipe_triangle_white)
-                    .setContentTitle(mContext.getString(R.string.msg_calculating_hash))
-                    .setContentText(mContext.getString(R.string.msg_wait))
-                    .setProgress(0, 0, true)
-                    .setOngoing(true);
-
-            notificationManager.notify(HASH_NOTIFICATION_ID, progressNotificationBuilder
-                    .build());
-            compositeDisposable.add(
-                    Observable.fromCallable(() -> Utility.checksum(storage, id))
-                            .subscribeOn(Schedulers.computation())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(result -> {
-                                ShareUtils.copyToClipboard(mContext, result);
-                                notificationManager.cancel(HASH_NOTIFICATION_ID);
-                            })
-            );
-            return true;
-        } else if (id == R.id.source) {
-            try {
-                Intent intent = NavigationHelper.getIntentByLink(mContext, h.item.mission.source);
-                intent.addFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-                mContext.startActivity(intent);
-            } catch (Exception e) {
-                Log.w(TAG, "Selected item has a invalid source", e);
-            }
-            return true;
         }
         return false;
+    }
+
+    private void showRenameDialog(@NonNull final Mission mission) {
+        final String current = mission.storage.getName();
+        final int dot = current.lastIndexOf('.');
+        final String base = dot > 0 ? current.substring(0, dot) : current;
+        final String ext = dot > 0 ? current.substring(dot) : "";
+
+        final android.widget.EditText input = new android.widget.EditText(mContext);
+        input.setSingleLine(true);
+        input.setText(base);
+        input.setSelection(base.length());
+
+        final int pad = (int) (24 * mContext.getResources().getDisplayMetrics().density);
+        final android.widget.FrameLayout box = new android.widget.FrameLayout(mContext);
+        box.setPadding(pad, pad / 2, pad, 0);
+        box.addView(input);
+
+        new androidx.appcompat.app.AlertDialog.Builder(mContext)
+                .setTitle(R.string.mission_rename)
+                .setView(box)
+                .setPositiveButton(android.R.string.ok, (d, w) -> {
+                    final String name = input.getText().toString()
+                            .replaceAll("[\\\\/:*?\"<>|]", "_").trim();
+                    if (name.isEmpty() || (name + ext).equals(current)) {
+                        return;
+                    }
+                    if (mDownloadManager.renameFinishedMission(mission, name + ext)) {
+                        notifyDataSetChanged();
+                    } else {
+                        android.widget.Toast.makeText(mContext,
+                                R.string.mission_rename_failed,
+                                android.widget.Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private static android.content.Context popupContext(final android.content.Context base) {
+        return new android.view.ContextThemeWrapper(base, R.style.MissionPopup);
     }
 
     public void applyChanges() {
@@ -859,8 +834,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         MenuItem queue;
         MenuItem showError;
         MenuItem delete;
-        MenuItem source;
-        MenuItem checksum;
 
         long lastTimestamp = -1;
         double lastDone;
@@ -895,14 +868,17 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             queue = menu.findItem(R.id.queue);
             showError = menu.findItem(R.id.error_message_view);
             delete = menu.findItem(R.id.delete);
-            source = menu.findItem(R.id.source);
-            checksum = menu.findItem(R.id.checksum);
 
             itemView.setHapticFeedbackEnabled(true);
 
             itemView.setOnClickListener(v -> {
-                if (item.mission instanceof FinishedMission)
-                    viewWithFileProvider(item.mission);
+                if (item.mission instanceof FinishedMission) {
+                    if (!(org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage)
+                            && org.schabi.newpipe.download.MiniPlayerSheet.show(
+                                    mContext, item.mission.storage))) {
+                        viewWithFileProvider(item.mission);
+                    }
+                }
             });
 
             itemView.setOnLongClickListener(v -> {
@@ -913,6 +889,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
 
         private void showPopupMenu() {
+            popupMenu.getMenu().findItem(R.id.rename)
+                    .setVisible(item.mission instanceof FinishedMission);
             retry.setVisible(false);
             cancel.setVisible(false);
             start.setVisible(false);
@@ -921,8 +899,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             queue.setVisible(false);
             showError.setVisible(false);
             delete.setVisible(false);
-            source.setVisible(false);
-            checksum.setVisible(false);
 
             DownloadMission mission = item.mission instanceof DownloadMission ? (DownloadMission) item.mission : null;
 
@@ -960,18 +936,14 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             } else {
                 open.setVisible(true);
                 delete.setVisible(true);
-                checksum.setVisible(true);
             }
 
-            if (item.mission.source != null && !item.mission.source.isEmpty()) {
-                source.setVisible(true);
-            }
 
             popupMenu.show();
         }
 
         private PopupMenu buildPopup(final View button) {
-            PopupMenu popup = new PopupMenu(mContext, button);
+            PopupMenu popup = new PopupMenu(popupContext(mContext), button, android.view.Gravity.END);
             popup.inflate(R.menu.mission);
             popup.setOnMenuItemClickListener(option -> handlePopupItem(this, option));
 

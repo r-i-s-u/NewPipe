@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="contrastColor">@color/white</color>
-    <color name="defaultIconTint">@color/white</color>
+<color name="background">#000000</color>
+<color name="card_background">#1A1A1A</color>
+<color name="contrastColor">@color/white</color>
+<color name="defaultIconTint">@color/white</color>
+<color name="stroke_color">#1effffff</color>
+<color name="m3_primary">#FFFFFF</color>
+<color name="m3_on_primary">#000000</color>
+<color name="m3_primary_container">#424242</color>
+<color name="m3_on_primary_container">#FFFFFF</color>
+<color name="m3_surface">#000000</color>
+<color name="m3_on_surface">#FFFFFF</color>
+<color name="m3_on_surface_variant">#BDBDBD</color>
+<color name="m3_surface_variant">#303030</color>
+<color name="m3_outline">#9E9E9E</color>
 </resources>

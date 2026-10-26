@@ -1,3 +1,0 @@
-Novērsts bezgalīgais nobrukšanas cikls pēc kļūdas ziņotāja atvēršanas.
-Atjaunināts PeerTube serveru (instanču) saraksts, kurus var automātiski atvērt NewPipe
-Atjaunināti tulkojumi.

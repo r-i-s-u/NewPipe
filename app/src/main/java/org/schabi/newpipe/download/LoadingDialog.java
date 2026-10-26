@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.DownloadLoadingDialogBinding;
 
@@ -21,7 +19,7 @@ import org.schabi.newpipe.databinding.DownloadLoadingDialogBinding;
  */
 public class LoadingDialog extends DialogFragment {
     private static final String TAG = "LoadingDialog";
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     private DownloadLoadingDialogBinding dialogLoadingBinding;
     private final @StringRes int title;
 
@@ -67,17 +65,12 @@ public class LoadingDialog extends DialogFragment {
     public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dialogLoadingBinding = DownloadLoadingDialogBinding.bind(view);
-        initToolbar(dialogLoadingBinding.toolbarLayout.toolbar);
+
+if (getDialog() != null && getDialog().getWindow() != null) {
+    getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+}
     }
 
-    private void initToolbar(final Toolbar toolbar) {
-        if (DEBUG) {
-            Log.d(TAG, "initToolbar() called with: toolbar = [" + toolbar + "]");
-        }
-        toolbar.setTitle(requireContext().getString(title));
-        toolbar.setNavigationOnClickListener(v -> dismiss());
-
-    }
 
     @Override
     public void onDestroyView() {

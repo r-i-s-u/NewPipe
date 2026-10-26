@@ -1,1 +1,0 @@
-Dies ist ein Hotfix, der Probleme mit den Live-Streams auf media.ccc.de behebt. Viel Spaß beim Hacken!

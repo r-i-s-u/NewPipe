@@ -1,1 +1,0 @@
-This is a hotfix release fixing live streams for media.ccc.de. Happy Hacking!

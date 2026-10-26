@@ -25,14 +25,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.extractor.Info;
 
 import java.util.Map;
 
 public final class InfoCache {
     private final String TAG = getClass().getSimpleName();
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
     private static final InfoCache INSTANCE = new InfoCache();
     private static final int MAX_ITEMS_ON_CACHE = 60;

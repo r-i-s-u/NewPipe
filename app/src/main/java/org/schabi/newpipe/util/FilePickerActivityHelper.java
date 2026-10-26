@@ -42,6 +42,19 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
             this.setTheme(R.style.FilePickerThemeDark);
         }
         super.onCreate(savedInstanceState);
+
+        final View decor = getWindow().getDecorView();
+        final View content = findViewById(android.R.id.content);
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(decor, (v, insets) -> {
+            final androidx.core.graphics.Insets bars = insets.getInsets(
+                    androidx.core.view.WindowInsetsCompat.Type.systemBars()
+                            | androidx.core.view.WindowInsetsCompat.Type.displayCutout()
+                            | androidx.core.view.WindowInsetsCompat.Type.ime());
+            content.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            return androidx.core.view.WindowInsetsCompat.CONSUMED;
+        });
+        androidx.core.view.ViewCompat.requestApplyInsets(decor);
+
     }
 
     @Override
@@ -75,10 +88,56 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
     //////////////////////////////////////////////////////////////////////////*/
 
     public static class CustomFilePickerFragment extends FilePickerFragment {
+
+        @Override
+        public void onViewCreated(@NonNull final View view,
+                                  @Nullable final Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            androidx.appcompat.widget.Toolbar toolbar = findToolbar(view);
+            if (toolbar == null) {
+                toolbar = findToolbar(requireActivity().findViewById(android.R.id.content));
+            }
+            if (toolbar != null) {
+                toolbar.setNavigationIcon(R.drawable.ic_close);
+                toolbar.setNavigationOnClickListener(v -> {
+                    requireActivity().setResult(android.app.Activity.RESULT_CANCELED);
+                    requireActivity().finish();
+                });
+            }
+        }
+
+        private static androidx.appcompat.widget.Toolbar findToolbar(final View v) {
+            if (v instanceof androidx.appcompat.widget.Toolbar) {
+                return (androidx.appcompat.widget.Toolbar) v;
+            }
+            if (v instanceof ViewGroup) {
+                final ViewGroup group = (ViewGroup) v;
+                for (int i = 0; i < group.getChildCount(); i++) {
+                    final androidx.appcompat.widget.Toolbar found = findToolbar(group.getChildAt(i));
+                    if (found != null) {
+                        return found;
+                    }
+                }
+            }
+            return null;
+        }
         @Override
         public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container,
                                  final Bundle savedInstanceState) {
-            return super.onCreateView(inflater, container, savedInstanceState);
+            final View root = super.onCreateView(inflater, container, savedInstanceState);
+            final View nameView = root.findViewById(
+                    com.nononsenseapps.filepicker.R.id.nnf_text_filename);
+            if (nameView instanceof android.widget.EditText) {
+                final android.widget.EditText nameEdit = (android.widget.EditText) nameView;
+                nameEdit.setSingleLine(false);
+                nameEdit.setHorizontallyScrolling(false);
+                nameEdit.setMaxLines(6);
+                // filenames must not contain line breaks
+                nameEdit.setFilters(new android.text.InputFilter[]{
+                        (src, start, end, dest, ds, de) -> src.toString().contains("\n")
+                                ? src.toString().replace("\n", "") : null});
+            }
+            return root;
         }
 
         @NonNull
@@ -135,6 +194,24 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
         public boolean isBackTop() {
             return compareFiles(mCurrentPath,
                     getBackTop()) == 0 || compareFiles(mCurrentPath, new File("/")) == 0;
+        }
+
+        @Override
+        protected boolean hasPermission(@NonNull final File path) {
+            return android.os.Build.VERSION.SDK_INT >= 30
+                    ? Environment.isExternalStorageManager()
+                    : super.hasPermission(path);
+        }
+
+        @Override
+        protected void handlePermission(@NonNull final File path) {
+            if (android.os.Build.VERSION.SDK_INT >= 30) {
+                startActivity(new android.content.Intent(
+                        android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                        Uri.parse("package:" + requireContext().getPackageName())));
+            } else {
+                super.handlePermission(path);
+            }
         }
 
         @Override

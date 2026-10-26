@@ -3,7 +3,8 @@
 
     <item
         android:id="@+id/okay"
-        android:title="@string/ok"
+        android:title="@string/download"
+        android:icon="@drawable/ic_file_download"
         app:showAsAction="always" />
 
 </menu>

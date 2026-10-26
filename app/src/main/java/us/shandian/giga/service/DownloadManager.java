@@ -284,6 +284,16 @@ public class DownloadManager {
         }
     }
 
+    public boolean renameFinishedMission(final Mission mission, final String newName) {
+        synchronized (this) {
+            if (!mission.storage.rename(newName)) {
+                return false;
+            }
+            mFinishedMissionStore.updateMission(mission);
+            return true;
+        }
+    }
+
     public void deleteMission(Mission mission, boolean alsoDeleteFile) {
         synchronized (this) {
             if (mission instanceof DownloadMission) {

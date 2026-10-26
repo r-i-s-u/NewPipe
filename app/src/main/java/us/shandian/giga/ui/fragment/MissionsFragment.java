@@ -31,7 +31,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nononsenseapps.filepicker.Utils;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.streams.io.NoFileManagerSafeGuard;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
@@ -265,14 +264,14 @@ public class MissionsFragment extends Fragment {
         unsafeMissionTarget = mission;
 
         final Uri initialPath;
-        if (NewPipeSettings.useStorageAccessFramework(mContext)) {
+        if (false) {
             initialPath = null;
         } else {
             final File initialSavePath;
             if (DownloadManager.TAG_AUDIO.equals(mission.storage.getType())) {
-                initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MUSIC);
+                initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MUSIC);
             } else {
-                initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MOVIES);
+                initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MOVIES);
             }
             initialPath = Uri.parse(initialSavePath.getAbsolutePath());
         }

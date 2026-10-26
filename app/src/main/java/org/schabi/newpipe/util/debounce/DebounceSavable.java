@@ -1,6 +1,5 @@
 package org.schabi.newpipe.util.debounce;
 
-import org.schabi.newpipe.error.ErrorInfo;
 
 public interface DebounceSavable {
 
@@ -11,5 +10,4 @@ public interface DebounceSavable {
      */
     void saveImmediate();
 
-    void showError(ErrorInfo errorInfo);
 }

@@ -39,9 +39,8 @@ import androidx.core.content.IntentCompat;
 import androidx.preference.PreferenceManager;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.download.DownloadActivity;
+import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
-import org.schabi.newpipe.player.helper.LockManager;
 import org.schabi.newpipe.streams.io.StoredDirectoryHelper;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
 import org.schabi.newpipe.util.Localization;
@@ -105,9 +104,6 @@ public class DownloadManagerService extends Service {
     private SharedPreferences mPrefs = null;
     private final OnSharedPreferenceChangeListener mPrefChangeListener = this::handlePreferenceChange;
 
-    private boolean mLockAcquired = false;
-    private LockManager mLock = null;
-
     private int downloadFailedNotificationID = DOWNLOADS_NOTIFICATION_ID + 1;
     private Builder downloadFailedNotification = null;
     private final SparseArrayCompat<DownloadMission> mFailedDownloads =
@@ -143,7 +139,7 @@ public class DownloadManagerService extends Service {
 
         mManager = new DownloadManager(this, mHandler, loadMainVideoStorage(), loadMainAudioStorage());
 
-        Intent openDownloadListIntent = new Intent(this, DownloadActivity.class)
+        Intent openDownloadListIntent = new Intent(this, MainActivity.class)
                 .setAction(Intent.ACTION_MAIN);
 
         mOpenDownloadList = PendingIntentCompat.getActivity(this, 0,
@@ -185,7 +181,6 @@ public class DownloadManagerService extends Service {
         handlePreferenceChange(mPrefs, getString(R.string.downloads_maximum_retry));
         handlePreferenceChange(mPrefs, getString(R.string.downloads_queue_limit));
 
-        mLock = new LockManager(this);
     }
 
     @Override
@@ -207,7 +202,7 @@ public class DownloadManagerService extends Service {
                     downloadDoneList.setLength(0);
                 }
                 if (action.equals(ACTION_OPEN_DOWNLOADS_FINISHED)) {
-                    startActivity(new Intent(this, DownloadActivity.class)
+                    startActivity(new Intent(this, MainActivity.class)
                             .setAction(Intent.ACTION_MAIN)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     );
@@ -491,14 +486,7 @@ public class DownloadManagerService extends Service {
     }
 
     private void manageLock(boolean acquire) {
-        if (acquire == mLockAcquired) return;
 
-        if (acquire)
-            mLock.acquireWifiAndCpu();
-        else
-            mLock.releaseWifiAndCpu();
-
-        mLockAcquired = acquire;
     }
 
     private StoredDirectoryHelper loadMainVideoStorage() {

@@ -8,15 +8,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.schabi.newpipe.NewPipeDatabase;
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.database.stream.model.StreamEntity;
-import org.schabi.newpipe.error.ErrorInfo;
-import org.schabi.newpipe.error.ErrorUtil;
-import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
-import org.schabi.newpipe.player.playqueue.SinglePlayQueue;
 
 import java.util.function.Consumer;
 
@@ -46,18 +40,7 @@ public final class SparseItemUtil {
      */
     public static void fetchItemInfoIfSparse(@NonNull final Context context,
                                              @NonNull final StreamInfoItem item,
-                                             @NonNull final Consumer<SinglePlayQueue> callback) {
-        if ((StreamTypeUtil.isLiveStream(item.getStreamType()) || item.getDuration() >= 0)
-                && !isNullOrEmpty(item.getUploaderUrl())) {
-            // if the duration is >= 0 (provided that the item is not a livestream) and there is an
-            // uploader url, probably all info is already there, so there is no need to fetch it
-            callback.accept(new SinglePlayQueue(item));
-            return;
-        }
-
-        // either the duration or the uploader url are not available, so fetch more info
-        fetchStreamInfoAndSaveToDatabase(context, item.getServiceId(), item.getUrl(),
-                streamInfo -> callback.accept(new SinglePlayQueue(streamInfo)));
+                                             @NonNull final Consumer<Object> callback) {
     }
 
     /**
@@ -106,22 +89,9 @@ public final class SparseItemUtil {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(result -> {
-                    // save to database in the background (not on main thread)
-                    Completable.fromAction(() -> NewPipeDatabase.getInstance(context)
-                            .streamDAO().upsert(new StreamEntity(result)))
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(Schedulers.io())
-                            .doOnError(throwable ->
-                                    ErrorUtil.createNotification(context,
-                                            new ErrorInfo(throwable, UserAction.REQUESTED_STREAM,
-                                                    "Saving stream info to database", result)))
-                            .subscribe();
 
                     // call callback on main thread with the obtained result
                     callback.accept(result);
-                }, throwable -> ErrorUtil.createNotification(context,
-                        new ErrorInfo(throwable, UserAction.REQUESTED_STREAM,
-                                "Loading stream info: " + url, serviceId, url)
-                ));
+                }, throwable -> {});
     }
 }

@@ -8,13 +8,6 @@ import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.getSystemService
 import androidx.preference.PreferenceManager
-import coil3.ImageLoader
-import coil3.SingletonImageLoader
-import coil3.network.okhttp.OkHttpNetworkFetcherFactory
-import coil3.request.allowRgb565
-import coil3.request.crossfade
-import coil3.util.DebugLogger
-import com.jakewharton.processphoenix.ProcessPhoenix
 import io.reactivex.rxjava3.exceptions.CompositeException
 import io.reactivex.rxjava3.exceptions.MissingBackpressureException
 import io.reactivex.rxjava3.exceptions.OnErrorNotImplementedException
@@ -24,21 +17,15 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import java.io.IOException
 import java.io.InterruptedIOException
 import java.net.SocketException
-import org.acra.ACRA.init
-import org.acra.ACRA.isACRASenderServiceProcess
-import org.acra.config.CoreConfigurationBuilder
-import org.schabi.newpipe.error.ReCaptchaActivity
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.downloader.Downloader
 import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
 import org.schabi.newpipe.ktx.hasAssignableCause
-import org.schabi.newpipe.settings.NewPipeSettings
+import org.schabi.newpipe.settings.SettingsFragment
 import org.schabi.newpipe.util.BridgeStateSaverInitializer
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.ServiceHelper
 import org.schabi.newpipe.util.StateSaver
-import org.schabi.newpipe.util.image.ImageStrategy
-import org.schabi.newpipe.util.image.PreferredImageQuality
 import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
 
 /*
@@ -59,8 +46,7 @@ import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
  * along with NewPipe.  If not, see <http://www.gnu.org/licenses/>.
  */
 open class App :
-    Application(),
-    SingletonImageLoader.Factory {
+    Application() {
     var isFirstRun = false
         private set
     var notificationsRequested = false
@@ -70,20 +56,10 @@ open class App :
         notificationsRequested = true
     }
 
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        initACRA()
-    }
-
     override fun onCreate() {
         super.onCreate()
 
         instance = this
-
-        if (ProcessPhoenix.isPhoenixProcess(this)) {
-            Log.i(TAG, "This is a phoenix process! Aborting initialization of App[onCreate]")
-            return
-        }
 
         // check if the last used preference version is set
         // to determine whether this is the first app run
@@ -94,7 +70,7 @@ open class App :
         isFirstRun = lastUsedPrefVersion == -1
 
         // Initialize settings first because other initializations can use its values
-        NewPipeSettings.initSettings(this)
+        SettingsFragment.initSettings(this)
 
         NewPipe.init(
             getDownloader(),
@@ -109,31 +85,13 @@ open class App :
 
         ServiceHelper.initServices(this)
 
-        // Initialize image loader
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        ImageStrategy.setPreferredImageQuality(
-            PreferredImageQuality.fromPreferenceKey(
-                this,
-                prefs.getString(
-                    getString(R.string.image_quality_key),
-                    getString(R.string.image_quality_default)
-                )
-            )
-        )
 
         configureRxJavaErrorHandler()
 
         YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
     }
 
-    override fun newImageLoader(context: Context): ImageLoader = ImageLoader
-        .Builder(this)
-        .logger(if (BuildConfig.DEBUG) DebugLogger() else null)
-        .allowRgb565(getSystemService<ActivityManager>()!!.isLowRamDevice)
-        .crossfade(true)
-        .components {
-            add(OkHttpNetworkFetcherFactory(callFactory = DownloaderImpl.getInstance().client))
-        }.build()
 
     protected open fun getDownloader(): Downloader {
         val downloader = DownloaderImpl.init(null)
@@ -144,7 +102,6 @@ open class App :
     protected fun setCookiesToDownloader(downloader: DownloaderImpl) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val key = getString(R.string.recaptcha_cookies_key)
-        downloader.setCookie(ReCaptchaActivity.RECAPTCHA_COOKIES_KEY, prefs.getString(key, null))
         downloader.updateYoutubeRestrictedModeCookies(this)
     }
 
@@ -214,21 +171,6 @@ open class App :
                 }
             }
         )
-    }
-
-    /**
-     * Called in [.attachBaseContext] after calling the `super` method.
-     * Should be overridden if MultiDex is enabled, since it has to be initialized before ACRA.
-     */
-    protected fun initACRA() {
-        if (isACRASenderServiceProcess()) {
-            return
-        }
-
-        val acraConfig =
-            CoreConfigurationBuilder()
-                .withBuildConfigClass(BuildConfig::class.java)
-        init(this, acraConfig)
     }
 
     private fun initNotificationChannels() {

@@ -1,7 +1,5 @@
 package org.schabi.newpipe.util.debounce;
 
-import org.schabi.newpipe.error.ErrorInfo;
-import org.schabi.newpipe.error.UserAction;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -65,9 +63,7 @@ public class DebounceSaver {
         return debouncedSaveSignal
                 .debounce(saveDebounceMillis, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(ignored -> debounceSavable.saveImmediate(), throwable ->
-                        debounceSavable.showError(new ErrorInfo(throwable,
-                                UserAction.SOMETHING_ELSE, "Debounced saver")));
+                .subscribe(ignored -> debounceSavable.saveImmediate(), throwable -> {});
     }
 
     public void setHasChangesToSave() {

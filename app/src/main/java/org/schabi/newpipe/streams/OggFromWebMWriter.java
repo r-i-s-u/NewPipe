@@ -1,6 +1,6 @@
 package org.schabi.newpipe.streams;
 
-import static org.schabi.newpipe.MainActivity.DEBUG;
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 
 import android.util.Log;
 import android.util.Pair;
@@ -63,6 +63,7 @@ public class OggFromWebMWriter implements Closeable {
 
     private final int[] crc32Table = new int[256];
     private final StreamInfo streamInfo;
+    private byte[] coverImage = null;
 
     public OggFromWebMWriter(@NonNull final SharpStream source, @NonNull final SharpStream target,
                              @Nullable final StreamInfo streamInfo) {
@@ -195,7 +196,9 @@ public class OggFromWebMWriter implements Closeable {
 
         /* step 3: create packet with metadata */
         final byte[] buffer = makeMetadata();
-        if (buffer != null) {
+        if (buffer != null && buffer.length > 60000) {
+            writeLargePacket(buffer);
+        } else if (buffer != null) {
             addPacketSegment(buffer.length);
             makePacketheader(0x00, header, buffer);
             write(header);
@@ -308,6 +311,11 @@ public class OggFromWebMWriter implements Closeable {
                 });
             }
 
+            final String picture = makePictureTag(coverImage);
+            if (picture != null) {
+                metadata.add(Pair.create("METADATA_BLOCK_PICTURE", picture));
+            }
+
             return makeOpusTagsHeader(metadata);
         } else if ("A_VORBIS".equals(webmTrack.codecId)) {
             return new byte[]{
@@ -373,6 +381,85 @@ public class OggFromWebMWriter implements Closeable {
         tags.forEach(head::put); // dynamic amount of tag bytes
 
         return head.array();
+    }
+
+    public void setCover(@Nullable final byte[] image) {
+        coverImage = image;
+    }
+
+    /** FLAC picture block, base64 encoded, as used by the METADATA_BLOCK_PICTURE tag. */
+    @Nullable
+    private static String makePictureTag(@Nullable final byte[] image) {
+        if (image == null || image.length < 16 || image.length > 3_000_000) {
+            return null;
+        }
+        final boolean jpeg = (image[0] & 0xFF) == 0xFF && (image[1] & 0xFF) == 0xD8;
+        final boolean png = (image[0] & 0xFF) == 0x89 && image[1] == 'P';
+        if (!jpeg && !png) {
+            return null;
+        }
+        final byte[] mime = (jpeg ? "image/jpeg" : "image/png")
+                .getBytes(java.nio.charset.StandardCharsets.US_ASCII);
+
+        final android.graphics.BitmapFactory.Options opts =
+                new android.graphics.BitmapFactory.Options();
+        opts.inJustDecodeBounds = true;
+        android.graphics.BitmapFactory.decodeByteArray(image, 0, image.length, opts);
+
+        final ByteBuffer b = ByteBuffer.allocate(32 + mime.length + image.length);
+        b.putInt(3); // front cover
+        b.putInt(mime.length);
+        b.put(mime);
+        b.putInt(0); // empty description
+        b.putInt(Math.max(opts.outWidth, 0));
+        b.putInt(Math.max(opts.outHeight, 0));
+        b.putInt(24); // color depth
+        b.putInt(0); // not indexed
+        b.putInt(image.length);
+        b.put(image);
+        return android.util.Base64.encodeToString(b.array(), 0, b.position(),
+                android.util.Base64.NO_WRAP);
+    }
+
+    /** Writes one packet that may span several Ogg pages (used for big OpusTags). */
+    private void writeLargePacket(final byte[] data) throws IOException {
+        int offset = 0;
+        boolean continued = false;
+
+        while (true) {
+            final int remaining = data.length - offset;
+            final boolean last = remaining < 255 * 255;
+            final int chunk = last ? remaining : 255 * 255;
+            final int segCount = last ? remaining / 255 + 1 : 255;
+
+            final ByteBuffer hdr = ByteBuffer.allocate(HEADER_SIZE + segCount);
+            hdr.order(ByteOrder.LITTLE_ENDIAN);
+            hdr.putInt(0x5367674f); // "OggS"
+            hdr.put((byte) 0x00); // version
+            hdr.put(continued ? (byte) 0x01 : FLAG_UNSET);
+            hdr.putLong(last ? 0L : -1L); // granule position
+            hdr.putInt(streamId);
+            hdr.putInt(sequenceCount++);
+            hdr.putInt(0x00); // checksum placeholder
+            hdr.put((byte) segCount);
+            for (int i = 0; i < segCount; i++) {
+                hdr.put((byte) (last && i == segCount - 1 ? remaining % 255 : 255));
+            }
+
+            final byte[] part = java.util.Arrays.copyOfRange(data, offset, offset + chunk);
+            int crc = calcCrc32(0x00, hdr.array(), hdr.position());
+            crc = calcCrc32(crc, part, part.length);
+            hdr.putInt(HEADER_CHECKSUM_OFFSET, crc);
+
+            output.write(hdr.array(), 0, hdr.position());
+            output.write(part, 0, part.length);
+
+            offset += chunk;
+            if (last) {
+                break;
+            }
+            continued = true;
+        }
     }
 
     private void write(final ByteBuffer buffer) throws IOException {

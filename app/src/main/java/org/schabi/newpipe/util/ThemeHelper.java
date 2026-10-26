@@ -23,25 +23,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.util.TypedValue;
 
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
 
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.StreamingService;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
-import org.schabi.newpipe.info_list.ItemViewMode;
 
 public final class ThemeHelper {
     private ThemeHelper() {
@@ -102,18 +95,6 @@ public final class ThemeHelper {
     }
 
     /**
-     * Return a min-width dialog theme styled according to the (default) selected theme.
-     *
-     * @param context context to get the selected theme
-     * @return the dialog style (the default one)
-     */
-    @StyleRes
-    public static int getMinWidthDialogTheme(final Context context) {
-        return isLightThemeSelected(context) ? R.style.LightDialogMinWidthTheme
-                : R.style.DarkDialogMinWidthTheme;
-    }
-
-    /**
      * Return the selected theme styled according to the serviceId.
      *
      * @param context   context to get the selected theme
@@ -129,7 +110,6 @@ public final class ThemeHelper {
         final String automaticDeviceThemeKey = res.getString(R.string.auto_device_theme_key);
 
         final String selectedThemeKey = getSelectedThemeKey(context);
-
 
         int baseTheme = R.style.DarkTheme; // default to dark theme
         if (selectedThemeKey.equals(lightThemeKey)) {
@@ -186,7 +166,6 @@ public final class ThemeHelper {
         final String blackTheme = res.getString(R.string.black_theme_key);
         final String automaticDeviceTheme = res.getString(R.string.auto_device_theme_key);
 
-
         final String selectedTheme = getSelectedThemeKey(context);
 
         if (selectedTheme.equals(lightTheme)) {
@@ -210,54 +189,6 @@ public final class ThemeHelper {
             // default to dark theme
             return R.style.DarkSettingsTheme;
         }
-    }
-
-    /**
-     * Get a color from an attr styled according to the context's theme.
-     *
-     * @param context   Android app context
-     * @param attrColor attribute reference of the resource
-     * @return the color
-     */
-    public static int resolveColorFromAttr(final Context context, @AttrRes final int attrColor) {
-        final TypedValue value = new TypedValue();
-        context.getTheme().resolveAttribute(attrColor, value, true);
-
-        if (value.resourceId != 0) {
-            return ContextCompat.getColor(context, value.resourceId);
-        }
-
-        return value.data;
-    }
-
-    /**
-     * Resolves a {@link Drawable} by it's id.
-     *
-     * @param context   Context
-     * @param attrResId Resource id
-     * @return the {@link Drawable}
-     */
-    public static Drawable resolveDrawable(@NonNull final Context context,
-                                           @AttrRes final int attrResId) {
-        final TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(attrResId, typedValue, true);
-        return AppCompatResources.getDrawable(context, typedValue.resourceId);
-    }
-
-    /**
-     * Gets a runtime dimen from the {@code android} package. Should be used for dimens for which
-     * normal accessing with {@code R.dimen.} is not available.
-     *
-     * @param context context
-     * @param name    dimen resource name (e.g. navigation_bar_height)
-     * @return the obtained dimension, in pixels, or 0 if the resource could not be resolved
-     */
-    public static int getAndroidDimenPx(@NonNull final Context context, final String name) {
-        final int resId = context.getResources().getIdentifier(name, "dimen", "android");
-        if (resId <= 0) {
-            return 0;
-        }
-        return context.getResources().getDimensionPixelSize(resId);
     }
 
     private static String getSelectedThemeKey(final Context context) {
@@ -330,86 +261,6 @@ public final class ThemeHelper {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         }
-    }
-
-    /**
-     * Returns whether the grid layout or the list layout should be used. If the user set "auto"
-     * mode in settings, decides based on screen orientation (landscape) and size.
-     *
-     * @param context the context to use
-     * @return true:use grid layout, false:use list layout
-     */
-    public static boolean shouldUseGridLayout(final Context context) {
-        final ItemViewMode mode = getItemViewMode(context);
-        return mode == ItemViewMode.GRID;
-    }
-
-    /**
-     * Calculates the number of grid channel info items that can fit horizontally on the screen.
-     *
-     * @param context the context to use
-     * @return the span count of grid channel info items
-     */
-    public static int getGridSpanCountChannels(final Context context) {
-        return getGridSpanCount(context,
-                context.getResources().getDimensionPixelSize(R.dimen.channel_item_grid_min_width));
-    }
-
-    /**
-     * Returns item view mode.
-     * @param context to read preference and parse string
-     * @return Returns one of ItemViewMode
-     */
-    public static ItemViewMode getItemViewMode(final Context context) {
-        final String listMode = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.list_view_mode_key),
-                        context.getString(R.string.list_view_mode_value));
-        final ItemViewMode result;
-        if (listMode.equals(context.getString(R.string.list_view_mode_list_key))) {
-            result = ItemViewMode.LIST;
-        } else if (listMode.equals(context.getString(R.string.list_view_mode_grid_key))) {
-            result = ItemViewMode.GRID;
-        } else if (listMode.equals(context.getString(R.string.list_view_mode_card_key))) {
-            result = ItemViewMode.CARD;
-        } else {
-            // Auto mode - evaluate whether to use Grid based on screen real estate.
-            final Configuration configuration = context.getResources().getConfiguration();
-            final boolean useGrid = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-                    && configuration.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
-            if (useGrid) {
-                result = ItemViewMode.GRID;
-            } else {
-                result = ItemViewMode.LIST;
-            }
-        }
-        return result;
-    }
-
-    /**
-     * Calculates the number of grid stream info items that can fit horizontally on the screen. The
-     * width of a grid stream info item is obtained from the thumbnail width plus the right and left
-     * paddings.
-     *
-     * @param context the context to use
-     * @return the span count of grid stream info items
-     */
-    public static int getGridSpanCountStreams(final Context context) {
-        final Resources res = context.getResources();
-        return getGridSpanCount(context,
-                res.getDimensionPixelSize(R.dimen.video_item_grid_thumbnail_image_width)
-                        + res.getDimensionPixelSize(R.dimen.video_item_search_padding) * 2);
-    }
-
-    /**
-     * Calculates the number of grid items that can fit horizontally on the screen based on the
-     * minimum width.
-     *
-     * @param context the context to use
-     * @param minWidth the minimum width of items in the grid
-     * @return the span count of grid list items
-     */
-    public static int getGridSpanCount(final Context context, final int minWidth) {
-        return Math.max(1, context.getResources().getDisplayMetrics().widthPixels / minWidth);
     }
 
     @StyleRes

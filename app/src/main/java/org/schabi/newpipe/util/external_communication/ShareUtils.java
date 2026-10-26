@@ -1,7 +1,6 @@
 package org.schabi.newpipe.util.external_communication;
 
-import static org.schabi.newpipe.MainActivity.DEBUG;
-import static coil3.Image_androidKt.toBitmap;
+import static org.schabi.newpipe.BuildConfig.DEBUG;
 
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -26,15 +25,11 @@ import org.schabi.newpipe.BuildConfig;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.RouterActivity;
 import org.schabi.newpipe.extractor.Image;
-import org.schabi.newpipe.util.image.ImageStrategy;
 
 import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
-import coil3.SingletonImageLoader;
-import coil3.disk.DiskCache;
-import coil3.memory.MemoryCache;
 
 public final class ShareUtils {
     private static final String TAG = ShareUtils.class.getSimpleName();
@@ -251,8 +246,7 @@ public final class ShareUtils {
         // See https://developer.android.com/training/sharing/send#adding-rich-content-previews
         // If loading of images has been disabled, don't try to generate a content preview
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-                && !TextUtils.isEmpty(imagePreviewUrl)
-                && ImageStrategy.shouldLoadImages()) {
+                && !TextUtils.isEmpty(imagePreviewUrl)) {
 
             final ClipData clipData = generateClipDataForImagePreview(context, imagePreviewUrl);
             if (clipData != null) {
@@ -270,21 +264,21 @@ public final class ShareUtils {
      * <p>
      * For Android 10+ users, a content preview is shown, which includes the title of the shared
      * content and an image preview the content, if the preferred image chosen by {@link
-     * ImageStrategy#choosePreferredImage(List)} is in the image cache.
+     * the first image} is in the image cache.
      * </p>
      *
      * @param context the context to use
      * @param title   the title of the content
      * @param content the content to share
      * @param images  a set of possible {@link Image}s of the subject, among which to choose with
-     *                {@link ImageStrategy#choosePreferredImage(List)} since that's likely to
+     *                the first image since that's likely to
      *                provide an image that is in Coil's cache
      */
     public static void shareText(@NonNull final Context context,
                                  @NonNull final String title,
                                  final String content,
                                  final List<Image> images) {
-        shareText(context, title, content, ImageStrategy.choosePreferredImage(images));
+        shareText(context, title, content, (images == null || images.isEmpty() ? null : images.get(0).getUrl()));
     }
 
     /**
@@ -373,22 +367,7 @@ public final class ShareUtils {
             // Save the image in memory to the application's cache because we need a URI to the
             // image to generate a ClipData which will show the share sheet, and so an image file
             final Context applicationContext = context.getApplicationContext();
-            final var loader = SingletonImageLoader.get(context);
-            final var value = loader.getMemoryCache()
-                    .get(new MemoryCache.Key(thumbnailUrl, Collections.emptyMap()));
-
-            final Bitmap cachedBitmap;
-            if (value != null) {
-                cachedBitmap = toBitmap(value.getImage());
-            } else {
-                try (var snapshot = loader.getDiskCache().openSnapshot(thumbnailUrl)) {
-                    if (snapshot != null) {
-                        cachedBitmap = BitmapFactory.decodeFile(snapshot.getData().toString());
-                    } else {
-                        cachedBitmap = null;
-                    }
-                }
-            }
+            final Bitmap cachedBitmap = null;
 
             if (cachedBitmap == null) {
                 return null;

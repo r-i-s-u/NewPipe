@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto">
 
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,7 +13,6 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <!-- We need to be able to open links in the browser on API 30+ -->
     <queries>
@@ -31,12 +32,10 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:banner="@mipmap/newpipe_tv_banner"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:logo="@mipmap/ic_launcher"
         android:resizeableActivity="true"
-        android:theme="@style/OpeningTheme"
         tools:ignore="AllowBackup">
         <activity
             android:name=".MainActivity"
@@ -51,14 +50,6 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name="androidx.media.session.MediaButtonReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-        </receiver>
-
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
             android:enabled="false"
@@ -67,73 +58,16 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
-        <service
-            android:name=".player.PlayerService"
-            android:exported="true"
-            android:foregroundServiceType="mediaPlayback">
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService"/>
-            </intent-filter>
-        </service>
-
-        <activity
-            android:name=".player.PlayQueueActivity"
-            android:exported="false"
-            android:label="@string/title_activity_play_queue"
-            android:launchMode="singleTask" />
-
+   
         <activity
             android:name=".settings.SettingsActivity"
             android:exported="false"
             android:label="@string/settings" />
 
-        <activity
-            android:name=".about.AboutActivity"
-            android:exported="false"
-            android:label="@string/title_activity_about" />
 
-        <service
-            android:name=".local.feed.service.FeedLoadService"
-            android:foregroundServiceType="dataSync" />
 
-        <service
-            android:name="androidx.work.impl.foreground.SystemForegroundService"
-            android:foregroundServiceType="dataSync"
-            tools:node="merge" />
-
-        <activity
-            android:name=".PanicResponderActivity"
-            android:exported="true"
-            android:launchMode="singleInstance"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="info.guardianproject.panic.action.TRIGGER" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".ExitActivity"
-            android:exported="false"
-            android:label="@string/general_error"
-            android:theme="@android:style/Theme.NoDisplay" />
-
-        <activity
-            android:name=".error.ErrorActivity"
-            android:exported="false" />
-
+        
         <!-- giga get related -->
-        <activity
-            android:name=".download.DownloadActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:launchMode="singleTask" />
 
         <service android:name="us.shandian.giga.service.DownloadManagerService"
             android:foregroundServiceType="dataSync" />
@@ -148,11 +82,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".error.ReCaptchaActivity"
-            android:exported="false"
-            android:label="@string/recaptcha" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -388,9 +317,6 @@
             </intent-filter>
 
         </activity>
-        <service
-            android:name=".RouterActivity$FetcherService"
-            android:foregroundServiceType="dataSync"
             android:exported="false" />
 
         <!-- opting out of sending metrics to Google in Android System WebView -->
@@ -406,10 +332,13 @@
         <meta-data
             android:name="com.samsung.android.multidisplay.keep_process_alive"
             android:value="true" />
-        <!-- Android Auto -->
-        <meta-data android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc" />
-        <meta-data android:name="com.google.android.gms.car.notification.SmallIcon"
-            android:resource="@mipmap/ic_launcher" />
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                tools:node="remove" />
+        </provider>
     </application>
 </manifest>

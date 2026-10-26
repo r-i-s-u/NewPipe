@@ -1,35 +1,25 @@
 package us.shandian.giga.util;
 
-import android.content.Context;
 import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
 import android.util.Log;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
-import com.google.android.exoplayer2.util.Util;
 
 import org.schabi.newpipe.R;
-import org.schabi.newpipe.streams.io.SharpInputStream;
-import org.schabi.newpipe.streams.io.StoredFileHelper;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.util.Locale;
 
-import okio.ByteString;
 
 public class Utility {
 
@@ -137,46 +127,7 @@ public class Utility {
         return FileType.UNKNOWN;
     }
 
-    @ColorInt
-    public static int getBackgroundForFileType(Context ctx, FileType type) {
-        int colorRes;
-        switch (type) {
-            case MUSIC:
-                colorRes = R.color.audio_left_to_load_color;
-                break;
-            case VIDEO:
-                colorRes = R.color.video_left_to_load_color;
-                break;
-            case SUBTITLE:
-                colorRes = R.color.subtitle_left_to_load_color;
-                break;
-            default:
-                colorRes = R.color.gray;
-        }
 
-        return ContextCompat.getColor(ctx, colorRes);
-    }
-
-    @ColorInt
-    public static int getForegroundForFileType(Context ctx, FileType type) {
-        int colorRes;
-        switch (type) {
-            case MUSIC:
-                colorRes = R.color.audio_already_load_color;
-                break;
-            case VIDEO:
-                colorRes = R.color.video_already_load_color;
-                break;
-            case SUBTITLE:
-                colorRes = R.color.subtitle_already_load_color;
-                break;
-            default:
-                colorRes = R.color.gray;
-                break;
-        }
-
-        return ContextCompat.getColor(ctx, colorRes);
-    }
 
     @DrawableRes
     public static int getIconForFileType(FileType type) {
@@ -191,19 +142,6 @@ public class Utility {
         }
     }
 
-    public static String checksum(final StoredFileHelper source, final int algorithmId)
-            throws IOException {
-        ByteString byteString;
-        try (var inputStream = new SharpInputStream(source.getStream())) {
-            byteString = ByteString.of(Util.toByteArray(inputStream));
-        }
-        if (algorithmId == R.id.md5) {
-            byteString = byteString.md5();
-        } else if (algorithmId == R.id.sha1) {
-            byteString = byteString.sha1();
-        }
-        return byteString.hex();
-    }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static boolean mkdir(File p, boolean allDirs) {

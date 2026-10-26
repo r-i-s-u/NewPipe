@@ -15,8 +15,6 @@ import androidx.documentfile.provider.DocumentFile;
 
 import com.nononsenseapps.filepicker.Utils;
 
-import org.schabi.newpipe.MainActivity;
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.util.FilePickerActivityHelper;
 
 import java.io.File;
@@ -31,7 +29,32 @@ import us.shandian.giga.io.FileStream;
 import us.shandian.giga.io.FileStreamSAF;
 
 public class StoredFileHelper implements Serializable {
-    private static final boolean DEBUG = MainActivity.DEBUG;
+
+    public boolean rename(final String newName) {
+        if (source == null || newName == null || newName.isEmpty()) {
+            return false;
+        }
+        try {
+            if (docFile == null) {
+                if (ioPath == null) {
+                    return false;
+                }
+                final Path dest = ioPath.resolveSibling(newName);
+                if (Files.exists(dest)) {
+                    return false;
+                }
+                ioPath = Files.move(ioPath, dest);
+            } else if (!docFile.renameTo(newName)) {
+                return false;
+            }
+        } catch (final Exception e) {
+            return false;
+        }
+        source = getUri().toString();
+        srcName = newName;
+        return true;
+    }
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
     private static final String TAG = StoredFileHelper.class.getSimpleName();
 
     private static final long serialVersionUID = 0L;
@@ -483,7 +506,7 @@ public class StoredFileHelper implements Serializable {
 
     public static Intent getPicker(@NonNull final Context ctx,
                                    @NonNull final String mimeType) {
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             return new Intent(Intent.ACTION_OPEN_DOCUMENT)
                     .putExtra("android.content.extra.SHOW_ADVANCED", true)
                     .setType(mimeType)
@@ -511,7 +534,7 @@ public class StoredFileHelper implements Serializable {
                                       @NonNull final String mimeType,
                                       @Nullable final Uri initialPath) {
         final Intent i;
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             i = new Intent(Intent.ACTION_CREATE_DOCUMENT)
                     .putExtra("android.content.extra.SHOW_ADVANCED", true)
                     .setType(mimeType)
@@ -537,7 +560,7 @@ public class StoredFileHelper implements Serializable {
                                                          @Nullable final Uri initialPath,
                                                          @Nullable final String filename) {
 
-        if (NewPipeSettings.useStorageAccessFramework(ctx)) {
+        if (false) {
             if (initialPath == null) {
                 return intent; // nothing to do, no initial path provided
             }

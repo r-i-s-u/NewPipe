@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -35,19 +37,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.collection.SparseArrayCompat;
 import androidx.documentfile.provider.DocumentFile;
-import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
 import com.evernote.android.state.State;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.livefront.bridge.Bridge;
 import com.nononsenseapps.filepicker.Utils;
 
-import org.schabi.newpipe.MainActivity;
 import org.schabi.newpipe.R;
 import org.schabi.newpipe.databinding.DownloadDialogBinding;
-import org.schabi.newpipe.error.ErrorInfo;
-import org.schabi.newpipe.error.ErrorUtil;
-import org.schabi.newpipe.error.UserAction;
 import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.localization.Localization;
@@ -56,7 +54,6 @@ import org.schabi.newpipe.extractor.stream.Stream;
 import org.schabi.newpipe.extractor.stream.StreamInfo;
 import org.schabi.newpipe.extractor.stream.SubtitlesStream;
 import org.schabi.newpipe.extractor.stream.VideoStream;
-import org.schabi.newpipe.settings.NewPipeSettings;
 import org.schabi.newpipe.streams.io.NoFileManagerSafeGuard;
 import org.schabi.newpipe.streams.io.StoredDirectoryHelper;
 import org.schabi.newpipe.streams.io.StoredFileHelper;
@@ -70,7 +67,6 @@ import org.schabi.newpipe.util.SecondaryStreamHelper;
 import org.schabi.newpipe.util.SimpleOnSeekBarChangeListener;
 import org.schabi.newpipe.util.StreamItemAdapter;
 import org.schabi.newpipe.util.StreamItemAdapter.StreamInfoWrapper;
-import org.schabi.newpipe.util.ThemeHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -88,10 +84,10 @@ import us.shandian.giga.service.DownloadManagerService;
 import us.shandian.giga.service.DownloadManagerService.DownloadManagerBinder;
 import us.shandian.giga.service.MissionState;
 
-public class DownloadDialog extends DialogFragment
+public class DownloadDialog extends BottomSheetDialogFragment
         implements RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
     private static final String TAG = "DialogFragment";
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = org.schabi.newpipe.BuildConfig.DEBUG;
 
     @State
     StreamInfo currentInfo;
@@ -113,9 +109,13 @@ public class DownloadDialog extends DialogFragment
     private StoredDirectoryHelper mainStorageAudio = null;
     private StoredDirectoryHelper mainStorageVideo = null;
     private DownloadManager downloadManager = null;
-    private MenuItem okButton = null;
+    private View okButton = null;
     private Context context = null;
     private boolean askForSavePath;
+    private boolean languageOpen = false;
+    private boolean sectionOpen = true;
+    private boolean threadsOpen = true;
+    private boolean filenameOpen = true;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -212,7 +212,7 @@ public class DownloadDialog extends DialogFragment
         // dialog is being dismissed in onViewCreated()
         context = getContext();
 
-        setStyle(STYLE_NO_TITLE, ThemeHelper.getDialogTheme(context));
+        setStyle(STYLE_NORMAL, R.style.DownloadSheetTheme);
         Bridge.restoreInstanceState(this, savedInstanceState);
 
         this.audioTrackAdapter = new AudioTrackAdapter(wrappedAudioTracks);
@@ -306,12 +306,18 @@ public class DownloadDialog extends DialogFragment
         selectedSubtitleIndex = getSubtitleIndexBy(subtitleStreamsAdapter.getAll());
 
         dialogBinding.qualitySpinner.setOnItemSelectedListener(this);
+        bindList(dialogBinding.qualitySpinner);
+        bindList(dialogBinding.audioStreamSpinner);
         dialogBinding.audioStreamSpinner.setOnItemSelectedListener(this);
         dialogBinding.audioTrackSpinner.setOnItemSelectedListener(this);
-        dialogBinding.videoAudioGroup.setOnCheckedChangeListener(this);
+        dialogBinding.videoAudioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            onCheckedChanged(group, checkedId);
+            applySections();
+        });
 
-        initToolbar(dialogBinding.toolbarLayout.toolbar);
+        initButtons();
         setupDownloadOptions();
+        initSections();
 
         prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
 
@@ -333,27 +339,174 @@ public class DownloadDialog extends DialogFragment
         fetchStreamsSize();
     }
 
-    private void initToolbar(final Toolbar toolbar) {
-        if (DEBUG) {
-            Log.d(TAG, "initToolbar() called with: toolbar = [" + toolbar + "]");
+    private void initButtons() {
+        okButton = dialogBinding.downloadButton;
+        okButton.setEnabled(false); // disable until the download service connection is done
+        dialogBinding.cancelButton.setOnClickListener(v -> dismiss());
+        dialogBinding.downloadButton.setOnClickListener(v -> prepareSelectedDownload());
+    }
+
+    private void initSections() {
+        dialogBinding.videoHeader.setVisibility(
+                videoStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
+        dialogBinding.audioHeader.setVisibility(
+                audioStreamsAdapter.getCount() > 0 ? View.VISIBLE : View.GONE);
+        dialogBinding.captionsHeader.setVisibility(View.GONE);
+        dialogBinding.captionsSpinner.setVisibility(View.GONE);
+        if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
+                == R.id.subtitle_button) {
+            dialogBinding.videoAudioGroup.check(videoStreamsAdapter.getCount() > 0
+                    ? R.id.video_button : R.id.audio_button);
         }
 
-        toolbar.setTitle(R.string.download_dialog_title);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        toolbar.inflateMenu(R.menu.dialog_url);
-        toolbar.setNavigationOnClickListener(v -> dismiss());
-        toolbar.setNavigationContentDescription(R.string.cancel);
-
-        okButton = toolbar.getMenu().findItem(R.id.okay);
-        okButton.setEnabled(false); // disable until the download service connection is done
-
-        toolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.okay) {
-                prepareSelectedDownload();
-                return true;
-            }
-            return false;
+        dialogBinding.videoHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.video_button));
+        dialogBinding.audioHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.audio_button));
+        dialogBinding.captionsHeader.setOnClickListener(
+                v -> onSectionHeaderClicked(R.id.subtitle_button));
+        dialogBinding.langHeader.setOnClickListener(v -> {
+            languageOpen = !languageOpen;
+            applySections();
         });
+        dialogBinding.threadsHeader.setOnClickListener(v -> {
+            threadsOpen = !threadsOpen;
+            applySections();
+        });
+        dialogBinding.filenameHeader.setOnClickListener(v -> {
+            filenameOpen = !filenameOpen;
+            applySections();
+        });
+
+        dialogBinding.captionsSpinner.setOnItemClickListener((parent, v, pos, id) -> {
+            selectedSubtitleIndex = pos;
+            dialogBinding.captionsSpinner.setItemChecked(pos, true);
+            ((BaseAdapter) dialogBinding.captionsSpinner.getAdapter()).notifyDataSetChanged();
+            syncRadios(dialogBinding.captionsSpinner);
+        });
+        dialogBinding.audioTrackSpinner.setOnItemClickListener((parent, v, pos, id) -> {
+            dialogBinding.audioTrackSpinner.setItemChecked(pos, true);
+            syncRadios(dialogBinding.audioTrackSpinner);
+            onItemSelected(parent, v, pos, id);
+        });
+        applySections();
+    }
+
+    private void onSectionHeaderClicked(@IdRes final int id) {
+        final boolean sameMode =
+                dialogBinding.videoAudioGroup.getCheckedRadioButtonId() == id;
+        if (sameMode && !languageOpen) {
+            sectionOpen = !sectionOpen;
+        } else {
+            sectionOpen = true;
+            languageOpen = false;
+            dialogBinding.videoAudioGroup.check(id);
+        }
+        applySections();
+    }
+
+    private boolean isLanguageAvailable() {
+        if (wrappedAudioTracks == null || wrappedAudioTracks.size() <= 1) {
+            return false;
+        }
+        final int checked = dialogBinding.videoAudioGroup.getCheckedRadioButtonId();
+        if (checked == R.id.video_button) {
+            return videoStreamsAdapter != null
+                    && selectedVideoIndex >= 0
+                    && selectedVideoIndex < videoStreamsAdapter.getCount()
+                    && videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
+        }
+        return true;
+    }
+
+    private void applySections() {
+        if (dialogBinding == null) {
+            return;
+        }
+        final int checked = dialogBinding.videoAudioGroup.getCheckedRadioButtonId();
+        final boolean video = checked == R.id.video_button;
+        final boolean audio = checked == R.id.audio_button;
+        final boolean captions = checked == R.id.subtitle_button;
+        final boolean langAvailable = isLanguageAvailable();
+        if (!langAvailable) {
+            languageOpen = false;
+        }
+        final boolean lang = languageOpen;
+        final boolean show = sectionOpen && !lang;
+
+        dialogBinding.qualitySpinner.setVisibility(
+                video && show ? View.VISIBLE : View.GONE);
+        dialogBinding.audioStreamSpinner.setVisibility(
+                audio && show ? View.VISIBLE : View.GONE);
+        dialogBinding.captionsSpinner.setVisibility(
+                captions && show ? View.VISIBLE : View.GONE);
+        dialogBinding.langHeader.setVisibility(langAvailable ? View.VISIBLE : View.GONE);
+        dialogBinding.audioTrackSpinner.setVisibility(
+                langAvailable && lang ? View.VISIBLE : View.GONE);
+        dialogBinding.audioTrackPresentInVideoText.setVisibility(
+                video && wrappedAudioTracks.size() > 1 && !langAvailable
+                        ? View.VISIBLE : View.GONE);
+
+        dialogBinding.videoChevron.setImageResource(
+                video && show ? R.drawable.chev_up : R.drawable.chev_down);
+        dialogBinding.audioChevron.setImageResource(
+                audio && show ? R.drawable.chev_up : R.drawable.chev_down);
+        dialogBinding.captionsChevron.setImageResource(
+                captions && show ? R.drawable.chev_up : R.drawable.chev_down);
+        dialogBinding.langChevron.setImageResource(
+                lang ? R.drawable.chev_up : R.drawable.chev_down);
+
+        dialogBinding.fileName.setVisibility(filenameOpen ? View.VISIBLE : View.GONE);
+        dialogBinding.filenameChevron.setImageResource(
+                filenameOpen ? R.drawable.chev_up : R.drawable.chev_down);
+
+        final boolean hideThreads = captions || lang;
+        dialogBinding.threadsHeader.setVisibility(hideThreads ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsLayout.setVisibility(
+                hideThreads || !threadsOpen ? View.GONE : View.VISIBLE);
+        dialogBinding.threadsChevron.setImageResource(
+                threadsOpen ? R.drawable.chev_up : R.drawable.chev_down);
+    }
+
+    private void syncRadios(final ListView list) {
+        list.post(() -> {
+            for (int i = 0; i < list.getChildCount(); i++) {
+                final View r = list.getChildAt(i).findViewById(R.id.stream_radio);
+                if (r instanceof android.widget.Checkable) {
+                    ((android.widget.Checkable) r).setChecked(
+                            list.isItemChecked(list.getFirstVisiblePosition() + i));
+                }
+            }
+        });
+    }
+
+    private void bindList(final ListView list) {
+        list.setOnItemClickListener((parent, v, pos, id) -> {
+            list.setItemChecked(pos, true);
+            ((BaseAdapter) list.getAdapter()).notifyDataSetChanged();
+            syncRadios(list);
+            onItemSelected(parent, v, pos, id);
+        });
+    }
+
+    private void fitList(final ListView list) {
+        final int count = list.getAdapter() == null ? 0 : list.getAdapter().getCount();
+        final ViewGroup.LayoutParams lp = list.getLayoutParams();
+        lp.height = count * (int) (48 * getResources().getDisplayMetrics().density);
+        list.setLayoutParams(lp);
+        syncRadios(list);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getDialog() instanceof com.google.android.material.bottomsheet.BottomSheetDialog) {
+            final var behavior = ((com.google.android.material.bottomsheet.BottomSheetDialog)
+                    getDialog()).getBehavior();
+            behavior.setState(
+                    com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
+            behavior.setSkipCollapsed(true);
+        }
     }
 
     @Override
@@ -387,27 +540,21 @@ public class DownloadDialog extends DialogFragment
                             == R.id.video_button) {
                         setupVideoSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading video stream size", currentInfo))));
+                }, throwable -> {}));
         disposables.add(StreamInfoWrapper.fetchMoreInfoForWrapper(getWrappedAudioStreams())
                 .subscribe(result -> {
                     if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
                             == R.id.audio_button) {
                         setupAudioSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading audio stream size", currentInfo))));
+                }, throwable -> {}));
         disposables.add(StreamInfoWrapper.fetchMoreInfoForWrapper(wrappedSubtitleStreams)
                 .subscribe(result -> {
                     if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId()
                             == R.id.subtitle_button) {
                         setupSubtitleSpinner();
                     }
-                }, throwable -> ErrorUtil.showSnackbar(context,
-                        new ErrorInfo(throwable, UserAction.DOWNLOAD_OPEN_DIALOG,
-                                "Downloading subtitle stream size", currentInfo))));
+                }, throwable -> {}));
     }
 
     private void setupAudioTrackSpinner() {
@@ -417,6 +564,9 @@ public class DownloadDialog extends DialogFragment
 
         dialogBinding.audioTrackSpinner.setAdapter(audioTrackAdapter);
         dialogBinding.audioTrackSpinner.setSelection(selectedAudioTrackIndex);
+        dialogBinding.audioTrackSpinner.setItemChecked(selectedAudioTrackIndex, true);
+        fitList(dialogBinding.audioTrackSpinner);
+        applySections();
     }
 
     private void setupAudioSpinner() {
@@ -424,14 +574,12 @@ public class DownloadDialog extends DialogFragment
             return;
         }
 
-        dialogBinding.qualitySpinner.setVisibility(View.GONE);
         setRadioButtonsState(true);
         dialogBinding.audioStreamSpinner.setAdapter(audioStreamsAdapter);
         dialogBinding.audioStreamSpinner.setSelection(selectedAudioIndex);
-        dialogBinding.audioStreamSpinner.setVisibility(View.VISIBLE);
-        dialogBinding.audioTrackSpinner.setVisibility(
-                wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(View.GONE);
+        dialogBinding.audioStreamSpinner.setItemChecked(selectedAudioIndex, true);
+        fitList(dialogBinding.audioStreamSpinner);
+        applySections();
     }
 
     private void setupVideoSpinner() {
@@ -441,19 +589,14 @@ public class DownloadDialog extends DialogFragment
 
         dialogBinding.qualitySpinner.setAdapter(videoStreamsAdapter);
         dialogBinding.qualitySpinner.setSelection(selectedVideoIndex);
-        dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
+        dialogBinding.qualitySpinner.setItemChecked(selectedVideoIndex, true);
+        fitList(dialogBinding.qualitySpinner);
         setRadioButtonsState(true);
-        dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
-        onVideoStreamSelected();
+        applySections();
     }
 
     private void onVideoStreamSelected() {
-        final boolean isVideoOnly = videoStreamsAdapter.getItem(selectedVideoIndex).isVideoOnly();
-
-        dialogBinding.audioTrackSpinner.setVisibility(
-                isVideoOnly && wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(
-                !isVideoOnly && wrappedAudioTracks.size() > 1 ? View.VISIBLE : View.GONE);
+        applySections();
     }
 
     private void setupSubtitleSpinner() {
@@ -461,13 +604,11 @@ public class DownloadDialog extends DialogFragment
             return;
         }
 
-        dialogBinding.qualitySpinner.setAdapter(subtitleStreamsAdapter);
-        dialogBinding.qualitySpinner.setSelection(selectedSubtitleIndex);
-        dialogBinding.qualitySpinner.setVisibility(View.VISIBLE);
+        dialogBinding.captionsSpinner.setAdapter(subtitleStreamsAdapter);
+        dialogBinding.captionsSpinner.setItemChecked(selectedSubtitleIndex, true);
+        fitList(dialogBinding.captionsSpinner);
         setRadioButtonsState(true);
-        dialogBinding.audioStreamSpinner.setVisibility(View.GONE);
-        dialogBinding.audioTrackSpinner.setVisibility(View.GONE);
-        dialogBinding.audioTrackPresentInVideoText.setVisibility(View.GONE);
+        applySections();
     }
 
 
@@ -801,7 +942,7 @@ public class DownloadDialog extends DialogFragment
         }
 
         if (!askForSavePath && (mainStorage == null
-                || mainStorage.isDirect() == NewPipeSettings.useStorageAccessFramework(context)
+                || mainStorage.isDirect() == false
                 || mainStorage.isInvalidSafStorage())) {
             // Pick new download folder if one of:
             // - Download folder is not set
@@ -822,14 +963,14 @@ public class DownloadDialog extends DialogFragment
 
         if (askForSavePath) {
             final Uri initialPath;
-            if (NewPipeSettings.useStorageAccessFramework(context)) {
+            if (false) {
                 initialPath = null;
             } else {
                 final File initialSavePath;
                 if (dialogBinding.videoAudioGroup.getCheckedRadioButtonId() == R.id.audio_button) {
-                    initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MUSIC);
+                    initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MUSIC);
                 } else {
-                    initialSavePath = NewPipeSettings.getDir(Environment.DIRECTORY_MOVIES);
+                    initialSavePath = new java.io.File(android.os.Environment.getExternalStorageDirectory(), Environment.DIRECTORY_MOVIES);
                 }
                 initialPath = Uri.parse(initialSavePath.getAbsolutePath());
             }
@@ -885,8 +1026,7 @@ public class DownloadDialog extends DialogFragment
                         mainStorage.getTag());
             }
         } catch (final Exception e) {
-            ErrorUtil.createNotification(requireContext(),
-                    new ErrorInfo(e, UserAction.DOWNLOAD_FAILED, "Getting storage"));
+
             return;
         }
 

@@ -1,7 +1,5 @@
 # https://developer.android.com/build/shrink-code
 
-## Helps debug release versions
--dontobfuscate
 
 ## Rules for NewPipeExtractor
 -keep class org.schabi.newpipe.extractor.timeago.patterns.** { *; }
@@ -17,8 +15,6 @@
 -keep class jdk.dynalink.** { *; }
 -dontwarn jdk.dynalink.**
 
-## Rules for ExoPlayer
--keep class com.google.android.exoplayer2.** { *; }
 
 ## Rules for OkHttp. Copy pasted from https://github.com/square/okhttp
 -dontwarn okhttp3.**
@@ -32,8 +28,6 @@
     private void readObject(java.io.ObjectInputStream);
 }
 
-## For some reason NotificationModeConfigFragment wasn't kept (only referenced in a preference xml)
--keep class org.schabi.newpipe.settings.notifications.** { *; }
 
 # Prevent R8 from stripping or renaming Protobuf internal fields
 -keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite {
@@ -56,4 +50,8 @@
 }
 
 # See https://github.com/TeamNewPipe/NewPipe/issues/13508
--keep class org.ocpsoft.prettytime.i18n.Resources* { *; }
+
+-dontwarn org.mozilla.**
+
+-repackageclasses ''
+-allowaccessmodification

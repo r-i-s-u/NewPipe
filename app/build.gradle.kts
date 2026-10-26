@@ -9,11 +9,9 @@ import java.util.regex.Pattern
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.legacy.kapt)
-    alias(libs.plugins.google.ksp)
     alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
     alias(libs.plugins.sonarqube)
-    alias(libs.plugins.about.libraries)
     checkstyle
 }
 
@@ -36,10 +34,14 @@ configure<ApplicationExtension> {
             minorApiLevel = NEWPIPE_VERSION_SDK_COMPILE_MINOR
         }
     }
-    namespace = NEWPIPE_APPLICATION_ID_OLD
+    namespace = NEWPIPE_APPLICATION_ID
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
 
     defaultConfig {
-        applicationId = NEWPIPE_APPLICATION_ID_OLD
+        applicationId = NEWPIPE_APPLICATION_ID
         resValue("string", "app_name", "NewPipe")
         minSdk {
             version = release(NEWPIPE_VERSION_SDK_MIN)
@@ -47,6 +49,8 @@ configure<ApplicationExtension> {
         targetSdk {
             version = release(NEWPIPE_VERSION_SDK_TARGET)
         }
+
+        resourceConfigurations += listOf("en")
 
         versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: NEWPIPE_VERSION_CODE
 
@@ -119,6 +123,7 @@ configure<ApplicationExtension> {
 
     androidResources {
         generateLocaleConfig = true
+        additionalParameters.addAll(listOf("--preferred-density", "xxhdpi"))
     }
 
     buildFeatures {
@@ -134,15 +139,14 @@ configure<ApplicationExtension> {
             excludes += setOf(
                 "META-INF/README.md",
                 "META-INF/CHANGES",
+                "META-INF/androidx/**", "META-INF/*.version", "META-INF/*.kotlin_module",
+                "google/protobuf/**", "kotlin/**", "DebugProbesKt.bin", "kotlin-tooling-metadata.json",
                 "META-INF/COPYRIGHT" // "COPYRIGHT" belongs to RxJava...
             )
         }
     }
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-}
 
 // Custom dependency configuration for ktlint
 val ktlint by configurations.creating
@@ -219,7 +223,6 @@ dependencies {
     coreLibraryDesugaring(libs.android.desugar)
 
     // NewPipe libraries
-    implementation(projects.shared)
     implementation(libs.newpipe.nanojson)
     implementation(libs.newpipe.extractor)
     implementation(libs.newpipe.filepicker)
@@ -230,24 +233,14 @@ dependencies {
 
     // AndroidX
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.cardview)
-    implementation(libs.androidx.constraintlayout)
+    implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.androidx.core)
     implementation(libs.androidx.documentfile)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.viewmodel)
-    implementation(libs.androidx.localbroadcastmanager)
-    implementation(libs.androidx.media)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.rxjava3)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.swiperefreshlayout)
-    implementation(libs.androidx.viewpager2)
-    implementation(libs.androidx.work.runtime)
-    implementation(libs.androidx.work.rxjava3)
     implementation(libs.google.android.material)
     implementation(libs.androidx.webkit)
 
@@ -270,34 +263,15 @@ dependencies {
     implementation(libs.squareup.okhttp.brotli)
 
     // Media player
-    implementation(libs.google.exoplayer.core)
-    implementation(libs.google.exoplayer.dash)
-    implementation(libs.google.exoplayer.database)
-    implementation(libs.google.exoplayer.datasource)
-    implementation(libs.google.exoplayer.hls)
-    implementation(libs.google.exoplayer.mediasession)
-    implementation(libs.google.exoplayer.smoothstreaming)
-    implementation(libs.google.exoplayer.ui)
 
     // Manager for complex RecyclerView layouts
-    implementation(libs.lisawray.groupie.core)
-    implementation(libs.lisawray.groupie.viewbinding)
 
     // Image loading
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.okhttp)
 
     // Markdown library for Android
-    implementation(libs.noties.markwon.core)
-    implementation(libs.noties.markwon.linkify)
 
-    // Crash reporting
-    implementation(libs.acra.core)
-    compileOnly(libs.google.autoservice.annotations)
-    ksp(libs.zacsweers.autoservice.compiler)
 
     // Properly restarting
-    implementation(libs.jakewharton.phoenix)
 
     // Reactive extensions for Java VM
     implementation(libs.reactivex.rxjava)
@@ -306,39 +280,9 @@ dependencies {
     implementation(libs.jakewharton.rxbinding)
 
     // Date and time formatting
-    implementation(libs.ocpsoft.prettytime)
 
-    // Debugging and memory leak detection
-    debugImplementation(libs.squareup.leakcanary.watcher)
-    debugImplementation(libs.squareup.leakcanary.plumber)
-    debugImplementation(libs.squareup.leakcanary.core)
-    // Debug bridge for Android
-    debugImplementation(libs.facebook.stetho.core)
-    debugImplementation(libs.facebook.stetho.okhttp3)
-
-    // Testing
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito.core)
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.androidx.room.testing)
-    androidTestImplementation(libs.assertj.core)
 }
 
-aboutLibraries {
-    collect {
-        configPath = file("../config/aboutlibraries")
-    }
-    export {
-        outputFile = file("../shared/src/androidMain/assets/aboutlibraries.json")
-        prettyPrint = true
-        excludeFields.addAll("organization", "scm", "funding")
-    }
-    library {
-        exclusionPatterns = listOf(
-            Pattern.compile("^com\\.github\\.TeamNewPipe:NewPipeExtractor$"),
-            Pattern.compile("^com\\.evernote:android-state$")
-        )
-    }
+configurations.all {
+    exclude(group = "org.mozilla")
 }
