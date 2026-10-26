@@ -114,7 +114,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private boolean askForSavePath;
     private boolean languageOpen = false;
     private boolean sectionOpen = true;
-    private boolean threadsOpen = true;
 
     private AudioTrackAdapter audioTrackAdapter;
     private StreamItemAdapter<AudioStream, Stream> audioStreamsAdapter;
@@ -368,11 +367,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
             languageOpen = !languageOpen;
             applySections();
         });
-        dialogBinding.threadsHeader.setOnClickListener(v -> {
-            threadsOpen = !threadsOpen;
-            applySections();
-        });
         dialogBinding.editNameButton.setOnClickListener(v -> showRenameDialog());
+        dialogBinding.threadsButton.setOnClickListener(v -> showThreadsDialog());
 
         dialogBinding.captionsSpinner.setOnItemClickListener((parent, v, pos, id) -> {
             selectedSubtitleIndex = pos;
@@ -452,12 +448,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialogBinding.langChevron.setImageResource(
                 lang ? R.drawable.chev_up : R.drawable.chev_down);
 
-        final boolean hideThreads = captions || lang;
-        dialogBinding.threadsHeader.setVisibility(hideThreads ? View.GONE : View.VISIBLE);
-        dialogBinding.threadsLayout.setVisibility(
-                hideThreads || !threadsOpen ? View.GONE : View.VISIBLE);
-        dialogBinding.threadsChevron.setImageResource(
-                threadsOpen ? R.drawable.chev_up : R.drawable.chev_down);
     }
 
     private void syncRadios(final ListView list) {
@@ -494,6 +484,39 @@ public class DownloadDialog extends BottomSheetDialogFragment
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void showThreadsDialog() {
+        final android.widget.TextView label = new android.widget.TextView(requireContext());
+        label.setTextSize(16);
+        final SeekBar bar = new SeekBar(requireContext());
+        bar.setMax(dialogBinding.threads.getMax());
+        bar.setProgress(dialogBinding.threads.getProgress());
+        label.setText(String.valueOf(bar.getProgress() + 1));
+        bar.setOnSeekBarChangeListener(new SimpleOnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(@NonNull final SeekBar seekbar,
+                                          final int progress,
+                                          final boolean fromUser) {
+                label.setText(String.valueOf(progress + 1));
+                if (dialogBinding != null) {
+                    dialogBinding.threads.setProgress(progress);
+                }
+            }
+        });
+
+        final android.widget.LinearLayout box = new android.widget.LinearLayout(requireContext());
+        box.setOrientation(android.widget.LinearLayout.VERTICAL);
+        final int pad = (int) (24 * getResources().getDisplayMetrics().density);
+        box.setPadding(pad, pad / 2, pad, 0);
+        box.addView(label);
+        box.addView(bar);
+
+        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle(R.string.msg_threads)
+                .setView(box)
+                .setPositiveButton(android.R.string.ok, null)
                 .show();
     }
 

@@ -40,6 +40,16 @@
                     android:textSize="20sp" />
 
                 <ImageView
+                    android:id="@+id/threads_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/msg_threads"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_speed"
+                    android:tint="?android:attr/textColorPrimary" />
+
+                <ImageView
                     android:id="@+id/edit_name_button"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -249,37 +259,11 @@
                 android:text="@string/audio_track_present_in_video"
                 android:textSize="12sp" />
 
-            <LinearLayout
-                android:id="@+id/threads_header"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp">
-
-                <TextView
-                    android:id="@+id/threads_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/msg_threads"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/threads_chevron"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_up"
-                    android:tint="?android:attr/textColorPrimary" />
-            </LinearLayout>
+            
 
             <LinearLayout
                 android:id="@+id/threads_layout"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
