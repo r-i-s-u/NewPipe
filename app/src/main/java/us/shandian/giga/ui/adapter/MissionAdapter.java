@@ -718,9 +718,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                     menu.add(Menu.NONE, MENU_SHARE, 1, R.string.share)
                             .setIcon(R.drawable.ic_share)
                             .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-                    menu.add(Menu.NONE, MENU_DELETE, 2, R.string.delete_file)
-                            .setIcon(R.drawable.ic_delete)
-                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                    menu.add(Menu.NONE, MENU_DELETE, 5, R.string.delete_file)
+                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
                     menu.add(Menu.NONE, MENU_SELECT_ALL, 3, R.string.mission_select_all)
                             .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
                     menu.add(Menu.NONE, MENU_DELETE_ENTRY, 4, R.string.mission_delete_history)
@@ -747,7 +746,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                         shareSelected();
                         return true;
                     } else if (id == MENU_DELETE) {
-                        deleteSelected(true);
+                        confirmDelete();
                         return true;
                     } else if (id == MENU_DELETE_ENTRY) {
                         deleteSelected(false);
@@ -859,6 +858,20 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         mActionMode.setTitle(mContext.getString(R.string.mission_selected, mSelected.size()));
         mActionMode.setSubtitle(Utility.formatBytes(total));
         mActionMode.invalidate();
+    }
+
+    private void confirmDelete() {
+        final int count = mSelected.size();
+        if (count == 0) {
+            return;
+        }
+        new AlertDialog.Builder(mContext)
+                .setTitle(R.string.mission_delete_title)
+                .setMessage(mContext.getString(R.string.mission_delete_message, count))
+                .setPositiveButton(R.string.mission_delete_confirm,
+                        (dialog, which) -> deleteSelected(true))
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void deleteSelected(final boolean deleteFile) {

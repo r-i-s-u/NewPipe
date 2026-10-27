@@ -47,7 +47,7 @@ import us.shandian.giga.ui.adapter.MissionAdapter;
 public class MissionsFragment extends Fragment {
 
     private static final String TAG = "MissionsFragment";
-    private static final int SPAN_SIZE = 2;
+    private static final int SPAN_SIZE = 3;
 
     private SharedPreferences mPrefs;
     private boolean mLinear;

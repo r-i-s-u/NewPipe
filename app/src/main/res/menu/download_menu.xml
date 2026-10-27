@@ -29,7 +29,7 @@
         android:icon="@drawable/ic_delete"
         android:title="@string/clear_download_history"
         android:visible="false"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
         <item
             android:id="@+id/download_settings"

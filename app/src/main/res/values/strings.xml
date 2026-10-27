@@ -912,4 +912,7 @@
     <string name="mission_delete_history" translatable="false">Delete from history</string>
     <string name="mission_selected" translatable="false">%d selected</string>
     <string name="mission_unselect_all" translatable="false">Unselect all</string>
+    <string name="mission_delete_title" translatable="false">Delete files?</string>
+    <string name="mission_delete_message" translatable="false">%d selected file(s) will be deleted from your device.</string>
+    <string name="mission_delete_confirm" translatable="false">Delete</string>
 </resources>
