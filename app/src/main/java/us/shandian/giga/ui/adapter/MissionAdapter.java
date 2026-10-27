@@ -984,10 +984,11 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     public void setClearButton(MenuItem clearButton) {
-        if (mClear == null)
-            clearButton.setVisible(mIterator.hasFinishedMissions());
-
-        mClear = clearButton;
+        // the toolbar "clear list" item is gone: deleting is done from the selection menu
+        if (clearButton != null) {
+            clearButton.setVisible(false);
+        }
+        mClear = null;
     }
 
     public void setMasterButtons(MenuItem startButton, MenuItem pauseButton) {
