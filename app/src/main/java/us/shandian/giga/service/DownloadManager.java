@@ -641,9 +641,15 @@ public class DownloadManager {
                     list.add(PENDING);
                     list.addAll(pending);
                 }
-                if (finished.size() > 0) {
-                    list.add(FINISHED);
-                    list.addAll(finished);
+                finished.sort((x, y) -> Long.compare(y.timestamp, x.timestamp));
+                long lastDay = Long.MIN_VALUE;
+                for (Mission m : finished) {
+                    long day = startOfDay(m.timestamp);
+                    if (day != lastDay) {
+                        list.add(new DayHeader(day));
+                        lastDay = day;
+                    }
+                    list.add(m);
                 }
 
                 hasFinished = finished.size() > 0;
@@ -652,10 +658,25 @@ public class DownloadManager {
             }
         }
 
+        private long startOfDay(long ts) {
+            java.util.Calendar c = java.util.Calendar.getInstance();
+            c.setTimeInMillis(ts);
+            c.set(java.util.Calendar.HOUR_OF_DAY, 0);
+            c.set(java.util.Calendar.MINUTE, 0);
+            c.set(java.util.Calendar.SECOND, 0);
+            c.set(java.util.Calendar.MILLISECOND, 0);
+            return c.getTimeInMillis();
+        }
+
         public MissionItem getItem(int position) {
             Object object = snapshot.get(position);
 
             if (object == PENDING) return new MissionItem(SPECIAL_PENDING);
+            if (object instanceof DayHeader) {
+                MissionItem header = new MissionItem(SPECIAL_FINISHED);
+                header.headerTime = ((DayHeader) object).dayStart;
+                return header;
+            }
             if (object == FINISHED) return new MissionItem(SPECIAL_FINISHED);
 
             return new MissionItem(SPECIAL_NOTHING, (Mission) object);
@@ -665,6 +686,7 @@ public class DownloadManager {
             Object object = snapshot.get(position);
 
             if (object == PENDING) return SPECIAL_PENDING;
+            if (object instanceof DayHeader) return SPECIAL_FINISHED;
             if (object == FINISHED) return SPECIAL_FINISHED;
 
             return SPECIAL_NOTHING;
@@ -731,7 +753,12 @@ public class DownloadManager {
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            return snapshot.get(oldItemPosition) == current.get(newItemPosition);
+            Object x = snapshot.get(oldItemPosition);
+            Object y = current.get(newItemPosition);
+            if (x instanceof DayHeader && y instanceof DayHeader) {
+                return ((DayHeader) x).dayStart == ((DayHeader) y).dayStart;
+            }
+            return x == y;
         }
 
         @Override
@@ -743,13 +770,26 @@ public class DownloadManager {
                 return ((Mission) x).storage.equals(((Mission) y).storage);
             }
 
+            if (x instanceof DayHeader && y instanceof DayHeader) {
+                return true;
+            }
+
             return false;
+        }
+    }
+
+    public static final class DayHeader {
+        public final long dayStart;
+
+        DayHeader(long dayStart) {
+            this.dayStart = dayStart;
         }
     }
 
     public static class MissionItem {
         public int special;
         public Mission mission;
+        public long headerTime;
 
         MissionItem(int s, Mission m) {
             special = s;

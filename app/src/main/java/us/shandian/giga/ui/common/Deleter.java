@@ -13,6 +13,8 @@ import com.google.android.material.snackbar.Snackbar;
 import org.schabi.newpipe.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import kotlin.Pair;
@@ -32,7 +34,7 @@ public class Deleter {
     private static final int DELAY_RESUME = 400;// ms
 
     private Snackbar snackbar;
-    // list of missions to be deleted, and whether to also delete the corresponding file
+    // missions of the current batch, and whether to also delete the corresponding file
     private ArrayList<Pair<Mission, Boolean>> items;
     private boolean running = true;
 
@@ -55,24 +57,38 @@ public class Deleter {
     }
 
     public void append(Mission item, boolean alsoDeleteFile) {
-        /* If a mission is removed from the list while the Snackbar for a previously
-         * removed item is still showing, commit the action for the previous item
-         * immediately. This prevents Snackbars from stacking up in reverse order.
+        appendAll(Collections.singletonList(item), alsoDeleteFile);
+    }
+
+    /**
+     * Hides all the given missions at once and shows a single Snackbar. Undo brings all of them
+     * back, otherwise they are deleted together when the Snackbar times out.
+     */
+    public void appendAll(List<Mission> missions, boolean alsoDeleteFile) {
+        if (missions.isEmpty()) return;
+
+        /* If a batch is still waiting for its Snackbar to time out, commit it immediately.
+         * This prevents Snackbars from stacking up in reverse order.
          */
         mHandler.removeCallbacksAndMessages(COMMIT);
         commit();
 
-        mIterator.hide(item);
-        items.add(0, new Pair<>(item, alsoDeleteFile));
+        for (Mission mission : missions) {
+            mIterator.hide(mission);
+            items.add(new Pair<>(mission, alsoDeleteFile));
+        }
 
         show();
     }
 
     private void forget() {
-        mIterator.unHide(items.remove(0).getFirst());
+        mHandler.removeCallbacksAndMessages(COMMIT);
+        for (Pair<Mission, Boolean> p : items) {
+            mIterator.unHide(p.getFirst());
+        }
+        items.clear();
         mAdapter.applyChanges();
-
-        show();
+        pause();
     }
 
     private void show() {
@@ -87,18 +103,25 @@ public class Deleter {
     private void next() {
         if (items.size() < 1) return;
 
-        final Optional<String> fileToBeDeleted = items.stream()
-                .filter(Pair::getSecond)
-                .map(p -> p.getFirst().storage.getName())
-                .findFirst();
-
         String msg;
-        if (fileToBeDeleted.isPresent()) {
-            msg = mContext.getString(R.string.file_deleted)
-                    .concat(":\n")
-                    .concat(fileToBeDeleted.get());
+        if (items.size() > 1) {
+            final boolean files = items.stream().anyMatch(Pair::getSecond);
+            msg = mContext.getString(
+                    files ? R.string.mission_files_deleted : R.string.mission_entries_deleted,
+                    items.size());
         } else {
-            msg = mContext.getString(R.string.entry_deleted);
+            final Optional<String> fileToBeDeleted = items.stream()
+                    .filter(Pair::getSecond)
+                    .map(p -> p.getFirst().storage.getName())
+                    .findFirst();
+
+            if (fileToBeDeleted.isPresent()) {
+                msg = mContext.getString(R.string.file_deleted)
+                        .concat(":\n")
+                        .concat(fileToBeDeleted.get());
+            } else {
+                msg = mContext.getString(R.string.entry_deleted);
+            }
         }
 
         snackbar = Snackbar.make(mView, msg, Snackbar.LENGTH_INDEFINITE);
@@ -110,8 +133,6 @@ public class Deleter {
     }
 
     private void commit() {
-        if (items.size() < 1) return;
-
         while (items.size() > 0) {
             Pair<Mission, Boolean> missionAndAlsoDeleteFile = items.remove(0);
             Mission mission = missionAndAlsoDeleteFile.getFirst();
@@ -124,15 +145,9 @@ public class Deleter {
             if (mission instanceof FinishedMission) {
                 mContext.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, mission.storage.getUri()));
             }
-            break;
         }
 
-        if (items.size() < 1) {
-            pause();
-            return;
-        }
-
-        show();
+        pause();
     }
 
     public void pause() {

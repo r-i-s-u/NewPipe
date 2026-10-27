@@ -194,7 +194,11 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 if (mClear != null) mClear.setVisible(true);
             }
 
-            ((ViewHolderHeader) view).header.setText(str);
+            if (item.special == DownloadManager.SPECIAL_FINISHED && item.headerTime > 0) {
+                ((ViewHolderHeader) view).header.setText(dayLabel(item.headerTime));
+            } else {
+                ((ViewHolderHeader) view).header.setText(str);
+            }
             return;
         }
 
@@ -877,9 +881,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     private void deleteSelected(final boolean deleteFile) {
         final ArrayList<Mission> missions = new ArrayList<>(mSelected);
         finishSelection();
-        for (final Mission m : missions) {
-            mDeleter.append(m, deleteFile);
-        }
+        mDeleter.appendAll(missions, deleteFile);
         applyChanges();
         checkMasterButtonsVisibility();
     }
@@ -957,6 +959,23 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (h.highlight != null) {
             h.highlight.setVisibility(selected ? View.VISIBLE : View.GONE);
         }
+    }
+
+    private String dayLabel(final long dayStart) {
+        if (android.text.format.DateUtils.isToday(dayStart)) {
+            return mContext.getString(R.string.mission_today);
+        }
+        if (android.text.format.DateUtils.isToday(
+                dayStart + android.text.format.DateUtils.DAY_IN_MILLIS * 3 / 2)) {
+            return mContext.getString(R.string.mission_yesterday);
+        }
+        final java.util.Calendar now = java.util.Calendar.getInstance();
+        final java.util.Calendar then = java.util.Calendar.getInstance();
+        then.setTimeInMillis(dayStart);
+        final String pattern = now.get(java.util.Calendar.YEAR) == then.get(java.util.Calendar.YEAR)
+                ? "EEE, MMM d" : "EEE, MMM d, yyyy";
+        return new java.text.SimpleDateFormat(pattern, Locale.getDefault())
+                .format(new Date(dayStart));
     }
 
     public void applyChanges() {

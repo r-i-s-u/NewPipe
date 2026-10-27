@@ -915,4 +915,8 @@
     <string name="mission_delete_title" translatable="false">Delete files?</string>
     <string name="mission_delete_message" translatable="false">%d selected file(s) will be deleted from your device.</string>
     <string name="mission_delete_confirm" translatable="false">Delete</string>
+    <string name="mission_files_deleted" translatable="false">%d files deleted</string>
+    <string name="mission_entries_deleted" translatable="false">%d entries removed from history</string>
+    <string name="mission_today" translatable="false">Today</string>
+    <string name="mission_yesterday" translatable="false">Yesterday</string>
 </resources>
