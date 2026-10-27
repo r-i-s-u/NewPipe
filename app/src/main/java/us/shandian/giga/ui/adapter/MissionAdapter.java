@@ -731,7 +731,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 @Override
                 public boolean onPrepareActionMode(final androidx.appcompat.view.ActionMode mode,
                                                    final Menu menu) {
-                    return false;
+                    final MenuItem all = menu.findItem(MENU_SELECT_ALL);
+                    if (all != null) {
+                        all.setTitle(allSelected()
+                                ? R.string.mission_unselect_all : R.string.mission_select_all);
+                    }
+                    return true;
                 }
 
                 @Override
@@ -748,7 +753,11 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                         deleteSelected(false);
                         return true;
                     } else if (id == MENU_SELECT_ALL) {
-                        selectAll();
+                        if (allSelected()) {
+                            finishSelection();
+                        } else {
+                            selectAll();
+                        }
                         return true;
                     }
                     return false;
@@ -817,6 +826,17 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
     }
 
+    private boolean allSelected() {
+        int finished = 0;
+        for (int i = 0; i < mIterator.getOldListSize(); i++) {
+            final DownloadManager.MissionItem it = mIterator.getItem(i);
+            if (it != null && it.mission instanceof FinishedMission) {
+                finished++;
+            }
+        }
+        return finished > 0 && mSelected.size() >= finished;
+    }
+
     private void selectAll() {
         for (int i = 0; i < mIterator.getOldListSize(); i++) {
             final DownloadManager.MissionItem it = mIterator.getItem(i);
@@ -838,6 +858,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
         mActionMode.setTitle(mContext.getString(R.string.mission_selected, mSelected.size()));
         mActionMode.setSubtitle(Utility.formatBytes(total));
+        mActionMode.invalidate();
     }
 
     private void deleteSelected(final boolean deleteFile) {
@@ -912,14 +933,16 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                         selected ? R.drawable.ic_select_on : R.drawable.ic_select_off);
                 h.check.setColorFilter(selected
                         ? ContextCompat.getColor(mContext, R.color.dl_accent)
-                        : themeColor(android.R.attr.textColorSecondary));
+                        : (h.check.getBackground() != null
+                                ? Color.WHITE
+                                : themeColor(android.R.attr.textColorSecondary)));
             }
         }
         if (h.more != null) {
             h.more.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
         }
-        if (h.root != null) {
-            h.root.setBackgroundResource(selected ? R.drawable.bg_item_selected : 0);
+        if (h.highlight != null) {
+            h.highlight.setVisibility(selected ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -1048,6 +1071,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         View root;
         ImageView check;
         ImageView more;
+        View highlight;
         ProgressDrawable progress;
 
         PopupMenu popupMenu;
@@ -1078,6 +1102,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             size = itemView.findViewById(R.id.item_size);
             date = itemView.findViewById(R.id.item_date);
             root = itemView.findViewById(R.id.item_root);
+            highlight = itemView.findViewById(R.id.item_highlight);
             check = itemView.findViewById(R.id.item_check);
 
             name.setSelected(true);

@@ -4,6 +4,12 @@
     android:id="@+id/item_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <View
+        android:id="@+id/item_highlight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_item_selected"
+        android:visibility="gone" />
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_bkg"
@@ -107,7 +113,6 @@
         android:layout_height="48dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="4dp"
         android:contentDescription="@null"
         android:padding="12dp"
         android:scaleType="fitCenter"

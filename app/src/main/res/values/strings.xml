@@ -911,4 +911,5 @@
     <string name="mission_select_all" translatable="false">Select all</string>
     <string name="mission_delete_history" translatable="false">Delete from history</string>
     <string name="mission_selected" translatable="false">%d selected</string>
+    <string name="mission_unselect_all" translatable="false">Unselect all</string>
 </resources>
