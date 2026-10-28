@@ -89,6 +89,41 @@ public class DownloadManagerService extends Service {
     private Notification mNotification;
     private Handler mHandler;
     private boolean mForeground = false;
+    private static final String ACTION_PAUSE_DOWNLOADS = APPLICATION_ID + ".pause_downloads";
+    private static final String ACTION_CANCEL_DOWNLOAD = APPLICATION_ID + ".cancel_download";
+
+    private DownloadMission mNotifyMission;
+    private double mNotifyDone;
+    private long mNotifyTime;
+    private float mNotifySpeed;
+
+    private final android.content.BroadcastReceiver mActionReceiver =
+            new android.content.BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    if (mManager == null || intent == null || intent.getAction() == null) return;
+                    if (ACTION_PAUSE_DOWNLOADS.equals(intent.getAction())) {
+                        mManager.pauseAllMissions(false);
+                    } else if (ACTION_CANCEL_DOWNLOAD.equals(intent.getAction())) {
+                        final DownloadMission m = mManager.getFirstRunningMission();
+                        if (m != null) {
+                            mManager.deleteMission(m, true);
+                            updateForegroundState(mManager.runMissions());
+                        }
+                    }
+                }
+            };
+
+    private final Runnable mNotifyTick = new Runnable() {
+        @Override
+        public void run() {
+            if (!mForeground || mNotificationManager == null || mManager == null) return;
+            if (mManager.getFirstRunningMission() != null) {
+                mNotificationManager.notify(FOREGROUND_NOTIFICATION_ID, buildProgressNotification());
+            }
+            mHandler.postDelayed(this, 1000);
+        }
+    };
     private NotificationManager mNotificationManager = null;
     private boolean mDownloadNotificationEnable = true;
 
@@ -157,6 +192,12 @@ public class DownloadManagerService extends Service {
 
         mNotification = builder.build();
 
+        final android.content.IntentFilter actionFilter = new android.content.IntentFilter();
+        actionFilter.addAction(ACTION_PAUSE_DOWNLOADS);
+        actionFilter.addAction(ACTION_CANCEL_DOWNLOAD);
+        ContextCompat.registerReceiver(this, mActionReceiver, actionFilter,
+                ContextCompat.RECEIVER_NOT_EXPORTED);
+
         mNotificationManager = ContextCompat.getSystemService(this,
                 NotificationManager.class);
         mConnectivityManager = ContextCompat.getSystemService(this,
@@ -217,6 +258,14 @@ public class DownloadManagerService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacks(mNotifyTick);
+        }
+        try {
+            unregisterReceiver(mActionReceiver);
+        } catch (IllegalArgumentException ignored) {
+            // not registered
+        }
 
         if (DEBUG) {
             Log.d(TAG, "Destroying");
@@ -326,12 +375,83 @@ public class DownloadManagerService extends Service {
         }
     }
 
+    private PendingIntent actionIntent(String action, int requestCode) {
+        Intent i = new Intent(action).setPackage(getPackageName());
+        return PendingIntentCompat.getBroadcast(this, requestCode, i,
+                PendingIntent.FLAG_UPDATE_CURRENT, false);
+    }
+
+    private Notification buildProgressNotification() {
+        final DownloadMission m = mManager == null ? null : mManager.getFirstRunningMission();
+        if (m == null) {
+            return mNotification;
+        }
+        final int running = mManager.getRunningMissionsCount();
+
+        final String fileName = m.storage.getName();
+        final org.schabi.newpipe.download.DownloadThumbs.Info info =
+                org.schabi.newpipe.download.DownloadThumbs.get(fileName);
+        final String title = info != null && info.title != null ? info.title : fileName;
+        final String uploader = info != null && info.uploader != null ? info.uploader : "";
+        final android.graphics.Bitmap thumb = org.schabi.newpipe.download.DownloadThumbs.bitmap(fileName);
+
+        final double done = m.done;
+        final long length = m.getLength();
+        final boolean known = !m.unknownLength && length > 0;
+        final int percent = known ? (int) Math.min(100, Math.round(done * 100 / length)) : 0;
+        final boolean processing = m.isPsRunning();
+
+        final long now = System.currentTimeMillis();
+        if (m != mNotifyMission || done < mNotifyDone) {
+            mNotifyMission = m;
+            mNotifyDone = done;
+            mNotifyTime = now;
+            mNotifySpeed = 0;
+        } else if (now - mNotifyTime >= 900) {
+            final float inst = (float) ((done - mNotifyDone) * 1000d / (now - mNotifyTime));
+            mNotifySpeed = mNotifySpeed <= 0 ? inst : (mNotifySpeed * 0.6f + inst * 0.4f);
+            mNotifyDone = done;
+            mNotifyTime = now;
+        }
+
+        final String sizes = known
+                ? percent + "% (" + us.shandian.giga.util.Utility.formatBytes((long) done) + "/"
+                + us.shandian.giga.util.Utility.formatBytes(length) + ")"
+                : us.shandian.giga.util.Utility.formatBytes((long) done);
+        final String status = processing ? getString(R.string.post_processing) : sizes;
+        final String speed = mNotifySpeed > 0 && !processing
+                ? " \u2022 " + us.shandian.giga.util.Utility.formatSpeed(mNotifySpeed) : "";
+        final String more = running > 1 ? "\n+" + (running - 1) + " more" : "";
+        final String big = (uploader.isEmpty() ? "" : uploader + "\n") + status + speed + more;
+
+        return new Builder(this, getString(R.string.notification_channel_id))
+                .setContentIntent(mOpenDownloadList)
+                .setSmallIcon(android.R.drawable.stat_sys_download)
+                .setLargeIcon(thumb != null ? thumb : icLauncher)
+                .setContentTitle(title)
+                .setContentText(uploader.isEmpty() ? status : uploader)
+                .setSubText(status)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(big))
+                .setProgress(100, percent, !known || processing)
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .setCategory(NotificationCompat.CATEGORY_PROGRESS)
+                .addAction(0, getString(android.R.string.cancel),
+                        actionIntent(ACTION_CANCEL_DOWNLOAD, 1))
+                .addAction(0, getString(R.string.pause),
+                        actionIntent(ACTION_PAUSE_DOWNLOADS, 2))
+                .build();
+    }
+
     public void updateForegroundState(boolean state) {
         if (state == mForeground) return;
 
         if (state) {
-            startForeground(FOREGROUND_NOTIFICATION_ID, mNotification);
+            startForeground(FOREGROUND_NOTIFICATION_ID, buildProgressNotification());
+            mHandler.removeCallbacks(mNotifyTick);
+            mHandler.postDelayed(mNotifyTick, 1000);
         } else {
+            mHandler.removeCallbacks(mNotifyTick);
             ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE);
         }
 

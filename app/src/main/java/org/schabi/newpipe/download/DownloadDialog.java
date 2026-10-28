@@ -1296,6 +1296,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
             );
         }
 
+        DownloadThumbs.register(storage.getName(), currentInfo);
         DownloadManagerService.startMission(context, urls, storage, kind, threads,
                 currentInfo, psName, psArgs, nearLength, new ArrayList<>(recoveryInfo));
 

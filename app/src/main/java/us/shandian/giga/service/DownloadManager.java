@@ -487,6 +487,17 @@ public class DownloadManager {
         }
     }
 
+    public DownloadMission getFirstRunningMission() {
+        synchronized (this) {
+            for (DownloadMission mission : mMissionsPending) {
+                if (mission.running) {
+                    return mission;
+                }
+            }
+        }
+        return null;
+    }
+
     public MissionIterator getIterator() {
         mSelfMissionsControl = true;
         return new MissionIterator();
