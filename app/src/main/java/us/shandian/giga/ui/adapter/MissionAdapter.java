@@ -141,6 +141,22 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         mDeleter = new Deleter(root, mContext, this, mDownloadManager, mIterator, mHandler);
 
         mView = root;
+        final android.widget.CompoundButton chipAudio = root.findViewById(R.id.chip_audio);
+        final android.widget.CompoundButton chipVideo = root.findViewById(R.id.chip_video);
+        if (chipAudio != null && chipVideo != null) {
+            chipAudio.setOnCheckedChangeListener((b, on) -> {
+                if (on) {
+                    chipVideo.setChecked(false);
+                }
+                setKindFilter(on ? 1 : (chipVideo.isChecked() ? 2 : 0));
+            });
+            chipVideo.setOnCheckedChangeListener((b, on) -> {
+                if (on) {
+                    chipAudio.setChecked(false);
+                }
+                setKindFilter(on ? 2 : (chipAudio.isChecked() ? 1 : 0));
+            });
+        }
 
         mHidden = new ArrayList<>();
 
@@ -208,7 +224,16 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         Utility.FileType type = Utility.getFileType(item.mission.kind, item.mission.storage.getName());
 
         h.icon.setImageResource(Utility.getIconForFileType(type));
-        MissionThumbs.load(h.icon.getContext(), item.mission, h.icon);
+        MissionThumbs.load(h.icon.getContext(), item.mission, h.icon, h.date);
+        final boolean audioItem =
+                org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage);
+        final ViewGroup.LayoutParams tileLp = h.icon.getLayoutParams();
+        final int tileW = (int) ((audioItem ? 84 : 150)
+                * mContext.getResources().getDisplayMetrics().density);
+        if (tileLp.width != tileW) {
+            tileLp.width = tileW;
+            h.icon.setLayoutParams(tileLp);
+        }
         bindSelection(h);
         h.name.setText(item.mission.storage.getName());
 
@@ -222,17 +247,15 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             h.pause.setTitle(mission.unknownLength ? R.string.stop : R.string.pause);
             updateProgress(h);
             mPendingDownloadsItems.add(h);
-
-            h.date.setText("");
+                h.date.setText("");
+                h.status.setVisibility(View.VISIBLE);
+                h.bar.setVisibility(View.VISIBLE);
         } else {
             h.progress.setMarquee(false);
-            h.status.setText("100%");
-            h.progress.setProgress(1.0f);
-            h.size.setText(Utility.formatBytes(item.mission.length));
-
-            DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
-            Date date = new Date(item.mission.timestamp);
-            h.date.setText(dateFormat.format(date));
+                h.progress.setProgress(1.0f);
+                h.status.setVisibility(View.GONE);
+                h.bar.setVisibility(View.GONE);
+                h.size.setText(Utility.formatBytes(item.mission.length));
         }
     }
 
@@ -978,6 +1001,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 .format(new Date(dayStart));
     }
 
+    private void setKindFilter(final int kind) {
+        mIterator.setKindFilter(kind);
+        applyChanges();
+        checkMasterButtonsVisibility();
+    }
+
     public void applyChanges() {
         mIterator.start();
         DiffUtil.calculateDiff(mIterator, true).dispatchUpdatesTo(this);
@@ -999,7 +1028,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     public void setLinear(boolean isLinear) {
-        mLayout = isLinear ? R.layout.mission_item_linear : R.layout.mission_item;
+        mLayout = R.layout.mission_item;
     }
 
     public void setClearButton(MenuItem clearButton) {
@@ -1105,6 +1134,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         ImageView check;
         ImageView more;
         View highlight;
+        View bar;
         ProgressDrawable progress;
 
         PopupMenu popupMenu;
@@ -1127,7 +1157,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             super(view);
 
             progress = new ProgressDrawable();
-            itemView.findViewById(R.id.item_bkg).setBackground(progress);
+            bar = itemView.findViewById(R.id.item_bkg);
+            bar.setBackground(progress);
+            progress.setColors(ContextCompat.getColor(mContext, R.color.dl_progress_track),
+                    ContextCompat.getColor(mContext, R.color.dl_accent));
 
             status = itemView.findViewById(R.id.item_status);
             name = itemView.findViewById(R.id.item_name);

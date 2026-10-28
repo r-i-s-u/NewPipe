@@ -13,4 +13,5 @@
     <color name="dl_popup_stroke">#33FFFFFF</color>
     <color name="dl_popup_text">#FFFFFF</color>
     <color name="dl_selected_bg">#2B3044</color>
+    <color name="dl_progress_track">#33FFFFFF</color>
 </resources>

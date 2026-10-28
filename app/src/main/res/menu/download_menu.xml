@@ -8,7 +8,8 @@
         android:icon="@drawable/ic_apps"
         android:title="@string/grid"
         app:showAsAction="always"
-        tools:ignore="AlwaysShowAction" />
+        tools:ignore="AlwaysShowAction"
+        android:visible="false" />
 
     <item
         android:id="@+id/start_downloads"

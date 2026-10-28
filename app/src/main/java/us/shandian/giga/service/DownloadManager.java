@@ -600,6 +600,31 @@ public class DownloadManager {
         return null;// this never should happen
     }
 
+    private static int kindOf(Mission m) {
+        try {
+            final String type = m.storage.getType();
+            if (type != null) {
+                if (type.startsWith("audio")) {
+                    return 1;
+                }
+                if (type.startsWith("video")) {
+                    return 2;
+                }
+            }
+            final String n = m.storage.getName() == null ? ""
+                    : m.storage.getName().toLowerCase(java.util.Locale.ROOT);
+            if (n.matches(".*\\.(m4a|opus|mp3|ogg|aac|flac|wav|weba)")) {
+                return 1;
+            }
+            if (n.matches(".*\\.(mp4|webm|mkv|3gp|mov|m4v)")) {
+                return 2;
+            }
+        } catch (Exception ignored) {
+            // unknown type
+        }
+        return 0;
+    }
+
     public class MissionIterator extends DiffUtil.Callback {
         final Object FINISHED = new Object();
         final Object PENDING = new Object();
@@ -609,6 +634,11 @@ public class DownloadManager {
         ArrayList<Mission> hidden;
 
         boolean hasFinished = false;
+        volatile int kindFilter = 0;
+
+        public void setKindFilter(int kind) {
+            kindFilter = kind;
+        }
 
         private MissionIterator() {
             hidden = new ArrayList<>(2);
@@ -629,6 +659,11 @@ public class DownloadManager {
                     }
                     return pending.remove(mission) || finished.remove(mission);
                 });
+
+                if (kindFilter != 0) {
+                    pending.removeIf(x -> kindOf(x) != kindFilter);
+                    finished.removeIf(x -> kindOf(x) != kindFilter);
+                }
 
                 int fakeTotal = pending.size();
                 if (fakeTotal > 0) fakeTotal++;
