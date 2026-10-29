@@ -47,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(downloaderBinding.toolbarLayout.toolbar);
 
+        downloaderBinding.toolbarLayout.toolbar.setTitleMarginStart(
+                (int) (56 * getResources().getDisplayMetrics().density));
+        downloaderBinding.collapsingToolbar.setTitle(getString(R.string.downloads_title));
+
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(R.string.downloads_title);
-            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
         }
 
         getWindow().getDecorView().getViewTreeObserver()

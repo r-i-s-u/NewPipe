@@ -182,4 +182,15 @@
     <style name="DownloadsActionModeSubtitle" parent="TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+
+    <style name="DownloadsTitleExpanded" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="DownloadsTitleCollapsed" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
 </resources>
