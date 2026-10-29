@@ -227,15 +227,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         MissionThumbs.load(h.icon.getContext(), item.mission, h.icon, h.date);
         final boolean audioItem =
                 org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage);
-        final ViewGroup.LayoutParams tileLp = h.icon.getLayoutParams();
-        final float density = mContext.getResources().getDisplayMetrics().density;
-        final int tileW = Math.round((audioItem ? 84 : 188) * density);
-        final int tileH = Math.round((audioItem ? 84 : 106) * density);
-        if (tileLp.width != tileW || tileLp.height != tileH) {
-            tileLp.width = tileW;
-            tileLp.height = tileH;
-            h.icon.setLayoutParams(tileLp);
-        }
+        h.row.setAudio(audioItem);
         bindSelection(h);
         h.name.setText(item.mission.storage.getName());
 
@@ -949,40 +941,31 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         for (int i = 0; i < mRecycler.getChildCount(); i++) {
             final ViewHolder vh = mRecycler.getChildViewHolder(mRecycler.getChildAt(i));
             if (vh instanceof ViewHolderItem) {
-                bindSelection((ViewHolderItem) vh);
+                bindSelection((ViewHolderItem) vh, true);
             }
         }
-    }
-
-    private int themeColor(final int attr) {
-        final android.util.TypedValue tv = new android.util.TypedValue();
-        if (!mContext.getTheme().resolveAttribute(attr, tv, true)) {
-            return Color.GRAY;
-        }
-        return tv.resourceId != 0 ? ContextCompat.getColor(mContext, tv.resourceId) : tv.data;
     }
 
     private void bindSelection(final ViewHolderItem h) {
+        bindSelection(h, false);
+    }
+
+    private void bindSelection(final ViewHolderItem h, final boolean animate) {
         final boolean finished = h.item != null && h.item.mission instanceof FinishedMission;
         final boolean show = finished && mActionMode != null;
         final boolean selected = show && mSelected.contains(h.item.mission);
-        if (h.check != null) {
-            h.check.setVisibility(show ? View.VISIBLE : View.GONE);
-            if (show) {
-                h.check.setImageResource(
-                        selected ? R.drawable.ic_select_on : R.drawable.ic_select_off);
-                h.check.setColorFilter(selected
-                        ? ContextCompat.getColor(mContext, R.color.dl_accent)
-                        : (h.check.getBackground() != null
-                                ? Color.WHITE
-                                : themeColor(android.R.attr.textColorSecondary)));
-            }
+        h.row.setSelecting(show, animate);
+        h.check.setChecked(selected);
+        if (!animate) {
+            h.check.jumpDrawablesToCurrentState();
         }
+        h.check.setEnabled(show);
+        h.check.setContentDescription(finished ? h.item.mission.storage.getName() : null);
         if (h.more != null) {
             h.more.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
         }
         if (h.highlight != null) {
-            h.highlight.setVisibility(selected ? View.VISIBLE : View.GONE);
+            h.highlight.setVisibility(View.GONE);
         }
     }
 
@@ -1133,7 +1116,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         TextView size;
         TextView date;
         View root;
-        ImageView check;
+        android.widget.CheckBox check;
+        DownloadItemLayout row;
         ImageView more;
         View highlight;
         View bar;
@@ -1172,6 +1156,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             root = itemView.findViewById(R.id.item_root);
             highlight = itemView.findViewById(R.id.item_highlight);
             check = itemView.findViewById(R.id.item_check);
+            row = (DownloadItemLayout) icon.getParent();
+            check.setOnClickListener(v -> {
+                if (item != null && isSelecting()) {
+                    toggleSelection(item.mission);
+                }
+            });
 
             name.setSelected(true);
 

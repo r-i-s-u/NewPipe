@@ -108,7 +108,7 @@ final class MissionThumbs {
     private static void apply(final ImageView view, final TextView subtitle, final Meta meta) {
         if (meta.bmp != null) {
             view.setPadding(0, 0, 0, 0);
-            view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            view.setScaleType(ImageView.ScaleType.FIT_CENTER);
             view.setClipToOutline(true);
             view.setImageBitmap(meta.bmp);
         }

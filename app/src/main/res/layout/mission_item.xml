@@ -12,14 +12,25 @@
         android:background="@drawable/bg_item_selected"
         android:visibility="gone" />
 
-    <LinearLayout
+    <us.shandian.giga.ui.adapter.DownloadItemLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
         android:paddingTop="10dp"
-        android:paddingRight="8dp"
+        android:paddingEnd="8dp"
         android:paddingBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/item_check"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:visibility="invisible"
+            app:buttonTint="@color/download_checkbox_tint" />
 
         <ImageView
             android:id="@+id/item_icon"
@@ -34,7 +45,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:minHeight="84dp"
             android:orientation="vertical">
@@ -100,7 +111,7 @@
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </us.shandian.giga.ui.adapter.DownloadItemLayout>
 
     <ImageView
         android:id="@+id/item_more"
@@ -116,15 +127,4 @@
         android:src="@drawable/ic_more_vert"
         app:tint="?android:attr/textColorSecondary" />
 
-    <ImageView
-        android:id="@+id/item_check"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom|end"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="6dp"
-        android:contentDescription="@null"
-        android:padding="8dp"
-        android:scaleType="fitCenter"
-        android:visibility="gone" />
 </FrameLayout>
