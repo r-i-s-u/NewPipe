@@ -23,9 +23,10 @@
 
         <ImageView
             android:id="@+id/item_icon"
-            android:layout_width="150dp"
-            android:layout_height="84dp"
-            android:background="@drawable/bg_icon_tile"
+            android:layout_width="188dp"
+            android:layout_height="106dp"
+            android:background="@drawable/bg_download_thumbnail"
+            android:clipToOutline="true"
             android:contentDescription="@null"
             android:padding="24dp"
             android:scaleType="fitCenter" />

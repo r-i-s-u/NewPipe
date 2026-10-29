@@ -228,10 +228,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final boolean audioItem =
                 org.schabi.newpipe.download.MiniPlayerSheet.isAudio(item.mission.storage);
         final ViewGroup.LayoutParams tileLp = h.icon.getLayoutParams();
-        final int tileW = (int) ((audioItem ? 84 : 150)
-                * mContext.getResources().getDisplayMetrics().density);
-        if (tileLp.width != tileW) {
+        final float density = mContext.getResources().getDisplayMetrics().density;
+        final int tileW = Math.round((audioItem ? 84 : 188) * density);
+        final int tileH = Math.round((audioItem ? 84 : 106) * density);
+        if (tileLp.width != tileW || tileLp.height != tileH) {
             tileLp.width = tileW;
+            tileLp.height = tileH;
             h.icon.setLayoutParams(tileLp);
         }
         bindSelection(h);
