@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(downloaderBinding.toolbarLayout.toolbar);
 
-        downloaderBinding.toolbarLayout.toolbar.setTitleMarginStart(
-                (int) (56 * getResources().getDisplayMetrics().density));
+        downloaderBinding.toolbarLayout.toolbar.setTitleMarginStart(0);
         downloaderBinding.collapsingToolbar.setTitle(getString(R.string.downloads_title));
 
         final ActionBar actionBar = getSupportActionBar();

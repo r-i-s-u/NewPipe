@@ -187,9 +187,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="DownloadsTitleCollapsed" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
+    <style name="DownloadsTitleCollapsed" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 </resources>
