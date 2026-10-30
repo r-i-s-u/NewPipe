@@ -14,4 +14,6 @@
 <color name="m3_on_surface_variant">#BDBDBD</color>
 <color name="m3_surface_variant">#303030</color>
 <color name="m3_outline">#9E9E9E</color>
+    <color name="sheet_glass">#B3141414</color>
+    <color name="sheet_glass_stroke">#33FFFFFF</color>
 </resources>

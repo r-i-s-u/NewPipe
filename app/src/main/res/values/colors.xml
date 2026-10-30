@@ -54,4 +54,6 @@
     <color name="dark_bandcamp_primary_color">#1383a1</color>
     <color name="dark_bandcamp_accent_color">#FFFFFF</color>
  
+    <color name="sheet_glass">#CCFFFFFF</color>
+    <color name="sheet_glass_stroke">#1F000000</color>
 </resources>

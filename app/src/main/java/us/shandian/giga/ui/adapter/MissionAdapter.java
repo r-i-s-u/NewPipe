@@ -1262,7 +1262,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             }
 
 
-            popupMenu.show();
+            MissionMenuSheet.show(mContext, popupMenu.getMenu(), option -> handlePopupItem(this, option));
         }
 
         private PopupMenu buildPopup(final View button) {
