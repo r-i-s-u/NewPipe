@@ -49,13 +49,7 @@ public final class MissionMenuSheet {
             }
             final Window w = d.getWindow();
             if (w != null) {
-                w.setDimAmount(0.15f);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    w.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-                    final WindowManager.LayoutParams lp = w.getAttributes();
-                    lp.setBlurBehindRadius(40);
-                    w.setAttributes(lp);
-                }
+                w.setDimAmount(0.3f);
             }
         });
         d.show();
