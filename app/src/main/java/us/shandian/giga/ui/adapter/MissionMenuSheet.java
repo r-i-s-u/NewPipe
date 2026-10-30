@@ -23,7 +23,7 @@ public final class MissionMenuSheet {
         final LinearLayout box = new LinearLayout(ctx);
         box.setOrientation(LinearLayout.VERTICAL);
         final int pad = (int) (12 * ctx.getResources().getDisplayMetrics().density);
-        box.setPadding(0, pad, 0, pad);
+        box.setPadding(0, pad, 0, pad * 2);
 
         for (int i = 0; i < menu.size(); i++) {
             final MenuItem item = menu.getItem(i);
@@ -31,6 +31,7 @@ public final class MissionMenuSheet {
                 continue;
             }
             final TextView row = new TextView(ctx, null, 0, R.style.MissionMenuRow);
+            row.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (int) (56 * ctx.getResources().getDisplayMetrics().density)));
             final boolean checked = item.isCheckable() && item.isChecked();
             row.setText(checked ? "\u2713  " + item.getTitle() : item.getTitle());
             row.setOnClickListener(v -> {

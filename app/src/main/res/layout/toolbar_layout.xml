@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        app:titleMarginStart="56dp"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
