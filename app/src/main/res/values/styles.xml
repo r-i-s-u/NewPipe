@@ -2,7 +2,6 @@
 
     <!-- Base Theme -->
     <style name="Base.V21" parent="Theme.AppCompat.DayNight.NoActionBar">
-    <item name="android:homeAsUpIndicator"@drawable/abc_vector_test</item>
     </style>
    <style name="Widget.App.MaterialSwitch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
     <item name="enforceMaterialTheme">false</item>
