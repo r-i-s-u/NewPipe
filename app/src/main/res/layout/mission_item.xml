@@ -30,6 +30,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:visibility="invisible"
+            app:buttonCompat="@drawable/download_checkbox_button"
             app:buttonTint="@color/download_checkbox_tint" />
 
         <ImageView
