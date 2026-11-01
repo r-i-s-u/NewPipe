@@ -1124,6 +1124,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         ProgressDrawable progress;
 
         PopupMenu popupMenu;
+        View menuAnchor;
         MenuItem retry;
         MenuItem cancel;
         MenuItem start;
@@ -1262,11 +1263,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             }
 
 
-            MissionMenuSheet.show(mContext, popupMenu.getMenu(), option -> handlePopupItem(this, option));
+            MissionMenuPopup.show(menuAnchor != null ? menuAnchor : itemView,
+                    popupMenu.getMenu(), option -> handlePopupItem(this, option));
         }
 
         private PopupMenu buildPopup(final View button) {
             PopupMenu popup = new PopupMenu(popupContext(mContext), button, android.view.Gravity.END);
+            menuAnchor = button;
             popup.inflate(R.menu.mission);
             popup.setOnMenuItemClickListener(option -> handlePopupItem(this, option));
 
