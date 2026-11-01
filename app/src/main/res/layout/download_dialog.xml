@@ -40,6 +40,16 @@
                     android:textSize="20sp" />
 
                 <ImageView
+                    android:id="@+id/captions_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/caption_setting_title"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_subtitles"
+                    android:tint="?android:attr/textColorPrimary" />
+
+                <ImageView
                     android:id="@+id/threads_button"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
