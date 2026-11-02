@@ -64,6 +64,7 @@ public class MissionsFragment extends Fragment {
     private Context mContext;
 
     private DownloadManagerBinder mBinder;
+    private int mKind = 2; // 2 = video, 1 = audio
     private boolean mForceUpdate;
 
     private DownloadMission unsafeMissionTarget = null;
@@ -96,6 +97,28 @@ public class MissionsFragment extends Fragment {
 
     };
 
+    private void switchKind(final boolean toAudio) {
+        final int kind = toAudio ? 1 : 2;
+        if (kind == mKind || mAdapter == null || mList == null) {
+            return;
+        }
+        mKind = kind;
+        final float dir = toAudio ? 1f : -1f;
+        final float shift = mList.getWidth() * 0.25f;
+        if (getActivity() instanceof org.schabi.newpipe.MainActivity) {
+            ((org.schabi.newpipe.MainActivity) getActivity()).setKindTitle(toAudio);
+        }
+        mList.animate().translationX(-dir * shift).alpha(0f).setDuration(120)
+                .withEndAction(() -> {
+                    if (mAdapter == null) {
+                        return;
+                    }
+                    mAdapter.setKindFilter(kind);
+                    mList.setTranslationX(dir * shift);
+                    mList.animate().translationX(0f).alpha(1f).setDuration(160).start();
+                }).start();
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.missions, container, false);
@@ -109,6 +132,41 @@ public class MissionsFragment extends Fragment {
         // Views
         mEmpty = v.findViewById(R.id.list_empty_view);
         mList = v.findViewById(R.id.mission_recycler);
+
+        final android.view.GestureDetector swipe = new android.view.GestureDetector(
+                requireContext(), new android.view.GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onFling(final android.view.MotionEvent e1,
+                                   final android.view.MotionEvent e2,
+                                   final float vx, final float vy) {
+                if (e1 == null || e2 == null) {
+                    return false;
+                }
+                final float dx = e2.getX() - e1.getX();
+                final float dy = e2.getY() - e1.getY();
+                final float min = 80 * getResources().getDisplayMetrics().density;
+                if (Math.abs(dx) > min && Math.abs(dx) > 2 * Math.abs(dy)
+                        && Math.abs(vx) > 400) {
+                    switchKind(dx < 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+        mList.addOnItemTouchListener(
+                new androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(
+                    @NonNull final androidx.recyclerview.widget.RecyclerView rv,
+                    @NonNull final android.view.MotionEvent e) {
+                swipe.onTouchEvent(e);
+                return false;
+            }
+        });
+        mEmpty.setOnTouchListener((view, e) -> {
+            swipe.onTouchEvent(e);
+            return true;
+        });
 
         // Init layouts managers
         mGridManager = new GridLayoutManager(getActivity(), SPAN_SIZE);

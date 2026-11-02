@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(downloaderBinding.toolbarLayout.toolbar);
 
         downloaderBinding.toolbarLayout.toolbar.setTitleMarginStart(0);
-        downloaderBinding.collapsingToolbar.setTitle(getString(R.string.downloads_title));
+        downloaderBinding.collapsingToolbar.setTitle(getString(R.string.videos_title));
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -74,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.frame, fragment, MISSIONS_FRAGMENT_TAG)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
+    }
+
+    public void setKindTitle(final boolean audio) {
+        final com.google.android.material.appbar.CollapsingToolbarLayout ctl =
+                findViewById(R.id.collapsing_toolbar);
+        if (ctl != null) {
+            ctl.setTitle(getString(audio ? R.string.audio : R.string.videos_title));
+        }
     }
 
     @Override

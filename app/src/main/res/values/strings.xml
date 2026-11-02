@@ -921,4 +921,5 @@
     <string name="mission_yesterday" translatable="false">Yesterday</string>
     <string name="empty_downloads_title">No downloads yet</string>
     <string name="empty_downloads_subtitle">Videos and audio you download will appear here</string>
+    <string name="videos_title">Videos</string>
 </resources>

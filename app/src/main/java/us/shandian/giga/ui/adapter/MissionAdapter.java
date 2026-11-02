@@ -141,22 +141,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         mDeleter = new Deleter(root, mContext, this, mDownloadManager, mIterator, mHandler);
 
         mView = root;
-        final android.widget.CompoundButton chipAudio = root.findViewById(R.id.chip_audio);
-        final android.widget.CompoundButton chipVideo = root.findViewById(R.id.chip_video);
-        if (chipAudio != null && chipVideo != null) {
-            chipAudio.setOnCheckedChangeListener((b, on) -> {
-                if (on) {
-                    chipVideo.setChecked(false);
-                }
-                setKindFilter(on ? 1 : (chipVideo.isChecked() ? 2 : 0));
-            });
-            chipVideo.setOnCheckedChangeListener((b, on) -> {
-                if (on) {
-                    chipAudio.setChecked(false);
-                }
-                setKindFilter(on ? 2 : (chipAudio.isChecked() ? 1 : 0));
-            });
-        }
+        mIterator.setKindFilter(2);
 
         mHidden = new ArrayList<>();
 
@@ -986,7 +971,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 .format(new Date(dayStart));
     }
 
-    private void setKindFilter(final int kind) {
+    public void setKindFilter(final int kind) {
         mIterator.setKindFilter(kind);
         applyChanges();
         checkMasterButtonsVisibility();
