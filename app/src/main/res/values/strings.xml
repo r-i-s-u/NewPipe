@@ -919,5 +919,4 @@
     <string name="mission_entries_deleted" translatable="false">%d entries removed from history</string>
     <string name="mission_today" translatable="false">Today</string>
     <string name="mission_yesterday" translatable="false">Yesterday</string>
-    <string name="mission_captions_off" translatable="false">Off</string>
 </resources>
