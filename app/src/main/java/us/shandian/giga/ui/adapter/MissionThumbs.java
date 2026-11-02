@@ -128,6 +128,9 @@ final class MissionThumbs {
             if (pic != null) {
                 bmp = decode(pic);
             }
+            if (!audio && bmp != null && bmp.getWidth() * 10 < bmp.getHeight() * 14) {
+                bmp = null;
+            }
             if (bmp == null && !audio) {
                 Bitmap frame = mmr.getFrameAtTime(1_000_000L,
                         MediaMetadataRetriever.OPTION_CLOSEST_SYNC);

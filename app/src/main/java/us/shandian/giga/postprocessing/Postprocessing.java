@@ -345,7 +345,11 @@ public abstract class Postprocessing implements Serializable {
         }
     }
 
-    private static byte[] downloadImage(final String url) {
+    private boolean isVideoOutput() {
+        return ALGORITHM_MP4_FROM_DASH_MUXER.equals(name) || ALGORITHM_WEBM_MUXER.equals(name);
+    }
+
+    private byte[] downloadImage(final String url) {
         java.net.HttpURLConnection con = null;
         try {
             con = (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
@@ -377,7 +381,7 @@ public abstract class Postprocessing implements Serializable {
             if (bmp == null) {
                 return (jpeg || png) ? data : null;
             }
-            final android.graphics.Bitmap cover = squareCover(bmp);
+            final android.graphics.Bitmap cover = isVideoOutput() ? bmp : squareCover(bmp);
             final java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
             cover.compress(android.graphics.Bitmap.CompressFormat.JPEG, 95, out);
             return out.toByteArray();
