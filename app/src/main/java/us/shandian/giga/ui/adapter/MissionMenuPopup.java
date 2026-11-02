@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -18,6 +19,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import org.schabi.newpipe.R;
 
@@ -38,11 +41,19 @@ public final class MissionMenuPopup {
         final TypedValue rip = new TypedValue();
         ctx.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, rip, true);
 
+        boolean anyIcon = false;
+        for (int i = 0; i < menu.size(); i++) {
+            final MenuItem it = menu.getItem(i);
+            if (it.isVisible() && it.getIcon() != null) {
+                anyIcon = true;
+            }
+        }
+
         final PopupWindow pw = new PopupWindow(ctx);
         final LinearLayout box = new LinearLayout(ctx);
         box.setOrientation(LinearLayout.VERTICAL);
         box.setPadding(0, dp(ctx, 8), 0, dp(ctx, 8));
-        box.setMinimumWidth(dp(ctx, 220));
+        box.setMinimumWidth(dp(ctx, 160));
 
         for (int i = 0; i < menu.size(); i++) {
             final MenuItem item = menu.getItem(i);
@@ -52,7 +63,7 @@ public final class MissionMenuPopup {
             final LinearLayout row = new LinearLayout(ctx);
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setGravity(Gravity.CENTER_VERTICAL);
-            row.setPadding(dp(ctx, 20), 0, dp(ctx, 28), 0);
+            row.setPadding(dp(ctx, 16), 0, dp(ctx, 20), 0);
             row.setMinimumHeight(dp(ctx, 48));
             row.setBackgroundResource(rip.resourceId);
 
@@ -62,6 +73,8 @@ public final class MissionMenuPopup {
                 iv.setImageDrawable(ic.mutate());
                 iv.setColorFilter(fg);
                 row.addView(iv, new LinearLayout.LayoutParams(dp(ctx, 24), dp(ctx, 24)));
+            } else if (anyIcon) {
+                row.addView(new View(ctx), new LinearLayout.LayoutParams(dp(ctx, 24), 1));
             }
             final boolean checked = item.isCheckable() && item.isChecked();
             final TextView t = new TextView(ctx);
@@ -70,7 +83,7 @@ public final class MissionMenuPopup {
             t.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
             final LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.setMarginStart(ic != null ? dp(ctx, 16) : 0);
+            lp.setMarginStart(anyIcon ? dp(ctx, 16) : 0);
             row.addView(t, lp);
 
             row.setOnClickListener(v -> {
@@ -83,20 +96,53 @@ public final class MissionMenuPopup {
 
         final GradientDrawable bg = new GradientDrawable();
         bg.setColor(ContextCompat.getColor(ctx, R.color.mission_popup_bg));
-        bg.setCornerRadius(dp(ctx, 24));
-        bg.setStroke(dp(ctx, 1), (fg & 0x00FFFFFF) | 0x1F000000);
+        bg.setCornerRadius(dp(ctx, 20));
 
         final ScrollView scroll = new ScrollView(ctx);
         scroll.setBackground(bg);
         scroll.setClipToOutline(true);
         scroll.addView(box);
 
+        // position: kone se 16dp door, jagah na ho to upar flip
+        final View root = anchor.getRootView();
+        final int sw = root.getWidth();
+        final int sh = root.getHeight();
+        final int margin = dp(ctx, 16);
+        final WindowInsetsCompat wi = ViewCompat.getRootWindowInsets(anchor);
+        final int topIn = wi != null
+                ? wi.getInsets(WindowInsetsCompat.Type.systemBars()).top : 0;
+        final int botIn = wi != null
+                ? wi.getInsets(WindowInsetsCompat.Type.systemBars()).bottom : 0;
+        scroll.measure(
+                View.MeasureSpec.makeMeasureSpec(sw - 2 * margin, View.MeasureSpec.AT_MOST),
+                View.MeasureSpec.makeMeasureSpec(sh - topIn - botIn - 2 * margin,
+                        View.MeasureSpec.AT_MOST));
+        final int w = scroll.getMeasuredWidth();
+        final int h = scroll.getMeasuredHeight();
+        final int[] loc = new int[2];
+        anchor.getLocationInWindow(loc);
+
+        int x = loc[0] + anchor.getWidth() - w;
+        x = Math.max(margin, Math.min(x, sw - w - margin));
+        final boolean below = loc[1] + anchor.getHeight() + h <= sh - botIn - margin;
+        int y = below ? loc[1] + anchor.getHeight() : loc[1] - h;
+        y = Math.max(topIn + margin, Math.min(y, sh - botIn - h - margin));
+
         pw.setContentView(scroll);
-        pw.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
-        pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        pw.setWidth(w);
+        pw.setHeight(h);
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
         pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        pw.showAsDropDown(anchor, -dp(ctx, 8), 0, Gravity.END);
+
+        // spread animation: three-dot ki taraf se phailta hai (neeche ya upar)
+        scroll.setPivotX(Math.max(0f, Math.min(w, loc[0] + anchor.getWidth() / 2f - x)));
+        scroll.setPivotY(below ? 0f : h);
+        scroll.setAlpha(0f);
+        scroll.setScaleX(0.6f);
+        scroll.setScaleY(0.3f);
+        pw.showAtLocation(anchor, Gravity.TOP | Gravity.START, x, y);
+        scroll.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200)
+                .setInterpolator(new DecelerateInterpolator()).start();
     }
 }

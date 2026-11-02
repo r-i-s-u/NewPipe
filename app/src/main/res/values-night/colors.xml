@@ -17,5 +17,5 @@
     <color name="sheet_glass">#F2101010</color>
     <color name="sheet_glow">#3D9C6BD6</color>
     <color name="sheet_row_pressed">#26FFFFFF</color>
-    <color name="mission_popup_bg">#FF0F0F0F</color>
+    <color name="mission_popup_bg">#FF000000</color>
 </resources>

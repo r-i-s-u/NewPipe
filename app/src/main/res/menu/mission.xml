@@ -6,35 +6,43 @@
 
     <item
         android:id="@+id/cancel"
+        android:icon="@drawable/ic_close"
         android:title="@string/cancel" />
 
     <item
         android:id="@+id/start"
+        android:icon="@drawable/ic_play_arrow"
         android:title="@string/start" />
 
     <item
         android:id="@+id/pause"
+        android:icon="@drawable/ic_pause"
         android:title="@string/pause" />
 
     <item
         android:id="@+id/queue"
+        android:icon="@drawable/ic_playlist_add"
         android:checkable="true"
         android:title="@string/enqueue" />
 
     <item
         android:id="@+id/menu_item_share"
+        android:icon="@drawable/ic_share"
         android:title="@string/share" />
 
     <item
         android:id="@+id/rename"
+        android:icon="@drawable/ic_edit"
         android:title="@string/mission_rename" />
 
     <item
         android:id="@+id/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/delete_file" />
 
     <item
         android:id="@+id/delete_entry"
+        android:icon="@drawable/ic_close"
         android:title="@string/delete_entry" />
 
     <item
