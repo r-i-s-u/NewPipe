@@ -919,4 +919,6 @@
     <string name="mission_entries_deleted" translatable="false">%d entries removed from history</string>
     <string name="mission_today" translatable="false">Today</string>
     <string name="mission_yesterday" translatable="false">Yesterday</string>
+    <string name="empty_downloads_title">No downloads yet</string>
+    <string name="empty_downloads_subtitle">Videos and audio you download will appear here</string>
 </resources>

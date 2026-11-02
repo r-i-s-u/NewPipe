@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:minHeight="128dp"
-    android:orientation="vertical">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="32dp"
+    android:paddingTop="72dp"
+    android:paddingEnd="32dp">
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="@drawable/bg_empty_icon"
+        android:importantForAccessibility="no"
+        android:padding="28dp"
+        android:src="@drawable/ic_file_download"
+        android:tint="?android:attr/textColorSecondary" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¯\\_(ツ)_/¯"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:ignore="HardcodedText" />
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/empty_downloads_title"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
-        android:paddingHorizontal="16dp"
-        android:text="@string/empty_list_subtitle" />
+        android:text="@string/empty_downloads_subtitle"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="14sp" />
 </LinearLayout>
