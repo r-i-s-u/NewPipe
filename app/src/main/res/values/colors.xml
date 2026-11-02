@@ -59,4 +59,5 @@
     <color name="sheet_row_pressed">#14000000</color>
     <color name="mission_popup_bg">#FFFFFFFF</color>
     <color name="empty_icon_bg">#FFF1F1F1</color>
+    <color name="selection_bar_bg">#FFF1F1F1</color>
 </resources>

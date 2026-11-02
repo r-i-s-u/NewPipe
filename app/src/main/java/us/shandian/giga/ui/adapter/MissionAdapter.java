@@ -105,7 +105,11 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     private static final int MENU_SELECT_ALL = 9003;
     private static final int MENU_DELETE_ENTRY = 9004;
     private final java.util.LinkedHashSet<Mission> mSelected = new java.util.LinkedHashSet<>();
-    private androidx.appcompat.view.ActionMode mActionMode;
+    private boolean mSelecting;
+    private android.view.View mBar;
+    private android.widget.CheckBox mBarAll;
+    private android.widget.TextView mBarText;
+    private androidx.activity.OnBackPressedCallback mBackCallback;
     private RecyclerView mRecycler;
     private final LayoutInflater mInflater;
     private final DownloadManager mDownloadManager;
@@ -717,66 +721,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     // ---------------- multi selection ----------------
-    private final androidx.appcompat.view.ActionMode.Callback mSelectionCallback =
-            new androidx.appcompat.view.ActionMode.Callback() {
-                @Override
-                public boolean onCreateActionMode(final androidx.appcompat.view.ActionMode mode,
-                                                  final Menu menu) {
-                    menu.add(Menu.NONE, MENU_SHARE, 1, R.string.share)
-                            .setIcon(R.drawable.ic_share)
-                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-                    menu.add(Menu.NONE, MENU_DELETE, 5, R.string.delete_file)
-                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-                    menu.add(Menu.NONE, MENU_SELECT_ALL, 3, R.string.mission_select_all)
-                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-                    menu.add(Menu.NONE, MENU_DELETE_ENTRY, 4, R.string.mission_delete_history)
-                            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-                    return true;
-                }
-
-                @Override
-                public boolean onPrepareActionMode(final androidx.appcompat.view.ActionMode mode,
-                                                   final Menu menu) {
-                    final MenuItem all = menu.findItem(MENU_SELECT_ALL);
-                    if (all != null) {
-                        all.setTitle(allSelected()
-                                ? R.string.mission_unselect_all : R.string.mission_select_all);
-                    }
-                    return true;
-                }
-
-                @Override
-                public boolean onActionItemClicked(final androidx.appcompat.view.ActionMode mode,
-                                                   final MenuItem item) {
-                    final int id = item.getItemId();
-                    if (id == MENU_SHARE) {
-                        shareSelected();
-                        return true;
-                    } else if (id == MENU_DELETE) {
-                        confirmDelete();
-                        return true;
-                    } else if (id == MENU_DELETE_ENTRY) {
-                        deleteSelected(false);
-                        return true;
-                    } else if (id == MENU_SELECT_ALL) {
-                        if (allSelected()) {
-                            finishSelection();
-                        } else {
-                            selectAll();
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-
-                @Override
-                public void onDestroyActionMode(final androidx.appcompat.view.ActionMode mode) {
-                    mActionMode = null;
-                    mSelected.clear();
-                    refreshSelectionViews();
-                }
-            };
-
     @Override
     public void onAttachedToRecyclerView(@NonNull final RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -792,27 +736,23 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private boolean isSelecting() {
-        return mActionMode != null;
+        return mSelecting;
     }
 
     private boolean beginSelection(final Mission first) {
-        if (!(mContext instanceof androidx.appcompat.app.AppCompatActivity)) {
+        if (mView == null) {
             return false;
         }
         mSelected.add(first);
-        mActionMode = ((androidx.appcompat.app.AppCompatActivity) mContext)
-                .startSupportActionMode(mSelectionCallback);
-        if (mActionMode == null) {
-            mSelected.clear();
-            return false;
-        }
+        mSelecting = true;
+        showSelectionBar();
         updateSelectionUi();
         refreshSelectionViews();
         return true;
     }
 
     private void toggleSelection(final Mission mission) {
-        if (!(mission instanceof FinishedMission) || mActionMode == null) {
+        if (!(mission instanceof FinishedMission) || !mSelecting) {
             return;
         }
         if (!mSelected.remove(mission)) {
@@ -827,8 +767,68 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void finishSelection() {
-        if (mActionMode != null) {
-            mActionMode.finish();
+        if (!mSelecting) {
+            return;
+        }
+        mSelecting = false;
+        mSelected.clear();
+        if (mBar != null) {
+            mBar.setVisibility(android.view.View.GONE);
+        }
+        if (mBackCallback != null) {
+            mBackCallback.setEnabled(false);
+        }
+        refreshSelectionViews();
+    }
+
+    private void showSelectionBar() {
+        final android.view.ViewGroup root = (android.view.ViewGroup) mView;
+        if (mBar == null) {
+            mBar = android.view.LayoutInflater.from(mContext)
+                    .inflate(R.layout.mission_selection_bar, root, false);
+            mBarAll = mBar.findViewById(R.id.sel_all);
+            mBarText = mBar.findViewById(R.id.sel_text);
+            mBarAll.setOnClickListener(v -> {
+                if (allSelected()) {
+                    finishSelection();
+                } else {
+                    selectAll();
+                }
+            });
+            mBar.findViewById(R.id.sel_share).setOnClickListener(v -> shareSelected());
+            mBar.findViewById(R.id.sel_delete).setOnClickListener(v -> confirmDelete());
+            final android.view.View list = root.findViewById(R.id.mission_recycler);
+            if (list != null && list.getLayoutParams() instanceof android.widget.LinearLayout.LayoutParams) {
+                final android.widget.LinearLayout.LayoutParams lp =
+                        (android.widget.LinearLayout.LayoutParams) list.getLayoutParams();
+                if (lp.weight == 0f) {
+                    lp.height = 0;
+                    lp.weight = 1f;
+                    list.setLayoutParams(lp);
+                }
+            }
+            root.addView(mBar);
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(mBar, (v, insets) -> {
+                final int b = insets.getInsets(
+                        androidx.core.view.WindowInsetsCompat.Type.systemBars()).bottom;
+                v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), b);
+                return insets;
+            });
+        }
+        mBar.setVisibility(android.view.View.VISIBLE);
+        androidx.core.view.ViewCompat.requestApplyInsets(mBar);
+        if (mContext instanceof androidx.activity.OnBackPressedDispatcherOwner) {
+            if (mBackCallback == null) {
+                mBackCallback = new androidx.activity.OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        finishSelection();
+                    }
+                };
+                ((androidx.activity.OnBackPressedDispatcherOwner) mContext)
+                        .getOnBackPressedDispatcher().addCallback(mBackCallback);
+            }
+            mBackCallback.setEnabled(true);
         }
     }
 
@@ -855,16 +855,37 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void updateSelectionUi() {
-        if (mActionMode == null) {
+        if (!mSelecting || mBarText == null) {
             return;
         }
-        long total = 0;
+        int videos = 0;
+        int audios = 0;
         for (final Mission m : mSelected) {
-            total += m.length;
+            boolean isAudio = false;
+            try {
+                isAudio = m.storage != null
+                        && org.schabi.newpipe.download.MiniPlayerSheet.isAudio(m.storage);
+            } catch (final Exception ignored) {
+                // treat as video
+            }
+            if (isAudio) {
+                audios++;
+            } else {
+                videos++;
+            }
         }
-        mActionMode.setTitle(mContext.getString(R.string.mission_selected, mSelected.size()));
-        mActionMode.setSubtitle(Utility.formatBytes(total));
-        mActionMode.invalidate();
+        final StringBuilder sb = new StringBuilder();
+        if (videos > 0) {
+            sb.append(mContext.getString(R.string.mission_sel_videos, videos));
+        }
+        if (audios > 0) {
+            if (sb.length() > 0) {
+                sb.append(", ");
+            }
+            sb.append(mContext.getString(R.string.mission_sel_audios, audios));
+        }
+        mBarText.setText(sb);
+        mBarAll.setChecked(allSelected());
     }
 
     private void confirmDelete() {
@@ -872,11 +893,21 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (count == 0) {
             return;
         }
+        long total = 0;
+        for (final Mission m : mSelected) {
+            total += m.length;
+        }
+        final android.view.View v = android.view.LayoutInflater.from(mContext)
+                .inflate(R.layout.dialog_mission_remove, null);
+        ((TextView) v.findViewById(R.id.remove_message))
+                .setText(mContext.getString(R.string.mission_remove_message, count));
+        final android.widget.CheckBox cb = v.findViewById(R.id.remove_delete_file);
+        cb.setText(mContext.getString(R.string.mission_remove_delete_file,
+                Utility.formatBytes(total)));
         new AlertDialog.Builder(mContext)
-                .setTitle(R.string.mission_delete_title)
-                .setMessage(mContext.getString(R.string.mission_delete_message, count))
-                .setPositiveButton(R.string.mission_delete_confirm,
-                        (dialog, which) -> deleteSelected(true))
+                .setView(v)
+                .setPositiveButton(R.string.mission_remove_confirm,
+                        (dialog, which) -> deleteSelected(cb.isChecked()))
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
     }
@@ -938,7 +969,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
     private void bindSelection(final ViewHolderItem h, final boolean animate) {
         final boolean finished = h.item != null && h.item.mission instanceof FinishedMission;
-        final boolean show = finished && mActionMode != null;
+        final boolean show = finished && mSelecting;
         final boolean selected = show && mSelected.contains(h.item.mission);
         h.row.setSelecting(show, animate);
         h.check.setChecked(selected);
@@ -973,6 +1004,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     public void setKindFilter(final int kind) {
+        finishSelection();
         mIterator.setKindFilter(kind);
         applyChanges();
         checkMasterButtonsVisibility();

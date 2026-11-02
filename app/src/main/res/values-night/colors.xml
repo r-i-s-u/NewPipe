@@ -19,4 +19,5 @@
     <color name="sheet_row_pressed">#26FFFFFF</color>
     <color name="mission_popup_bg">#FF000000</color>
     <color name="empty_icon_bg">#FF1F1F1F</color>
+    <color name="selection_bar_bg">#FF202124</color>
 </resources>
