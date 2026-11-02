@@ -142,6 +142,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         mView = root;
         mIterator.setKindFilter(2);
+        mIterator.start();
 
         mHidden = new ArrayList<>();
 
