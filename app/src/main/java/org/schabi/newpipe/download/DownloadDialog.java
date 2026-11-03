@@ -570,6 +570,10 @@ public class DownloadDialog extends BottomSheetDialogFragment
             behavior.setState(
                     com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
             behavior.setSkipCollapsed(true);
+            final boolean land = getResources().getConfiguration().orientation
+                    == android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+            behavior.setMaxWidth(land
+                    ? (int) (getResources().getDisplayMetrics().widthPixels * 0.42f) : -1);
         }
     }
 
