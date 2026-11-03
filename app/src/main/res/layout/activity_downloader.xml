@@ -24,7 +24,6 @@
             app:expandedTitleMarginBottom="14dp"
             app:expandedTitleMarginStart="16dp"
             app:expandedTitleTextAppearance="@style/DownloadsTitleExpanded"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
             <include

@@ -645,7 +645,7 @@ public class DownloadManager {
         ArrayList<Mission> hidden;
 
         boolean hasFinished = false;
-        volatile int kindFilter = 0;
+        volatile int kindFilter = 2;
 
         public void setKindFilter(int kind) {
             kindFilter = kind;
