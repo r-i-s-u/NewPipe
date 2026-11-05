@@ -394,6 +394,30 @@ public abstract class Postprocessing implements Serializable {
         }
     }
 
+    /** Small thumbnail URL for the downloads list (null when unknown). */
+    public String thumbnailUrl(final boolean square) {
+        try {
+            if (streamInfo == null) {
+                return null;
+            }
+            if (streamInfo.getServiceId() == 0 && streamInfo.getId() != null) {
+                return "https://i.ytimg.com/vi/" + streamInfo.getId()
+                        + (square ? "/mqdefault.jpg" : "/hqdefault.jpg");
+            }
+            String best = null;
+            int bestHeight = -2;
+            for (final var image : streamInfo.getThumbnails()) {
+                if (image.getUrl() != null && image.getHeight() > bestHeight) {
+                    bestHeight = image.getHeight();
+                    best = image.getUrl();
+                }
+            }
+            return best;
+        } catch (final Exception e) {
+            return null;
+        }
+    }
+
     byte[] coverBytes() {
         return streamInfo == null ? null : fetchThumbnail();
     }

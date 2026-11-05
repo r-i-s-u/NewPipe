@@ -255,6 +255,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
     @SuppressLint("DefaultLocale")
     private void updateProgress(ViewHolderItem h) {
+        MissionThumbs.setOverlay(h.icon, h.item.mission);
         if (h == null || h.item == null || h.item.mission instanceof FinishedMission) return;
 
         DownloadMission mission = (DownloadMission) h.item.mission;

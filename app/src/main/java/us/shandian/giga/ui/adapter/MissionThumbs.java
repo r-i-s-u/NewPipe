@@ -62,6 +62,17 @@ final class MissionThumbs {
         view.setPadding(pad[0], pad[1], pad[2], pad[3]);
         view.setTag(R.id.tag_thumb_key, null);
         subtitle.setText("");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            final android.graphics.drawable.Drawable fg = view.getForeground();
+            if (fg instanceof PendingOverlayDrawable) {
+                ((PendingOverlayDrawable) fg).stop();
+            }
+            view.setForeground(null);
+        }
+        if (mission instanceof us.shandian.giga.get.DownloadMission) {
+            loadRemote((us.shandian.giga.get.DownloadMission) mission, view, subtitle);
+            return;
+        }
 
         if (!(mission instanceof FinishedMission) || mission.storage == null
                 || mission.storage.isInvalid()) {
@@ -103,6 +114,96 @@ final class MissionThumbs {
                 }
             });
         });
+    }
+
+    private static void loadRemote(final us.shandian.giga.get.DownloadMission mission,
+                                   final ImageView view, final TextView subtitle) {
+        boolean audio = false;
+        try {
+            audio = mission.storage != null && MiniPlayerSheet.isAudio(mission.storage);
+        } catch (final Exception ignored) {
+            // treat as video
+        }
+        final String url = mission.psAlgorithm == null
+                ? null : mission.psAlgorithm.thumbnailUrl(audio);
+        if (url == null) {
+            return;
+        }
+        final String key = "remote#" + url;
+        if (MISSING.contains(key)) {
+            return;
+        }
+        final Meta cached = CACHE.get(key);
+        if (cached != null) {
+            apply(view, subtitle, cached);
+            return;
+        }
+        view.setTag(R.id.tag_thumb_key, key);
+        POOL.execute(() -> {
+            final Bitmap bmp = fetchRemote(url);
+            if (bmp == null) {
+                MISSING.add(key);
+                return;
+            }
+            final Meta meta = new Meta(bmp, null);
+            CACHE.put(key, meta);
+            MAIN.post(() -> {
+                if (key.equals(view.getTag(R.id.tag_thumb_key))) {
+                    apply(view, subtitle, meta);
+                }
+            });
+        });
+    }
+
+    private static Bitmap fetchRemote(final String url) {
+        java.net.HttpURLConnection con = null;
+        try {
+            con = (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
+            con.setConnectTimeout(8000);
+            con.setReadTimeout(8000);
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            if (con.getResponseCode() != 200) {
+                return null;
+            }
+            final java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
+            try (java.io.InputStream in = con.getInputStream()) {
+                final byte[] buf = new byte[16 * 1024];
+                int n;
+                while ((n = in.read(buf)) > 0) {
+                    bytes.write(buf, 0, n);
+                    if (bytes.size() > 4_000_000) {
+                        return null;
+                    }
+                }
+            }
+            return decode(bytes.toByteArray());
+        } catch (final Exception e) {
+            return null;
+        } finally {
+            if (con != null) {
+                con.disconnect();
+            }
+        }
+    }
+
+    static void setOverlay(final ImageView view, final Mission mission) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M
+                || !(mission instanceof us.shandian.giga.get.DownloadMission)) {
+            return;
+        }
+        final us.shandian.giga.get.DownloadMission m = (us.shandian.giga.get.DownloadMission) mission;
+        final float p = m.isPsRunning() || !m.isInitialized() || m.unknownLength || m.length <= 0
+                ? -1f : (float) m.done / (float) m.length;
+        final android.graphics.drawable.Drawable fg = view.getForeground();
+        final PendingOverlayDrawable o;
+        if (fg instanceof PendingOverlayDrawable) {
+            o = (PendingOverlayDrawable) fg;
+        } else {
+            o = new PendingOverlayDrawable();
+            view.setForeground(o);
+            view.setClipToOutline(true);
+        }
+        o.update(p, m.running || m.isPsRunning());
     }
 
     private static void apply(final ImageView view, final TextView subtitle, final Meta meta) {
