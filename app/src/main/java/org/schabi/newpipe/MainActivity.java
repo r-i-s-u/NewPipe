@@ -48,12 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(downloaderBinding.toolbarLayout.toolbar);
 
         downloaderBinding.toolbarLayout.toolbar.setTitleMarginStart(0);
-        downloaderBinding.collapsingToolbar.setTitle(getString(R.string.videos_title));
+        downloaderBinding.toolbarLayout.toolbar.setTitleTextAppearance(
+                this, R.style.DownloadsTitleExpanded);
 
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setTitle(R.string.videos_title);
         }
 
         getWindow().getDecorView().getViewTreeObserver()
@@ -77,10 +79,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setKindTitle(final boolean audio) {
-        final com.google.android.material.appbar.CollapsingToolbarLayout ctl =
-                findViewById(R.id.collapsing_toolbar);
-        if (ctl != null) {
-            ctl.setTitle(getString(audio ? R.string.audio : R.string.videos_title));
+        final ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            bar.setTitle(audio ? R.string.audio : R.string.videos_title);
         }
     }
 
