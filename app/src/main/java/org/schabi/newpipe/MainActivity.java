@@ -80,9 +80,37 @@ public class MainActivity extends AppCompatActivity {
 
     public void setKindTitle(final boolean audio) {
         final ActionBar bar = getSupportActionBar();
-        if (bar != null) {
-            bar.setTitle(audio ? R.string.audio : R.string.videos_title);
+        if (bar == null) {
+            return;
         }
+        final androidx.appcompat.widget.Toolbar tb = findViewById(R.id.toolbar);
+        android.widget.TextView tv = null;
+        if (tb != null) {
+            for (int i = 0; i < tb.getChildCount(); i++) {
+                if (tb.getChildAt(i) instanceof android.widget.TextView) {
+                    tv = (android.widget.TextView) tb.getChildAt(i);
+                    break;
+                }
+            }
+        }
+        final int res = audio ? R.string.audio : R.string.videos_title;
+        if (tv == null) {
+            bar.setTitle(res);
+            return;
+        }
+        final android.widget.TextView t = tv;
+        final float d = (audio ? 1f : -1f) * 32 * getResources().getDisplayMetrics().density;
+        t.animate().cancel();
+        t.animate().alpha(0f).translationX(-d).setDuration(90)
+                .setInterpolator(new android.view.animation.PathInterpolator(0.4f, 0f, 1f, 1f))
+                .withEndAction(() -> {
+                    bar.setTitle(res);
+                    t.setTranslationX(d);
+                    t.animate().alpha(1f).translationX(0f).setDuration(210)
+                            .setInterpolator(new android.view.animation.PathInterpolator(
+                                    0f, 0f, 0.2f, 1f))
+                            .start();
+                }).start();
     }
 
     @Override

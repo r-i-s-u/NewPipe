@@ -104,18 +104,38 @@ public class MissionsFragment extends Fragment {
         }
         mKind = kind;
         final float dir = toAudio ? 1f : -1f;
-        final float shift = mList.getWidth() * 0.25f;
+        final float shift = 32 * getResources().getDisplayMetrics().density;
+        final android.view.animation.Interpolator out =
+                new android.view.animation.PathInterpolator(0.4f, 0f, 1f, 1f);
+        final android.view.animation.Interpolator in =
+                new android.view.animation.PathInterpolator(0f, 0f, 0.2f, 1f);
         if (getActivity() instanceof org.schabi.newpipe.MainActivity) {
             ((org.schabi.newpipe.MainActivity) getActivity()).setKindTitle(toAudio);
         }
-        mList.animate().translationX(-dir * shift).alpha(0f).setDuration(120)
-                .withEndAction(() -> {
-                    if (mAdapter == null) {
+        mEmpty.animate().cancel();
+        mEmpty.animate().alpha(0f).translationX(-dir * shift).setDuration(90)
+                .setInterpolator(out).start();
+        mList.animate().cancel();
+        mList.animate().alpha(0f).translationX(-dir * shift).setDuration(90)
+                .setInterpolator(out).withEndAction(() -> {
+                    if (mAdapter == null || mList == null) {
                         return;
                     }
+                    final androidx.recyclerview.widget.RecyclerView.ItemAnimator ia =
+                            mList.getItemAnimator();
+                    mList.setItemAnimator(null);
                     mAdapter.setKindFilter(kind);
-                    mList.setTranslationX(dir * shift);
-                    mList.animate().translationX(0f).alpha(1f).setDuration(160).start();
+                    mList.scrollToPosition(0);
+                    mList.postDelayed(() -> {
+                        if (mList != null) {
+                            mList.setItemAnimator(ia);
+                        }
+                    }, 400);
+                    for (final android.view.View v : new android.view.View[]{mList, mEmpty}) {
+                        v.setTranslationX(dir * shift);
+                        v.animate().alpha(1f).translationX(0f).setDuration(210)
+                                .setInterpolator(in).start();
+                    }
                 }).start();
     }
 
