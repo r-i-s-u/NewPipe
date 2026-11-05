@@ -31,6 +31,11 @@ final class PendingOverlayDrawable extends Drawable {
     private float shown;
     private float target;
     private float phase;
+    private int color = Color.WHITE;
+
+    void setColor(final int c) {
+        color = c;
+    }
 
     void update(final float p, final boolean isRunning) {
         indeterminate = p < 0f || Float.isNaN(p);
@@ -123,13 +128,14 @@ final class PendingOverlayDrawable extends Drawable {
         oval.set(cx - r, cy - r, cx + r, cy + r);
         c.drawCircle(cx, cy, r, track);
         if (indeterminate) {
-            arc.setColor(Color.WHITE);
+            arc.setColor(color);
             c.drawArc(oval, -90f + 360f * phase, 100f, false, arc);
             return;
         }
         final int alpha = running
                 ? (int) (255 * (0.75f + 0.25f * Math.sin(phase * 2 * Math.PI))) : 255;
-        arc.setColor(Color.argb(alpha, 255, 255, 255));
+        arc.setColor(Color.argb(alpha, Color.red(color), Color.green(color),
+                Color.blue(color)));
         c.drawArc(oval, -90f, 360f * shown, false, arc);
         text.setColor(Color.WHITE);
         text.setTextAlign(Paint.Align.CENTER);

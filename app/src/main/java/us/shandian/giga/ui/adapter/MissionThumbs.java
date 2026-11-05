@@ -203,6 +203,8 @@ final class MissionThumbs {
             view.setForeground(o);
             view.setClipToOutline(true);
         }
+        o.setColor(androidx.core.content.ContextCompat.getColor(view.getContext(),
+                R.color.dl_accent));
         o.update(p, m.running || m.isPsRunning());
     }
 

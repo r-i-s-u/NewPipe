@@ -1165,8 +1165,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             progress = new ProgressDrawable();
             bar = itemView.findViewById(R.id.item_bkg);
             bar.setBackground(progress);
-            progress.setColors(ContextCompat.getColor(mContext, R.color.dl_progress_track),
-                    ContextCompat.getColor(mContext, R.color.dl_accent));
+            progress.setColors(android.graphics.Color.TRANSPARENT,
+                    android.graphics.Color.TRANSPARENT);
 
             status = itemView.findViewById(R.id.item_status);
             name = itemView.findViewById(R.id.item_name);
