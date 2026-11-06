@@ -167,6 +167,9 @@ public class MissionsFragment extends Fragment {
                 final float min = 80 * getResources().getDisplayMetrics().density;
                 if (Math.abs(dx) > min && Math.abs(dx) > 2 * Math.abs(dy)
                         && Math.abs(vx) > 400) {
+                    if (mAdapter != null) {
+                        mAdapter.markSwipe();
+                    }
                     switchKind(dx < 0);
                     return true;
                 }

@@ -737,6 +737,16 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         }
     }
 
+    private long mSwipeAt;
+
+    public void markSwipe() {
+        mSwipeAt = android.os.SystemClock.uptimeMillis();
+    }
+
+    private boolean recentSwipe() {
+        return android.os.SystemClock.uptimeMillis() - mSwipeAt < 500;
+    }
+
     private boolean isSelecting() {
         return mSelecting;
     }
@@ -1203,7 +1213,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
             itemView.setHapticFeedbackEnabled(true);
 
-            itemView.setOnClickListener(v -> {
+            final View.OnClickListener openOrSelect = v -> {
                 if (isSelecting()) {
                     toggleSelection(item.mission);
                     return;
@@ -1215,7 +1225,19 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                         viewWithFileProvider(item.mission);
                     }
                 }
+            };
+
+            itemView.setOnClickListener(v -> {
+                if (isSelecting() && !recentSwipe()) {
+                    openOrSelect.onClick(v);
+                }
             });
+            icon.setOnClickListener(v -> {
+                if (!recentSwipe()) {
+                    openOrSelect.onClick(v);
+                }
+            });
+            icon.setOnLongClickListener(v -> itemView.performLongClick());
 
             itemView.setOnLongClickListener(v -> {
                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
