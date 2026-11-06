@@ -1,15 +1,30 @@
 name: "Release"
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - '.github/**'
   workflow_dispatch:
+    inputs:
+      final:
+        description: "Promote the latest pre-release to a final release (no new build)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
 
 jobs:
-  release:
+  prerelease:
+    if: ${{ !inputs.final }}
     runs-on: ubuntu-latest
+    concurrency:
+      group: prerelease
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v6
-        with:
-          ref: 'main'
 
       - uses: actions/setup-java@v5
         with:
@@ -21,9 +36,11 @@ jobs:
         run: ./gradlew assembleRelease --stacktrace
 
       - name: Rename APK
+        id: rename
         run: |
           VERSION_NAME="$(jq -r '.elements[0].versionName' app/build/outputs/apk/release/output-metadata.json)"
           mv app/build/outputs/apk/release/*.apk "app/build/outputs/apk/release/NewPipe_v${VERSION_NAME}.apk"
+          echo "version=${VERSION_NAME}" >> "$GITHUB_OUTPUT"
 
       - uses: ilharp/sign-android-release@v2
         name: "Sign app APK"
@@ -36,9 +53,49 @@ jobs:
           keyAlias: ${{ secrets.SIGNING_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
           keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          
+
       - name: "Upload APK"
         uses: actions/upload-artifact@v7
         with:
           name: app
           path: ${{ steps.sign_app.outputs.signedFile }}
+
+      - name: "Create pre-release"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${{ steps.rename.outputs.version }}"
+          TAG="v${VERSION}-pre.${{ github.run_number }}"
+          gh release create "$TAG" "${{ steps.sign_app.outputs.signedFile }}" \
+            --target "${{ github.sha }}" \
+            --prerelease \
+            --title "NewPipe v${VERSION} (pre-release ${{ github.run_number }})" \
+            --generate-notes
+
+  final:
+    if: ${{ inputs.final }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: "Promote latest pre-release to final"
+        run: |
+          PRE="$(gh release list --limit 50 --json tagName,isPrerelease,createdAt \
+            --jq '[.[] | select(.isPrerelease)] | sort_by(.createdAt) | .[-1].tagName // empty')"
+          if [ -z "$PRE" ]; then
+            echo "No pre-release found"; exit 1
+          fi
+          VERSION="${PRE#v}"
+          VERSION="${VERSION%-pre.*}"
+          if gh release view "v${VERSION}" >/dev/null 2>&1; then
+            echo "Release v${VERSION} already exists. Bump versionName first."; exit 1
+          fi
+          SHA="$(gh release view "$PRE" --json targetCommitish --jq .targetCommitish)"
+          mkdir out
+          gh release download "$PRE" --pattern '*.apk' --dir out
+          gh release create "v${VERSION}" out/*.apk \
+            --target "$SHA" \
+            --title "NewPipe v${VERSION}" \
+            --generate-notes \
+            --latest
