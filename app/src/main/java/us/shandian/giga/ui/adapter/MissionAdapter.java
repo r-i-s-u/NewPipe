@@ -106,6 +106,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     private static final int MENU_DELETE_ENTRY = 9004;
     private final java.util.LinkedHashSet<Mission> mSelected = new java.util.LinkedHashSet<>();
     private boolean mSelecting;
+    private int mListPadBottom = -1;
     private android.view.View mBar;
     private android.widget.CheckBox mBarAll;
     private android.widget.TextView mBarText;
@@ -792,6 +793,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         mSelected.clear();
         if (mBar != null) {
             mBar.setVisibility(android.view.View.GONE);
+            if (mRecycler != null && mListPadBottom >= 0) {
+                mRecycler.setPadding(mRecycler.getPaddingLeft(), mRecycler.getPaddingTop(),
+                        mRecycler.getPaddingRight(), mListPadBottom);
+            }
         }
         if (mBackCallback != null) {
             mBackCallback.setEnabled(false);
@@ -825,7 +830,17 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                     list.setLayoutParams(lp);
                 }
             }
-            root.addView(mBar);
+            final android.view.ViewGroup host = mContext instanceof android.app.Activity
+                    ? ((android.app.Activity) mContext).findViewById(android.R.id.content)
+                    : null;
+            if (host != null) {
+                host.addView(mBar, new android.widget.FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        android.view.Gravity.BOTTOM));
+            } else {
+                root.addView(mBar);
+            }
             androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(mBar, (v, insets) -> {
                 final int b = insets.getInsets(
                         androidx.core.view.WindowInsetsCompat.Type.systemBars()).bottom;
@@ -834,6 +849,16 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             });
         }
         mBar.setVisibility(android.view.View.VISIBLE);
+        mBar.post(() -> {
+            if (mRecycler != null && mBar != null) {
+                if (mListPadBottom < 0) {
+                    mListPadBottom = mRecycler.getPaddingBottom();
+                }
+                mRecycler.setClipToPadding(false);
+                mRecycler.setPadding(mRecycler.getPaddingLeft(), mRecycler.getPaddingTop(),
+                        mRecycler.getPaddingRight(), mListPadBottom + mBar.getHeight());
+            }
+        });
         androidx.core.view.ViewCompat.requestApplyInsets(mBar);
         if (mContext instanceof androidx.activity.OnBackPressedDispatcherOwner) {
             if (mBackCallback == null) {
