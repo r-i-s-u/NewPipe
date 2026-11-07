@@ -117,7 +117,7 @@ final class PendingOverlayDrawable extends Drawable {
         c.drawRect(b, scrim);
         final float cx = b.exactCenterX();
         final float cy = b.exactCenterY();
-        final float r = Math.min(b.width(), b.height()) * 0.27f;
+        final float r = Math.min(b.width(), b.height()) * 0.225f;
         final float sw = Math.max(3f, r * 0.16f);
         track.setStyle(Paint.Style.STROKE);
         track.setStrokeWidth(sw);

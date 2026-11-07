@@ -232,7 +232,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             updateProgress(h);
             mPendingDownloadsItems.add(h);
                 h.date.setText("");
-                h.status.setVisibility(View.VISIBLE);
+                applyStatusVisibility(h);
                 h.bar.setVisibility(View.VISIBLE);
         } else {
             h.progress.setMarquee(false);
@@ -254,9 +254,15 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     @SuppressLint("DefaultLocale")
+    private void applyStatusVisibility(final ViewHolderItem h) {
+        final boolean err = h.item != null && h.item.mission instanceof DownloadMission
+                && ((DownloadMission) h.item.mission).errCode != ERROR_NOTHING;
+        h.status.setVisibility(err ? View.VISIBLE : View.GONE);
+    }
+
     private void updateProgress(ViewHolderItem h) {
         MissionThumbs.setOverlay(h.icon, h.item.mission);
-        h.status.setVisibility(android.view.View.GONE);
+        applyStatusVisibility(h);
         if (h == null || h.item == null || h.item.mission instanceof FinishedMission) return;
 
         DownloadMission mission = (DownloadMission) h.item.mission;
@@ -1331,6 +1337,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         ViewHolderHeader(View view) {
             super(view);
             header = itemView.findViewById(R.id.item_name);
+            itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
         }
     }
 
