@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setKindTitle(final boolean audio) {
         final ActionBar bar = getSupportActionBar();
+        final com.google.android.material.appbar.AppBarLayout appBar =
+                findViewById(R.id.app_bar);
+        if (appBar != null) {
+            appBar.setExpanded(true, true);
+        }
         if (bar == null) {
             return;
         }
