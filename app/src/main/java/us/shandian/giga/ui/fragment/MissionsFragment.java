@@ -176,6 +176,9 @@ public class MissionsFragment extends Fragment {
                 return false;
             }
         });
+        final int swipeSlop = android.view.ViewConfiguration.get(requireContext())
+                .getScaledTouchSlop();
+        final float[] swipeDown = new float[2];
         mList.addOnItemTouchListener(
                 new androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener() {
             @Override
@@ -183,7 +186,24 @@ public class MissionsFragment extends Fragment {
                     @NonNull final androidx.recyclerview.widget.RecyclerView rv,
                     @NonNull final android.view.MotionEvent e) {
                 swipe.onTouchEvent(e);
+                if (e.getActionMasked() == android.view.MotionEvent.ACTION_DOWN) {
+                    swipeDown[0] = e.getX();
+                    swipeDown[1] = e.getY();
+                } else if (e.getActionMasked() == android.view.MotionEvent.ACTION_MOVE) {
+                    final float adx = Math.abs(e.getX() - swipeDown[0]);
+                    final float ady = Math.abs(e.getY() - swipeDown[1]);
+                    if (adx > swipeSlop && adx > 1.5f * ady) {
+                        return true;
+                    }
+                }
                 return false;
+            }
+
+            @Override
+            public void onTouchEvent(
+                    @NonNull final androidx.recyclerview.widget.RecyclerView rv,
+                    @NonNull final android.view.MotionEvent e) {
+                swipe.onTouchEvent(e);
             }
         });
         mEmpty.setOnTouchListener((view, e) -> {

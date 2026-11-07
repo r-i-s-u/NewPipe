@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         final com.google.android.material.appbar.AppBarLayout appBar =
                 findViewById(R.id.app_bar);
         if (appBar != null) {
-            appBar.setExpanded(true, true);
+            appBar.setExpanded(true, false);
         }
         if (bar == null) {
             return;
