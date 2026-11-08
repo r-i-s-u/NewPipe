@@ -27,49 +27,6 @@ import org.schabi.newpipe.R;
 public final class MissionMenuPopup {
     private MissionMenuPopup() { }
 
-    @androidx.annotation.RequiresApi(android.os.Build.VERSION_CODES.S)
-    private static void setBlur(final View v, final float r) {
-        v.setRenderEffect(android.graphics.RenderEffect.createBlurEffect(
-                r, r, android.graphics.Shader.TileMode.CLAMP));
-    }
-
-    @androidx.annotation.RequiresApi(android.os.Build.VERSION_CODES.S)
-    private static void blurBackground(final Context ctx, final PopupWindow pw) {
-        android.app.Activity act = null;
-        Context c = ctx;
-        while (c instanceof android.content.ContextWrapper) {
-            if (c instanceof android.app.Activity) {
-                act = (android.app.Activity) c;
-                break;
-            }
-            c = ((android.content.ContextWrapper) c).getBaseContext();
-        }
-        if (act == null) {
-            return;
-        }
-        final View target = act.getWindow().getDecorView();
-        final float max = dp(ctx, 10);
-        final android.animation.ValueAnimator in =
-                android.animation.ValueAnimator.ofFloat(0.01f, max);
-        in.setDuration(200);
-        in.addUpdateListener(an -> setBlur(target, (float) an.getAnimatedValue()));
-        in.start();
-        pw.setOnDismissListener(() -> {
-            in.cancel();
-            final android.animation.ValueAnimator out =
-                    android.animation.ValueAnimator.ofFloat(max, 0.01f);
-            out.setDuration(150);
-            out.addUpdateListener(an -> setBlur(target, (float) an.getAnimatedValue()));
-            out.addListener(new android.animation.AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(final android.animation.Animator a) {
-                    target.setRenderEffect(null);
-                }
-            });
-            out.start();
-        });
-    }
-
     private static int dp(final Context c, final float v) {
         return Math.round(v * c.getResources().getDisplayMetrics().density);
     }
@@ -95,7 +52,7 @@ public final class MissionMenuPopup {
         final PopupWindow pw = new PopupWindow(ctx);
         final LinearLayout box = new LinearLayout(ctx);
         box.setOrientation(LinearLayout.VERTICAL);
-        box.setPadding(0, dp(ctx, 14), 0, dp(ctx, 14));
+        box.setPadding(0, dp(ctx, 20), 0, dp(ctx, 20));
         box.setMinimumWidth(dp(ctx, 160));
 
         for (int i = 0; i < menu.size(); i++) {
@@ -144,7 +101,7 @@ public final class MissionMenuPopup {
         final ScrollView scroll = new ScrollView(ctx);
         scroll.setBackground(bg);
         scroll.setClipToOutline(true);
-        scroll.setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+        scroll.setOverScrollMode(View.OVER_SCROLL_NEVER);
         scroll.addView(box);
 
         // position: kone se 16dp door, jagah na ho to upar flip
@@ -172,7 +129,10 @@ public final class MissionMenuPopup {
         int y = below ? loc[1] + anchor.getHeight() : loc[1] - h;
         y = Math.max(topIn + margin, Math.min(y, sh - botIn - h - margin));
 
-        pw.setContentView(scroll);
+        final StretchFrame frame = new StretchFrame(ctx, scroll, box);
+        frame.addView(scroll, new android.widget.FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        pw.setContentView(frame);
         pw.setWidth(w);
         pw.setHeight(h);
         pw.setFocusable(true);
@@ -186,10 +146,62 @@ public final class MissionMenuPopup {
         scroll.setScaleX(0.6f);
         scroll.setScaleY(0.3f);
         pw.showAtLocation(anchor, Gravity.TOP | Gravity.START, x, y);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
-            blurBackground(ctx, pw);
-        }
         scroll.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200)
                 .setInterpolator(new DecelerateInterpolator()).start();
+    }
+
+    /** Pull-to-stretch for the menu rows (like the Android 12 overscroll stretch). */
+    private static final class StretchFrame extends android.widget.FrameLayout {
+        private final ScrollView scroll;
+        private final View content;
+        private final int slop;
+        private float downY;
+        private boolean stretching;
+
+        StretchFrame(final Context ctx, final ScrollView scroll, final View content) {
+            super(ctx);
+            this.scroll = scroll;
+            this.content = content;
+            this.slop = android.view.ViewConfiguration.get(ctx).getScaledTouchSlop();
+        }
+
+        @Override
+        public boolean dispatchTouchEvent(final android.view.MotionEvent e) {
+            switch (e.getActionMasked()) {
+                case android.view.MotionEvent.ACTION_DOWN:
+                    downY = e.getY();
+                    stretching = false;
+                    content.animate().cancel();
+                    break;
+                case android.view.MotionEvent.ACTION_MOVE: {
+                    final float dy = e.getY() - downY;
+                    final boolean atEdge = dy > 0 ? !scroll.canScrollVertically(-1)
+                            : !scroll.canScrollVertically(1);
+                    if (Math.abs(dy) > slop && atEdge) {
+                        stretching = true;
+                        final float s = Math.min(0.2f,
+                                (Math.abs(dy) - slop) / (Math.max(1, getHeight()) * 2.2f));
+                        content.setPivotX(content.getWidth() / 2f);
+                        content.setPivotY(dy > 0 ? 0f : content.getHeight());
+                        content.setScaleY(1f + s);
+                        content.setScaleX(1f - s * 0.15f);
+                    }
+                    break;
+                }
+                case android.view.MotionEvent.ACTION_UP:
+                case android.view.MotionEvent.ACTION_CANCEL:
+                    if (stretching) {
+                        stretching = false;
+                        content.animate().scaleY(1f).scaleX(1f).setDuration(380)
+                                .setInterpolator(
+                                        new android.view.animation.OvershootInterpolator(2.2f))
+                                .start();
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return super.dispatchTouchEvent(e);
+        }
     }
 }
