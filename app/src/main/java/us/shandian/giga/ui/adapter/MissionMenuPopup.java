@@ -52,8 +52,8 @@ public final class MissionMenuPopup {
         final PopupWindow pw = new PopupWindow(ctx);
         final LinearLayout box = new LinearLayout(ctx);
         box.setOrientation(LinearLayout.VERTICAL);
-        box.setPadding(0, dp(ctx, 20), 0, dp(ctx, 20));
-        box.setMinimumWidth(dp(ctx, 160));
+        box.setPadding(0, dp(ctx, 16), 0, dp(ctx, 16));
+        box.setMinimumWidth(dp(ctx, 180));
 
         for (int i = 0; i < menu.size(); i++) {
             final MenuItem item = menu.getItem(i);
@@ -146,6 +146,15 @@ public final class MissionMenuPopup {
         scroll.setScaleX(0.6f);
         scroll.setScaleY(0.3f);
         pw.showAtLocation(anchor, Gravity.TOP | Gravity.START, x, y);
+        final View decor = pw.getContentView().getRootView();
+        if (decor.getLayoutParams() instanceof android.view.WindowManager.LayoutParams) {
+            final android.view.WindowManager.LayoutParams wlp =
+                    (android.view.WindowManager.LayoutParams) decor.getLayoutParams();
+            wlp.flags |= android.view.WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+            wlp.dimAmount = 0.35f;
+            ((android.view.WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE))
+                    .updateViewLayout(decor, wlp);
+        }
         scroll.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200)
                 .setInterpolator(new DecelerateInterpolator()).start();
     }
@@ -179,12 +188,11 @@ public final class MissionMenuPopup {
                             : !scroll.canScrollVertically(1);
                     if (Math.abs(dy) > slop && atEdge) {
                         stretching = true;
-                        final float s = Math.min(0.2f,
-                                (Math.abs(dy) - slop) / (Math.max(1, getHeight()) * 2.2f));
+                        final float over = Math.abs(dy) - slop;
+                        final float s = 0.08f * over / (over + Math.max(1, getHeight()) * 0.6f);
                         content.setPivotX(content.getWidth() / 2f);
                         content.setPivotY(dy > 0 ? 0f : content.getHeight());
                         content.setScaleY(1f + s);
-                        content.setScaleX(1f - s * 0.15f);
                     }
                     break;
                 }
@@ -192,9 +200,9 @@ public final class MissionMenuPopup {
                 case android.view.MotionEvent.ACTION_CANCEL:
                     if (stretching) {
                         stretching = false;
-                        content.animate().scaleY(1f).scaleX(1f).setDuration(380)
+                        content.animate().scaleY(1f).scaleX(1f).setDuration(220)
                                 .setInterpolator(
-                                        new android.view.animation.OvershootInterpolator(2.2f))
+                                        new android.view.animation.DecelerateInterpolator(1.5f))
                                 .start();
                     }
                     break;
