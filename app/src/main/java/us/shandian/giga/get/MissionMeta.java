@@ -40,7 +40,7 @@ public final class MissionMeta {
     private static String thumbnailUrl(final StreamInfo info) {
         try {
             if (info.getServiceId() == 0 && info.getId() != null) {
-                return "https://i.ytimg.com/vi/" + info.getId() + "/hqdefault.jpg";
+                return "https://i.ytimg.com/vi/" + info.getId() + "/maxresdefault.jpg";
             }
             String best = null;
             int bestHeight = -2;

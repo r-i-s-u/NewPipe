@@ -162,7 +162,13 @@ final class MissionThumbs {
         if (st == null || hasEmbedded(ctx, uri)) {
             return found;
         }
-        final Bitmap thumb = st[1] == null ? null : fetchRemote(st[1]);
+        Bitmap thumb = st[1] == null ? null : fetchRemote(st[1]);
+        if (thumb == null && st[1] != null && st[1].endsWith("/maxresdefault.jpg")) {
+            thumb = fetchRemote(st[1].replace("maxresdefault.jpg", "hq720.jpg"));
+            if (thumb == null) {
+                thumb = fetchRemote(st[1].replace("maxresdefault.jpg", "hqdefault.jpg"));
+            }
+        }
         final Bitmap bmp = thumb != null ? thumb : (found == null ? null : found.bmp);
         final String artist = st[0] != null ? st[0] : (found == null ? null : found.artist);
         return bmp == null && artist == null ? found : new Meta(bmp, artist);
