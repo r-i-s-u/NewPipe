@@ -133,12 +133,12 @@ public class Utility {
     public static int getIconForFileType(FileType type) {
         switch (type) {
             case MUSIC:
-                return R.drawable.ic_headset;
+                return 0;
             default:
             case VIDEO:
-                return R.drawable.ic_movie;
+                return 0;
             case SUBTITLE:
-                return R.drawable.ic_subtitles;
+                return 0;
         }
     }
 

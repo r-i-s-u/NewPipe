@@ -347,8 +347,8 @@ public class MissionsFragment extends Fragment {
 
         if (mSwitch != null) {
             mSwitch.setIcon(mLinear
-                            ? R.drawable.ic_apps
-                            : R.drawable.ic_list);
+                            ? 0
+                            : 0);
             mSwitch.setTitle(mLinear ? R.string.grid : R.string.list);
             mPrefs.edit().putBoolean("linear", mLinear).apply();
         }
