@@ -526,6 +526,8 @@ public class DownloadManagerService extends Service {
         final DownloadMission mission = new DownloadMission(urls, storage, kind, ps);
         mission.threadCount = threads;
         mission.source = streamInfo.getUrl();
+        us.shandian.giga.get.MissionMeta.save(getApplicationContext(), streamInfo,
+                mission.source);
         mission.nearLength = nearLength;
         mission.recoveryInfo = recovery.toArray(new MissionRecoveryInfo[0]);
 

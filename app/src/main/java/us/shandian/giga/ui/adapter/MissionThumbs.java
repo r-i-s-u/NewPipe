@@ -102,7 +102,8 @@ final class MissionThumbs {
         view.setTag(R.id.tag_thumb_key, key);
         final Context app = context.getApplicationContext();
         POOL.execute(() -> {
-            final Meta meta = extract(app, uri, audio);
+            final Meta meta = withStored(app, mission.source, uri,
+                    extract(app, uri, audio));
             if (meta == null) {
                 MISSING.add(key);
                 return;
@@ -153,6 +154,34 @@ final class MissionThumbs {
                 }
             });
         });
+    }
+
+    private static Meta withStored(final Context ctx, final String source, final Uri uri,
+                                   final Meta found) {
+        final String[] st = us.shandian.giga.get.MissionMeta.get(ctx, source);
+        if (st == null || hasEmbedded(ctx, uri)) {
+            return found;
+        }
+        final Bitmap thumb = st[1] == null ? null : fetchRemote(st[1]);
+        final Bitmap bmp = thumb != null ? thumb : (found == null ? null : found.bmp);
+        final String artist = st[0] != null ? st[0] : (found == null ? null : found.artist);
+        return bmp == null && artist == null ? found : new Meta(bmp, artist);
+    }
+
+    private static boolean hasEmbedded(final Context ctx, final Uri uri) {
+        final MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        try {
+            mmr.setDataSource(ctx, uri);
+            return mmr.getEmbeddedPicture() != null;
+        } catch (final Exception e) {
+            return false;
+        } finally {
+            try {
+                mmr.release();
+            } catch (final Exception ignored) {
+                // nothing to do
+            }
+        }
     }
 
     private static Bitmap fetchRemote(final String url) {
