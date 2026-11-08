@@ -96,7 +96,7 @@ public final class MissionMenuPopup {
 
         final GradientDrawable bg = new GradientDrawable();
         bg.setColor(ContextCompat.getColor(ctx, R.color.mission_popup_bg));
-        bg.setCornerRadius(dp(ctx, 20));
+        bg.setCornerRadius(dp(ctx, 18));
 
         final ScrollView scroll = new ScrollView(ctx);
         scroll.setBackground(bg);
@@ -189,7 +189,7 @@ public final class MissionMenuPopup {
                     if (Math.abs(dy) > slop && atEdge) {
                         stretching = true;
                         final float over = Math.abs(dy) - slop;
-                        final float s = 0.08f * over / (over + Math.max(1, getHeight()) * 0.6f);
+                        final float s = 0.03f * over / (over + Math.max(1, getHeight()) * 0.6f);
                         content.setPivotX(content.getWidth() / 2f);
                         content.setPivotY(dy > 0 ? 0f : content.getHeight());
                         content.setScaleY(1f + s);
