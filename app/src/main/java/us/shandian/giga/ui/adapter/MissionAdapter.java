@@ -620,7 +620,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 applyChanges();
                 mHandler.removeCallbacksAndMessages(DELETE);
             });
-            mSnackbar.setActionTextColor(Color.YELLOW);
+            us.shandian.giga.ui.common.SnackbarStyle.apply(mSnackbar);
             mSnackbar.show();
 
             HandlerCompat.postDelayed(mHandler, this::deleteFinishedDownloads, DELETE, 5000);

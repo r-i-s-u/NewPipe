@@ -2,7 +2,6 @@ package us.shandian.giga.ui.common;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
 import android.view.View;
 
@@ -126,7 +125,7 @@ public class Deleter {
 
         snackbar = Snackbar.make(mView, msg, Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction(R.string.undo, s -> forget());
-        snackbar.setActionTextColor(Color.YELLOW);
+        SnackbarStyle.apply(snackbar);
         snackbar.show();
 
         HandlerCompat.postDelayed(mHandler, this::commit, COMMIT, TIMEOUT);
