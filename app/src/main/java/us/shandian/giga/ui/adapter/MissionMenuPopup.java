@@ -151,7 +151,10 @@ public final class MissionMenuPopup {
             final android.view.WindowManager.LayoutParams wlp =
                     (android.view.WindowManager.LayoutParams) decor.getLayoutParams();
             wlp.flags |= android.view.WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-            wlp.dimAmount = 0.35f;
+            final boolean night = (ctx.getResources().getConfiguration().uiMode
+                    & android.content.res.Configuration.UI_MODE_NIGHT_MASK)
+                    == android.content.res.Configuration.UI_MODE_NIGHT_YES;
+            wlp.dimAmount = night ? 0.5f : 0.35f;
             ((android.view.WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE))
                     .updateViewLayout(decor, wlp);
         }
