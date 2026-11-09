@@ -30,9 +30,6 @@
     <string name="detail_uploader_thumbnail_view_description">投稿者アイコンのサムネイル</string>
     <string name="detail_dislikes_img_view_description">低評価</string>
     <string name="detail_likes_img_view_description">高評価</string>
-    <string name="use_external_video_player_title">外部動画プレイヤーを使用する</string>
-    <string name="use_external_audio_player_title">外部音声プレイヤーを使用する</string>
-    <string name="background_player_playing_toast">バックグラウンドで再生中</string>
     <string name="theme_title">テーマ</string>
     <string name="dark_theme_title">ダーク</string>
     <string name="light_theme_title">ホワイト</string>
@@ -97,7 +94,6 @@
     <string name="clear">消去</string>
     <string name="popup_remember_size_pos_title">ポップアップの属性を記憶する</string>
     <string name="popup_remember_size_pos_summary">ポップアップのサイズと位置を記憶する</string>
-    <string name="use_external_video_player_summary">一部の解像度では音声がありません</string>
     <string name="show_search_suggestions_title">検索候補の表示</string>
     <string name="show_search_suggestions_summary">検索時に表示する候補を選択します</string>
     <string name="best_resolution">最高</string>
@@ -118,23 +114,18 @@
     <string name="subscription_change_failed">チャンネル登録を変更できません</string>
     <string name="subscription_update_failed">チャンネル登録を更新できません</string>
     <string name="tab_subscriptions">登録チャンネル</string>
-    <string name="fragment_feed_title">新着</string>
     <string name="enable_search_history_title">検索履歴</string>
     <string name="enable_search_history_summary">検索履歴を記憶します</string>
     <string name="enable_watch_history_title">再生履歴</string>
     <string name="enable_watch_history_summary">再生履歴を記憶します</string>
     <string name="resume_on_audio_focus_gain_title">再生の再開</string>
     <string name="resume_on_audio_focus_gain_summary">電話などによる中断の後、再生を再開します</string>
-    <string name="settings_category_player_title">プレイヤー</string>
     <string name="show_hold_to_append_summary">動画の詳細ページで、「バックグラウンド」または「ポップアップ」ボタンが押されたときにヒントを表示する</string>
-    <string name="settings_category_player_behavior_title">動作</string>
     <string name="settings_category_history_title">履歴とキャッシュ</string>
     <string name="undo">元に戻す</string>
     <string name="play_all">すべて再生</string>
     <string name="notification_channel_name">NewPipe の通知</string>
     <string name="unknown_content">[不明]</string>
-    <string name="player_stream_failure">動画の再生ができませんでした</string>
-    <string name="player_unrecoverable_failure">回復不能なエラーが発生しました</string>
     <string name="search_no_results">一致する結果はありませんでした</string>
     <string name="no_subscribers">チャンネル登録者なし</string>
     <string name="no_videos">動画がありません</string>
@@ -174,8 +165,6 @@
     <string name="export_data_title">データベースをエクスポート</string>
     <string name="import_data_summary">既存の履歴、登録チャンネル一覧、プレイリストおよび (任意) 設定は上書きされます</string>
     <string name="export_data_summary">再生履歴、登録チャンネル一覧、プレイリストおよび設定をエクスポートします</string>
-    <string name="player_recoverable_failure">エラーから回復中です</string>
-    <string name="external_player_unsupported_link_type">外部プレイヤーは、これらのタイプのリンクをサポートしていません</string>
     <string name="export_complete_toast">エクスポートしました</string>
     <string name="import_complete_toast">インポートしました</string>
     <string name="no_valid_zip_file">有効な ZIP ファイルではありません</string>
@@ -187,8 +176,6 @@
     <string name="video_player">動画プレイヤー</string>
     <string name="background_player">バックグラウンドプレイヤー</string>
     <string name="popup_player">ポップアッププレイヤー</string>
-    <string name="preferred_player_fetcher_notification_title">情報を取得しています…</string>
-    <string name="preferred_player_fetcher_notification_message">コンテンツを読み込んでいます</string>
     <string name="controls_download_desc">動画をダウンロード</string>
     <string name="show_info">情報を表示</string>
     <string name="tab_bookmarks">ブックマークしたプレイリスト</string>
@@ -453,38 +440,7 @@
     <plurals name="days">
         <item quantity="other">%d 日</item>
     </plurals>
-    <string name="feed_groups_header_title">チャンネル グループ</string>
-    <string name="feed_oldest_subscription_update">フィードの最終更新: %s</string>
-    <string name="feed_subscription_not_loaded_count">読み込み失敗: %d</string>
-    <string name="feed_notification_loading">フィードを読み込み中…</string>
-    <string name="feed_processing_message">フィードを処理中…</string>
-    <string name="feed_group_dialog_select_subscriptions">チャンネルを選択</string>
-    <string name="feed_group_dialog_empty_selection">チャンネルが選択されていません</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="other">%d 選択中</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">グループ名が空です</string>
-    <string name="feed_group_dialog_delete_message">このグループを削除しますか？</string>
-    <string name="feed_create_new_group_button_title">新規</string>
-    <string name="settings_category_feed_title">フィード</string>
-    <string name="feed_update_threshold_title">フィードの更新間隔</string>
-    <string name="feed_update_threshold_summary">最後の更新後、登録チャンネルを更新すべきとするまでの時間 ― %s</string>
     <string name="feed_update_threshold_option_always_update">常に更新する</string>
-    <string name="feed_use_dedicated_fetch_method_title">可能ならば専用フィードから取得</string>
-    <string name="feed_use_dedicated_fetch_method_summary">いくつかのサービスで利用可能。通常よりも高速ですが制限された情報が取得され、たいていの場合不完全です (例: 再生時間、種類、ライブ ステータスなどがない)</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">高速モードを有効化</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">高速モードを無効化</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">フィードの読み込みが遅すぎると思いますか？ その場合、高速読み込みを有効化してみてください (設定、もしくは下のボタンを押して変更することができます)。
-\n
-\nNewPipe は2つの読み込み方法を提供します:
-\n・登録チャンネル全体を取得します。これは低速ですが完全です。
-\n・専用のサービス エンドポイントを使用します。これは高速ですが、たいていの場合不完全です。
-\n
-\n2つの違いとして、高速なものは通常、再生時間や種類 (ライブと通常の動画を区別できない) などの情報が不足して、正しい量の情報より少なく取得することがあります。
-\n
-\nYouTubeは、この高速な読み込み方法をRSSフィードで提供するサービスのひとつです。
-\n
-\nつまり、読み込み方法の選択は速度または正確さのどちらを優先するか、あなたの好みによります。</string>
     <string name="infinite_videos">∞ の動画</string>
     <string name="more_than_100_videos">100 以上の動画</string>
     <string name="content_not_supported">このコンテンツはまだ NewPipe でサポートされていません。
@@ -506,7 +462,6 @@
     <string name="video_detail_by">%s による</string>
     <string name="channel_created_by">%s により作成</string>
     <string name="detail_sub_channel_thumbnail_view_description">チャンネルのサムネイル</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">グループ化されていない登録チャンネルのみ表示</string>
     <string name="no_playlist_bookmarked_yet">まだプレイリスト ブックマークはありません</string>
     <string name="error_report_open_github_notice">クラッシュを説明する問題がすでに存在しているかどうかを確認してください。重複したチケットを作成する場合、あなたは私たちから実際のバグを修正する時間を奪うことになります。</string>
     <string name="search_showing_result_for">次の検索結果を表示しています: %s</string>
@@ -597,16 +552,10 @@
     <string name="downloads_storage_ask_summary_no_saf_notice">ダウンロードのたびに保存する場所を尋ねます</string>
     <string name="no_dir_yet">ダウンロードフォルダーがまだ設定されていません。今すぐデフォルトのフォルダーを選択してください</string>
     <string name="downloads_storage_use_saf_summary_api_29">Android 10 以降は \'Storage Access Framework\' のみがサポートされます</string>
-    <string name="feed_load_error_fast_unknown">高速モードでこの情報の詳細は提供されません。</string>
-    <string name="feed_load_error_account_info">\'%s\' のフィードを読み込めませんでした。</string>
-    <string name="feed_load_error">フィードの読み込みエラー</string>
     <string name="description_select_disable">説明文のテキストの選択を無効にする</string>
     <string name="description_select_enable">説明文のテキストの選択を有効にする</string>
     <string name="description_select_note">今説明文のテキストを選択できます。選択モード中はページがちらついたりリンクがクリックできなくなったりすることに注意してください。</string>
     <string name="account_terminated">停止されたアカウント</string>
-    <string name="feed_load_error_terminated">この投稿者のアカウントは停止されています。
-\nNewPipe は将来的にこのフィードを読み込めなくなります。
-\nこのチャンネルの登録を解除しますか？</string>
     <string name="off">オフ</string>
     <string name="on">オン</string>
     <string name="tablet_mode_title">タブレットモード</string>
@@ -619,8 +568,6 @@
     <string name="remote_search_suggestions">リモート検索候補</string>
     <string name="local_search_suggestions">ローカル検索候補</string>
     <string name="main_page_content_swipe_remove">アイテムをスワイプして削除</string>
-    <string name="start_main_player_fullscreen_summary">直接フルスクリーンモードに切り替えて、ミニプレイヤーで動画を開始しません。自動回転がロックされている場合でも、フルスクリーンを終了することでミニプレイヤーにアクセスできます</string>
-    <string name="start_main_player_fullscreen_title">プレイヤーをフルスクリーンで開始</string>
     <plurals name="deleted_downloads_toast">
         <item quantity="other">%1$s つのダウンロードを削除しました</item>
     </plurals>
@@ -634,9 +581,6 @@
     <string name="enqueue_next_stream">次をキューに追加</string>
     <string name="enqueued_next">次をキューに追加しました</string>
     <string name="detail_heart_img_view_description">クリエイターの心をこめて</string>
-    <string name="show_crash_the_player_title">\"プレイヤーがクラッシュ\"を表示</string>
-    <string name="crash_the_player">プレイヤーがクラッシュ</string>
-    <string name="feed_new_items">新しいフィードアイテム</string>
     <string name="error_report_channel_name">エラー報告通知</string>
     <string name="error_report_notification_toast">エラーが発生しました。通知をご覧ください</string>
     <string name="error_report_notification_title">エラーが発生しました (タップすると報告できます)</string>
@@ -646,11 +590,9 @@
 \nStorage Access Framework と互換性のあるファイルマネージャをインストールしてください</string>
     <string name="no_appropriate_file_manager_message">この動作に適切なファイルマネージャが見つかりませんでした。
 \nファイルマネージャをインストールするか、ダウンロード設定で \'%s\' を無効にすることをお試しください</string>
-    <string name="show_crash_the_player_summary">プレイヤー使用時にクラッシュオプションを表示</string>
     <string name="create_error_notification">エラー通知を作成</string>
     <string name="error_report_channel_description">エラーを報告する通知</string>
     <string name="leak_canary_not_available">LeakCanaryが利用不可能です</string>
-    <string name="settings_category_player_notification_title">プレイヤー通知</string>
     <string name="loading_stream_details">ストリームの詳細を読み込んでいます…</string>
     <string name="enable_streams_notifications_summary">登録チャンネルの新しいストリームについて通知する</string>
     <string name="enumeration_comma">,</string>
@@ -669,7 +611,6 @@
     </plurals>
     <string name="streams_notification_channel_name">新しいストリーム</string>
     <string name="notifications">通知</string>
-    <string name="settings_category_player_notification_summary">現在再生しているストリームの通知を構成</string>
     <string name="streams_notifications_network_title">必要なネットワークの種類</string>
     <string name="percent">パーセント</string>
     <string name="semitone">半音</string>
@@ -681,7 +622,6 @@
     <string name="selected_stream_external_player_not_supported">選択された動画は外部プレイヤーによってサポートされていません</string>
     <string name="no_audio_streams_available_for_external_players">外部プレイヤーで利用可能な音声ストリームがありません</string>
     <string name="no_video_streams_available_for_external_players">外部プレイヤーで利用可能な動画ストリームがありません</string>
-    <string name="select_quality_external_players">外部プレイヤーでの品質を選択</string>
     <string name="sort">並び替え</string>
     <string name="faq">ウェブサイトで見る</string>
     <string name="app_update_available_notification_text">タップして%sをダウンロード</string>
@@ -701,11 +641,6 @@
     <string name="remove_duplicates_message">この再生リスト内の重複したストリームをすべて削除しますか\?</string>
     <string name="ignore_hardware_media_buttons_title">ハードウェア メディア ボタン イベントを無視する</string>
     <string name="remove_duplicates">重複を削除</string>
-    <string name="feed_hide_streams_title">次のストリームを表示</string>
-    <string name="feed_show_hide_streams">ストリームの表示/非表示</string>
-    <string name="feed_show_watched">完全に視聴済み</string>
-    <string name="feed_show_partially_watched">一部視聴済み</string>
-    <string name="feed_show_upcoming">今後</string>
     <string name="left_gesture_control_summary">再生画面の左半分用にジェスチャーを選択</string>
     <string name="left_gesture_control_title">左のジェスチャー動作</string>
     <string name="right_gesture_control_summary">再生画面の右半分用のジェスチャーを選択</string>
@@ -713,25 +648,16 @@
     <string name="brightness">明るさ</string>
     <string name="volume">音量</string>
     <string name="none">無</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer 設定</string>
-    <string name="settings_category_exoplayer_summary">ExoPlayer の設定を管理します。これらの変更を反映するにはプレイヤーの再起動が必要です</string>
-    <string name="use_exoplayer_decoder_fallback_title">ExoPlayer のデコーダ フォールバック機能を使用する</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">常に ExoPlayer の映像出力 サーフェス設定の解決策を使用する</string>
     <string name="audio_track_type_dubbed">吹き替え</string>
     <string name="audio_track_type_descriptive">音声解説</string>
     <string name="prefer_descriptive_audio_title">音声解説を優先する</string>
     <string name="prefer_descriptive_audio_summary">利用可能な場合に視覚障害者向けの音声解説トラックを選択する</string>
     <string name="play_queue_audio_track">オーディオ: %s</string>
     <string name="unknown_audio_track">不明</string>
-    <string name="select_audio_track_external_players">外部プレイヤー用のオーディオトラックを選択</string>
     <string name="audio_track_type_original">オリジナル</string>
     <string name="prefer_original_audio_title">オリジナル音声を優先する</string>
     <string name="prefer_original_audio_summary">言語に関係なくオリジナルのオーディオトラックを選択する</string>
     <string name="audio_track">オーディオトラック</string>
-    <string name="use_exoplayer_decoder_fallback_summary">デコーダの初期化に問題がある場合は、このオプションを有効化してプライマリ デコーダ初期化失敗時に低い優先度のデコーダにフォールバックします。プライマリ デコーダ使用時よりパフォーマンスが悪化する可能性があります</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">この解決策は直接コーデックをサーフェスに設定する代わりに、サーフェスが変更された際に映像コーデックを開放し再インスタンス化します。すでにいくつかのデバイスでこの解決策が使用されていますが、Android 6 以降でのみ機能します
-\n
-\nこのオプションを有効化することでプレイヤーを切り替えたり、フルスクリーンに切り替えたりする際の再生エラーを防ぎます</string>
     <string name="progressive_load_interval_summary">読み込み間隔を変更します。（現在 %s）この値を小さくすると再生開始までの時間が短くなります。変更を適用するには再起動が必要です</string>
     <string name="audio_track_present_in_video">オーディオトラックは既にこのせせらぎに存在している必要があります</string>
     <string name="main_tabs_position_title">メインタブの場所</string>
@@ -749,7 +675,6 @@
     <string name="feed_fetch_channel_tabs">チャンネルタブを取得する</string>
     <string name="channel_tab_about">詳細</string>
     <string name="channel_tab_albums">アルバム</string>
-    <string name="feed_fetch_channel_tabs_summary">フィードを更新するときに取得するタブ。 高速モードを使用してチャンネルを更新する場合は、効果がありません。</string>
     <string name="channel_tab_playlists">プレイリスト</string>
     <string name="channel_tab_tracks">トラック</string>
     <string name="channel_tab_channels">チャンネル</string>
@@ -816,8 +741,6 @@
     <string name="short_million">%sM</string>
     <string name="delete_file">ファイルを削除</string>
     <string name="delete_entry">エントリを削除</string>
-    <string name="select_a_feed_group">フィードグループを選択</string>
-    <string name="no_feed_group_created_yet">フィードグループはまだ作成されていません</string>
     <plurals name="export_subscriptions">
         <item quantity="other">%d件の登録チャンネルをエクスポートしています…</item>
     </plurals>
@@ -832,7 +755,6 @@
     <string name="import_subscriptions_summary">以前エクスポートした.jsonファイルから登録チャンネルをインポート</string>
     <string name="export_subscriptions_summary">登録チャンネルを.jsonファイルにエクスポート</string>
     <string name="import_from_previous_export">以前のエクスポートからインポート</string>
-    <string name="feed_group_page_summary">チャンネルグループページ</string>
     <string name="account_terminated_service_provides_reason">アカウントは停止されました\n\n%1$sによる理由: %2$s</string>
     <string name="channel_tab_likes">高評価</string>
     <string name="migration_info_6_7_title">SoundCloudのトップ50ページを削除しました</string>
@@ -844,9 +766,6 @@
     <string name="trending_movies">トレンドの映画と番組</string>
     <string name="trending_music">トレンドの音楽</string>
     <string name="entry_deleted">エントリを削除しました</string>
-    <string name="player_http_403">再生中にサーバーからHTTPエラー403を受信しました。ストリーミングURLの有効期限切れまたはIPアドレスのブロックが原因である可能性があります</string>
-    <string name="player_http_invalid_status">再生中にサーバーからHTTPエラー%1$sを受信しました</string>
-    <string name="youtube_player_http_403">再生中にサーバーからHTTPエラー403を受信しました。IPアドレスのブロックまたはストリーミングURLの難読化解除に関する問題が原因である可能性があります</string>
     <string name="sign_in_confirm_not_bot_error">%1$sは、リクエスト元がボットではないことを確認するためにログインを求め、データの提供を拒否しました。\n\nお使いのIPアドレスが%1$sによって一時的にブロックされている可能性があります。しばらく待つか、別のIPアドレスに切り替えてください（たとえば、VPNのオンとオフを切り替えるか、Wi-Fiからモバイルデータ通信に切り替えます）。\n\n詳しくは <a href="%2$s">こちらのFAQ項目</a> をご覧ください。</string>
     <string name="unsupported_content_in_country">このコンテンツは、現在選択されているコンテンツの国では利用できません。\n\n設定 &gt; コンテンツ &gt; デフォルトのコンテンツの国から選択を変更してください。</string>
     <string name="api23_requirement_dialog_title">NewPipeはAndroid 5のサポートを終了します</string>

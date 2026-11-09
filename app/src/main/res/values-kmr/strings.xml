@@ -87,10 +87,6 @@
     <string name="missing_file">Pel veguhezt an jêbir</string>
     <string name="audio_streams_empty">Çemên bihîstbar nehatin dîtin</string>
     <string name="video_streams_empty">Çemên vîdyoyê nehatin dîtin</string>
-    <string name="external_player_unsupported_link_type">Lîstikvanên derveyî van celeb girêdan piştgirî nakin</string>
-    <string name="player_recoverable_failure">Ji xeletiya lîstikvan vedigerin</string>
-    <string name="player_unrecoverable_failure">Çewtiya lîstikvanê neveger çêbû</string>
-    <string name="player_stream_failure">Nekarî vê streamê bilîze</string>
     <string name="app_ui_crash">Sepan/UI têk çû</string>
     <string name="could_not_setup_download_menu">Menuya dakêşanê nehat saz kirin</string>
     <string name="content_not_available">Naverok tune</string>
@@ -186,14 +182,11 @@
     <string name="show_age_restricted_content_title">Naveroka sînorkirî ya temenê nîşan bikin</string>
     <string name="content">Dilşad</string>
     <string name="popup_playing_toast">Di moda popupê de dilîzin</string>
-    <string name="background_player_playing_toast">Di paşayê de dilîzin</string>
     <string name="settings_category_updates_title">Nûvekirin</string>
     <string name="settings_category_debug_title">Xeletkirin</string>
     <string name="settings_category_appearance_title">Xuyabûnî</string>
     <string name="settings_category_history_title">Dîrok û kaş</string>
     <string name="settings_category_video_audio_title">Video û deng</string>
-    <string name="settings_category_player_behavior_title">Xwenîşandinî</string>
-    <string name="settings_category_player_title">Lîstikvan</string>
     <string name="peertube_instance_add_exists">Mînak jixwe heye</string>
     <string name="peertube_instance_add_https_only">Tenê URL-yên HTTPS têne piştgirî kirin</string>
     <string name="peertube_instance_add_fail">Mînak nehate pejirandin</string>
@@ -296,9 +289,6 @@
     <string name="unsubscribe">Betal kirin</string>
     <string name="subscribed_button_title">Abonekirin</string>
     <string name="subscribe_button_title">Bibin abone</string>
-    <string name="use_external_audio_player_title">Lîsteya bihîstwerê derveyî bikar bînin</string>
-    <string name="use_external_video_player_summary">Dengê li hin biryaran radike</string>
-    <string name="use_external_video_player_title">Vîdyoyek derveyî bikar bînin</string>
     <string name="share_dialog_title">Parve dikin li gel</string>
     <string name="search_showing_result_for">Encaman ji bo: %s nîşan dide</string>
     <string name="did_you_mean">Mebesta we \"%1$s\" bû\?</string>
@@ -316,28 +306,7 @@
     <string name="no_player_found">Lîstikvanek herikê nehat dîtin. VLC saz bikin\?</string>
     <string name="upload_date_text">Li ser hate weşandin %1$s</string>
     <string name="main_bg_subtitle">Ji bo destpêkirinê \"Lêgerîn\" bitikînin</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Di hin karûbaran de heye, ew bi gelemperî pir zûtir e lê dibe ku hejmarek bi sînor a tiştan vegerîne û bi gelemperî agahdariya bêkêmasî vebigere (mînakî bê domdanî, celebek tişt, bê statûya zindî).</string>
-    <string name="feed_use_dedicated_fetch_method_title">Dema ku hebe ji xwarina fedakar bistînin</string>
     <string name="feed_update_threshold_option_always_update">Her dem nûve bikin</string>
-    <string name="feed_update_threshold_summary">Demjimêr piştî nûvekirina paşîn berî ku abonetiyê kevn tête hesibandin — %s</string>
-    <string name="feed_update_threshold_title">Benda nûvekirina xwedî kirin</string>
-    <string name="settings_category_feed_title">Xwedî kirin</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Tenê aboneyên ne kombûyî nîşan bidin</string>
-    <string name="feed_create_new_group_button_title">Nû</string>
-    <string name="feed_group_dialog_delete_message">Ma hûn dixwazin vê komê jê bibin\?</string>
-    <string name="feed_group_dialog_empty_name">Navê koma vala</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d hilbijart</item>
-        <item quantity="other">%d hilbijartî</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Tevlêbûn tune</string>
-    <string name="feed_group_dialog_select_subscriptions">Abonetiyê hilbijêrin</string>
-    <string name="feed_processing_message">Pêvajoya pêvajoyê…</string>
-    <string name="feed_notification_loading">Xwedîkirin tête barkirin…</string>
-    <string name="feed_subscription_not_loaded_count">Ne barkirî: %d</string>
-    <string name="feed_oldest_subscription_update">Xxweyîkirin herî dawî hate nûve kirin: %s</string>
-    <string name="feed_groups_header_title">Komên kenalê</string>
-    <string name="fragment_feed_title">Çi Nû ye</string>
     <plurals name="days">
         <item quantity="one">%d rojê</item>
         <item quantity="other">%d roj</item>
@@ -485,8 +454,6 @@
     <string name="name">Nav</string>
     <string name="rename_playlist">Navlêkirin</string>
     <string name="create_playlist">Lîstinê ya nû</string>
-    <string name="preferred_player_fetcher_notification_message">Naveroka daxwazkirî bar dike</string>
-    <string name="preferred_player_fetcher_notification_title">Agahdariyê digire…</string>
     <string name="always_ask_open_action">Her gav bipirsin</string>
     <string name="popup_player">Lîstikvanê popupê</string>
     <string name="background_player">Lîstikvanê paşnavê</string>
@@ -555,19 +522,6 @@
     <string name="content_not_supported">Vê naverok hîn ji hêla NewPipe ve nayê piştgirî kirin.
 \n
 \nEw ê hêvî dikim ku di guhertoyek pêşerojê de piştgirî bibe.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Li gorî we barkirina xwarinê pir hêdî ye\? Ger wusa ye, barkirina zû biceribîne (hûn dikarin wê di mîhengan de an bi tikandina bişkoja jêrîn biguherînin).
-\n
-\nNewPipe du stratejiyên barkirina xwarinê pêşkêşî dike:
-\n• Dîtina tevahî kanala abonetiyê, ku hêdî ye lê temam e.
-\n• Bikaranîna xala dawîn a karûbarê taybetî, ku bilez e lê bi gelemperî ne temam e.
-\n
-\nCûdaiya di navbera her duyan de ev e ku ya bilez bi gelemperî hin agahdarî, mîna dirêjahî an celebê (nekare vîdyoyên zindî û yên normal cuda bike) tune û dibe ku ew kêmtir tiştan jî vegerîne.
-\n
-\nYouTube nimûneyek xizmetê ye ku bi xwarina RSS-ê vê rêbaza bilez pêşkêşî dike.
-\n
-\nJi ber vê yekê bijarde bi tiştê ku hûn tercîh dikin ve girêdayî ye: leza an agahdariya rastîn.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Modeya lezgîn neçalak bikin</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Modeya lezgîn çalak bikin</string>
     <string name="tab_licenses">Destûrên</string>
     <string name="tab_about">Derbar</string>
     <string name="copyright">© %1$s bi %2$s di bin %3$s de</string>

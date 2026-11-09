@@ -11,8 +11,6 @@
     <string name="settings">Configurações</string>
     <string name="did_you_mean">Será que queria dizer \"%1$s\"\?</string>
     <string name="share_dialog_title">Partilhar com</string>
-    <string name="use_external_video_player_title">Utilizar reprodutor de vídeo externo</string>
-    <string name="use_external_audio_player_title">Utilizar reprodutor de áudio externo</string>
     <string name="download_path_title">Pasta para os ficheiros de vídeo</string>
     <string name="download_path_summary">Os ficheiros de vídeo descarregados serão guardados aqui</string>
     <string name="download_path_dialog_title">Escolha a pasta para guardar os ficheiros de vídeo</string>
@@ -36,7 +34,6 @@
     <string name="dark_theme_title">Escuro</string>
     <string name="light_theme_title">Claro</string>
     <string name="settings_category_appearance_title">Aparência</string>
-    <string name="background_player_playing_toast">Reprodução em segundo plano</string>
     <string name="network_error">Erro de rede</string>
     <string name="download_path_audio_title">Pasta para os ficheiros de áudio</string>
     <string name="download_path_audio_summary">Os ficheiros de áudio descarregados serão guardados aqui</string>
@@ -96,7 +93,6 @@
     <string name="popup_remember_size_pos_title">Lembrar propriedades do popup</string>
     <string name="clear">Limpar</string>
     <string name="controls_background_title">Segundo plano</string>
-    <string name="use_external_video_player_summary">Remove o áudio em algumas resoluções</string>
     <string name="popup_remember_size_pos_summary">Lembrar último tamanho e posição do popup</string>
     <string name="show_search_suggestions_title">Sugestões de pesquisa</string>
     <string name="show_search_suggestions_summary">Escolha as sugestões a mostrar ao pesquisar</string>
@@ -118,15 +114,12 @@
     <string name="subscription_change_failed">Não foi possível alterar a subscrição</string>
     <string name="subscription_update_failed">Não foi possível atualizar a subscrição</string>
     <string name="tab_subscriptions">Subscrições</string>
-    <string name="fragment_feed_title">Novidades</string>
     <string name="enable_search_history_title">Pesquisar histórico</string>
     <string name="enable_search_history_summary">Guardar termos de pesquisa localmente</string>
     <string name="enable_watch_history_title">Histórico de visualizações</string>
     <string name="enable_watch_history_summary">Manter histórico dos vídeos visualizados</string>
     <string name="resume_on_audio_focus_gain_title">Continuar reprodução</string>
     <string name="resume_on_audio_focus_gain_summary">Continuar reprodução após interrupções (ex. chamadas)</string>
-    <string name="settings_category_player_title">Reprodutor</string>
-    <string name="settings_category_player_behavior_title">Comportamento</string>
     <string name="settings_category_history_title">Histórico e cache</string>
     <string name="undo">Desfazer</string>
     <string name="notification_channel_name">Notificação NewPipe</string>
@@ -162,8 +155,6 @@
     <string name="delete_item_search_history">Deseja remover este item do histórico de pesquisas\?</string>
     <string name="play_all">Reproduzir tudo</string>
     <string name="unknown_content">[Desconhecido]</string>
-    <string name="player_unrecoverable_failure">Ocorreu um erro compulsivo do reprodutor</string>
-    <string name="player_recoverable_failure">A recuperar de um erro do reprodutor</string>
     <string name="main_page_content">Conteúdo da página principal</string>
     <string name="blank_page_summary">Página vazia</string>
     <string name="channel_page_summary">Página do canal</string>
@@ -189,8 +180,6 @@
     <string name="switch_to_background">Mudar para segundo plano</string>
     <string name="switch_to_popup">Mudar para popup</string>
     <string name="switch_to_main">Mudar para principal</string>
-    <string name="player_stream_failure">Não foi possível reproduzir este vídeo</string>
-    <string name="external_player_unsupported_link_type">Os reprodutores externos não possuem suporte a este tipo de ligações</string>
     <string name="detail_drag_description">Arraste para reordenar</string>
     <string name="create">Criar</string>
     <string name="rename">Mudar nome</string>
@@ -233,8 +222,6 @@
     <string name="background_player">Reprodutor em segundo plano</string>
     <string name="popup_player">Reprodutor \'popup\'</string>
     <string name="always_ask_open_action">Perguntar sempre</string>
-    <string name="preferred_player_fetcher_notification_title">A obter informação…</string>
-    <string name="preferred_player_fetcher_notification_message">A carregar conteúdo solicitado</string>
     <string name="create_playlist">Nova lista de reprodução</string>
     <string name="rename_playlist">Mudar nome</string>
     <string name="add_to_playlist">Adicionar à lista de reprodução</string>
@@ -448,40 +435,7 @@
     <string name="systems_language">Predefinição do sistema</string>
     <string name="subtitle_activity_recaptcha">Prima \"Feito\" ao resolver</string>
     <string name="done">Concluído</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Acha que a fonte demora muito tempo a carregar? Se sim, tente ativar o carregamento rápido (pode alterar a opção nas definições ou no botão abaixo).
-\n
-\nNewPipe oferece duas estratégias de carregamento:
-\n- Obter todo o canal - lento, mas completo.
-\n- Usar um \'endpoint\' dedicado - mais rápido, mas não completo.
-\n
-\nA diferença entre os dois é que o rápido geralmente carece de alguma informação, como a duração ou tipo do item (não consegue distinguir entre vídeos em direto e vídeos normais) e pode mostrar menos itens.
-\n
-\nO YouTube é um exemplo de um serviço que oferece este método rápido com a sua fonte RSS.
-\n
-\nAssim, a escolha resume-se ao que prefere: velocidade ou informação precisa.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Desativar modo rápido</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Ativar modo rápido</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Disponível em alguns serviços, é geralmente muito mais rápido, mas pode devolver uma quantidade limitada de itens e muitas vezes informações incompletas (por exemplo, sem duração, tipo de item, sem estado ativo)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Se possível, obter de uma fonte dedicada</string>
     <string name="feed_update_threshold_option_always_update">Atualizar sempre</string>
-    <string name="feed_update_threshold_summary">Tempo após a última atualização antes da subscrição ser considerada desatualizada - %s</string>
-    <string name="feed_update_threshold_title">Limite de atualização da fonte</string>
-    <string name="settings_category_feed_title">Fonte</string>
-    <string name="feed_create_new_group_button_title">Novo</string>
-    <string name="feed_group_dialog_delete_message">Deseja remover este grupo?</string>
-    <string name="feed_group_dialog_empty_name">O nome do grupo está vazio</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d selecionado</item>
-        <item quantity="many">%d selecionados</item>
-        <item quantity="other">%d selecionados</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Nenhuma subscrição selecionada</string>
-    <string name="feed_group_dialog_select_subscriptions">Selecionar subscrições</string>
-    <string name="feed_processing_message">A processar…</string>
-    <string name="feed_notification_loading">A carregar…</string>
-    <string name="feed_subscription_not_loaded_count">Não carregado: %d</string>
-    <string name="feed_oldest_subscription_update">Última atualização: %s</string>
-    <string name="feed_groups_header_title">Grupos de canais</string>
     <plurals name="days">
         <item quantity="one">%d dia</item>
         <item quantity="many">%d dias</item>
@@ -527,7 +481,6 @@
     <string name="video_detail_by">Por %s</string>
     <string name="channel_created_by">Criado por %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">Miniatura do avatar do canal</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Mostrar apenas subscrições não agrupadas</string>
     <string name="playlist_page_summary">Página da lista de reprodução</string>
     <string name="no_playlist_bookmarked_yet">Ainda não há listas de reprodução favoritas</string>
     <string name="select_a_playlist">Selecione uma lista de reprodução</string>
@@ -605,12 +558,6 @@
     <string name="downloads_storage_ask_summary_no_saf_notice">Sempre que descarregar um ficheiro, terá que indicar o local para o guardar</string>
     <string name="no_dir_yet">Ainda não definiu uma pasta para as descargas. Escolha agora a pasta a utilizar</string>
     <string name="account_terminated">Conta encerrada</string>
-    <string name="feed_load_error_fast_unknown">O modo de fonte rápida não fornece mais informações sobre isto.</string>
-    <string name="feed_load_error_terminated">A conta do autor foi encerrada.
-\nNewPipe não será capaz de carregar esta fonte.
-\nDeseja cancelar a subscrição deste canal?</string>
-    <string name="feed_load_error_account_info">Não foi possível carregar a fonte para \'%s\'.</string>
-    <string name="feed_load_error">Erro ao carregar a fonte</string>
     <string name="downloads_storage_use_saf_summary_api_29">A partir do Android 10, apenas é compatível o \'Storage Access Framework\'</string>
     <string name="seekbar_preview_thumbnail_title">Pré-visualização da miniatura na barra de pesquisa</string>
     <string name="mark_as_watched">Marcar como visto</string>
@@ -651,18 +598,12 @@
         <item quantity="other">%s descargas concluídas</item>
     </plurals>
     <string name="main_page_content_swipe_remove">Deslize nos itens para os remover</string>
-    <string name="start_main_player_fullscreen_summary">Não iniciar vídeos em mini-reprodutor e ativar ecrã completo, se a rotação automática estiver bloqueada. Pode aceder ao mini-reprodutor se sair do modo de ecrã completo.</string>
-    <string name="start_main_player_fullscreen_title">Iniciar reprodutor principal em ecrã completo</string>
     <string name="enqueued_next">Seguinte colocado na fila</string>
     <string name="enqueue_next_stream">Colocar seguinte na fila</string>
     <string name="processing_may_take_a_moment">A processar… Pode levar algum tempo</string>
     <string name="check_for_updates">Procurar atualizações</string>
     <string name="manual_update_description">Verificar manualmente se existe uma nova versão</string>
     <string name="checking_updates_toast">A procurar atualizações…</string>
-    <string name="feed_new_items">Novos itens</string>
-    <string name="crash_the_player">Terminou o reprodutor</string>
-    <string name="show_crash_the_player_title">Mostrar \"Travar o reprodutor\"</string>
-    <string name="show_crash_the_player_summary">Mostra uma opção para terminar o reprodutor</string>
     <string name="error_report_channel_name">Notificação para relatórios de erro</string>
     <string name="error_report_channel_description">Notificações para reportar erros</string>
     <string name="error_report_notification_title">NewPipe encontrou um erro, toque para reportar</string>
@@ -675,8 +616,6 @@
     <string name="detail_pinned_comment_view_description">Comentário afixado</string>
     <string name="leak_canary_not_available">LeakCanary não disponível</string>
     <string name="progressive_load_interval_exoplayer_default">Predefinição ExoPlayer</string>
-    <string name="settings_category_player_notification_title">Notificação do reprodutor</string>
-    <string name="settings_category_player_notification_summary">Configurar notificação da reprodução do vídeo atual</string>
     <string name="notifications">Notificações</string>
     <string name="loading_stream_details">A carregar detalhes do vídeo…</string>
     <string name="check_new_streams">Procurar novos vídeos</string>
@@ -703,7 +642,6 @@
     <string name="streams_not_yet_supported_removed">Os vídeos não suportados para descarga não são mostrados</string>
     <string name="no_audio_streams_available_for_external_players">Não estão disponíveis reproduções de áudio para reprodutores externos</string>
     <string name="no_video_streams_available_for_external_players">Não estão disponíveis reproduções de vídeo para reprodutores externos</string>
-    <string name="select_quality_external_players">Selecione a qualidade para reprodutores externos</string>
     <string name="unknown_format">Formato desconhecido</string>
     <string name="unknown_quality">Qualidade desconhecida</string>
     <string name="selected_stream_external_player_not_supported">O vídeo selecionado não é suportado por reprodutores externos</string>
@@ -726,12 +664,7 @@
     <string name="ignore_hardware_media_buttons_summary">Útil, por exemplo, se estiver a utilizar auscultadores com botões físicos danificados</string>
     <string name="remove_duplicates">Remover duplicados</string>
     <string name="remove_duplicates_title">Remover duplicados\?</string>
-    <string name="feed_show_hide_streams">Mostrar/ocultar vídeos</string>
-    <string name="feed_show_upcoming">Brevemente</string>
     <string name="remove_duplicates_message">Deseja remover todos os vídeos duplicados desta lista de reprodução?</string>
-    <string name="feed_show_watched">Completamente visto</string>
-    <string name="feed_hide_streams_title">Mostrar vídeos seguintes</string>
-    <string name="feed_show_partially_watched">Parcialmente visto</string>
     <string name="left_gesture_control_title">Ação para o gesto à esquerda</string>
     <string name="right_gesture_control_title">Ação para o gesto à direita</string>
     <string name="brightness">Brilho</string>
@@ -740,9 +673,6 @@
     <string name="left_gesture_control_summary">Escolha o gesto para a parte esquerda do ecrã</string>
     <string name="right_gesture_control_summary">Escolha o gesto para a parte direita do ecrã</string>
     <string name="prefer_descriptive_audio_summary">Seleciona o áudio com descrição para pessoas com dificuldades de visão, se disponível</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Esta solução alternativa liberta os codificadores de vídeo quando ocorre uma alteração da superfície, em vez de definir diretamente a superfície para o codificador. Já utilizada pelo ExoPlayer em alguns dispositivos com este problema, esta definição só tem efeito no Android 6 e superior
-\n
-\nA ativação desta opção pode evitar erros de reprodução ao mudar o leitor de vídeo atual ou ao mudar para ecrã inteiro</string>
     <string name="progressive_load_interval_summary">Altera o tamanho do intervalo de carregamento progressivo (atualmente %s). Um valor menor pode acelerar o carregamento inicial do conteúdo</string>
     <string name="prefer_original_audio_title">Dar preferência ao áudio original</string>
     <string name="prefer_original_audio_summary">Seleciona o áudio original, independentemente do idioma</string>
@@ -750,13 +680,7 @@
     <string name="play_queue_audio_track">Áudio: %s</string>
     <string name="audio_track">Faixa de áudio</string>
     <string name="audio_track_present_in_video">Já deve existir uma faixa de áudio neste vídeo</string>
-    <string name="select_audio_track_external_players">Selecione a faixa de áudio para reprodutores externos</string>
     <string name="unknown_audio_track">Desconhecida</string>
-    <string name="settings_category_exoplayer_title">Definições ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Gere algumas definições ExoPlayer. Tem que reiniciar o reprodutor para aplicar as alterações</string>
-    <string name="use_exoplayer_decoder_fallback_title">Utilizar descodificador se recurso do ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Ative esta opção se tiver problemas de inicialização do descodificador, que retorna codificadores de baixa prioridade se o descodificador primário falhar. Isto pode resultar num desempenho inferior de reprodução</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Usar sempre a configuração de saída alternativa de vídeo do ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">original</string>
     <string name="audio_track_type_dubbed">dobrado</string>
@@ -768,7 +692,6 @@
     <string name="no_streams">Nenhum vídeo</string>
     <string name="loading_metadata_title">A carregar metadados…</string>
     <string name="feed_fetch_channel_tabs">Obter separadores de canais</string>
-    <string name="feed_fetch_channel_tabs_summary">Separadores a obter ao atualizar a fonte. Esta opção não tem efeito se um canal for atualizado utilizando o modo rápido.</string>
     <string name="image_quality_title">Qualidade da imagem</string>
     <string name="channel_tab_videos">Vídeos</string>
     <string name="question_mark">\?</string>
@@ -832,9 +755,6 @@
     <string name="audio_track_type_secondary">secundário</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Partilhar como lista de reprodução temporária do YouTube</string>
     <string name="tab_bookmarks_short">Listas de reprodução</string>
-    <string name="select_a_feed_group">Selecione um grupo de feeds</string>
-    <string name="no_feed_group_created_yet">Ainda nenhum grupo de feeds criado</string>
-    <string name="feed_group_page_summary">Página do grupo do canal</string>
     <string name="search_with_service_name">Pesquisar %1$s</string>
     <string name="search_with_service_name_and_filter">Pesquisar %1$s (%2$s)</string>
     <string name="channel_tab_likes">Gostos</string>
@@ -855,11 +775,8 @@
     <string name="delete_entry">Apagar entrada</string>
     <string name="entry_deleted">Entrada apagada</string>
     <string name="account_terminated_service_provides_reason">Conta terminada\n\n%1$s fornece esta razão: %2$s</string>
-    <string name="player_http_invalid_status">Erro HTTP %1$s recebido do servidor ao reproduzir</string>
     <string name="sign_in_confirm_not_bot_error">%1$s recusou fornecer dados, pedindo por um login para confirmar que o solicitante não é um bot.\n\nO seu IP pode ter sido temporariamente banido por %1$s, você pode esperar algum tempo ou mudar para um IP diferente (por exemplo, a ligar/desligar uma VPN, ou a alternar de Wi-Fi para dados móveis).\n\nConfira <a href="%2$s">este artigo do FAQ</a> para mais informações.</string>
     <string name="unsupported_content_in_country">Este conteúdo não está disponível para o país de conteúdo atualmente selecionado.\n\nAltere a sua seleção de \"Configurações &gt; Conteúdo &gt; País predefinido de conteúdo\".</string>
-    <string name="player_http_403">Erro HTTP 403 recebido do servidor durante a reprodução, provavelmente causado pela URL de streaming expirado ou IP banido</string>
-    <string name="youtube_player_http_403">Erro HTTP 403 recebido do servidor durante a reprodução, provavelmente causado por um bloqueio de IP ou problemas de desofuscação da URL de streaming</string>
     <string name="kao_dialog_warning">Em agosto de 2025, o Google anunciou que, a partir de setembro de 2026, a instalação de apps exigirá a verificação do programador para todas as apps Android em dispositivos certificados, incluindo aqueles instalados fora da Play Store. Como os programadores do NewPipe não concordam com este requisito, o NewPipe já não funcionará em dispositivos Android certificados após essa data.</string>
     <string name="kao_dialog_more_info">Detalhes</string>
     <string name="kao_solution">Solução</string>

@@ -15,9 +15,6 @@
     <string name="settings">ڕێكخستنه‌كان</string>
     <string name="did_you_mean">مەبەستت %1$s ە؟</string>
     <string name="share_dialog_title">هاوبه‌شی لە</string>
-    <string name="use_external_video_player_title">به‌كارهێنانی لێدەری ڤیدیۆی ده‌ره‌كی</string>
-    <string name="use_external_video_player_summary">دەنگ لادەدات لەهەنێ قەبارەدا</string>
-    <string name="use_external_audio_player_title">به‌كارهێنانی لێدەری ده‌نگی ده‌ره‌كی</string>
     <string name="subscribe_button_title">به‌ژداری</string>
     <string name="subscribed_button_title">به‌شداربوویت</string>
     <string name="channel_unsubscribed">به‌شداریت نەما له‌ كه‌ناڵ</string>
@@ -26,7 +23,6 @@
     <string name="show_info">پیشاندانی زانیاری</string>
     <string name="tab_subscriptions">به‌شدارییه‌كان</string>
     <string name="tab_bookmarks">لیستەلێدانە نیشانەکراوەکان</string>
-    <string name="fragment_feed_title">چی نوێ هه‌یه‌</string>
     <string name="controls_background_title">پاشبنەما</string>
     <string name="controls_popup_title">په‌نجه‌ره‌</string>
     <string name="controls_add_to_playlist_title">زیادکردن بۆ</string>
@@ -69,12 +65,10 @@
     <string name="show_next_and_similar_title">پیشاندانی ’دواتر’ و ڤیدیۆ ’هاوشێوەکان’</string>
     <string name="unsupported_url">بەستەرەکە پشتگیری نەکراوە</string>
     <string name="default_content_country_title">ناوەڕۆکی وڵاتی بنەڕەتی</string>
-    <string name="settings_category_player_title">کارپێکەر</string>
     <string name="settings_category_video_audio_title">ڤیدیۆ و دەنگ</string>
     <string name="settings_category_history_title">مێژوو و پاشماوە</string>
     <string name="settings_category_appearance_title">دیمەن</string>
     <string name="settings_category_debug_title">ڕاستکردنەوە</string>
-    <string name="background_player_playing_toast">کارپێکردن لە پاشبنەما</string>
     <string name="popup_playing_toast">کارپێکردن لە پەنجەرە</string>
     <string name="content">ناوەڕۆک</string>
     <string name="show_age_restricted_content_title">پیشاندانی سنوری تەمەن</string>
@@ -108,8 +102,6 @@
     <string name="content_not_available">ناوەڕۆک بەردەست نییە</string>
     <string name="could_not_setup_download_menu">ناتوانرێ لیستی دابەزاندن دابنرێ</string>
     <string name="app_ui_crash">ئەپ/ڕووکار ڕاوەستا</string>
-    <string name="player_stream_failure">ناتوانرێ ئەم پەخشە کارپێبکرێ</string>
-    <string name="external_player_unsupported_link_type">کارپێکەرە ڤیدیۆییە دەرەکییەکان پشتگیری ئەم جۆرە بەستەرانە ناکەن</string>
     <string name="video_streams_empty">هیچ پەخشێکی ڤیدیۆیی نەدۆزرایەوە</string>
     <string name="audio_streams_empty">پەخشی هیچ دەنگێک نەدۆزرایەوە</string>
     <string name="invalid_file">ئەو فایلە بوونی نییە یان دەسەڵاتی خوێندنەوە و نوسینی لاوازە</string>
@@ -199,8 +191,6 @@
     <string name="background_player">کارپێکەری پاشبنەما</string>
     <string name="popup_player">کارپێکەری پەنجەرە</string>
     <string name="always_ask_open_action">هەمیشە بپرسە</string>
-    <string name="preferred_player_fetcher_notification_title">دەستکەوتنی زانیاری…</string>
-    <string name="preferred_player_fetcher_notification_message">بارکردنی ناوەڕۆکی داواکراو</string>
     <string name="create_playlist">لیستەلێدانی نوێ</string>
     <string name="rename_playlist">ناولێنانەوە</string>
     <string name="name">ناو</string>
@@ -323,9 +313,6 @@
     <string name="resume_on_audio_focus_gain_title">دەسپێکردنەوەی کارپێکراو</string>
     <string name="show_hold_to_append_title">پیشاندانی ڕێنمایی ”داگرتن تا پاشکۆ”</string>
     <string name="show_hold_to_append_summary">پیشاندانی ڕێنمایی کاتێ لە پاشبنەما یاخوود پەنجەرەدا گرتە دەکرێ لەسەر وردەکاری ڤیدیۆیەک</string>
-    <string name="settings_category_player_behavior_title">پەرەسەندوو</string>
-    <string name="player_unrecoverable_failure">نەگێڕانەوەی کارپێکەر بۆ پێش کێشە ڕوویدا</string>
-    <string name="player_recoverable_failure">گێڕانەوەی کارپێکەر بۆکاتی پێش کێشە</string>
     <string name="invalid_directory">هەمان فۆڵدەر بوونی نییە</string>
     <string name="invalid_source">هەمان فایل/بابەت بوونی نییە</string>
     <string name="info_labels">چی:\nداواکراو:\nناوەڕۆک:\nلانگ:\nخزمەتگوزاری:\nGMT:\nکات:\nپاکێج:\nوەشان:\nوەشانی سیستەم:</string>
@@ -461,33 +448,7 @@
         <item quantity="one">%d ڕۆژ</item>
         <item quantity="other">%d ڕۆژەکان</item>
     </plurals>
-    <string name="feed_groups_header_title">کۆمەڵەی کەناڵەکان</string>
-    <string name="feed_oldest_subscription_update">دواین نوێکردنەوە: %s</string>
-    <string name="feed_subscription_not_loaded_count">بارنەکراو : %d</string>
-    <string name="feed_notification_loading">بارکردن…</string>
-    <string name="feed_processing_message">ئامادەکردن…</string>
-    <string name="feed_group_dialog_select_subscriptions">دیاریکردنی بەشدارییەکان</string>
-    <string name="feed_group_dialog_empty_selection">هیچ بەشدارییەک دیاری نەکراوە</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d دیاریکراو</item>
-        <item quantity="other">%d هەڵبژێردراو</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">ناوی کۆمەڵە بەتاڵە</string>
-    <string name="feed_group_dialog_delete_message">ئایا دەتەوێ ئەم کۆمەڵەیە بسڕیتەوە؟</string>
-    <string name="feed_create_new_group_button_title">نوێ</string>
-    <string name="settings_category_feed_title">دیار</string>
-    <string name="feed_update_threshold_title">نوێکاری دیار</string>
-    <string name="feed_update_threshold_summary">کاتی پاش دواین نوێکردنەوە دوای بەشداربوون ڕەچاوکراوە — %s</string>
     <string name="feed_update_threshold_option_always_update">هەمیشە نوێکردنەوە</string>
-    <string name="feed_use_dedicated_fetch_method_title">تێکەڵکردن لە دیاری تەرخانکراوەوە کاتێ بەردەست بوو</string>
-    <string name="feed_use_dedicated_fetch_method_summary">لەهەندێ خزمەتگوزاریدا بەردەستە، هەمیشە خێرایە بەڵام ڕەنگە هەندێ لە بابەتەکان زانیارییەکانیان ناتەواو بێت (وەک نەبوونی ماوە، جۆری بابەت ، نەبوونی پەخش).</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">چالاککردنی دۆخی خێرا</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">چالاک نەکردنی دۆخی خێرا</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">ئایا توانای بارکردن لاوازە؟ گەر وایە ئەوا بارکردنی خێرا تاقی بکەرەوە (دەتوانی بیگۆڕیت لە بەشی ڕێکخستنەکان لەڕێگای گرتەکردن لەم دوگمەیەی خوارەوە).
-\n
-\nئەم ئەپە دوو شێوازی بارکردنت بۆ پێشنیاز دەکات:
-\n- بارکردنی تەواوی کەناڵە بەشدارییەکانت، ئەمەیان خاوە بەڵام تەواوە.
-\n- تەرخانکردنی خزمەتگوزارییەکان ئەمەیان خێرایە بەڵام زۆر تەواو نییە.</string>
     <string name="content_not_supported">ئەم ناوەڕۆکە پشتگیری نەکراوە لەلایەن ئەپەکەمانەوە.
 \n
 \nهیوادارین بتوانین لە وەشانەکانی داهاتوودا پشتگیری بکەین.</string>
@@ -516,7 +477,6 @@
     <string name="clear_queue_confirmation_summary">گۆڕینی لێدەری یەکەم بۆ دانەیەکیتر ڕەنگە ڕیزەکانت تێکەڵ بن</string>
     <string name="clear_queue_confirmation_title">پرس بکرێ بۆ دڵنیابوونەوە پێش سڕینەوەی ڕیزێک</string>
     <string name="playlist_page_summary">پەڕەی لیستەلێدان</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">تەنها بەشدارییە کۆمەڵە نەکراوەکان پیشاندرێ</string>
     <string name="never">هەرگیز</string>
     <string name="wifi_only">تەنها لەسەر وایفای</string>
     <string name="autoplay_summary">دەسپێکردنی کارپێکەر بەخۆکاری — %s</string>

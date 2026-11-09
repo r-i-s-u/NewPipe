@@ -13,9 +13,6 @@
     <string name="settings">Cài đặt</string>
     <string name="did_you_mean">Ý bạn là \"%1$s\"\?</string>
     <string name="share_dialog_title">Chia sẻ với</string>
-    <string name="use_external_video_player_title">Sử dụng trình phát video bên ngoài</string>
-    <string name="use_external_video_player_summary">Loại bỏ âm thanh ở một số độ phân giải</string>
-    <string name="use_external_audio_player_title">Sử dụng trình phát âm thanh bên ngoài</string>
     <string name="controls_popup_title">Bật lên</string>
     <string name="download_path_title">Thư mục video tải về</string>
     <string name="download_path_summary">Video đã tải về được lưu ở đây</string>
@@ -47,7 +44,6 @@
     <string name="show_next_and_similar_title">Hiện các video \"Tiếp theo\" và \"Tương tự\"</string>
     <string name="unsupported_url">URL không hỗ trợ</string>
     <string name="settings_category_appearance_title">Vẻ ngoài</string>
-    <string name="background_player_playing_toast">Đang phát trong nền</string>
     <string name="popup_playing_toast">Đang phát trong chế độ bật lên</string>
     <string name="content">Nội dung</string>
     <string name="show_age_restricted_content_title">Hiển thị nội dung bị giới hạn độ tuổi</string>
@@ -122,7 +118,6 @@
     <string name="show_info">Hiện thông tin</string>
     <string name="tab_subscriptions">Kênh đăng ký</string>
     <string name="tab_bookmarks">Đã đánh dấu danh sách phát</string>
-    <string name="fragment_feed_title">Có gì mới</string>
     <string name="controls_add_to_playlist_title">Thêm vào</string>
     <string name="use_inexact_seek_title">Dùng tua nhanh ít chính xác</string>
     <string name="use_inexact_seek_summary">Tua ít chính xác cho phép trình phát giảm độ chính xác để tua tới vị trí nhanh hơn. Tua khoảng 5, 15 hoặc 25 giây không hoạt động với điều này</string>
@@ -140,8 +135,6 @@
     <string name="show_hold_to_append_title">Hiển thị mẹo \"Giữ để thêm vào hàng đợi\"</string>
     <string name="show_hold_to_append_summary">Hiển thị mẹo khi nhấn vào nút nền hoặc nút bật lên trong \"Chi tiết:\" video</string>
     <string name="default_content_country_title">Quốc gia nội dung mặc định</string>
-    <string name="settings_category_player_title">Trình phát</string>
-    <string name="settings_category_player_behavior_title">Hành vi</string>
     <string name="settings_category_debug_title">Gỡ lỗi</string>
     <string name="channels">Kênh</string>
     <string name="playlists">Danh sách phát</string>
@@ -170,10 +163,6 @@
     <string name="clear_search_history_summary">Xóa lịch sử tìm kiếm mà bạn đã ghi</string>
     <string name="delete_search_history_alert">Xóa toàn bộ lịch sử tìm kiếm\?</string>
     <string name="search_history_deleted">Đã xóa lịch sử tìm kiếm</string>
-    <string name="player_stream_failure">Không thể phát luồng này</string>
-    <string name="player_unrecoverable_failure">Đã xảy ra lỗi trình phát không thể khôi phục</string>
-    <string name="player_recoverable_failure">Phục hồi lại trình phát bị lỗi</string>
-    <string name="external_player_unsupported_link_type">Trình phát ngoài không hỗ trợ các loại liên kết này</string>
     <string name="video_streams_empty">Không tìm thấy luồng video nào</string>
     <string name="audio_streams_empty">Không tìm thấy luồng âm thanh nào</string>
     <string name="invalid_directory">Thư mục không hợp lệ</string>
@@ -249,8 +238,6 @@
     <string name="background_player">Trình phát trong nền</string>
     <string name="popup_player">Trình phát cửa sổ nổi</string>
     <string name="always_ask_open_action">Luôn hỏi</string>
-    <string name="preferred_player_fetcher_notification_title">Đang nhận thông tin…</string>
-    <string name="preferred_player_fetcher_notification_message">Đang tải nội dung được yêu cầu</string>
     <string name="create_playlist">Danh sách phát mới</string>
     <string name="rename_playlist">Đổi tên</string>
     <string name="name">Tên</string>
@@ -399,7 +386,6 @@
     <string name="clear_playback_states_title">Xóa vị trí phát</string>
     <string name="clear_playback_states_summary">Xóa tất cả vị trí phát</string>
     <string name="delete_playback_states_alert">Xóa tất cả vị trí phát\?</string>
-    <string name="feed_groups_header_title">Nhóm kênh</string>
     <string name="choose_instance_prompt">Chọn một thực thể</string>
     <string name="peertube_instance_add_exists">Thực thể đã tồn tại</string>
     <string name="peertube_instance_add_fail">Không thể xác nhận thực thể</string>
@@ -467,44 +453,13 @@
     <string name="content_not_supported">NewPipe chưa hỗ trợ loại nội dung này.
 \n
 \nCó thể nó sẽ được hỗ trợ bởi một phiên bản mới hơn trong tương lai.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Bạn có nghĩ rằng tải nguồn cấp dữ liệu quá chậm? Nếu vậy, hãy thử bật tải nhanh (bạn có thể thay đổi nó này trong cài đặt hoặc bằng cách nhấn nút bên dưới).
-\n
-\nNewPipe cung cấp hai chiến lược tải nguồn cấp dữ liệu:
-\n• Tìm nạp toàn bộ kênh đăng ký, tuy chậm nhưng đầy đủ.
-\n• Sử dụng điểm cuối dịch vụ chuyên dụng, nhanh nhưng thường không hoàn thiện.
-\n
-\nSự khác biệt giữa hai loại này là cái nào nhanh thường thiếu một số thông tin, chẳng hạn như thời lượng hoặc loại mục (không thể phân biệt giữa các video trực tiếp và bình thường) và nó có thể trả về ít mục hơn.
-\n
-\nYouTube là một ví dụ về dịch vụ cung cấp phương pháp nhanh này với nguồn cấp RSS.
-\n
-\nVì vậy, sự lựa chọn tập trung vào những gì bạn thích: tốc độ hoặc thông tin chính xác.</string>
-    <string name="feed_use_dedicated_fetch_method_title">Tìm nạp từ nguồn cấp dữ liệu chuyên dụng khi có sẵn</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Bật chế độ nhanh</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Tắt chế độ nhanh</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Có sẵn trong một số dịch vụ, nó thường nhanh hơn nhiều nhưng có thể trả về một số lượng mục hạn chế và thông tin thường không đầy đủ (ví dụ: không có thời lượng, loại mục, trạng thái không trực tiếp)</string>
     <string name="feed_update_threshold_option_always_update">Luôn cập nhật</string>
-    <string name="feed_update_threshold_summary">Thời gian sau lần cập nhật cuối cùng trước khi đăng ký được coi là lỗi thời — %s</string>
-    <string name="feed_update_threshold_title">Ngưỡng cập nhật nguồn cấp dữ liệu</string>
-    <string name="settings_category_feed_title">Nguồn cấp dữ liệu</string>
-    <string name="feed_create_new_group_button_title">Tạo mới</string>
-    <string name="feed_group_dialog_delete_message">Bạn có muốn xóa nhóm này\?</string>
-    <string name="feed_group_dialog_empty_name">Tên nhóm trống</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="other">Đã chọn %d</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Chưa chọn kênh đăng ký nào</string>
-    <string name="feed_group_dialog_select_subscriptions">Chọn kênh đăng ký</string>
-    <string name="feed_processing_message">Đang xử lý nguồn cấp dữ liệu…</string>
-    <string name="feed_subscription_not_loaded_count">Chưa tải được: %d</string>
-    <string name="feed_notification_loading">Đang tải nguồn cấp dữ liệu…</string>
-    <string name="feed_oldest_subscription_update">Nguồn cấp được cập nhật lần cuối: %s</string>
     <string name="new_seek_duration_toast">Do các hạn chế của ExoPlayer, đã đặt lại thời lượng tua thành %d giây</string>
     <string name="recovering">đang khôi phục</string>
     <string name="playlist_no_uploader">Được tạo tự động (không tìm thấy người tải lên)</string>
     <string name="local">Cục bộ</string>
     <string name="default_kiosk_page_summary">Trang chính mặc định</string>
     <string name="playlist_page_summary">Trang danh sách phát</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Chỉ hiển thị các đăng ký chưa được nhóm</string>
     <string name="never">Không bao giờ</string>
     <string name="wifi_only">Chỉ trên Wi-Fi</string>
     <string name="autoplay_summary">Bắt đầu phát lại tự động — %s</string>
@@ -598,12 +553,6 @@
     <string name="description_select_enable">Bật chọn văn bản trong mô tả</string>
     <string name="description_select_note">Bây giờ bạn có thể chọn văn bản trong mô tả. Lưu ý rằng trang có thể nhấp nháy và các liên kết có thể không nhấn vào được trong khi ở chế độ chọn.</string>
     <string name="account_terminated">Tài khoản đã bị chấm dứt</string>
-    <string name="feed_load_error_fast_unknown">Chế độ nạp nhanh không cung cấp thêm thông tin về điều này.</string>
-    <string name="feed_load_error_terminated">Tài khoản của tác giả đã bị chấm dứt.
-\nNewPipe sẽ không thể tải nguồn cấp dữ liệu này trong tương lai.
-\nBạn có muốn hủy đăng ký khỏi kênh này không\?</string>
-    <string name="feed_load_error_account_info">Không thể tải nguồn cấp dữ liệu cho \'%s\'.</string>
-    <string name="feed_load_error">Lỗi tải nguồn cấp dữ liệu</string>
     <string name="downloads_storage_use_saf_summary_api_29">\'Khung truy cập lưu trữ\' chỉ được hỗ trợ từ Android 10 trở lên</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Bạn sẽ được hỏi nơi bạn muốn lưu mỗi mục tải xuống</string>
     <string name="no_dir_yet">Chưa có thư mục tải xuống nào được đặt, hãy chọn thư mục tải xuống mặc định ngay</string>
@@ -623,8 +572,6 @@
         <item quantity="other">%s lượt tải xuống đã hoàn tất</item>
     </plurals>
     <string name="main_page_content_swipe_remove">Vuốt các mục để loại bỏ chúng</string>
-    <string name="start_main_player_fullscreen_summary">Không bắt đầu các video ở trình phát mini, mà chuyển trực tiếp thành chế độ toàn màn hình, nếu tự động xoay bị khóa. Bạn vẫn có thể truy cập trình phát mini bằng cách thoát khỏi toàn màn hình</string>
-    <string name="start_main_player_fullscreen_title">Khởi động trình phát chính ở toàn màn hình</string>
     <string name="enqueued_next">Đã xếp kế tiếp vào hàng</string>
     <string name="enqueue_next_stream">Xếp kế tiếp vào hàng</string>
     <string name="processing_may_take_a_moment">Đang xử lý... Có thể mất chút thời gian</string>
@@ -632,15 +579,11 @@
     <string name="error_report_channel_description">Thông báo để báo cáo lỗi</string>
     <string name="error_report_notification_title">NewPipe đã gặp sự cố, nhấn để xem và báo cáo</string>
     <string name="error_report_notification_toast">Có lỗi xảy ra, hãy xem thông báo</string>
-    <string name="show_crash_the_player_title">Hiện \"làm trình phát dừng\"</string>
-    <string name="show_crash_the_player_summary">Hiện tùy chọn dừng đột ngột khi sử dụng trình phát</string>
     <string name="show_error_snackbar">Hiện thanh báo lỗi</string>
     <string name="create_error_notification">Tạo thông báo lỗi</string>
     <string name="check_for_updates">Kiểm tra cập nhật</string>
     <string name="manual_update_description">Kiểm tra phiên bản mới theo cách thủ công</string>
     <string name="checking_updates_toast">Đang kiểm tra cập nhật…</string>
-    <string name="feed_new_items">Mục nguồn cấp dữ liệu mới</string>
-    <string name="crash_the_player">Làm sập trình phát</string>
     <string name="no_appropriate_file_manager_message_android_10">Không tìm thấy ứng dụng quản lý tệp phù hợp nào để thực hiện hành động.
 \nVui lòng cài đặt ứng dụng quản lý tệp tương thích với Storage Access Framework</string>
     <string name="no_appropriate_file_manager_message">Không tìm thấy trình quản lý tệp nào thích hợp cho hành động này.
@@ -648,8 +591,6 @@
     <string name="leak_canary_not_available">LeakCanary không khả dụng</string>
     <string name="progressive_load_interval_exoplayer_default">Mặc định ExoPlayer</string>
     <string name="detail_pinned_comment_view_description">Bình luận được ghim</string>
-    <string name="settings_category_player_notification_title">Thông báo trình phát</string>
-    <string name="settings_category_player_notification_summary">Cấu hình thông báo hiện đang phát trực tuyến</string>
     <string name="notifications">Thông báo</string>
     <string name="streams_notification_channel_name">Luồng truyền mới</string>
     <string name="streams_notification_channel_description">Thông báo về luồng mới của kênh đăng ký</string>
@@ -675,7 +616,6 @@
     <string name="no_video_streams_available_for_external_players">Không có luồng video nào khả dụng cho trình phát bên ngoài</string>
     <string name="selected_stream_external_player_not_supported">Luồng phát đã chọn không được trình phát ngoài hỗ trợ</string>
     <string name="no_audio_streams_available_for_external_players">Không có luồng âm thanh nào khả dụng cho máy phát bên ngoài</string>
-    <string name="select_quality_external_players">Chọn chất lượng cho trình chạy ngoài</string>
     <string name="unknown_format">Định dạng không xác định</string>
     <string name="unknown_quality">Độ phân giải không xác định</string>
     <string name="progressive_load_interval_title">Kích thước tải thời lượng phát lại</string>
@@ -697,19 +637,9 @@
     <string name="remove_duplicates">Loại bỏ các bản trùng lặp</string>
     <string name="remove_duplicates_title">Loại bỏ các bản trùng lặp?</string>
     <string name="remove_duplicates_message">Bạn có muốn loại bỏ mọi luồng trùng lặp trong danh sách phát này\?</string>
-    <string name="feed_show_hide_streams">Hiện/Ẩn luồng phát</string>
-    <string name="feed_hide_streams_title">Hiển thị các luồng phát sau</string>
-    <string name="feed_show_watched">Đã xem đầy đủ</string>
-    <string name="feed_show_partially_watched">Đã xem một phần</string>
     <string name="unset_playlist_thumbnail">Bỏ đặt vĩnh viễn hình thu nhỏ</string>
     <string name="progressive_load_interval_summary">Thay đổi kích thước khoảng thời gian tải trên nội dung lũy tiến (hiện tại là %s). Giá trị thấp hơn có thể tăng tốc độ tải ban đầu của chúng</string>
     <string name="audio_track_present_in_video">Một bản âm thanh đã có sẵn trong luồng này</string>
-    <string name="use_exoplayer_decoder_fallback_title">Sử dụng tính năng bộ giải mã dự phòng của ExoPlayer</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Giải pháp thay thế này giải phóng và khởi tạo lại codec video khi xảy ra thay đổi bề mặt, thay vì cài đặt trực tiếp bề mặt vào codec. Đã được ExoPlayer sử dụng trên một số thiết bị gặp sự cố này, cài đặt này chỉ ảnh hưởng đến Android 6 trở lên
-\n
-\nBật tùy chọn này có thể ngăn lỗi phát lại khi chuyển đổi trình phát video hiện tại hoặc chuyển sang chế độ toàn màn hình</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Bật tùy chọn này nếu bạn gặp sự cố khởi tạo bộ giải mã, vấn đề này sẽ quay trở lại bộ giải mã có mức độ ưu tiên thấp hơn nếu quá trình khởi tạo bộ giải mã chính thất bại. Điều này có thể dẫn đến hiệu suất phát lại kém hơn so với khi sử dụng bộ giải mã chính</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Luôn dùng biện pháp thay thế cho bề mặt đầu ra video cho ExoPlayer</string>
     <string name="audio_track_type_original">nguyên gốc</string>
     <string name="audio_track_type_descriptive">mô tả</string>
     <string name="audio_track_type_dubbed">lồng tiếng</string>
@@ -726,16 +656,11 @@
     <string name="none">Không</string>
     <string name="play_queue_audio_track">Âm thanh: %s</string>
     <string name="audio_track">Bản âm thanh</string>
-    <string name="feed_show_upcoming">Sắp tới</string>
     <string name="unknown_audio_track">Không rõ</string>
-    <string name="select_audio_track_external_players">Chọn bản âm thanh cho máy phát bên ngoài</string>
-    <string name="settings_category_exoplayer_title">Cài đặt ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Quản lý một số cài đặt ExoPlayer. Những thay đổi này yêu cầu khởi động lại trình phát để có hiệu lực</string>
     <string name="loading_metadata_title">Đang tải siêu dữ liệu…</string>
     <string name="main_tabs_position_title">Vị trí tab chính</string>
     <string name="feed_fetch_channel_tabs">Tìm nạp các tab kênh</string>
     <string name="disable_media_tunneling_automatic_info">Đường hầm phương tiện đã bị tắt theo mặc định trên thiết bị của bạn vì kiểu thiết bị của bạn được biết là không hỗ trợ tính năng này.</string>
-    <string name="feed_fetch_channel_tabs_summary">Các tab cần tìm nạp khi cập nhật nguồn cấp dữ liệu. Tùy chọn này không có hiệu lực nếu kênh được cập nhật bằng chế độ nhanh.</string>
     <string name="metadata_uploader_avatars">Hình đại diện của người tải lên</string>
     <string name="main_tabs_position_summary">Di chuyển bộ chọn tab chính xuống dưới cùng</string>
     <string name="no_live_streams">Không có luồng trực tiếp</string>
@@ -802,9 +727,6 @@
     <string name="short_thousand">%sN</string>
     <string name="short_million">%sTr</string>
     <string name="short_billion">%sTỷ</string>
-    <string name="select_a_feed_group">Chọn một nhóm nguồn cấp dữ liệu</string>
-    <string name="no_feed_group_created_yet">Chưa có nhóm nguồn cấp dữ liệu nào được tạo</string>
-    <string name="feed_group_page_summary">Trang nhóm kênh</string>
     <string name="audio_track_type_secondary">phụ</string>
     <string name="channel_tab_likes">Thích</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Chia sẻ dưới dạng danh sách phát tạm thời của YouTube</string>
@@ -816,17 +738,14 @@
     <string name="trending_podcasts">Podcasts đang thịnh hành</string>
     <string name="trending_movies">Phim và chương trình đang thịnh hành</string>
     <string name="trending_music">Âm nhạc đang thịnh hành</string>
-    <string name="player_http_403">Đã xảy ra lỗi HTTP 403 trong khi phát, có thể do URL phát sóng đã hết hạn hoặc bị ban IP</string>
     <string name="sign_in_confirm_not_bot_error">%1$s đã từ chối cung cấp dữ liệu, cần phải đăng nhập để xác nhận requester của NewPipe ko phải là bot.\n\nIP này có vẻ đã bị ban tạm thời bởi %1$s, bạn có thể đợi một lúc hoặc chuyển sang IP khác (ví dụ như việc tắt / bật lại VPN, hoặc là chuyển mạng từ WIFI sang 4G/5G).\n\nXem qua <a href="%2$s">phần FAQ này</a> đẻ biết thêm chi tiết</string>
     <string name="unsupported_content_in_country">Nội dung này không được hỗ trợ tại quốc gia mà bạn chọn.\n\nHãy đổi quốc gia trong phần \"Cài đặt &gt; Nội dung &gt; Quốc gia nội dung mặc định\".</string>
     <string name="permission_display_over_apps_message">Để sử dụng tính năng phát video nổi, hãy chọn %1$s trong Cài đặt Android và bật tính năng %2$s.</string>
-    <string name="youtube_player_http_403">Đã xảy ra lỗi HTTP 403 trong khi phát, có thể IP này đã bị ban hoặc vấn đề phát URL deobfuscation</string>
     <string name="permission_display_over_apps_permission_name">\"Cho phép hiển thị trên ứng dụng khác\"</string>
     <string name="delete_file">Xóa file</string>
     <string name="delete_entry">Xóa entry</string>
     <string name="account_terminated_service_provides_reason">Tài khoản bị vô hiệu hóa. \n\n%1$s cung cấp lý do này: %2$s</string>
     <string name="entry_deleted">Entry đã xóa</string>
-    <string name="player_http_invalid_status">Đã xảy ra lỗi HTTP %1$s trong khi phát</string>
     <string name="kao_dialog_warning">Từ tháng 8 năm 2025, Google đã thông báo rằng kể từ tháng 9 năm 2026, việc cài app sẽ yêu cầu các nhà phát triển phải xác minh trên những thiết bị đã chứng nhận, kể cả đối với các ứng dụng ngoài Play Store. Vì các nhà phát triển của NewPipe không đồng ý với điều kiện này, nên có lẽ NewPipe sẽ không còn hoạt động trên các máy Android được chứng nhận sau thời điểm ấy.</string>
     <string name="kao_dialog_more_info">Chi tiết</string>
     <string name="kao_solution">Giải pháp</string>

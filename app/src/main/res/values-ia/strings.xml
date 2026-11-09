@@ -14,7 +14,6 @@
     <string name="show_info">Monstrar information</string>
     <string name="tab_subscriptions">Subscriptiones</string>
     <string name="tab_choose">Seliger le scheda</string>
-    <string name="fragment_feed_title">Novitates</string>
     <string name="controls_background_title">Fundo</string>
     <string name="controls_popup_title">Emergente</string>
     <string name="controls_add_to_playlist_title">Adder a</string>
@@ -66,14 +65,11 @@
     <string name="peertube_instance_add_title">Adder instantia</string>
     <string name="peertube_instance_add_help">Insere URL de instantia</string>
     <string name="peertube_instance_add_exists">Le instantia jam existe</string>
-    <string name="settings_category_player_title">Reproductor</string>
-    <string name="settings_category_player_behavior_title">Comportamento</string>
     <string name="settings_category_video_audio_title">Video e audio</string>
     <string name="settings_category_history_title">Chronologia e cache</string>
     <string name="settings_category_appearance_title">Apparentia</string>
     <string name="settings_category_debug_title">Depuration</string>
     <string name="settings_category_updates_title">Actualisationes</string>
-    <string name="background_player_playing_toast">Es reproduce in fundo</string>
     <string name="popup_playing_toast">Es reproduce in modo emergente</string>
     <string name="content">Contento</string>
     <string name="show_age_restricted_content_title">Monstrar contento restricte per etate</string>
@@ -108,7 +104,6 @@
     <string name="clear_search_history_title">Vacuar le chronologia de cerca</string>
     <string name="network_error">Error de rete</string>
     <string name="content_not_available">Contento non disponibile</string>
-    <string name="player_stream_failure">Non poteva reproducer iste video</string>
     <string name="video_streams_empty">Necun fluxo de video trovate</string>
     <string name="audio_streams_empty">Necun fluxo de audio trovate</string>
     <string name="invalid_directory">Le dossier non existe</string>
@@ -228,7 +223,6 @@
     <string name="remote_search_suggestions">Suggestiones de recerca remote</string>
     <string name="search_showing_result_for">Monstrante resultatos pro: %s</string>
     <string name="show_higher_resolutions_summary">Solmente alicun apparatos pote reproducer videos 2K/4K</string>
-    <string name="start_main_player_fullscreen_title">Initiar le reproductor principal in schermo plen</string>
     <string name="peertube_instance_add_https_only">Solmente le URLs HTTPS es supportate</string>
     <string name="notification_action_repeat">Repeter</string>
     <string name="notification_action_shuffle">Aleatori</string>
@@ -243,12 +237,9 @@
     <string name="channel_created_by">Create per %s</string>
     <string name="mark_as_watched">Marcar como reguardate</string>
     <string name="ok">OK</string>
-    <string name="use_external_video_player_title">Usar reproductor de video externe</string>
     <string name="show_more">Monstrar plus</string>
     <string name="yes">Si</string>
     <string name="no">Non</string>
     <string name="show_less">Monstrar minus</string>
-    <string name="settings_category_player_notification_summary">Configurar le notification del fluxo in reproduction</string>
-    <string name="settings_category_player_notification_title">Notification de reproductor</string>
     <string name="settings_category_backup_restore_title">Facer un copia de securitate e restaurar</string>
 </resources>

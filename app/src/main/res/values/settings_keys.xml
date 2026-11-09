@@ -16,8 +16,6 @@
     <string name="download_path_video_key">download_path</string>
     <string name="download_path_audio_key">download_path_audio</string>
 
-    <string name="use_external_video_player_key">use_external_video_player</string>
-    <string name="use_external_audio_player_key">use_external_audio_player</string>
 
     <string name="resume_on_audio_focus_gain_key">resume_on_audio_focus_gain</string>
     <string name="popup_remember_size_pos_key">popup_remember_size_pos_key</string>
@@ -367,36 +365,11 @@
     <string name="app_language_android_13_and_up_key">app_language_android_13_and_up_key</string>
 
     <string name="feed_update_threshold_key">feed_update_threshold_key</string>
-    <string name="feed_update_threshold_default_value">300</string>
-    <string name="feed_show_watched_items_key">feed_show_played_items</string>
-    <string name="feed_show_partially_watched_items_key">feed_show_partially_watched_items</string>
-    <string name="feed_show_future_items_key">feed_show_future_items</string>
 
     <string name="show_thumbnail_key">show_thumbnail_key</string>
 
     <!-- Values will be localized in runtime -->
-    <string-array name="feed_update_threshold_options">
-        <item>@string/feed_update_threshold_option_always_update</item>
-        <item>5 minutes</item>
-        <item>15 minutes</item>
-        <item>1 hour</item>
-        <item>6 hours</item>
-        <item>12 hours</item>
-        <item>1 day</item>
-    </string-array>
-    <!-- Threshold values in seconds -->
-    <string-array name="feed_update_threshold_values">
-        <item>0</item>
-        <item>300</item>
-        <item>900</item>
-        <item>3600</item>
-        <item>21600</item>
-        <item>43200</item>
-        <item>86400</item>
-    </string-array>
-    <string name="feed_use_dedicated_fetch_method_key">feed_use_dedicated_fetch_method</string>
 
-    <string name="feed_fetch_channel_tabs_key">feed_fetch_channel_tabs</string>
     <string name="fetch_channel_tabs_videos">fetch_channel_tabs_videos</string>
     <string name="fetch_channel_tabs_tracks">fetch_channel_tabs_tracks</string>
     <string name="fetch_channel_tabs_shorts">fetch_channel_tabs_shorts</string>
@@ -404,26 +377,6 @@
     <string name="fetch_channel_tabs_likes">fetch_channel_tabs_likes</string>
     <string name="fetch_channel_tabs_podcasts">fetch_channel_tabs_podcasts</string>
     <string name="fetch_channel_tabs_courses">fetch_channel_tabs_courses</string>
-    <string-array name="feed_fetch_channel_tabs_value_list">
-        <item>@string/fetch_channel_tabs_videos</item>
-        <item>@string/fetch_channel_tabs_tracks</item>
-        <item>@string/fetch_channel_tabs_shorts</item>
-        <item>@string/fetch_channel_tabs_livestreams</item>
-        <item>@string/fetch_channel_tabs_likes</item>
-        <item>@string/fetch_channel_tabs_podcasts</item>
-        <item>@string/fetch_channel_tabs_courses</item>
-    </string-array>
-    <string-array name="feed_fetch_channel_tabs_description_list">
-        <item>@string/channel_tab_videos</item>
-        <item>@string/channel_tab_tracks</item>
-        <item>@string/channel_tab_shorts</item>
-        <item>@string/channel_tab_livestreams</item>
-        <item>@string/channel_tab_likes</item>
-        <item>@string/channel_tab_podcasts</item>
-        <item>@string/channel_tab_courses</item>
-    </string-array>
-
-    <string name="import_export_data_path">import_export_data_path</string>
     <string name="import_data">import_data</string>
     <string name="export_data">export_data</string>
     <string name="import_subscriptions_key">import_subscriptions_key</string>
@@ -1496,7 +1449,6 @@
         <item>@string/wifi_only</item>
     </string-array>
     <string name="streams_notifications_channels_key">streams_notifications_channels</string>
-    <string name="player_notification_screen_key">player_notification_screen</string>
 
     <!-- ExoPlayer settings -->
     <string name="exoplayer_settings_key">exoplayer_settings_key</string>

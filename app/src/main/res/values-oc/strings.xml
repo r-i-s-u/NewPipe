@@ -14,7 +14,6 @@
     <string name="settings">Paramètres</string>
     <string name="did_you_mean">Voliatz dire: %1$s\?</string>
     <string name="share_dialog_title">Partejar amb</string>
-    <string name="use_external_video_player_title">Utilizar un legidor de vidèo extèrne</string>
     <string name="subscribe_button_title">S\'abonar</string>
     <string name="subscribed_button_title">Abonat</string>
     <string name="unsubscribe">Anullar abonament</string>
@@ -23,12 +22,9 @@
     <string name="show_info">Afichar las informacions</string>
     <string name="tab_subscriptions">Abonaments</string>
     <string name="main_bg_subtitle">Clicatz sul boton de recèrca per començar</string>
-    <string name="use_external_video_player_summary">Lèva l\'àudio per CÈRTAS resolucions</string>
-    <string name="use_external_audio_player_title">Utilizar lo legidor àudio extèrne</string>
     <string name="channel_unsubscribed">Abonament a la cadena anullat</string>
     <string name="tab_bookmarks">Listas de lectura enregistradas</string>
     <string name="tab_choose">Causir un onglet</string>
-    <string name="fragment_feed_title">Çò novèl</string>
     <string name="controls_background_title">Rèireplan</string>
     <string name="controls_popup_title">Fenestron</string>
     <string name="controls_add_to_playlist_title">Apondre a</string>

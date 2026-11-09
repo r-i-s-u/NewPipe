@@ -6,7 +6,6 @@
     <string name="default_resolution_title">ریزولوشن دا مول</string>
     <string name="default_popup_resolution_title">تیردی تصویر لئی ریزولوشن دا مول</string>
     <string name="search_showing_result_for">%s لئی نتیجے وِکھاۓ جا رہے ہن</string>
-    <string name="use_external_video_player_summary">کجھ ریزولوشناں تے آواز نوں ہٹا دِندے</string>
     <string name="download_path_audio_dialog_title">آڈیو فائلاں لئی ڈاؤن لوڈ فولڈر دا انتخاب کرو</string>
     <string name="play_with_kodi_title">کوڈی نال چلاؤ</string>
     <string name="notification_colorize_summary">اینڈروئیڈ نوں تھمنیل دے رکھ مطابق نوٹ دا رنگ بدلݨ دیو (دھیان دیو کہ ایہہ ہریک ڈِوائیس تے اًپلبدھ نہیں اے)</string>
@@ -55,7 +54,6 @@
     <string name="unsupported_url_dialog_message">ایہہ کڑی دا پتہ پچھاݨ نہیں ہویا۔ کسے ہور اَیپ نال کھولھݨا اے؟</string>
     <string name="default_content_country_title">ویڈیواں لئی دیش دا مول</string>
     <string name="content_language_title">یوٹوب توں لکھتاں لئی بولی دا مول</string>
-    <string name="settings_category_player_title">پلیئر</string>
     <string name="settings_category_history_title">اتیت تے کیش</string>
     <string name="settings_category_debug_title">ڈیبگ کرو</string>
     <string name="duration_live">لائیوَ</string>
@@ -79,7 +77,6 @@
     <string name="share">سانجھا کرو</string>
     <string name="download">ڈاؤن‌لوڈ کرو</string>
     <string name="settings">سیٹنگاں</string>
-    <string name="use_external_video_player_title">باہری ویڈیو پکیئر ورتیو</string>
     <string name="tab_choose">ٹیب چݨو</string>
     <string name="tab_bookmarks">سامبھیاں پلےلِسٹاں</string>
     <string name="download_path_audio_title">آڈیو ڈاؤن‌لوڈ فوکڈر</string>
@@ -94,16 +91,13 @@
     <string name="show_higher_resolutions_summary">صرف کجھ ہی ڈِوائیس «2k/4k» ویڈیو نوں چلا سکدے ہن</string>
     <string name="kore_not_found">کورے اَیپ اینسٹال نہیں اے؟</string>
     <string name="notification_action_4_title">پنجواں کاروائی بٹن</string>
-    <string name="use_external_audio_player_title">باہری آڈیو پلیئر ورتو</string>
     <string name="controls_add_to_playlist_title">ایس وچ جوڑو</string>
     <string name="download_path_dialog_title">ویڈیو فائلاں لئی ڈاؤن‌لوڈ فولڈر چݨو</string>
-    <string name="crash_the_player">ویڈیو پلیئر کریش کرو</string>
     <string name="night_theme_title">رات والی تھیم</string>
     <string name="clear_queue_confirmation_summary">پلیئر بدلݨ نال تہاڈی بدل سکدی اے</string>
     <string name="enable_search_history_title">کھوج دا اتیت</string>
     <string name="settings_category_video_audio_title">ویڈیو تے آڈیو</string>
     <string name="settings_category_clear_data_title">ڈیٹا پٹاؤ</string>
-    <string name="settings_category_player_behavior_title">ووہار</string>
     <string name="share_dialog_title">ایس نال سانجھا کرو</string>
     <string name="show_info">جاݨکاری ویکھاؤ</string>
     <string name="main_bg_subtitle">شروع کرن لئی وڈدرشی کچ نوں دباؤ۔</string>

@@ -15,9 +15,6 @@
     <string name="settings">Instellingen</string>
     <string name="did_you_mean">Bedoelde je \"%1$s\"\?</string>
     <string name="share_dialog_title">Delen met</string>
-    <string name="use_external_video_player_title">Externe videospeler gebruiken</string>
-    <string name="use_external_video_player_summary">Verwijdert het geluid bij sommige resoluties</string>
-    <string name="use_external_audio_player_title">Externe audiospeler gebruiken</string>
     <string name="subscribe_button_title">Abonneer</string>
     <string name="subscribed_button_title">Geabonneerd</string>
     <string name="channel_unsubscribed">Abonnement opgezegd</string>
@@ -26,7 +23,6 @@
     <string name="show_info">Info tonen</string>
     <string name="tab_subscriptions">Abonnementen</string>
     <string name="tab_bookmarks">Bijgehouden afspeellijsten</string>
-    <string name="fragment_feed_title">Nieuw</string>
     <string name="controls_background_title">Achtergrond</string>
     <string name="controls_popup_title">Pop-up</string>
     <string name="controls_add_to_playlist_title">Toevoegen aan</string>
@@ -76,13 +72,10 @@
     <string name="unsupported_url">URL wordt niet ondersteund</string>
     <string name="default_content_country_title">Standaard land</string>
     <string name="content_language_title">Standaard taal voor inhoud</string>
-    <string name="settings_category_player_title">Speler</string>
-    <string name="settings_category_player_behavior_title">Gedrag</string>
     <string name="settings_category_video_audio_title">Video en audio</string>
     <string name="settings_category_history_title">Geschiedenis en cache</string>
     <string name="settings_category_appearance_title">Uiterlijk</string>
     <string name="settings_category_debug_title">Foutopsporing</string>
-    <string name="background_player_playing_toast">Speelt af in achtergrond</string>
     <string name="popup_playing_toast">Speelt af in pop-upmodus</string>
     <string name="content">Inhoud</string>
     <string name="show_age_restricted_content_title">Toon inhoud met leeftijdsbeperking</string>
@@ -116,10 +109,6 @@
     <string name="content_not_available">Inhoud niet beschikbaar</string>
     <string name="could_not_setup_download_menu">Kon downloadmenu niet instellen</string>
     <string name="app_ui_crash">App/UI gecrasht</string>
-    <string name="player_stream_failure">Kon deze stream niet afspelen</string>
-    <string name="player_unrecoverable_failure">Onherstelbare spelerfout opgetreden</string>
-    <string name="player_recoverable_failure">Bezig met herstellen van spelerfout</string>
-    <string name="external_player_unsupported_link_type">Externe spelers ondersteunen deze soorten koppelingen niet</string>
     <string name="video_streams_empty">Geen videostreams gevonden</string>
     <string name="audio_streams_empty">Geen audiostreams gevonden</string>
     <string name="invalid_directory">Deze map bestaat niet</string>
@@ -238,8 +227,6 @@
     <string name="background_player">Achtergrondspeler</string>
     <string name="popup_player">Pop-upspeler</string>
     <string name="always_ask_open_action">Altijd vragen</string>
-    <string name="preferred_player_fetcher_notification_title">Info ophalen…</string>
-    <string name="preferred_player_fetcher_notification_message">Bezig met laden van gevraagde inhoud</string>
     <string name="create_playlist">Nieuwe afspeellijst</string>
     <string name="rename_playlist">Hernoemen</string>
     <string name="name">Naam</string>
@@ -389,40 +376,7 @@
     <string name="content_not_supported">Deze inhoud wordt nog niet ondersteund door NewPipe.
 \n
 \nHopelijk zal dit bij een toekomstige versie ondersteund worden.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Denk je dat het laden van de feed te sloom is\? Zo ja, probeer snel laden in te schakelen (in de instellingen of door op onderstaande knop te drukken).
-\n
-\nNewPipe biedt twee strategieën aan voor het laden van de feed:
-\n• Het hele abonnementskanaal ophalen, wat sloom maar compleet is.
-\n• Een speciale feed ophalen, wat snel maar meestal incompleet is.
-\n
-\nHet verschil tussen de twee is dat de snelle meestal wat informatie mist, zoals de duur of type (live of een normale video) van het item en dat er mogelijk minder items zijn.
-\n
-\nYouTube is een voorbeeld van een service die deze snelle methode aanbiedt door zijn RSS-feed.
-\n
-\nDe keuze komt dus neer op wat je liever hebt: snelheid of precieze informatie.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Snelle modus uitschakelen</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Snelle modus inschakelen</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Beschikbaar in sommige services, het is meestal veel sneller, maar kan een beperkte hoeveelheid items en vaak onvolledige informatie (bijv. geen duur, item type, of live status) bevatten.</string>
-    <string name="feed_use_dedicated_fetch_method_title">Uit speciale feed ophalen indien beschikbaar</string>
     <string name="feed_update_threshold_option_always_update">Altijd updaten</string>
-    <string name="feed_update_threshold_summary">Tijd na de laatste update voordat een abonnement als verouderd wordt beschouwd — %s</string>
-    <string name="feed_update_threshold_title">Drempel voor feed update</string>
-    <string name="settings_category_feed_title">Feed</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Toon enkel niet gegroepeerde abonnementen</string>
-    <string name="feed_create_new_group_button_title">Nieuw</string>
-    <string name="feed_group_dialog_delete_message">Wilt u deze groep verwijderen\?</string>
-    <string name="feed_group_dialog_empty_name">Lege groepsnaam</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d geselecteerd</item>
-        <item quantity="other">%d geselecteerd</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Geen abonnement geselecteerd</string>
-    <string name="feed_group_dialog_select_subscriptions">Selecteer abonnementen</string>
-    <string name="feed_processing_message">Feed aan het verwerken…</string>
-    <string name="feed_notification_loading">Feed aan het laden…</string>
-    <string name="feed_subscription_not_loaded_count">Niet geladen: %d</string>
-    <string name="feed_oldest_subscription_update">Laatste update nieuws­feed: %s</string>
-    <string name="feed_groups_header_title">Kanaalgroepen</string>
     <plurals name="days">
         <item quantity="one">%d dag</item>
         <item quantity="other">%d dagen</item>
@@ -596,18 +550,14 @@
     <string name="enqueued_next">Volgende in de wachtrij</string>
     <string name="high_quality_larger">Hoge kwaliteit (groter)</string>
     <string name="low_quality_smaller">Lage kwaliteit (kleiner)</string>
-    <string name="start_main_player_fullscreen_title">Start hoofdspeler in volledig scherm</string>
     <string name="main_page_content_swipe_remove">Veeg items om ze te verwijderen</string>
     <string name="seekbar_preview_thumbnail_title">Zoekbalk miniatuurvoorbeeld</string>
     <string name="mark_as_watched">Markeer als bekeken</string>
     <string name="local_search_suggestions">Lokale zoeksuggesties</string>
     <string name="remote_search_suggestions">Suggesties voor zoeken op afstand</string>
-    <string name="start_main_player_fullscreen_summary">Start geen video\'s in de minispeler, maar schakel direct over naar volledig scherm-modus, als de auto rotatie is vergrendeld. U kunt de minispeler nog steeds openen door het volledige scherm te verlaten</string>
     <string name="no_dir_yet">Geen download map ingesteld, kies nu de standaard download map</string>
     <string name="dont_show">Niet tonen</string>
     <string name="comments_are_disabled">Reacties zijn uitgeschakeld</string>
-    <string name="settings_category_player_notification_title">Speler melding</string>
-    <string name="settings_category_player_notification_summary">Configureer actieve stream melding</string>
     <string name="notifications">Meldingen</string>
     <string name="streams_notification_channel_name">Nieuwe streams</string>
     <string name="streams_notification_channel_description">Meldingen over nieuwe streams voor abonnementen</string>
@@ -619,7 +569,6 @@
     <string name="error_report_channel_name">Foutrapport melding</string>
     <string name="loading_stream_details">Stream details aan het laden…</string>
     <string name="error_report_notification_toast">Een fout is opgetreden, zie melding</string>
-    <string name="crash_the_player">Crash de speler</string>
     <string name="error_report_channel_description">Meldingen om fouten te rapporteren</string>
     <string name="processing_may_take_a_moment">Verwerken... Dit kan even duren</string>
     <string name="leak_canary_not_available">LeakCanary is niet beschikbaar</string>

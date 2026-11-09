@@ -30,9 +30,6 @@
     <string name="detail_likes_img_view_description">Atseginak</string>
     <string name="no_player_found">Ez da igorpen-erreproduzigailurik aurkitu. VLC instalatu?</string>
     <string name="did_you_mean">\"%1$s\" esan nahi al zenuen\?</string>
-    <string name="use_external_video_player_title">Erabili kanpo bideo-erreproduzitzailea</string>
-    <string name="use_external_audio_player_title">Erabili kanpo audio-erreproduzitzailea</string>
-    <string name="background_player_playing_toast">Atzeko planoan erreproduzitzen</string>
     <string name="main_bg_subtitle">Sakatu lupan hasteko.</string>
     <string name="download_path_audio_title">Audioa deskargatzeko karpeta</string>
     <string name="download_path_audio_dialog_title">Aukeratu audio-fitxategien deskarga karpeta</string>
@@ -41,7 +38,6 @@
     <string name="light_theme_title">Argia</string>
     <string name="settings_category_appearance_title">Itxura</string>
     <string name="open_in_popup_mode">Ireki laster-leiho moduan</string>
-    <string name="use_external_video_player_summary">Audioa kentzen du bereizmen batzuetan</string>
     <string name="controls_background_title">Bigarren planoa</string>
     <string name="controls_popup_title">Laster-leihoa</string>
     <string name="default_popup_resolution_title">Laster-leihoaren lehenetsitako bereizmena</string>
@@ -118,7 +114,6 @@
     <string name="subscription_change_failed">Ezin izan da harpidetza aldatu</string>
     <string name="subscription_update_failed">Ezin izan da harpidetza eguneratu</string>
     <string name="tab_subscriptions">Harpidetzak</string>
-    <string name="fragment_feed_title">Zer dago berri</string>
     <string name="resume_on_audio_focus_gain_title">Berrekin erreprodukzioa</string>
     <string name="resume_on_audio_focus_gain_summary">Jarraitu erreproduzitzen etenaldien ostean (adib. telefono deiak)</string>
     <string name="settings_category_downloads_title">Deskargak</string>
@@ -132,8 +127,6 @@
     <string name="enable_watch_history_title">Ikustaldien historiala</string>
     <string name="enable_watch_history_summary">Gorde ikusitako bideoen historiala</string>
     <string name="notification_channel_name">NewPipe jakinarazpena</string>
-    <string name="settings_category_player_title">Erreproduzitzailea</string>
-    <string name="settings_category_player_behavior_title">Portaera</string>
     <string name="settings_category_history_title">Historia eta cache-a</string>
     <string name="undo">Desegin</string>
     <string name="notification_channel_description">NewPipe erreproduzitzailearen jakinarazpenak</string>
@@ -164,9 +157,6 @@
     <string name="switch_to_background">Aldatu bigarren planora</string>
     <string name="switch_to_popup">Aldatu laster-leihora</string>
     <string name="switch_to_main">Aldatu nagusira</string>
-    <string name="player_stream_failure">Ezin izan da igorpen hau erreproduzitu</string>
-    <string name="player_unrecoverable_failure">Erreproduzitzailearen errore berreskuraezina gertatu da</string>
-    <string name="player_recoverable_failure">Erreproduzitzailearen erroretik berreskuratzen</string>
     <string name="donation_title">Egin dohaintza</string>
     <string name="donation_encouragement">NewPipe boluntarioek garatu dute, haien denbora librea erabiltzaile esperientzia onena eskaintzen emanez. Eman dohaintza garatzaileei NewPipe are hobea izan dadin kafe bat hartzen duten bitartean.</string>
     <string name="give_back">Egin dohaintza</string>
@@ -194,14 +184,11 @@
     <string name="no_player_found_toast">Ez da igorpen-erreproduzigailurik aurkitu (VLC instalatu dezakezu erreproduzitzeko).</string>
     <string name="always">Beti</string>
     <string name="just_once">Behin besterik ez</string>
-    <string name="external_player_unsupported_link_type">Kanpo erreproduzitzaileek ez dituzte mota honetako estekak onartzen</string>
     <string name="video_streams_empty">Ez da bideo-igorpenik aurkitu</string>
     <string name="audio_streams_empty">Ez da audio-igorpenik aurkitu</string>
     <string name="video_player">Bideo erreproduzitzailea</string>
     <string name="background_player">Atzeko planoko erreproduzitzailea</string>
     <string name="popup_player">Laster-leiho erreproduzitzailea</string>
-    <string name="preferred_player_fetcher_notification_title">Informazioa eskuratzen…</string>
-    <string name="preferred_player_fetcher_notification_message">Eskatutako edukia kargatzen</string>
     <string name="controls_download_desc">Deskargatu igorpen-fitxategia</string>
     <string name="show_info">Erakutsi informazioa</string>
     <string name="tab_bookmarks">Gogoko erreprodukzio-zerrendak</string>
@@ -434,39 +421,7 @@
         <item quantity="other">%d segundo</item>
     </plurals>
     <string name="new_seek_duration_toast">ExoPlayer-en mugak direla eta bilaketaren iraupena %d segundotan ezarri da</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Jarioaren karga motelegia dela uste duzu\? Hala bada, saiatu karga azkarra gaitzen (ezarpenetan edo beheko botoia sakatzen aldatu dezakezu).
-\n
-\nNewPipe jarioak kargatzeko bi estrategia eskaintzen ditu:
-\n• Harpidetza kanal osoa eskuratu, motela baina osoa.
-\n• Amaiera-puntu dedikatua erabiliz, arina baina ez osatua.
-\n
-\nBien arteko diferentzia arinak normalean informazioa falta dela da, elementuaren iraupena edo mota adibidez (ezin du bideo normalen eta zuzenekoen artean bereizi) eta elementu gutxiago buelta ditzake.
-\n
-\nYouTube da bere RSS jarioaren bidez metodo azkarra eskaintzen duen zerbitzu bat adibidez.
-\n
-\nBeraz aukerak zure nahietara murrizten dira: abiadura edo informazio zehatza.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Desgaitu modu azkarra</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Gaitu modu azkarra</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Zerbitzu batzuetan eskuragarri, normalean askoz azkarragoa da, baina elementu kopuru mugatu eta osatu gabeko informazioa itzuli dezake (adib. iraupenik ez, elementu mota, zuzeneko egoerarik ez)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Eskuratu jario dedikatutik eskuragarri dagoenean</string>
     <string name="feed_update_threshold_option_always_update">Eguneratu beti</string>
-    <string name="feed_update_threshold_summary">Pasatzen den denbora harpidetza bat zaharkituta dagoela kontuan hartzen den arte — %s</string>
-    <string name="feed_update_threshold_title">Jarioaren eguneratze atalasea</string>
-    <string name="settings_category_feed_title">Jarioa</string>
-    <string name="feed_create_new_group_button_title">Berria</string>
-    <string name="feed_group_dialog_delete_message">Talde hau ezabatu nahi duzu\?</string>
-    <string name="feed_group_dialog_empty_name">Talde izena hutsik</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d hautatuta</item>
-        <item quantity="other">%d hautatuta</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Ez da harpidetzarik hautatu</string>
-    <string name="feed_group_dialog_select_subscriptions">Hautatu harpidetzak</string>
-    <string name="feed_processing_message">Jarioa prozesatzen…</string>
-    <string name="feed_notification_loading">Jarioa kargatzen…</string>
-    <string name="feed_subscription_not_loaded_count">Kargatu gabe: %d</string>
-    <string name="feed_oldest_subscription_update">Jarioaren azken eguneraketa: %s</string>
-    <string name="feed_groups_header_title">Kanal-taldeak</string>
     <plurals name="days">
         <item quantity="one">egun %d</item>
         <item quantity="other">%d egun</item>
@@ -492,7 +447,6 @@
     <string name="playlist_page_summary">Erreprodukzio-zerrendaren orria</string>
     <string name="channel_created_by">%s-(e)k sortuta</string>
     <string name="detail_sub_channel_thumbnail_view_description">Kanalaren avatarraren miniatura</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Erakutsi taldekatuta ez dauden harpidetzak soilik</string>
     <string name="remove_watched_popup_partially_watched_streams">Bai, partzialki ikusitako bideoak ere bai</string>
     <string name="remove_watched_popup_warning">Dagoeneko ikusi eta gero erreprodukzio-zerrendara gehitu diren igorpenak kendu egingo dira. \nJarraitu nahi duzu?</string>
     <string name="remove_watched_popup_title">Ikusitako igorpenak kendu?</string>
@@ -586,17 +540,11 @@
     <string name="description_select_disable">Desgaitu deskribapenaren testu-hautaketa</string>
     <string name="description_select_enable">Deskribapenaren testu-hautaketa gaitu</string>
     <string name="description_select_note">Orain deskribapenaren barruko testua hauta dezakezu. Kontuan izan orrialdea keinuka hasi dezakela eta estekak ezin direla klikatu hautaketa moduan zauden bitartean.</string>
-    <string name="feed_load_error_terminated">Egilearen kontua itxi da.
-\nNewPipe-k ezingo du etorkizunean jario hau kargatu.
-\nKanal honetatik harpidetza kendu nahi duzu\?</string>
-    <string name="feed_load_error_account_info">Ezin izan da \'%s\' jarioa kargatu.</string>
-    <string name="feed_load_error">Errorea jarioa kargatzean</string>
     <string name="downloads_storage_use_saf_summary_api_29">Android 10etik aurrera \'Biltegiaren Sarrera Framework\'a soilik onartzen da</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Non gorde galdetuko zaizu deskarga bakoitzean</string>
     <string name="no_dir_yet">Ez da deskargatzeko karpetarik ezarri oraindik, aukeratu lehenetsitako deskargatzeko karpeta orain</string>
     <string name="metadata_privacy">Pribatutasuna</string>
     <string name="account_terminated">Kontua itxi da</string>
-    <string name="feed_load_error_fast_unknown">Jario azkarrak ez du honi buruz informazio gehiagorik ematen.</string>
     <string name="metadata_age_limit">Adin muga</string>
     <string name="metadata_privacy_internal">Barnekoa</string>
     <string name="metadata_privacy_unlisted">Zerrendatu gabea</string>
@@ -620,11 +568,8 @@
     <string name="local_search_suggestions">Tokiko bilaketa-iradokizunak</string>
     <string name="mark_as_watched">Ikusitako gisa markatu</string>
     <string name="main_page_content_swipe_remove">Irristatu elementuak kentzeko</string>
-    <string name="start_main_player_fullscreen_summary">Ez hasi bideoak mini erreproduzitzailean eta hasi bideoak pantaila osoan zuzenean, auto biraketa blokeatuta badago. Mini erreproduzitzailea erabili dezakezu pantaila osotik irtetzean</string>
-    <string name="start_main_player_fullscreen_title">Hasi erreproduzitzaile nagusia pantaila osoan</string>
     <string name="enqueued_next">Jarraian jarrita</string>
     <string name="enqueue_next_stream">Gehitu jarraian</string>
-    <string name="show_crash_the_player_title">Erakutsi «Erreproduzitzailea kraskatu»</string>
     <string name="processing_may_take_a_moment">Prozesatzen... Itxoin mesedez</string>
     <string name="error_report_channel_name">Errore-txostenen jakinarazpena</string>
     <string name="error_report_channel_description">Jakinarazpenak erroreen berri emateko</string>
@@ -632,20 +577,15 @@
     <string name="error_report_notification_toast">Errore bat gertatu da, ikusi jakinarazpena</string>
     <string name="check_for_updates">Bilatu eguneraketak</string>
     <string name="manual_update_description">Bilatu bertsio berriak eskuz</string>
-    <string name="feed_new_items">Elementu berriak jarioan</string>
     <string name="no_appropriate_file_manager_message_android_10">Ez da fitxategi kudeatzaile bat aurkitu ekintza honetarako.
 \nMesedez, instalatu Storage Access Framework-ekin bateragarria den fitxategi kudeatzaile bat</string>
     <string name="detail_pinned_comment_view_description">Ainguratutako iruzkina</string>
-    <string name="crash_the_player">Erreproduzitzailea kraskatu</string>
     <string name="checking_updates_toast">Eguneraketak bilatzen…</string>
     <string name="no_appropriate_file_manager_message">Ez da fitxategi kudeatzaile bat aurkitu ekintza honetarako.
 \nMesedez, instalatu fitxategi kudeatzaile bat edo saiatu \'%s\' desgaitzen deskarga ezarpenetan</string>
-    <string name="show_crash_the_player_summary">Erreproduzitzailea erabiltzean kraskadura aukera erakusten du</string>
     <string name="show_error_snackbar">Erakutsi errore barra bat</string>
     <string name="create_error_notification">Sortu errore jakinarazpen bat</string>
-    <string name="settings_category_player_notification_summary">Konfiguratu uneko erreprodukzio-igorpenaren jakinarazpena</string>
     <string name="notifications">Jakinarazpenak</string>
-    <string name="settings_category_player_notification_title">Erreproduzitzailearen jakinarazpenak</string>
     <string name="streams_notification_channel_name">Igorpen berriak</string>
     <string name="check_new_streams">Bilatu igorpen berriak</string>
     <string name="enable_streams_notifications_title">Igorpen berrien jakinarazpenak</string>
@@ -676,7 +616,6 @@
     <string name="no_video_streams_available_for_external_players">Ez dago bideo-igorpenik eskuragarri kanpoko erreproduzitzaileentzat</string>
     <string name="unknown_format">Formatu ezezaguna</string>
     <string name="unknown_quality">Kalitate ezezaguna</string>
-    <string name="select_quality_external_players">Hautatu kanpoko erreproduzitzaileen kalitatea</string>
     <string name="duplicate_in_playlist">Grisez idatzitako erreprodukzio-zerrendek jada badute elementu hau.</string>
     <string name="faq">Webgunean ikusi</string>
     <string name="msg_failed_to_copy">Akatsa arbelera kopiatzeak huts egin du</string>
@@ -696,31 +635,20 @@
     <string name="remove_duplicates">Kendu bikoiztuak</string>
     <string name="remove_duplicates_title">Kendu bikoiztuak\?</string>
     <string name="remove_duplicates_message">Igorpen bikoiztu guztiak kendu nahi dituzu zerrenda honetatik?</string>
-    <string name="feed_hide_streams_title">Erakutsi hurrengo igorpenak</string>
-    <string name="feed_show_hide_streams">Erakutsi/Ezkutatu igorpenak</string>
-    <string name="feed_show_partially_watched">Partzialki ikusita</string>
-    <string name="feed_show_watched">Guztiz ikusia</string>
-    <string name="feed_show_upcoming">Laster agertzeko</string>
     <string name="metadata_subscribers">Harpidedunak</string>
     <string name="unknown_audio_track">Ezezaguna</string>
     <string name="volume">Bolumena</string>
-    <string name="use_exoplayer_decoder_fallback_title">Erabili ExoPlayer-en deskodetzailearen ordezko ezaugarria</string>
     <string name="none">Bat ere ez</string>
     <string name="loading_metadata_title">Metadatuak kargatzen…</string>
-    <string name="settings_category_exoplayer_summary">Kudeatu ExoPlayer-en ezarpen batzuk. Aldaketa hauek eragina izan dezaten, erreproduzitzailea berrabiarazi behar da</string>
     <string name="main_tabs_position_title">Fitxa nagusien kokapena</string>
     <string name="feed_fetch_channel_tabs">Lortu kanalaren fitxak</string>
     <string name="metadata_avatars">Abatarrak</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Gaitu aukera hau deskodetzailea hasieratzeko arazoak badituzu, hala nola, lehentasun gutxiago duen deskodetzailetara igarotzea deskodetzaile nagusiaren hasieratzeak huts egiten badu. Aukera honek erreprodukzioak kalitate urria izatea ekar dezake, deskodetzaile nagusiak erabiltzean ez bezala</string>
     <string name="right_gesture_control_title">Eskuineko keinuaren ekintza</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Erabili beti ExoPlayer-en bideo-irteeraren interfazeko ezarpenaren konponbidea</string>
     <string name="next_stream">Hurrengo igorpena</string>
     <string name="disable_media_tunneling_automatic_info">Multimedia-tunela desgaitu da lehenespenez gailuan, gailuaren modeloak ez du onartzen eta.</string>
     <string name="metadata_subchannel_avatars">Azpikanalen abatarrak</string>
     <string name="audio_track_present_in_video">Audio-pista bat egon beharko litzateke igorpen honetan dagoeneko</string>
     <string name="prefer_original_audio_summary">Hautatu jatorrizko audioaren pista hizkuntza zein den kontuan hartu gabe</string>
-    <string name="select_audio_track_external_players">Hautatu kanpoko erreproduzitzailearen audio-pista</string>
-    <string name="feed_fetch_channel_tabs_summary">Lortuko diren fitxak jarioa eguneratzean. Aukera honek ez du eraginik kanal bat modu azkarra erabiliz eguneratzen bada.</string>
     <string name="prefer_descriptive_audio_summary">Hautatu ikusmen-urritasuna dutenentzako azalpenak dituzten audio-pista bat erabilgarri badago</string>
     <string name="left_gesture_control_title">Ezkerreko keinuaren ekintza</string>
     <string name="prefer_descriptive_audio_title">Hobetsi audio deskribatzailea</string>
@@ -734,7 +662,6 @@
     <string name="audio_track">Audio-pista</string>
     <string name="no_live_streams">Zuzeneko igorpenik ez</string>
     <string name="metadata_thumbnails">Miniaturak</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer-en ezarpenak</string>
     <string name="brightness">Distira</string>
     <string name="no_streams">Igorpenik ez</string>
     <string name="previous_stream">Aurreko igorpena</string>
@@ -766,9 +693,6 @@
 \n
 \nAurrera egin nahi duzu?</string>
     <string name="error_insufficient_storage">Ez dago leku libre nahikorik gailuan</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Konponbide honek azal aldaketa bat gertatzean bideo kodekak askatu eta berrezartzen ditu, azalaren kodeka zuzenean ezarri ordez. ExoPlayer-ek dagoeneko erabiltzen du arazoak dituzten gailu batzuetan. Ezarpen honek Android 6 eta berriagotan funtzionatzen du soilik
-\n
-\nAukera hau gaitzeak erreprodukzio erroreak saihestu ditzake bideo-erreproduktorea aldatzean edo pantaila osoan jartzean</string>
     <string name="audio_track_type_dubbed">bikoiztua</string>
     <string name="channel_tab_videos">Bideoak</string>
     <string name="channel_tab_tracks">Pistak</string>
@@ -808,9 +732,6 @@
     <string name="short_billion">%sMM</string>
     <string name="delete_file">Ezabatu fitxategia</string>
     <string name="delete_entry">Ezabatu sarrera</string>
-    <string name="select_a_feed_group">Hatutatu jario talde bat</string>
-    <string name="no_feed_group_created_yet">Ez da jario talderik sortu oraindik</string>
-    <string name="feed_group_page_summary">Kanal-taldeen orria</string>
     <string name="account_terminated_service_provides_reason">Kontua itxi da\n\n%1$s-ek arrazoi hau ematen du: %2$s</string>
     <string name="channel_tab_likes">Gustoko</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Partekatu YouTubeko aldi baterako erreprodukzio-zerrenda gisa</string>
@@ -823,9 +744,6 @@
     <string name="trending_movies">Film eta telesail joerak</string>
     <string name="trending_music">Musika joerak</string>
     <string name="entry_deleted">Sarrera ezabatua</string>
-    <string name="player_http_403">403 HTTP errorea jaso da zerbitzaritik erreproduzitzen ari zenean, ziurrenik streaming URLaren iraungipenak edo IP debeku batek eraginda</string>
-    <string name="player_http_invalid_status">%1$s HTTP errorea jaso da zerbitzaritik erreproduzitzen ari zela</string>
-    <string name="youtube_player_http_403">403 HTTP errorea jaso da zerbitzaritik erreproduzitzen ari zenean, ziurrenik IP debeku batek edo streaming URLaren desofuskazio arazoek eraginda</string>
     <string name="sign_in_confirm_not_bot_error">%1$s-ek datuak emateari uko egin dio, eskatzailea bot bat ez dela baieztatzeko saioa hasteko eskatuz.\n\nBaliteke zure IP helbidea %1$s-ek aldi baterako debekatu izana, denbora pixka bat itxaron dezakezu edo beste IP batera aldatu (adibidez, VPN bat aktibatu/itzaliz, edo WiFitik datu mugikorretara aldatuz).</string>
     <string name="unsupported_content_in_country">Eduki hau ez dago eskuragarri hautatutako edukiaren herrialderako.\n\nAldatu zure hautaketa \"Ezarpenak &gt; Edukia &gt; Edukiaren herrialde lehenetsia\" ataletik.</string>
 </resources>

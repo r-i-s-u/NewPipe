@@ -15,9 +15,6 @@
     <string name="settings">Поставки</string>
     <string name="did_you_mean">Можеби мислевте на „%1$s“?</string>
     <string name="share_dialog_title">Сподели со</string>
-    <string name="use_external_video_player_title">Користи надворешен видео плеер</string>
-    <string name="use_external_video_player_summary">Се губи звукот на НЕКОИ резолуции</string>
-    <string name="use_external_audio_player_title">Користи надворешен аудио плеер</string>
     <string name="subscribe_button_title">Зачлени се</string>
     <string name="subscribed_button_title">Зачленет</string>
     <string name="channel_unsubscribed">Откажано е членството на каналот</string>
@@ -26,7 +23,6 @@
     <string name="show_info">Покажи информации</string>
     <string name="tab_subscriptions">Членства</string>
     <string name="tab_bookmarks">Обележани плејлисти</string>
-    <string name="fragment_feed_title">Новости</string>
     <string name="controls_background_title">Позадина</string>
     <string name="controls_popup_title">Подпрозорче</string>
     <string name="controls_add_to_playlist_title">Додај на</string>
@@ -76,13 +72,10 @@
     <string name="unsupported_url">Неподдржана URL врска</string>
     <string name="default_content_country_title">Земја на прикажани видеа</string>
     <string name="content_language_title">Стандарден јазик на содржина</string>
-    <string name="settings_category_player_title">Плеер</string>
-    <string name="settings_category_player_behavior_title">Однесување</string>
     <string name="settings_category_video_audio_title">Видео и аудио</string>
     <string name="settings_category_history_title">Историја и кеш</string>
     <string name="settings_category_appearance_title">Изглед</string>
     <string name="settings_category_debug_title">Дебагирање</string>
-    <string name="background_player_playing_toast">Пуштено во позадина</string>
     <string name="popup_playing_toast">Пуштено во прозорче</string>
     <string name="content">Содржина</string>
     <string name="show_age_restricted_content_title">Покажи видеа со граница на возрастта</string>
@@ -116,10 +109,6 @@
     <string name="content_not_available">Содржината не е достапна</string>
     <string name="could_not_setup_download_menu">Неуспешно поставување на менито за превземања</string>
     <string name="app_ui_crash">Се сруши Апп./Интерфејс</string>
-    <string name="player_stream_failure">Неуспех при пуштање на видеото</string>
-    <string name="player_unrecoverable_failure">Се случи критичен проблем</string>
-    <string name="player_recoverable_failure">Опоравување од проблемот</string>
-    <string name="external_player_unsupported_link_type">Надворешните плеери не поддржуваат вакви врски</string>
     <string name="video_streams_empty">Нема видео стримови</string>
     <string name="audio_streams_empty">Нема аудио стримови</string>
     <string name="invalid_directory">Таква папка не постои</string>
@@ -235,8 +224,6 @@
     <string name="background_player">Позадински плеер</string>
     <string name="popup_player">Пушти во прозорче</string>
     <string name="always_ask_open_action">Секогаш прашај</string>
-    <string name="preferred_player_fetcher_notification_title">Чекање информации…</string>
-    <string name="preferred_player_fetcher_notification_message">Одбраната содржина се чита</string>
     <string name="create_playlist">Создај нова плејлиста</string>
     <string name="rename_playlist">Прекрсти плејлиста</string>
     <string name="name">Име</string>
@@ -397,7 +384,6 @@
     <string name="peertube_instance_add_title">Додадете пример</string>
     <string name="recent">Скорешни</string>
     <string name="enqueue_stream">Додај во редослед</string>
-    <string name="feed_show_partially_watched">Делумно изгледани</string>
     <plurals name="watching">
         <item quantity="one">%s гледач</item>
         <item quantity="other">%s гледачи</item>
@@ -415,7 +401,6 @@
     <string name="local">Местно</string>
     <string name="recently_added">Скоро додадено</string>
     <string name="error_insufficient_storage">Нема доволно слободна меморија на уредот</string>
-    <string name="feed_notification_loading">Вчитување на фидот…</string>
     <string name="metadata_category">Категорија</string>
     <string name="no_video_streams_available_for_external_players">Нема достапни стримови за надворешни плеери</string>
     <string name="open_with">Отвори со</string>
@@ -427,9 +412,6 @@
     <string name="peertube_instance_add_help">Внесете URL адреса на инстанцата</string>
     <string name="error_postprocessing_failed">Неуспешна постобработка</string>
     <string name="remove_duplicates_message">Да се отстранат сите стримови дупликати од оваа плејлиста?</string>
-    <string name="feed_create_new_group_button_title">Нова група</string>
-    <string name="feed_load_error_account_info">Неуспешно вчитување на новинска лента за „%s“.</string>
-    <string name="feed_show_hide_streams">Прикажи / скриј стримови</string>
     <string name="private_content">Оваа содржина е приватна, така што не може да биде емитувана или преземена од страна на NewPipe.</string>
     <string name="featured">Истакнато</string>
     <string name="radio">Радио</string>
@@ -469,10 +451,6 @@
         <item quantity="one">%d минута</item>
         <item quantity="other">%d минути</item>
     </plurals>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d избран</item>
-        <item quantity="other">%d избрани</item>
-    </plurals>
     <string name="no_appropriate_file_manager_message">Не е пронајден соодветен менаџер за фајлови за ова дејствие.\nВе молиме инсталирајте менаџер за фајлови (анг. file manager) или обидете се да деактивирате „%s“ во поставките за преземања</string>
     <string name="audio_track_type_secondary">секундарна</string>
     <string name="channel_tab_channels">Канали</string>
@@ -496,7 +474,6 @@
     </plurals>
     <string name="ignore_hardware_media_buttons_title">Игнорирај хардверски копчиња за медиуми</string>
     <string name="ignore_hardware_media_buttons_summary">Корисно, на пример, ако користите слушалки со скршени физички копчиња</string>
-    <string name="start_main_player_fullscreen_title">Стартирајте го основниот плеер на цел екран</string>
     <string name="infinite_videos">∞ видеа</string>
     <string name="notification_action_buffering">Буферирање</string>
     <string name="notification_action_nothing">Ништо</string>
@@ -526,17 +503,13 @@
         <item quantity="other">%d часа</item>
     </plurals>
     <string name="delete_downloaded_files">Избриши ги преземените фајлови</string>
-    <string name="feed_show_upcoming">Претстојни</string>
-    <string name="settings_category_exoplayer_title">Поставки за ExoPlayer</string>
     <string name="share_playlist_content_details">%1$s \n%2$s</string>
     <string name="delete_downloaded_files_confirm">Избриши ги сите преземени фајлови од дискот?</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Достапно за некои услуги, обично е многу побрзо но можно е да врати ограничено количество видеа и честопати нецелосни информации (пр. нема времетраење, вид на видеото, дали е во живо)</string>
     <string name="notification_action_2_title">Копче за трето дејствие</string>
     <plurals name="days">
         <item quantity="one">%d ден</item>
         <item quantity="other">%d дена</item>
     </plurals>
-    <string name="feed_show_watched">Целосно изгледани</string>
     <string name="audio_track_name">%1$s%2$s</string>
     <string name="audio_track_type_original">оригинална</string>
     <string name="audio_track_type_dubbed">натсинхронизирана</string>
@@ -550,11 +523,9 @@
     <string name="faq">Отвори ја веб-страницата</string>
     <string name="content_not_supported">Оваа содржина сѐ не е поддржана од NewPipe.\n\nСе надеваме дека ќе биде поддржана во некоја идна верзија.</string>
     <string name="right_gesture_control_title">Дејствие со гестикулација оддесно</string>
-    <string name="settings_category_player_notification_title">Известување на плеерот</string>
     <string name="downloads_storage_ask_title">Прашај ме за папка за преземање</string>
     <string name="image_quality_low">Низок квалитет</string>
     <string name="metadata_language">Јазик</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Секогаш користете го заобиколувањето на опцијата на површината на видео-излезот на ExoPlayer\n(Англиски: Always use ExoPlayer\'s video output surface setting workaround)</string>
     <string name="peertube_instance_add_https_only">Поддржани се само HTTPS линкови</string>
     <string name="peertube_instance_add_exists">Инстанцата веќе постои</string>
     <plurals name="deleted_downloads_toast">
@@ -578,14 +549,7 @@
     <string name="remove_watched_popup_title">Да се отстранат гледаните видеа?</string>
     <string name="remove_duplicates">Отстрани ги дупликатите</string>
     <string name="remove_duplicates_title">Да се отстранат дупликатите?</string>
-    <string name="feed_group_dialog_empty_name">Името на групата е празно</string>
-    <string name="feed_new_items">Нови видеа во лентата со новости</string>
-    <string name="feed_group_dialog_select_subscriptions">Изберете претплати</string>
-    <string name="feed_group_dialog_empty_selection">Нема избрани претплати</string>
     <string name="feed_fetch_channel_tabs">Извлечи јазичиња (анг. tabs) на канали</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Овозможи брз режим</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Оневозможи брз режим</string>
-    <string name="feed_fetch_channel_tabs_summary">Јазичиња за извлекување кога новинската лента се ажурира. Оваа опција нема ефект доколку каналот се ажурира со брз режим.</string>
     <string name="playlist_page_summary">Страница на плејлистата</string>
     <string name="channel_created_by">Создаден од %s</string>
     <string name="video_detail_by">Од %s</string>
@@ -599,8 +563,6 @@
     <string name="metadata_subchannel_avatars">Аватари на подканали</string>
     <string name="metadata_avatars">Аватари</string>
     <string name="metadata_banners">Банери</string>
-    <string name="select_quality_external_players">Избери квалитет за надворешни плеери</string>
-    <string name="select_audio_track_external_players">Избери аудио снимка за надворешни плеери</string>
     <string name="get_notified">Добивај известувања</string>
     <string name="sort">Подреди</string>
     <string name="you_successfully_subscribed">Се претплативте на овој канал</string>
@@ -621,7 +583,6 @@
     <string name="notification_action_4_title">Копче за петто дејствие</string>
     <string name="notification_actions_summary_android13">Уредете го секое дејствие за известување подолу, допирајќи на него. Првите три дејствија (пушти/паузирај, претходно и следно) се поставени од системот и не можат да се приспособат.</string>
     <string name="notification_colorize_summary">Дозволете Android да ја приспособи бојата на известувањата според главната боја во сликичката (имајте предвид дека ова не е достапно на сите уреди)</string>
-    <string name="crash_the_player">Сруши го плеерот</string>
     <string name="progressive_load_interval_title">Големина на интервалот на вчитување при емитување</string>
     <string name="progressive_load_interval_summary">Променето ја големината на интервалот на вчитување при емитување на прогресивни содржини (во моментов %s). Пониска вредност ,пже да го забрза нивното почетно вчитување</string>
     <string name="clear_queue_confirmation_summary">Префрлањето од еден плеер на друг може да го замени Вашиот редослед</string>
@@ -647,16 +608,7 @@
         <item quantity="one">%d секунда</item>
         <item quantity="other">%d секунди</item>
     </plurals>
-    <string name="feed_groups_header_title">Група од канали</string>
-    <string name="feed_oldest_subscription_update">Последно ажурирање на фидот: %s</string>
-    <string name="feed_subscription_not_loaded_count">Не се вчитани: %d</string>
-    <string name="feed_processing_message">Обработка на фидот…</string>
-    <string name="feed_group_dialog_delete_message">Да се избрише оваа група?</string>
-    <string name="settings_category_feed_title">Лента со новости</string>
-    <string name="feed_update_threshold_title">Праг за ажурирање на лентата со новости</string>
     <string name="feed_update_threshold_option_always_update">Секогаш ажурирај</string>
-    <string name="feed_load_error">Грешка при вчитувањето на лентата со новости</string>
-    <string name="feed_load_error_fast_unknown">Брзиот режим на новинската лента не доставува повеќе информации за ова.</string>
     <string name="show_thumbnail_title">Прикажи ја сликичката</string>
     <string name="show_thumbnail_summary">Искористи ја сликичката и за позадината на заклучениот екран и за известувањата</string>
     <string name="chapters">Поглавја</string>
@@ -690,21 +642,13 @@
     <string name="faq_description">Ако имате проблеми со користењето на апликацијата, не заборавајте да ги проверите одговориве на често поставувани прашања!</string>
     <string name="reset_all_settings">Ресетирањето на сите поставки ќе ги отфрли сите Ваши претпочитани поставки и ќе ја рестартира апликацијата.\n\nСигурни ли сте дека сакате да продолжите?</string>
     <string name="new_seek_duration_toast">Поради ограничувања на ExoPlayer, стапката на премотување е поставена на %d секунди</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Прикажи ги само негрупираните претплати</string>
-    <string name="feed_load_error_terminated">Акаунтот на авторот е укинат.\nNewPipe нема да може да ги вчитува овие видеа во иднина.\nСакате ли да ја откажете претплатата на овој канал?</string>
-    <string name="feed_update_threshold_summary">Време по последното ажурирање пред една претплата да се смета за застарена — %s</string>
-    <string name="feed_use_dedicated_fetch_method_title">Извлекување од специјална новинска лента, кога е возможно</string>
-    <string name="feed_hide_streams_title">Прикажи ги следните стримови</string>
     <string name="detail_sub_channel_thumbnail_view_description">Сликичка на аватарот на каналот</string>
     <string name="metadata_privacy_internal">Внатрешно</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Сметате дека лентата со новости (новинската лента, анг. News Feed) се вчитува премногу бавно? Ако сметате така, можете да пробате да го вклучите режимот за брзо вчитување (може да го промените во поставките или со притискање на копчето подолу).\n \nNewPipe нуди два режима за вчитување на новинската лента:\n• Извлекување на целата страница на претплати, што е бавно но и целосно.\n• Користење на специјален клиент (анг. endpoint), овозможен од услугата, што е брзо, но обично е нецелосно.\n\nРазликата помеѓу двете е во тоа што брзиот режим најчесто дава нецелесни информации, како времетраењето и видот на видеото (не прави разлика помеѓу нормални видеа и преноси во живо) и можно е да врати помалку видеа.\n\nYouTube е пример за услуга која го овозможува овој брз режим со RSS новинската лента.\n\nНакратко, изборот се сведува на тоа што Вие претпочитате: брзина или точни информации.</string>
     <string name="no_appropriate_file_manager_message_android_10">Не е пронајден соодветен менаџер за фајлови за ова дејствие.\nВе молиме инталирајте менаџер за фајлови компатибилен со Storage Access Framework</string>
     <string name="description_select_note">Режимот на селектирање е вклучен. Сега можете да селектирате текст во описот на видеото. Имајте предвид дека страницата може да трепка и линковите може да не можат да се кликнат, додека сте во режим на селектирање.</string>
     <string name="streams_not_yet_supported_removed">Стримовите кои сѐ уште не се поддржани од програмата за преземање не се прикажани</string>
     <string name="selected_stream_external_player_not_supported">Озбраниот стрим не е поддржан од надворешни плеери</string>
     <string name="no_audio_streams_available_for_external_players">Нема достапни аудио стримови за надворешни плеери</string>
-    <string name="settings_category_exoplayer_summary">Управувајте со некои поставки за ExoPlayer. За овие промени да стапат на сила, потребно е апликацијата да се рестартира</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Ово заобиколување ги ослободува и повторно ги инстанцира видео кодеците кога ќе дојде до промена на површината, наместо директно да ја постави површината на кодекот. Веќе се користи од ExoPlayer на некои уреди со овој проблем. Оваа поставка има ефект само на Android 6 и понови верзии\n\nОвозможувањето на оваа поставка може да спречи грешки при емитување при префрлување на тековниот видео плеер или пуштање на цел екран</string>
     <string name="peertube_instance_add_fail">Инстанцата не може да биде потврдена</string>
     <string name="image_quality_summary">Изберете го квалитетот на сликите и дали воопшто да се вчитуваат слики, за да го намалите користењето на интернет и меморија. Промените го чистат кешот на сликите (анг. image cache), како и во меморијата, така и на дискот — %s</string>
     <string name="video_details_list_item">- %1$s: %2$s</string>
@@ -715,6 +659,5 @@
     <string name="show_meta_info_summary">Исклучете за да ги скриете кутиите со метаподатоци со дополнителни информации за авторот на стримот, содржината на стримот или пребарување</string>
     <string name="prefer_descriptive_audio_summary">Ја избира аудио снимката со описи за луѓето го видна попреченост, доколку има таква</string>
     <string name="right_gesture_control_summary">Изберете гестикулација за десната половина од екранот на плеерот</string>
-    <string name="start_main_player_fullscreen_summary">Видеата нема да започнат со емитување во миниплеерот, туку директно ќе се вклучат на цел екран, доколку автоматското ротирање е заклучено. Сѐ уште можете да добиете пристап до миниплеерот, кога ќе излезете од целиот екран</string>
     <string name="unsupported_url_dialog_message">URL адресата не може да биде распознаена. Да се отвори со друга апликација?</string>
 </resources>

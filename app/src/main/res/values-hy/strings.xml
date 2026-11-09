@@ -39,21 +39,13 @@
     <string name="channel_unsubscribed">Չեղարկել բաժանորդագրման հեռացումը</string>
     <string name="unsubscribe">Ապաբաժանորդագրվել</string>
     <string name="subscribe_button_title">Բաժանորդագրվել</string>
-    <string name="use_external_video_player_summary">Հառացնում է ձայնը որոշ լուծաչափերոկմ</string>
     <string name="share_dialog_title">Կիսվել</string>
     <string name="controls_download_desc">Բեռնել հոսքի նշքը</string>
     <string name="open_in_popup_mode">Բացել լողացող պատուհանում</string>
     <string name="no_player_found_toast">Նվագարկիչ չի գտնվել (դուք կարող եք լբեռնել VLC և դիտել)։</string>
     <string name="no_player_found">Նվագարկիչ չի գտնվել, ցանկանո՞ւմ եք բեռնել VLC։</string>
-    <string name="use_external_audio_player_title">Օգտագործել արտաքին աուդիո նվագարկիչ</string>
-    <string name="use_external_video_player_title">Օգտագործել արտաքին դերակատար</string>
     <string name="updates_setting_title">Թարմացումներ</string>
     <string name="feed_update_threshold_option_always_update">Միշտ թարմացնել</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d նշված</item>
-        <item quantity="other">%d նշված</item>
-    </plurals>
-    <string name="feed_create_new_group_button_title">Նոր</string>
     <string name="website_title">Կայք</string>
     <string name="tab_about">Մասին</string>
     <string name="channels">Ալիքներ</string>
@@ -82,7 +74,6 @@
         <item quantity="one">%d րոպե</item>
         <item quantity="other">%d րոպե</item>
     </plurals>
-    <string name="feed_groups_header_title">Ալիքների խմբեր</string>
     <string name="app_update_available_notification_title">NewPipe֊ի նոր թարմացում է հասանելի</string>
     <string name="list">Ցանկ</string>
     <string name="never">Երբեք</string>
@@ -115,13 +106,7 @@
     <string name="download_failed">Ներբեռնումը խափանվեց</string>
     <string name="enqueue">Հերթ</string>
     <string name="missions_header_finished">Ավարտված</string>
-    <string name="settings_category_feed_title">Հոսք</string>
-    <string name="feed_group_dialog_empty_name">Դատարկ խմբի անուն</string>
-    <string name="feed_group_dialog_select_subscriptions">Նշիր բաժանորդագրումներ</string>
-    <string name="feed_notification_loading">Բեռնում եմ հոսքը…</string>
-    <string name="fragment_feed_title">Ինչ կա֊չկա</string>
     <string name="remove_watched">Հեռացնել դիտվածները</string>
-    <string name="settings_category_player_behavior_title">Վարքագիծ</string>
     <string name="video">Տեսանյութ</string>
     <string name="show_comments_title">Տեսնել մեկնաբանությունները</string>
     <string name="notification_channel_name">NewPipe ծանուցում</string>
@@ -135,7 +120,6 @@
     <string name="play_audio">Աուդիո</string>
     <string name="mark_as_watched">Նշել որպես դիտված</string>
     <string name="notification_action_repeat">Կրկնել</string>
-    <string name="settings_category_player_title">Նվագարկիչ</string>
     <string name="settings_category_history_title">Պատմություն և քեշ</string>
     <string name="night_theme_title">Գիշերային ոճ</string>
     <string name="stop">Կանգ</string>
@@ -166,8 +150,6 @@
     <string name="play_with_kodi_title">Նվագել Kodi֊ով</string>
     <string name="mute">Լռեցնել</string>
     <string name="limit_data_usage_none_description">Անսահման</string>
-    <string name="feed_subscription_not_loaded_count">Չի բեռնվել՝ %d</string>
-    <string name="feed_oldest_subscription_update">Թարմացվել է՝ %s</string>
     <string name="download_has_started">Ներբեռնումը սկսվեց</string>
     <string name="radio">Ռադիո</string>
     <string name="notification_colorize_title">Ներկել ծանուցումները</string>
@@ -218,7 +200,6 @@
     <string name="notifications_disabled">Ծանուցումները անջատված են</string>
     <string name="empty_list_subtitle">Ոչինչ բացի դատարկությունից</string>
     <string name="retry">Կրկին փորձել</string>
-    <string name="feed_new_items">Հոսքի նորերը</string>
     <string name="metadata_language">Լեզու</string>
     <string name="open_with">Բացել…</string>
     <string name="metadata_licence">Արտոնագիր</string>
@@ -257,8 +238,6 @@
     <string name="open_play_queue">Բացել նվագացանկը</string>
     <string name="channel_tab_likes">Հավանումներ</string>
     <string name="channel_tab_shorts">Կարճեր</string>
-    <string name="feed_show_partially_watched">Մասնակի դիտված</string>
-    <string name="feed_show_watched">Ամբողչովին դիտված</string>
     <string name="on">Միացված</string>
     <string name="off">Անջատված</string>
     <string name="metadata_subscribers">Բաժանորդագրվածներ</string>

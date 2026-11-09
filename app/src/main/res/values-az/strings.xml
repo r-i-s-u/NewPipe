@@ -14,16 +14,12 @@
     <string name="settings">Tənzimləmələr</string>
     <string name="did_you_mean">\"%1$s\" nəzərdə tuturdunuz\?</string>
     <string name="share_dialog_title">ilə paylaş</string>
-    <string name="use_external_video_player_title">Xarici video oynadıcı istifadə et</string>
-    <string name="use_external_video_player_summary">Bəzi formatlarda səsi silir</string>
-    <string name="use_external_audio_player_title">Xarici səs oynadıcı istifadə et</string>
     <string name="subscribe_button_title">Abunə Ol</string>
     <string name="subscribed_button_title">Abunə olundu</string>
     <string name="channel_unsubscribed">Kanal abunəliyi ləğv edildi</string>
     <string name="show_info">Məlumat göstər</string>
     <string name="tab_subscriptions">Abunəliklər</string>
     <string name="tab_bookmarks">Əlfəcinlənmiş Pleylistlər</string>
-    <string name="fragment_feed_title">Yeniliklər</string>
     <string name="controls_background_title">Fon</string>
     <string name="download_path_title">Video yükləmə qovluğu</string>
     <string name="download_path_summary">Yüklənilmiş video fayllar burada saxlanılır</string>
@@ -99,14 +95,11 @@
     <string name="show_age_restricted_content_title">Yaş məhdudiyyətli məzmunu göstər</string>
     <string name="content">Məzmun</string>
     <string name="popup_playing_toast">Ani görüntü rejimində oynadılır</string>
-    <string name="background_player_playing_toast">Fonda oynadılır</string>
     <string name="settings_category_updates_title">Yenilənmələr</string>
     <string name="settings_category_debug_title">Sazlama</string>
     <string name="settings_category_appearance_title">Görünüş</string>
     <string name="settings_category_history_title">Tarixçə və qalıq</string>
     <string name="settings_category_video_audio_title">Video və səs</string>
-    <string name="settings_category_player_behavior_title">Davranış</string>
-    <string name="settings_category_player_title">Oynadıcı</string>
     <string name="content_language_title">Cari məzmun dili</string>
     <string name="default_content_country_title">Cari məzmun ölkəsi</string>
     <string name="unsupported_url_dialog_message">URL\'i tanımaq olmadı. Başqa tətbiqlə açılsın\?</string>
@@ -138,20 +131,6 @@
     <string name="peertube_instance_url_title">\"PeerTube\" serverləri</string>
     <string name="notification_actions_at_most_three">Yığcam bildirişdə göstərmək üçün ən çoxu üç fəaliyyət seçə bilərsiniz!</string>
     <string name="feed_update_threshold_option_always_update">Həmişə yenilə</string>
-    <string name="settings_category_feed_title">Axın</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Yalnız qrupsuz abunəlikləri göstər</string>
-    <string name="feed_create_new_group_button_title">Yeni</string>
-    <string name="feed_group_dialog_delete_message">Bu qrupu silmək istəyirsiniz\?</string>
-    <string name="feed_group_dialog_empty_name">Boş qrup adı</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d seçildi</item>
-        <item quantity="other">%d seçildi</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Abunəlik seçilməyib</string>
-    <string name="feed_group_dialog_select_subscriptions">Abunəlikləri seç</string>
-    <string name="feed_processing_message">Axın emal edilir…</string>
-    <string name="feed_notification_loading">Axın yüklənir…</string>
-    <string name="feed_subscription_not_loaded_count">Yüklənmədi: %d</string>
     <string name="playlist_page_summary">Pleylist səhifəsi</string>
     <string name="notification_channel_name">\"Newpipe\" bildirişi</string>
     <string name="file">Fayl</string>
@@ -232,12 +211,6 @@
         <item quantity="one">%d saniyə</item>
         <item quantity="other">%d saniyə</item>
     </plurals>
-    <string name="feed_oldest_subscription_update">Axın sonuncu dəfə yeniləndi: %s</string>
-    <string name="feed_update_threshold_title">Axın yeniləmə aralığı</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Sürətli rejimi aktivləşdir</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Sürətli rejimi bağla</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Axının çox yavaş yükləndiyini düşünürsünüz? \n Elədirsə, sürətli yükləməni işə salmağı sınayın (tənzimləmələrdə dəyişə və ya aşağıdakı düyməni basa bilərsiniz). \n \nNewPipe 2 axın yükləmə üsulu təklif edir: \n• Yavaş, lakin tam şəkildə bütün abunəlik kanalı gətirilir. \n• Ayrılmış xidmət uc nöqtəsi istifadə etmək, bu sürətlidir, amma tam deyil. \n \nİkisi arasında fərq budur ki, sürətlisində, adətən elementin müddəti və növü kimi bəzi məlumatlar çatışmır (canlı video ilə adisini ayırd edə bilmir) və daha az elementlər gətirir. \n \nYouTube öz RSS axını ilə bu sürətli metodu təklif edən xidmətlərdən biridir. \n \nBeləliklə, seçim sizin nəyə üstünlük verməyinizdən asılıdır: sürət yoxsa dəqiq məlumat.</string>
-    <string name="player_stream_failure">Bu yayımı oynatmaq alınmadı</string>
     <string name="app_ui_crash">Tətbiq/UI çökdü</string>
     <string name="could_not_setup_download_menu">Endirmə menyusunu qurmaq mümkün olmadı</string>
     <string name="content_not_available">Məzmun əlçatmazdır</string>
@@ -251,8 +224,6 @@
     <string name="show_description_title">Açıqlamanı göstər</string>
     <string name="notification_colorize_title">Bildirişi rənglə</string>
     <string name="invalid_directory">Belə qovluq yoxdur</string>
-    <string name="start_main_player_fullscreen_title">Əsas oynadıcını tam ekranda başlat</string>
-    <string name="external_player_unsupported_link_type">Xarici oynadıcılar bu növ linkləri dəstəkləmir</string>
     <string name="local_search_suggestions">Yerli axtarış təklifləri</string>
     <string name="video">Video</string>
     <string name="related_items_tab_description">Əlaqəli elementlər</string>
@@ -268,8 +239,6 @@
     <string name="search_no_results">Nəticə yoxdur</string>
     <string name="restore_defaults">Standartları qaytar</string>
     <string name="missing_file">Fayl köçürüldü və ya silindi</string>
-    <string name="player_recoverable_failure">Oynadıcı xətası bərpa edilir</string>
-    <string name="player_unrecoverable_failure">Bərpa olunmayan oynatma xətası baş verdi</string>
     <string name="ok">Oldu</string>
     <string name="restricted_video_no_stream">Bu video yaş məhdudiyyətlidir.
 \nYaş məhdudiyyəti olan videolarla bağlı yeni YouTube siyasətlərinə görə, NewPipe bu cür video yayımlara daxil ola və oynada bilməz.</string>
@@ -278,7 +247,6 @@
     <string name="restore_defaults_confirmation">İlkin tənzimləmələri qaytarmaq istəyirsiniz\?</string>
     <string name="enqueue_next_stream">Növbəti sıraya sal</string>
     <string name="retry">Təkrar Cəhd Et</string>
-    <string name="settings_category_player_notification_summary">Cari oynatma yayımı bildirişini konfiqurasiya et</string>
     <string name="notifications">Bildirişlər</string>
     <string name="hash_channel_name">Video fayl xülasəsi bildirişi</string>
     <string name="streams_notification_channel_description">Abunəliklər üçün yeni yayımlar haqqında bildirişlər</string>
@@ -351,7 +319,6 @@
     <string name="preferred_open_action_settings_title">\"Açıq\" fəaliyyətə üstünlük verilir</string>
     <string name="background_player">Fon oynadıcı</string>
     <string name="always_ask_open_action">Həmişə soruş</string>
-    <string name="preferred_player_fetcher_notification_message">Tələb olunan məzmun yüklənir</string>
     <string name="create_playlist">Yeni Pleylist</string>
     <string name="rename_playlist">Adını dəyişdir</string>
     <string name="add_to_playlist">Pleylistə əlavə et</string>
@@ -398,10 +365,6 @@
     <string name="delete_downloaded_files_confirm">Bütün endirilmiş fayllar diskdən silinsin\?</string>
     <string name="max_retry_msg">Maksimum təkrar cəhdlər</string>
     <string name="remove_watched_popup_warning">Pleylistə əlavə olunandan əvvəl və sonrakı baxılan yayımlar silinəcək. \nSiz əminsiniz?</string>
-    <string name="feed_groups_header_title">Kanal qrupları</string>
-    <string name="feed_new_items">Yeni axın elementləri</string>
-    <string name="feed_update_threshold_summary">Abunəlik köhnəlmiş hesab edilənə qədərki son yeniləmədən sonrakı vaxt — %s</string>
-    <string name="feed_load_error">Axın yükləmə xətası</string>
     <string name="content_not_supported">Bu məzmun hələ NewPipe tərəfindən dəstəklənmir.
 \n 
 \nÜmid edirik ki, gələcək versiyada dəstəklənəcək.</string>
@@ -465,9 +428,6 @@
     <string name="checking_updates_toast">Yeniləmələr yoxlanılır…</string>
     <string name="app_update_available_notification_title">NewPipe yeniləməsi mövcuddur!</string>
     <string name="metadata_licence">Lisenziya</string>
-    <string name="feed_load_error_terminated">Müəllifin hesabı bağlanıb.
-\nNewPipe gələcəkdə bu axını yükləyə bilməyəcək.
-\nBu kanaldan abunəliyi çıxarmaq istəyirsiniz\?</string>
     <string name="featured">Seçilən</string>
     <string name="drawer_close">Çəkməcəni Bağla</string>
     <string name="video_player">Video oynadıcı</string>
@@ -478,7 +438,6 @@
     <string name="auto_queue_summary">Əlaqəli yayımı əlavə etməklə (təkrarlanmayan) sonlanacaq oynatma növbəsini davam etdir</string>
     <string name="remote_search_suggestions">Kənar axtarış təklifləri</string>
     <string name="peertube_instance_add_exists">Server artıq mövcuddur</string>
-    <string name="start_main_player_fullscreen_summary">Videoları kiçik oynadıcıda başlatma, avtomatik fırlatma kilidlidirsə, birbaşa tam ekran rejiminə keçid. Siz hələ də tam ekrandan çıxmaqla mini oynadıcıya daxil ola bilərsiniz</string>
     <string name="more_than_100_videos">100+ video</string>
     <string name="infinite_videos">∞ video</string>
     <string name="no_comments">Şərhlər yoxdur</string>
@@ -487,7 +446,6 @@
     <string name="error_unable_to_load_comments">Şərhləri yükləmək mümkün olmadı</string>
     <string name="trending">Trenddə olan</string>
     <string name="play_queue_audio_settings">Səs Tənzimləmələri</string>
-    <string name="preferred_player_fetcher_notification_title">Məlumat əldə edilir…</string>
     <string name="show_original_time_ago_title">Elementlərdə orijinal, əvvəlki vaxtı göstər</string>
     <string name="enable_disposed_exceptions_title">Yaşam dövrəsi xaricindəki xətaları bildir</string>
     <string name="pause_downloads_on_mobile_desc">Bəzi endirmələri dayandırmaq mümkün olmasa da, mobil dataya keçərkən faydalıdır</string>
@@ -525,7 +483,6 @@
         <item quantity="other">%s endirmə tamamlandı</item>
     </plurals>
     <string name="progressive_load_interval_exoplayer_default">ExoPlayer standartı</string>
-    <string name="feed_use_dedicated_fetch_method_title">Mövcud olduqda xüsusi axından al</string>
     <string name="remove_watched_popup_title">Baxılan yayımlar silinsin?</string>
     <string name="remove_watched">İzləniləni sil</string>
     <string name="downloads_storage_use_saf_title">Sistem qovluğu seçicisini (SAF) istifadə et</string>
@@ -588,8 +545,6 @@
     <string name="parsing_error">Veb saytı təhlil etmək alınmadı</string>
     <string name="playback_pitch">Ucalıq</string>
     <string name="radio">Radio</string>
-    <string name="show_crash_the_player_title">\"Oynadıcını çökdür\" Göstər</string>
-    <string name="show_crash_the_player_summary">Oynadıcını istifadə edərkən çökdürmə seçimini göstər</string>
     <string name="show_error_snackbar">Xəta balonu göstər</string>
     <string name="create_error_notification">Xəta bildirişi yarat</string>
     <string name="import_from">Burdan idxal et</string>
@@ -618,9 +573,7 @@
     <string name="read_full_license">Lisenziyanı oxu</string>
     <string name="title_activity_history">Tarixçə</string>
     <string name="charset_letters_and_digits">Hərflər və rəqəmlər</string>
-    <string name="crash_the_player">Oynadıcını çökdür</string>
     <string name="peertube_instance_add_https_only">Yalnız HTTPS URL\'ləri dəstəklənir</string>
-    <string name="settings_category_player_notification_title">Oynadıcı bildirişi</string>
     <string name="streams_notification_channel_name">Yeni yayımlar</string>
     <string name="error_report_channel_name">Xəta hesabatı bildirişi</string>
     <string name="no_streams_available_download">Endirmək üçün yayım mövcud deyil</string>
@@ -656,11 +609,8 @@
     </plurals>
     <string name="stop">Dayandır</string>
     <string name="choose_instance_prompt">Server seç</string>
-    <string name="feed_load_error_fast_unknown">Sürətli axın rejimi bu barədə əlavə məlumat vermir.</string>
     <string name="new_seek_duration_toast">ExoPlayer məhdudiyyətlərinə görə axtarış müddəti %d saniyəyə təyin edildi</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Bəzi xidmətlərdə mövcuddur, adətən daha sürətli olur, lakin məhdud sayda elementləri və çox vaxt natamam məlumatı qaytara bilər (məsələn, müddət, element növü, canlı status yoxdur)</string>
     <string name="no_appropriate_file_manager_message">Bu əməliyyat üçün uyğun fayl meneceri tapılmadı. Zəhmət olmasa, fayl menecerini quraşdır və ya endirmə tənzimləmələrində \'%s\'-i qeyri-aktiv etməyə çalış</string>
-    <string name="feed_load_error_account_info">\'%s\' üçün axın yükləmək mümkün olmadı.</string>
     <string name="no_appropriate_file_manager_message_android_10">Bu fəaliyyət üçün uyğun fayl meneceri tapılmadı.\nXahiş olunur, Yaddaş Giriş Quruluşuna uyğun fayl meneceri quraşdırın</string>
     <string name="youtube_music_premium_content">Bu video yalnız YouTube Music Premium üzvləri üçün əlçatandır, ona görə də NewPipe tərəfindən yayımlamaq və ya endirmək mümkün deyil.</string>
     <string name="description_select_note">İndi açıqlamadakı mətni seçə bilərsiniz. Nəzərə alın ki, seçim rejimində səhifə titrəyə və linklər kliklənməyə bilər.</string>
@@ -671,7 +621,6 @@
     <string name="streams_not_yet_supported_removed">Yükləyici tərəfindən hələ dəstəklənməyən yayımlar göstərilmir</string>
     <string name="no_audio_streams_available_for_external_players">Xarici oynadıcılar üçün mövcud səs yayımı yoxdur</string>
     <string name="no_video_streams_available_for_external_players">Xarici oynadıcılar üçün mövcud video yayımı yoxdur</string>
-    <string name="select_quality_external_players">Xarici oynadıcılar üçün keyfiyyət seç</string>
     <string name="unknown_format">Naməlum format</string>
     <string name="unknown_quality">Naməlum keyfiyyət</string>
     <string name="progressive_load_interval_title">Oynatma yükləmə intervalı həcmi</string>
@@ -693,12 +642,7 @@
     <string name="ignore_hardware_media_buttons_summary">Məsələn, fiziki düymələri qırılan qulaqlıq işlədirsinizsə faydalıdır</string>
     <string name="remove_duplicates">Dublikatları sil</string>
     <string name="remove_duplicates_title">Dublikatlar silinsin\?</string>
-    <string name="feed_hide_streams_title">Aşağıdakı yayımları göstər</string>
-    <string name="feed_show_hide_streams">Yayımları Göstər/Gizlə</string>
-    <string name="feed_show_watched">Tam baxılıb</string>
-    <string name="feed_show_partially_watched">Qismən baxılıb</string>
     <string name="remove_duplicates_message">Bu pleylistdəki bütün dublikat yayımları silmək istəyirsiniz\?</string>
-    <string name="feed_show_upcoming">Yaxınlaşan</string>
     <string name="left_gesture_control_title">Sol jest fəaliyyəti</string>
     <string name="right_gesture_control_summary">Oynadıcı ekranının sağ yarısı üçün jest seç</string>
     <string name="right_gesture_control_title">Sağ jest fəaliyyəti</string>
@@ -713,17 +657,10 @@
     <string name="play_queue_audio_track">Səs: %s</string>
     <string name="audio_track">Səs axını</string>
     <string name="audio_track_present_in_video">Səs axını artıq bu yayımda olmalıdır</string>
-    <string name="select_audio_track_external_players">Xarici oynadıcılar üçün səs axını seç</string>
     <string name="unknown_audio_track">Naməlum</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer tənzimləmələri</string>
-    <string name="settings_category_exoplayer_summary">Bəzi ExoPlayer tənzimləmələrin idarə et. Bu dəyişiklikləri təsirli etmək üçün oynadıcını yenidən başlatmaq tələb olunur</string>
-    <string name="use_exoplayer_decoder_fallback_title">ExoPlayer-in çözücü xüsusiyyətin istifadə et</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Əsas çözücüləri işlətmə uğursuz olarsa, çözücü işlətmək probleminiz varsa (daha aşağı prioritetli çözücülərə düşür), bu seçimi aktiv edin. Bu, əsas çözücülərdən istifadə ilə müqayisədə zəif oynatma performansı ilə nəticələnə bilər</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Bu həll yolu səthi kodlayıcıya birbaşa tənzimləmək əvəzinə, səth dəyişikliyi olarsa video kodlayıcıları buraxır və yenidən işlədir. Artıq ExoPlayer vasitəsilə bu problemli bəzi cihazlarda istifadə olunur, bu tənzimləmə təsiri yalnız Android 6 və daha yüksəkdə var.\n\nBu seçimi işlətmə cari video oynadıcı dəyişəndə və ya tam ekrana keçəndə oynatma xətaların düzəldə bilər</string>
     <string name="audio_track_type_original">orijinal</string>
     <string name="audio_track_type_dubbed">dublyaj edilib</string>
     <string name="audio_track_type_descriptive">təsviri</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Həmişə ExoPlayer-in video çıxış səthi tənzimləməsin istifadə et</string>
     <string name="progressive_load_interval_summary">Qabaqcıl məzmunda yükləmə aralığı həcmin dəyişdir (hazırda %s). Daha aşağı dəyər onların ilkin yüklənilməsin sürətləndirə bilər</string>
     <string name="no_streams">Yayım yoxdur</string>
     <string name="no_live_streams">Canlı yayım yoxdur</string>
@@ -735,7 +672,6 @@
     <string name="feed_fetch_channel_tabs">Kanal səhifələrin əldə et</string>
     <string name="metadata_avatars">Avatarlar</string>
     <string name="metadata_subchannel_avatars">Alt kanal avatarları</string>
-    <string name="feed_fetch_channel_tabs_summary">Axın yenilənərkən əldə edilən səhifələr. Kanal sürətli rejim istifadə edərək yenilənirsə, bu seçimin heç bir təsiri yoxdur.</string>
     <string name="metadata_uploader_avatars">Yükləyici avatarları</string>
     <string name="metadata_thumbnails">Miniatürlər</string>
     <string name="notification_actions_summary_android13">Aşağıdakı hər bildiriş fəaliyyətin ona toxunub redaktə edin. İlk üç fəaliyyət (oynatma/fasilə, əvvəlki və növbəti) sistem tərəfindən tənzimlənib və dəyişdirilə bilməz.</string>
@@ -797,9 +733,6 @@
     <string name="audio_track_type_secondary">ikinci dərəcəli</string>
     <string name="share_playlist_as_youtube_temporary_playlist">YouTube müvəqqəti pleylisti kimi paylaş</string>
     <string name="tab_bookmarks_short">Pleylistlər</string>
-    <string name="select_a_feed_group">Axın qrupu seçin</string>
-    <string name="no_feed_group_created_yet">Hələ heç bir axın qrupu yaradılmayıb</string>
-    <string name="feed_group_page_summary">Kanal qrupu səhifəsi</string>
     <string name="search_with_service_name">%1$s axtar</string>
     <string name="search_with_service_name_and_filter">%1$s (%2$s) axtar</string>
     <string name="channel_tab_likes">Bəyənmələr</string>
@@ -820,9 +753,6 @@
     <string name="delete_entry">Girişi silin</string>
     <string name="entry_deleted">Giriş silindi</string>
     <string name="account_terminated_service_provides_reason">Hesab ləğv edilib\n\n %1$s bu səbəbi təmin edir: %2$s</string>
-    <string name="player_http_403">Oynadarkən serverdən alınan HTTP xətası 403, çox güman ki, yayım URL-si müddətinin bitməsi və ya IP qadağası ilə bağlıdır</string>
-    <string name="player_http_invalid_status">HTTP xətası %1$s oynadarkən serverdən alındı</string>
-    <string name="youtube_player_http_403">HTTP xətası 403 oynadarkən serverdən alındı, ehtimal ki, IP qadağası və ya yayım URL-nin deobfuscation problemləri ilə bağlıdır</string>
     <string name="sign_in_confirm_not_bot_error">%1$s sorğuçunun bot olmadığını təsdiqləmək üçün giriş tələb edərək data təmin etməkdən imtina etdi.\n\nIP-niz %1$s tərəfindən müvəqqəti şəkildə qadağan oluna bilər, bir müddət gözləyə və ya başqa IP-yə keçə bilərsiniz (məsələn, VPN-i açıb/qapatmaqla və ya WiFi-dan mobil dataya keçməklə).\n\nDaha çox məlumat üçün xahiş olunur <a href="%2$s">bu Tez-tez Verilən Suallar qeydinə</a> baxın.</string>
     <string name="unsupported_content_in_country">Bu məzmun hazırda seçilən məzmun ölkəsi üçün əlçatan deyil. \n\nSeçiminizi \"Tənzimləmələr &gt; Məzmun &gt; İlkin məzmun ölkəsi\"- dən dəyişin.</string>
     <string name="kao_dialog_warning">2025 avqustunda, Google 2026-cı ilin sentyabrından etibarən tətbiqlərin quraşdırılması Play Store xaricində quraşdırılanlar daxil olmaqla, sertifikatlaşdırılan cihazlardakı bütün Android tətbiqləri üçün tərtibatçı təsdiqlənməsini tələb edəcək deyə bəyan etdi. NewPipe tərtibatçıları bu tələblə razılaşmadığı üçün NewPipe bu vaxtdan sonra artıq sertifikatlaşdırılan Android cihazlarında işləməyəcək.</string>

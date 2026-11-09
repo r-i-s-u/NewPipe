@@ -30,9 +30,6 @@
     <string name="detail_uploader_thumbnail_view_description">とうこうしゃアイコンぬサムネイル</string>
     <string name="detail_dislikes_img_view_description">ていひょうが</string>
     <string name="detail_likes_img_view_description">かんひょうが</string>
-    <string name="use_external_video_player_title">がうぅいぶちゃーしがプレイヤーしようすん</string>
-    <string name="use_external_audio_player_title">やしがいぶうんせいプレイヤーしようすん</string>
-    <string name="background_player_playing_toast">バックグラウンドっしさいせいちゅう</string>
     <string name="theme_title">テーマ</string>
     <string name="dark_theme_title">ダーク</string>
     <string name="light_theme_title">ホワイト</string>
@@ -97,7 +94,6 @@
     <string name="clear">しーょうきょ</string>
     <string name="popup_remember_size_pos_title">ポップアップぬずくせいちーうくすん</string>
     <string name="popup_remember_size_pos_summary">ポップアップぬサイズとぅいちちーうくすん</string>
-    <string name="use_external_video_player_summary">いちぶぬかいずうどぅっしうっちゃきーるゆいがあいびらん</string>
     <string name="show_search_suggestions_title">きんさくくうふぬひょうじ</string>
     <string name="show_search_suggestions_summary">きーるさくじんかいふぃいょうじするこうふをしんたくさびーん</string>
     <string name="best_resolution">さいこう</string>
@@ -118,23 +114,18 @@
     <string name="subscription_change_failed">チャンネルとぅうるいちゅんへいるかんなやびらん</string>
     <string name="subscription_update_failed">チャンネルとぅうるいちゅんかんしでぃちゃびらん</string>
     <string name="tab_subscriptions">とうるいちゅるチャンネル</string>
-    <string name="fragment_feed_title">しじちゃいちゅん</string>
     <string name="enable_search_history_title">きんさくりりき</string>
     <string name="enable_search_history_summary">きんさくりりききうくさびーん</string>
     <string name="enable_watch_history_title">さいせいりりき</string>
     <string name="enable_watch_history_summary">さいせいりりききうくさびーん</string>
     <string name="resume_on_audio_focus_gain_title">さいせいぬさいかい</string>
     <string name="resume_on_audio_focus_gain_summary">でぃんわんでーにゆるちゅうだんぬあとぅ、さいせいさいかいさびーん</string>
-    <string name="settings_category_player_title">プレイヤー</string>
     <string name="show_hold_to_append_summary">ちゃーしがぬしょうさいページっし、「バックグラウンド」あらんでぃ「ポップアップ」ボタンぬうさったるとぅちにヒントひょうじすん</string>
-    <string name="settings_category_player_behavior_title">ちゃーさ</string>
     <string name="settings_category_history_title">りりきとぅキャッシュ</string>
     <string name="undo">むとぅんかいむどぅすん</string>
     <string name="play_all">まじりさいせい</string>
     <string name="notification_channel_name">NewPipeぬちうち</string>
     <string name="unknown_content">[ふめいうぅい]</string>
-    <string name="player_stream_failure">ちゃーしがぬさいゆいがなやびらんたん</string>
-    <string name="player_unrecoverable_failure">かいふくふのうなエラーぬはっせいさびたん</string>
     <string name="search_no_results">いっちするきっかーあいびらんたん</string>
     <string name="no_subscribers">チャンネルとぅうるくしゃなし</string>
     <string name="no_videos">ちゃーしががあいびらん</string>
@@ -174,8 +165,6 @@
     <string name="export_data_title">データベースエクスポート</string>
     <string name="import_data_summary">きすんぬいりき、んでぃうるいちゅるチャンネルいちらん、プレイリストうゆび (んかいんうぅい) しってえーうわがきさりやびーん</string>
     <string name="export_data_summary">さいせいりりき、んでぃうるいちゅるチャンネルいちらん、プレイリストうゆびしっていエクスポートさびーん</string>
-    <string name="player_recoverable_failure">エラーからがいふくちゅうでぃす</string>
-    <string name="external_player_unsupported_link_type">やしがいぶプレイヤーや、くりらぬタイプぬリンクサポートさびらん</string>
     <string name="export_complete_toast">エクスポートさびたん</string>
     <string name="import_complete_toast">インポートさびたん</string>
     <string name="no_valid_zip_file">ゆうこうなZIPファイルっしぇーあいびらん</string>
@@ -187,8 +176,6 @@
     <string name="video_player">ちゃーしがプレイヤー</string>
     <string name="background_player">バックグラウンドプレイヤー</string>
     <string name="popup_player">ポップアッププレイヤー</string>
-    <string name="preferred_player_fetcher_notification_title">じょうほうしーゅとぅくそーいびーん…</string>
-    <string name="preferred_player_fetcher_notification_message">コンテンツゆみくどーいびーん</string>
     <string name="controls_download_desc">ちゃーしがダウンロード</string>
     <string name="show_info">じょうほうひょうじ</string>
     <string name="tab_bookmarks">ブックマークさるプレイリスト</string>
@@ -463,39 +450,7 @@
         <item quantity="one">%dんかいち</item>
         <item quantity="other">%dんかいち</item>
     </plurals>
-    <string name="feed_groups_header_title">チャンネルグループ</string>
-    <string name="feed_oldest_subscription_update">フィードぬさいしゅうこうしん：%s</string>
-    <string name="feed_subscription_not_loaded_count">ゆみくみしっぺー：%d</string>
-    <string name="feed_notification_loading">フィードゆみくみちゅう…</string>
-    <string name="feed_processing_message">フィードしーょりちゅう…</string>
-    <string name="feed_group_dialog_select_subscriptions">チャンネルしんたく</string>
-    <string name="feed_group_dialog_empty_selection">チャンネルがせんたくされていません</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%dさんたくちゅう</item>
-        <item quantity="other">%dさんたくちゅう</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">グループみいがからやいびーん</string>
-    <string name="feed_group_dialog_delete_message">くぬグループさちゅるじょさびーが？</string>
-    <string name="feed_create_new_group_button_title">しんき</string>
-    <string name="settings_category_feed_title">フィード</string>
-    <string name="feed_update_threshold_title">フィードぬこうしんかんかく</string>
-    <string name="feed_update_threshold_summary">さいぐぬこうしんぐ、んでぃうるいちゅるチャンネルこうしんすんびきんでぃすかぬじがん ― %s</string>
     <string name="feed_update_threshold_option_always_update">ちゃーこうしんすん</string>
-    <string name="feed_use_dedicated_fetch_method_title">かのうやれーしんようフィードからしゅうとぅく</string>
-    <string name="feed_use_dedicated_fetch_method_summary">いくちがぬサービスっしりようかのう。ちうじーょうゆりむこうすくでぃすがせいぎんさりたじょうほうがしゅとぅくさり、たいていぬばあいふかんじんやいびーん（れい： さいせいじがん、しーゅるい、ライブステータスんでーがねーん）</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">こうすくモードゆーいんかんが</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">こうすくモードんーかなやー</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">フィードぬゆみくみがにーしじーんでぃうむやびーが？うぬばあい、こうすくゆみくみゆーいるこうかしんーちくぃみそーれー（しってい、あらんでぃしちゃぬボタンうしてぃへんかんするくとぅがなやびーん）。
-\n
-\nNewPipeーたーちぬゆみくみほうほうていきょうさびーん：
-\n・とうるいちゅるチャンネルじんたいしゅとぅくさびーん。くれーていすくやいびーしがかんじんやいびーん。
-\n・しんようぬサービスエンドポイントしーようさびーん。くれーこうすくやいびーしが、たいていぬばあいふかんじんやいびーん。
-\n
-\nたーちぬちがいとぅしてぃ、こうすくなむのーちうじょう、さいせいじがんてぃがろーしーゅるい（ライブんでぃちうじーょうぬどうがをくびちでぃきない）んでーぬじょうほうがふすくしてぃ、ただしいーょうぬじょうほうゆりすくなくしゅとぅくするくとぅがあいびーん。
-\n
-\nYouTubeー、くぬこうすくやーゆみくみほうほうRSSフィードっしていきょうするサービスぬてぃーちやいびーん。
-\n
-\nちまり、ゆみくみほうほうぬしんたくはすくどぅあらんでぃゆいかくさぬどぅちらゆーいるしんすが、うんじゅがしちがゆやびーん。</string>
     <string name="infinite_videos">∞ぬちゃーしが</string>
     <string name="more_than_100_videos">100いじょうぬちゃーしが</string>
     <string name="content_not_supported">くぬコンテンツーなーらNewPipeっしサポートさりやびらん。
@@ -517,7 +472,6 @@
     <string name="video_detail_by">%sにゆる</string>
     <string name="channel_created_by">%sにゆりさくせい</string>
     <string name="detail_sub_channel_thumbnail_view_description">チャンネルぬサムネイル</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">グループがさりてぃうぅらんとぅうるいちゅるチャンネルぬみひょうじ</string>
     <string name="no_playlist_bookmarked_yet">なーらプレイリストブックマークーあいびらん</string>
     <string name="error_report_open_github_notice">クラッシュしちめいするむんだいぬしでぃにすんじぇーそーんがちゃーがかくにんしみそーれー。じゅうふくさるチケットさくせいすーあい、うんじょーわったーからじっさいぬバグしーゅうせいすんじがんぼーいるくとぅなやびーん。</string>
     <string name="search_showing_result_for">ちぎぬきんさくきっかひょうじちょーいびーん：%s</string>
@@ -608,16 +562,10 @@
     <string name="downloads_storage_ask_summary_no_saf_notice">ダウンロードぬかーじにふずんすーしょたんにやびーん</string>
     <string name="no_dir_yet">ダウンロードフォルダーぬなーらしっていさりやびらん。なまちゃーきデフォルトぬフォルダーさんたくちくぃみそーれー</string>
     <string name="downloads_storage_use_saf_summary_api_29">Android10いこおー \'Storage Access Framework\' ぬみやしがサポートさりやびーん</string>
-    <string name="feed_load_error_fast_unknown">こうすくモードっしくぬじょうほうぬしーょうさいーていきょうさりやびらん。</string>
-    <string name="feed_load_error_account_info">\'%s\' ぬフィードゆみくみやびらんたん。</string>
-    <string name="feed_load_error">フィードぬゆみくみエラー</string>
     <string name="description_select_disable">しちめいぶんぬテキストぬしんたくんーかなすん</string>
     <string name="description_select_enable">しちめいぶんぬテキストぬしんたくゆうこうなすん</string>
     <string name="description_select_note">なましちめいぶんぬテキストさんたくなやびーん。しんたくモードちゅおーページぬちらちちゃいリンクぬクリックならんなたいしーんくとぅんかいちゅういしみそーれー。</string>
     <string name="account_terminated">ていしさったるアカウント</string>
-    <string name="feed_load_error_terminated">くぬとうこうしゃぬアカウントーていしさりとーいびーん。
-\nNewPipeーしーょうらいてぃきにくぬフィードゆみくみらんなやびーん。
-\nくぬチャンネルぬとぅうるいちゅんこーいじょさびーが？</string>
     <string name="off">オフ</string>
     <string name="on">オン</string>
     <string name="tablet_mode_title">タブレットモード</string>
@@ -630,8 +578,6 @@
     <string name="remote_search_suggestions">リモートきんさくかんふ</string>
     <string name="local_search_suggestions">ローカルきんさくかんふ</string>
     <string name="main_page_content_swipe_remove">アイテムスワイプしさちゅるじょ</string>
-    <string name="start_main_player_fullscreen_summary">ちょくしちフルスクリーンモードんかいきりけーてぃ、ミニプレイヤーっしちゃーがかいしさびらん。じどーでぃんうぅてぃんがロックさりとーーあいやてぃん、フルスクリーンしーゅうりょうするくとぅでぃミニプレイヤーんかいアクセスなやびーん</string>
-    <string name="start_main_player_fullscreen_title">プレイヤーフルスクリーンっしかいし</string>
     <plurals name="deleted_downloads_toast">
         <item quantity="one">%1$sちぬダウンロードさちゅるじょさびたん</item>
         <item quantity="other">%1$sちぬダウンロードさちゅるじょさびたん</item>
@@ -647,9 +593,6 @@
     <string name="enqueue_next_stream">ちぎキューんかいちちが</string>
     <string name="enqueued_next">ちぎキューんかいちいからさびたん</string>
     <string name="detail_heart_img_view_description">クリエイターぬちむくみてぃ</string>
-    <string name="show_crash_the_player_title">\"プレイヤーぬクラッシュ\"ひょうじ</string>
-    <string name="crash_the_player">プレイヤーぬクラッシュ</string>
-    <string name="feed_new_items">みーさるフィードアイテム</string>
     <string name="error_report_channel_name">エラーほうくーくちうち</string>
     <string name="error_report_notification_toast">エラーぬはっせいさびたん。ちうちんーちくぃみそーれー</string>
     <string name="error_report_notification_title">エラーぬはっせいさびたん（タップしーねーほうくーくなやびーん）</string>
@@ -659,11 +602,9 @@
 \nStorage Access Frameworkとぅぐかんゆいぬあんファイルマネージャインストールしみそーれー</string>
     <string name="no_appropriate_file_manager_message">くぬちゃーさうぅてぃくしーちやーファイルマネージャぬみちかやびらんたん
 \nファイルマネージャインストールすが、ダウンロードしっていっし \'%s\' んーかなするくとぅうたみしくぃみそーれー</string>
-    <string name="show_crash_the_player_summary">プレイヤーしようじんかいクラッシュオプションひょうじ</string>
     <string name="create_error_notification">エラーちうちさくせい</string>
     <string name="error_report_channel_description">エラーほうくーくすんちうち</string>
     <string name="leak_canary_not_available">LeakCanaryがりようふかのうやいびーん</string>
-    <string name="settings_category_player_notification_title">プレイヤーちうち</string>
     <string name="loading_stream_details">ストリームぬしょうさいゆみくどーいびーん…</string>
     <string name="enable_streams_notifications_summary">とうるいちゅるチャンネルぬみーさるストリームんかいちいていちうちすん</string>
     <string name="enumeration_comma">,</string>
@@ -683,7 +624,6 @@
     </plurals>
     <string name="streams_notification_channel_name">みーさるストリーム</string>
     <string name="notifications">ちうち</string>
-    <string name="settings_category_player_notification_summary">ぎんじぇーさいせいちょーるストリームぬちうちこうせい</string>
     <string name="streams_notifications_network_title">ふぃちぐとーるネットワークぬしーゅるい</string>
     <string name="percent">パーセント</string>
     <string name="semitone">はんうん</string>
@@ -695,7 +635,6 @@
     <string name="selected_stream_external_player_not_supported">しんたくさったんちゃーがーがいぶプレイヤーんかいゆってぃサポートさりやびらん</string>
     <string name="no_audio_streams_available_for_external_players">やしがいぶプレイヤーっしりようがのうのーいるゆいストリームぬあいびらん</string>
     <string name="no_video_streams_available_for_external_players">やしがいぶプレイヤーっしりりようがのうやーちゃーがストリームぬあいびらん</string>
-    <string name="select_quality_external_players">やしがいぶプレイヤーっしぬふぃんしちしんたく</string>
     <string name="sort">ならびがい</string>
     <string name="faq">ウェブサイトひょうじ</string>
     <string name="app_update_available_notification_text">タップし%sダウンロード</string>
@@ -715,11 +654,6 @@
     <string name="remove_duplicates_message">くぬさいせいリストねーんぬじゅうふくさるストリームまじりさくじょさびーが？</string>
     <string name="ignore_hardware_media_buttons_title">ハードウェアメディアボタンイベントむしすん</string>
     <string name="remove_duplicates">じゅうふくさちゅるじょ</string>
-    <string name="feed_hide_streams_title">ちぎぬストリームひょうじ</string>
-    <string name="feed_show_hide_streams">ストリームぬひょうじ/ふぃふぃょうじ</string>
-    <string name="feed_show_watched">かんじぬんかいしちょうじみ</string>
-    <string name="feed_show_partially_watched">いちぶしはべるじみ</string>
-    <string name="feed_show_upcoming">くんぐ</string>
     <string name="left_gesture_control_summary">さいせいがみんぬふぃだりはんぶんぐとぅジェスチャーしんたく</string>
     <string name="left_gesture_control_title">ふぃだりぬジェスチャーちゃーさ</string>
     <string name="right_gesture_control_summary">さいせいがみんぬみぎはんぶんようぬジェスチャーしんたく</string>
@@ -736,21 +670,12 @@
     <string name="prefer_descriptive_audio_summary">りようかのうなばあいんかいしかくしょうがいしゃむきのおんせいかいしちトラックさんたくすん</string>
     <string name="play_queue_audio_track">オーディオ：%s</string>
     <string name="audio_track">オーディオトラック</string>
-    <string name="select_audio_track_external_players">やしがいぶプレイヤーようぬオーディオトラックしんたく</string>
     <string name="unknown_audio_track">ふめいうぅい</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer しってい</string>
     <string name="audio_track_present_in_video">オーディオトラックーしでぃにくぬししらぎんかいすんじぇーそーるふぃちようがあいびーん</string>
     <string name="disable_media_tunneling_automatic_info">うちかいぬデバイスぬモデルっしぇーメディアトンネリングぬサポートさりてぃうぅらんたみ、くぬデバイスっしぇーメディアトンネリングぬデフォルトっしんーかなとーいびーん。</string>
-    <string name="use_exoplayer_decoder_fallback_summary">デコーダぬしーむんだいぬあーあえー、くぬオプションゆーいるこうかしプライマリデコーダしーょきかしっぺーじにふぃくいゆうしんどぅぬデコーダんかいフォールバックさびーん。プライマリデコーダしようじやかパフォーマンスぬあっかすがのうゆいがあいびーん</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">くぬかいきちさこーちょくしちコーデックサーフェスんかいしっていしーんかわりんかい、サーフェスぬへいるかんさったるさいんかいえいぞうコーデックかいほうしさいインスタンスがさびーん。しでぃにいくちがぬデバイスっしくぬかいきちさくぬささりとーいびーしが、Android 6いくてぃぬみちぬーさびーん
-\n
-\nくぬオプションゆーいるこうかしーんくとぅっしプレイヤーきりけーたい、フルスクリーンんかいきりけーたいしーんさいぬさいせいエラーふしじゃびーん</string>
     <string name="audio_track_type_dubbed">ふきけー</string>
-    <string name="settings_category_exoplayer_summary">ExoPlayerぬしっていかんりさびーん。くりらぬへんかんはんえいすんがープレイヤーぬさいきちゃーがふぃちようやいびーん</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">ちゃーExoPlayerぬえいぞうしーゅちりょくサーフェスしっていぬかいきちさくしようすん</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_descriptive">うんせいかいしち</string>
-    <string name="use_exoplayer_decoder_fallback_title">ExoPlayerぬデコーダフォールバックちぬーさすん</string>
     <string name="audio_track_type_original">オリジナル</string>
     <string name="no_streams">ストリームーあいびらん</string>
     <string name="no_live_streams">ライブーいしのーあいびらん</string>
@@ -763,7 +688,6 @@
     <string name="feed_fetch_channel_tabs">チャンネルタブしーゅとぅくしーん</string>
     <string name="channel_tab_about">しょうさい</string>
     <string name="channel_tab_albums">アルバム</string>
-    <string name="feed_fetch_channel_tabs_summary">フィードこうしんすんとぅちなしゅとぅくしーんタブ。 こうすくモードさしてぃチャンネルこうしんすーあえー、かんがぬあいびらん。</string>
     <string name="channel_tab_playlists">プレイリスト</string>
     <string name="channel_tab_tracks">トラック</string>
     <string name="channel_tab_channels">チャンネル</string>

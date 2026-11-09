@@ -34,9 +34,6 @@
     <string name="no_player_found_toast">Nullus lusor amnium invenit (VLC collocare potes ut eum ludat).</string>
     <string name="no_player_found">Nullus lusor amnium invenit. VLC collocare?</string>
     <string name="controls_download_desc">Tabularium amnicum scaricare</string>
-    <string name="use_external_audio_player_title">Utere lusorem soni externum</string>
-    <string name="use_external_video_player_summary">Sonum aliquis resolutionibus removet</string>
-    <string name="use_external_video_player_title">Utere lusorem taeniae externum</string>
     <string name="share_dialog_title">Communicare cum</string>
     <string name="search_showing_result_for">Praecessi propter: %s</string>
     <string name="did_you_mean">Intendi \"%1$s\"\?</string>
@@ -65,7 +62,6 @@
     <string name="no_subscribers">Nulli signatores</string>
     <string name="search_no_results">Nullae resultationes</string>
     <string name="settings_category_appearance_title">Facies</string>
-    <string name="settings_category_player_behavior_title">Mos</string>
     <string name="notification_channel_name">NewPipe notitia</string>
     <plurals name="listening">
         <item quantity="one">%s audiens</item>
@@ -109,7 +105,6 @@
     <string name="just_once">Semel</string>
     <string name="always">Semper</string>
     <string name="play_all">Lude omnes</string>
-    <string name="player_stream_failure">Non possum ludere hic amnis</string>
     <string name="playback_step">Passus</string>
     <string name="playback_tempo">Tempus</string>
     <string name="play_queue_remove">Remove</string>

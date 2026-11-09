@@ -15,9 +15,6 @@
     <string name="open_in_popup_mode">پاپ اپ وضع میں کھولیں</string>
     <string name="controls_download_desc">اسٹریم فائل ڈاؤن لوڈ کریں</string>
     <string name="share_dialog_title">کے ساتھ اشتراک کریں</string>
-    <string name="use_external_video_player_title">خارجی ویڈیو پلئیر استعمال کریں</string>
-    <string name="use_external_video_player_summary">کچھ ریزولوشن پر آڈیو دستیاب نہیں ہوگی.</string>
-    <string name="use_external_audio_player_title">خارجی آڈیو پلیر استعمال کریں</string>
     <string name="subscribe_button_title">رکنیت اختیار کریں</string>
     <string name="subscribed_button_title">رکنیت شدہ</string>
     <string name="channel_unsubscribed">چینل کی رکنیت ختم کردی گئی</string>
@@ -26,7 +23,6 @@
     <string name="show_info">معلومات دکھائیں</string>
     <string name="tab_subscriptions">رکنیتیں</string>
     <string name="tab_bookmarks">نشان زدہ پلے لسٹس</string>
-    <string name="fragment_feed_title">نیا کیا ہے</string>
     <string name="controls_background_title">پس منظر</string>
     <string name="controls_popup_title">پوپ اپ</string>
     <string name="controls_add_to_playlist_title">شامل کریں</string>
@@ -75,13 +71,10 @@
     <string name="show_hold_to_append_summary">ویڈیو کی \"تفصیلات:\" میں پس منظر یا پاپ اپ بٹن دبانے پر اشارے دکھائیں</string>
     <string name="unsupported_url">غیر موافق URL</string>
     <string name="default_content_country_title">مشمولات کا طے شدہ ملک</string>
-    <string name="settings_category_player_title">پلیئر</string>
-    <string name="settings_category_player_behavior_title">برتاؤ</string>
     <string name="settings_category_video_audio_title">ویڈیو اور آڈیو</string>
     <string name="settings_category_history_title">سرگزشت اور کیشے</string>
     <string name="settings_category_appearance_title">اظہار</string>
     <string name="settings_category_debug_title">ڈِیبَگ</string>
-    <string name="background_player_playing_toast">پس منظر میں چلائیں</string>
     <string name="popup_playing_toast">پوپ اپ اسلوب میں جاری</string>
     <string name="content">مشمول</string>
     <string name="show_age_restricted_content_title">عمر کی پابندی والے مواد دکھائیں</string>
@@ -115,10 +108,6 @@
     <string name="content_not_available">مواد دستیاب نہیں ہے</string>
     <string name="could_not_setup_download_menu">ڈاؤن لوڈ مینو ترتیب نہیں دے سکتے</string>
     <string name="app_ui_crash">ایپ/UI تباہ</string>
-    <string name="player_stream_failure">یہ سلسلہ نہیں چل سکا</string>
-    <string name="player_unrecoverable_failure">پلیئر میں نا قابلِ تلافی نقص واقع ہوئی</string>
-    <string name="player_recoverable_failure">پلیر نقص سے بازیافت کیا جارہا ہے</string>
-    <string name="external_player_unsupported_link_type">بیرونی پلیئر اس قسم کے روابط کی حمایت نہیں کرتے</string>
     <string name="video_streams_empty">کوئی ویڈیو سلسلے نہیں ملے</string>
     <string name="audio_streams_empty">کوئی آڈیو سلسلے نہیں ملے</string>
     <string name="invalid_directory">ایسا کوئی فولڈر نہیں</string>
@@ -235,8 +224,6 @@
     <string name="background_player">پس منظر پلیئر</string>
     <string name="popup_player">پوپ اپ پلیئر</string>
     <string name="always_ask_open_action">ہمیشہ اجازت لیں</string>
-    <string name="preferred_player_fetcher_notification_title">معلومات حاصل کر رہا ہے…</string>
-    <string name="preferred_player_fetcher_notification_message">درخواست کردہ مواد کو لوڈ کیا جارہا ہے</string>
     <string name="create_playlist">نئی پلے لسٹ</string>
     <string name="rename_playlist">نام تبدیل کریں</string>
     <string name="name">نام</string>
@@ -484,11 +471,9 @@
     <string name="notification_scale_to_square_image_title">تھمب نیل کو 1:1 کی تناسب میں تراشیں</string>
     <string name="search_showing_result_for">%s کے لئے نتائج دکھا رہا ہے</string>
     <string name="open_with">کے ساتھ کھولیں</string>
-    <string name="crash_the_player">ویڈیو پلیئر کو کریش کریں</string>
     <string name="mark_as_watched">دیکھے ہوئے کو نشان لگائیں</string>
     <string name="local_search_suggestions">مقامی تلاش کی سفارشات</string>
     <string name="notifications">اطلاعات</string>
-    <string name="start_main_player_fullscreen_title">مین پلیئر فل اسکرین میں شروع کریں</string>
     <string name="error_report_channel_name">خرابی کی اطلاع کا نوٹیفکیشن</string>
     <string name="error_report_channel_description">خرابیوں کی اطلاع کی نوٹیفیکیشنس</string>
     <string name="subtitle_activity_recaptcha">جب ٹھیک ہو جائے تو \"Done\" دبائیں</string>
@@ -497,7 +482,6 @@
     <string name="faq_description">اگر آپ کو یہ ایپ استعمال کرنے میں دشواری آ رہی ہو تو ان عام سوالات کے جوابات کو ضرور دیکھیں!</string>
     <string name="faq">ویب سائٹ پر دیکھیں</string>
     <string name="error_report_notification_title">NewPipe کو ایک خرابی کا سامنا کرنا پڑا، رپورٹ کرنے کے لیے ٹیپ کریں</string>
-    <string name="settings_category_player_notification_summary">موجودہ پلیئنگ اسٹریم نوٹیفکیشن کو ترتیب دیں</string>
     <string name="main_page_content_swipe_remove">آئٹمز کو ہٹانے کے لیے سوائپ کریں</string>
     <string name="night_theme_title">نائٹ تھیم</string>
     <string name="main_tabs_position_summary">مین ٹیب سلیکٹر کو نیچے منتقل کریں</string>
@@ -534,7 +518,6 @@
     <string name="volume">والیوم</string>
     <string name="none">کچھ نہیں</string>
     <string name="remote_search_suggestions">ریموٹ تلاش کی تجاویز</string>
-    <string name="settings_category_player_notification_title">پلیئر کی نوٹیفکیشن</string>
     <string name="streams_notification_channel_name">نئی اسٹریم</string>
     <string name="select_a_playlist">ایک پلے لسٹ منتخب کریں</string>
     <string name="no_playlist_bookmarked_yet">ابھی تک کوئی پلے لسٹ بک مارکس نہیں ہے</string>
@@ -542,7 +525,6 @@
     <string name="import_subscriptions_hint">3-ڈاٹ مینو سے سبسکرپشن درآمد یا برآمد کریں</string>
     <string name="msg_failed_to_copy">کلپ بورڈ میں کاپی کرنے میں ناکام</string>
     <string name="loading_stream_details">اسٹریم کی تفصیلات لوڈ کر رہے ہیں…</string>
-    <string name="start_main_player_fullscreen_summary">منی پلیئر میں ویڈیوز شروع نہ کریں، بلکہ اگر آٹو روٹیشن لاک ہے تو براہ راست فل اسکرین موڈ کا رخ کریں۔ آپ اب بھی فل اسکرین سے باہر نکل کر منی پلیئر تک رسائی حاصل کرسکتے ہیں۔</string>
     <string name="streams_notification_channel_description">سبسکرپشن کے لئے نئی اسٹریمز کے بارے میں اطلاعات</string>
     <string name="title_activity_recaptcha">ری کیپچا چیلینج</string>
     <string name="progressive_load_interval_title">ترتیب کے لیے عنوان۔ ترتیب کی تفصیل یہاں محفوظ ہے: https://hosted.weblate.org/translate/newpipe/strings/en/\?checksum=b23a75618764df0f</string>

@@ -25,8 +25,6 @@
     <string name="unsupported_url">URL wordt niet ondersteund</string>
     <string name="show_next_and_similar_title">‘Volgende’ en ‘Vergelijkbare’ video\'s tonen</string>
     <string name="content_language_title">Standaardtaal voor inhoud</string>
-    <string name="use_external_video_player_title">Externe videospeler gebruiken</string>
-    <string name="use_external_audio_player_title">Externe audiospeler gebruiken</string>
     <string name="settings_category_video_audio_title">Video en audio</string>
     <string name="detail_thumbnail_view_description">Speel video, tijd:</string>
     <string name="detail_uploader_thumbnail_view_description">Gebruikersafbeelding van uploader</string>
@@ -38,7 +36,6 @@
     <string name="dark_theme_title">Donker</string>
     <string name="light_theme_title">Licht</string>
     <string name="settings_category_appearance_title">Uiterlijk</string>
-    <string name="background_player_playing_toast">Speelt af op achtergrond</string>
     <string name="content">Inhoud</string>
     <string name="show_age_restricted_content_title">Inhoud met leeftijdsbeperking tonen</string>
     <string name="general_error">Fout</string>
@@ -97,7 +94,6 @@
     <string name="clear">Wissen</string>
     <string name="popup_remember_size_pos_title">Onthoud de eigenschappen van de pop-up</string>
     <string name="popup_remember_size_pos_summary">Onthoud laatste grootte en positie van pop-up</string>
-    <string name="use_external_video_player_summary">Verwijdert geluid bij sommige resoluties</string>
     <string name="show_search_suggestions_title">Zoeksuggesties</string>
     <string name="show_search_suggestions_summary">Kies de suggesties om te tonen tijdens het zoeken</string>
     <string name="best_resolution">Beste resolutie</string>
@@ -124,7 +120,6 @@
     <string name="subscription_change_failed">Kan abonnement niet wijzigen</string>
     <string name="subscription_update_failed">Kan abonnement niet bijwerken</string>
     <string name="tab_subscriptions">Abonnementen</string>
-    <string name="fragment_feed_title">Nieuw</string>
     <string name="enable_search_history_title">Zoekgeschiedenis</string>
     <string name="enable_search_history_summary">Sla zoekopdrachten lokaal op</string>
     <string name="enable_watch_history_title">Geschiedenis bekijken</string>
@@ -135,8 +130,6 @@
     <string name="notification_channel_description">Meldingen voor de speler van NewPipe</string>
     <string name="title_activity_history">Geschiedenis</string>
     <string name="action_history">Geschiedenis</string>
-    <string name="settings_category_player_title">Speler</string>
-    <string name="settings_category_player_behavior_title">Gedrag</string>
     <string name="settings_category_history_title">Geschiedenis en cache</string>
     <string name="undo">Ongedaan maken</string>
     <string name="search_no_results">Geen resultaten</string>
@@ -160,9 +153,6 @@
     <string name="show_hold_to_append_title">Tip ‘Ingedrukt houden om toe te voegen’ tonen</string>
     <string name="show_hold_to_append_summary">Toon tip als de achtergrond- of pop-upknop wordt ingedrukt op de videogegevenspagina</string>
     <string name="play_all">Alles afspelen</string>
-    <string name="player_stream_failure">Deze stream kan niet worden afgespeeld</string>
-    <string name="player_unrecoverable_failure">Onherstelbare spelerfout opgetreden</string>
-    <string name="player_recoverable_failure">Bezig met herstellen na spelerfout</string>
     <string name="main_page_content">Inhoud van hoofdpagina</string>
     <string name="blank_page_summary">Blanco pagina</string>
     <string name="kiosk_page_summary">Kioskpagina</string>
@@ -194,14 +184,11 @@
     <string name="no_player_found_toast">Geen speler met streamondersteuning gevonden (je kan VLC installeren om af te spelen).</string>
     <string name="always">Altijd</string>
     <string name="just_once">Eénmalig</string>
-    <string name="external_player_unsupported_link_type">Externe spelers ondersteunen dit soort links niet</string>
     <string name="video_streams_empty">Geen videostreams gevonden</string>
     <string name="audio_streams_empty">Geen audiostreams gevonden</string>
     <string name="video_player">Videospeler</string>
     <string name="background_player">Achtergrondspeler</string>
     <string name="popup_player">Pop-upspeler</string>
-    <string name="preferred_player_fetcher_notification_title">Bezig met ophalen van informatie…</string>
-    <string name="preferred_player_fetcher_notification_message">Bezig met laden van gevraagde inhoud</string>
     <string name="import_data_title">Data­base importeren</string>
     <string name="export_data_title">Data­base exporteren</string>
     <string name="import_data_summary">Dit overschrijft je huidige geschiedenis, abonnementen, afspeellijsten en instellingen</string>
@@ -460,39 +447,7 @@
         <item quantity="one">%d dag</item>
         <item quantity="other">%d dagen</item>
     </plurals>
-    <string name="feed_groups_header_title">Kanaalgroepen</string>
-    <string name="feed_oldest_subscription_update">Laatste update nieuws­feed: %s</string>
-    <string name="feed_subscription_not_loaded_count">Niet geladen: %d</string>
-    <string name="feed_notification_loading">Feed aan het laden…</string>
-    <string name="feed_processing_message">Feed aan het verwerken…</string>
-    <string name="feed_group_dialog_select_subscriptions">Selecteer abonnementen</string>
-    <string name="feed_group_dialog_empty_selection">Geen abonnement geselecteerd</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d geselecteerd</item>
-        <item quantity="other">%d geselecteerde</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">Lege groepsnaam</string>
-    <string name="feed_group_dialog_delete_message">Wilt u deze groep verwijderen\?</string>
-    <string name="feed_create_new_group_button_title">Nieuw</string>
-    <string name="settings_category_feed_title">Feed</string>
-    <string name="feed_update_threshold_title">Drempel voor feedupdate</string>
-    <string name="feed_update_threshold_summary">Tijd na de laatste update voordat een abonnement als verouderd wordt beschouwd — %s</string>
     <string name="feed_update_threshold_option_always_update">Altijd updaten</string>
-    <string name="feed_use_dedicated_fetch_method_title">Uit speciale feed ophalen indien beschikbaar</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Beschikbaar in sommige services, het is meestal veel sneller, maar kan een beperkte hoeveelheid items en vaak onvolledige informatie (bijv. geen duur, itemtype, of livestatus) bevatten</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Snelle modus inschakelen</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Snelle modus uitschakelen</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Denk je dat het laden van de feed te sloom is\? Zo ja, probeer snel laden in te schakelen (in de instellingen of door op onderstaande knop te drukken).
-\n
-\nNewPipe biedt twee strategieën aan voor het laden van de feed:
-\n• Het hele abonnementskanaal ophalen, wat sloom maar compleet is.
-\n• Een speciale feed ophalen, wat snel maar meestal incompleet is.
-\n
-\nHet verschil tussen de twee is dat de snelle meestal wat informatie mist, zoals de duur of type (live of een normale video) van het item en dat er mogelijk minder items zijn.
-\n
-\nYouTube is een voorbeeld van een service die deze snelle methode aanbiedt door zijn RSS-feed.
-\n
-\nDe keuze komt dus neer op wat je liever hebt: snelheid of precieze informatie.</string>
     <string name="drawer_header_description">Service wisselen, momenteel geselecteerd:</string>
     <string name="most_liked">Meest geliked</string>
     <string name="error_postprocessing_stopped">NewPipe werd gesloten terwijl het bezig was met het bestand</string>
@@ -518,7 +473,6 @@
     <string name="video_detail_by">Door %s</string>
     <string name="channel_created_by">Gemaakt door %s</string>
     <string name="playlist_page_summary">Afspeellijst­pagina</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Enkel ongegroepeerde abonnementen tonen</string>
     <string name="no_playlist_bookmarked_yet">Nog geen afspeellijst­bladwijzers</string>
     <string name="select_a_playlist">Selecteer een afspeellijst</string>
     <string name="error_report_open_github_notice">Controleer of er al een probleem bestaat dat uw crash beschrijft. Wanneer u dubbele tickets aanmaakt, neemt dit tijd van ons in beslag die we beter kunnen besteden aan het oplossen van het daadwerkelijke probleem.</string>
@@ -612,12 +566,6 @@
     <string name="tablet_mode_title">Tablet-modus</string>
     <string name="open_website_license">Website openen</string>
     <string name="account_terminated">Account getermineerd</string>
-    <string name="feed_load_error_fast_unknown">De snelle feed mode levert hierover niet meer informatie.</string>
-    <string name="feed_load_error_terminated">De account van de auteur is getermineerd.
-\nNewPipe zal niet in staat zijn deze feed in de toekomst te laden.
-\nWeet u zeker dat u wilt unsubscriben van dit kanaal\?</string>
-    <string name="feed_load_error_account_info">Kan geen feed laden voor \'%s\'.</string>
-    <string name="feed_load_error">Error bij het inladen van de feed</string>
     <string name="downloads_storage_use_saf_summary_api_29">Vanaf Android 10 is enkel \'Storage Access Framework\' ondersteund</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">U wordt gevraagd waar elk bestand wordt opgeslagen</string>
     <string name="no_dir_yet">Nog geen download­map gekozen, kies nu de standaard­download­map</string>
@@ -641,16 +589,10 @@
     <string name="enqueued_next">Volgende item in de wachtrij geplaatst</string>
     <string name="enqueue_next_stream">Volgende item in de wachtrij plaatsen</string>
     <string name="main_page_content_swipe_remove">Veeg items om ze te verwijderen</string>
-    <string name="start_main_player_fullscreen_summary">Start geen video\'s in de minispeler, maar ga direct naar de volledige schermmodus, als automatisch draaien is vergrendeld. Je hebt nog steeds toegang tot de minispeler door de volledige schermmodus af te sluiten</string>
-    <string name="start_main_player_fullscreen_title">Start hoofdspeler als volledig scherm</string>
     <string name="processing_may_take_a_moment">Verwerken... Dit kan even duren</string>
-    <string name="crash_the_player">Speler crashen</string>
-    <string name="show_crash_the_player_title">‘Speler crashen’ tonen</string>
-    <string name="show_crash_the_player_summary">Toont een crash-optie bij gebruik van de speler</string>
     <string name="manual_update_description">Controleer handmatig op nieuwe versies</string>
     <string name="check_for_updates">Controleren op updates</string>
     <string name="checking_updates_toast">Bezig met controleren op updates…</string>
-    <string name="feed_new_items">Nieuwe feeditems</string>
     <string name="error_report_channel_name">Foutrapporten</string>
     <string name="error_report_channel_description">Beschrijving van foutmeldingen</string>
     <string name="error_report_notification_title">NewPipe meldt fout, tik voor bericht</string>
@@ -664,8 +606,6 @@
     <string name="detail_pinned_comment_view_description">Vastgemaakt commentaar</string>
     <string name="leak_canary_not_available">LeakCanary is niet beschikbaar</string>
     <string name="progressive_load_interval_exoplayer_default">ExoPlayer standaard</string>
-    <string name="settings_category_player_notification_title">Spelermelding</string>
-    <string name="settings_category_player_notification_summary">Configureer meldingen van de huidige spelende stream</string>
     <string name="notifications">Meldingen</string>
     <string name="streams_notification_channel_name">Nieuwe streams</string>
     <string name="streams_notification_channel_description">Meldingen over nieuwe streams van abonnementen</string>
@@ -693,7 +633,6 @@
     <string name="unknown_quality">Onbekende kwaliteit</string>
     <string name="streams_not_yet_supported_removed">Streams die niet ondersteund worden door de downloader, worden niet getoond</string>
     <string name="no_audio_streams_available_for_external_players">Er zijn geen geluidsstreams beschikbaar voor externe spelers</string>
-    <string name="select_quality_external_players">Selecteer kwaliteit voor externe spelers</string>
     <string name="unknown_format">Onbekend formaat</string>
     <string name="progressive_load_interval_title">Intervalgrootte tijdens afspelen</string>
     <string name="faq_title">Veelgestelde vragen</string>
@@ -716,21 +655,13 @@
     <string name="remove_duplicates">Duplicaten verwijderen</string>
     <string name="remove_duplicates_title">Duplicaten verwijderen\?</string>
     <string name="remove_duplicates_message">Wil je alle dubbele streams in deze afspeellijst verwijderen\?</string>
-    <string name="feed_show_hide_streams">Streams weergeven/verbergen</string>
-    <string name="feed_show_watched">Volledig bekeken</string>
-    <string name="feed_show_partially_watched">Gedeeltelijk bekeken</string>
-    <string name="feed_show_upcoming">Aanstaande</string>
     <string name="right_gesture_control_summary">Kies een gebaar voor de rechterhelft van het spelersscherm</string>
     <string name="ignore_hardware_media_buttons_title">Fysieke knoppen voor mediabediening negeren</string>
     <string name="brightness">Helderheid</string>
     <string name="volume">Volume</string>
     <string name="ignore_hardware_media_buttons_summary">Handig, als je bijvoorbeeld een headset gebruikt met fysieke knoppen die stuk zijn</string>
     <string name="left_gesture_control_summary">Kies een gebaar voor de linkerhelft van het spelersscherm</string>
-    <string name="feed_hide_streams_title">Laat de volgende streams zien</string>
     <string name="prefer_descriptive_audio_summary">Selecteer een audiotrack met beschrijvingen voor slechtzienden, indien beschikbaar</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Deze tijdelijke oplossing geeft videocodecs vrij en activeert ze opnieuw wanneer er een oppervlakteverandering optreedt, in plaats van de oppervlakte rechtstreeks op de codec in te stellen. Dit wordt al gebruikt door ExoPlayer op sommige apparaten met dit probleem; deze instelling heeft alleen effect op Android 6 en hoger
-\n
-\nAls je deze optie inschakelt, voorkom je mogelijk afspeelfouten bij het wisselen van de huidige videospeler of het overschakelen naar volledig scherm</string>
     <string name="progressive_load_interval_summary">Wijzig de grootte van het laadinterval voor progressieve inhoud (momenteel %s). Een lagere waarde kan het initiële laden versnellen</string>
     <string name="prefer_original_audio_title">Geef de voorkeur aan originele audio</string>
     <string name="prefer_original_audio_summary">Selecteer de originele audiotrack, ongeacht de taal</string>
@@ -738,13 +669,7 @@
     <string name="play_queue_audio_track">Audio: %s</string>
     <string name="audio_track">Audiotrack</string>
     <string name="audio_track_present_in_video">Er zou al een audiotrack in deze stream aanwezig moeten zijn</string>
-    <string name="select_audio_track_external_players">Selecteer audiotrack voor externe spelers</string>
     <string name="unknown_audio_track">Onbekend</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer-instellingen</string>
-    <string name="settings_category_exoplayer_summary">Beheer enkele ExoPlayer-instellingen. Deze wijzigingen vereisen een herstart van de speler om van kracht te worden</string>
-    <string name="use_exoplayer_decoder_fallback_title">Gebruik de terugvalfunctie van de ExoPlayer-decoder</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Schakel deze optie in als je problemen hebt met de initialisatie van de decoder, die terugvalt op decoders met een lagere prioriteit als de initialisatie van de primaire decoder mislukt. Dit kan leiden tot slechtere afspeelprestaties dan bij gebruik van primaire decoders</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Gebruik altijd de tijdelijke oplossing voor het instellen van het video-uitvoeroppervlak van ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">origineel</string>
     <string name="audio_track_type_dubbed">nagesynchroniseerd</string>
@@ -777,7 +702,6 @@
     <string name="channel_tab_albums">Albums</string>
     <string name="rewind">Terugspoelen</string>
     <string name="replay">Opnieuw afspelen</string>
-    <string name="feed_fetch_channel_tabs_summary">Tabbladen om op te halen bij het bijwerken van de feed. Deze optie heeft geen effect als een kanaal wordt bingewerkt via de snelle modus.</string>
     <string name="image_quality_medium">Gemiddelde kwaliteit</string>
     <string name="metadata_uploader_avatars">Uploader-profielfoto\'s</string>
     <string name="metadata_banners">Banieren</string>
@@ -819,9 +743,6 @@
     <string name="audio_track_type_secondary">secundair</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Delen als tĳdelijke YouTube-afspeel­lĳst</string>
     <string name="tab_bookmarks_short">Afspeel­lĳsten</string>
-    <string name="select_a_feed_group">Selecteer een feedgroep</string>
-    <string name="feed_group_page_summary">Kanaalgroep­pagina</string>
-    <string name="no_feed_group_created_yet">Nog geen feedgroep geselecteerd</string>
     <string name="search_with_service_name">Zoeken met %1$s</string>
     <string name="search_with_service_name_and_filter">Zoeken met %1$s (%2$s)</string>
     <string name="channel_tab_likes">Vind-ik-leuks</string>
@@ -842,9 +763,6 @@
     <string name="permission_display_over_apps_message">Om de Pop-up-speler te gebruiken, selecteert u %1$s in het volgende Android-instellingenmenu en schakelt u %2$s in.</string>
     <string name="permission_display_over_apps_permission_name">‘Weergeven vóór andere apps toestaan’</string>
     <string name="account_terminated_service_provides_reason">Account beëindigd\n\n%1$s geeft de volgende reden: %2$s</string>
-    <string name="player_http_403">HTTP-fout 403 ontvangen van de server tĳdens het afspelen, waarschĳnlĳk veroorzaakt door het verlopen van de streaming-url of een ip-blokkade</string>
-    <string name="player_http_invalid_status">HTTP-fout %1$s ontvangen van de server tĳdens het afspelen</string>
-    <string name="youtube_player_http_403">HTTP-fout 403 ontvangen van de server tĳdens het afspelen, waarschĳnlĳk veroorzaakt door een ip-blokkade of problemen met de deobfuscatie van de streaming-url</string>
     <string name="sign_in_confirm_not_bot_error">%1$s weigerde gegevens te verstrekken en vroeg om een login om te bevestigen dat de aanvrager geen bot is.\n\nUw ip-adres is mogelĳk tĳdelĳk geblokkeerd door %1$s. U kunt even wachten of overschakelen naar een ander ip-adres (bĳvoorbeeld door een vpn in of uit te schakelen, of door over te schakelen van wifi naar mobiele data).\n\nBekijk <a href="%2$s">deze FAQ</a> voor meer informatie.</string>
     <string name="unsupported_content_in_country">Deze inhoud is niet beschikbaar voor het momenteel geselecteerde inhouds­land.\n\nWijzig uw selectie via ‘Instellingen &gt; Inhoud &gt; Standaard­land voor inhoud’.</string>
     <string name="kao_dialog_more_info">Details</string>

@@ -15,9 +15,6 @@
     <string name="settings">सेटिङ्गहरु</string>
     <string name="did_you_mean">के तपाईंको मतलब \"%1$s\" हो\?</string>
     <string name="share_dialog_title">साझा गर्नुहोस्</string>
-    <string name="use_external_video_player_title">अन्य भिडियो प्लेयर प्रयोग गर्नुहोस्</string>
-    <string name="use_external_video_player_summary">कुनै भिडियो रेजोलुसनहरुमा अडियो हट्न सक्छ</string>
-    <string name="use_external_audio_player_title">अन्य अडियो प्लेयर प्रयोग गर्नुहोस्</string>
     <string name="subscribe_button_title">सदस्यता लिनुहोस्</string>
     <string name="subscribed_button_title">सदस्यता लिईएको</string>
     <string name="unsubscribe">सदस्यता रद्द गर्नुहोस्</string>
@@ -80,14 +77,11 @@
     <string name="unsupported_url">असमर्थित URL</string>
     <string name="default_content_country_title">पूर्वनिर्धारित सामग्री देश</string>
     <string name="content_language_title">पूर्वनिर्धारित सामग्री भाषा</string>
-    <string name="settings_category_player_title">प्लेयर</string>
-    <string name="settings_category_player_behavior_title">व्यवहार</string>
     <string name="settings_category_video_audio_title">भिडियो र अडियो</string>
     <string name="settings_category_history_title">इतिहास र क्यास</string>
     <string name="settings_category_appearance_title">रूप</string>
     <string name="settings_category_debug_title">डिबग</string>
     <string name="settings_category_updates_title">अपडेट</string>
-    <string name="background_player_playing_toast">पृष्ठभूमिमा प्ले</string>
     <string name="popup_playing_toast">पपअप मोडमा बजाईदै छ</string>
     <string name="content">सामग्री</string>
     <string name="show_age_restricted_content_title">उमेर प्रतिबन्धित सामग्री</string>
@@ -142,10 +136,6 @@
     <string name="content_not_available">सामग्री अनउपलब्ध</string>
     <string name="could_not_setup_download_menu">डाउनलोड मेनु स्थापित गर्न सकिएन</string>
     <string name="app_ui_crash">अनुप्रयोग / यूआई दुर्घटनाग्रस्त</string>
-    <string name="player_stream_failure">यो धारा बजाउन सकिएन</string>
-    <string name="player_unrecoverable_failure">अपरिवर्तनीय प्लेयर त्रुटि देखा पर्‍यो</string>
-    <string name="player_recoverable_failure">खेलाडी त्रुटि रिकभर गर्दै</string>
-    <string name="external_player_unsupported_link_type">बाह्य प्लायेरहरू यी प्रकारका लिंक समर्थन गर्दैनन</string>
     <string name="video_streams_empty">कुनै भिडियो प्रवाह फेला परेन</string>
     <string name="audio_streams_empty">कुनै अडियो स्ट्रिम फेला परेन</string>
     <string name="invalid_directory">यस्तो कुनै फोल्डर भेटिएन</string>
@@ -274,8 +264,6 @@
     <string name="background_player">पृष्ठभूमि प्लयेर</string>
     <string name="popup_player">पपअप प्लयेर</string>
     <string name="always_ask_open_action">सधैं सोध्न</string>
-    <string name="preferred_player_fetcher_notification_title">जानकारी प्राप्त गर्दै …</string>
-    <string name="preferred_player_fetcher_notification_message">अनुरोध गरिएको सामग्री लोड गर्दै</string>
     <string name="create_playlist">नया प्लेलिस्ट</string>
     <string name="rename_playlist">पुनः नामकरण</string>
     <string name="name">नाम</string>
@@ -446,40 +434,7 @@
     <string name="new_seek_duration_toast">ExoPlayer अवरोधका कारण खोजी अवधि %d सेकेन्डमा सेट गरियो</string>
     <string name="mute">म्युट</string>
     <string name="unmute">ध्वनि सुचारु</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">के तपाईलाई लाग्छ फिड लोडि एकदम ढिलो छ\? यदि हो भने, छिटो लोडिङ् सक्षम गर्न प्रयास गर्नुहोस् (तपाईं यसलाई सेटिंङ्हरूमा वा तलको बटन थिचेर बदल्न सक्नुहुन्छ)।
-\n
-\nनयाँ पाइपले दुई फिड लोड गर्ने रणनीति प्रदान गर्दछ:
-\nसम्पूर्ण सदस्यता च्यानल ल्याउँदै, जुन ढिलो तर पूरा छ।
-\nएक समर्पित सेवा अन्तिम पोइन्ट प्रयोग गर्दै, जुन छिटो छ तर सामान्यतया पूरा हुँदैन।
-\n
-\nदुई बीचको भिन्नता यो छ कि द्रुत गतिमा सामान्यतया केही जानकारीको अभाव हुन्छ, जस्तै वस्तुको अवधि वा प्रकार (प्रत्यक्ष भिडियोहरू र सामान्य बिचमा भिन्नता लिन सक्दैन) र यसले कम वस्तुहरू फिर्ता गर्न सक्छ।
-\n
-\n(YouTube) युटुब एक सेवाको उदाहरण हो जुन यस आरएसएस फिडको साथ यो द्रुत विधि प्रदान गर्दछ।
-\n
-\nत्यसो भए छनौटमा तपाईको प्राथमिकतामा निर्भर छ: गति वा सटीक जानकारी।</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">द्रुत मोड असक्षम गर्नुहोस्</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">फास्ट मोड सक्षम पार्नुहोस्</string>
-    <string name="feed_use_dedicated_fetch_method_summary">केहि सेवाहरूमा उपलब्ध छ, यो प्राय: धेरै छिटो हुन्छ तर सीमित वस्तुहरू र अक्सर अपूर्ण जानकारी फिर्ता गर्न सक्दछ (उदाहरणका लागि कुनै अवधि, वस्तुको प्रकार, कुनै लाइभ स्थिति)।</string>
-    <string name="feed_use_dedicated_fetch_method_title">जब उपलब्ध हुन्छ समर्पित फिडबाट अपडेट गर्नुहोस</string>
     <string name="feed_update_threshold_option_always_update">सँधै अपडेट गर्नुहोस्</string>
-    <string name="feed_update_threshold_summary">पछिल्लो अपडेट पछिको समय अबधी जस पछि फिड पुरानो भएको मानिन्छ — %s</string>
-    <string name="feed_update_threshold_title">फिड अपडेट अबधि</string>
-    <string name="settings_category_feed_title">फिड</string>
-    <string name="feed_create_new_group_button_title">नयाँ</string>
-    <string name="feed_group_dialog_delete_message">के तपाइँ यो समूह हटाउन चाहानुहुन्छ\?</string>
-    <string name="feed_group_dialog_empty_name">समूहको नाम खाली गर</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d चयन</item>
-        <item quantity="other">%d चयन</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">कुनै सदस्यता चयन गरिएको छैन</string>
-    <string name="feed_group_dialog_select_subscriptions">सदस्यताहरू चयन गर्नुहोस्</string>
-    <string name="feed_processing_message">फिड प्रशोधन गर्दै …</string>
-    <string name="feed_notification_loading">फिड लोड गर्दै …</string>
-    <string name="feed_subscription_not_loaded_count">लोड गरिएको छैन:%d</string>
-    <string name="feed_oldest_subscription_update">फिड पछिल्लोपटक अपडेट गरिएको:%s</string>
-    <string name="feed_groups_header_title">च्यानल समूहहरू</string>
-    <string name="fragment_feed_title">नयाँ के छ</string>
     <plurals name="hours">
         <item quantity="one">%d घण्टा</item>
         <item quantity="other">%d घण्टा</item>

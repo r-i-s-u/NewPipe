@@ -48,9 +48,6 @@
     <string name="unsubscribe">અનસબ્સ્ક્રાઇબ કરો</string>
     <string name="subscribed_button_title">સબ્સ્ક્રાઇબ કર્યું</string>
     <string name="subscribe_button_title">સબ્સ્ક્રાઇબ કરો</string>
-    <string name="use_external_audio_player_title">બાહ્ય ઓડિયો પ્લેયરનો ઉપયોગ કરો</string>
-    <string name="use_external_video_player_summary">કેટલાક ઠરાવો પર ઓડિયો દૂર કરે છે</string>
-    <string name="use_external_video_player_title">બાહ્ય વિડિઓ પ્લેયરનો ઉપયોગ કરો</string>
     <string name="share_dialog_title">સાથે શેર કરો</string>
     <string name="search_showing_result_for">%s માટે પરિણામો બતાવી રહ્યું છે</string>
     <string name="did_you_mean">શું તમારો મતલબ %1$s છે\?</string>
@@ -74,13 +71,11 @@
     <string name="no">ના</string>
     <string name="trending">વલણમાંનાં</string>
     <string name="auto_queue_toggle">આપોઆપ કતારબદ્ધતા</string>
-    <string name="crash_the_player">પ્લેયરને ક્રેશ કરો</string>
     <string name="action_history">ઇતિહાસ</string>
     <string name="play_with_kodi_title">કોટિથી ચલાવો</string>
     <string name="show_play_with_kodi_title">કોડિથી ચલાવવાનો વિકલ્પ દેખાડો</string>
     <string name="download_dialog_title">ડાઉનલોડ કરો</string>
     <string name="autoplay_title">આપમેળે ચલાવો</string>
-    <string name="fragment_feed_title">નવું શું છે</string>
     <string name="downloads">ડાઉનલોડ્સ</string>
     <string name="downloads_title">ડાઉનલોડ્સ</string>
 </resources>

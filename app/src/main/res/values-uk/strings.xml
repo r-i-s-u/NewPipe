@@ -11,8 +11,6 @@
     <string name="settings">Налаштування</string>
     <string name="did_you_mean">Ви мали на увазі: «%1$s»\?</string>
     <string name="share_dialog_title">Поширити через</string>
-    <string name="use_external_video_player_title">Зовнішній відеопрогравач</string>
-    <string name="use_external_audio_player_title">Зовнішній аудіопрогравач</string>
     <string name="download_path_title">Тека для завантаження відео</string>
     <string name="download_path_dialog_title">Виберіть теку для завантаження відеофайлів</string>
     <string name="download_path_audio_dialog_title">Виберіть теку для завантаження аудіофайлів</string>
@@ -35,7 +33,6 @@
     <string name="content_language_title">Переважна мова вмісту</string>
     <string name="settings_category_video_audio_title">Відео та аудіо</string>
     <string name="settings_category_appearance_title">Зовнішній вигляд</string>
-    <string name="background_player_playing_toast">Відтворення у фоновому режимі</string>
     <string name="content">Вміст</string>
     <string name="show_age_restricted_content_title">Вміст із віковими обмеженнями</string>
     <string name="duration_live">Наживо</string>
@@ -80,14 +77,12 @@
     <string name="no_available_dir">Вкажіть теку для завантажень пізніше в налаштуваннях</string>
     <string name="no_player_found_toast">Програвач потокового відео не знайдений (ви можете встановити VLC для програвання).</string>
     <string name="open_in_popup_mode">Відкрити у віконному режимі</string>
-    <string name="use_external_video_player_summary">Прибирає звук за певної роздільності</string>
     <string name="subscribe_button_title">Підписатися</string>
     <string name="subscribed_button_title">Ви підписалися</string>
     <string name="channel_unsubscribed">Ви відписалися від каналу</string>
     <string name="subscription_change_failed">Не вдалося змінити підписку</string>
     <string name="subscription_update_failed">Не вдалося оновити підписку</string>
     <string name="tab_subscriptions">Підписки</string>
-    <string name="fragment_feed_title">Новинки</string>
     <string name="controls_background_title">У фоні</string>
     <string name="controls_popup_title">У вікні</string>
     <string name="default_popup_resolution_title">Типова роздільність вікна</string>
@@ -111,8 +106,6 @@
     <string name="resume_on_audio_focus_gain_summary">Продовжувати відтворення після переривань (напр. телефонних дзвінків)</string>
     <string name="show_hold_to_append_title">Показати підказку «Затисніть, щоб додати»</string>
     <string name="default_content_country_title">Типова країна вмісту</string>
-    <string name="settings_category_player_title">Програвач</string>
-    <string name="settings_category_player_behavior_title">Поведінка</string>
     <string name="settings_category_history_title">Історія та кеш</string>
     <string name="popup_playing_toast">Відтворення у віконному режимі</string>
     <string name="clear">Очистити</string>
@@ -131,8 +124,6 @@
     <string name="export_data_title">Експортувати базу даних</string>
     <string name="import_data_summary">Поточні підписки, добірки, історія і (за бажанням) налаштування буде замінено</string>
     <string name="export_data_summary">Експорт підписок, списків відтворення, історії та налаштувань</string>
-    <string name="player_stream_failure">Не вдалося відтворити цей потік</string>
-    <string name="player_recoverable_failure">Відновлення після помилки програвача</string>
     <string name="video_streams_empty">Відеопотоки не знайдено</string>
     <string name="audio_streams_empty">Аудіопотоки не знайдено</string>
     <string name="no_subscribers">Немає підписників</string>
@@ -161,15 +152,11 @@
     <string name="video_player">Відеопрогравач</string>
     <string name="background_player">Тильний програвач</string>
     <string name="popup_player">Віконний програвач</string>
-    <string name="preferred_player_fetcher_notification_title">Отримання інформації…</string>
-    <string name="preferred_player_fetcher_notification_message">Завантаження запитаного контенту</string>
     <string name="controls_download_desc">Завантажити потоковий файл</string>
     <string name="show_info">Показати інформацію</string>
     <string name="tab_bookmarks">Закладки відтворення</string>
     <string name="controls_add_to_playlist_title">Додати до</string>
     <string name="show_hold_to_append_summary">Показувати підказку під час натискання фонової або спливної кнопки у відео \"Деталі:\"</string>
-    <string name="player_unrecoverable_failure">Сталася невиправна помилка програвача</string>
-    <string name="external_player_unsupported_link_type">Зовнішні програвачі не підтримують такі види посилань</string>
     <string name="info_labels">Що:\nЗапит:\nМова вмісту:\nКраїна вмісту:\nМова застосунку:\nСлужба:\nЧас GMT:\nПакунок:\nВерсія:\nВерсія ОС:</string>
     <string name="detail_uploader_thumbnail_view_description">Мініатюрний аватар завантажувача відео</string>
     <string name="detail_likes_img_view_description">Вподобані</string>
@@ -444,10 +431,6 @@
     <string name="systems_language">Мова телефону</string>
     <string name="subtitle_activity_recaptcha">Після завершення натисніть «Готово»</string>
     <string name="done">Готово</string>
-    <string name="feed_create_new_group_button_title">Нова</string>
-    <string name="feed_group_dialog_delete_message">Бажаєте видалити цю групу\?</string>
-    <string name="feed_group_dialog_empty_selection">Підписки не вибрані</string>
-    <string name="feed_groups_header_title">Групи каналів</string>
     <plurals name="days">
         <item quantity="one">%d день</item>
         <item quantity="few">%d дні</item>
@@ -476,37 +459,7 @@
     <string name="content_not_supported">NewPipe ще не підтримує цей вміст.
 \n
 \nМожливо, підтримка з\'явиться в наступних версіях.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Якщо оновлення підписок здається вам занадто повільним, спробуйте увімкнути швидкий режим (змінити можна в налаштуваннях або кнопкою внизу).
-\n
-\nNewPipe дозволяє оновлювати підписки різними способами:
-\n• Отримання каналу цілком, повільно, але з повною інформацією.
-\n• Оновлення через RSS-канал, швидко, але інформація не повна.
-\n
-\nЗа швидкого оновлення втрачається тривалість елемента і його тип (не можна визначити, трансляція це або звичайне відео), а також елементи каналу.
-\n
-\nYouTube є прикладом такої служби, яка дозволяє виконувати швидке оновлення по RSS.
-\n
-\nВибір за вами: швидкість або точність.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Звичайний режим</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Швидкий режим</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Доступно для деяких служб, швидке, але може повертати не весь вміст каналу і часто неповну інформацію (тривалість, тип елемента, статус трансляції)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Отримувати з виділеної стрічки, коли доступно</string>
     <string name="feed_update_threshold_option_always_update">Оновлювати постійно</string>
-    <string name="feed_update_threshold_summary">Період актуальності підписок після поновлення — %s</string>
-    <string name="feed_update_threshold_title">Поріг оновлення підписок</string>
-    <string name="settings_category_feed_title">Підписки</string>
-    <string name="feed_group_dialog_empty_name">Порожня назва групи</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d вибрано</item>
-        <item quantity="few">%d вибрано</item>
-        <item quantity="many">%d вибрано</item>
-        <item quantity="other">%d вибрано</item>
-    </plurals>
-    <string name="feed_group_dialog_select_subscriptions">Виберіть підписки</string>
-    <string name="feed_processing_message">Обробка каналу…</string>
-    <string name="feed_notification_loading">Завантаження каналу…</string>
-    <string name="feed_subscription_not_loaded_count">Не завантажено: %d</string>
-    <string name="feed_oldest_subscription_update">Останнє оновлення: %s</string>
     <string name="new_seek_duration_toast">Через обмеження ExoPlayer точність перемотування становить %d секунд</string>
     <string name="remove_watched_popup_partially_watched_streams">Так, а також частково переглянуті відео</string>
     <string name="remove_watched_popup_warning">Потоки, які були переглянуті до та після додавання в добірку, будуть видалені. \nВи впевнені?</string>
@@ -526,7 +479,6 @@
     <string name="youtube_restricted_mode_enabled_title">Увімкнути \"Обмежений режим\" YouTube</string>
     <string name="search_showing_result_for">Результати для: %s</string>
     <string name="channel_created_by">Створено %s</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Показати лише незгруповані підписки</string>
     <string name="copy_for_github">Скопіювати відформатований звіт</string>
     <string name="error_report_open_issue_button_text">Повідомити на GitHub</string>
     <string name="error_report_open_github_notice">Перевірте, будь ласка, чи проблема що спричинила збій вже відома спільноті та розробникам. Дублюючи запити на вирішення помилок ви забираєте час розробників, який можна було б витратити на розв\'язання наявних проблем.</string>
@@ -563,7 +515,6 @@
     <string name="description_tab_description">Опис</string>
     <string name="related_items_tab_description">Повʼязані елементи</string>
     <string name="comments_tab_description">Коментарі</string>
-    <string name="settings_category_player_notification_summary">Налаштувати повідомлення про відтворюваний наразі потік</string>
     <string name="unsupported_url_dialog_message">Не розпізнано URL. Відкрити через інший застосунок\?</string>
     <string name="auto_queue_toggle">Автоматична черга</string>
     <string name="show_meta_info_title">Показувати метадані</string>
@@ -622,16 +573,10 @@
     <string name="description_select_disable">Заборонити виділення тексту в описі</string>
     <string name="description_select_enable">Дозволити виділяти текст в описі</string>
     <string name="description_select_note">Тепер можна виділяти текст в описі. Зауважте, що сторінка може мигати і посилання можуть не працювати в режимі виділення.</string>
-    <string name="feed_load_error_account_info">Неможливо завантажити стрічку для «%s».</string>
-    <string name="feed_load_error">Помилка завантаження стрічки</string>
-    <string name="feed_load_error_terminated">Обліковий запис автора припинено.
-\nNewPipe не зможе завантажити цей канал у майбутньому.
-\nВідписатися від цього каналу\?</string>
     <string name="off">Вимкнути</string>
     <string name="on">Увімкнути</string>
     <string name="tablet_mode_title">Режим планшета</string>
     <string name="account_terminated">Обліковий запис припинено</string>
-    <string name="feed_load_error_fast_unknown">Режим швидкої підписки не надає багато інформації щодо цього.</string>
     <string name="comments_are_disabled">Коментарі вимкнено</string>
     <string name="dont_show">Не показувати</string>
     <string name="low_quality_smaller">Низька якість (менше)</string>
@@ -654,18 +599,12 @@
         <item quantity="other">%s завантажень завершено</item>
     </plurals>
     <string name="main_page_content_swipe_remove">Проведіть пальцем по елементах, щоб вилучити їх</string>
-    <string name="start_main_player_fullscreen_summary">Не запускати відео в мініпрогравачі, а перемикати в повноекранний режим безпосередньо, якщо автообертання заблоковано. Ви все одно можете отримати доступ до мініпрогравача, вийшовши з повноекранного режиму</string>
-    <string name="start_main_player_fullscreen_title">Запустити основний програвач у повноекранному режимі</string>
     <string name="enqueued_next">Заплановано наступним</string>
     <string name="enqueue_next_stream">Запланувати наступним</string>
     <string name="processing_may_take_a_moment">Обробка… Трохи заждіть</string>
     <string name="check_for_updates">Перевірити наявність оновлень</string>
     <string name="manual_update_description">Перевірка нових версій вручну</string>
     <string name="checking_updates_toast">Перевірка оновлень…</string>
-    <string name="feed_new_items">Нові записи стрічки</string>
-    <string name="show_crash_the_player_title">Показати \"Збій програвача\"</string>
-    <string name="show_crash_the_player_summary">Показує параметр збою під час використання програвача</string>
-    <string name="crash_the_player">Збій програвача</string>
     <string name="error_report_channel_name">Сповіщення про звіт про помилку</string>
     <string name="error_report_channel_description">Сповіщення для звітів про помилки</string>
     <string name="error_report_notification_title">Сталася помилка NewPipe, торкніться, щоб звітувати</string>
@@ -696,7 +635,6 @@
     <string name="delete_downloaded_files_confirm">Видалити всі завантажені файли з диска\?</string>
     <string name="toggle_all">Перемкнути всі</string>
     <string name="get_notified">Сповіщати</string>
-    <string name="settings_category_player_notification_title">Сповіщення програвача</string>
     <string name="notifications">Сповіщення</string>
     <string name="streams_notification_channel_name">Нові трансляції</string>
     <string name="enable_streams_notifications_title">Сповіщення про нові трансляції</string>
@@ -709,7 +647,6 @@
     <string name="unknown_format">Невідомий формат</string>
     <string name="streams_not_yet_supported_removed">Трансляції, які ще не підтримуються завантажувачем, не показані</string>
     <string name="selected_stream_external_player_not_supported">Вибрана трансляція не підтримується зовнішніми програвачами</string>
-    <string name="select_quality_external_players">Виберіть якість для зовнішніх програвачів</string>
     <string name="unknown_quality">Невідома якість</string>
     <string name="progressive_load_interval_title">Розмір інтервалу завантаження відтворення</string>
     <string name="faq">Переглянути на сайті</string>
@@ -731,11 +668,6 @@
     <string name="remove_duplicates">Вилучити дублікати</string>
     <string name="remove_duplicates_title">Вилучити дублікати\?</string>
     <string name="remove_duplicates_message">Бажаєте вилучити всі повторювані трансляції в цій добірці\?</string>
-    <string name="feed_show_hide_streams">Показати/сховати трансляції</string>
-    <string name="feed_show_upcoming">Незабаром</string>
-    <string name="feed_hide_streams_title">Показати такі трансляції</string>
-    <string name="feed_show_watched">Повністю переглянуто</string>
-    <string name="feed_show_partially_watched">Частково переглянуто</string>
     <string name="brightness">Яскравість</string>
     <string name="none">Нічого</string>
     <string name="left_gesture_control_title">Дія жестом ліворуч</string>
@@ -750,21 +682,12 @@
     <string name="prefer_descriptive_audio_summary">Вибирати звукову доріжку з описом для людей із вадами зору, якщо вона є</string>
     <string name="play_queue_audio_track">Аудіо: %s</string>
     <string name="audio_track">Звукова доріжка</string>
-    <string name="select_audio_track_external_players">Вибір звукової доріжки для зовнішніх програвачів</string>
     <string name="unknown_audio_track">Невідомо</string>
-    <string name="settings_category_exoplayer_title">Налаштування ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Керування деякими налаштуваннями ExoPlayer. Щоб ці зміни набули чинності, потрібно перезапустити програвач</string>
-    <string name="use_exoplayer_decoder_fallback_title">Використовувати запасну функцію декодера ExoPlayer</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Завжди використовувати обхідний шлях налаштування поверхні відеовиходу ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">оригінальна</string>
     <string name="audio_track_type_dubbed">дубльована</string>
     <string name="audio_track_type_descriptive">описова</string>
     <string name="audio_track_present_in_video">У цій трансляції вже має бути звукова доріжка</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Увімкніть цю опцію, якщо у вас є проблеми з ініціалізацією декодерів, які повертаються до декодерів нижчого пріоритету, якщо не вдається ініціалізувати первинні декодери. Це може призвести до погіршення якості відтворення порівняно з використанням первинних декодерів</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Цей обхідний шлях вивільняє і повторно встановлює відеокодеки, коли відбувається зміна поверхні, замість того, щоб налаштовувати поверхню на кодек безпосередньо. Це налаштування вже використовується ExoPlayer на деяких пристроях з цією проблемою, але воно працює лише на Android 6 і новіших версіях
-\n
-\nУвімкнення цієї опції може запобігти помилкам відтворення під час перемикання поточного відеопрогравача або переходу до повноекранного режиму</string>
     <string name="main_tabs_position_summary">Перемістити селектор головної вкладки вниз</string>
     <string name="main_tabs_position_title">Розташування основних вкладок</string>
     <string name="disable_media_tunneling_automatic_info">Тунелювання медіа типово було вимкнено на вашому пристрої, оскільки ваша модель його не підтримує.</string>
@@ -779,7 +702,6 @@
     <string name="feed_fetch_channel_tabs">Отримання вкладок каналу</string>
     <string name="channel_tab_about">Про канал</string>
     <string name="channel_tab_albums">Альбоми</string>
-    <string name="feed_fetch_channel_tabs_summary">Отримувані вкладки під час оновлення стрічки. Ця опція не застосовується, якщо канал оновлюється за допомогою швидкого режиму.</string>
     <string name="channel_tab_playlists">Добірки</string>
     <string name="channel_tab_tracks">Треки</string>
     <string name="channel_tab_channels">Канали</string>
@@ -837,9 +759,6 @@
     <string name="audio_track_type_secondary">вторинний</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Поділитися як тимчасовим списком відтворення YouTube</string>
     <string name="tab_bookmarks_short">Списки відтворення</string>
-    <string name="feed_group_page_summary">Сторінка групи каналів</string>
-    <string name="select_a_feed_group">Виберіть групу каналів</string>
-    <string name="no_feed_group_created_yet">Групу каналів ще не створено</string>
     <string name="channel_tab_likes">Вподобання</string>
     <string name="search_with_service_name">Пошук %1$s</string>
     <string name="search_with_service_name_and_filter">Пошук %1$s (%2$s)</string>
@@ -860,9 +779,6 @@
     <string name="delete_entry">Видалити запис</string>
     <string name="entry_deleted">Запис видалено</string>
     <string name="account_terminated_service_provides_reason">Обліковий запис заблоковано\n\n%1$s вказує таку причину: %2$s</string>
-    <string name="player_http_403">Під час відтворення від сервера отримано помилку HTTP 403, ймовірно, через закінчення терміну дії URL-адреси потокової передачі або заборону IP-адреси</string>
-    <string name="player_http_invalid_status">Помилка HTTP %1$s отримана від сервера під час відтворення</string>
-    <string name="youtube_player_http_403">Під час відтворення від сервера отримано помилку HTTP 403, ймовірно, через заборону IP-адреси або проблеми з деобфускацією URL-адреси потокової передачі</string>
     <string name="sign_in_confirm_not_bot_error">%1$s відмовляється надати дані та запитує пароль для підтвердження, що запитувач не бот.\n\n%1$s міг тимчасово заблокувати вашу IP-адресу. Ви можете почекати деякий час або перейти на іншу IP-адресу (наприклад, увімкнувши/вимкнувши VPN або перемкнувшись з Wi-Fi на мобільні дані).\n\nЩоб дізнатися докладніше, перегляньте <a href="%2$s">цю довідку</a>.</string>
     <string name="unsupported_content_in_country">Ці матеріали недоступні для вибраної країни матеріалів.\n\nЗмініть свій вибір у розділі \"Налаштування &gt; Матеріали &gt; Типова країна матеріалів\".</string>
     <string name="kao_dialog_warning">У серпні 2025 року, Google анонсувала, що з вересня 2026 року, для встановлення застосунків буде потрібна верифікація розробника для всіх Android застосунків на сертифікованих пристроях, включаючи ті, що були встановлені не через Play Store. Оскільки розробники NewPipe не згодні з цією вимогою, NewPipe перестане працювати на сертифікованих Android пристроях після цієї дати.</string>

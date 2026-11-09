@@ -13,9 +13,6 @@
     <string name="settings">הגדרות</string>
     <string name="did_you_mean">כוונתך הייתה „%1$s”\?</string>
     <string name="share_dialog_title">שיתוף עם</string>
-    <string name="use_external_video_player_title">שימוש בנגן סרטונים חיצוני</string>
-    <string name="use_external_video_player_summary">בחלק מהרזולוציות השמע יוסר</string>
-    <string name="use_external_audio_player_title">שימוש בנגן שמע חיצוני</string>
     <string name="controls_background_title">רקע</string>
     <string name="controls_popup_title">חלון צף</string>
     <string name="download_path_title">תיקייה להורדת סרטונים</string>
@@ -49,7 +46,6 @@
     <string name="content_language_title">שפת התוכן המועדפת</string>
     <string name="settings_category_video_audio_title">וידאו ושמע</string>
     <string name="settings_category_appearance_title">מראה</string>
-    <string name="background_player_playing_toast">מתנגן ברקע</string>
     <string name="popup_playing_toast">מתנגן בחלון צף</string>
     <string name="content">תוכן</string>
     <string name="show_age_restricted_content_title">הצגת תוכן עם הגבלת גיל</string>
@@ -80,7 +76,6 @@
     <string name="subscription_change_failed">לא הצלחתי לשנות מינוי</string>
     <string name="subscription_update_failed">לא ניתן לעדכן את המינוי</string>
     <string name="tab_subscriptions">מינויים</string>
-    <string name="fragment_feed_title">מה חדש</string>
     <string name="enable_search_history_title">היסטוריית חיפוש</string>
     <string name="enable_search_history_summary">שמירת שאילתות החיפוש מקומית</string>
     <string name="enable_watch_history_title">היסטוריית צפייה</string>
@@ -89,8 +84,6 @@
     <string name="resume_on_audio_focus_gain_summary">להמשיך לנגן לאחר הפרעות (למשל: שיחות טלפון)</string>
     <string name="show_hold_to_append_title">להציג את העצה „להחזיק כדי להוסיף לרשימת נגינה”</string>
     <string name="show_hold_to_append_summary">להציג עצה בעת לחיצה על הרקע או על הכפתור של הנגן הצף ב„פרטים:” על הסרטון</string>
-    <string name="settings_category_player_title">נגן</string>
-    <string name="settings_category_player_behavior_title">התנהגות</string>
     <string name="settings_category_history_title">היסטוריה ומטמון</string>
     <string name="best_resolution">רזולוציה מיטבית</string>
     <string name="undo">ביטול</string>
@@ -98,9 +91,6 @@
     <string name="notification_channel_name">התראה מ־NewPipe</string>
     <string name="notification_channel_description">התראות עבור הנגן של NewPipe</string>
     <string name="unknown_content">[לא ידוע]</string>
-    <string name="player_stream_failure">נגינת התזרים לא הצליחה</string>
-    <string name="player_unrecoverable_failure">אירעה תקלה בנגן ממנה לא ניתן להשתקם</string>
-    <string name="player_recoverable_failure">מתבצעת החלמה משגיאת נגן</string>
     <string name="your_comment">ההערה שלך (באנגלית):</string>
     <string name="error_details_headline">פרטים:</string>
     <string name="detail_thumbnail_view_description">נגינת סרטון, משך:</string>
@@ -201,7 +191,6 @@
     <string name="just_once">חד פעמי</string>
     <string name="import_data_title">ייבוא מסד נתונים</string>
     <string name="export_data_title">ייצוא מסד נתונים</string>
-    <string name="external_player_unsupported_link_type">נגנים חיצוניים לא תומכים בסוגי קישורים כאלה</string>
     <string name="file">קובץ</string>
     <string name="switch_to_background">העברה לרקע</string>
     <string name="switch_to_popup">העברה לחלון צף</string>
@@ -228,8 +217,6 @@
     <string name="background_player">נגן רקע</string>
     <string name="popup_player">נגן צף</string>
     <string name="always_ask_open_action">לשאול תמיד</string>
-    <string name="preferred_player_fetcher_notification_title">המידע מתקבל…</string>
-    <string name="preferred_player_fetcher_notification_message">התוכן המבוקש בטעינה</string>
     <string name="create_playlist">רשימת נגינה חדשה</string>
     <string name="rename_playlist">שינוי שם</string>
     <string name="name">שם</string>
@@ -481,41 +468,7 @@
         <item quantity="many">%d ימים</item>
         <item quantity="other">%d ימים</item>
     </plurals>
-    <string name="feed_groups_header_title">קבוצות ערוצים</string>
-    <string name="feed_oldest_subscription_update">עדכון ההזנה האחרון: %s</string>
-    <string name="feed_subscription_not_loaded_count">לא נטען: %d</string>
-    <string name="feed_notification_loading">ההזנה נטענת…</string>
-    <string name="feed_processing_message">ההזנה בהליכי עיבוד…</string>
-    <string name="feed_group_dialog_select_subscriptions">בחירת מינויים</string>
-    <string name="feed_group_dialog_empty_selection">לא נבחר מינוי</string>
-    <string name="feed_group_dialog_empty_name">שם הקבוצה ריק</string>
-    <string name="feed_group_dialog_delete_message">למחוק את הקבוצה הזאת\?</string>
-    <string name="feed_create_new_group_button_title">חדשה</string>
-    <string name="settings_category_feed_title">הזנה</string>
-    <string name="feed_update_threshold_title">סף עדכון ההזנה</string>
     <string name="feed_update_threshold_option_always_update">לעדכן תמיד</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">הפעלת מצב מהיר</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">השבתת מצב מהיר</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">נבחר אחד</item>
-        <item quantity="two">%d נבחרו</item>
-        <item quantity="many">%d נבחרו</item>
-        <item quantity="other">%d נבחרו</item>
-    </plurals>
-    <string name="feed_update_threshold_summary">הזמן לאחר העדכון האחרון בטרם מינוי נחשב לבלתי עדכני — %s</string>
-    <string name="feed_use_dedicated_fetch_method_title">לקבל מהזנה ייעודית כשניתן</string>
-    <string name="feed_use_dedicated_fetch_method_summary">זמין בחלק מהשירותים, האפשרות הזאת בדרך כלל מהירה יותר אך עשויה להחזיר כמות מוגבלת של פריטים ולעתים פרטים חלקיים (למשל: חסר משך הפרק, סוג הפריט, אין מצב חי)</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">לדעתך הטעינה אטית מדי\? אם זה המצב אצלך, כדאי לנסות להפעיל טעינה מהירה (ניתן לשנות בהגדרות או על ידי לחיצה על הכפתור שלהלן).
-\n
-\nהיישומון NewPipe מציע שתי אסטרטגיות לטעינת הזנה:
-\n• הורדת כל ערוץ המינוי, אטי אבל שלם.
-\n• באמצעות נקודת קצה ייעודית, מהיר אבל חלקי.
-\n
-\nההבדל בין השתיים הוא שבמהירה חסרים פרטים, כמו משך הפריט או סוגו (אין אפשרות להבדיל בין סרטונים חיים לרגילים) והיא עשויה להחזיר פחות פריטים.
-\n
-\nYouTube זאת דוגמה לשירות שמציע את השיטה המהירה הזאת עם הזנת ה־RSS שלו.
-\n
-\nלכן עומדת בפניך הבחירה: מהירות או דיוק בפרטים.</string>
     <string name="content_not_supported">תוכן זה לא נתמך עדיין על ידי NewPipe.
 \n
 \nאנו מקווים שתתווסף תמיכה בגרסאות עתידיות.</string>
@@ -537,7 +490,6 @@
     <string name="video_detail_by">מאת %s</string>
     <string name="channel_created_by">נוצר ע״י %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">תמונה ממוזערת של הערוץ</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">להציג רק מינויים שאינם בקבוצות</string>
     <string name="playlist_page_summary">עמוד רשימות נגינה</string>
     <string name="no_playlist_bookmarked_yet">אין עדיין סימניות ברשימת הנגינה</string>
     <string name="select_a_playlist">בחירת רשימת נגינה</string>
@@ -627,14 +579,8 @@
     <string name="description_select_disable">השבתת בחירת טקסט בתיאור</string>
     <string name="description_select_enable">הפעלת בחירת טקסט בתיאור</string>
     <string name="description_select_note">מעתה ניתן לבחור טקסט בתוך התיאור. נא לשים לב שהעמוד עשוי להבהב והקישורים לא יהיו לחיצים בזמן מצב הבחירה.</string>
-    <string name="feed_load_error_terminated">חשבון היוצר הושמד.
-\nל־NewPipe לא תהיה אפשרות להוריד את ההזנה הזאת בעתיד.
-\nלהסיר את המינוי מהערוץ הזה\?</string>
     <string name="open_website_license">פתיחת האתר</string>
     <string name="account_terminated">החשבון הושמד</string>
-    <string name="feed_load_error_fast_unknown">מצב ההזנה המהירה לא מספק מידע נוסף על כך.</string>
-    <string name="feed_load_error_account_info">לא ניתן לטעון את ההזנה עבור ‚%s’.</string>
-    <string name="feed_load_error">שגיאה בהורדת ההזנה</string>
     <string name="downloads_storage_use_saf_summary_api_29">התמיכה ב‚תשתית גישה לאחסון’ נתמכת מ־Android 10 בלבד</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">תופיע שאלה לאן לשמור כל הורדה</string>
     <string name="no_dir_yet">טרם הוגדרה תיקיית הורדה, נא לבחור את תיקיית ההורדה כעת</string>
@@ -663,18 +609,12 @@
         <item quantity="other">%s הורדות הסתיימו</item>
     </plurals>
     <string name="main_page_content_swipe_remove">ניתן להחליק פריטים להסרתם</string>
-    <string name="start_main_player_fullscreen_summary">לא להפעיל סרטונים בנגן המוקטן, לעבור למצב מסך מלא ישירות במקום זאת, אם הטיה אוטומטית מושבתת. עדיין ניתן לגשת לנגן המוקטן על ידי יציאה ממסך מלא</string>
-    <string name="start_main_player_fullscreen_title">הפעלת הנגן הראשי במסך מלא</string>
     <string name="enqueued_next">נוסף כהבא בתור</string>
     <string name="enqueue_next_stream">הוספה כהבא בתור</string>
     <string name="processing_may_take_a_moment">מתבצע עיבוד… נא להמתין רגע קט</string>
     <string name="check_for_updates">איתור עדכונים</string>
     <string name="checking_updates_toast">מתבצע איתור עדכונים…</string>
     <string name="manual_update_description">לנסות לאתר גרסאות חדשות ידנית</string>
-    <string name="feed_new_items">פריטים חדשים בהזנה</string>
-    <string name="crash_the_player">להקריס את הנגן</string>
-    <string name="show_crash_the_player_title">הצגת „להקריס את הנגן”</string>
-    <string name="show_crash_the_player_summary">הצגת אפשרות קריסה בעת שימוש בנגן</string>
     <string name="error_report_channel_description">התראות לדיווח על שגיאות</string>
     <string name="show_error_snackbar">הצגת חלונית בזק עם שגיאה</string>
     <string name="create_error_notification">יצירת התראת שגיאה</string>
@@ -693,7 +633,6 @@
     <string name="streams_notifications_network_title">נדרש חיבור לרשת</string>
     <string name="get_notified">קבלת הודעה</string>
     <string name="toggle_all">להחליף את המצב של הכול</string>
-    <string name="settings_category_player_notification_summary">הגדרת התראת התזרים שמתנגן כרגע</string>
     <string name="notifications">התראות</string>
     <plurals name="new_streams">
         <item quantity="one">תזרים חדש</item>
@@ -707,7 +646,6 @@
     <string name="enable_streams_notifications_summary">הודעה על תזרימים חדשים מהמינויים</string>
     <string name="enumeration_comma">,</string>
     <string name="streams_notification_channel_name">תזרימים חדשים</string>
-    <string name="settings_category_player_notification_title">התראות נגן</string>
     <string name="any_network">רשת כלשהי</string>
     <string name="delete_downloaded_files_confirm">למחוק את כל הקבצים שהורדו מהכונן\?</string>
     <string name="notifications_disabled">התראות מושבתות</string>
@@ -719,7 +657,6 @@
     <string name="no_audio_streams_available_for_external_players">אין תזרימי שמע שזמינים לנגנים חיצוניים</string>
     <string name="unknown_quality">איכות לא מוכרת</string>
     <string name="no_video_streams_available_for_external_players">אין תזרימי וידאו שזמינים לנגנים חיצוניים</string>
-    <string name="select_quality_external_players">בחירת איכות לנגנים חיצוניים</string>
     <string name="unknown_format">תצורה לא מוכרת</string>
     <string name="progressive_load_interval_title">גודל משך טעינת נגינה</string>
     <string name="sort">מיון</string>
@@ -743,16 +680,11 @@
     <string name="volume">עוצמת שמע</string>
     <string name="none">בלי</string>
     <string name="remove_duplicates_message">להסיר את כל השידורים הכפולים ברשימת הנגינה\?</string>
-    <string name="feed_show_partially_watched">נצפו חלקית</string>
-    <string name="feed_show_upcoming">בקרוב</string>
     <string name="brightness">בהירות</string>
     <string name="left_gesture_control_summary">נא לבחור מחווה לחצי השמאלי של מסך הנגן</string>
     <string name="right_gesture_control_summary">נא לבחור מחווה לחצי הימני של מסך הנגן</string>
     <string name="remove_duplicates">הסרת כפילויות</string>
     <string name="remove_duplicates_title">להסיר כפילויות\?</string>
-    <string name="feed_show_watched">נצפו במלואם</string>
-    <string name="feed_hide_streams_title">להציג את השידורים הבאים</string>
-    <string name="feed_show_hide_streams">להציג/להסתיר שידורים</string>
     <string name="prefer_original_audio_title">להעדיף שמע מקורי</string>
     <string name="prefer_original_audio_summary">לבחור את רצועת השמע המקורית ללא תלות בשפה</string>
     <string name="prefer_descriptive_audio_title">להעדיף שמע מפורט</string>
@@ -761,19 +693,10 @@
     <string name="audio_track">רצועת שמע</string>
     <string name="audio_track_present_in_video">רצועת שמע כבר אמורה להיות כחלק מהתזרים</string>
     <string name="unknown_audio_track">לא ידועה</string>
-    <string name="settings_category_exoplayer_title">הגדרות ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_title">להשתמש ביכולת הגיבוי של המפענח של ExoPlayer</string>
     <string name="audio_track_type_original">מקורי</string>
     <string name="audio_track_type_dubbed">מדובב</string>
-    <string name="select_audio_track_external_players">בחירת רצועת שמע לנגנים חיצוניים</string>
     <string name="audio_track_type_descriptive">מפורט</string>
-    <string name="settings_category_exoplayer_summary">ניהול חלק מהגדרות של ה־ExoPlayer שלך. השינויים האלו דורשים את הפעלת הנגן מחדש כדי להיכנס לתוקף</string>
     <string name="progressive_load_interval_summary">שינוי גודל מרווח הטעינה (כרגע %s). ערך נמוך יותר עשוי להאיץ את טעינת הווידאו הראשונית</string>
-    <string name="use_exoplayer_decoder_fallback_summary">יש להפעיל את האפשרות הזאת אם נתקלת בבעיות עם אתחול מפענח, מה שגורם להנחתה למפענחים עם עדיפות נמוכה יותר אם אתחול המפענחים העיקריים נכשל. עלול לגרום לביצועי נגינה נחותים לעומת מפענחים ראשיים</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">תמיד להשתמש במעקף הגדרות משטח פלט הווידאו של ExoPlayer</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">המעקף הזה משחרר ומקים מחדש את מפענחי הווידאו כשמשתנה שינוי במשטח, במקום להגדיר את המשטח למפענח ישירות. כבר נעשה בזה שימוש על ידי ExoPlayer בחלק מהמכשירים עם התקלה הזאת, הגדרה זו משפיעה על Android 6 ומעלה בלבד
-\n
-\nהפעלת האפשרות עשויה למנוע שגיאות נגינה בעת חזרה לנגן הווידאו הנוכחית או במעבר למסך מלא</string>
     <string name="main_tabs_position_title">מקום לשוניות ראשיות</string>
     <string name="main_tabs_position_summary">להעביר את בורר הלשוניות הראשי לתחתית</string>
     <string name="audio_track_name">%1$s %2$s</string>
@@ -789,7 +712,6 @@
     <string name="feed_fetch_channel_tabs">משיכת לשוניות הערוץ</string>
     <string name="channel_tab_about">על אודות</string>
     <string name="channel_tab_albums">אלבומים</string>
-    <string name="feed_fetch_channel_tabs_summary">לשוניות למשיכה בעת עדכון ערוץ העדכונים. לאפשרות זו אין השפעה אם הערוץ מתעדכן במצב מהיר.</string>
     <string name="channel_tab_playlists">רשימות נגינה</string>
     <string name="channel_tab_tracks">רצועות</string>
     <string name="channel_tab_channels">ערוצים</string>
@@ -846,9 +768,6 @@
     <string name="audio_track_type_secondary">משני</string>
     <string name="tab_bookmarks_short">רשימות נגינה</string>
     <string name="share_playlist_as_youtube_temporary_playlist">שיתוף כרשימת נגינה זמנית של YouTube</string>
-    <string name="select_a_feed_group">הגדרת קבוצת ערוצי עדכונים</string>
-    <string name="no_feed_group_created_yet">לא נוצרו עדיין קבוצות ערוצי עדכונים</string>
-    <string name="feed_group_page_summary">עמוד קבוצת ערוצים</string>
     <string name="search_with_service_name">חיפוש ב־%1$s</string>
     <string name="search_with_service_name_and_filter">חיפוש ב־%1$s‏ (%2$s)</string>
     <string name="channel_tab_likes">לייקים</string>
@@ -869,9 +788,6 @@
     <string name="entry_deleted">הרשומה נמחקה</string>
     <string name="migration_info_6_7_message">SoundCloud הפסיקו את מצעדי 50 הלהיטים המקוריים. הלשונית התואמת הוסרה מהעמוד הראשי שלך.</string>
     <string name="migration_info_7_8_message">ב־YouTube הושבת עמוד המובילים המשולב החל מ־21 ביולי 2025. NewPipe החליפה את עמוד המובילים המוגדר כברירת מחדל בשידורים חיים מובילים.\n\nניתן גם לבחור עמודי מובילים שונים תחת „הגדרות &gt; תוכן &gt; תוכן הדף הראשי”.</string>
-    <string name="player_http_403">שגיאת HTTP 403 שהתקבלה מהשרת בזמן השמעה, ככל הנראה נגרמת עקב פקיעת כתובת URL של סטרימינג או חסימת IP</string>
-    <string name="player_http_invalid_status">שגיאת HTTP %1$s התקבלה מהשרת בזמן הניגון</string>
-    <string name="youtube_player_http_403">שגיאת HTTP‏ 403 שהתקבלה מהשרת בזמן הניגון, ככל הנראה נגרמה עקב חסימת IP או בעיות בהסרת ערפול כתובת תזרים</string>
     <string name="sign_in_confirm_not_bot_error">%1$s סירב לספק נתונים, וביקש התחברות כדי לאשר שהמבקש אינו בוט.\n\nכנראה שה־IP שלך נחסם זמנית על ידי %1$s, ניתן להמתין זמן מה או לעבור ל־IP אחר (לדוגמה על ידי הפעלה/כיבוי של VPN, או על ידי מעבר מרשת אלחוטית לתקשורת נתונים סלולרית).\n\nנא לקרוא <a href="%2$s">את רשומת FAQ הזאת</a> למידע נוסף.</string>
     <string name="unsupported_content_in_country">תוכן זה אינו זמין עבור מדינת התוכן שנבחרה כעת.\n\nניתן לשנות את בחירתך דרך „הגדרות &gt; תוכן &gt; מדינת תוכן ברירת מחדל”.</string>
     <plurals name="export_subscriptions">

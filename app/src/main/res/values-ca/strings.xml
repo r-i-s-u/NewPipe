@@ -12,7 +12,6 @@
     <string name="show_info">Mostra la informació</string>
     <string name="tab_subscriptions">Subscripcions</string>
     <string name="tab_bookmarks">Llistes de reproducció desades</string>
-    <string name="fragment_feed_title">Novetats</string>
     <string name="download_path_title">Carpeta de baixada dels vídeos</string>
     <string name="download_path_audio_title">Carpeta de baixada dels fitxers d\'àudio</string>
     <string name="default_resolution_title">Resolució per defecte</string>
@@ -25,8 +24,6 @@
     <string name="black_theme_title">Negre</string>
     <string name="enable_watch_history_title">Historial de reproduccions</string>
     <string name="download_dialog_title">Baixa</string>
-    <string name="settings_category_player_title">Reproductor</string>
-    <string name="settings_category_player_behavior_title">Comportament</string>
     <string name="settings_category_video_audio_title">Vídeo i àudio</string>
     <string name="settings_category_history_title">Historial i memòria cau</string>
     <string name="settings_category_appearance_title">Aparença</string>
@@ -100,7 +97,6 @@
     <string name="controls_download_desc">Baixa el fitxer de vídeo</string>
     <string name="did_you_mean">Volíeu dir: \"%1$s\"\?</string>
     <string name="share_dialog_title">Comparteix-ho amb</string>
-    <string name="use_external_video_player_title">Reproductor de vídeo extern</string>
     <string name="channel_unsubscribed">Heu eliminat la subscripció a aquest canal</string>
     <string name="subscription_change_failed">No s\'ha pogut modificar la subscripció</string>
     <string name="subscription_update_failed">No s\'ha pogut actualitzar la subscripció</string>
@@ -133,7 +129,6 @@
     <string name="show_next_and_similar_title">Mostra el vídeo següent i similars</string>
     <string name="default_content_country_title">País per defecte dels continguts</string>
     <string name="content_language_title">Llengua per defecte dels continguts</string>
-    <string name="background_player_playing_toast">S\'està reproduint en rerefons</string>
     <string name="popup_playing_toast">S\'està reproduint en mode emergent</string>
     <string name="notification_channel_name">Notificació de NewPipe</string>
     <string name="notification_channel_description">Notificacions per al reproductor de NewPipe</string>
@@ -142,9 +137,6 @@
     <string name="content_not_available">Contingut no disponible</string>
     <string name="could_not_setup_download_menu">No s\'ha pogut configurar el menú de baixades</string>
     <string name="app_ui_crash">Ha fallat l\'aplicació o la interfície d\'usuari</string>
-    <string name="player_stream_failure">No s\'ha pogut reproduir aquest vídeo</string>
-    <string name="player_unrecoverable_failure">S\'ha produït un error irrecuperable al reproductor</string>
-    <string name="external_player_unsupported_link_type">Els reproductors externs no són compatibles amb aquesta mena d\'enllaços</string>
     <string name="video_streams_empty">No s\'ha trobat cap flux de vídeo</string>
     <string name="audio_streams_empty">No s\'ha trobat cap flux d\'àudio</string>
     <string name="invalid_directory">La carpeta no existeix</string>
@@ -209,15 +201,11 @@
     <string name="top_50">Els millors 50</string>
     <string name="drawer_open">Obre el calaix</string>
     <string name="drawer_close">Tanca el calaix</string>
-    <string name="preferred_player_fetcher_notification_title">S\'està obtenint la informació…</string>
-    <string name="preferred_player_fetcher_notification_message">S\'està carregant el contingut seleccionat</string>
     <string name="delete_playlist_prompt">Voleu eliminar aquesta llista de reproducció\?</string>
     <string name="playback_speed_control">Controls de la velocitat de reproducció</string>
     <string name="playback_tempo">Tempo</string>
     <string name="playback_pitch">To</string>
     <string name="main_bg_subtitle">Toqueu la lupa per començar.</string>
-    <string name="use_external_video_player_summary">Elimina l\'àudio en algunes resolucions</string>
-    <string name="use_external_audio_player_title">Reproductor d\'àudio extern</string>
     <string name="enable_search_history_summary">Emmagatzema les cerques localment</string>
     <string name="enable_watch_history_summary">Crea un historial de vídeos visualitzats</string>
     <string name="resume_on_audio_focus_gain_title">Reprèn la reproducció</string>
@@ -228,7 +216,6 @@
     <string name="switch_to_popup">Canvia al mode emergent</string>
     <string name="switch_to_main">Canvia al mode principal</string>
     <string name="import_data_summary">Sobreescriu l\'historial, les subscripcions i, opcionalment, els paràmetres</string>
-    <string name="player_recoverable_failure">S\'està recuperant el reproductor després de l\'error</string>
     <string name="sorry_string">Bé, és lamentable.</string>
     <string name="detail_drag_description">Arrossegueu per reordenar la llista</string>
     <string name="start">Inicia</string>
@@ -452,41 +439,7 @@
     <string name="content_not_supported">El NewPipe encara no suporta aquest contingut.
 \n
 \nEsperem que en el futur ho faci.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Creieu que la càrrega de contingut és massa lenta\? Si és el cas, proveu d\'activar la càrrega ràpida (podeu canviar-ho a paràmetres o al botó de sota).
-\n
-\nEl NewPipe ofereix dues formes de càrrega de contingut per als feeds:
-\n• Descarregant-ne el canal sencer, que és lent però complet.
-\n• Fent servir un servei dedicat, que és molt ràpid però sovint incomplet.
-\n
-\nLa diferència entre els dos és que el ràpid sovint retorna la informació incompleta. Per exemple, pot faltar la durada o el tipus (sense poder distingir entre una retransmissió en directe i un vídeo normal) i podria ser que faltessin alguns elements.
-\n
-\nYouTube és un exemple d\'un servei que ofereix aquest sistema de càrrega ràpida pels seus feed RSS.
-\n
-\nEn definitiva, l\'elecció depèn de si preferiu rapidesa a assegurar-vos que l\'informació és precisa.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Desactiva el mode ràpid</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Activa el mode ràpid</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Disponible en alguns serveis, normalment és més ràpid, però podria només incloure un nombre limitat de contingut i sovint informació incomplerta (per exemple, sense durada, tipus…)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Recupera des d\'un feed dedicat si és possible</string>
     <string name="feed_update_threshold_option_always_update">Actualitza sempre</string>
-    <string name="feed_update_threshold_summary">Temps que ha de passar perquè una subscripció es consideri obsoleta — %s</string>
-    <string name="feed_update_threshold_title">Llindar d\'actualització del contingut</string>
-    <string name="settings_category_feed_title">Flux</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Mostra només les subscripcions sense grup</string>
-    <string name="feed_create_new_group_button_title">Nou</string>
-    <string name="feed_group_dialog_delete_message">Esteu segurs de voler suprimir aquest grup\?</string>
-    <string name="feed_group_dialog_empty_name">Nom de grup buit</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d de seleccionat</item>
-        <item quantity="many">%d de seleccionats</item>
-        <item quantity="other">%d de seleccionats</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Cap subscripció seleccionada</string>
-    <string name="feed_group_dialog_select_subscriptions">Selecciona subscripcions</string>
-    <string name="feed_processing_message">Processant el contingut…</string>
-    <string name="feed_notification_loading">Carregant el contingut…</string>
-    <string name="feed_subscription_not_loaded_count">No carregat: %d</string>
-    <string name="feed_oldest_subscription_update">Contingut refrescat per últim cop: %s</string>
-    <string name="feed_groups_header_title">Grups de canals</string>
     <plurals name="days">
         <item quantity="one">%d dia</item>
         <item quantity="many">%d dies</item>
@@ -612,11 +565,6 @@
     <string name="night_theme_summary">Selecciona el teu tema fosc favorit — %s</string>
     <string name="auto_device_theme_title">Automàtic (tema del dispositiu)</string>
     <string name="account_terminated">Usuari suspes</string>
-    <string name="feed_load_error_terminated">El compte de l\'autor ha estat esborrat.
-\nNewPipe no serà capaç de carregar aquest fil en el futur.
-\nUs voleu desubscriure d\'aquest canal\?</string>
-    <string name="feed_load_error_account_info">No s\'ha pogut carregar el contingut per \'%s\'.</string>
-    <string name="feed_load_error">Error carregant contingut</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Ara se\'t pregunrarà on vols guardar cada descàrrega</string>
     <string name="dont_show">No mostris</string>
     <string name="low_quality_smaller">Baixa qualitat (més petit)</string>
@@ -630,11 +578,8 @@
     <string name="night_theme_title">Tema fosc</string>
     <string name="mark_as_watched">Marca com a vist</string>
     <string name="processing_may_take_a_moment">Processant... Pot trigar un moment</string>
-    <string name="start_main_player_fullscreen_title">Inicia el reproductor principal en pantalla completa</string>
     <string name="main_page_content_swipe_remove">Llisqueu els elements per eliminar-los</string>
-    <string name="start_main_player_fullscreen_summary">Si la rotació automàtica està bloquejada, no inicieu vídeos al mini reproductor, sinó que aneu directament al mode de pantalla completa. Podeu accedir igualment al mini reproductor sortint de pantalla completa</string>
     <string name="error_report_channel_name">Notificació d\'informe d\'error</string>
-    <string name="crash_the_player">Tancar abruptament el reproductor</string>
     <string name="check_for_updates">Comprovar si hi ha actualitzacions</string>
     <string name="manual_update_description">Comprovar manualment si hi ha noves versions</string>
     <plurals name="download_finished_notification">
@@ -659,17 +604,12 @@
         <item quantity="other">S\'han suprimit %1$s baixades</item>
     </plurals>
     <string name="downloads_storage_use_saf_summary_api_29">A partir de l\'Android 10 només s\'admet el \"Sistema d\'Accés a l\'Emmagatzematge\"</string>
-    <string name="feed_new_items">Elements de feed nous</string>
-    <string name="feed_load_error_fast_unknown">El mode d\'alimentació ràpida no proporciona més informació sobre això.</string>
     <string name="detail_pinned_comment_view_description">Comentari fixat</string>
-    <string name="show_crash_the_player_title">Mostra \"Força el tancament del reproductor\"</string>
-    <string name="show_crash_the_player_summary">Mostra una opció de fallada quan s\'utilitza el reproductor</string>
     <string name="leak_canary_not_available">El LeakCanary no està disponible</string>
     <string name="streams_notifications_interval_title">Comprovant freqüència</string>
     <string name="streams_notifications_network_title">Es necesita una conexió a Internet</string>
     <string name="any_network">Qualsevol xarxa</string>
     <string name="enumeration_comma">,</string>
-    <string name="settings_category_player_notification_title">Notificació del reproductor</string>
     <string name="notifications">Notificacions</string>
     <string name="faq_description">Si tens problemes utilitzant la aplicació, comprova las preguntes freqüents!</string>
     <string name="check_new_streams">Ejecutar comprovació per nous streams</string>
@@ -681,11 +621,9 @@
     <string name="delete_downloaded_files_confirm">Borrar tots el fitxers descargats al disc\?</string>
     <string name="get_notified">Ser notificat</string>
     <string name="you_successfully_subscribed">Ara estás subscrit a aquest canal</string>
-    <string name="select_quality_external_players">Selecciona la qualitat per reproductors externs</string>
     <string name="unknown_format">Format desconegut</string>
     <string name="unknown_quality">Cualitat desconeguda</string>
     <string name="sort">Ordenar</string>
-    <string name="settings_category_player_notification_summary">Configura la notificació de reproducció actual</string>
     <string name="progressive_load_interval_summary">Canvia la mida de l\'interval de càrrega en continguts progressius (actualment %s). Un valor inferior pot accelerar la càrrega inicial del vídeo</string>
     <string name="ignore_hardware_media_buttons_title">Ignora els esdeveniments dels botons de reproducció físics</string>
     <string name="ignore_hardware_media_buttons_summary">Útil, per exemple, si feu servir uns auriculars amb els botons físicament trencats</string>
@@ -744,7 +682,6 @@
     <string name="app_update_available_notification_text">Clica per descarregar%s</string>
     <string name="audio_track_type_dubbed">doblat</string>
     <string name="toggle_all">Commuta-ho tot</string>
-    <string name="feed_show_upcoming">Pròximament</string>
     <string name="channel_tab_livestreams">En directe</string>
     <string name="play">Reprodueix</string>
     <string name="replay">Torna a reproduir</string>
@@ -757,7 +694,6 @@
     <string name="audio_track_present_in_video">Ja hi hauria d\'haver una pista d\'àudio en aquest flux</string>
     <string name="selected_stream_external_player_not_supported">El contingut escollit no és suportat per cap reproductor extern</string>
     <string name="no_video_streams_available_for_external_players">No hi ha cap flux de vídeo disponible per a reproductors externs</string>
-    <string name="select_audio_track_external_players">Escull la pista d\'àudio per a reproductors externs</string>
     <string name="unknown_audio_track">Desconegut</string>
     <string name="audio_track_name">%1$s%2$s</string>
     <string name="audio_track_type_original">original</string>
@@ -781,9 +717,7 @@
     <string name="rewind">Rebobina</string>
     <string name="share_playlist_with_titles">Comparteix amb els títols</string>
     <string name="streams_not_yet_supported_removed">No es mostren els contiguts que no suporten descàrrega</string>
-    <string name="feed_hide_streams_title">Mostra els vídeos següents</string>
     <string name="no_audio_streams_available_for_external_players">No hi ha cap flux d\'àudio disponible per a reproductors externs</string>
-    <string name="feed_show_hide_streams">Mostra/Amaga els vídeos</string>
     <string name="night_theme_available">Aquesta opció només està disponible si%ss\'ha seleccionat per al tema</string>
     <string name="next_stream">Vídeo següent</string>
     <plurals name="replies">
@@ -795,20 +729,11 @@
     <string name="progressive_load_interval_exoplayer_default">Valor per defecte d\'ExoPlayer</string>
     <string name="metadata_thumbnails">Miniatures</string>
     <string name="channel_tab_about">Quant a</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Usa sempre la sortida de vídeo d\'ExoPlayer com a solució de contingència</string>
     <string name="import_settings_vulnerable_format">La configuració exportada que vols importar té un format vulnerable que és obsolet des de NewPipe 0.27.0. Assegura\'t que l\'exportació que vols importar prové d\'una font de confiança i prefereix només les exportacions fetes amb NewPipe 0.27.0 o posterior d\'ara endavant. El suport a la importació de configuracions en aquest format vulnerable aviat serà suprimit completament i aleshores les antigues versions de NewPipe ja no podran importar les exportacions de les configuracions des de les noves versions.</string>
     <string name="channel_tab_albums">Àlbums</string>
     <string name="show_channel_tabs">Pestanyes del canal</string>
     <string name="image_quality_high">Qualitat alta</string>
     <string name="image_quality_summary">Tria la qualitat de les imatges i si carregar-les totalment o no per reduir l\'ús de les dades i la memòria. Els canvis suprimiran la memòria cau de les imatges a la memòria i al disc — %s</string>
-    <string name="feed_fetch_channel_tabs_summary">Pestanyes que es recuperaran en actualitzar el contingut. Aquesta opció no s\'aplica si el canal s\'actualitza en mode ràpid.</string>
-    <string name="feed_show_partially_watched">Vist parcialment</string>
-    <string name="feed_show_watched">Vist completament</string>
-    <string name="settings_category_exoplayer_title">Paràmetres d\'ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Gestiona alguns paràmetres d\'ExoPlayer. Caldrà reinciciar el reproductor per activar-los</string>
-    <string name="use_exoplayer_decoder_fallback_title">Usa la funció de suport de decodificació d\'ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Habilita aquesta opció si tens problemes en iniciar el decodificador. S\'usaran decodificadors alternatius de baixa prioritat si falla el decodificador primari. Això pot provocar una disminució de la qualitat de la reproducció en relació a l\'ús del decodificador primari</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Aquesta alternativa allibera i reinstancia els còdecs de vídeo si hi ha un canvi de màscara en lloc de configurar-la directament al còdec. ExoPlayer ja ho aplica en alguns dispositius amb aquest problema. Aquesta configuració només té efecte en Android 6 i posteriors\n\nHabilitar aquest opció pot prevenir errors de reproducció en canviar el reproductor actual o en passar a pantalla completa</string>
     <string name="channel_tab_tracks">Pistes</string>
     <string name="channel_tab_shorts">Curts</string>
     <string name="toggle_fullscreen">Canvia a pantalla completa</string>
@@ -817,9 +742,6 @@
     <string name="show_less">Mostra menys</string>
     <string name="audio_track_type_secondary">secundària</string>
     <string name="channel_tab_channels">Canals</string>
-    <string name="no_feed_group_created_yet">Encara no s\'ha creat cap grup de continguts</string>
-    <string name="select_a_feed_group">Tria un grup de continguts</string>
-    <string name="feed_group_page_summary">Pàgina del grup de canals</string>
     <string name="search_with_service_name">Cercar %1$s</string>
     <string name="search_with_service_name_and_filter">Cercar %1$s (%2$s)</string>
     <string name="short_billion">%sB</string>
@@ -863,9 +785,6 @@
     <string name="migration_info_6_7_title">Pàgina Top 50 de SoundCloud eliminada</string>
     <string name="migration_info_6_7_message">SoundCloud ha descontinuat les llistes Top 50 originals. La pestanya corresponent s\'ha eliminat de la pàgina principal.</string>
     <string name="migration_info_7_8_message">YouTube va descontinuar la pàgina de tendències combinades a partir del 21 de juliol de 2025. NewPipe va reemplaçar la pàgina de tendències predeterminada amb les transmissions en viu de tendències.\n\nTambé podeu seleccionar diferents pàgines de tendències a \"Configuració &gt; Contingut &gt; Contingut de la pàgina principal\".</string>
-    <string name="player_http_403">Error HTTP 403 rebut del servidor durant la reproducció, probablement causat per l\'expiració de la URL de transmissió o un bloqueig d\'IP.</string>
-    <string name="player_http_invalid_status">Error HTTP %1$s rebut del servidor durant la reproducció</string>
-    <string name="youtube_player_http_403">Error HTTP 403 rebut del servidor durant la reproducció, probablement causat per un bloqueig d\'IP o problemes de desofuscació de la URL de transmissió</string>
     <string name="sign_in_confirm_not_bot_error">\'\'%1$s es va negar a proporcionar dades, sol·licitant un inici de sessió per confirmar que el sol·licitant no és un bot.\n\nÉs possible que %1$s hagi bloquejat temporalment la vostra IP. Pots esperar un temps o canviar a una IP diferent (per exemple, activant/desactivant una VPN o canviant de Wi-Fi a dades mòbils).\n\nConsulta <a href="%2$s">aquesta entrada de preguntes freqüents</a> per obtenir més informació’</string>
     <string name="unsupported_content_in_country">Aquest contingut no està disponible per al país de contingut seleccionat actualment.\n\nCanvia la teva selecció a \"Paràmetres &gt; Contingut &gt; País de contingut predeterminat\".</string>
     <string name="kao_dialog_warning">A l\'agost del 2025, Google va anunciar que, a partir del setembre del 2026, la instal·lació d\'aplicacions requerirà la verificació del desenvolupador per a totes les aplicacions d\'Android en dispositius certificats, incloses les instal·lades fora de la Play Store. Com que els desenvolupadors de NewPipe no estan d\'acord amb aquest requisit, NewPipe deixarà de funcionar en dispositius Android certificats després d\'aquesta data.</string>

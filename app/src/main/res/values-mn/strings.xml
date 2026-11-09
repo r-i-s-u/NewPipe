@@ -15,8 +15,6 @@
     <string name="search">Хайх</string>
     <string name="settings">Тохиргоо</string>
     <string name="did_you_mean">Та \"%1$s\" гэх гэж байсан уу?</string>
-    <string name="use_external_video_player_title">Гадны тоглууглагч ашиглах</string>
-    <string name="use_external_video_player_summary">Зарим дүрслэл дээр дуугүй болгоно</string>
     <string name="unsubscribe">Бүртгэлээ цуцлах</string>
     <string name="channel_unsubscribed">Сувгийн бүртгэл цуцлагдсан</string>
     <string name="subscription_change_failed">Бүртгэлт цуцалж чадсангүй</string>
@@ -28,7 +26,6 @@
     <string name="download_path_audio_summary">Татагдсан дуунууд энд хадгалагдана</string>
     <string name="download_path_audio_dialog_title">Дуун файлуудыг татах хавтас сонгоно уу</string>
     <string name="default_resolution_title">Үндсэн хэмжээс</string>
-    <string name="use_external_audio_player_title">Гадны дуу тоглуулагч ашиглах</string>
     <string name="download">Татах</string>
     <string name="subscription_update_failed">Бүртгэл шинэчлэж чадсангүй</string>
     <string name="show_info">Мэдээлэл харах</string>

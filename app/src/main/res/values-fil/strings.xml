@@ -15,9 +15,6 @@
     <string name="settings">Mga Setting</string>
     <string name="did_you_mean">\"%1$s\" ba ang tinutukoy mo\?</string>
     <string name="share_dialog_title">Ibahagi sa</string>
-    <string name="use_external_video_player_title">Gumamit ng ibang video player</string>
-    <string name="use_external_video_player_summary">Nawawala ang tunog sa ilang resolusyon</string>
-    <string name="use_external_audio_player_title">Gumamit ng ibang audio player</string>
     <string name="subscribe_button_title">Sumubaybay</string>
     <string name="subscribed_button_title">Sumusubaybay</string>
     <string name="unsubscribe">Tumigil sa pagsubaybay</string>
@@ -28,7 +25,6 @@
     <string name="tab_subscriptions">Mga Pagsubaybay</string>
     <string name="tab_bookmarks">Nakabookmark na Playlists</string>
     <string name="tab_choose">Pumili ng Tab</string>
-    <string name="fragment_feed_title">Anong Bago</string>
     <string name="controls_background_title">Likuran</string>
     <string name="controls_popup_title">Palutangin</string>
     <string name="controls_add_to_playlist_title">Idagdag Sa</string>
@@ -93,7 +89,6 @@
     <string name="black_theme_title">Maitim</string>
     <string name="show_play_with_kodi_summary">Magpapakita ng option na i-play ang video sa Kodi media center</string>
     <string name="show_higher_resolutions_title">Ipakita ang mga mas mataas na linaw</string>
-    <string name="crash_the_player">I-crash ang player</string>
     <string name="popup_remember_size_pos_title">Tandaan ang mga property ng popup</string>
     <string name="default_popup_resolution_title">Panimulang linaw ng popup</string>
     <string name="show_higher_resolutions_summary">Mape-play lang ng ilang device ang mga video na 2K/4K</string>
@@ -194,8 +189,6 @@
         <item quantity="one">%d araw</item>
         <item quantity="other">mga %d araw</item>
     </plurals>
-    <string name="start_main_player_fullscreen_title">Buksan ang pangunahing player sa fullscreen</string>
-    <string name="settings_category_player_notification_summary">Itakda ang kasalukuyang notipikasyon ng playing stream</string>
     <string name="downloads">Mga download</string>
     <string name="error_report_title">Ulat sa problema</string>
     <string name="channels">Mga channel</string>
@@ -214,7 +207,6 @@
     <string name="peertube_instance_url_help">Mahahanap mo sa %s ang hilig mong mga instansya</string>
     <string name="resume_on_audio_focus_gain_summary">Patuloy na mag-play pagkatapos ng istorbo (hal. tawag sa telepono)</string>
     <string name="download_dialog_title">I-download</string>
-    <string name="start_main_player_fullscreen_summary">Huwag buksan ang mga video sa mini player at dumiretso na sa fullscreen mode kung naka-lock ang awto rotasyon. Magagamit mo pa rin ang mini player kung aalis ka sa fullscreen</string>
     <string name="show_hold_to_append_title">Ipakita ang tip ng \"I-hold para ipila\"</string>
     <string name="show_hold_to_append_summary">Ipakita ang tip tuwing pinpindot ang background o ang buttong pumapop-up sa video na \"Details:\"</string>
     <string name="unsupported_url_dialog_message">Hindi makilala ang URL. Buksan sa ibang app\?</string>
@@ -225,7 +217,6 @@
     <string name="peertube_instance_add_title">Magdagdag ng mga instansya</string>
     <string name="peertube_instance_add_fail">Hindi maberipika ang instansya</string>
     <string name="peertube_instance_add_exists">Naidagdag na ang instansyang iyan</string>
-    <string name="settings_category_player_behavior_title">Ugali</string>
     <string name="settings_category_video_audio_title">Bidyo at tunog</string>
     <string name="settings_category_history_title">Kasaysayan at cache</string>
     <string name="settings_category_updates_title">Mga update</string>
@@ -237,15 +228,12 @@
     <string name="artists">Mga artista</string>
     <string name="youtube_restricted_mode_enabled_title">Gamitin ang \"Restricted Mode\" ng YouTube</string>
     <string name="popup_playing_toast">Nagpe-play sa popup mode</string>
-    <string name="background_player_playing_toast">Nagpe-play sa background</string>
-    <string name="settings_category_player_title">Player</string>
     <string name="peertube_instance_add_help">Ilagay ang URL ng instansya</string>
     <string name="peertube_instance_url_summary">Piliin ang iyong mga paboritong instansya ng PeerTube</string>
     <string name="downloads_title">Mga download</string>
     <string name="all">Lahat</string>
     <string name="default_content_country_title">Default na bansa ng nilalaman</string>
     <string name="unsupported_url">Di-suportadong URL</string>
-    <string name="settings_category_player_notification_title">Notipikasyon ng player</string>
     <string name="tracks">Mga track</string>
     <string name="users">Mga gumagamit</string>
     <string name="metadata_age_limit">Hangganan ng Edad</string>

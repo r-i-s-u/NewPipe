@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="use_external_video_player_title">Tashqi video pleerdan foydalanish</string>
     <string name="share_dialog_title">Bilan baham ko\'rish</string>
     <string name="search_showing_result_for">%s uchun natijalar ko\'rsatilmoqda</string>
     <string name="did_you_mean">\"%1$s\" demoqchimisiz\?</string>
@@ -79,8 +78,6 @@
     <string name="unsubscribe">Obunani bekor qilish</string>
     <string name="subscribed_button_title">Obuna bo\'lindi</string>
     <string name="subscribe_button_title">Obuna bo\'lish</string>
-    <string name="use_external_audio_player_title">Tashqi audio pleerdan foydalanish</string>
-    <string name="use_external_video_player_summary">Ba\'zi piksellarda ovozni o\'chirish</string>
     <string name="clear_views_history_title">Tomosha tarixini tozalash</string>
     <string name="clear_cookie_summary">ReCAPTCHA-ni hal qilganingizda NewPipe-da saqlanadigan cookie-fayllarni o\'chirib tashlang</string>
     <string name="export_data_summary">Eksport tarixi, obunalari va pleylistlari</string>
@@ -129,14 +126,11 @@
     <string name="show_age_restricted_content_title">Yoshi cheklangan tarkibni ko\'rsatish</string>
     <string name="content">Tarkib</string>
     <string name="popup_playing_toast">Pop-up rejimda ijro etish</string>
-    <string name="background_player_playing_toast">Ijro etish foni</string>
     <string name="settings_category_updates_title">Yangilanishlar</string>
     <string name="settings_category_debug_title">Nosozliklarni tuzatish</string>
     <string name="settings_category_appearance_title">Tashqi ko\'rinish</string>
     <string name="settings_category_history_title">Tarix va kesh</string>
     <string name="settings_category_video_audio_title">Video va audio</string>
-    <string name="settings_category_player_behavior_title">Xatti-harakat</string>
-    <string name="settings_category_player_title">Ijro etish</string>
     <string name="peertube_instance_add_exists">Namuna allaqachon mavjud</string>
     <string name="peertube_instance_add_https_only">Faqat HTTPS URL-lari qo\'llab-quvvatlanadi</string>
     <string name="peertube_instance_add_fail">Namunani tasdiqlab bo\'lmadi</string>
@@ -302,10 +296,6 @@
     <string name="missing_file">Fayl ko\'chirildi yoki o\'chirildi</string>
     <string name="audio_streams_empty">Hech qanday audio stream topilmadi</string>
     <string name="video_streams_empty">Hech qanday video stream topilmadi</string>
-    <string name="external_player_unsupported_link_type">Tashqi playerlar ushbu turdagi havolalarni qo\'llab-quvvatlamaydilar</string>
-    <string name="player_recoverable_failure">Player xatosidan qutulish</string>
-    <string name="player_unrecoverable_failure">Qayta tiklanmaydigan pleyerda xatolik yuz berdi</string>
-    <string name="player_stream_failure">Ushbu stream ijro etilmadi</string>
     <string name="could_not_setup_download_menu">Yuklab olish menyusi sozlanmadi</string>
     <string name="content_not_available">Tarkib mavjud emas</string>
     <string name="parsing_error">Veb-saytni tahlil qilib bo\'lmadi</string>
@@ -332,41 +322,7 @@
     <string name="content_not_supported">Ushbu tarkib hali NewPipe tomonidan qo\'llab-quvvatlanmaydi.
 \n
 \nUmid qilamanki, kelgusi versiyada qo\'llab-quvvatlanadi.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Sizningcha, ta\'minotni yuklash juda sekinmi\? Agar shunday bo\'lsa, tez yuklashni yoqib ko\'ring (uni sozlamalardan yoki quyidagi tugmani bosib o\'zgartirishingiz mumkin).
-\n
-\nNewPipe ikkita lentani yuklash strategiyasini taklif qiladi:
-\n• Sekin, lekin to\'liq bo\'lgan obuna kanalini to\'liq olish.
-\n• Tez, lekin odatda to\'liq bo\'lmagan maxsus xizmatning so\'nggi nuqtasidan foydalanish.
-\n
-\nIkkalasining farqi shundaki, tezkor narsaning davomiyligi yoki turi kabi ba\'zi ma\'lumotlarga ega emas (jonli videolar va oddiy videolarni ajrata olmaydi) va u kamroq narsalarni qaytarishi mumkin.
-\n
-\nYouTube ushbu tezkor usulni RSS tasmasi bilan taqdim etadigan xizmatning namunasidir.
-\n
-\nShunday qilib, tanlov siz afzal ko\'rgan narsaga bog\'liq: tezlik yoki aniq ma\'lumot.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Tez rejimni o\'chirish</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Tez rejimni yoqish</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Ba\'zi xizmatlarda mavjud bo\'lib, u tezroq bo\'ladi, lekin cheklangan miqdordagi narsalar va ko\'pincha to\'liq bo\'lmagan ma\'lumotlarni qaytarishi mumkin (masalan, davomiyligi, element turi, jonli holatda bo\'lmagan).</string>
-    <string name="feed_use_dedicated_fetch_method_title">Agar mavjud bo\'lsa, maxsus lentadan oling</string>
     <string name="feed_update_threshold_option_always_update">Har doim yangilab turish</string>
-    <string name="feed_update_threshold_summary">Obunadan oldingi, so\'nggi yangilanishdan keyingi vaqt eskirgan hisoblanadi - %s</string>
-    <string name="feed_update_threshold_title">Tasmani yangilash chegarasi</string>
-    <string name="settings_category_feed_title">Ta\'minlamoq</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Faqat guruhlanmagan obunalarni ko\'rsatish</string>
-    <string name="feed_create_new_group_button_title">Yangi</string>
-    <string name="feed_group_dialog_delete_message">Ushbu guruhni o\'chirmoqchimisiz\?</string>
-    <string name="feed_group_dialog_empty_name">Bo\'sh guruh nomi</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d tanlangan</item>
-        <item quantity="other">%d tanlanganlar</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Obuna tanlanmadi</string>
-    <string name="feed_group_dialog_select_subscriptions">Obunalarni tanlang</string>
-    <string name="feed_processing_message">Tasma qayta ishlanmoqda…</string>
-    <string name="feed_notification_loading">Tasma yuklanmoqda…</string>
-    <string name="feed_subscription_not_loaded_count">Yuklanmadi: %d</string>
-    <string name="feed_oldest_subscription_update">Oxirgi yangilanish: %s</string>
-    <string name="feed_groups_header_title">Kanal guruhlari</string>
-    <string name="fragment_feed_title">Nima yangiliklar</string>
     <plurals name="days">
         <item quantity="one">%d kun</item>
         <item quantity="other">%d kunlar</item>
@@ -521,8 +477,6 @@
     <string name="name">Nomi</string>
     <string name="rename_playlist">Nomni o\'zgartirish</string>
     <string name="create_playlist">Yangi Playlist</string>
-    <string name="preferred_player_fetcher_notification_message">So\'ralgan tarkib yuklanmoqda</string>
-    <string name="preferred_player_fetcher_notification_title">Ma\'lumot olinmoqda…</string>
     <string name="always_ask_open_action">Har doim so\'rash</string>
     <string name="video_player">Video pleyer</string>
     <string name="popup_player">Pop-up pleyer</string>

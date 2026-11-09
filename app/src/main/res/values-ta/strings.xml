@@ -15,8 +15,6 @@
     <string name="open_in_popup_mode">திரைமேல் நிலையில் காட்டு</string>
     <string name="controls_download_desc">நிகழ்பட கோப்பைப் பதிவிறக்கு</string>
     <string name="did_you_mean">\"%1$s\" என்றீர்களா\?</string>
-    <string name="use_external_video_player_title">வேறு நிகழ்பட ஓட்டியைப் பயன்படுத்து</string>
-    <string name="use_external_audio_player_title">வேறு ஒலி இயக்கியைப் பயன்படுத்து</string>
     <string name="subscribe_button_title">சந்தாசேர்</string>
     <string name="subscribed_button_title">சந்தாசேர்ந்தாயிற்று</string>
     <string name="channel_unsubscribed">சேனல் சந்தாநீக்கப்பட்டது</string>
@@ -25,7 +23,6 @@
     <string name="show_info">தகவல் காண்பி</string>
     <string name="tab_subscriptions">சந்தாக்கள்</string>
     <string name="tab_bookmarks">நூற்குறித்த ஒளிச்சரங்கள்</string>
-    <string name="fragment_feed_title">புதிதாக</string>
     <string name="controls_background_title">பின்புலம்</string>
     <string name="controls_popup_title">திரைமேல்</string>
     <string name="controls_add_to_playlist_title">இதற்கு சேர்</string>
@@ -59,12 +56,9 @@
     <string name="enable_watch_history_title">பார்த்த வரலாறு</string>
     <string name="enable_watch_history_summary">பார்த்த காணொளிகளை குறிப்பிடு</string>
     <string name="download_dialog_title">பதிவிறக்கு</string>
-    <string name="settings_category_player_title">இயக்கி</string>
-    <string name="settings_category_player_behavior_title">பண்பு</string>
     <string name="settings_category_video_audio_title">காணொளியும் ஒலியும்</string>
     <string name="settings_category_history_title">வரலாறும் பதுக்ககமும்</string>
     <string name="settings_category_appearance_title">தோற்றம்</string>
-    <string name="background_player_playing_toast">பிண்ணணியில் ஓடுகிறது</string>
     <string name="popup_playing_toast">திரைமேல் நிலையில் ஓடுகிறது</string>
     <string name="duration_live">நேரலை</string>
     <string name="downloads">பதிவிறக்கங்கள்</string>
@@ -91,7 +85,6 @@
     <string name="video">காணொலி</string>
     <string name="audio">ஒலி</string>
     <string name="retry">மீண்டும் முயற்சி</string>
-    <string name="use_external_video_player_summary">சில பிரிதிறன்களில் ஒலியை நீக்கும்</string>
     <string name="show_higher_resolutions_summary">சில சாதனங்கள் மட்டுமே 2k/4k காணொளிகளை இயக்கமுடியும்</string>
     <string name="show_play_with_kodi_summary">காணொளிகளை Kodi media centerஉடன் இயக்கும் இடப்பைக் காட்டு</string>
     <string name="use_inexact_seek_title">வேகமான பொருத்தமற்ற தேடலை பயன்படுத்து</string>
@@ -229,7 +222,6 @@
     <string name="restore_defaults_confirmation">இயல்பிருப்புகளை மீட்டெடுக்க வேண்டுமா\?</string>
     <string name="related_items_tab_description">உறவுடைய உருப்படிகள்</string>
     <string name="clear_cookie_summary">reCAPTCHAஐ தீர்க்கையில் NewPipe சேமிக்கும் நினைவிகளைத் துடை</string>
-    <string name="start_main_player_fullscreen_title">முதன்மை இயக்கியை முழுதிரையில் துவக்கு</string>
     <string name="peertube_instance_add_fail">நிகழ்வை செல்லுபடுயாக்க முடியவில்லை</string>
     <string name="clear_playback_states_summary">எல்லா இயக்கக குறியிடங்களையும் அழிக்கும்</string>
     <string name="delete_playback_states_alert">எல்லா இயக்கக குறியிடங்களையும் அழிக்கவா\?</string>
@@ -259,30 +251,22 @@
     <string name="info_labels">என்ன:\nகோரிக்கை:\nஉள்ளடக்க மொழி:\nஉள்ளடக்க நாடு:\nசெயலி மொழி:\nசேவை:\nGMT நேரம்:\nசிப்பம்:\nபதிப்பு:\nOS பதிப்பு:</string>
     <string name="detail_thumbnail_view_description">காணொளியை இயக்கு, காலவளவு:</string>
     <string name="comments_tab_description">கருத்தளிப்புகள்</string>
-    <string name="crash_the_player">இயக்கியைச் சிதை</string>
     <string name="enable_playback_state_lists_summary">பட்டியல்களில் இயக்கக குறியட நிலைகாட்டிகளைக் காட்டு</string>
-    <string name="start_main_player_fullscreen_summary">துணையியக்கியில் காணொளிகளை துவக்காதே, ஆனால் தானாக சுழற்றல் பூட்டப்பட்டிருந்தால் நேரடியாக முழுதிரைக்குத் திரும்பு. முழுதிரையை வெளியேறி நீங்கள் இன்னும் துணையியக்கியை அணுகலாம்</string>
     <string name="unsupported_url_dialog_message">உரலியை அங்கீகரக்க முடியவில்லை. மற்றொரு செயலியில் திறக்கவா\?</string>
     <string name="restricted_video">இக்காணொளி வயது வரம்புக்குட்டபட்டது.
 \n
 \nஇதைக் காண வேண்டுமெனில் அமைவில் \"%1$s\"ஐ இயக்கு.</string>
     <string name="error_report_channel_name">பிழையறிக்கை அறிவிப்பு</string>
-    <string name="player_stream_failure">இப்பாய்வினை இயக்க முடியவில்லை</string>
-    <string name="player_unrecoverable_failure">மீட்கவியலாத இயக்கி பிழை ஏற்பட்டது</string>
     <string name="error_report_notification_toast">பிழை ஏற்பட்டது, அறிவிப்பைப் பார்</string>
-    <string name="player_recoverable_failure">இயக்கி பிழையிலிருந்து மீளப்பெறுகிறது</string>
     <string name="invalid_file">கோப்பு இல்லை அ அதனை எழுதபடிக்கும் அனுமதி குறைகிறது</string>
     <string name="no_streams_available_download">பதிவிறக்கா எப்பாய்வும் கிடைக்கவில்லை</string>
     <string name="saved_tabs_invalid_json">சேமித்த தாவல்களை வாசிக்க முடியவில்லை, ஆக இயல்பிருப்புகளைப் பயன்படுத்துகிறது</string>
     <string name="error_report_open_issue_button_text">GitHub இல் புகாரளி</string>
-    <string name="external_player_unsupported_link_type">இவ்வகை தொடுப்புகளைப் புற இயக்கிகள் ஆதரக்கா</string>
     <string name="copy_for_github">வடிவமைக்கப்பட்ட அறிக்கையை நகலெடு</string>
     <string name="permission_display_over_apps">பிற செயலிகள் மீது காட்டும் அனுமதி கொடு</string>
-    <string name="preferred_player_fetcher_notification_message">கோரிய உள்ளடக்கத்தை ஏற்றுகிறது</string>
     <string name="auto">தானாக</string>
     <string name="night_theme_summary">உம் அபிமான இருண்ட தோற்றத்தைத் தேர்ந்தெடு — %s</string>
     <string name="close">மூடு</string>
-    <string name="preferred_player_fetcher_notification_title">தகவலைப் பெறுகிறது…</string>
     <plurals name="deleted_downloads_toast">
         <item quantity="one">%1$s பதிவிறக்கம் அழிக்கபட்டது</item>
         <item quantity="other">%1$s பதிவிறக்கங்கள் அழிக்கபட்டன</item>
@@ -324,7 +308,6 @@
     <string name="playlist_creation_success">ஒளிச்சரம் படைக்கப்பட்டது</string>
     <string name="settings_file_replacement_character_title">மாற்றீடு வரியுரு</string>
     <string name="playlist_page_summary">ஒளிச்சரப் பக்கம்</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">ஒன்றிணைக்கா சந்தாக்களை மட்டும் காட்டு</string>
     <string name="import_settings">அமைவையும் இறக்குமதி செய்யவா\?</string>
     <string name="start_here_on_background">பின்னணியில் இயங்கத் துவங்கு</string>
     <string name="start_here_on_popup">பாப்அப்பில் இயங்கத் துவங்கு</string>
@@ -345,12 +328,9 @@
     <string name="delete_playlist_prompt">இந்த ஒளிச்சரத்தை அழிக்கவா\?</string>
     <string name="enqueued">சாரைபடுத்தப்பட்டது</string>
     <string name="subscriptions_export_unsuccessful">சந்தாக்களை ஏற்றுமதி செய்ய முடியவில்லை</string>
-    <string name="feed_group_dialog_select_subscriptions">சந்தாக்களைத் தேர்ந்தெடு</string>
     <string name="settings_file_replacement_character_summary">செல்லா வரியுருக்கள் இம்மதிப்புடன் மாற்றீடுசெய்யப்படும்</string>
     <string name="preferred_open_action_settings_title">நயமான \'திற\' செயல்</string>
     <string name="progressive_load_interval_title">பின்னணி சுழற்சியின் கால அளவு</string>
-    <string name="settings_category_player_notification_title">பிளேயர் அறிவிப்பு</string>
-    <string name="settings_category_player_notification_summary">தற்போதைய இயங்கும் ஸ்ட்ரீம் அறிவிப்பை உள்ளமைக்கவும்</string>
     <string name="show_hold_to_append_summary">\"விவரங்கள்:\" வீடியோவில் பின்னணி அல்லது பாப்அப் பட்டனை அழுத்தும் போது உதவிக்குறிப்பைக் காட்டு</string>
     <string name="auto_queue_summary">தொடர்புடைய ஸ்ட்ரீமைச் சேர்ப்பதன் மூலம் (மீண்டும் நிகழாத) பிளேபேக் வரிசையைத் தொடரவும்</string>
     <string name="progressive_load_interval_summary">முற்போக்கான உள்ளடக்கங்களில் (தற்போது %s) சுமை இடைவெளி அளவை மாற்றவும். குறைந்த மதிப்பு அவற்றின் ஆரம்ப ஏற்றுதலை விரைவுபடுத்தக்கூடும்</string>
@@ -367,22 +347,18 @@
     <string name="yes">ஆம்</string>
     <string name="no">இல்லை</string>
     <string name="delete_downloaded_files_confirm">வட்டில் இருக்கும் பதிவிறக்கம் செய்யப்பட்ட அனைத்து கோப்புகளையும் அழிக்கவா?</string>
-    <string name="feed_group_dialog_delete_message">இந்தக் குழுவை நீக்க வேண்டுமா?</string>
     <string name="delete">நீக்கு</string>
     <string name="one_item_deleted">ஒரு உருப்படி நீக்கப்பட்டது.</string>
     <string name="read_privacy_policy">தனியுரிமைக் கொள்கையைப் படியுங்கள்</string>
     <string name="error_unknown_host">சேவையகத்தைக் கண்டுபிடிக்க முடியவில்லை</string>
     <string name="drawer_header_description">சேவையை மாற்றி, தற்போது தேர்ந்தெடுக்கப்பட்டது:</string>
     <string name="caption_none">தலைப்புகள் இல்லை</string>
-    <string name="feed_groups_header_title">சேனல் குழுக்கள்</string>
     <string name="left_gesture_control_summary">பிளேயர் திரையின் இடது பாதிக்கு சைகையைத் தேர்வுசெய்க</string>
     <string name="msg_popup_permission">இந்த இசைவு தேவை\n பாப்அப் பயன்முறையில் திறக்கவும்</string>
     <plurals name="minutes">
         <item quantity="one">%d மணித்துளி</item>
         <item quantity="other">%d நிமிடங்கள்</item>
     </plurals>
-    <string name="feed_show_watched">முழுமையாகப் பார்த்தேன்</string>
-    <string name="feed_notification_loading">ஏற்றுதல் தீவனம்…</string>
     <string name="no_one_listening">யாரும் கேட்கவில்லை</string>
     <string name="recaptcha_solve">தீர்க்க</string>
     <string name="view_on_github">கிட்அப்பில் காண்க</string>
@@ -403,7 +379,6 @@
     <string name="show_error_snackbar">பிழை சிற்றுண்டியைக் காட்டு</string>
     <string name="playback_step">படி</string>
     <string name="app_update_available_notification_text">%s பதிவிறக்க தட்டவும்</string>
-    <string name="settings_category_feed_title">தீவனம்</string>
     <string name="metadata_privacy_private">தனிப்பட்ட</string>
     <string name="brightness">ஒளி</string>
     <string name="main_tabs_position_summary">முதன்மையான தாவல் தேர்வாளரை கீழே நகர்த்தவும்</string>
@@ -432,7 +407,6 @@
     <string name="metadata_avatars">அவதாரங்கள்</string>
     <string name="progressive_load_interval_exoplayer_default">எக்சோப்ளேயர் இயல்புநிலை</string>
     <string name="notifications_disabled">அறிவிப்புகள் முடக்கப்பட்டுள்ளன</string>
-    <string name="feed_show_partially_watched">ஓரளவு பார்த்தேன்</string>
     <string name="channel_tab_playlists">பிளேலிச்ட்கள்</string>
     <string name="channel_tab_albums">ஆல்பம்</string>
     <string name="toggle_fullscreen">மாற்று முழுத்திரை</string>
@@ -448,7 +422,6 @@
         <item quantity="one">%s பதில்</item>
         <item quantity="other">%s பதில்கள்</item>
     </plurals>
-    <string name="feed_update_threshold_summary">சந்தா காலாவதியானதாகக் கருதப்படுவதற்கு முன் கடைசி புதுப்பிப்புக்குப் பிறகு நேரம் - %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">சேனலின் அவதார் சிறுபடம்</string>
     <string name="unknown_format">தெரியாத வடிவம்</string>
     <string name="unknown_quality">அறியப்படாத தகுதி</string>
@@ -501,16 +474,9 @@
     <string name="remove_watched_popup_title">பார்த்த வீடியோக்களை அகற்றவா?</string>
     <string name="remove_duplicates_title">நகல்களை அகற்றவா?</string>
     <string name="remove_duplicates_message">இந்த பிளேலிச்ட்டில் உள்ள அனைத்து நகல் நீரோடைகளையும் அகற்ற விரும்புகிறீர்களா?</string>
-    <string name="feed_new_items">புதிய தீவன உருப்படிகள்</string>
-    <string name="feed_group_dialog_empty_name">வெற்று குழு பெயர்</string>
-    <string name="feed_update_threshold_title">உணவுப் புதுப்பிப்பு வாசல்</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">வேகமான பயன்முறையை இயக்கவும்</string>
-    <string name="feed_hide_streams_title">பின்வரும் நீரோடைகளைக் காட்டு</string>
-    <string name="feed_show_hide_streams">ச்ட்ரீம்களைக் காட்டு/மறைக்க</string>
     <string name="georestricted_content">இந்த உள்ளடக்கம் உங்கள் நாட்டில் கிடைக்கவில்லை.</string>
     <string name="give_back">திருப்பித் தரவும்</string>
     <string name="remove_watched_popup_partially_watched_streams">ஆம், மற்றும் ஓரளவு பார்த்த வீடியோக்கள்</string>
-    <string name="feed_oldest_subscription_update">கடைசியாக புதுப்பிக்கப்பட்டது: %s</string>
     <plurals name="listening">
         <item quantity="one">%s கேட்பவர்</item>
         <item quantity="other">%s கேட்போர்</item>
@@ -542,14 +508,10 @@
     <string name="error_progress_lost">முன்னேற்றம் இழந்தது, ஏனெனில் கோப்பு நீக்கப்பட்டது</string>
     <string name="downloads_storage_use_saf_summary">\'சேமிப்பக அணுகல் கட்டமைப்பு\' வெளிப்புற எச்டி கார்டுக்கு பதிவிறக்கங்களை அனுமதிக்கிறது</string>
     <string name="downloads_storage_use_saf_summary_api_29">ஆண்ட்ராய்டு 10 இலிருந்து தொடங்கி \'சேமிப்பக அணுகல் கட்டமைப்பு\' மட்டுமே ஆதரிக்கப்படுகிறது</string>
-    <string name="feed_load_error">ஊட்டத்தை ஏற்றுதல்</string>
     <string name="channel_created_by">%s ஆல் உருவாக்கப்பட்டது</string>
-    <string name="feed_fetch_channel_tabs_summary">ஊட்டத்தை புதுப்பிக்கும்போது பெற தாவல்கள். வேகமான பயன்முறையைப் பயன்படுத்தி ஒரு சேனல் புதுப்பிக்கப்பட்டால் இந்த விருப்பம் எந்த விளைவையும் ஏற்படுத்தாது.</string>
     <string name="tablet_mode_title">டேப்லெட் பயன்முறை</string>
     <string name="off">அணை</string>
     <string name="no_audio_streams_available_for_external_players">வெளிப்புற வீரர்களுக்கு ஆடியோ ச்ட்ரீம்கள் எதுவும் கிடைக்கவில்லை</string>
-    <string name="select_quality_external_players">வெளிப்புற வீரர்களுக்கான தரத்தைத் தேர்ந்தெடுக்கவும்</string>
-    <string name="feed_show_upcoming">வரவிருக்கும்</string>
     <string name="no_videos">வீடியோக்கள் இல்லை</string>
     <string name="resize_fit">பொருத்தம்</string>
     <string name="grid">வலைவாய்</string>
@@ -641,8 +603,6 @@
     <string name="disable_media_tunneling_title">மீடியா சுரங்கப்பாதையை முடக்கு</string>
     <string name="disable_media_tunneling_summary">நீங்கள் ஒரு கருப்பு திரை அனுபவித்தால் அல்லது வீடியோ பிளேபேக்கில் திணறினால் மீடியா சுரங்கப்பாதையை முடக்கு.</string>
     <string name="disable_media_tunneling_automatic_info">உங்கள் சாதனத்தில் முன்னிருப்பாக மீடியா சுரங்கப்பாதை முடக்கப்பட்டது, ஏனெனில் உங்கள் சாதன மாதிரி அதை ஆதரிக்காது என்று அறியப்படுகிறது.</string>
-    <string name="show_crash_the_player_title">\"வீரரை செயலிழக்க\" காட்டு</string>
-    <string name="show_crash_the_player_summary">பிளேயரைப் பயன்படுத்தும் போது செயலிழப்பு விருப்பத்தைக் காட்டுகிறது</string>
     <string name="check_new_streams">புதிய நீரோடைகளுக்கு காசோலை இயக்கவும்</string>
     <string name="crash_the_app">பயன்பாட்டை செயலிழக்கச் செய்யுங்கள்</string>
     <string name="import_title">இறக்குமதி</string>
@@ -703,22 +663,7 @@
     <string name="choose_instance_prompt">ஒரு நிகழ்வைத் தேர்வுசெய்க</string>
     <string name="remove_watched">பார்த்ததை அகற்று</string>
     <string name="new_seek_duration_toast">எக்சோப்ளேயர் கட்டுப்பாடுகள் காரணமாக தேடல் காலம் %d விநாடிகளுக்கு அமைக்கப்பட்டது</string>
-    <string name="feed_subscription_not_loaded_count">ஏற்றப்படவில்லை: %d</string>
-    <string name="feed_processing_message">செயலாக்க ஊட்டம்…</string>
-    <string name="feed_group_dialog_empty_selection">சந்தா எதுவும் தேர்ந்தெடுக்கப்படவில்லை</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d தேர்ந்தெடுக்கப்பட்டது</item>
-        <item quantity="other">%d தேர்ந்தெடுக்கப்பட்டன</item>
-    </plurals>
-    <string name="feed_create_new_group_button_title">புதிய</string>
     <string name="feed_update_threshold_option_always_update">எப்போதும் புதுப்பிக்கவும்</string>
-    <string name="feed_load_error_account_info">\'%s\' க்கு ஊட்டத்தை ஏற்ற முடியவில்லை.</string>
-    <string name="feed_load_error_terminated">ஆசிரியரின் கணக்கு நிறுத்தப்பட்டுள்ளது.\n நியூபைப் எதிர்காலத்தில் இந்த ஊட்டத்தை ஏற்ற முடியாது.\n இந்த சேனலில் இருந்து குழுவிலக விரும்புகிறீர்களா?</string>
-    <string name="feed_load_error_fast_unknown">ஃபாச்ட் ஃபீட் பயன்முறை இது குறித்த கூடுதல் தகவலை வழங்காது.</string>
-    <string name="feed_use_dedicated_fetch_method_title">கிடைக்கும்போது பிரத்யேக ஊட்டத்திலிருந்து பெறுங்கள்</string>
-    <string name="feed_use_dedicated_fetch_method_summary">சில சேவைகளில் கிடைக்கிறது, இது பொதுவாக மிக வேகமாக இருக்கும், ஆனால் ஒரு குறிப்பிட்ட அளவு உருப்படிகள் மற்றும் பெரும்பாலும் முழுமையற்ற தகவல்களைத் தரக்கூடும் (எ.கா. காலம், உருப்படி வகை, நேரடி நிலை இல்லை)</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">வேகமான பயன்முறையை முடக்கு</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">தீவன ஏற்றுதல் மிகவும் மெதுவாக இருப்பதாக நீங்கள் நினைக்கிறீர்களா? அப்படியானால், வேகமாக ஏற்றுவதை இயக்க முயற்சிக்கவும் (நீங்கள் அதை அமைப்புகளில் மாற்றலாம் அல்லது கீழே உள்ள பொத்தானை அழுத்துவதன் மூலம்).\n\n நியூபைப் இரண்டு தீவன ஏற்றுதல் உத்திகளை வழங்குகிறது:\n சந்தா சேனலைப் பெறுதல், இது மெதுவாக ஆனால் முழுமையானது.\n பணி ஒரு பிரத்யேக பணி இறுதிப் புள்ளியைப் பயன்படுத்துதல், இது வேகமானது ஆனால் பொதுவாக முழுமையடையாது.\n\n இரண்டிற்கும் இடையிலான வேறுபாடு என்னவென்றால், வேகமானவருக்கு வழக்கமாக உருப்படியின் காலம் அல்லது வகை போன்ற சில தகவல்கள் இல்லை (நேரடி வீடியோக்களுக்கும் சாதாரணமானவற்றுக்கும் இடையில் வேறுபடுத்த முடியாது) மற்றும் அது குறைவான உருப்படிகளைத் தரக்கூடும்.\n\n இந்த வேகமான முறையை அதன் ஆர்எச்எச் ஊட்டத்துடன் வழங்கும் சேவைக்கு யூடியூப் ஒரு எடுத்துக்காட்டு.\n\n எனவே தேர்வு நீங்கள் விரும்புவதைக் குறைக்கிறது: விரைவு அல்லது துல்லியமான செய்தி.</string>
     <string name="feed_fetch_channel_tabs">சேனல் தாவல்களைப் பெறுங்கள்</string>
     <string name="content_not_supported">இந்த உள்ளடக்கத்தை இன்னும் நியூபைப் ஆதரிக்கவில்லை.\n\n இது எதிர்கால பதிப்பில் ஆதரிக்கப்படும்.</string>
     <string name="video_detail_by">மூலம் %s</string>
@@ -758,13 +703,6 @@
     <string name="audio_track_present_in_video">இந்த ச்ட்ரீமில் ஏற்கனவே ஆடியோ டிராக் இருக்க வேண்டும்</string>
     <string name="selected_stream_external_player_not_supported">தேர்ந்தெடுக்கப்பட்ட ச்ட்ரீம் வெளிப்புற வீரர்களால் ஆதரிக்கப்படவில்லை</string>
     <string name="no_video_streams_available_for_external_players">வெளிப்புற வீரர்களுக்கு வீடியோ ச்ட்ரீம்கள் எதுவும் கிடைக்கவில்லை</string>
-    <string name="select_audio_track_external_players">வெளிப்புற பிளேயர்களுக்கான ஆடியோ டிராக்கைத் தேர்ந்தெடுக்கவும்</string>
-    <string name="settings_category_exoplayer_title">எக்சோப்ளேயர் அமைப்புகள்</string>
-    <string name="settings_category_exoplayer_summary">சில எக்சோப்ளேயர் அமைப்புகளை நிர்வகிக்கவும். இந்த மாற்றங்கள் நடைமுறைக்கு வர ஒரு வீரர் மறுதொடக்கம் தேவை</string>
-    <string name="use_exoplayer_decoder_fallback_title">எக்சோப்ளேயரின் டிகோடர் குறைவடையும் அம்சத்தைப் பயன்படுத்தவும்</string>
-    <string name="use_exoplayer_decoder_fallback_summary">உங்களிடம் டிகோடர் துவக்க சிக்கல்கள் இருந்தால் இந்த விருப்பத்தை இயக்கவும், இது முதன்மை டிகோடர்கள் துவக்கம் தோல்வியுற்றால் குறைந்த முன்னுரிமை டிகோடர்களுக்குத் திரும்பும். முதன்மை டிகோடர்களைப் பயன்படுத்துவதை விட இது மோசமான பின்னணி செயல்திறனை ஏற்படுத்தக்கூடும்</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">எப்போதும் எக்சோப்ளேயரின் வீடியோ வெளியீட்டு மேற்பரப்பு அமைப்பு பணித்தொகுப்பைப் பயன்படுத்துங்கள்</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">இந்த பணித்தொகுப்பு ஒரு மேற்பரப்பு மாற்றம் நிகழும்போது வீடியோ கோடெக்குகளை வெளியிட்டு மீண்டும் நிறுவுகிறது, அதற்கு பதிலாக கோடெக்கிற்கு நேரடியாக மேற்பரப்பை அமைப்பதற்கு பதிலாக. இந்த சிக்கலுடன் சில சாதனங்களில் ஏற்கனவே எக்சோப்ளேயரால் பயன்படுத்தப்படுகிறது, இந்த அமைப்பு ஆண்ட்ராய்டு 6 மற்றும் அதற்கு மேற்பட்டவற்றில் மட்டுமே தாக்கத்தை ஏற்படுத்துகிறது\n\n இந்த விருப்பத்தை இயக்குவது தற்போதைய வீடியோ பிளேயரை மாற்றும்போது அல்லது முழுத்திரைக்கு மாறும்போது பிளேபேக் பிழைகளைத் தடுக்கலாம்</string>
     <string name="audio_track_type_descriptive">விளக்கமான</string>
     <string name="channel_tab_videos">வீடியோக்கள்</string>
     <string name="channel_tab_tracks">தடங்கள்</string>
@@ -778,7 +716,4 @@
     <string name="image_quality_summary">தரவு மற்றும் நினைவக பயன்பாட்டைக் குறைக்க, படங்களின் தகுதி மற்றும் படங்களை ஏற்ற வேண்டுமா என்பதைத் தேர்வுசெய்க. மாற்றங்கள் நினைவகம் மற்றும் ஆன்-வட்டு பட தற்காலிக சேமிப்பு இரண்டையும் அழிக்கின்றன- %s</string>
     <string name="share_playlist_as_youtube_temporary_playlist">YouTube தற்காலிக பிளேலிச்ட்டாக பகிரவும்</string>
     <string name="tab_bookmarks_short">பிளேலிச்ட்கள்</string>
-    <string name="select_a_feed_group">தீவனக் குழுவைத் தேர்ந்தெடுக்கவும்</string>
-    <string name="no_feed_group_created_yet">இதுவரை எந்த ஊட்டக் குழுவும் உருவாக்கப்படவில்லை</string>
-    <string name="feed_group_page_summary">சேனல் குழு பக்கம்</string>
 </resources>

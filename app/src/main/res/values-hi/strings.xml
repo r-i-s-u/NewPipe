@@ -22,7 +22,6 @@
     <string name="download_dialog_title">डाउनलोड करें</string>
     <string name="settings_category_video_audio_title">वीडियो और ऑडियो</string>
     <string name="settings_category_history_title">इतिहास और कैश</string>
-    <string name="background_player_playing_toast">बैकग्राउंड में चल रहा है</string>
     <string name="no_views">कोई विऊ नहीं</string>
     <string name="no_videos">कोई वीडियो नहीं</string>
     <string name="title_activity_about">न्यूपाइप के बारे में जानें</string>
@@ -41,12 +40,8 @@
     <string name="cancel">रद्द करें</string>
     <string name="did_you_mean">क्या आप का मतलब \"%1$s\" था\?</string>
     <string name="share_dialog_title">के साथ शेयर करें</string>
-    <string name="use_external_video_player_title">बाहरी वीडियो प्लेयर का उपयोग करें</string>
-    <string name="use_external_video_player_summary">कुछ रिजॉल्युशनों पर ध्वनि हट सकती है</string>
-    <string name="use_external_audio_player_title">बाहरी ऑडियो प्लेयर का उपयोग करें</string>
     <string name="subscription_change_failed">सब्सक्रिप्शन बदली नहीं जा सकी</string>
     <string name="subscription_update_failed">सब्सक्रिप्शन अपडेट नहीं किया जा सका</string>
-    <string name="fragment_feed_title">क्या नया है</string>
     <string name="download_path_title">वीडियो के लिए डाउनलोड फ़ोल्डर</string>
     <string name="download_path_summary">डाउनलोड की गई वीडियो फ़ाइलें यहां संग्रहित होती हैं</string>
     <string name="download_path_dialog_title">वीडियो फ़ाइलों के लिए डाउनलोड फ़ोल्डर चुनें</string>
@@ -79,8 +74,6 @@
     <string name="show_hold_to_append_summary">जब बैकग्राउंड और पॉपअप बटन वीडियो के विवरण पन्ने में दबाई जाए तो सलाह दिखाएं</string>
     <string name="unsupported_url">असमर्थित URL</string>
     <string name="content_language_title">डिफ़ॉल्ट सामग्री की भाषा</string>
-    <string name="settings_category_player_title">प्लेयर</string>
-    <string name="settings_category_player_behavior_title">व्यवहार</string>
     <string name="settings_category_appearance_title">दिखावट</string>
     <string name="popup_playing_toast">वीडियो पॉपअप के अंदाज में चल रहा है</string>
     <string name="content">विषयवस्तु</string>
@@ -105,9 +98,6 @@
     <string name="content_not_available">विषय वस्तु उपलब्ध नहीं है</string>
     <string name="could_not_setup_download_menu">डाउनलोड मेनू स्थापित नहीं किया जा सका</string>
     <string name="app_ui_crash">ऐप/UI करैश हो गई</string>
-    <string name="player_stream_failure">इस वीडियो को चलाने में असफल हुए</string>
-    <string name="player_unrecoverable_failure">अनचाही वीडियो प्लेयर त्रुटी आयी है</string>
-    <string name="player_recoverable_failure">वीडियो प्लेयर त्रुटी से ठीक हो रहा है</string>
     <string name="sorry_string">खेद है, कि ऐसा होना नहीं चाहिए था।</string>
     <string name="error_report_button_text">रिपोर्ट को ईमेल से भेजें</string>
     <string name="error_snackbar_message">माफ़ करें, कुछ त्रुटि हो गई।</string>
@@ -195,7 +185,6 @@
     <string name="export_data_title">डेटाबेस निर्यात करें</string>
     <string name="import_data_summary">आपके वर्तमान इतिहास, सब्सक्रिप्शनस, प्लेलिस्ट और (वैकल्पिक रूप से) सेटिंग्स को ओवरराइड करता है</string>
     <string name="export_data_summary">इतिहास, सब्सक्रिप्शन, प्लेलिस्ट और सेटिंग निर्यात करें</string>
-    <string name="external_player_unsupported_link_type">बाहरी प्लेयर्स इन प्रकार के लिंक सपोर्ट नहीं करते</string>
     <string name="video_streams_empty">कोई वीडियो स्ट्रीम नहीं मिला</string>
     <string name="audio_streams_empty">कोई ऑडियो स्ट्रीम नहीं मिला</string>
     <string name="detail_drag_description">फिर से क्रम देने के लिए खींचें</string>
@@ -220,8 +209,6 @@
     <string name="background_player">बैकग्राउंड प्लेयर</string>
     <string name="popup_player">पॉपअप प्लेयर</string>
     <string name="always_ask_open_action">हमेशा पूछें</string>
-    <string name="preferred_player_fetcher_notification_title">जानकारी प्राप्त की जा रही है…</string>
-    <string name="preferred_player_fetcher_notification_message">अनुरोधित सामग्री लोड कर रहे है</string>
     <string name="create_playlist">नई प्लेलिस्ट</string>
     <string name="rename_playlist">नाम बदलें</string>
     <string name="name">नाम</string>
@@ -419,19 +406,6 @@
         <item quantity="one">%s श्रोता</item>
         <item quantity="other">%s श्रोता</item>
     </plurals>
-    <string name="feed_use_dedicated_fetch_method_enable_button">तेज मोड सक्षम करें</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">तेज मोड अक्षम करें</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">क्या आपको लगता है कि फीड लोडिंग बहुत धीमी है\? यदि ऐसा है, तो तेज़ लोडिंग को सक्षम करने का प्रयास करें (आप इसे सेटिंग्स में या नीचे दिए गए बटन को दबाकर बदल सकते हैं)।
-\n
-\nन्यूपाइप दो फीड लोडिंग रणनीति प्रदान करता है:
-\n• संपूर्ण सदस्यता चैनल प्राप्त करना, जो धीमा है लेकिन पूरा होता है।
-\n• एक समर्पित सेवा के समापन बिंदु का उपयोग करना, जो तेज़ है लेकिन आमतौर पर पूरा नहीं होता है।
-\n
-\nदोनों के बीच अंतर यह है कि तेज वाली रणनीति में आमतौर पर कुछ जानकारी का अभाव होता है, जैसे कि आइटम की अवधि या प्रकार (लाइव वीडियो और सामान्य वीडियो के बीच अंतर पता नहीं लगा सकते हैं) और ऐसा भी हो सकता है कि ये कम आइटम दिखाए।
-\n
-\nयूट्यूब ऐसी सेवा का एक उदाहरण है जो आरएसएस फ़ीड के साथ ये तेज़ विधि प्रदान करता है।
-\n
-\nतो आखिर में चुनाव आपकी पसंद पर है: गति या फिर सटीक जानकारी।</string>
     <string name="content_not_supported">यह सामग्री फिलहाल न्यूपाइप सपोर्ट नहीं करता है।
 \n
 \nआशा है कि भविष्य के संस्करणों में सपोर्ट किया जायेगा।</string>
@@ -543,16 +517,11 @@
     <string name="peertube_instance_add_title">इंसटैंस जोड़ें</string>
     <string name="peertube_instance_url_help">%s पर अपनी पसंद के इंसटैंस ढूँढ़ें</string>
     <string name="peertube_instance_url_summary">अपने पसंदीदा पीयर ट्यूब इंसटैंस चुनें</string>
-    <string name="start_main_player_fullscreen_title">मुख्य प्लेयर को पूर्ण स्क्रीन में शुरू करें</string>
-    <string name="start_main_player_fullscreen_summary">मिनी प्लेयर में वीडियो शुरू न करें, बलकि अगर ऑटो रोटेशन लॉक है तो सीधे फुल स्क्रीन मोड पर चलाएं। आप अब भी फ़ुलस्क्रीन से बाहर निकलकर मिनी प्लेयर तक पहुंच सकते हैं</string>
     <string name="comments_are_disabled">टिप्पणियाँ करना बंद है</string>
     <string name="mark_as_watched">देखा हुआ चिह्नित करें</string>
-    <string name="settings_category_player_notification_title">प्लेयर नोटीफिकेशन</string>
     <string name="notifications">नोटीफिकेशन</string>
-    <string name="crash_the_player">प्लेयर क्रैश करें</string>
     <string name="local_search_suggestions">स्थानीय खोज सुझाव</string>
     <string name="metadata_privacy_public">सार्वजनिक</string>
-    <string name="settings_category_player_notification_summary">चल रही स्ट्रीम की नोटीफिकेशन को कॉन्फ़िगर करें</string>
     <string name="streams_notification_channel_name">नई स्ट्रीमें</string>
     <string name="streams_notification_channel_description">सब्सक्रिप्शनस की नई स्ट्रीमों के बारे में नोटिफ़िकेशन</string>
     <string name="error_report_channel_name">त्रुटि रिपोर्ट नोटीफिकेशन</string>
@@ -565,7 +534,6 @@
     <string name="enqueued">कतारबद्ध हुआ</string>
     <string name="loading_stream_details">स्ट्रीम विवरण लोड हो रहे हैं…</string>
     <string name="processing_may_take_a_moment">प्रोसेस हो रहा है… कुछ समय लग सकता है</string>
-    <string name="show_crash_the_player_summary">प्लेयर का उपयोग करते समय क्रैश विकल्प दिखाता है</string>
     <string name="check_new_streams">नई स्ट्रीमों के लिए जांच चलाएं</string>
     <string name="show_error_snackbar">एक त्रुटि स्नैकबार दिखाएं</string>
     <string name="enable_streams_notifications_summary">सब्सक्रिप्शनस से नई स्ट्रीमों के बारे में सूचित करें</string>
@@ -583,10 +551,6 @@
     <string name="downloads_storage_use_saf_summary_api_29">एंड्रॉइड 10 से शुरू होकर केवल \'स्टोरेज एक्सेस फ्रेमवर्क\' समर्थित है</string>
     <string name="choose_instance_prompt">एक इंस्टेंस चुनें</string>
     <string name="remove_watched_popup_partially_watched_streams">हां, और आंशिक रूप से देखे गए वीडियो भी</string>
-    <string name="feed_notification_loading">फ़ीड लोड हो रही है…</string>
-    <string name="feed_update_threshold_title">फ़ीड अपडेट चरणसीमा</string>
-    <string name="feed_load_error">फ़ीड लोड करने में त्रुटि हूई</string>
-    <string name="feed_load_error_account_info">\'%s\' के लिए फ़ीड लोड नहीं हो सकी।</string>
     <string name="recent">हाल ही के</string>
     <string name="description_select_enable">विवरण में टेक्स्ट चुनने की सुविधा चालू करें</string>
     <string name="metadata_privacy">गोपनीयता</string>
@@ -603,7 +567,6 @@
     <string name="new_seek_duration_toast">एक्सोप्लेयर की बंदिश के कारण सीक करने की अवधि %d सेकंड पर सेट की गई</string>
     <string name="account_terminated">खाता बंद किया गया</string>
     <string name="streams_not_yet_supported_removed">जो स्ट्रीम अभी तक डाउनलोडर द्वारा समर्थित नहीं हैं, वो नहीं दिखाई जाती</string>
-    <string name="select_quality_external_players">बाहरी प्लेयरस के लिए क्वालिटी का चयन करें</string>
     <string name="unknown_format">अज्ञात फार्मेट</string>
     <string name="unknown_quality">अज्ञात क्वालिटी</string>
     <string name="crash_the_app">ऐप को क्रैश करें</string>
@@ -628,31 +591,16 @@
         <item quantity="one">%d दिन</item>
         <item quantity="other">%d दिन</item>
     </plurals>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d चयनित</item>
-        <item quantity="other">%d चयनित हुए</item>
-    </plurals>
     <string name="progressive_load_interval_exoplayer_default">एक्सोप्लेयर डिफ़ॉल्ट</string>
     <string name="progressive_load_interval_title">प्लेबैक लोड अंतराल आकार</string>
-    <string name="feed_group_dialog_empty_name">समूह का नाम नहीं</string>
-    <string name="feed_group_dialog_select_subscriptions">सब्सक्रिप्शनस चुनें</string>
-    <string name="feed_group_dialog_delete_message">क्या आप इस समूह को हटाना चाहते हैं\?</string>
-    <string name="feed_create_new_group_button_title">नया</string>
-    <string name="settings_category_feed_title">फ़ीड</string>
-    <string name="feed_new_items">नये फ़ीड आइटम</string>
-    <string name="feed_processing_message">फ़ीड प्रोसेस हो रही है …</string>
     <string name="open_website_license">वेबसाइट खोलें</string>
-    <string name="feed_use_dedicated_fetch_method_title">उपलब्ध होने पर समर्पित फ़ीड से प्राप्त करें</string>
     <string name="metadata_language">भाषा</string>
     <string name="on">ऑन</string>
     <string name="playlist_no_uploader">स्वतः बने (कोई अपलोडर नहीं मिला)</string>
-    <string name="feed_groups_header_title">चैनल समूह</string>
     <string name="faq_title">अक्सर पूछे जाते प्रश्न</string>
     <string name="faq">वेबसाइट पर देखें</string>
     <string name="main_page_content_swipe_remove">आइटम हटाने के लिए स्वाइप करें</string>
     <string name="disable_media_tunneling_title">मीडिया टनलिंग अक्षम करें</string>
-    <string name="show_crash_the_player_title">\"क्रैश द प्लेयर\" दिखाएं</string>
-    <string name="feed_subscription_not_loaded_count">लोड नहीं हुआ: %d</string>
     <string name="metadata_tags">टैग</string>
     <string name="metadata_licence">लाइसेंस</string>
     <string name="faq_description">यदि आपको ऐप का उपयोग करने में परेशानी हो रही है, तो सामान्य प्रश्नों के इन उत्तरों को देखना सुनिश्चित करें!</string>
@@ -673,14 +621,6 @@
         <item quantity="one">%d मिनट</item>
         <item quantity="other">%d मिनट्स</item>
     </plurals>
-    <string name="feed_oldest_subscription_update">फ़ीड आख़िरी दफा %s को अपडेट हुई</string>
-    <string name="feed_group_dialog_empty_selection">कोई सब्सक्रिप्शन नहीं चुनी हूई</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">केवल असमूहीकृत सब्सक्रिप्शनस दिखाएं</string>
-    <string name="feed_load_error_fast_unknown">फ़ास्ट फ़ीड मोड इस पर अधिक जानकारी प्रदान नहीं करता है।</string>
-    <string name="feed_update_threshold_summary">अपडेट अंतराल जब सब्सक्रिप्शन फ़ीड दोबारा अपडेट किये जा सकें — %s</string>
-    <string name="feed_load_error_terminated">लेखक का खाता समाप्त कर दिया गया है।
-\nन्यूपाइप भविष्य में इस फीड को लोड नहीं कर पाएगा।
-\nक्या आप इस चैनल की सदस्यता समाप्त करना चाहते हैं\?</string>
     <string name="selected_stream_external_player_not_supported">चयनित स्ट्रीम बाहरी प्लेयरस द्वारा समर्थित नहीं है</string>
     <string name="no_appropriate_file_manager_message_android_10">इस क्रिया के लिए कोई उपयुक्त फ़ाइल प्रबंधक नहीं मिला।
 \nकृपया स्टोरेज एक्सेस फ्रेमवर्क संगत फ़ाइल प्रबंधक इंस्टॉल करें</string>
@@ -692,7 +632,6 @@
     <string name="you_successfully_subscribed">आपने इस चैनल को अभी सब्सक्राइब किया है</string>
     <string name="no_video_streams_available_for_external_players">बाहरी प्लेयरस के लिए कोई वीडियो स्ट्रीम उपलब्ध नहीं है</string>
     <string name="no_audio_streams_available_for_external_players">बाहरी प्लेयरस के लिए कोई ऑडियो स्ट्रीम उपलब्ध नहीं है</string>
-    <string name="feed_use_dedicated_fetch_method_summary">कुछ सेवाओं में उपलब्ध, यह आमतौर पर बहुत तेज होता है लेकिन सीमित मात्रा में जानकारी प्रदान कर पाता है और वह भी अक्सर अधूरी जानकारी (जैसे कि अवधि, आइटम की किसम, स्ट्रीम लाइव है, नहीं बता पाता)</string>
     <string name="no_appropriate_file_manager_message">इस क्रिया के लिए कोई उपयुक्त फ़ाइल प्रबंधक नहीं मिला।
 \nकृपया फ़ाइल प्रबंधक इंस्टॉल करें या डाउनलोड सेटिंग में \'%s\' को अक्षम करने का प्रयास करें</string>
     <plurals name="deleted_downloads_toast">
@@ -713,13 +652,8 @@
     <string name="remove_duplicates">डुप्लीकेट हटाएं</string>
     <string name="remove_duplicates_title">डुप्लीकेट हटाए जाएं\?</string>
     <string name="remove_duplicates_message">क्या आप इस प्लेलिस्ट में मौजूद सभी डुप्लीकेट स्ट्रीम हटाना चाहते हैं\?</string>
-    <string name="feed_hide_streams_title">निम्नलिखित स्ट्रीम दिखाएँ</string>
-    <string name="feed_show_upcoming">आगामी</string>
     <string name="ignore_hardware_media_buttons_title">हार्डवेयर मीडिया बटन घटनाओं की अनदेखी करें</string>
     <string name="ignore_hardware_media_buttons_summary">उपयोगी है, उदाहरण के लिए, यदि आप टूटे हुए भौतिक बटन वाले हेडसेट का उपयोग कर रहे हैं</string>
-    <string name="feed_show_hide_streams">स्ट्रीम दिखाएँ / छिपाएँ</string>
-    <string name="feed_show_watched">पूरा देखा</string>
-    <string name="feed_show_partially_watched">आंशिक रूप से देखा गया</string>
     <string name="left_gesture_control_title">बाएँ इशारा क्रिया</string>
     <string name="brightness">चमक</string>
     <string name="volume">आवाज़</string>
@@ -733,20 +667,11 @@
     <string name="prefer_original_audio_summary">भाषा की परवाह किए बिना मूल ऑडियो ट्रैक का चयन करें</string>
     <string name="play_queue_audio_track">ऑडियो: %s</string>
     <string name="audio_track">ऑडियो ट्रैक</string>
-    <string name="select_audio_track_external_players">बाहरी प्लेयर्स के लिए ऑडियो ट्रैक का चयन करें</string>
     <string name="unknown_audio_track">अज्ञात</string>
-    <string name="settings_category_exoplayer_title">एक्सोप्लेयर सेटिंग्स</string>
-    <string name="use_exoplayer_decoder_fallback_title">एक्सोप्लेयर के डिकोडर फॉलबैक फीचर का उपयोग करें</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">हमेशा एक्सोप्लेयर के वीडियो आउटपुट सतह सेटिंग वर्कअराउंड का उपयोग करें</string>
     <string name="audio_track_type_original">मूल</string>
     <string name="audio_track_type_dubbed">डब की हूई</string>
     <string name="audio_track_type_descriptive">वर्णनात्मक</string>
     <string name="audio_track_present_in_video">एक ऑडियो ट्रैक पहले से ही इस स्ट्रीम में मौजूद होना चाहिए</string>
-    <string name="use_exoplayer_decoder_fallback_summary">इस विकल्प को सक्षम करें यदि आपके पास डिकोडर आरंभीकरण समस्याएं हैं, जो प्राथमिक डिकोडर आरंभ करने में विफल होने पर कम प्राथमिकता वाले डिकोडर पर वापस आ जाती है। इससे प्राथमिक डिकोडर का उपयोग करने की तुलना में खराब प्लेबैक प्रदर्शन हो सकता है</string>
-    <string name="settings_category_exoplayer_summary">कुछ एक्सोप्लेयर सेटिंग्स प्रबंधित करें। इन परिवर्तनों को प्रभावी बनाने के लिए प्लेयर को पुनरारंभ करने की आवश्यकता होती है</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">सतह को सीधे कोडेक पर सेट करने के बजाय, सतह परिवर्तन होने पर यह वर्कअराउंड वीडियो कोडेक्स को जारी और पुन: चालू करता है। इस समस्या के साथ कुछ उपकरणों पर ExoPlayer द्वारा पहले से ही उपयोग किया जाता है, इस सेटिंग का केवल Android 6 और उच्चतर पर प्रभाव पड़ता है
-\n
-\nइस विकल्प को सक्षम करने से वर्तमान वीडियो प्लेयर स्विच करते समय या फुलस्क्रीन पर स्विच करते समय प्लेबैक त्रुटियों को रोका जा सकता है</string>
     <string name="main_tabs_position_title">मुख्य टैब की स्थिति</string>
     <string name="main_tabs_position_summary">मुख्य टैब सिलेक्टर को नीचे ले जाएँ</string>
     <string name="audio_track_name">%1$s %2$s</string>
@@ -762,7 +687,6 @@
     <string name="feed_fetch_channel_tabs">चैनल टैब प्राप्त करें</string>
     <string name="channel_tab_about">बारे में</string>
     <string name="channel_tab_albums">एल्बम्स</string>
-    <string name="feed_fetch_channel_tabs_summary">फ़ीड अपडेट करते समय प्राप्त करने वाले टैब। यदि किसी चैनल को तेज़ मोड का उपयोग करके अपडेट किया जाता है तो इस विकल्प का कोई प्रभाव नहीं पड़ता है।</string>
     <string name="channel_tab_playlists">प्लेलिस्ट्स</string>
     <string name="channel_tab_tracks">ट्रैक्स</string>
     <string name="channel_tab_channels">चैनल्स</string>
@@ -819,9 +743,6 @@
     <string name="search_with_service_name">%1$s खोजें</string>
     <string name="search_with_service_name_and_filter">%1$s (%2$s) खोजें</string>
     <string name="tab_bookmarks_short">प्लेलिस्ट</string>
-    <string name="select_a_feed_group">कृपया एक फ़ीड समूह चुनें</string>
-    <string name="no_feed_group_created_yet">अभी तक कोई फ़ीड समूह नहीं बनाया गया है</string>
-    <string name="feed_group_page_summary">चैनल समूह पेज</string>
     <string name="channel_tab_likes">पसंद</string>
     <string name="share_playlist_as_youtube_temporary_playlist">यूट्यूब अस्थायी प्लेलिस्ट के रूप में साझा करें</string>
     <string name="entry_deleted">एंटरी मिटा दी गई</string>
@@ -841,9 +762,6 @@
     <string name="trending_podcasts">ट्रेंडिंग पॉडकास्ट</string>
     <string name="trending_movies">ट्रेंडिंग फिल्में और शो</string>
     <string name="trending_music">ट्रेंडिंग संगीत</string>
-    <string name="player_http_403">पले करते समय सर्वर से HTTP error 403 मिला, शायद स्ट्रीमिंग URL एक्सपायर होने या IP बैन की वजह से हुआ</string>
-    <string name="player_http_invalid_status">पले करते समय सर्वर से HTTP error %1$s मिला</string>
-    <string name="youtube_player_http_403">पले करते समय सर्वर से HTTP error 403 मिला, जो शायद IP बैन या स्ट्रीमिंग URL डीओबफस्केशन की दिक्कतों की वजह से हुआ है</string>
     <string name="sign_in_confirm_not_bot_error">%1$s ने डेटा देने से मना कर दिया, और यह कन्फर्म करने के लिए लॉगिन मांगा कि रिक्वेस्ट करने वाला बोट नहीं है।\n\nहो सकता है कि %1$s ने आपके IP को कुछ समय के लिए बैन कर दिया हो, आप कुछ समय इंतज़ार कर सकते हैं या किसी दूसरे IP पर स्विच कर सकते हैं (जैसे VPN ऑन/ऑफ करके, या WiFi से मोबाइल डेटा पर स्विच करके)।\n\nअधिक जानकारी के लिए कृपया <a href="%2$s">यह FAQ एंट्री</a> देखें।</string>
     <string name="unsupported_content_in_country">यह कंटेंट अभी चुने गए देश के कंटेंट के लिए उपलब्ध नहीं है।\n\n\"सेटिंग्स &gt; कंटेंट &gt; डिफ़ॉल्ट कंटेंट देश\" से अपना चुनाव बदलें।</string>
     <string name="kao_dialog_warning">अगस्त 2025 में, Google ने घोषणा की कि सितंबर 2026 से, सर्टिफाइड डिवाइस पर सभी Android ऐप्स जिनमें Play Store के बाहर से इंस्टॉल किए गए ऐप्स भी शामिल हैं, को इंस्टॉल करने के लिए डेवलपर वेरिफिकेशन ज़रूरी होगा। चूंकि NewPipe के डेवलपर्स इस शर्त से सहमत नहीं हैं, इसलिए उस समय के बाद NewPipe सर्टिफाइड Android डिवाइस पर काम नहीं करेगा।</string>

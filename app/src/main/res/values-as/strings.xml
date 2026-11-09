@@ -16,15 +16,12 @@
     <string name="settings">ছেটিংছ</string>
     <string name="search_showing_result_for">%s ৰ বাবে ফলাফল দেখুৱা হৈছে</string>
     <string name="share_dialog_title">চেয়াৰ কৰক</string>
-    <string name="use_external_video_player_summary">কিছু ৰিজ’লিউচনত অডিঅ’ আঁতৰাওক</string>
     <string name="subscribed_button_title">চাবস্ক্ৰাইব কৰা হ\'ল</string>
     <string name="unsubscribe">আনচাবস্ক্ৰাইব</string>
     <string name="main_bg_subtitle">আৰম্ভ কৰিবলৈ মেগনিফাইং গ্লাছৰ চিহ্নত টিপক।</string>
     <string name="subscribe_button_title">চাবস্ক্ৰাইব</string>
     <string name="mark_as_watched">চোৱা হ\'ল (চিহ্নিত কৰক)</string>
     <string name="did_you_mean">আপুনি \"%1$s\" বুজাইছিল নেকি\?</string>
-    <string name="use_external_video_player_title">বাহ্যিক ভিডিঅ’ প্লেয়াৰ ব্যৱহাৰ কৰক</string>
-    <string name="use_external_audio_player_title">বাহ্যিক অডিঅ’ প্লেয়াৰ ব্যৱহাৰ কৰক</string>
     <string name="channel_unsubscribed">Channel আনচাবস্ক্ৰাইব কৰা হ\'ল</string>
     <string name="subscription_change_failed">subscription সলনি কৰিব পৰা নগ\'ল</string>
     <string name="subscription_update_failed">subscription আপডেট কৰিব পৰা নগ\'ল</string>
@@ -42,7 +39,6 @@
     <string name="kore_not_found">Kode এপ ইনষ্টল\?</string>
     <string name="show_play_with_kodi_title">\"Kodi ৰ সৈতে খোলক\" বিকল্প দেখুৱাওক</string>
     <string name="show_play_with_kodi_summary">Kodi মিডিয়া চেণ্টাৰৰ জৰিয়তে এটা ভিডিঅ\' চলাবলৈ এটা বিকল্প প্ৰদৰ্শন কৰক</string>
-    <string name="crash_the_player">প্লেয়াৰটো ক্ৰেচ কৰক</string>
     <string name="notification_action_buffering">বাফাৰিং</string>
     <string name="notification_action_nothing">নথিং</string>
     <string name="notification_colorize_title">জাননী ৰ‌ঙিণ কৰক</string>

@@ -30,8 +30,6 @@
     <string name="detail_uploader_thumbnail_view_description">Immagine dell\'utente</string>
     <string name="detail_dislikes_img_view_description">Non mi piace</string>
     <string name="detail_likes_img_view_description">Mi piace</string>
-    <string name="use_external_video_player_title">Usa lettore video esterno</string>
-    <string name="use_external_audio_player_title">Usa lettore audio esterno</string>
     <string name="download_path_audio_title">Cartella audio scaricati</string>
     <string name="download_path_audio_summary">Gli audio scaricati saranno salvati qui</string>
     <string name="download_path_audio_dialog_title">Scegli la cartella per gli audio scaricati</string>
@@ -39,7 +37,6 @@
     <string name="dark_theme_title">Scuro</string>
     <string name="light_theme_title">Chiaro</string>
     <string name="settings_category_appearance_title">Aspetto</string>
-    <string name="background_player_playing_toast">Riproduzione in sottofondo</string>
     <string name="general_error">Errore</string>
     <string name="network_error">Errore di connessione</string>
     <string name="could_not_load_thumbnails">Impossibile caricare tutte le copertine</string>
@@ -86,7 +83,6 @@
     <string name="open_in_popup_mode">Apri in modalità popup</string>
     <string name="popup_playing_toast">Riproduzione in modalità popup</string>
     <string name="disabled">Disattivato</string>
-    <string name="use_external_video_player_summary">Audio non disponibile per alcune risoluzioni</string>
     <string name="controls_background_title">In sottofondo</string>
     <string name="controls_popup_title">Popup</string>
     <string name="default_popup_resolution_title">Risoluzione predefinita lettore popup</string>
@@ -118,7 +114,6 @@
     <string name="subscription_change_failed">Impossibile cambiare l\'iscrizione</string>
     <string name="subscription_update_failed">Impossibile aggiornare l\'iscrizione</string>
     <string name="tab_subscriptions">Iscrizioni</string>
-    <string name="fragment_feed_title">Novità</string>
     <string name="enable_search_history_title">Cronologia delle ricerche</string>
     <string name="enable_search_history_summary">Salva le ricerche localmente</string>
     <string name="enable_watch_history_title">Cronologia delle visualizzazioni</string>
@@ -133,8 +128,6 @@
     <string name="charset_most_special_characters">La maggior parte dei caratteri speciali</string>
     <string name="title_activity_history">Cronologia</string>
     <string name="action_history">Cronologia</string>
-    <string name="settings_category_player_title">Lettore multimediale</string>
-    <string name="settings_category_player_behavior_title">Comportamento</string>
     <string name="settings_category_history_title">Cronologia e cache</string>
     <string name="undo">Rifai</string>
     <string name="notification_channel_name">Notifica NewPipe</string>
@@ -173,9 +166,6 @@
     <string name="show_hold_to_append_title">Mostra suggerimento \"Tieni premuto per accodare\"</string>
     <string name="show_hold_to_append_summary">Nei dettagli dei video, mostra un suggerimento alla pressione dei pulsanti per la riproduzione popup o in sottofondo</string>
     <string name="play_all">Riproduci tutto</string>
-    <string name="player_stream_failure">Impossibile riprodurre questo flusso</string>
-    <string name="player_unrecoverable_failure">Si è verificato un errore irreversibile del lettore multimediale</string>
-    <string name="player_recoverable_failure">Ripristino dell\'errore del lettore multimediale</string>
     <string name="play_queue_remove">Rimuovi</string>
     <string name="play_queue_stream_detail">Dettagli</string>
     <string name="play_queue_audio_settings">Impostazioni audio</string>
@@ -197,14 +187,11 @@
     <string name="no_player_found_toast">Nessun lettore multimediale trovato (puoi installare VLC per riprodurlo).</string>
     <string name="always">Sempre</string>
     <string name="just_once">Solo una volta</string>
-    <string name="external_player_unsupported_link_type">I lettori multimediali esterni non supportano questa tipologia di collegamenti</string>
     <string name="video_streams_empty">Nessun flusso video trovato</string>
     <string name="audio_streams_empty">Nessun flusso audio trovato</string>
     <string name="video_player">Lettore video</string>
     <string name="background_player">Riproduzione in sottofondo</string>
     <string name="popup_player">Lettore popup</string>
-    <string name="preferred_player_fetcher_notification_title">Raccolta informazioni in corso…</string>
-    <string name="preferred_player_fetcher_notification_message">Caricamento del contenuto richiesto</string>
     <string name="import_data_title">Importa database</string>
     <string name="export_data_title">Esporta database</string>
     <string name="import_data_summary">Sovrascrive la cronologia, le iscrizioni, le playlist e (facoltativamente) le impostazioni correnti</string>
@@ -472,40 +459,7 @@
         <item quantity="many">%d giorni</item>
         <item quantity="other">%d giorni</item>
     </plurals>
-    <string name="feed_groups_header_title">Gruppi di canali</string>
-    <string name="feed_oldest_subscription_update">Ultimo aggiornamento iscrizioni: %s</string>
-    <string name="feed_subscription_not_loaded_count">Non caricate: %d</string>
-    <string name="feed_notification_loading">Caricamento feed…</string>
-    <string name="feed_processing_message">Elaborazione feed…</string>
-    <string name="feed_group_dialog_select_subscriptions">Seleziona iscrizioni</string>
-    <string name="feed_group_dialog_empty_selection">Nessuna iscrizione selezionata</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d selezionato</item>
-        <item quantity="many">%d selezionati</item>
-        <item quantity="other">%d selezionati</item>
-    </plurals>
-    <string name="feed_group_dialog_delete_message">Eliminare questo gruppo\?</string>
-    <string name="feed_create_new_group_button_title">Nuovo</string>
-    <string name="settings_category_feed_title">Feed</string>
-    <string name="feed_update_threshold_title">Limite aggiornamento feed</string>
-    <string name="feed_update_threshold_summary">Tempo che deve trascorrere dopo l\'ultimo aggiornamento, prima che un\'iscrizione venga considerata obsoleta — %s</string>
     <string name="feed_update_threshold_option_always_update">Aggiorna sempre</string>
-    <string name="feed_use_dedicated_fetch_method_title">Recupero da feed dedicato quando disponibile</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Disponibile per alcuni servizi. Solitamente è molto più veloce, ma può restituire una quantità limitata di elementi e informazioni spesso incomplete (es. durata, tipo di elemento, indicatore per video in diretta)</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Attiva recupero veloce</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Disattiva recupero veloce</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Il recupero dei feed è troppo lento\? Prova ad abilitare il recupero veloce (nelle impostazioni o premendo il pulsante qui sotto).
-\n
-\nNewPipe può caricare i feed in due modi:
-\n• Recuperando l\'intero canale, lento ma completo.
-\n• Utilizzando un endpoint dedicato, veloce ma solitamente incompleto.
-\n
-\nSolitamente il metodo più rapido offre meno informazioni, come la durata o il tipo di elemento (non distingue i video normali da quelli in diretta), e può restituire meno elementi.
-\n
-\nPer YouTube è possibile usare il recupero veloce sfruttando i suoi feed RSS.
-\n
-\nLa scelta va fatta in base alle proprie preferenze: velocità o informazioni precise.</string>
-    <string name="feed_group_dialog_empty_name">Gruppo senza nome</string>
     <string name="content_not_supported">Questo contenuto non è supportato da NewPipe. 
 \n 
 \nSi spera che possa essere supportato in una versione futura.</string>
@@ -528,7 +482,6 @@
     <string name="video_detail_by">Da %s</string>
     <string name="channel_created_by">Creato da %s</string>
     <string name="no_playlist_bookmarked_yet">Non è ancora stata salvata alcuna playlist</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Mostra solo iscrizioni non raggruppate</string>
     <string name="select_a_playlist">Seleziona una playlist</string>
     <string name="search_showing_result_for">Risultati per: %s</string>
     <string name="playlist_page_summary">Pagina delle playlist</string>
@@ -619,12 +572,6 @@
     <string name="description_select_note">È possibile selezionare il testo all\'interno della descrizione. In modalità selezione la pagina potrebbe sfarfallare e i collegamenti potrebbero non essere cliccabili.</string>
     <string name="open_website_license">Visita il sito</string>
     <string name="account_terminated">Account chiuso</string>
-    <string name="feed_load_error_fast_unknown">Il recupero veloce dei feed non fornisce ulteriori informazioni al riguardo.</string>
-    <string name="feed_load_error_terminated">L\'account dell\'autore è stato chiuso.
-\nNewPipe non sarà più in grado di caricare questo feed.
-\nDisiscriversi dal canale\?</string>
-    <string name="feed_load_error_account_info">Impossibile caricare feed per \"%s\".</string>
-    <string name="feed_load_error">Errore caricamento feed</string>
     <string name="downloads_storage_use_saf_summary_api_29">A partire da Android 10 è supportato solo il Framework di accesso all\'archiviazione</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">È necessario specificare la destinazione di ogni dowload</string>
     <string name="no_dir_yet">Non è impostata alcuna cartella per i file scaricati, scegliere quella predefinita</string>
@@ -651,18 +598,12 @@
         <item quantity="other">%s download completati</item>
     </plurals>
     <string name="main_page_content_swipe_remove">Scorri gli elementi per rimuoverli</string>
-    <string name="start_main_player_fullscreen_summary">Se la rotazione automatica è bloccata, i video non saranno avviati nel mini player, ma direttamente a schermo intero. È comunque possibile accedere al mini player uscendo dalla modalità a schermo intero</string>
-    <string name="start_main_player_fullscreen_title">Avvia il lettore principale a schermo intero</string>
     <string name="enqueued_next">Aggiunto alla coda come prossimo</string>
     <string name="enqueue_next_stream">Accoda come prossimo</string>
     <string name="processing_may_take_a_moment">Elaborazione… Potrebbe volerci un attimo</string>
     <string name="check_for_updates">Controlla aggiornamenti</string>
     <string name="manual_update_description">Verifica manualmente la presenza di nuove versioni</string>
     <string name="checking_updates_toast">Controllo aggiornamenti…</string>
-    <string name="feed_new_items">Nuovi elementi feed</string>
-    <string name="show_crash_the_player_summary">Quando il lettore multimediale è in uso, mostra un\'opzione per farlo crashare</string>
-    <string name="show_crash_the_player_title">Mostra \"Fai crashare il lettore\"</string>
-    <string name="crash_the_player">Fai crashare il lettore</string>
     <string name="error_report_notification_title">NewPipe ha riscontrato un errore, tocca per segnalarlo</string>
     <string name="show_error_snackbar">Mostra un messaggio di errore</string>
     <string name="no_appropriate_file_manager_message">Non è stato trovato alcun gestore di file appropriato per questa azione.
@@ -684,8 +625,6 @@
     <string name="enumeration_comma">,</string>
     <string name="toggle_all">Attiva/disattiva tutti</string>
     <string name="enable_streams_notifications_title">Notifiche per nuovi contenuti</string>
-    <string name="settings_category_player_notification_title">Notifica del lettore multimediale</string>
-    <string name="settings_category_player_notification_summary">Configura la notifica dell\'elemento attualmente in riproduzione</string>
     <string name="notifications">Notifiche</string>
     <string name="streams_notification_channel_name">Nuovi contenuti</string>
     <plurals name="new_streams">
@@ -705,7 +644,6 @@
     <string name="no_video_streams_available_for_external_players">Non sono disponibili flussi video per i lettori esterni</string>
     <string name="streams_not_yet_supported_removed">I flussi che non sono ancora supportati dal downloader non vengono visualizzati</string>
     <string name="no_audio_streams_available_for_external_players">Non sono disponibili flussi audio per i lettori esterni</string>
-    <string name="select_quality_external_players">Seleziona qualità per lettori esterni</string>
     <string name="unknown_quality">Qualità sconosciuta</string>
     <string name="unknown_format">Formato sconosciuto</string>
     <string name="progressive_load_interval_title">Dimensione intervallo di caricamento della riproduzione</string>
@@ -728,11 +666,6 @@
     <string name="remove_duplicates">Rimuovi elementi doppi</string>
     <string name="remove_duplicates_title">Rimuovere gli elementi doppi\?</string>
     <string name="remove_duplicates_message">Rimuovere tutti gli elementi doppi di questa playlist\?</string>
-    <string name="feed_hide_streams_title">Mostra gli elementi seguenti</string>
-    <string name="feed_show_hide_streams">Mostra/Nascondi elementi</string>
-    <string name="feed_show_partially_watched">Visti parzialmente</string>
-    <string name="feed_show_watched">Visti completamente</string>
-    <string name="feed_show_upcoming">Elementi futuri</string>
     <string name="left_gesture_control_title">Azione gesto sinistro</string>
     <string name="right_gesture_control_title">Azione gesto destro</string>
     <string name="brightness">Luminosità</string>
@@ -747,21 +680,12 @@
     <string name="prefer_descriptive_audio_summary">Se disponibile, seleziona una traccia audio con descrizioni per ipovedenti</string>
     <string name="play_queue_audio_track">Audio: %s</string>
     <string name="audio_track">Traccia audio</string>
-    <string name="select_audio_track_external_players">Seleziona traccia audio per lettori esterni</string>
-    <string name="settings_category_exoplayer_summary">Gestisci alcune impostazioni di ExoPlayer. È necessario riavviare il riproduttore per applicarle</string>
     <string name="unknown_audio_track">Sconosciuta</string>
-    <string name="settings_category_exoplayer_title">Impostazioni ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_title">Usa la funzione di fallback del decoder di ExoPlayer</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Usa sempre la soluzione alternativa per impostare la superficie di uscita video di ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">originale</string>
     <string name="audio_track_type_dubbed">doppiato</string>
     <string name="audio_track_type_descriptive">descrittivo</string>
     <string name="audio_track_present_in_video">Per questo elemento dovrebbe già essere presente una traccia audio</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Attivare questa opzione in caso di problemi di inizializzazione del decodificatore. Verranno usati decodificatori di priorità inferiore se l\'inizializzazione di quelli primari fallisce. Le prestazioni di riproduzione potrebbero essere inferiori rispetto all\'uso di quelli primari</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Questa soluzione alternativa rilascia e re-istanzia i codec video quando si verifica una modifica della superficie, invece di impostare direttamente la superficie sul codec. Già usata da ExoPlayer su alcuni dispositivi con questo problema, questa impostazione ha effetto solo su Android 6 e versioni successive
-\n
-\nL\'attivazione di questa opzione potrebbe impedire errori di riproduzione passando al lettore video attuale o passando a schermo intero</string>
     <string name="main_tabs_position_title">Posizione delle schede principali</string>
     <string name="main_tabs_position_summary">Sposta in fondo il selettore della scheda principale</string>
     <string name="disable_media_tunneling_automatic_info">Il tunneling multimediale è stato disabilitato per impostazione predefinita sul dispositivo in uso, poiché è noto che il modello del dispositivo non lo supporta.</string>
@@ -776,7 +700,6 @@
     <string name="feed_fetch_channel_tabs">Recupera schede del canale</string>
     <string name="channel_tab_about">Informazioni</string>
     <string name="channel_tab_albums">Album</string>
-    <string name="feed_fetch_channel_tabs_summary">Schede da recuperare quando si aggiorna il feed. Questa opzione non ha effetto se un canale viene aggiornato usando la modalità veloce.</string>
     <string name="channel_tab_playlists">Playlist</string>
     <string name="channel_tab_tracks">Tracce</string>
     <string name="channel_tab_channels">Canali</string>
@@ -833,9 +756,6 @@
     <string name="audio_track_type_secondary">secondaria</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Condividi come playlist YouTube temporanea</string>
     <string name="tab_bookmarks_short">Playlist</string>
-    <string name="select_a_feed_group">Seleziona un gruppo di feed</string>
-    <string name="no_feed_group_created_yet">Ancora nessun gruppo di feed creato</string>
-    <string name="feed_group_page_summary">Pagina gruppo canali</string>
     <string name="search_with_service_name_and_filter">Cerca %1$s (%2$s)</string>
     <string name="search_with_service_name">Cerca su %1$s</string>
     <string name="channel_tab_likes">Mi piace</string>
@@ -856,9 +776,6 @@
     <string name="delete_entry">Elimina voce</string>
     <string name="account_terminated_service_provides_reason">Account eliminato\n\n%1$s fornisce questa motivazione: %2$s</string>
     <string name="entry_deleted">Voce eliminata</string>
-    <string name="player_http_403">Errore HTTP 403 ricevuto dal server durante la riproduzione, probabilmente causato dalla scadenza dell\'URL in streaming o da un divieto dell\'IP</string>
-    <string name="player_http_invalid_status">Errore HTTP %1$s ricevuto dal server durante la riproduzione</string>
-    <string name="youtube_player_http_403">Errore HTTP 403 ricevuto dal server durante la riproduzione, probabilmente causato da un divieto dell\'IP o problemi di de-offuscamento dell\'URL in streaming</string>
     <string name="sign_in_confirm_not_bot_error">%1$s ha rifiutato di fornire i dati, chiedendo un accesso per confermare che il richiedente non sia un bot.\n\nIl tuo IP potrebbe essere stato temporaneamente vietato da %1$s, puoi aspettare un po\' di tempo o passare ad un IP diverso (ad esempio accendendo/spegnendo una VPN, o passando dal WiFi ai dati mobili).\n\nLeggi <a href="%2$s">questa voce nelle FAQ</a> per maggiori informazioni.</string>
     <string name="unsupported_content_in_country">Questo contenuto non è disponibile per il Paese dei contenuti attualmente selezionato.\n\nModifica la selezione da \"Impostazioni &gt; Contenuti &gt; Paese dei contenuti predefinito\".</string>
     <string name="kao_dialog_warning">Ad agosto 2025, Google ha annunciato che a partire da settembre 2026, l\'installazione di app richiederà la verifica dello sviluppatore per tutte le app Android su dispositivi certificati, compresi quelli installati al di fuori del Play Store. Poiché gli sviluppatori di NewPipe non sono d\'accordo con questo requisito, NewPipe non funzionerà più su dispositivi Android certificati dopo quel mese.</string>

@@ -3,7 +3,6 @@
     <string name="main_bg_subtitle">Ýttu á stækkunarglerið til að byrja.</string>
     <string name="cancel">Hætta við</string>
     <string name="search">Leita</string>
-    <string name="use_external_video_player_title">Nota utanaðkomandi myndspilara</string>
     <string name="ok">Í lagi</string>
     <string name="open_in_browser">Opna í vafra</string>
     <string name="open_with">Opna með</string>
@@ -39,7 +38,6 @@
 \n5) Smelltu á \"Sækja\" hnappinn eftir að hann birtist.
 \n6) Smelltu á FLYTJA INN SKRÁ fyrir neðan og veldu .zip skrána.
 \n7) [Ef .zip innflutningur mistekst] Taktu út .csv skrána (venjulega undir „YouTube og YouTube Music/subscriptions/subscriptions.csv“), smelltu á FLYTJA INN SKRÁ fyrir neðan og veldu þá skrá.</string>
-    <string name="use_external_audio_player_title">Nota utanaðkomandi hljóðspilara</string>
     <string name="app_description">Frjáls og léttur streymisspilari fyrir Android.</string>
     <string name="title_activity_about">Um NewPipe</string>
     <string name="channel_unsubscribed">Áskrift hætt</string>
@@ -58,7 +56,6 @@
     <string name="show_higher_resolutions_summary">Aðeins sum tæki geta spilað 2K/4K myndskeið</string>
     <string name="play_with_kodi_title">Spila með Kodi</string>
     <string name="show_play_with_kodi_summary">Birta hnapp til að spila myndskeið í gegnum Kodi margmiðlunarmiðstöð</string>
-    <string name="crash_the_player">Láta spilarann hrynja</string>
     <string name="default_audio_format_title">Sjálfgefið hljóðsnið</string>
     <string name="clear_queue_confirmation_summary">Að skipta úr einum spilara í annan getur ruglað röðina þína</string>
     <string name="show_comments_summary">Slökktu á til að fela ummæli</string>
@@ -87,7 +84,6 @@
     <string name="recently_added">Nýlega bætt við</string>
     <string name="start_here_on_popup">Spila í sprettiglugga</string>
     <string name="always_ask_open_action">Alltaf spyrja</string>
-    <string name="preferred_player_fetcher_notification_title">Sækir upplýsingar…</string>
     <string name="select_a_playlist">Veldu spilunarlista</string>
     <string name="channel_page_summary">Rásarsíða</string>
     <string name="select_a_channel">Veldu rás</string>
@@ -116,7 +112,6 @@
     <string name="private_content">Þetta efni er ekki opinbert — það er ekki hægt að streyma því eða sækja með NewPipe.</string>
     <string name="open_website_license">Opna vefsíðu</string>
     <string name="settings_category_downloads_title">Niðurhal</string>
-    <string name="settings_category_player_behavior_title">Hegðun</string>
     <string name="settings_category_updates_title">Uppfærslur</string>
     <string name="downloads">Sótt gögn</string>
     <string name="settings_category_video_audio_title">Mynd og hljóð</string>
@@ -132,7 +127,6 @@
     <string name="privacy_policy_title">Persónuverndarstefna NewPipe</string>
     <string name="privacy_policy_encouragement">NewPipe verkefnið tekur friðhelgi þína mjög alvarlega. Þess vegna safnar forritið ekkert án samþykkis þíns.
 \nPersónuverndarstefna NewPipe útskýrir í smáatriðum hvaða gögn eru send og geymd þegar þú sendir hrunskýrslu.</string>
-    <string name="settings_category_player_title">Spilari</string>
     <string name="settings_category_debug_title">Villuleit</string>
     <string name="content_language_title">Sjálfgefið tungumál efnis</string>
     <string name="metadata_language">Tungumál</string>
@@ -150,7 +144,6 @@
     <string name="undo">Afturkalla</string>
     <string name="always">Alltaf</string>
     <string name="general_error">Villa</string>
-    <string name="use_external_video_player_summary">Fjarlægir hljóð í sumum upplausnum</string>
     <string name="subscription_change_failed">Gat ekki breytt áskrift</string>
     <string name="subscription_update_failed">Gat ekki uppfært áskrift</string>
     <string name="show_info">Sýna upplýsingar</string>
@@ -325,7 +318,6 @@
         <item quantity="one">%d klst</item>
         <item quantity="other">%d klst</item>
     </plurals>
-    <string name="feed_create_new_group_button_title">Búa til</string>
     <string name="metadata_licence">Leyfi</string>
     <string name="metadata_privacy">Sýnileiki</string>
     <string name="metadata_support">Stuðningur</string>
@@ -355,7 +347,6 @@
     <string name="subscribers_count_not_available">Fjöldi áskrifenda ekki tiltækur</string>
     <string name="playlist_page_summary">Spilunarlistasíða</string>
     <string name="show_thumbnail_title">Sýna smámynd</string>
-    <string name="feed_processing_message">Í vinnslu…</string>
     <string name="feed_update_threshold_option_always_update">Alltaf uppfæra</string>
     <string name="metadata_cache_wipe_title">Tæma skyndiminni lýsigagna</string>
     <string name="show_meta_info_title">Sýna lýsigögn</string>
@@ -374,8 +365,6 @@
     <string name="peertube_instance_add_title">Bæta við</string>
     <string name="peertube_instance_add_help">Sláðu inn slóð tilviks</string>
     <string name="peertube_instance_add_exists">Tilvik er þegar til</string>
-    <string name="settings_category_player_notification_title">Tilkynning spilara</string>
-    <string name="background_player_playing_toast">Bakgrunnsspilun</string>
     <string name="error_report_title">Villuskýrsla</string>
     <string name="best_resolution">Besta upplausn</string>
     <string name="file_deleted">Skrá eytt</string>
@@ -468,15 +457,6 @@
         <item quantity="one">%d dagur</item>
         <item quantity="other">%d dagar</item>
     </plurals>
-    <string name="fragment_feed_title">Hvað er nýtt</string>
-    <string name="feed_groups_header_title">Rásarhópar</string>
-    <string name="feed_notification_loading">Hleður…</string>
-    <string name="settings_category_feed_title">Streymi</string>
-    <string name="feed_group_dialog_select_subscriptions">Veldu áskriftir</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d valin</item>
-        <item quantity="other">%d valdar</item>
-    </plurals>
     <string name="video_detail_by">Frá %s</string>
     <string name="account_terminated">Reikningi lokað</string>
     <string name="metadata_age_limit">Aldurstakmark</string>
@@ -493,17 +473,11 @@
     <string name="downloads_storage_use_saf_summary_api_29">Frá Android 10 er aðeins „Geymsluaðgangsrammi“ stutt</string>
     <string name="downloads_storage_use_saf_summary">„Geymsluaðgangsrammi“ (SAF) gerir þér kleift að vista skrár á ytra SD-kort</string>
     <string name="choose_instance_prompt">Veldu netþjón</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Sýna aðeins óflokkaðar áskriftir</string>
-    <string name="feed_load_error">Villa við að hlaða streymi</string>
-    <string name="feed_load_error_account_info">Gat ekki hlaðið streymi fyrir ‚%s.‘</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Fáanlegt fyrir sumar þjónustur. Það er venjulega miklu hraðari en getur skilað ófullnægjandi upplýsingum (t.d. engin lengd, tegund, staða beinna útsendinga)</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Ef áskriftir eru uppfærðar of hægt máttu prófa hraðstreymissham (kveiktu á honum í stillingunum eða með hnappnum hér að neðan). \n \nNewPipe getur uppfært áskriftir á tvo vegu: \n• Sækja alla áskriftarrásina - hægvirkt en veitir allar upplýsingar. \n• Nota sérstök forritaskil - fljótvirkt en upplýsingar verða minni. \n \nHraðstreymishamur getur veitt ófullnægjandi upplýsingar, t.d. engin lengd, tegund, staða og getur skilað færri atriðum. \n \nYouTube er dæmi um þjónustu sem býður upp á þetta með RSS-streymi sínu. \n \nValið er því á milli hraða eða nákvæmra upplýsinga.</string>
     <string name="detail_sub_channel_thumbnail_view_description">Smámynd rásar</string>
     <string name="soundcloud_go_plus_content">Þetta er SoundCloud Go+ lag að minnsta kosti í þínu landi — það er ekki hægt að streyma því eða sækja með NewPipe.</string>
     <string name="youtube_music_premium_content">Þetta myndskeið er aðeins í boði fyrir YouTube Tónlist Premium meðlimi, það er ekki hægt að streyma því eða sækja með NewPipe.</string>
     <string name="description_select_note">Þú getur nú valið texta inni í lýsingunni. Athugaðu að síðan getur flöktað og mögulega er ekki hægt að smella á tengla í valhami.</string>
     <string name="enable_search_history_summary">Geyma leitarfyrirspurnir í tæki</string>
-    <string name="start_main_player_fullscreen_title">Ræsa aðalspilara í fullskjásstillingu</string>
     <string name="popup_playing_toast">Sprettigluggaspilun</string>
     <string name="restricted_video_no_stream">Þetta myndskeið er með aldurstakmörk.
 \nVegna nýrra reglna YouTube er ekki hægt að streyma því eða sækja með NewPipe.</string>
@@ -516,10 +490,6 @@
     <string name="could_not_load_thumbnails">Gat ekki hlaðið inn öllum smámyndum</string>
     <string name="parsing_error">Gat ekki túlkað vefsíðu</string>
     <string name="could_not_setup_download_menu">Gat ekki sett upp niðurhalsvalmynd</string>
-    <string name="player_stream_failure">Ekki tókst að spila þetta streymi</string>
-    <string name="player_unrecoverable_failure">Banvæn villa í spilaranum</string>
-    <string name="player_recoverable_failure">Að jafna sig eftir villu í spilara</string>
-    <string name="external_player_unsupported_link_type">Utanaðkomandi spilarar styðja ekki þessar tegundir tengla</string>
     <string name="video_streams_empty">Engin myndstreymi fundust</string>
     <string name="audio_streams_empty">Engin hljóðstreymi fundust</string>
     <string name="invalid_source">Ekkert slíkt efni fanst</string>
@@ -549,18 +519,6 @@
     <string name="downloads_storage_ask_summary_no_saf_notice">Þú verður spurð(ur) hvert ætti að sækja skrár í hvert skipti</string>
     <string name="downloads_storage_use_saf_title">Virkja kerfismöppuval (SAF)</string>
     <string name="remove_watched_popup_title">Fjarlægja streymi sem búið er að horfa á?</string>
-    <string name="feed_oldest_subscription_update">Streymi síðast uppfært %s</string>
-    <string name="feed_subscription_not_loaded_count">Ekki hlaðið: %d</string>
-    <string name="feed_new_items">Ný atriði í streymi</string>
-    <string name="feed_group_dialog_empty_selection">Engar áskriftir valdar</string>
-    <string name="feed_group_dialog_empty_name">Tómt hópsnafn</string>
-    <string name="feed_group_dialog_delete_message">Viltu eyða þessum hóp\?</string>
-    <string name="feed_update_threshold_summary">Hversu oft á að uppfæra streymi áður en áskrift er talin útrunnin — %s</string>
-    <string name="feed_update_threshold_title">Takmörk á uppfærslu streymis</string>
-    <string name="feed_load_error_terminated">Reikningur höfundar er lokaður.\nNewPipe getur ekki sótt þetta streymi lengur.\nViltu segja upp áskrift?</string>
-    <string name="feed_load_error_fast_unknown">Hraðstreymishamurinn veitir ekki frekari upplýsingar um þetta.</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Virkja hraðstreymisham</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Afvirkja hraðstreymisham</string>
     <string name="content_not_supported">NewPipe styður ekki þetta efni.
 \n
 \nÞað verður vonandi stutt í framtíðarútgáfu.</string>
@@ -580,7 +538,6 @@
     <string name="use_inexact_seek_summary">Ónákvæm hopp gerir leikmanninum kleift að leita hraðar í stöður með minni nákvæmni. Að leita í 5, 15 eða 25 sekúndur virkar ekki með þessu</string>
     <string name="enable_watch_history_summary">Geyma áhorfsferil</string>
     <string name="resume_on_audio_focus_gain_summary">Halda áfram að spila eftir hlé (t.d. símtöl)</string>
-    <string name="start_main_player_fullscreen_summary">Ekki byrja myndskeið í smáspilaranum heldur fara í skjáfylliham ef sjálfvirkur snúningur er læstur. Þú getur samt fengið aðgang að smáspilaranum með því að fara úr skjáfylliham</string>
     <string name="check_new_streams">Byrja leit að nýjum streymum</string>
     <string name="overwrite_failed">get ekki skrifað yfir skrána</string>
     <string name="delete_downloaded_files">Eyða sóttum skrám</string>
@@ -605,7 +562,6 @@
     <string name="peertube_instance_url_help">Þú mátt finna tilviki á %s</string>
     <string name="peertube_instance_add_fail">Gat ekki staðfest tilvik</string>
     <string name="peertube_instance_add_https_only">Aðeins HTTPS vefslóðir eru studdar</string>
-    <string name="settings_category_player_notification_summary">Stilla tilkynningu fyrir spilandi streymi</string>
     <string name="show_age_restricted_content_title">Sýna aldurstakmarkað efni</string>
     <string name="show_age_restricted_content_summary">Sýna efni sem hugsanlega hentar ekki börnum vegna þess að það hefur aldurstakmark (t.d. 18+)</string>
     <string name="youtube_restricted_mode_enabled_title">Kveikja á öryggisham YouTube</string>
@@ -632,13 +588,10 @@
     <string name="no_valid_zip_file">Engin gild ZIP safnskrá</string>
     <string name="override_current_data">Núverandi gögnum verður skipt út.</string>
     <string name="hold_to_append">Haltu niðri til að bæta við spilunarröð</string>
-    <string name="preferred_player_fetcher_notification_message">Hleður umbeðið efni</string>
     <string name="show_original_time_ago_title">Sýna upprunatíma á atriðum</string>
     <string name="show_original_time_ago_summary">Upprunalegir textar frá þjónustu verða sýnilegir í streymisatriðum</string>
     <string name="disable_media_tunneling_title">Slökkva á margmiðlagöngum</string>
     <string name="disable_media_tunneling_summary">Slökktu á margmiðlunargöngum (media tunneling) ef vart verður við svartan skjá eða hökt við spilun myndskeiða.</string>
-    <string name="show_crash_the_player_title">Sýna „Láta spilara hrynja\"</string>
-    <string name="show_crash_the_player_summary">Sýna valkost til að hrynja spilara</string>
     <string name="crash_the_app">Hrynja forrit</string>
     <string name="create_error_notification">Búа til villutilkynningu</string>
     <string name="import_soundcloud_instructions_hint">auðkenniÞitt, soundcloud.com/auðkenniÞitt</string>
@@ -670,14 +623,12 @@
     <string name="max_retry_desc">Fjöldi tilrauna áður en hætt er við niðurhal</string>
     <string name="remove_watched_popup_warning">Myndskeiðum sem skoðuð voru áður eða eftir að þeim var bætt við spilunarlistann verður eytt. \nErtu viss?</string>
     <string name="remove_watched_popup_partially_watched_streams">Já og skoðuð að hluta</string>
-    <string name="feed_use_dedicated_fetch_method_title">Sækja úr tileinkuðu streymi þegar það er tiltækt</string>
     <string name="detail_heart_img_view_description">Hjartað af höfunda</string>
     <string name="notifications_disabled">Slökkt er á tilkynningum</string>
     <string name="you_successfully_subscribed">Þú ert nú áskrifandi</string>
     <string name="streams_not_yet_supported_removed">Streymi sem ekki eru enn studd af niðurhalaranum eru ekki sýnd</string>
     <string name="selected_stream_external_player_not_supported">Valið streymi er ekki stutt af utanaðkomandi spilurum</string>
     <string name="no_audio_streams_available_for_external_players">Engin hljóðstreymi eru í boði fyrir utanaðkomandi spilara</string>
-    <string name="select_quality_external_players">Veldu gæði fyrir utanaðkomandi spilara</string>
     <string name="faq_description">Ef þú átt í vandræðum með að nota forritið vertu viss um að skoða þessi svör við algengum spurningum!</string>
     <string name="faq_title">Algengar spurningar</string>
     <string name="faq">Skoða á vefsíðu</string>
@@ -686,16 +637,12 @@
     <string name="no_streams">Engin streymi</string>
     <string name="no_live_streams">Engin streymi í beinni</string>
     <string name="unknown_audio_track">Óþekkt</string>
-    <string name="select_audio_track_external_players">Veldu hljóðspor fyrir utanaðkomandi spilara</string>
     <string name="app_update_unavailable_toast">Þú ert að keyra nýjustu útgáfuna af NewPipe</string>
     <string name="remove_duplicates_message">Ertu viss um að þú viljir fjarlægja öll tvítekin streymi í þessum spilunarlista?</string>
     <string name="feed_fetch_channel_tabs">Sækja flipa rásar</string>
-    <string name="feed_hide_streams_title">Birta eftirfarandi streymi</string>
     <string name="metadata_avatars">Auðkennismyndir</string>
     <string name="metadata_banners">Borðar</string>
     <string name="metadata_subchannel_avatars">Auðkennismyndir undirrása</string>
-    <string name="settings_category_exoplayer_summary">Sýslaðu með sumar stillingar ExoPlayer. Breytingar á þessu krefjast endurræsingar spilarans til að taka gildi</string>
-    <string name="settings_category_exoplayer_title">Stillingar ExoPlayer</string>
     <string name="previous_stream">Fyrra streymi</string>
     <string name="audio_track_type_dubbed">yfirtalað</string>
     <string name="audio_track_type_descriptive">lýsandi</string>
@@ -715,8 +662,6 @@
     <string name="remove_duplicates_title">Fjarlægja tvítök?</string>
     <string name="metadata_thumbnails">Smámyndir</string>
     <string name="metadata_subscribers">Áskrifendur</string>
-    <string name="feed_show_watched">Búið að horfa</string>
-    <string name="feed_show_upcoming">Á næstunni</string>
     <string name="channel_tab_videos">Myndskeið</string>
     <string name="channel_tab_tracks">Spor</string>
     <string name="channel_tab_shorts">Símamyndir</string>
@@ -748,10 +693,8 @@
     <string name="show_less">Sýna minna</string>
     <string name="night_theme_available">Þessi valkostur er aðeins tiltækur ef %s er valið sem þema</string>
     <string name="audio_track_present_in_video">Hljóðspor ætti þegar að vera til staðar í þessu streymi</string>
-    <string name="feed_show_partially_watched">Skoðað að hluta</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">upprunalegt</string>
-    <string name="feed_show_hide_streams">Birta/Fela streymi</string>
     <string name="loading_metadata_title">Hleð inn lýsigögnum…</string>
     <string name="card">Spjald</string>
     <string name="channel_tab_livestreams">Í beinni</string>
@@ -780,14 +723,11 @@
     <string name="duplicate_in_playlist">Spilunarlistarnir sem eru gráir innihalda þegar þetta atriði.</string>
     <string name="unset_playlist_thumbnail">Losa varanlega smámynd</string>
     <string name="notification_actions_summary_android13">Breyttu hverri tilkynningu hér fyrir neðan með því að ýta á hana. Fyrstu þrjár aðgerðirnar (spila/bíða, fyrra og næsta) eru skilgreindar af kerfinu og er því ekki hægt að sérsníða.</string>
-    <string name="feed_fetch_channel_tabs_summary">Flipar sem á að sækja við uppfærslu þessa streymis. Þetta hefur engin áhrif ef rás er uppfærð með hraðstreymisham.</string>
-    <string name="use_exoplayer_decoder_fallback_title">Nota varaeiginleika ExoPlayer-afkóðarans</string>
     <string name="new_seek_duration_toast">Vegna takmarkana í ExoPlayer-spilaranum var tímalengd hoppa sett á %d sekúndur</string>
     <string name="disable_media_tunneling_automatic_info">Margmiðlunargöng (media tunneling) voru gerð óvirk á tækinu þínu þar sem þessi gerð tækja er þekkt fyrir að styðja ekki þennan eiginleika.</string>
     <string name="auto_update_check_description">NewPipe getur athugað sjálfkrafa hvort nýjar útgáfur séu í boði og láta þig vita þegar slíkt gerist.\nViltu virkja þetta?</string>
     <string name="reset_all_settings">Frumstilling allra stillinga mun henda öllum áður skilgreindum stillingum og endurræsa forritið.\n\nErtu viss um að þú viljir halda áfram?</string>
     <string name="ignore_hardware_media_buttons_summary">Nytsamlegt ef þú til dæmis þarft að nota heyrnartól með biluðum tökkum</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Alltaf nota framhjáhlaupsstillingar ExoPlayer-spilarans fyrir frálagsflöt myndmerkis</string>
     <string name="prefer_descriptive_audio_summary">Veldu hljóðspor með lýsingum fyrir sjónskerta, ef slíkt er tiltækt</string>
     <string name="main_tabs_position_summary">Færa veljara aðalflipa neðst</string>
     <string name="show_error_snackbar">Sýna villustiku</string>
@@ -797,9 +737,6 @@
     <string name="tab_bookmarks_short">Spilunarlistar</string>
     <string name="search_with_service_name">Leita í %1$s</string>
     <string name="search_with_service_name_and_filter">Leita í %1$s (%2$s)</string>
-    <string name="select_a_feed_group">Veldu hóp streyma</string>
-    <string name="no_feed_group_created_yet">Enginn hópur streyma útbúinn ennþá</string>
-    <string name="feed_group_page_summary">Síða rásahóps</string>
     <string name="channel_tab_likes">Líkar við</string>
     <string name="migration_info_6_7_title">Topp 50 síða SoundCloud fjarlægð</string>
     <string name="migration_info_6_7_message">SoundCloud er hætt með Topp 50 vinsældalistann. Viðkomandi flipi hefur verið fjarlægður af aðalsíðunni þinni.</string>
@@ -817,9 +754,6 @@
     <string name="entry_deleted">Færslu eytt</string>
     <string name="migration_info_7_8_title">Samsettur vinsældalisti YouTube fjarlægður</string>
     <string name="migration_info_7_8_message">YouTube hætti með samsetta vinsældalistann sinn frá og með 21. júlí 2025. NewPipe skipti út sjálfgefna vinsældalistanum fyrir vinsæl streymi í beinni útsendingu.\n\nÞú getur líka valið annað vinsælt efni með því að fara í \"Stillingar &gt; Efni &gt; Efni aðalsíðu\".</string>
-    <string name="player_http_403">Tók við HTTP-villu 403 frá þjóni á meðan afspilun stóð, líklega vegna útrunninar URL-slóðar streymis eða banns á IP-vistfang</string>
-    <string name="player_http_invalid_status">Tók við HTTP-villu %1$s frá þjóni á meðan afspilun stóð</string>
-    <string name="youtube_player_http_403">Tók við HTTP-villu 403 frá þjóni á meðan afspilun stóð, líklega vegna banns á IP-vistfang eða vandamála með afkóðun URL-slóðar streymis</string>
     <string name="unsupported_content_in_country">Þetta efni er ekki í boði fyrir valið landsvæði efnis.\n\nBreyttu valinu með því að fara í \"Stillingar &gt; Efni &gt; Sjálfgefið landsvæði efnis\".</string>
     <plurals name="export_subscriptions">
         <item quantity="one">Flyt út %d áskrift…</item>

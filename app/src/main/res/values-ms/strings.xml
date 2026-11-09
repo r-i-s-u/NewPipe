@@ -15,9 +15,6 @@
     <string name="settings">Tetapan</string>
     <string name="did_you_mean">Adakah anda maksudkan \"%1$s\"\?</string>
     <string name="share_dialog_title">Berkongsi dengan</string>
-    <string name="use_external_video_player_title">Guna pemain video luaran</string>
-    <string name="use_external_video_player_summary">Mengalih keluar audio pada sesetengah resolusi</string>
-    <string name="use_external_audio_player_title">Gunakan pemain audio luaran</string>
     <string name="subscribe_button_title">Langgan</string>
     <string name="subscribed_button_title">Dilanggan</string>
     <string name="channel_unsubscribed">Saluran dinyahlanggan</string>
@@ -28,7 +25,6 @@
     <string name="tab_bookmarks">Senarai Main Yang Disimpan</string>
     <string name="unsubscribe">Henti langganan</string>
     <string name="tab_choose">Pilih Tab</string>
-    <string name="fragment_feed_title">Apa yang Baru</string>
     <string name="controls_background_title">Latar Belakang</string>
     <string name="controls_popup_title">Tetingkap Timbul</string>
     <string name="controls_add_to_playlist_title">Tambahkan Ke</string>
@@ -77,14 +73,11 @@
     <string name="unsupported_url">URL tidak disokong</string>
     <string name="default_content_country_title">Negara kandungan utama</string>
     <string name="content_language_title">Bahasa kandungan utama</string>
-    <string name="settings_category_player_title">Pemain</string>
-    <string name="settings_category_player_behavior_title">Tingkah laku</string>
     <string name="settings_category_video_audio_title">Video dan audio</string>
     <string name="settings_category_history_title">Sejarah dan cache</string>
     <string name="settings_category_appearance_title">Penampilan</string>
     <string name="settings_category_debug_title">Nyahpepijat</string>
     <string name="settings_category_updates_title">Kemas kini</string>
-    <string name="background_player_playing_toast">Bermain di latar belakang</string>
     <string name="popup_playing_toast">Bermain dalam mod popup</string>
     <string name="content">Kandungan</string>
     <string name="show_age_restricted_content_title">Kandungan terhad umur</string>
@@ -136,10 +129,6 @@
     <string name="content_not_available">Kandungan tidak tersedia</string>
     <string name="could_not_setup_download_menu">Tidak dapat menyediakan menu muat turun</string>
     <string name="app_ui_crash">App/UI terhempas</string>
-    <string name="player_stream_failure">Tidak dapat memain strim ini</string>
-    <string name="player_unrecoverable_failure">Ralat pemain yang tidak dapat dipulihkan telah berlaku</string>
-    <string name="player_recoverable_failure">Memulihkan dari ralat pemain</string>
-    <string name="external_player_unsupported_link_type">Pemain luar tidak menyokong jenis pautan ini</string>
     <string name="video_streams_empty">Tiada strim video yang dijumpai</string>
     <string name="audio_streams_empty">Tiada strim audio yang dijumpai</string>
     <string name="invalid_directory">Tiada folder itu</string>
@@ -265,8 +254,6 @@
     <string name="background_player">Pemain latar belakang</string>
     <string name="popup_player">Pemain popup</string>
     <string name="always_ask_open_action">Selalu bertanya</string>
-    <string name="preferred_player_fetcher_notification_title">Mendapatkan maklumat…</string>
-    <string name="preferred_player_fetcher_notification_message">Memuatkan kandungan yang diminta</string>
     <string name="create_playlist">Senarai Main Baru</string>
     <string name="rename_playlist">Namakan semula</string>
     <string name="name">Nama</string>
@@ -434,16 +421,11 @@
     <string name="close">Tutup</string>
     <string name="metadata_host">Hos</string>
     <string name="selected_stream_external_player_not_supported">Strim yang dipilih tidak disokong oleh pemain luaran</string>
-    <string name="select_quality_external_players">Pilih mutu untuk pemain luaran</string>
     <string name="toggle_all">Togol semua</string>
     <string name="audio_track_present_in_video">Runut audio seharusnya sudah ada di dalam strim ini</string>
-    <string name="select_audio_track_external_players">Pilih runut audio untuk pemain luaran</string>
     <string name="unknown_format">Format tidak diketahui</string>
     <string name="unknown_quality">Mutu tidak diketahui</string>
-    <string name="feed_show_watched">Ditonton sepenuhnya</string>
     <string name="on">Hidupkan</string>
-    <string name="feed_show_partially_watched">Ditonton secara separa</string>
-    <string name="feed_show_upcoming">Akan datang</string>
     <string name="play">Main</string>
     <string name="audio_track_type_dubbed">dialih suara</string>
     <string name="open_play_queue">Buka baris gilir main</string>
@@ -458,9 +440,6 @@
     <string name="question_mark">\?</string>
     <string name="share_playlist_content_details">%1$s\n%2$s</string>
     <string name="get_notified">Dapatkan pemberitahuan</string>
-    <string name="settings_category_exoplayer_title">Tetapan ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Uruskan beberapa tetapan ExoPlayer. Perubahan ini memerlukan pemain dimulakan semula untuk berfungsi</string>
-    <string name="use_exoplayer_decoder_fallback_title">Gunakan ciri undur penyahkod ExoPlayer</string>
     <string name="unknown_audio_track">Tidak diketahui</string>
     <string name="duration">Tempoh</string>
     <string name="metadata_banners">Sepanduk</string>
@@ -478,7 +457,6 @@
     <string name="you_successfully_subscribed">Anda kini melanggan saluran ini</string>
     <string name="no_video_streams_available_for_external_players">Tiada strim video tersedia untuk pemain luaran</string>
     <string name="sort">Isih</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Sentiasa gunakan penyelesaian tetapan permukaan keluaran video ExoPlayer</string>
     <string name="audio_track_type_original">asli</string>
     <string name="audio_track_type_descriptive">perihalan</string>
     <string name="channel_tab_videos">Video</string>
@@ -514,7 +492,6 @@
     <string name="search_with_service_name">Cari %1$s</string>
     <string name="search_with_service_name_and_filter">Cari %1$s (%2$s)</string>
     <string name="tab_bookmarks_short">Senarai Main</string>
-    <string name="crash_the_player">Gagalkan pemain</string>
     <string name="notification_scale_to_square_image_title">Pangkas lakaran kecil kepada nisbah aspek 1:1</string>
     <string name="notification_scale_to_square_image_summary">Pangkas lakaran kecil video dalam pemberitahuan daripada nisbah 16:9 kepada 1:1</string>
     <string name="notification_actions_summary_android13">Edit setiap tindakan pemberitahuan di bawah dengan mengetiknya. Tiga tindakan pertama (main/jeda, sebelumnya dan seterusnya) telah ditetapkan oleh sistem dan tidak boleh diubah suai.</string>

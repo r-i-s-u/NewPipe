@@ -6,7 +6,6 @@
     <string name="notification_action_1_title">ߞߍߟߌ߫ ߝߌߟߊߣߊ߲ ߞߎ߬ߘߎ</string>
     <string name="notification_actions_summary">ߛߐ߬ߓߌ߬ߘߐ߬ߓߏ߲߫ ߞߍߟߌ ߞߋ߬ߟߋ߲߬ߞߋ߬ߟߋ߲߬ߠߊ ߡߊߝߊ߬ߟߋ߲߬ ߘߎ߰ߟߊ߫ ߛߐ߲߬ߞߌ߲߬ߠߌ߲ ߘߐ߫ ߊ߬ߟߎ߫ ߞߊ߲߬. ߘߏ߫ ߟߎ߫ ߓߊߕߐߡߐ߲߫ (ߞߣߊ߫ ߕߊ߬ߡߌ߲߬ ߃ ߟߊ߫) ߞߵߊ߬ߟߎ߫ ߝߍ߲߬ߛߍ߲߫ ߛߐ߬ߓߌ߬ߘߐ߬ߓߏ߲߫ ߜߘߋ ߘߐ߫߸ ߞߌߣߌ߲߫ ߛߐ߲߬ߞߌ߲ ߛߌߟߊ ߝߍ߬ ߘߋ߲߬ߞߊ߬ߣߍ߲߬ ߘߐߞߍߕߊ ߞߊ߲߬</string>
     <string name="show_play_with_kodi_title">ߞߊ߬ \"ߊ߬ ߕߏߟߏ߲߫ Kodi ߞߣߐ߫\" ߢߣߊߕߊߟߌ ߦߌ߬ߘߊ߬</string>
-    <string name="crash_the_player">ߞߊ߬ ߕߏߟߏ߲ߟߊ߲ ߠߜߊߘߊ߲߫</string>
     <string name="notification_scale_to_square_image_title">ߞߏ߬ߋߞߏ߬ߋ ߟߊ߬ߕߍ߰ ߁:߁ ߡߊ߬</string>
     <string name="notification_action_0_title">ߞߍߟߌ߫ ߝߟߐ ߞߎ߬ߘߎ</string>
     <string name="notification_action_2_title">ߞߍߟߌ߫ ߛߓߊߣߊ߲ ߞߎ߬ߘߎ</string>
@@ -32,9 +31,6 @@
     <string name="subscription_change_failed">ߡߊ߬ߝߘߎ߬ߟߌ ߡߊߝߊ߬ߟߋ߲߬ߞߏ ߡߊ߫ ߛߐ߲߬</string>
     <string name="search_showing_result_for">ߢߌߣߌ߲ߝߋ߲߫ ߞߐߝߟߌ ߟߎ߬: %s</string>
     <string name="share_dialog_title">ߞߵߊ߬ ߘߐߝߘߊ߫</string>
-    <string name="use_external_video_player_title">ߞߐߞߊ߫ ߕߏߟߏ߲ߟߊ߲ ߠߊߓߊ߯ߙߊ߫</string>
-    <string name="use_external_video_player_summary">ߊ߬ ߦߋ߫ ߡߍ߲ߕߊ ߟߋ߫ ߖߐ߬ߛߌ߫ ߟߊ߫ ߓߍ߲߬ߡߊ ߘߏ߫ ߟߎ ߞߘߐ߫</string>
-    <string name="use_external_audio_player_title">ߞߊ߬ ߞߐߞߊ߲߫ ߡߍ߲ߕߊ߫ ߕߏߟߏ߲ߟߊ߲ ߠߊߓߊ߯ߙߊ߫</string>
     <string name="unsubscribe">ߞߵߊ߬ ߟߊߓߌ߬ߟߊ߬</string>
     <string name="subscribe_button_title">ߊ߬ ߡߊߝߘߎ߫</string>
     <string name="subscribed_button_title">ߊ߬ ߡߊߝߘߎߣߍ߲߫ ߌ ߓߟߏ߫</string>
@@ -101,7 +97,6 @@
     <string name="enable_playback_state_lists_summary">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߘߊ߲߬ߘߌ߬ߦߊ߬ ߡߊ߬ߛߙߋ ߟߎ߫ ߦߌ߬ߘߊ߬ ߛߙߍߘߍ ߟߎ߬ ߘߐ߫</string>
     <string name="enable_watch_history_summary">ߞߊ߬ ߦߋߡߍ߲ߕߊ߫ ߡߊߝߍߣߍ߲ߣߍ߲ ߠߎ߫ ߘߝߐ߬ߦߊ߫</string>
     <string name="download_dialog_title">ߞߵߊ߬ ߟߊߖߌ߰</string>
-    <string name="start_main_player_fullscreen_title">ߞߊ߬ ߕߏߟߏ߲ߟߊ߲߫ ߓߊߖߎ ߘߊߦߟߍ߬ ߥߊ߲߬ߥߊ߬ ߝߊ ߘߐ߫</string>
     <string name="show_hold_to_append_title">ߞߊ߬ ߞߍߞߌߦߊ \"ߊ߬ ߛߐ߲߬ߞߌ߲߬ߣߍ߲ ߕߏ߫ ߞߵߊ߬ ߝߙߊ߬ ߕߎ߲߰ߠߌ߲ ߠߊ߫\" ߦߌ߬ߘߊ߬</string>
     <string name="unsupported_url_dialog_message">ߛߘߌ߬ߜߋ߲߬ ߘߌߣߍ߲ ߡߊ߫ ߛߋ߫ ߡߊߟߐ߲߫ ߠߊ߫. ߞߵߊ߬ ߘߊߦߟߍ߬ ߟߥߊߟߌߟߊ߲߫ ߜߘߍ߫ ߞߣߐ߫؟</string>
     <string name="default_content_country_title">ߞߣߐߘߐ߫ ߖߡߊ߬ߣߊ߬ ߖߏߣߡߊ</string>
@@ -110,14 +105,11 @@
     <string name="peertube_instance_add_help">ߛߐߘߊ߫ ߛߘߌ߬ߜߋ߲</string>
     <string name="peertube_instance_add_fail">ߛߐߘߊ ߡߊ߫ ߛߋ߫ ߕߎ߬ߢߊ߬ߟߐ߲߬ ߠߊ߫</string>
     <string name="peertube_instance_add_https_only">HTTPS ߛߘߌߜߋ߲ ߠߎ߬ ߟߋ߬ ߘߐߙߐ߲߫ ߦߋ߫ ߕߊ߬ ߟߊ߫</string>
-    <string name="settings_category_player_behavior_title">ߞߏߟߊߕߊ߯ߡߢߊ</string>
     <string name="settings_category_video_audio_title">ߦߋߡߍ߲ߕߊ ߣߌ߫ ߡߍ߲ߕߊ</string>
     <string name="settings_category_history_title">ߘߝߐ߬ߦߊ ߣߌ߫ ߦߟߌߡߊߛߌ߮</string>
     <string name="settings_category_appearance_title">ߦߋߢߊ</string>
     <string name="settings_category_debug_title">ߞߊߘߊ߲ߓߐ</string>
     <string name="settings_category_updates_title">ߟߏ߲ߘߐߦߊߟߌ</string>
-    <string name="settings_category_player_notification_summary">ߥߦߏ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߕߐ ߛߏ߬ߓߌ߬ߘߐߓߏ߲ ߢߊߓߐ߫</string>
-    <string name="background_player_playing_toast">ߝߊ߲߬ߝߘߊ߬ߞߘߐ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
     <string name="popup_playing_toast">ߝߎ߲ߞߊ߲ߡߊ ߞߙߊ߬ߞߏ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
     <string name="content">ߞߣߐߘߐ</string>
     <string name="youtube_restricted_mode_enabled_title">ߦߕߎߓߎ߫ \"ߜߍ߲߬ߘߍ߬ߣߍ߲߫ ߗߏ߯ߦߊ\" ߟߊߡߍߣߍ߲߫</string>
@@ -185,7 +177,6 @@
     <string name="resume_on_audio_focus_gain_title">ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߓߟߏߕߎ߲߰</string>
     <string name="resume_on_audio_focus_gain_summary">ߞߊ߬ ߘߐ߲߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߓߟߏߕߎ߲߰ ߓߟߏߕߍ߯ߟߌ ߞߐߝߍ߬ (ߟߊߒߡߊ߫ ߘߐ߫، ߜߋߟߋ߲ߜߋߟߋ߲ ߠߊ߫ ߞߟߌߟߌ ߟߎ߬)</string>
     <string name="show_hold_to_append_summary">ߞߊ߬ ߞߍߞߌߦߊ ߦߌ߬ߘߊ߬ ߦߋߡߍ߲ߕߊ߫ ߕߐ߬ߝߍ߬ߦߊ ߟߎ߬ ߞߐߜߍ ߞߊ߲߬ \"ߝߎ߲ߞߊ߲ߡߊ\" ߥߟߊ߫ \"ߞߘߐߝߊ߲ߝߘߊ\" ߞߎ߬ߘߎ ߛߐ߲߬ߞߌ߲߬ ߕߎߡߊ</string>
-    <string name="settings_category_player_notification_title">ߕߏߟߏ߲ߟߊ߲߫ ߠߊ߫ ߛߐߓߌ߬ߘߐ߬ߓߏ߲</string>
     <string name="show_age_restricted_content_title">ߞߊ߬ ߞߣߐߘߐ߫ ߛߐ߬ߘߐ߲߬ߛߌ߯ ߘߊ߲߬ߠߊߕߍ߰ߣߍ߲ ߦߌ߬ߘߊ߬</string>
     <string name="show_age_restricted_content_summary">ߞߊ߬ ߞߣߐߘߐ ߟߎ߬ ߦߌ߬ߘߊ߬ ߤߊߟߌ߬ ߘߋ߲ߣߍ߲ ߠߎ߬ ߡߊ߲ߞߊ߲߫ ߞߊ߬ ߡߍ߲ ߡߊߝߍߣߍ߲߫ (ߦߏ߫ +߁߈)</string>
     <string name="restricted_video">ߛߐ߬ߘߐ߲߬ߛߌ߰ ߘߊ߲ߠߊߕߍ߮ ߦߋ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߣߌ߲߬ ߠߊ߫.
@@ -219,12 +210,10 @@
     <string name="settings_category_clear_data_title">ߞߊ߬ ߟߐ߲ߕߊ ߟߎ߬ ߝߌߘߊ߲߫</string>
     <string name="autoplay_title">ߕߏߟߏ߲ߖߘߍ߬ߡߊ</string>
     <string name="unsupported_url">ߛߘߌ߬ߜߋ߲߫ ߕߊ߬ߓߊߟߌ</string>
-    <string name="start_main_player_fullscreen_summary">ߦߋߡߍ߲ߕߊ ߟߎ߬ ߞߊߣߊ߬ ߘߊߦߟߍ߬ ߕߏߟߏ߲ߟߊ߲ ߞߏߘߋߞߏߘߋ ߞߣߐ߫߸ ߞߏ߬ߣߌ߲߬ ߞߵߊ߬ ߟߊߞߊ߬ ߥߊ߲߬ߥߊ߲߬ ߝߊ ߘߐ߫ ߣߴߊ߬ ߞߵߊ߬ ߕߘߍ߬ ߥߟߏߒߖߘߍ߬ߡߊ ߜߊߛߏ߲ߣߍ߲߫. ߌ ߘߌ߫ ߛߋ߫ ߕߏߟߏ߲ߟߊ߲ ߞߏߘߋߞߏߘߋ ߡߊߛߐ߬ߘߐ߲߬ ߠߊ߫ ߣߴߌ ߓߐ߫ ߘߊ߫ ߥߊ߲߬ߥߊ߲߬ ߝߊ ߗߏ߯ߦߊ ߘߐ߫</string>
     <string name="content_language_title">ߞߣߐߘߐ߫ ߞߊ߲߫ ߖߏߣߡߊ</string>
     <string name="peertube_instance_url_title">PeerTube ߛߐߘߊ ߟߎ߬</string>
     <string name="peertube_instance_url_summary">ߌ ߟߊ߫ PeerTube ߛߐߘߊ߫ ߤߍߣߍ߲ߣߊ߲ߕߊ ߟߎ߬ ߛߎߥߊ߲ߘߌ߫</string>
     <string name="peertube_instance_add_exists">ߛߐߘߊ ߏ߬ ߦߋ߲߬ ߞߘߐ߬ߡߊ߲߫</string>
-    <string name="settings_category_player_title">ߕߏߟߏ߲ߟߊ߲</string>
     <string name="all">ߊ߬ߓߍ߯</string>
     <string name="error_report_title">ߝߎ߬ߕߎ߲߬ߕߌ߫ ߘߊ߲߬ߕߍ߰ߟߌ</string>
     <string name="playlists">ߕߏߟߏ߲ߛߙߍߘߍ ߟߎ߬</string>
@@ -252,12 +241,8 @@
     <string name="delete_search_history_alert">ߞߊ߬ ߢߌߣߌ߲ߠߌ߲߫ ߘߝߐ߬ߦߊ ߡߎ߬ߡߍ ߖߐ߬ߛߌ߫ ؟</string>
     <string name="search_history_deleted">ߢߌߣߌ߲ߠߌ߲߫ ߘߝߐ߬ߦߊ ߓߘߊ߫ ߖߐ߬ߛߌ߫</string>
     <string name="could_not_load_thumbnails">ߛߋ߫ ߡߊ߫ ߞߍ߫ ߞߏ߬ߋߞߏ߬ߋ ߟߎ߬ ߓߍ߯ ߖߛߐ߫ ߟߋ߫</string>
-    <string name="player_unrecoverable_failure">ߝߎ߬ߕߎ߲߬ߕߌ߬ ߘߊߓߍ߲߬ߓߊߟߌ ߘߏ߫ ߓߘߊ߫ ߓߌ߬ߟߵߊ߬ ߘߐ߫</string>
-    <string name="player_recoverable_failure">ߟߛߊ߬ߦߌ߬ߟߌ ߞߊ߬ ߝߘߊ߫ ߕߏߟߏ߲ߠߊ ߝߎ߬ߕߎ߲߬ߕߌ ߟߊ߫</string>
-    <string name="external_player_unsupported_link_type">ߞߐߞߊ߲߫ ߕߏߟߏ߲ߟߊ߲ ߠߎ߬ ߕߍ߫ ߛߘߌ߬ߜߋ߲߬ ߛߎ߯ߦߊ ߣߌ߲߬ ߕߊ߬ ߟߊ߫</string>
     <string name="video_streams_empty">ߦߋߡߍ߲ߕߊ߫ ߥߦߏ߫ ߛߌ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߬</string>
     <string name="audio_streams_empty">ߡߍ߲ߕߊ߫ ߥߦߏ߫ ߛߌ߫ ߡߊ߫ ߛߐ߬ߘߐ߲߬</string>
-    <string name="player_stream_failure">ߥߏ߬ߦߏ ߣߌ߲߬ ߕߍ߫ ߛߋ߫ ߟߊ߫ ߕߏߟߏ߲߫ ߠߊ߫</string>
     <string name="permission_display_over_apps">ߞߵߊ߬ ߝߍ߲߬ߛߍ߲߬ߠߌ߲ ߠߊߘߌ߬ߢߍ߬ ߟߥߊߟߌߟߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߞߐߞߊ߲߬</string>
     <string name="error_report_notification_title">ߣߌߎߔߌߔ ߓߘߊ߫ ߝߎ߬ߕߎ߲߬ߕߌ ߘߏ߫ ߛߐ߬ߘߐ߲߬߸ ߊ߬ ߛߐ߲߬ߞߌ߲߫ ߞߵߊ߬ ߘߊ߲߭ߕߍ߰</string>
     <string name="restore_defaults">ߞߊ߬ ߡߐ߬ߟߐ߲߬ ߖߏߣߡߊ ߟߎ߬ ߟߊߛߊ߬ߦߌ߬</string>
@@ -337,8 +322,6 @@
     <string name="set_as_playlist_thumbnail">ߊ߬ ߞߍ߫ ߕߏߟߏ߲߫ ߛߙߍߘߍ߫ ߞߏ߬ߋߞߏ߬ߋ ߘߌ߫</string>
     <string name="unset_playlist_thumbnail">ߞߏ߬ߋ߬ߞߏ߬ߋ߬ ߘߎ߲ߡߕߊ ߓߐ߫ ߦߋ߲߬</string>
     <string name="bookmark_playlist">ߞߊ߬ ߕߏߟߏ߲߫ ߛߙߍߘߍ ߟߊߞߎ߲߬ߘߎ߬</string>
-    <string name="preferred_player_fetcher_notification_title">ߟߌ߬ߥߟߊ ߟߎ߬ ߡߊߛߐ߬ߘߐ߲…</string>
-    <string name="preferred_player_fetcher_notification_message">ߞߣߐߘߐ߫ ߡߊߢߌߣߌ߲ߣߍ߲ ߖߛߐߟߌ</string>
     <string name="create_playlist">ߕߏߟߏ߲ߛߙߍߘߍ߫ ߞߎߘߊ</string>
     <string name="rename_playlist">ߞߵߊ߬ ߘߐߕߐ߯ߟߊ߫</string>
     <string name="unbookmark_playlist">ߞߊ߬ ߜߡߊ ߖߐ߬ߛߌ߫</string>
@@ -429,8 +412,6 @@
     <string name="add_to_playlist">ߞߵߊ߬ ߝߙߊ߬ ߕߏߟߏ߲ߛߙߍߘߍ ߟߊ߫</string>
     <string name="leak_canary_not_available">LeakCanary ߕߍ߫ ߡߊߛߐ߬ߘߐ߲߬</string>
     <string name="show_memory_leaks">ߞߊ߬ ߦߟߌߕߏߟߊ߲ ߠߊ߫ ߝߎ߲ߘߌ ߟߎ߬ ߦߌ߬ߘߊ߬</string>
-    <string name="show_crash_the_player_title">ߞߊ߬ \"ߘߐߛߊߙߌߟߊ߲ ߠߜߊߛߊ߲߫\" ߦߌ߬ߘߊ߬</string>
-    <string name="show_crash_the_player_summary">ߞߊ߬ \"ߘߐߛߊߙߌߟߊ߲ ߠߜߊߛߊ߲߫\" ߦߌ߬ߘߊ߬</string>
     <string name="check_new_streams">ߥߦߏ߬ ߞߎߘߊ ߟߎ߫ ߕߎ߬ߢߊ߬ߟߐ߲ ߠߊߥߟߌ߬</string>
     <string name="crash_the_app">ߞߊ߬ ߟߥߊߟߌߟߊ߲ ߠߊߜߊߛߊ߲߫</string>
     <string name="show_original_time_ago_summary">ߗߋߢߊߟߌ ߟߎ߬ ߞߟߏߜߍ߫ ߓߐߛߎ߲ߡߊ ߟߎ߬ ߦߌ߬ߘߊ߬ߕߐ߫ ߟߋ߬ ߟߊ߬ߖߍ߲߬ߛߍ߲߬ߠߌ߲ ߘߐ߫</string>
@@ -599,24 +580,6 @@
     <plurals name="hours">
         <item quantity="other">ߕߎ߬ߡߊ߬ߙߋ߲߬ %d</item>
     </plurals>
-    <string name="feed_subscription_not_loaded_count">ߖߛߐߓߊߟߌ ߟߎ߬: %d</string>
-    <string name="feed_notification_loading">ߥߏ߬ߦߏ ߖߛߐ…</string>
-    <string name="feed_processing_message">ߥߏ߬ߦߏ ߦߙߍߞߍ…</string>
-    <string name="feed_new_items">ߥߏ߬ߦߏ߫ ߝߋ߲߫ ߞߎߘߊ ߟߎ߬</string>
-    <string name="feed_group_dialog_select_subscriptions">ߡߊ߬ߝߘߎ߬ߟߌ ߟߎ߬ ߛߎߥߊ߲ߘߌ߫</string>
-    <string name="feed_group_dialog_empty_selection">ߡߊ߬ߝߘߎ߬ߟߌ߬ ߛߌ߫ ߛߎߥߊ߲ߘߌߣߍ߲߫ ߕߍ߫</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="other">%d ߛߎߥߊ߲ߘߌߣߍ߲߫</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">ߞߙߎ ߕߐ߮ ߘߐߞߏߟߏ߲ ߠߋ߬</string>
-    <string name="feed_group_dialog_delete_message">ߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߞߙߎ ߣߌ߲߬ ߖߏ߬ߛߌ߫ ؟</string>
-    <string name="feed_create_new_group_button_title">ߞߎߘߊ</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">ߞߊ߬ ߡߊ߬ߝߘߎ߬ߟߌ߬ ߞߙߎߝߓߊߟߌ ߟߎ߬ ߘߐߙߐ߲߫ ߦߌ߬ߘߊ߬</string>
-    <string name="settings_category_feed_title">ߥߏ߬ߦߏ</string>
-    <string name="feed_update_threshold_title">ߥߏ߬ߦߏ߫ ߟߊߞߎߘߦߊ ߟߎ߬ ߕߍߟߊ</string>
-    <string name="feed_update_threshold_summary">ߕߎ߬ߡߊ ߡߍ߲ ߕߊ߬ߡߌ߲ ߞߐ ߘߐ߫߸ ߥߏ߬ߦߏ ߟߎ߬ ߞߊߞߊ߲߫ ߞߊ߬ ߖߊ߬ߕߋ߬ ߞߘߐ߬ߡߊ߲ ߘߌ߫ — %s</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">ߞߊ߬ ߞߊߟߌ߲ ߗߏ߯ߦߊ ߟߊߢߊ߯</string>
-    <string name="feed_show_hide_streams">ߞߊ߬ ߥߏ߬ߦߏ ߟߎ߫ ߦߌ߬ߘߊ߬/ߢߡߊߘߏ߲߰</string>
     <string name="content_not_supported">ߣߌߎߔߌߔ ߕߍ߫ ߞߣߐߘߐ ߣߌ߲߬ ߕߊ߬ ߟߊ߫ ߡߎߣߎ߲߬.
 \n
 \nߕߎ߬ߡߊ߬ ߘߐ߫߸ ߊ߬ ߘߌ߫ ߛߴߊ߬ ߕߊ߬ ߟߊ߫ ߓߐߞߏ߫ ߣߊ߬ߕߐ ߟߎ߬ ߘߐ߫.</string>
@@ -648,11 +611,7 @@
     <string name="get_notified">ߞߊ߬ ߛߏ߬ߓߌ߬ߘߐ߬ߓߏ߲ ߠߎ߬ ߡߊߛߐ߬ߘߐ߲߬</string>
     <string name="enumeration_comma">߸</string>
     <string name="no_video_streams_available_for_external_players">ߦߋߡߍ߲ߕߊ߫ ߥߦߏ߫ ߛߌ߫ ߡߊߛߐ߬ߘߐ߲߬ߕߊ߬ ߕߍ߫ ߦߋ߲߬ ߞߐߞߊ߲߫ ߘߐߛߊߙߌߟߊ߲ ߠߎ߬ ߢߍ߫</string>
-    <string name="select_quality_external_players">ߓߘߍ߬ߦߊ ߛߎߥߊ߲ߘߌ߫ ߞߐߞߊ߲߫ ߘߐߛߊߙߌߟߊ߲ ߠߎ߬ ߢߍ߫</string>
     <string name="unknown_quality">ߓߘߍ߬ߦߊ߬ ߟߐ߲ߓߊߟߌ</string>
-    <string name="feed_show_watched">ߡߎ߰ߡߍ߬ ߡߊߝߍߣߍ߲ߣߍ߲</string>
-    <string name="feed_show_partially_watched">ߝߊ߲߬ߞߋ߬ߟߋ߲߬ ߡߊߝߍߣߍ߲ߣߍ߲</string>
-    <string name="feed_show_upcoming">ߣߊ߬ߕߐ</string>
     <string name="sort">ߞߵߊ߬ ߘߐߕߐ߬ߡߐ߲߬</string>
     <string name="metadata_tags">ߞߊ߲ߠߊߛߓߍ ߟߎ߬</string>
     <string name="metadata_licence">ߟߊ߬ߘߌߢߍ</string>
@@ -666,22 +625,10 @@
     <plurals name="seconds">
         <item quantity="other">ߝߌ߬ߟߊ߲߬ %d</item>
     </plurals>
-    <string name="fragment_feed_title">ߞߎߘߊ ߟߎ߬</string>
-    <string name="feed_groups_header_title">ߥߙߏߝߋ߫ ߘߙߎ ߟߎ߬</string>
-    <string name="feed_oldest_subscription_update">ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ ߞߍ߫ ߘߊ߫: %s</string>
     <plurals name="days">
         <item quantity="other">ߕߟߋ߬ %d</item>
     </plurals>
-    <string name="feed_load_error">ߝߎ߬ߕߎ߲߬ߕߌ ߥߏ߬ߦߏ ߖߛߐ߫ ߕߎߡߊ</string>
-    <string name="feed_load_error_account_info">\'%s\' ߥߏ߬ߦߏ ߕߍ߫ ߛߋ߫ ߖߛߐ߫ ߟߊ߫.</string>
-    <string name="feed_load_error_terminated">ߛߌ߲ߘߌߓߊ߮ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߓߘߊ߫ ߕߍ߰.
-\nߣߌߎߔߌߔ ߕߍ߫ ߣߊ߬ ߛߋ߫ ߟߊ߫ ߥߏ߬ߦߏ ߣߌ߲߬ ߖߛߐ߫ ߟߊ߫ ߡߎ߬ߕߎ߲߬.
-\nߞߊ߬ ߡߊ߬ߝߘߎ߬ߟߌ ߛߊ߬ ߥߙߏߝߋ ߣߌ߲߬ ߡߊ߬ ؟</string>
-    <string name="feed_load_error_fast_unknown">ߥߦߏ߬ ߞߊߟߌ߲ ߗߏ߯ߦߊ ߕߍ߫ ߟߌ߬ߤߟߊ߬ ߘߌߦߊߡߊ߲߫ ߘߌ߫ ߟߊ߫ ߝߐߡߊ ߣߌ߲߬ ߞߊ߲߬.</string>
-    <string name="feed_use_dedicated_fetch_method_title">ߞߵߊ߬ ߟߊߛߐ߬ߘߐ߲߬ ߥߦߏ߬ ߓߟߏߡߊߞߊ߬ߣߍ߲ ߘߏ߫ ߝߍ߬ ߣߴߏ ߘߌ߫ ߓߍ߲߬</string>
     <string name="feed_update_threshold_option_always_update">ߞߵߊ߬ ߟߊߞߎߘߦߊ߫ ߞߘߊߎ߫</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">ߞߊ߬ ߞߊߟߌ߲ ߗߏ߯ߦߊ ߟߊߟߊ߬</string>
-    <string name="feed_hide_streams_title">ߞߊ߬ ߥߦߏ߬ ߢߍߕߊ ߟߎ߫ ߦߌ߬ߘߊ߬</string>
     <string name="channel_created_by">ߊ߬ ߛߌ߲ߘߌߣߍ߲߫ %s ߟߋ߬ ߓߟߏ߫</string>
     <string name="playlist_page_summary">ߕߏߟߏ߲ߛߙߍߘߍ ߟߎ߬ ߞߐߜߍ</string>
     <string name="video_detail_by">%s ߓߟߏ߫</string>
@@ -699,19 +646,7 @@
     <string name="you_successfully_subscribed">ߝߙߏߝߋ ߣߌ߲߬ ߡߊߝߘߎߣߌ߲߫ ߌ ߓߟߏ߫ ߡߎ߬ߕߎ߲߬</string>
     <string name="open_website_license">ߞߊ߬ ߞߍߦߙߐ ߘߊߦߟߍ߬</string>
     <string name="soundcloud_go_plus_content">ߣߌ߲߬ ߦߋ߫ SoundCloud Go+ ߜߋ߬ߙߋ ߘߏ߫ ߟߋ߬ ߘߌ߫߸ ߡߍ߲ ߕߴߌ ߟߊ߫ ߖߡߊ߬ߣߊ ߞߣߐ߫߸ ߏ߬ ߘߐ߫ ߊ߬ ߕߍ߫ ߛߋ߫ ߘߐߛߊߙߌ߫ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߟߊߖߌ߰ ߣߌߎߔߌߔ ߓߟߏ߫.</string>
-    <string name="feed_use_dedicated_fetch_method_summary">ߊ߬ ߦߋ߫ ߗߋߢߊ ߘߏ߫ ߟߎ߫ ߘߐ߫߸ ߊ߬ߟߋ߬ ߞߊߟߌߡߊ߲ߓߊ ߟߋ߬ ߝߊߣߊ߲߫ ߦߋ߫߸ ߞߏ߬ߣߌ߲߬ ߊ߬ ߘߌ߫ ߛߋ߫ ߝߌ߬ߛߌ߫ ߘߊ߲߬ߠߊߕߍ߰ߣߍ߲ ߠߥߊ߫ ߟߊ߫ ߊ߬ߣߌ߫ ߟߌ߬ߤߟߊ߬ ߘߝߊߓߊߟߌ ߟߎ߬ (ߟߊߒߡߊ߫ ߘߐ߫߸ ߥߎ߬ߛߎ߸ ߝߌ߬ߛߌ ߛߎ߯ߦߊ ߥߟߊ߫ ߝߊ߲ߞߢߊ߫ ߟߌ߬ߤߟߊ)</string>
     <string name="paid_content">ߞߣߐߘߐ ߣߌ߲߬ ߦߋ߫ ߡߊߛߐ߬ߘߐ߲߬ ߠߊ߫ ߕߣߐ߬ߓߐ߬ߟߊ߫ ߛߙߊ߬ߓߐ߬ߟߊ ߟߎ߬ ߟߋ߬ ߘߐߙߐ߲߫ ߓߟߏ߫߸ ߏ߬ ߘߐ߫ ߊ߬ ߕߍ߫ ߛߋ߫ ߘߐߛߊߙߌ߫ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߟߊߖߌ߰ ߣߌߎߔߌߔ ߓߟߏ.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">ߊ߬ ߦߴߌ ߢߣߊ߫ ߟߋ߬ ߞߏ߫ ߥߏ߬ߦߏ ߟߎ߬ ߖߛߐ ߟߊߛߎߡߊߡߊ߲߫ ߠߋ߬ ߞߏߖߎ߯ߦߊ߫؟ ߣߴߏ߬ ߟߋ߸ ߖߛߐߟߌ߫ ߞߊߟߌ߲ ߡߊߝߍߣߍ߲߫ (ߌ ߘߌ߫ ߛߴߊ߬ ߡߊߝߊ߬ߟߋ߲߬ ߠߊ߫ ߢߊߓߐߟߌ ߟߎ߬ ߘߐ߫ ߥߟߊ߫ ߘߎ߰ߟߊ߬ߘߐ߬ ߞߘߎ ߣߌ߲߬ ߛߐ߲߬ߞߌ߲߫).
-\n
-\nߣߌߎߔߌߔ ߘߌ߫ ߛߋ߫ ߥߏ߬ߦߏ ߟߎ߬ ߟߊߞߎߘߦߊ߫ ߟߊ߫ ߢߊ߫ ߝߌ߬ߟߊ߫ ߟߋ߫ ߡߊ߬:
-\n• ߞߊ߬ ߝߙߏߝߋ߫ ߡߊߝߘߎߣߍ߲ ߠߎ߬ ߡߎ߰ߡߍ ߡߊߛߐ߲߬ߘߐ߲߬߸ ߏ߬ ߛߎߡߊߡߊ߲߫ ߞߏ߬ߣߌ߲߬ ߊ߬ ߘߝߊߣߍ߲߫.
-\n• ߞߊ߬ ߗߋߢߊ߫ ߓߟߏߡߞߊ߬ߣߍ߲ ߘߏ߫ ߟߊߓߊ߯ߙߊ߫߸ ߏ߬ ߟߞߊߟߌߡߊ߲߫ ߞߏ߬ߣߌ߲߬ ߊ߬ ߘߝߊߣߍ߲߫ ߕߍ߫.
-\n
-\nߞߍߢߊ߫ ߝߌ߬ߟߊ ߏ߬ ߘߊ߲߬ߝߘߊ߬ߓߐ ߦߋ߫ ߟߋ߬߸ ߡߍ߲ ߞߊߟߌߡߊ߲߫ ߏ߬ ߕߍ߫ ߟߌ߬ߤߟߊ߫ ߓߍ߯ ߛߐ߬ߘߐ߲߬ ߠߊ߫߸ ߦߏ߫ ߝߌ߬ߛߌ ߥߎ߬ߛߎ ߣߴߊ߬ ߛߎ߯ߦߊ (ߢߟߊ߫ ߦߋߟߌ ߘߐ߫ ߘߊ߲߬ߝߘߊ߬ߓߐ߬ ߕߴߊ߬ ߝߊ߲ߞߢߊ߫ ߦߋߡߍ߲ߕߊ ߟߎ߬ ߣߌ߫ ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߕߍ߫)߸ ߊ߬ ߘߏ߲߬ ߘߌ߫ ߛߋ߫ ߞߍ߫ ߟߴߊ߬ ߡߊ߫ ߥߙߏߝߋ߫ ߝߌ߬ߛߌ ߟߎ߬ ߓߍ߯ ߡߊߛߐ߬ߘߐ߲߬.
-\n
-\nߟߊߒߡߊ߫ ߘߐ߫߸ ߦߕߎߓߎ ߦߋ߫ ߟߊ߬ߞߎ߬ߘߦߊ߬ߟߌ߬ ߞߊߟߌ߲ (RSS ߥߏ߬ߦߏ) ߕߊ߬ ߟߊ߫.
-\n
-\nߏ߬ ߘߐ߫߸ ߌߟߋ ߟߵߊ߬ ߡߊߝߍߣߍ߲ߣߍ߲߫ ߠߊ߫: ߣߴߌ ߦߋ߫ ߞߊߟߌߦߊ ߟߋ߫ ߝߍ߬ ߥߟߊ߫ ߟߌ߬ߤߟߊ߬ ߖߐ߲ߖߐ߲.</string>
     <string name="georestricted_content">ߞߣߐߘߐ ߣߌ߲߬ ߕߍ߫ ߡߊߛߐ߬ߘߐ߲߬ ߌ ߟߊ߫ ߖߡߊ߬ߣߊ ߞߣߐ߫.</string>
     <string name="night_theme_available">ߢߣߊߕߊ ߣߌ߲߬ ߘߌ߫ ߡߊߛߐ߬ߘߐ߲߫ ߠߋ߬ ߘߐߙߐ߲߫ ߣߌ߫ %s ߛߎߥߊ߲ߘߌߣߍ߲߫ ߛߊߛߊ ߢߍ߫</string>
     <string name="description_select_note">ߌ ߘߌ߫ ߛߋ߫ ߞߟߏߜߍ ߓߊߕߐߡߐ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍ ߘߐ߫ ߡߎ߬ߕߎ߲߬. ߦߴߊ߬ ߟߐ߲߫ ߞߏ߫ ߞߐߜߍ߫ ߘߌ߫ ߛߋ߫ ߡߣߍߡߣߍ߫ ߟߊ߫ ߊ߬ߣߌ߫ ߛߘߌ߬ߜߋ߲ ߠߎ߬ ߝߊߣߊ߲߫ ߘߌ߫ ߛߋ߫ ߟߊߝߏߦߊ߫ ߟߴߊ߬ ߘߐ߫.</string>
@@ -719,8 +654,6 @@
     <string name="play_queue_audio_track">ߡߍ߲ߘߊ: %s</string>
     <string name="audio_track">ߡߍ߲ߕߊ߫ ߜߙߋ</string>
     <string name="audio_track_present_in_video">ߡߍ߲ߕߊ߫ ߜߙߋ ߘߏ߫ ߞߊߞߊ߲߫ ߞߊ߬ ߞߍ߫ ߥߏ߬ߦߏ ߣߌ߲߬ ߞߣߐ߫ ߞߘߐ߬ߡߊ߲߫</string>
-    <string name="select_audio_track_external_players">ߡߍ߲ߕߊ߫ ߜߙߋ ߛߎߥߊ߲ߘߌ߫ ߞߐߞߊ߲߫ ߘߐߛߊߙߌߟߊ߲ ߠߎ߬ ߢߍ߫</string>
-    <string name="settings_category_exoplayer_title">Exoplayer ߢߊߓߐߟߌ ߟߎ߬</string>
     <string name="prefer_original_audio_summary">ߡߍ߲ߕߊ߫ ߜߙߋ ߛߎ߲ߞߎ߲ߡߊ ߛߎ߲ߥߊ߲ߘߌ߫߸ ߊ߬ ߞߍߘߊ߫ ߞߊ߲ ߛߎ߯-ߛߎ߯ ߘߌ߫</string>
     <string name="prefer_descriptive_audio_title">ߡߍ߲ߕߊ߫ ߞߊ߲߬ߛߓߍ߬ߡߊ ߟߊߝߌ߬ߛߊ߬ߦߊ߫</string>
     <string name="unknown_audio_track">ߡߊߟߐ߲ߓߊߟߌ</string>

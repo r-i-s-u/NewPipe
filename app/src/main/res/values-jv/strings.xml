@@ -50,9 +50,6 @@
     <string name="unsubscribe">Rasido langganan</string>
     <string name="subscribed_button_title">Pelanggan</string>
     <string name="subscribe_button_title">Langganan</string>
-    <string name="use_external_audio_player_title">Gunake pemuter suara liyane</string>
-    <string name="use_external_video_player_summary">Busak suara ing resolusi cuk</string>
-    <string name="use_external_video_player_title">Gunake pemuter video liyane</string>
     <string name="share_dialog_title">Bagi nganggo</string>
     <string name="did_you_mean">Maksude: %1$s\?</string>
     <string name="settings">Setelan</string>

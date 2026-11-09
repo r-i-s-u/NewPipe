@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="feed_create_new_group_button_title">ⴰⵎⴰⵢⵏⵓ</string>
     <string name="name">ⵉⵙⵎ</string>
     <plurals name="days">
         <item quantity="one">%d ⵡⴰⵙⵙ</item>
@@ -75,7 +74,6 @@
     <string name="cancel">ⵙⵔ</string>
     <string name="video_detail_by">ⵙ %s</string>
     <string name="channel_created_by">ⵔⵏⵏⵓ ⵜ %s</string>
-    <string name="feed_group_dialog_delete_message">ⵉⵙ ⵜⵅⵙⴷ ⴰⴷ ⵜⴽⴽⵙⴷ ⵜⵔⴰⴱⴱⵓⵜ ⴰ\?</string>
     <string name="stop">ⴱⴷⴷ</string>
     <string name="grid">ⴰⵥⵟⵟⴰ</string>
     <string name="list">ⵜⴰⵍⴳⴰⵎⵜ</string>
@@ -98,8 +96,6 @@
     <string name="unsubscribe">ⴽⴽⵙ ⵜⴰⵙⵓⵔⵉ</string>
     <string name="subscribed_button_title">ⵉⵙⵙⵓⵔ</string>
     <string name="subscribe_button_title">ⵙⵙⵓⵔ</string>
-    <string name="use_external_audio_player_title">ⵙⵎⵔⵙ ⵉⵎⵖⵔⵉ ⵏ ⵉⵎⵙⵍⵉ ⴰⴱⵕⵕⴰⵏⵉ</string>
-    <string name="use_external_video_player_title">ⵙⵎⵔⵙ ⵉⵎⵖⵔⵉ ⵏ ⵓⴼⵉⴷⵢⵓ ⴰⴱⵕⵕⴰⵏⵉ</string>
     <string name="search_showing_result_for">ⴰⵙⵎⴰⵍ ⵏ ⵜⴰⵢⴰⴼⵓⵜ ⵉ: %s</string>
     <string name="did_you_mean">ⵎⵉⵏ ⵜⵅⵙⴷ ⴰⴷ ⵜⵉⵏⵉⴷ:\"%1$s\"\?</string>
     <string name="main_bg_subtitle">ⴰⴷⵔ ⵅ \"ⵔⵣⵓ\"ⴰⴼⴰⴷ ⴰⴷ ⵜⵜⴰⵡⵍⴷ</string>

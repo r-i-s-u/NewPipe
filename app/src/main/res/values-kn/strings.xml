@@ -9,10 +9,8 @@
     <string name="download_path_dialog_title">ವೀಡಿಯೊ ಫೈಲ್‌ಗಳಿಗಾಗಿ ಡೌನ್‌ಲೋಡ್ ಫೋಲ್ಡರ್ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="subscribed_button_title">ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="download_path_audio_summary">ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಆಡಿಯೊ ಫೈಲ್‌ಗಳನ್ನು ಇಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ</string>
-    <string name="use_external_audio_player_title">ಬಾಹ್ಯ ಆಡಿಯೊ ಪ್ಲೇಯರ್ ಬಳಸಿ</string>
     <string name="subscription_change_failed">ಚಂದಾದಾರಿಕೆಯನ್ನು ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
     <string name="main_bg_subtitle">ಪ್ರಾರಂಭಿಸಲು ಭೂತಗನ್ನಡಿಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
-    <string name="use_external_video_player_summary">ಕೆಲವು ರೆಸಲ್ಯೂಶನ್‌ಗಳಲ್ಲಿ ಆಡಿಯೊವನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ</string>
     <string name="upload_date_text">%1$s ರಂದು ಪ್ರಕಟಿಸಲಾಗಿದೆ</string>
     <string name="mark_as_watched">ವೀಕ್ಷಿಸಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಿ</string>
     <string name="no_player_found_toast">ಯಾವುದೇ ಸ್ಟ್ರೀಮ್ ಪ್ಲೇಯರ್ ಕಂಡುಬಂದಿಲ್ಲ (ಅದನ್ನು ಪ್ಲೇ ಮಾಡಲು ನೀವು VLC ಅನ್ನು ಸ್ಥಾಪಿಸಬಹುದು).</string>
@@ -32,7 +30,6 @@
     <string name="search">ಹುಡುಕಿ</string>
     <string name="tab_subscriptions">ಚಂದಾದಾರಿಕೆಗಳು</string>
     <string name="settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
-    <string name="use_external_video_player_title">ಬಾಹ್ಯ ವೀಡಿಯೊ ಪ್ಲೇಯರ್ ಬಳಸಿ</string>
     <string name="install">ಸ್ಥಾಪಿಸಿ</string>
     <string name="no_player_found">ಯಾವುದೇ ಸ್ಟ್ರೀಮ್ ಪ್ಲೇಯರ್ ಕಂಡುಬಂದಿಲ್ಲ. VLC ಸ್ಥಾಪಿಸುವುದೇ?</string>
     <string name="share">ಶೇರ್ ಮಾಡಿ</string>

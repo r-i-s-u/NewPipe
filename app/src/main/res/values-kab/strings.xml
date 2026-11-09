@@ -2,7 +2,6 @@
 <resources>
     <string name="settings_category_video_audio_title">Avidyu akked d imesli</string>
     <string name="tab_about">Ɣef &amp; ISTEQSIYEN</string>
-    <string name="feed_create_new_group_button_title">Amaynut</string>
     <string name="all">Akk</string>
     <string name="kore_not_found">Sbedd asnas n Kore yexxuṣen\?</string>
     <string name="install">Sbedd</string>
@@ -11,7 +10,6 @@
     <string name="downloads">Isadaren</string>
     <string name="settings">Iɣewwaren</string>
     <string name="import_ongoing">Akter…</string>
-    <string name="preferred_player_fetcher_notification_title">Tulya n telɣut…</string>
     <string name="auto">Awurman</string>
     <string name="file">Afaylu</string>
     <string name="resize_zoom">Semɣeṛ</string>
@@ -43,13 +41,8 @@
     </plurals>
     <string name="unsubscribe">Ffeɣ seg ujerred</string>
     <string name="create_playlist">Tabdert n tɣuri tamaynut</string>
-    <string name="settings_category_player_behavior_title">Tiddin</string>
     <string name="select_a_playlist">Fren tabdert n tɣuri</string>
     <string name="show_error">Sken-d tuccḍa</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d i yettwafren</item>
-        <item quantity="other">%d i yettwafernen</item>
-    </plurals>
     <string name="channels">Ibuda</string>
     <string name="duration_live">Srid</string>
     <string name="resize_fill">Aččar</string>
@@ -73,7 +66,6 @@
     <string name="playback_reset">Wennez</string>
     <string name="create">Snulfu-d</string>
     <string name="accept">Qbel</string>
-    <string name="fragment_feed_title">D acu-t umaynut</string>
     <string name="show_info">Sken talɣut</string>
     <string name="disabled">Ittwarermed</string>
     <string name="audio">Imesli</string>
@@ -113,7 +105,6 @@
     <string name="website_title">Asmel web</string>
     <string name="decline">Agwi</string>
     <string name="show_comments_title">Beqqeḍ iwenniten</string>
-    <string name="settings_category_player_title">Ameɣri</string>
     <string name="conferences">Isaragen</string>
     <string name="updates_setting_title">Ileqman</string>
     <string name="theme_title">Asentel</string>
@@ -176,7 +167,6 @@
     <string name="sort">Smizzwer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="import_file_title">Kter afaylu</string>
-    <string name="feed_show_upcoming">Itteddu-d</string>
     <string name="drawer_open">Ldi umuɣ</string>
     <string name="none">Ula d yiwen</string>
     <string name="share_playlist_content_details">%1$s\n%2$s</string>
@@ -222,7 +212,6 @@
     <string name="radio">Amaṭṭaf</string>
     <string name="metadata_tags">Tibzimin</string>
     <string name="blank_page_summary">Asebter d ilem</string>
-    <string name="settings_category_exoplayer_title">Iɣewwaṛen n ExoPlayer</string>
     <plurals name="days">
         <item quantity="one">%d n wass</item>
         <item quantity="other">%d n wussan</item>

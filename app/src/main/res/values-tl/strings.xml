@@ -19,7 +19,6 @@
     <string name="upload_date_text">Inilathala noong %1$s</string>
     <string name="ok">Sige</string>
     <string name="your_comment">Iyong puna (sa Ingles):</string>
-    <string name="use_external_video_player_summary">Tinatanggal ang audio sa ilang mga resolusyon</string>
     <string name="subscribe_button_title">Mag-subscribe</string>
     <string name="channel_unsubscribed">Naka-unsubscribe na sa channel</string>
     <string name="controls_background_title">Likuran</string>
@@ -56,7 +55,6 @@
     <string name="open_in_browser">Buksan sa browser</string>
     <string name="search">Maghanap</string>
     <string name="share_dialog_title">Ibahagi sa</string>
-    <string name="use_external_video_player_title">Gumamit ng ibang video player</string>
     <string name="comments_tab_description">Mga Puna</string>
     <string name="error_unable_to_load_comments">Hindi mai-karga ang mga puna</string>
     <string name="detail_pinned_comment_view_description">Naka-pin na puna</string>

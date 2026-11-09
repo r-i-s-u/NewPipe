@@ -10,8 +10,6 @@
     <string name="settings">Agordoj</string>
     <string name="did_you_mean">Ĉu vi signifis \"%1$s\"\?</string>
     <string name="share_dialog_title">Konigi kun</string>
-    <string name="use_external_video_player_title">Uzi eksteran filmetoludilon</string>
-    <string name="use_external_audio_player_title">Uzi eksteran sonludilon</string>
     <string name="default_resolution_title">Preferata distingumo</string>
     <string name="play_with_kodi_title">Ludi per Kodi</string>
     <string name="show_play_with_kodi_title">Montri \"Ludi per Kodi\"-opcion</string>
@@ -26,7 +24,6 @@
     <string name="content_language_title">Preferata enhavlingvo</string>
     <string name="settings_category_video_audio_title">Filmo kaj sono</string>
     <string name="settings_category_appearance_title">Apero</string>
-    <string name="background_player_playing_toast">Ludanta fone</string>
     <string name="general_error">Eraro</string>
     <string name="network_error">Reteraro</string>
     <string name="content_not_available">Enhavo malhavebla</string>
@@ -57,7 +54,6 @@
     <string name="main_bg_subtitle">Premi \"Serĉi\" por komenci.</string>
     <string name="no_player_found_toast">Neniu elsendlflua ludilo trovita (instalu VLC por ludi ĝin).</string>
     <string name="open_in_popup_mode">Malfermi en ŝprucfenestran modon</string>
-    <string name="use_external_video_player_summary">Forigas aŭdon ĉe kelkaj distingumoj</string>
     <string name="subscribe_button_title">Aboni</string>
     <string name="subscribed_button_title">Abonita</string>
     <string name="channel_unsubscribed">Kanalo malabonita</string>
@@ -67,7 +63,6 @@
     <string name="show_info">Montri informojn</string>
     <string name="tab_subscriptions">Abonoj</string>
     <string name="tab_bookmarks">Konservitaj ludlistoj</string>
-    <string name="fragment_feed_title">Kio novas</string>
     <string name="controls_background_title">Fono</string>
     <string name="controls_popup_title">Ŝprucfenestro</string>
     <string name="controls_add_to_playlist_title">Aldonu al</string>
@@ -113,8 +108,6 @@
     <string name="enable_watch_history_summary">Protokoli spektitajn filmetojn</string>
     <string name="notification_channel_name">Sciigo de NewPipe</string>
     <string name="notification_channel_description">Sciigoj por ludilo de NewPipe</string>
-    <string name="settings_category_player_title">Ludilo</string>
-    <string name="settings_category_player_behavior_title">Konduto</string>
     <string name="settings_category_history_title">Historio kaj kaŝmemoro</string>
     <string name="undo">Malfari</string>
     <string name="trending">Tendencoj</string>
@@ -123,9 +116,6 @@
     <string name="show_hold_to_append_title">Montri la indiko « Tenu por aldoni »</string>
     <string name="show_hold_to_append_summary">Montri indikon premante la fonon aŭ la ŝprucfenestran butonon en filmeta «Detaloj:»</string>
     <string name="play_all">Ludi ĉiujn</string>
-    <string name="player_stream_failure">Ne povis ludi tion torenton</string>
-    <string name="player_unrecoverable_failure">Neatendebla eraro de ludilo okazis</string>
-    <string name="player_recoverable_failure">Reakiri el eraro de la ludilo</string>
     <string name="play_queue_remove">Retiri</string>
     <string name="play_queue_stream_detail">Detalado</string>
     <string name="play_queue_audio_settings">Sonaj parametroj</string>
@@ -301,11 +291,8 @@
     <string name="website_encouragement">Viziti la retejon de NewPipe por pli da informoj kaj novaĵoj.</string>
     <string name="drawer_open">Malfermi la tirkeston</string>
     <string name="drawer_close">Fermi la tirtekston</string>
-    <string name="external_player_unsupported_link_type">Ekstaraj ludantoj ne suportas tiajn ligilojn</string>
     <string name="video_player">Filmludilo</string>
     <string name="background_player">Fona ludilo</string>
-    <string name="preferred_player_fetcher_notification_title">Akiranta informoj…</string>
-    <string name="preferred_player_fetcher_notification_message">Ŝarĝante petita enhavo</string>
     <string name="export_complete_toast">Eksportita</string>
     <string name="import_complete_toast">Importita</string>
     <string name="no_valid_zip_file">Neniu valida ZIP-dosiero</string>
@@ -459,28 +446,7 @@
         <item quantity="other">%d tagoj</item>
     </plurals>
     <!-- Feed -->
-    <string name="feed_groups_header_title">Abonfluoj grupoj</string>
-    <string name="feed_oldest_subscription_update">Lasta ĝisdatigo: %s</string>
-    <string name="feed_subscription_not_loaded_count">Ne ŝarĝitaj: %d</string>
-    <string name="feed_notification_loading">Ŝarĝante abonfluon…</string>
-    <string name="feed_processing_message">Procesante abonfluon…</string>
-    <string name="feed_group_dialog_select_subscriptions">Seletkti abonojn</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d selektita</item>
-        <item quantity="other">%d selektitaj</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">No subscription selected</string>
-    <string name="feed_group_dialog_empty_name">Malplena grupa nomo</string>
-    <string name="feed_group_dialog_delete_message">Ĉu vi volas forviŝi tion grupon?</string>
-    <string name="feed_create_new_group_button_title">Nova</string>
-    <string name="settings_category_feed_title">Abonfluo</string>
-    <string name="feed_update_threshold_title">Abonflua ĝisdatiga sojlo</string>
-    <string name="feed_update_threshold_summary">Tempo post lasta ĝisdatigo antaŭ abono estas konsiderita malĝisdatigita — %s</string>
     <string name="feed_update_threshold_option_always_update">Ĉiam ĝisdatigi</string>
-    <string name="feed_use_dedicated_fetch_method_title">Ŝarĝi el dediĉita abonfluo kiam ĝi haveblas</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Havebla en kelkaj servoj, ĝi estas ĝenerale multe pli rapida, sed povas doni limigita kvanto da aĵoj kaj ofte malpreciza informoj (ekzemple: neniu duracio, ajâ tipo, neniu « nuna » statuso).</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Ŝalti rapidan modon</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Malŝati rapidan modon</string>
     <string name="new_seek_duration_toast">Pro ExoPlayer limoj, la serĉa daŭro estas metita %d sekundojn</string>
     <string name="mute">Mutigi</string>
     <string name="unmute">Malmutigi</string>
@@ -536,7 +502,6 @@
     <string name="notification_action_1_title">Dua agobutono</string>
     <string name="notification_action_2_title">Tria agobutono</string>
     <string name="notification_action_3_title">Kvara agobutono</string>
-    <string name="crash_the_player">Kraŝi la ludilo</string>
     <string name="enqueued">Envicigita</string>
     <string name="enqueue_stream">Envicigi</string>
     <string name="volume">Laŭteco</string>
@@ -572,14 +537,10 @@
     <string name="restricted_video_no_stream">Ĉi tiu filmeto havas aĝminimumon. \nPro novaj reguloj de YouTube, kiuj rilatas filmojn kun minimuma aĝo, NewPipe ne povas atingi ajnan fluon de ĉi tiu filmo kaj tial ne povas ludi ĝin.</string>
     <string name="error_report_channel_name">Sciigo por erar-raportoj</string>
     <string name="notifications">Sciigoj</string>
-    <string name="settings_category_player_notification_title">Ludila sciigo</string>
     <string name="hash_channel_name">Sciigo por haketado de filmetoj</string>
     <string name="local_search_suggestions">Lokaj serĉsugestoj</string>
-    <string name="start_main_player_fullscreen_title">Ŝalti ĉefan ludilon plenekrane</string>
     <string name="streams_notification_channel_description">Sciigo por novaj fluoj de abonoj</string>
     <string name="clear_cookie_title">Forigi kuketojn de reCAPTCHA</string>
-    <string name="settings_category_player_notification_summary">Agordi la sciigon por ĉi-momente ludantaj datumtorentoj</string>
-    <string name="start_main_player_fullscreen_summary">Ne ekludu filmojn en la etludilo, sed ŝalti plenekranan reĝimon rekte, se memaga turniĝo estas ŝaltita. Vi ankoraŭ povus aliri la etludilon elirinte la plenekranan reĝimon.</string>
     <string name="clear_cookie_summary">Forigi kuketojn, kiujn NewPipe konservas, kiam vi solvas reCAPTCHA-taskojn</string>
     <string name="error_report_notification_title">NewPipe renkontis eraron, tuŝi por raporti</string>
     <string name="main_tabs_position_title">Pozicio de la ĉefaj langetoj</string>

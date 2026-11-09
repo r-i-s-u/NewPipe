@@ -18,8 +18,6 @@
     <string name="unsubscribe">सबस्क्राईब काढा</string>
     <string name="subscribed_button_title">सबस्क्राईब केले</string>
     <string name="subscribe_button_title">सबस्क्राईब</string>
-    <string name="use_external_audio_player_title">बाहेरील ऑडियो प्लेअर वापरा</string>
-    <string name="use_external_video_player_title">बाहेरील व्हिडिओ प्लेअर वापरा</string>
     <string name="share_dialog_title">शेअर करा</string>
     <string name="search_showing_result_for">%sसाठी निकाल दाखवत आहे</string>
     <string name="settings">सेटिंग</string>
@@ -46,13 +44,11 @@
     <string name="show_play_with_kodi_summary">कोडी मीडिया सेंटरद्वारे व्हिडिओ प्ले करण्याचा पर्याय प्रदर्शित करा</string>
     <string name="mark_as_watched">पाहिले म्हणून चिन्हांकित करा</string>
     <string name="ok">ठीक आहे</string>
-    <string name="crash_the_player">प्लेअर क्रॅश करा</string>
     <string name="notification_action_1_title">दुसरे क्रिया बटण</string>
     <string name="notification_action_2_title">तिसरे क्रिया बटण</string>
     <string name="notification_action_3_title">चौथे क्रिया बटण</string>
     <string name="notification_action_4_title">पाचवे क्रिया बटण</string>
     <string name="did_you_mean">तुम्हाला \"%1$s\" म्हणायचे आहे का\?</string>
-    <string name="use_external_video_player_summary">काही रेसॉल्युशनवर ऑडिओ काढून टाकते</string>
     <string name="kore_not_found">गहाळ Kode ॲप इंस्टॉल करायचे\?</string>
     <string name="notification_scale_to_square_image_summary">16:9 ते 1:1 आस्पेक्ट रेशो पर्यंत नोटिफिकेशनमध्ये दाखवलेली व्हिडिओ थंबनेल क्रॉप करा</string>
     <string name="notification_action_0_title">प्रथम क्रिया बटण</string>
@@ -82,7 +78,6 @@
     <string name="auto_queue_toggle">स्वयं सूचीबद्ध करा</string>
     <string name="brightness">उजेट</string>
     <string name="autoplay_title">स्वयं सुरु करा</string>
-    <string name="settings_category_player_behavior_title">वागणूक</string>
     <string name="content">सामग्री</string>
     <string name="all">सर्व</string>
     <string name="channels">चॅनेल</string>
@@ -133,7 +128,6 @@
     <string name="light_theme_title">पांढरा</string>
     <string name="notification_action_buffering">अडकत आहे</string>
     <string name="download_dialog_title">डाऊनलोड</string>
-    <string name="settings_category_player_title">प्लेअर</string>
     <string name="settings_category_appearance_title">दिखावा</string>
     <string name="settings_category_debug_title">डेबग</string>
     <string name="settings_category_updates_title">अपडेट</string>
@@ -159,7 +153,6 @@
     <string name="missions_header_pending">प्रलंबित</string>
     <string name="recovering">रिकवर होत आहे</string>
     <string name="enqueue">रांग</string>
-    <string name="feed_create_new_group_button_title">नवीन</string>
     <string name="chapters">धडे</string>
     <string name="radio">रेडिओ</string>
     <string name="metadata_licence">परवाना</string>
@@ -173,7 +166,6 @@
     <string name="channel_tab_shorts">शॉर्ट्स</string>
     <string name="volume">आवाज</string>
     <string name="card">कार्ड</string>
-    <string name="feed_show_upcoming">पुढील</string>
     <string name="none">काही नाही</string>
     <string name="done">झाल</string>
     <string name="metadata_avatars">अवतार</string>

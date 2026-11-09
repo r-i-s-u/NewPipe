@@ -12,8 +12,6 @@
     <string name="settings">تنظیمات</string>
     <string name="did_you_mean">منظورتان «%1$s» بود؟</string>
     <string name="share_dialog_title">هم‌رسانی با</string>
-    <string name="use_external_video_player_title">استفاده از پخش‌کنندهٔ ویدیوی خارجی</string>
-    <string name="use_external_audio_player_title">استفاده از پخش‌کنندهٔ صدای خارجی</string>
     <string name="download_path_title">شاخهٔ بارگیری ویدیو</string>
     <string name="download_path_summary">پرونده‌های ویدیویی بارگرفته این‌جا ذخیره می‌شوند</string>
     <string name="download_path_dialog_title">گزینش شاخه برای بارگیری پرونده‌های ویدیویی</string>
@@ -36,7 +34,6 @@
     <string name="content_language_title">زبان محتوای ترجیحی</string>
     <string name="settings_category_video_audio_title">ویدیو و صدا</string>
     <string name="settings_category_appearance_title">ظاهر</string>
-    <string name="background_player_playing_toast">در حال پخش در پس‌زمینه</string>
     <string name="content">محتوا</string>
     <string name="show_age_restricted_content_title">نمایش محتوای محدود شده بر اساس سن</string>
     <string name="duration_live">زنده</string>
@@ -79,7 +76,6 @@
     <string name="no_available_dir">پوشه بارگیری را بعدا در تنظیمات مشخص کنید</string>
     <string name="no_player_found_toast">هیچ پخش کنندهٔ جریانی پیدا نشد (می‌توانید برای پخشش وی‌ال‌سی را نصب کنید).</string>
     <string name="controls_download_desc">بارگیری پروندهٔ جریان</string>
-    <string name="use_external_video_player_summary">صدا را در برخی وضوح‌ها برمی‌دارد</string>
     <string name="subscribe_button_title">اشتراک</string>
     <string name="subscribed_button_title">مشترک شده</string>
     <string name="channel_unsubscribed">اشتراک کانال لغو شد</string>
@@ -88,7 +84,6 @@
     <string name="show_info">نمایش اطلاعات</string>
     <string name="tab_subscriptions">اشتراک‌ها</string>
     <string name="tab_bookmarks">سیاههٔ پخش‌های نشان شده</string>
-    <string name="fragment_feed_title">موارد جدید</string>
     <string name="controls_background_title">پس‌زمینه</string>
     <string name="controls_add_to_playlist_title">افزودن به</string>
     <string name="show_higher_resolutions_title">نمایش وضوح‌های بالاتر</string>
@@ -101,8 +96,6 @@
     <string name="enable_search_history_title">تاریخچه جستجو</string>
     <string name="enable_watch_history_summary">نگه‌داشتن رد ویدیوهای دیده</string>
     <string name="default_content_country_title">کشور محتوای پیش‌فرض</string>
-    <string name="settings_category_player_title">پخش‌کننده</string>
-    <string name="settings_category_player_behavior_title">رفتار</string>
     <string name="all">همه</string>
     <string name="channels">کانال‌ها</string>
     <string name="playlists">سیاهه‌های پخش</string>
@@ -139,7 +132,6 @@
     <string name="clear_search_history_summary">تاریخچه کلیدواژه‌های جستجو را پاک می‌کند</string>
     <string name="delete_search_history_alert">تمام تاریخچه جستجو پاک شود؟</string>
     <string name="search_history_deleted">پیشینهٔ جست‌جو حذف شد</string>
-    <string name="player_stream_failure">ناتوانی در پخش این جریان</string>
     <string name="video_streams_empty">هیچ جریان ویدیویی پیدا نشد</string>
     <string name="audio_streams_empty">هیچ جریان صدایی پیدا نشد</string>
     <string name="invalid_directory">چنین پوشه‌ای وجود ندارد</string>
@@ -204,8 +196,6 @@
     <string name="video_player">پخش‌کنندهٔ ویدیو</string>
     <string name="background_player">پخش‌کننده پس‌زمینه</string>
     <string name="always_ask_open_action">همیشه بپرس</string>
-    <string name="preferred_player_fetcher_notification_title">در حال دریافت اطلاعات…</string>
-    <string name="preferred_player_fetcher_notification_message">بارگذری محتوای درخواستی</string>
     <string name="create_playlist">فهرست پخش جدید</string>
     <string name="rename_playlist">تغییر نام</string>
     <string name="name">نام</string>
@@ -287,8 +277,6 @@
     <string name="notification_channel_description">آگاهی‌ها برای پخش‌کنندهٔ نیوپایپ</string>
     <string name="empty_list_subtitle">چیزی جز کریکت اینجا نیست</string>
     <string name="no_subscribers">فاقد مشترک</string>
-    <string name="player_unrecoverable_failure">خطای عدم احیای پخش‌کننده رخ داد</string>
-    <string name="player_recoverable_failure">در حال احیا از خطای پخش‌کننده</string>
     <string name="start_here_on_background">شروع پخش در پس‌زمینه</string>
     <string name="start_here_on_popup">شروع پخش در تصویر در تصویر</string>
     <string name="donation_encouragement">نیوپایپ توسط داوطلبانی توسعه داده می‌شود که با صرف زمان آزاد‌شان، بهترین تجربه کاربری را برای شما به ارمغان می‌آورند. حمایت از توسعه‌دهندگان، به آنها کمک می‌کند تا حین لذت بردن از نوشیدن یک فنجان قهوه، نیوپایپ را به مراتب بهتر کنند.</string>
@@ -297,7 +285,6 @@
     <string name="switch_to_popup">تغییر وضعیت به تصویر در تصویر</string>
     <string name="drawer_open">باز کردن کشو</string>
     <string name="drawer_close">بستن کشو</string>
-    <string name="external_player_unsupported_link_type">پخش‌کننده خارجی، این نوع پیونده‌ها را پشتیبانی نمی‌کند</string>
     <string name="popup_player">پخش‌کنندهٔ تصویر در تصویر</string>
     <string name="export_complete_toast">صادر شد</string>
     <string name="import_complete_toast">وارد شد</string>
@@ -419,19 +406,6 @@
     <string name="content_not_supported">این محتوا هنوز توسط نیوپایپ پشتیبانی می‌شود.
 \n
 \nامیدواریم در نسخه‌های آینده مورد پشتیبانی قرار گیرد.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">غیرفعال‌سازی حالت سریع</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">فعال‌سازی حالت سریع</string>
-    <string name="settings_category_feed_title">خوراک</string>
-    <string name="feed_create_new_group_button_title">جدید</string>
-    <string name="feed_group_dialog_delete_message">می‌خواهید این گروه را پاک کنید؟</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d مورد گزیده</item>
-        <item quantity="other">%d مورد گزیده</item>
-    </plurals>
-    <string name="feed_processing_message">پردازش خوراک…</string>
-    <string name="feed_notification_loading">بارگیری خوراک…</string>
-    <string name="feed_subscription_not_loaded_count">بارگیری نشده: %d</string>
-    <string name="feed_oldest_subscription_update">آخرین به‌روزرسانی خوراک: %s</string>
     <plurals name="days">
         <item quantity="one">%d روز</item>
         <item quantity="other">%d روز</item>
@@ -493,34 +467,14 @@
     <string name="no_playlist_bookmarked_yet">نشانک‌های فهرست پخش هنوز موجود نیستند</string>
     <string name="copy_for_github">از گزارش قالب‌بندی‌شده را رونوشت بگیرید</string>
     <string name="playlist_no_uploader">خودکار ایجاد شده (بارگذاری پیدا نشد)</string>
-    <string name="feed_groups_header_title">گروه‌های کانال</string>
-    <string name="feed_group_dialog_select_subscriptions">انتخاب اشتراک‌ها</string>
-    <string name="feed_group_dialog_empty_selection">اشتراکی انتخاب نشده است</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">نمایش اشتراک های دسته بندی نشده</string>
     <string name="detail_sub_channel_thumbnail_view_description">آواتار بندانگشتی کانال</string>
     <string name="playlist_page_summary">صفحه فهرست پخش</string>
     <string name="remove_watched_popup_warning">ویدیوهایی که پیش و‌ پس از افزوده شدن به سیاههٔ پخش دیده شده‌اند حذف خواهند شد. \nمطمئنید؟</string>
     <string name="enable_disposed_exceptions_summary">گزارش اجباری خطاهای Rx غیرقابل تحویل خارج از چرخه حیات فعالیت یا بخش پس از اتمام</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">فکر می‌کنید دریافت خوراک بیش از حد آهسته است؟ اگر چنین است، بارگیری سریع را فعالی کنید (می‌توانید آن را در تنظیمات یا با فشردن دکمه زیر تغییر دهید)
-\n
-\nنیوپایپ دو راهبرد برای بارگیری خوراک عرضه می‌کند:
-\n• دریافت تمام کانال‌های مشترک شده، که آهسته اما کامل است.
-\n• استفاده از خدمت اختصاصی، که سریع اما معمولا ناقص است.
-\n
-\nتفاوت بین این دو در این است که راهکار سریع، غالبا فاقد برخی اطلاعات مانند طول زمان یا نوع است و مثلا نمی‌تواد بین ویدئوهای زنده و عادی تمایز قائل شود و ممکن است تعداد کم‌تری ویدئو را دریافت کند.
-\n
-\nیوتیوب نمونه‌ای از یک خدمت است که چنین روش سریعی را از طریق خوراک RSS ارائه می‌دهد.
-\n
-\nدر نتیجه انتخاب به این بر می‌گردد که کدام یک برای‌تان ترجیح داشته باشد: سرعیت یا اطلاعات دقیق.</string>
-    <string name="feed_use_dedicated_fetch_method_summary">در برخی خدمات دردسترس است، معمولا خیلی سریع‌تر است، ولی ممکن است مواردی محدودتر و اغلب با اطلاعات ناقص (مثلا بدون طول زمان، نوع مورد و یا وضعیت زنده بود) ارائه دهد</string>
-    <string name="feed_use_dedicated_fetch_method_title">دریافت از خوراک اختصاصی هر زمان که در دسترس باشد</string>
     <string name="feed_update_threshold_option_always_update">همواره به‌روز شود</string>
-    <string name="feed_update_threshold_summary">مدت زمان سپری شده پس از آخرین به‌روزرسانی پیش از آن که یک اشتراک، قدیمی به حساب بیاید — %s</string>
-    <string name="feed_update_threshold_title">آستانه به‌روزرسانی خوراک</string>
     <string name="new_seek_duration_toast">به دنبال محدودیت‌های ExoPlayer، مدت جابجایی زمان پخش روی %d ثانیه تنظیم شد</string>
     <string name="show_original_time_ago_summary">متن‌های اصلی از خدمات در جریان‌ها قابل دیدن خواهند بود</string>
     <string name="notification_action_buffering">میان گرفتن</string>
-    <string name="feed_group_dialog_empty_name">خالی کردن نام گروه</string>
     <string name="pause_downloads_on_mobile">توقف روی شبکه‌های محدودشده</string>
     <string name="never">هرگز</string>
     <string name="wifi_only">فقط روی وای‌فای</string>
@@ -546,7 +500,6 @@
     <string name="low_quality_smaller">کیفیت پایین (کوچک‌تر)</string>
     <string name="high_quality_larger">کیفیت بالا (بزرگ‌تر)</string>
     <string name="comments_are_disabled">نظرها از کار افتاده‌اند</string>
-    <string name="feed_load_error">خطا در بار کردن خوراک</string>
     <string name="disable_media_tunneling_title">از کار انداختن تونل‌زنی رسانه</string>
     <string name="show_channel_details">نمایش جزییات کانال</string>
     <string name="download_has_started">بارگیری آغاز شد</string>
@@ -618,11 +571,6 @@
     <string name="no_dir_yet">هنوز شاخهٔ بارگیری‌ای تنظیم نشده. اکنون شاخهٔ بارگیری پیش‌گزیده را برگزینید</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">برای ذخیرهٔ هر بارگیری از شما پرسیده خواهد شد</string>
     <string name="downloads_storage_use_saf_summary_api_29">از اندروید ۱۰، تنها «چارچوب دسترسی ذخیره» پشتیبانی می‌شود</string>
-    <string name="feed_load_error_account_info">نتوانست خوراک را برای «%s» بار کند.</string>
-    <string name="feed_load_error_terminated">حساب این نگارنده نابود شده است.
-\nنیوپایپ قادر به بار کردن این خوراک در آینده نیست.
-\nمی‌خواهید اشتراک این کانال را لغو کنید؟</string>
-    <string name="feed_load_error_fast_unknown">حالت خوراک سریع، اطَلاعات بیش‌تری در این باره نمی‌دهد.</string>
     <string name="seekbar_preview_thumbnail_title">پیش‌نمایش بندانگشتی نوار جویش</string>
     <string name="detail_heart_img_view_description">قلب‌شده به دست ایجادگر</string>
     <string name="local_search_suggestions">پیشنهادهای جست‌وجوی محلّی</string>
@@ -638,18 +586,12 @@
     <string name="description_select_enable">به کار انداختن گزینش متن در شرح</string>
     <string name="description_select_disable">از کار انداختن گزینش متن در شرح</string>
     <string name="main_page_content_swipe_remove">برای برداشتن موارد، بکشیدشان</string>
-    <string name="start_main_player_fullscreen_summary">اگر چرخش خودکار قفل باشد، ویدیوها را در پخش‌کنندهٔ کوچک آغاز نمی‌کند، بلکه مستقیماً به تمام‌صفحه می‌رود. همچنان می‌توانید با خروج از تمام‌صفحه به پخش‌کنندهٔ کوچک دسترسی داشته باشید</string>
-    <string name="start_main_player_fullscreen_title">آغاز پخش‌کنندهٔ اصلی در تمام‌صفحه</string>
     <string name="enqueued_next">بعدی در صف گذاشته شد</string>
     <string name="enqueue_next_stream">در صف گذاشتن بعدی</string>
     <string name="processing_may_take_a_moment">در حال پردازش… ممکن است کمی طول بکشد</string>
     <string name="check_for_updates">بررسی به‌روز رسانی‌ها</string>
     <string name="manual_update_description">بررسی دستی برای نگارش‌های جدید</string>
     <string name="checking_updates_toast">بررسی کردن به‌روز رسانی‌ها…</string>
-    <string name="feed_new_items">موارد خوراک جدید</string>
-    <string name="crash_the_player">فروپاشی پخش‌کننده</string>
-    <string name="show_crash_the_player_summary">نمایش یک گزینهٔ فروپاشی هنگام استفاده از پخش کننده</string>
-    <string name="show_crash_the_player_title">نمایش «فروپاشی پخش کننده»</string>
     <string name="no_appropriate_file_manager_message">مدیر پروندهٔ مناسبی برای این کنش یافت نشد.
 \nلطفاً مدیر پرونده‌ای نصب کرده یا در تنظیمات بارگیری، «%s» را خاموش کنید</string>
     <string name="error_report_channel_name">آگاهی گزارش خطا</string>
@@ -674,9 +616,7 @@
         <item quantity="one">%s جریان جدید</item>
         <item quantity="other">%s جریان جدید</item>
     </plurals>
-    <string name="settings_category_player_notification_summary">پیکربندی آگاهی جریان در حال پخش کنونی</string>
     <string name="enable_streams_notifications_title">آگاهی‌های جریان‌های جدید</string>
-    <string name="settings_category_player_notification_title">آگاهی پخش‌کننده</string>
     <string name="streams_notification_channel_description">آگاهی‌ها دربارهٔ جریان‌های جدید برای اشتراک‌ها</string>
     <string name="notifications_disabled">آگاهی‌ها از کار افتاده‌اند</string>
     <string name="get_notified">آگاه شوید</string>
@@ -691,7 +631,6 @@
     <string name="streams_not_yet_supported_removed">جریان‌هایی که هنوز به دست بارگیر پشتیبانی نمی‌شوند نشان داده نشده‌اند</string>
     <string name="no_audio_streams_available_for_external_players">هیچ جریان صوتی‌ای برای پخش‌کننده‌های خارجی موجود نیست</string>
     <string name="selected_stream_external_player_not_supported">جریان گزیده به دست پخش‌کننده‌های خارجی پشتیبانی نمی‌شود</string>
-    <string name="select_quality_external_players">گزینش کیفیت برای پخش‌کننده‌های خارجی</string>
     <string name="unknown_format">قالب ناشناخته</string>
     <string name="unknown_quality">کیفیت ناشناخته</string>
     <string name="progressive_load_interval_title">اندازهٔ دورهٔ بار کردن پخش</string>
@@ -710,15 +649,9 @@
     <string name="ignore_hardware_media_buttons_title">چشم‌پوشی از رخدادهای دکمهٔ رسانهٔ سخت‌افزاری</string>
     <string name="remove_duplicates">برداشتن تکراری‌ها</string>
     <string name="remove_duplicates_title">برداشتن تکراری‌ها؟</string>
-    <string name="feed_show_hide_streams">نمایش یا نهفتن جریان‌ها</string>
-    <string name="feed_hide_streams_title">نمایش جریان‌های زیر</string>
-    <string name="feed_show_upcoming">پیش رو</string>
-    <string name="feed_show_watched">کامل دیده شده</string>
-    <string name="feed_show_partially_watched">نیمه دیده شده</string>
     <string name="no_streams">بدون جریان</string>
     <string name="play_queue_audio_track">صدا: %s</string>
     <string name="forward">پیشروی</string>
-    <string name="settings_category_exoplayer_title">تنظیمات اگزوپلیر</string>
     <string name="next_stream">جریان بعدی</string>
     <string name="unknown_audio_track">ناشناخته</string>
     <string name="audio_track_type_original">اصلی</string>
@@ -773,7 +706,6 @@
     <string name="audio_track_present_in_video">قطعه‌ای صوتی باید از پیش در این جریان موجود باشد</string>
     <string name="ignore_hardware_media_buttons_summary">برای نمونه اگر از گوشی‌ای با دکمه‌های خراب استفاده می‌کنید مفید است</string>
     <string name="reset_all_settings">بازنشانی همهٔ تنظیمات همهٔ تنظیمات ترجیحیتان را دور اندعخته و کاره را دوباره آغاز می‌کند.\n\nمطمئنید که می‌خواهید ادامه دهید؟</string>
-    <string name="use_exoplayer_decoder_fallback_title">استفاده از ویژگی پشتیبان کدگشای اگزوپلیر</string>
     <string name="show_channel_tabs_summary">زبانه‌های نشان داده شده روی صفحه‌های کانال</string>
     <string name="toggle_screen_orientation">تغییر جهت صفحه</string>
     <string name="image_quality_none">بار نکردن تصویرها</string>
@@ -781,10 +713,8 @@
     <string name="share_playlist_as_youtube_temporary_playlist">هم‌رسانی به شکل سیاههٔ پخش موقّتی یوتوب</string>
     <string name="video_details_list_item">- %1$s: %2$s</string>
     <string name="share_playlist_content_details">%1$s\n%2$s</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">استفادهٔ همیشگی از دور زدن تنظیمات سطح خروجی ویدیوی اگزوپلیر</string>
     <string name="main_tabs_position_title">موقعیت زبانه‌های اصلی</string>
     <string name="feed_fetch_channel_tabs">واکشی زبانه‌های کانال</string>
-    <string name="select_audio_track_external_players">گزینش قطعهٔ صوتی برای پخش کننده‌های خارجی</string>
     <plurals name="replies">
         <item quantity="one">%s پاسخ</item>
         <item quantity="other">%s پاسخ</item>
@@ -798,9 +728,6 @@
     <string name="metadata_subchannel_avatars">چهرک‌های زیرکانال</string>
     <string name="left_gesture_control_title">کنش ژست چپ</string>
     <string name="image_quality_summary">گزینش کیفیت تصویرها و این که اصلاً بار شوند یا نه، برای کاهش استفادهٔ حافظه و داده. تغییرات انبارهٔ تصویر حافظه و دیسک را پاک می‌کند — %s</string>
-    <string name="use_exoplayer_decoder_fallback_summary">اگر مشکل شروع رمزگشایی دارید ، این گزینه را فعال کنید ، که اگر رمزگشایی اولیه شکست بخورد ، به رمزگشایی های با اولویت پایین تر باز می گردد. این ممکن است منجر به عملکرد پخش ضعیف نسبت به هنگام استفاده از رمزگشایان اولیه شود</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">این روش دور زدن مشکل به جای تنظیم مستقیم سطح روی رمزینه، آن‌ها را هنگام تغییر سطح آزاد کرده و دوباره راه‌اندازی می‌کند. این تنظیم که از پیش روی برخی افزاره‌ها به دست اگزوپلیر استفاده می‌شد فقط روی اندروید ۶ و بالاتر تأثیر دارد\n\nبه کار انداختن این گزینه می‌تواند از خطاهای پخش هنگام تغییر پخش‌کنندهٔ ویدیوی کنونی یا تغییر به حالت تمام‌صفحه جلوگیری کند</string>
-    <string name="settings_category_exoplayer_summary">مدیریت برخی تنظیمات اگزوپلیر. اعمال این تغییرات نیازمند آغاز دوبارهٔ پخش‌کننده است</string>
     <string name="duplicate_in_playlist">سیاهه‌های پخشی که خاکستری شده‌اند این مورد را از پیش دارند.</string>
     <string name="notification_actions_summary_android13">ویرایش هر کنش آگاهی زیر با زدن رویش. سه کنش نخست (پخش/مکث، پیشین و بعدی) به دست سامانه تنظیم شده و قابل سفارشی سازی نیستند.</string>
     <string name="left_gesture_control_summary">گزینش کنش ژست نیمهٔ چپ صفحه</string>
@@ -811,7 +738,6 @@
     <string name="import_settings_vulnerable_format">تنظیمات داخل برون‌ریزی‌ از قالبی آسیب‌پذیر استفاده می‌کند که از نگارش ۰٫۲۷٫۰ منسوخ شده. مطمئن شوید برون‌ریزی از منبعی مطمئن آمده و ترجیحاً فقط از برون‌ریزی‌های آمده از نگارش ۰٫۲۷٫۰ به بعد استفاده کنید. پشتیبانی از درون‌ریزی تنظیمات به این قالب آسیب‌پذیر به زودی کاملاً‌برداشته خواهد شد و دیگر نگارش‌خای قدیمی‌تر قادر به درون ریزی تنظیمات از نگارش‌های جدید نخواهند بود.</string>
     <string name="open_play_queue">گشودن صف پخش</string>
     <string name="remove_duplicates_message">می‌خواهید همهٔ جریان‌های تکراری را در این سیاههٔ پخش بردارید؟</string>
-    <string name="feed_fetch_channel_tabs_summary">زبانه‌هایی که هنگام به‌روز رسانی خوراک واکشی می‌شوند. این گزینه تأثیری روی کانال‌هایی که با ساتفاده از حالت سریع به‌روز می‌شوند ندارد.</string>
     <string name="short_thousand">%sه</string>
     <string name="short_million">%sم</string>
     <string name="short_billion">%sمیلیارد</string>
@@ -828,13 +754,10 @@
     <string name="entry_deleted">ورودی حذف شد</string>
     <string name="import_subscriptions_title">درون‌ریزی اشتراک‌ها</string>
     <string name="export_subscriptions_title">برون‌ریزی اشتراک‌ها</string>
-    <string name="feed_group_page_summary">صفحهٔ گروه کانال</string>
     <string name="search_with_service_name_and_filter">جست‌وجوی %1$s ‏(%2$s)</string>
-    <string name="select_a_feed_group">گزینش گروه خوراک</string>
     <string name="migration_info_7_8_title">داغ‌های ترکیبی یوتوب برداشته شد</string>
     <string name="trending_movies">فیلم و سریال‌های داغ</string>
     <string name="import_from_previous_export">درون‌ریزی از برون‌ریزی پیشین</string>
-    <string name="no_feed_group_created_yet">هنوز گروه خوراکی ایجاد نشده</string>
     <string name="migration_info_6_7_title">۵۰ صفحهٔ برتر سوندکلود برداشته شد</string>
     <string name="permission_display_over_apps_permission_name">«اجازهٔ نمایش روی دیگر کاره‌ها»</string>
     <plurals name="export_subscriptions">
@@ -853,6 +776,5 @@
     <string name="import_subscriptions_summary">درون‌ریزی اشتراک‌ها از برون‌ریزی پیشین ‪.json‬</string>
     <string name="export_subscriptions_summary">برون‌ریزی اشتراک‌هایتان به پروندهٔ ‪.json‬</string>
     <string name="api23_requirement_dialog_title">نیوپایپ دارد پشتیبانی از اندروید ۵ را رها می‌کند</string>
-    <string name="player_http_invalid_status">هنگام پخش کردن کارساز خطای HTTP ‏%1$s داد</string>
     <string name="permission_display_over_apps_message">برای استفاده از پخش‌کنندهٔ بالاپریدنی %1$s را در فهرست تنظیمات اندروید زیر گزیده و %2$s را به کار بیندازید.</string>
 </resources>

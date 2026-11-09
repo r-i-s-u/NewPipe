@@ -13,9 +13,6 @@
     <string name="settings">Inställningar</string>
     <string name="did_you_mean">Menade du: %1$s\?</string>
     <string name="share_dialog_title">Dela med</string>
-    <string name="use_external_video_player_title">Använd extern videospelare</string>
-    <string name="use_external_video_player_summary">Ljud saknas vid vissa upplösningar</string>
-    <string name="use_external_audio_player_title">Använd extern ljudspelare</string>
     <string name="controls_background_title">Bakgrund</string>
     <string name="controls_popup_title">Popup</string>
     <string name="download_path_title">Hämtningsmapp för video</string>
@@ -49,7 +46,6 @@
     <string name="content_language_title">Standardinnehållsspråk</string>
     <string name="settings_category_video_audio_title">Ljud och bild</string>
     <string name="settings_category_appearance_title">Utseende</string>
-    <string name="background_player_playing_toast">Spelar upp i bakgrunden</string>
     <string name="popup_playing_toast">Spelar upp i popup-läge</string>
     <string name="content">Innehåll</string>
     <string name="show_age_restricted_content_title">Visa åldersbegränsat innehåll</string>
@@ -83,7 +79,6 @@
     <string name="subscription_change_failed">Det gick inte att ändra prenumerationen</string>
     <string name="subscription_update_failed">Det gick inte att uppdatera prenumerationen</string>
     <string name="tab_subscriptions">Prenumerationer</string>
-    <string name="fragment_feed_title">Vad är nytt</string>
     <string name="enable_search_history_title">Sökhistorik</string>
     <string name="enable_search_history_summary">Spara sökfrågor lokalt</string>
     <string name="enable_watch_history_title">Visningshistorik</string>
@@ -92,17 +87,12 @@
     <string name="resume_on_audio_focus_gain_summary">Fortsätt uppspelning efter avbrott (t.ex. telefonsamtal)</string>
     <string name="show_hold_to_append_title">Visa tipset ”Håll ned för att köa”</string>
     <string name="show_hold_to_append_summary">Visa ett tips när du trycker på knappen för bakgrunds- eller popupuppspelning på videons detaljsida</string>
-    <string name="settings_category_player_title">Spelare</string>
-    <string name="settings_category_player_behavior_title">Beteende</string>
     <string name="settings_category_history_title">Historik och cache</string>
     <string name="undo">Ångra</string>
     <string name="play_all">Spela alla</string>
     <string name="notification_channel_name">NewPipe-avisering</string>
     <string name="notification_channel_description">Aviseringar för NewPipes spelare</string>
     <string name="unknown_content">[Okänd]</string>
-    <string name="player_stream_failure">Det gick inte att spela upp strömmen</string>
-    <string name="player_unrecoverable_failure">Ett allvarligt spelarfel inträffade</string>
-    <string name="player_recoverable_failure">Försöker återställa uppspelningen efter ett spelarfel</string>
     <string name="error_report_button_text">Rapportera via e-post</string>
     <string name="info_labels">Vad:\nBegäran:\nInnehållsspråk:\nInnehållsland:\nAppspråk:\nTjänst:\nGMT-tid:\nPaket:\nVersion:\nOS-version:</string>
     <string name="detail_thumbnail_view_description">Spela upp video, längd:</string>
@@ -221,7 +211,6 @@
     <string name="clear_search_history_summary">Tar bort historiken för sökta nyckelord</string>
     <string name="delete_search_history_alert">Ta bort hela sökhistoriken\?</string>
     <string name="search_history_deleted">Sökhistorik borttagen</string>
-    <string name="external_player_unsupported_link_type">Externa spelare stöder inte dessa typer av länkar</string>
     <string name="video_streams_empty">Inga videoströmningar hittades</string>
     <string name="audio_streams_empty">Inga ljudspår hittades</string>
     <string name="invalid_directory">Ingen sådan mapp</string>
@@ -255,8 +244,6 @@
     <string name="background_player">Bakgrundsspelare</string>
     <string name="popup_player">Popup-spelare</string>
     <string name="always_ask_open_action">Fråga alltid</string>
-    <string name="preferred_player_fetcher_notification_title">Hämtar information…</string>
-    <string name="preferred_player_fetcher_notification_message">Läser in begärt innehåll</string>
     <string name="create_playlist">Ny spellista</string>
     <string name="rename_playlist">Byt namn</string>
     <string name="name">Namn</string>
@@ -416,28 +403,7 @@
     <string name="done">Klar</string>
     <string name="youtube_restricted_mode_enabled_title">Slå på YouTubes \"Begränsat läge\"</string>
     <string name="error_unable_to_load_comments">Det gick inte att läsa in kommentarerna</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Inaktivera snabbläge</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Aktivera snabbläge</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Funktionen finns för vissa tjänster och är vanligtvis mycket snabbare, men kan ge färre objekt och ofullständig information, till exempel utan speltid, objekttyp eller direktsändningsstatus</string>
-    <string name="feed_use_dedicated_fetch_method_title">Använd ett särskilt snabbflöde när det är tillgängligt</string>
     <string name="feed_update_threshold_option_always_update">Uppdatera alltid</string>
-    <string name="feed_update_threshold_summary">Tid sedan den senaste uppdateringen innan en prenumeration betraktas som inaktuell — %s</string>
-    <string name="feed_update_threshold_title">Tidsgräns för flödesuppdatering</string>
-    <string name="settings_category_feed_title">Flöde</string>
-    <string name="feed_create_new_group_button_title">Ny</string>
-    <string name="feed_group_dialog_delete_message">Vill du ta bort den här gruppen\?</string>
-    <string name="feed_group_dialog_empty_name">Tomt gruppnamn</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d vald</item>
-        <item quantity="other">%d valda</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Ingen prenumeration vald</string>
-    <string name="feed_group_dialog_select_subscriptions">Välj prenumerationer</string>
-    <string name="feed_processing_message">Bearbetar flöde…</string>
-    <string name="feed_notification_loading">Läser in flöde…</string>
-    <string name="feed_subscription_not_loaded_count">Inte inläst: %d</string>
-    <string name="feed_oldest_subscription_update">Flödet senast uppdaterat: %s</string>
-    <string name="feed_groups_header_title">Kanalgrupper</string>
     <plurals name="days">
         <item quantity="one">%d dag</item>
         <item quantity="other">%d dagar</item>
@@ -489,7 +455,6 @@
     <string name="video_detail_by">Av %s</string>
     <string name="channel_created_by">Skapad av %s</string>
     <string name="no_playlist_bookmarked_yet">Ingen spellista har bokmärkts än</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Visa endast prenumerationer som inte grupperats</string>
     <string name="notification_scale_to_square_image_title">Beskär miniatyrbild till 1:1-bildförhållande</string>
     <string name="wifi_only">Endast över Wi-Fi</string>
     <string name="notification_scale_to_square_image_summary">Beskär videominiatyrbilden i aviseringen från bildförhållandet 16:9 till 1:1</string>
@@ -526,7 +491,6 @@
     <string name="enqueue_stream">Köa</string>
     <string name="related_items_tab_description">Relaterade objekt</string>
     <string name="hash_channel_name">Avisering för videohashning</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Tycker du att inläsningen av flödet är för långsamt? Testa i så fall att aktivera snabbinläsning (du kan ändra det i inställningarna eller genom att trycka på knappen nedan). \n \nNewPipe erbjuder två strategier för att ladda flödet: \n• Att hämta hela den prenumererade kanalen, vilket är långsamt, men komplett. \n• Att använda en \"särskild tjänsteslutpunkt\", vilket är snabbt, men vanligtvis inte komplett. \n \nSkillnaden mellan de två är att den snabba varianten ofta saknar viss information, som objektets speltid eller typ (kan inte skilja på livevideor och vanliga videor) och den kan returnera färre objekt. \n \nYouTube är ett exempel på en tjänst som erbjuder denna snabba metod genom sitt RSS-flöde. \n \nSå valet handlar i grunden om vad du föredrar: hastighet eller precis information.</string>
     <string name="show_meta_info_summary">Inaktivera för att dölja rutor med metainformation som ytterligare information om strömmens skapare, strömmens innehåll eller sökord</string>
     <string name="show_description_summary">Inaktivera för att dölja videobeskrivning och ytterligare information</string>
     <string name="show_meta_info_title">Visa metainformation</string>
@@ -560,8 +524,6 @@
     <string name="georestricted_content">Detta innehåll är inte tillgängligt i ditt land.</string>
     <string name="no_app_to_open_intent">Det finns ingen app på enheten som kan öppna detta</string>
     <string name="chapters">Kapitel</string>
-    <string name="feed_load_error_account_info">Det gick inte att läsa in flödet för \"%s\".</string>
-    <string name="feed_load_error_terminated">Innehållsskaparens konto har avslutats. \nNewPipe kommer inte längre att kunna läsa in flödet. \nVill du avsluta prenumerationen på kanalen?</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Du kommer att tillfrågas var varje hämtning ska sparas</string>
     <string name="show_channel_details">Visa kanaldetaljer</string>
     <string name="no_dir_yet">Ingen hämtningsmapp har angetts än; välj en standardmapp för hämtningar nu</string>
@@ -580,8 +542,6 @@
     <string name="open_with">Öppna med</string>
     <string name="show_thumbnail_title">Visa miniatyrer</string>
     <string name="detail_sub_channel_thumbnail_view_description">Underkanalens miniatyrbild</string>
-    <string name="feed_load_error_fast_unknown">Det snabba flödesläget ger inte mer information om detta.</string>
-    <string name="feed_load_error">Fel vid inläsning av flödet</string>
     <string name="mark_as_watched">Markera som sedd</string>
     <string name="metadata_privacy_unlisted">Olistad</string>
     <string name="featured">Aktuellt</string>
@@ -604,19 +564,13 @@
     </plurals>
     <string name="enqueue_next_stream">Köa nästa</string>
     <string name="enqueued_next">Köade nästa</string>
-    <string name="start_main_player_fullscreen_title">Starta huvudspelaren i helskärmsläge</string>
     <string name="processing_may_take_a_moment">Bearbetar… Kan ta en stund</string>
     <string name="recent">Senaste</string>
     <string name="main_page_content_swipe_remove">Svep objekt för att ta bort dem</string>
     <string name="remote_search_suggestions">Förslag via fjärrsökning</string>
-    <string name="start_main_player_fullscreen_summary">Starta videor direkt i helskärmsläge i stället för i minispelaren när automatisk rotation är låst. Du kan fortfarande öppna minispelaren genom att lämna helskärmsläget.</string>
     <string name="check_for_updates">Sök efter uppdateringar</string>
     <string name="manual_update_description">Sök manuellt efter nya versioner</string>
     <string name="checking_updates_toast">Söker efter uppdateringar…</string>
-    <string name="feed_new_items">Nya flödesobjekt</string>
-    <string name="show_crash_the_player_title">Visa \"Krascha spelaren\"</string>
-    <string name="crash_the_player">Krascha spelaren</string>
-    <string name="show_crash_the_player_summary">Visar ett kraschalternativ vid användning av spelaren</string>
     <string name="error_report_channel_name">Aviseringar om felrapporter</string>
     <string name="error_report_channel_description">Aviseringar för rapportering av fel</string>
     <string name="error_report_notification_title">NewPipe stötte på ett fel; tryck för att rapportera det</string>
@@ -642,7 +596,6 @@
         <item quantity="one">%s ny strömning</item>
         <item quantity="other">%s nya strömningar</item>
     </plurals>
-    <string name="settings_category_player_notification_summary">Konfigurera aviseringen för strömmen som spelas upp</string>
     <string name="check_new_streams">Sök efter nya strömningar</string>
     <string name="enable_streams_notifications_summary">Meddela om nya strömningar från prenumerationer</string>
     <string name="notifications">Aviseringar</string>
@@ -650,7 +603,6 @@
     <string name="loading_stream_details">Läser in information om strömmen…</string>
     <string name="enable_streams_notifications_title">Aviseringar om nya strömningar</string>
     <string name="enumeration_comma">,</string>
-    <string name="settings_category_player_notification_title">Spelaraviseringar</string>
     <string name="toggle_all">Växla alla</string>
     <string name="percent">Procent</string>
     <string name="semitone">Halvton</string>
@@ -660,7 +612,6 @@
     <string name="unknown_format">Okänt format</string>
     <string name="streams_not_yet_supported_removed">Videoströmningar som ännu inte stöds av nedladdaren visas inte</string>
     <string name="progressive_load_interval_title">Storlek på inläsningsintervall</string>
-    <string name="select_quality_external_players">Välj kvalitet för externa spelare</string>
     <string name="selected_stream_external_player_not_supported">Den valda videoströmmen stöds inte av externa spelare</string>
     <string name="faq_description">Om du har problem med att använda appen, läs då svaren på de här vanliga frågorna!</string>
     <string name="faq_title">Vanliga frågor</string>
@@ -679,13 +630,8 @@
     <string name="ignore_hardware_media_buttons_summary">Användbart om du till exempel använder ett headset med trasiga fysiska knappar</string>
     <string name="ignore_hardware_media_buttons_title">Ignorera hårdvarans mediaknappar</string>
     <string name="remove_duplicates_title">Ta bort dubbletter\?</string>
-    <string name="feed_hide_streams_title">Visa följande strömningar</string>
-    <string name="feed_show_partially_watched">Delvis sedd</string>
     <string name="remove_duplicates_message">Vill du ta bort alla dubbletter i den här spellistan?</string>
     <string name="remove_duplicates">Ta bort dubbletter</string>
-    <string name="feed_show_hide_streams">Visa eller dölj strömmar</string>
-    <string name="feed_show_watched">Fullständigt sedd</string>
-    <string name="feed_show_upcoming">Kommande</string>
     <string name="volume">Volym</string>
     <string name="none">Ingen</string>
     <string name="left_gesture_control_summary">Välj gest för vänstra halvan av spelarskärmen</string>
@@ -696,18 +642,11 @@
     <string name="play_queue_audio_track">Ljud: %s</string>
     <string name="audio_track">Ljudspår</string>
     <string name="audio_track_present_in_video">Det finns redan ett ljudspår i den här strömmen</string>
-    <string name="select_audio_track_external_players">Välj ljudspår för externa spelare</string>
     <string name="unknown_audio_track">Okänt</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer-inställningar</string>
-    <string name="settings_category_exoplayer_summary">Hantera vissa ExoPlayer-inställningar. Spelaren måste startas om innan ändringarna börjar gälla.</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Använd alltid ExoPlayers lösning för inställning av videoutgångsyta</string>
     <string name="prefer_original_audio_title">Föredra originalljud</string>
     <string name="prefer_original_audio_summary">Välj originalljudspåret oavsett språk</string>
     <string name="prefer_descriptive_audio_title">Föredra syntolkning</string>
     <string name="prefer_descriptive_audio_summary">Välj ett syntolkat ljudspår för personer med synnedsättning när ett sådant finns</string>
-    <string name="use_exoplayer_decoder_fallback_title">Använd ExoPlayers reservavkodare</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Aktivera det här alternativet om du har problem med att initiera avkodare. ExoPlayer försöker då använda avkodare med lägre prioritet om de primära avkodarna inte kan initieras. Detta kan ge sämre uppspelningsprestanda än när de primära avkodarna används</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Denna lösning frigör och skapar om videokodekar när videoytan ändras, i stället för att ställa in ytan direkt i kodeken. ExoPlayer använder redan detta på vissa enheter med det här problemet, så inställningen har bara effekt på Android 6 och senare.\n\nOm du aktiverar alternativet kan det förhindra uppspelningsfel när du byter videospelare eller växlar till fullskärm</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">original</string>
     <string name="audio_track_type_descriptive">beskrivande</string>
@@ -755,7 +694,6 @@
 \n%2$s</string>
     <string name="metadata_avatars">Profilbilder</string>
     <string name="metadata_subchannel_avatars">Underkanalens profilbilder</string>
-    <string name="feed_fetch_channel_tabs_summary">Flikar att hämta när flödet uppdateras. Det här alternativet har ingen effekt om en kanal uppdateras i snabbt läge.</string>
     <string name="metadata_uploader_avatars">Uppladdarens profilbilder</string>
     <string name="metadata_banners">Banderoller</string>
     <string name="video_details_list_item">- %1$s: %2$s</string>
@@ -779,9 +717,6 @@
     <string name="audio_track_type_secondary">sekundär</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Dela som tillfällig YouTube-spellista</string>
     <string name="tab_bookmarks_short">Spellistor</string>
-    <string name="select_a_feed_group">Välj en flödesgrupp</string>
-    <string name="no_feed_group_created_yet">Ingen flödesgrupp har skapats ännu</string>
-    <string name="feed_group_page_summary">Kanalgruppsida</string>
     <string name="search_with_service_name">Sök %1$s</string>
     <string name="search_with_service_name_and_filter">Sök %1$s (%2$s)</string>
     <string name="short_thousand">%sK</string>
@@ -802,9 +737,6 @@
     <string name="delete_entry">Ta bort post</string>
     <string name="account_terminated_service_provides_reason">Konto avslutat\n\n%1$s anger denna anledning: %2$s</string>
     <string name="entry_deleted">Posten borttagen</string>
-    <string name="player_http_403">Servern svarade med HTTP-fel 403 under uppspelningen. Strömnings-URL:en kan ha löpt ut eller IP-adressen kan ha blockerats.</string>
-    <string name="player_http_invalid_status">Servern svarade med HTTP-fel %1$s under uppspelningen</string>
-    <string name="youtube_player_http_403">Servern svarade med HTTP-fel 403 under uppspelningen, troligen på grund av en IP-blockering eller problem med avobfuskering av strömnings-URL:er</string>
     <string name="sign_in_confirm_not_bot_error">%1$s vägrade att lämna ut uppgifter och krävde inloggning för att bekräfta att begäran inte kommer från en robot.\n\nDin IP-adress kan ha blockerats tillfälligt av %1$s. Vänta en stund eller byt IP-adress, till exempel genom att slå av och på en VPN-anslutning eller växla mellan Wi-Fi och mobildata.\n\nLäs <a href="%2$s">avsnittet i vanliga frågor</a> för mer information.</string>
     <string name="unsupported_content_in_country">Innehållet är inte tillgängligt i det valda innehållslandet.\n\nÄndra valet under ”Inställningar &gt; Innehåll &gt; Standardinnehållsland”.</string>
     <string name="kao_dialog_warning">I augusti 2025 meddelade Google att från och med september 2026 kommer installation av appar att kräva utvecklarverifiering för alla Android-appar på certifierade enheter, inklusive de som installerats utanför Play Store. Eftersom utvecklarna av NewPipe inte godkänner detta krav kommer NewPipe inte längre att fungera på certifierade Android-enheter efter den tiden.</string>

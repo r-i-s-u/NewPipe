@@ -10,12 +10,9 @@
     <string name="no_player_found">کوئی سٹریم پلیئر نہیں لبھیا۔ تسیں وی‌ایل‌سی اینسٹال کرنا چاہوگے؟</string>
     <string name="open_in_browser">براؤزر وچ کھُلھو</string>
     <string name="share_dialog_title">ایس نال سانجھا کرو</string>
-    <string name="use_external_video_player_title">باہری ویڈیو پکیئر ورتیو</string>
-    <string name="use_external_video_player_summary">کجھ ریزولوشناں تے آواز نوں ہٹا دِندے</string>
     <string name="no_player_found_toast">کجھ سٹریم پلیئر نہیں لبھے اے (تسیں وی‌ایل‌سی اینسٹال کرکے ایسنوں چلا سکدے او)۔</string>
     <string name="did_you_mean">کیہ تہاڈے مطلب سی ”%1$s“؟</string>
     <string name="show_info">جاݨکاری ویکھاؤ</string>
-    <string name="use_external_audio_player_title">باہری آڈیو پلیئر ورتو</string>
     <string name="controls_popup_title">تیردی تصویر</string>
     <string name="notification_action_repeat">دُہراؤ</string>
     <string name="tab_choose">ٹیب چݨو</string>
@@ -26,7 +23,6 @@
     <string name="kore_not_found">کورے اَیپ اینسٹال نہیں اے؟</string>
     <string name="show_play_with_kodi_title">”کوڈی نال چلاؤ“ چݨ دِکھاؤ</string>
     <string name="show_play_with_kodi_summary">کوڈی میڈیا کیندر نہیں ویڈیو چلاؤݨ دی چݨ وِکھاؤ</string>
-    <string name="crash_the_player">ویڈیو پلیئر کریش کرو</string>
     <string name="notification_action_0_title">پہلا کاروائی بٹن</string>
     <string name="notification_action_1_title">دوجا کاروائی بٹن</string>
     <string name="notification_action_2_title">تیجا کاردائی بٹن</string>
@@ -43,7 +39,6 @@
     <string name="default_audio_format_title">آڈیو فارمیٹ دا مول</string>
     <string name="default_video_format_title">وہڈیو فارمیٹ دا مول</string>
     <string name="seek_duration_title">اگے لنگھاؤݨ یا پچھے کرن دی سماں معد</string>
-    <string name="settings_category_player_behavior_title">ووہار</string>
     <string name="settings_category_appearance_title">دِکھ</string>
     <string name="settings_category_debug_title">ڈِیبَگ</string>
     <string name="downloads">ڈاؤن‌لوڈ</string>
@@ -82,7 +77,6 @@
     <string name="notification_action_nothing">کجھ وی نہیں</string>
     <string name="download_dialog_title">ڈاؤن‌لوڈ</string>
     <string name="autoplay_title">آٹوپلے</string>
-    <string name="settings_category_player_title">پلیئر</string>
     <string name="controls_background_title">پچھوکڑ</string>
     <string name="play_audio">آڈیو</string>
     <string name="notification_action_buffering">بفر کردے</string>

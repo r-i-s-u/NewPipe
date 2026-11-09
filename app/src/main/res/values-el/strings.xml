@@ -11,8 +11,6 @@
     <string name="settings">Ρυθμίσεις</string>
     <string name="did_you_mean">Μήπως εννοείτε \"%1$s\";</string>
     <string name="share_dialog_title">Κοινοποίηση με</string>
-    <string name="use_external_video_player_title">Χρήση εξωτερικής εφαρμογής αναπαραγωγής βίντεο</string>
-    <string name="use_external_audio_player_title">Χρήση εξωτερικής συσκευής αναπαραγωγής ήχου</string>
     <string name="download_path_title">Φάκελος λήψης βίντεο</string>
     <string name="download_path_summary">Τα ληφθέντα αρχεία βίντεο αποθηκεύονται εδώ</string>
     <string name="download_path_dialog_title">Επιλέξτε φάκελο λήψης για αρχεία βίντεο</string>
@@ -35,7 +33,6 @@
     <string name="content_language_title">Προεπιλεγμένη γλώσσα περιεχομένου</string>
     <string name="settings_category_video_audio_title">Βίντεο και ήχος</string>
     <string name="settings_category_appearance_title">Εμφάνιση</string>
-    <string name="background_player_playing_toast">Αναπαραγωγή στο παρασκήνιο</string>
     <string name="network_error">Σφάλμα δικτύου</string>
     <string name="detail_thumbnail_view_description">Αναπαραγωγή βίντεο, διάρκεια:</string>
     <string name="detail_uploader_thumbnail_view_description">Μικρογραφία εικόνας προφίλ του χρήστη</string>
@@ -72,13 +69,11 @@
     <string name="main_bg_subtitle">Πατήστε το μεγεθυντικό φακό για να ξεκινήσετε.</string>
     <string name="no_player_found_toast">Δε βρέθηκε αναπαραγωγός ροής δεδομένων (μπορείτε να εγκαταστήσετε το VLC για να κάνετε αναπαραγωγή).</string>
     <string name="controls_download_desc">Λήψη του αρχείου ροής</string>
-    <string name="use_external_video_player_summary">Αφαιρείται ο ήχος από κάποιες αναλύσεις</string>
     <string name="channel_unsubscribed">Το κανάλι διαγράφηκε</string>
     <string name="subscription_change_failed">Αδύνατη η αλλαγή της εγγραφής</string>
     <string name="subscription_update_failed">Αδύνατη η ενημέρωση της εγγραφής</string>
     <string name="tab_subscriptions">Συνδρομές</string>
     <string name="tab_bookmarks">Λίστες αναπαραγωγής με σελιδοδείκτες</string>
-    <string name="fragment_feed_title">Τι νέο υπάρχει</string>
     <string name="controls_background_title">Στο παρασκήνιο</string>
     <string name="controls_popup_title">Αναδυόμενο παράθυρο</string>
     <string name="controls_add_to_playlist_title">Προσθήκη σε</string>
@@ -104,8 +99,6 @@
     <string name="show_hold_to_append_title">Εμφάνιση επεξήγησης του «Πιέστε παρατεταμένα για προσθήκη στην ουρά»</string>
     <string name="show_hold_to_append_summary">Εμφάνιση συμβουλής κατά το πάτημα του φόντου ή του αναδυόμενου κουμπιού στο βίντεο «Λεπτομέρειες:»</string>
     <string name="default_content_country_title">Προεπιλεγμένη χώρα περιεχομένου</string>
-    <string name="settings_category_player_title">Αναπαραγωγός</string>
-    <string name="settings_category_player_behavior_title">Συμπεριφορά</string>
     <string name="settings_category_history_title">Ιστορικό και προσωρινή μνήμη</string>
     <string name="settings_category_debug_title">Αποσφαλμάτωση</string>
     <string name="popup_playing_toast">Αναπαραγωγή σε αναδυόμενο παράθυρο</string>
@@ -148,10 +141,6 @@
     <string name="content_not_available">Το περιεχόμενο δεν είναι διαθέσιμο</string>
     <string name="could_not_setup_download_menu">Δεν ήταν δυνατή η ρύθμιση του μενού λήψεων</string>
     <string name="app_ui_crash">Η εφαρμογή κατέρρευσε</string>
-    <string name="player_stream_failure">Δεν ήταν δυνατή η αναπαραγωγή αυτής της ροής</string>
-    <string name="player_unrecoverable_failure">Συνέβη ένα μη ανακτήσιμο σφάλμα στη συσκευή αναπαραγωγής</string>
-    <string name="player_recoverable_failure">Ανάκτηση από σφάλμα της συσκευής αναπαραγωγής</string>
-    <string name="external_player_unsupported_link_type">Οι εξωτερικές συσκευές αναπαραγωγής δεν υποστηρίζουν αυτού του είδους συνδέσμους</string>
     <string name="video_streams_empty">Δε βρέθηκαν ροές βίντεο</string>
     <string name="audio_streams_empty">Δε βρέθηκαν ροές ήχου</string>
     <string name="invalid_directory">Δεν υπάρχει αυτός ο φάκελος</string>
@@ -256,8 +245,6 @@
     <string name="background_player">Αναπαραγωγή παρασκηνίου</string>
     <string name="popup_player">Αναπαραγωγή σε αναδυόμενο παράθυρο</string>
     <string name="always_ask_open_action">Πάντα ερώτηση</string>
-    <string name="preferred_player_fetcher_notification_title">Γίνεται λήψη πληροφοριών…</string>
-    <string name="preferred_player_fetcher_notification_message">Γίνεται φόρτωση του ζητούμενου περιεχομένου</string>
     <string name="create_playlist">Νέα λίστα αναπαραγωγής</string>
     <string name="rename_playlist">Μετονομασία</string>
     <string name="name">Όνομα</string>
@@ -430,8 +417,6 @@
     <string name="systems_language">Προεπιλογή συστήματος</string>
     <string name="videos_string">Βίντεο</string>
     <string name="search_showing_result_for">Εμφάνιση αποτελεσμάτων για: %s</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Ενεργοποίηση γρήγορης λειτουργίας</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Απενεργοποίηση γρήγορης λειτουργίας</string>
     <string name="content_not_supported">Αυτό το περιεχόμενο δεν υποστηρίζεται ακόμη από το NewPipe.
 \n
 \nΕλπίζουμε ότι θα υποστηριχθεί σε μια μελλοντική έκδοση.</string>
@@ -439,18 +424,7 @@
     <string name="channel_created_by">Δημιουργήθηκε από %s</string>
     <string name="playlist_page_summary">Σελίδα λίστας αναπαραγωγής</string>
     <string name="video_detail_by">Από %s</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Διαθέσιμο σε ορισμένες υπηρεσίες, είναι συνήθως πολύ πιο γρήγορο, αλλά μπορεί να επιστρέψει έναν περιορισμένο αριθμό αντικειμένων και συχνά ελλειπείς πληροφορίες (π.χ. χωρίς διάρκεια, τύπο αντικειμένου)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Λήψη από ειδική ροή όταν είναι διαθέσιμη</string>
     <string name="feed_update_threshold_option_always_update">Να γίνεται πάντα ενημέρωση</string>
-    <string name="feed_update_threshold_summary">Χρόνος μετά την τελευταία ενημέρωση πριν μια συνδρομή θεωρηθεί ξεπερασμένη — %s</string>
-    <string name="feed_update_threshold_title">Όριο ενημέρωσης ροής</string>
-    <string name="settings_category_feed_title">Ροή</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Εμφάνιση μόνο μη ομαδοποιημένων συνδρομών</string>
-    <string name="feed_create_new_group_button_title">Νέα</string>
-    <string name="feed_group_dialog_delete_message">Θέλετε να διαγράψετε αυτή την ομάδα;</string>
-    <string name="feed_group_dialog_empty_name">Κενό όνομα ομάδας</string>
-    <string name="feed_group_dialog_empty_selection">Δεν έχει επιλεγεί συνδρομή</string>
-    <string name="feed_group_dialog_select_subscriptions">Επιλέξτε συνδρομές</string>
     <string name="mute">Σίγαση</string>
     <string name="title_activity_play_queue">Αναπαραγωγή ουράς</string>
     <string name="no_playlist_bookmarked_yet">Δεν υπάρχουν σελιδοδείκτες λίστας αναπαραγωγής ακόμα</string>
@@ -487,26 +461,6 @@
     <string name="notification_scale_to_square_image_summary">Περικοπή της μικρογραφίας βίντεο που εμφανίζεται στην ειδοποίηση από 16:9 σε αναλογία διαστάσεων 1:1</string>
     <string name="notification_scale_to_square_image_title">Περικοπή μικρογραφίας σε αναλογία διαστάσεων 1:1</string>
     <string name="notification_action_buffering">Φόρτωση</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Πιστεύετε ότι η ροή φορτώνει πολύ αργά; Δοκιμάστε να ενεργοποιήσετε τη γρήγορη φόρτωση (από τις ρυθμίσεις ή πατώντας το παρακάτω κουμπί).
-\n
-\nΤο NewPipe προσφέρει δύο στρατηγικές φόρτωσης ροής:
-\n- Λήψη ολόκληρου του καναλιού συνδρομής, το οποίο είναι αργό αλλά πλήρες.
-\n- Χρήση ενός αποκλειστικού τελικού σημείου υπηρεσίας, το οποίο είναι γρήγορο αλλά συνήθως δεν είναι πλήρες.
-\n
-\nΗ διαφορά μεταξύ των δύο είναι ότι η γρήγορη συνήθως στερείται κάποιες πληροφορίες, όπως η διάρκεια ή ο τύπος του στοιχείου (δεν μπορεί να διακρίνει μεταξύ ζωντανών βίντεο και κανονικών) και μπορεί να επιστρέψει λιγότερα στοιχεία.
-\n
-\nΤο YouTube είναι ένα παράδειγμα υπηρεσίας της γρήγορης μεθόδου με τη ροή RSS.
-\n
-\nΣυνεπώς επιλέγετε ανάλογα: ταχύτητα ή ακριβείς πληροφορίες.</string>
-    <string name="feed_oldest_subscription_update">Η ροή ανανεώθηκε: %s</string>
-    <string name="feed_notification_loading">Φόρτωση ροής…</string>
-    <string name="feed_processing_message">Επεξεργασία ροής…</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d επιλέχθηκε</item>
-        <item quantity="other">%d επιλέχθηκαν</item>
-    </plurals>
-    <string name="feed_subscription_not_loaded_count">Δεν φορτώθηκε: %d</string>
-    <string name="feed_groups_header_title">Ομάδες καναλιών</string>
     <plurals name="days">
         <item quantity="one">%d ημέρα</item>
         <item quantity="other">%d ημέρες</item>
@@ -608,12 +562,6 @@
     <string name="description_select_note">Τώρα μπορείτε να επιλέξετε κείμενο εντός της περιγραφής. Σημειώστε ότι, η σελίδα μπορεί να παρουσιάζει αστάθεια κατά τη διάρκεια της κατάστασης επιλογής κειμένου.</string>
     <string name="open_website_license">Ανοικτή ιστοσελίδα</string>
     <string name="account_terminated">Ο λογαριασμός διαγράφηκε</string>
-    <string name="feed_load_error_fast_unknown">Η κατάσταση γρήγορης τροφοδοσίας δεν παρέχει περισσότερες πληροφορίες.</string>
-    <string name="feed_load_error_terminated">Ο λογαριασμός του δημιουργού έχει διαγραφεί.
-\nΤο NewPipe δε θα μπορεί να φορτώσει αυτή την τροφοδοσία στο μέλλον.
-\nΘέλετε να απεγγραφείτε από αυτό το κανάλι;</string>
-    <string name="feed_load_error_account_info">Αδυναμία φόρτωσης τροφοδοσίας για \'%s\'.</string>
-    <string name="feed_load_error">Σφάλμα φόρτωσης τροφοδοσίας</string>
     <string name="downloads_storage_use_saf_summary_api_29">Από το Android 10 και μετά, μόνο το Πλαίσιο Πρόσβασης Αποθήκευσης υποστηρίζεται</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Θα ερωτηθείτε πού να αποθηκεύσετε κάθε λήψη</string>
     <string name="no_dir_yet">Δεν έχει ορισθεί φάκελος λήψεων ακόμα, eπιλέξτε τον προεπιλεγμένο φάκελο τώρα</string>
@@ -639,18 +587,12 @@
         <item quantity="other">%s λήψεις ολοκληρώθηκαν</item>
     </plurals>
     <string name="main_page_content_swipe_remove">Απομάκρυνση αντικειμένων με σύρσιμο</string>
-    <string name="start_main_player_fullscreen_summary">Εκκίνηση των βίντεο σε πλήρη οθόνη και όχι σε αναδυόμενο παράθυρο, αν η αυτόματη περιστροφή της οθόνης είναι ανενεργή. Μπορείτε να ενεργοποιήσετε το αναδυόμενο παράθυρο βγαίνοντας από την πλήρη οθόνη</string>
-    <string name="start_main_player_fullscreen_title">Εκκίνηση κύριου αναπαραγωγού σε πλήρη οθόνη</string>
     <string name="enqueued_next">Προστέθηκε το επόμενο στην ουρά</string>
     <string name="enqueue_next_stream">Προσθήκη επόμενου στην ουρά</string>
     <string name="processing_may_take_a_moment">Επεξεργασία... Μπορεί να πάρει λίγο χρόνο</string>
     <string name="checking_updates_toast">Έλεγχος αναβάθμισης…</string>
     <string name="manual_update_description">Χειροκίνητος έλεγχος για νέα έκδοση</string>
     <string name="check_for_updates">Έλεγχος αναβάθμισης</string>
-    <string name="feed_new_items">Νέα αντικείμενα τροφοδοσίας</string>
-    <string name="show_crash_the_player_title">Εμφάνιση \"Κατάρρευση αναπαραγωγέα\"</string>
-    <string name="show_crash_the_player_summary">Εμφανίζει μια επιλογή κατάρρευσης κατά τη χρήση του αναπαραγωγέα</string>
-    <string name="crash_the_player">Κατάρρευση αναπαραγωγέα</string>
     <string name="error_report_channel_name">Ειδοποίηση αναφοράς σφάλματος</string>
     <string name="error_report_channel_description">Ειδοποιήσεις για την αναφορά σφαλμάτων</string>
     <string name="error_report_notification_toast">Συνέβη ένα σφάλμα. Δείτε την ειδοποίηση</string>
@@ -671,9 +613,7 @@
     </plurals>
     <string name="streams_notifications_network_title">Απαιτούμενη σύνδεση δικτύου</string>
     <string name="any_network">Οποιοδήποτε δίκτυο</string>
-    <string name="settings_category_player_notification_title">Ειδοποίηση αναπαραγωγής</string>
     <string name="streams_notification_channel_name">Νέες ροές</string>
-    <string name="settings_category_player_notification_summary">Διαμόρφωση ειδοποίησης τρέχουσας αναπαραγωγής ροής</string>
     <string name="streams_notifications_interval_title">Συχνότητα ελέγχου</string>
     <string name="streams_notification_channel_description">Ειδοποιήσεις σχετικά με νέες ροές για συνδρομές</string>
     <string name="loading_stream_details">Φόρτωση λεπτομερειών ροής…</string>
@@ -692,7 +632,6 @@
     <string name="selected_stream_external_player_not_supported">Η επιλεγμένη ροή δεν υποστηρίζεται από εξωτερικούς αναπαραγωγούς</string>
     <string name="no_audio_streams_available_for_external_players">Δεν διατίθενται ροές ήχου για εξωτερικούς αναπαραγωγούς</string>
     <string name="no_video_streams_available_for_external_players">Δεν διατίθενται ροές βίντεο για εξωτερικούς αναπαραγωγούς</string>
-    <string name="select_quality_external_players">Επιλογή ποιότητας εξωτερικών αναπαραγωγών</string>
     <string name="unknown_format">Άγνωστος τύπος αρχείου</string>
     <string name="unknown_quality">Άγνωστη ποιότητα</string>
     <string name="progressive_load_interval_title">Μέγεθος διαστήματος φόρτωσης αναπαραγωγής</string>
@@ -712,14 +651,9 @@
     <string name="playlist_add_stream_success_duplicate">Προστέθηκε διπλότυπο %d φορά(ες)</string>
     <string name="ignore_hardware_media_buttons_title">Αγνοήστε τα συμβάντα κουμπιών πολυμέσων υλικού</string>
     <string name="ignore_hardware_media_buttons_summary">Χρήσιμο, για παράδειγμα, εάν χρησιμοποιείτε ακουστικά με χαλασμένα φυσικά κουμπιά</string>
-    <string name="feed_hide_streams_title">Εμφάνιση των ακόλουθων ροών</string>
-    <string name="feed_show_watched">Θεαθέντα πλήρως</string>
-    <string name="feed_show_upcoming">Προσεχή</string>
-    <string name="feed_show_hide_streams">Εμφάνιση/Απόκρυψη ροών</string>
     <string name="remove_duplicates_title">Αφαίρεση διπλοτύπων;</string>
     <string name="remove_duplicates_message">Θέλετε να καταργήσετε όλες τις διπλότυπες ροές σε αυτήν τη λίστα αναπαραγωγής;</string>
     <string name="remove_duplicates">Αφαίρεση διπλοτύπων</string>
-    <string name="feed_show_partially_watched">Θεαθέντα μερικώς</string>
     <string name="left_gesture_control_summary">Επιλέξτε χειρονομία για το αριστερό μισό της οθόνης του προγράμματος αναπαραγωγής</string>
     <string name="left_gesture_control_title">Ενέργεια αριστερής χειρονομίας</string>
     <string name="right_gesture_control_summary">Επιλέξτε χειρονομία για το δεξί μισό της οθόνης του προγράμματος αναπαραγωγής</string>
@@ -733,16 +667,7 @@
     <string name="play_queue_audio_track">Ήχος: %s</string>
     <string name="audio_track">Κομμάτι ήχου</string>
     <string name="audio_track_present_in_video">Ένα κομμάτι ήχου θα πρέπει να υπάρχει ήδη σε αυτήν τη ροή</string>
-    <string name="select_audio_track_external_players">Επιλογή ήχου για εξωτερικές συσκευές αναπαραγωγής</string>
     <string name="unknown_audio_track">Άγνωστο</string>
-    <string name="settings_category_exoplayer_title">Ρυθμίσεις ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Διαχειριστείτε ορισμένες ρυθμίσεις του ExoPlayer. Αυτές οι αλλαγές απαιτούν επανεκκίνηση του προγράμματος αναπαραγωγής για να τεθεί σε ισχύ</string>
-    <string name="use_exoplayer_decoder_fallback_title">Χρησιμοποιήστε την δυνατότητα εναλλακτικού αποκωδικοποιητή του ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Ενεργοποιήστε αυτήν την επιλογή εάν αντιμετωπίζετε προβλήματα με την προετοιμασία του αποκωδικοποιητή, η οποία επιστρέφει σε αποκωδικοποιητές χαμηλότερης προτεραιότητας εάν αποτύχει η προετοιμασία του πρωτεύοντος αποκωδικοποιητή. Αυτό μπορεί να έχει ως αποτέλεσμα κακή απόδοση αναπαραγωγής από ότι όταν χρησιμοποιείτε κύριους αποκωδικοποιητές</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Χρησιμοποιείτε πάντα τον εναλλακτικό τρόπο ρύθμισης της επιφάνειας εξόδου βίντεο του ExoPlayer</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Αυτή η λύση απελευθερώνει και επαναφέρει τους κωδικοποιητές βίντεο όταν συμβαίνει μια αλλαγή επιφάνειας, αντί να ρυθμίζει την επιφάνεια απευθείας στον κωδικοποιητή. Χρησιμοποιείται ήδη από το ExoPlayer σε ορισμένες συσκευές με αυτό το πρόβλημα, αυτή η ρύθμιση έχει επίδραση μόνο σε Android 6 και νεότερη έκδοση.
-\n
-\nΗ ενεργοποίηση αυτής της επιλογής μπορεί να αποτρέψει σφάλματα αναπαραγωγής κατά την εναλλαγή του τρέχοντος προγράμματος αναπαραγωγής βίντεο ή τη μετάβαση σε πλήρη οθόνη</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">αρχικό</string>
     <string name="audio_track_type_dubbed">μεταγλωττισμένο</string>
@@ -763,7 +688,6 @@
     <string name="feed_fetch_channel_tabs">Λήψη καρτελών καναλιών</string>
     <string name="channel_tab_about">Σχετικά</string>
     <string name="channel_tab_albums">Άλμπουμ</string>
-    <string name="feed_fetch_channel_tabs_summary">Καρτέλες για ανάκτηση κατά την ενημέρωση της ροής. Αυτή η επιλογή δεν έχει καμία επίδραση εάν ένα κανάλι ενημερώνεται χρησιμοποιώντας τη γρήγορη λειτουργία.</string>
     <string name="channel_tab_playlists">Λίστες</string>
     <string name="channel_tab_tracks">Κομμάτια</string>
     <string name="channel_tab_channels">Κανάλια</string>
@@ -819,9 +743,6 @@
     <string name="audio_track_type_secondary">δευτερεύων</string>
     <string name="tab_bookmarks_short">Λίστες αναπαραγωγής</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Μοιραστείτε ως προσωρινή λίστα αναπαραγωγής στο YouTube</string>
-    <string name="select_a_feed_group">Επιλογή ομάδας τροφοδοσίας</string>
-    <string name="no_feed_group_created_yet">Δεν δημιουργήθηκε ομάδα τροφοδοσίας ακόμα</string>
-    <string name="feed_group_page_summary">Σελίδα καναλιού ομάδας</string>
     <string name="search_with_service_name">Αναζήτηση %1$s</string>
     <string name="search_with_service_name_and_filter">Αναζήτηση %1$s (%2$s)</string>
     <string name="channel_tab_likes">Μου αρέσει</string>
@@ -842,9 +763,6 @@
     <string name="delete_entry">Διαγραφή καταχώρησης</string>
     <string name="entry_deleted">Η καταχώρηση διαγράφηκε</string>
     <string name="account_terminated_service_provides_reason">Ο λογαριασμός έκλεισε\n\n%1$s παρέχει αυτήν την αιτία: %2$s</string>
-    <string name="player_http_403">Σφάλμα HTTP 403 που ελήφθη από τον διακομιστή κατά την αναπαραγωγή, πιθανώς λόγω λήξης διεύθυνσης URL ροής ή αποκλεισμού IP</string>
-    <string name="player_http_invalid_status">Σφάλμα HTTP %1$s ελήφθη από τον διακομιστή κατά την αναπαραγωγή</string>
-    <string name="youtube_player_http_403">Σφάλμα HTTP 403 ελήφθη από τον διακομιστή κατά την αναπαραγωγή, πιθανώς λόγω αποκλεισμού IP ή προβλημάτων απεμπλοκής URL ροής</string>
     <string name="sign_in_confirm_not_bot_error">To %1$s αρνήθηκε να παράσχει δεδομένα, ζητώντας σύνδεση για να επιβεβαιώσει ότι ο αιτών δεν είναι bot.\n\nΗ IP σας ενδέχεται να έχει αποκλειστεί προσωρινά από το %1$s. Μπορείτε να περιμένετε λίγο ή να αλλάξετε IP (για παράδειγμα, ενεργοποιώντας/απενεργοποιώντας ένα VPN ή αλλάζοντας από WiFi σε δεδομένα κινητής τηλεφωνίας).\n\nΓια περισσότερες πληροφορίες, ανατρέξτε σε <a href="%2$s"> αυτή την καταχώριση στις Συχνές Ερωτήσεις </a>.</string>
     <string name="unsupported_content_in_country">Αυτό το περιεχόμενο δεν είναι διαθέσιμο για την τρέχουσα επιλεγμένη χώρα περιεχομένου.\n\nΑλλάξτε την επιλογή σας από \"Ρυθμίσεις &gt; Περιεχόμενο &gt; Προεπιλεγμένη χώρα περιεχομένου\".</string>
     <string name="kao_dialog_more_info">Λεπτομέρειες</string>

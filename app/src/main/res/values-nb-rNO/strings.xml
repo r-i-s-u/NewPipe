@@ -11,8 +11,6 @@
     <string name="settings">Innstillinger</string>
     <string name="did_you_mean">Mente du «%1$s»\?</string>
     <string name="share_dialog_title">Del med</string>
-    <string name="use_external_video_player_title">Bruk ekstern videoavspiller</string>
-    <string name="use_external_audio_player_title">Bruk ekstern lydavspiller</string>
     <string name="download_path_title">Video nedlasting mappe</string>
     <string name="download_path_summary">Nedlastede videofiler lagres her</string>
     <string name="download_path_dialog_title">Velg nedlastingsmappe for videofiler</string>
@@ -35,7 +33,6 @@
     <string name="content_language_title">Forvalgt innholdsspråk</string>
     <string name="settings_category_video_audio_title">Video og lyd</string>
     <string name="settings_category_appearance_title">Utseende</string>
-    <string name="background_player_playing_toast">Spiller i bakgrunnen</string>
     <string name="network_error">Nettverksfeil</string>
     <string name="detail_thumbnail_view_description">Spill av video, varighet:</string>
     <string name="detail_uploader_thumbnail_view_description">Opplasterens avatar</string>
@@ -92,14 +89,12 @@
     <string name="msg_popup_permission">Denne tilgangen trengs for
 \nåpning i oppsprettsmodus</string>
     <string name="recaptcha_request_toast">reCAPTCHA-oppgave forespurt</string>
-    <string name="use_external_video_player_summary">Fjerner lyd ved noen oppløsninger</string>
     <string name="subscribe_button_title">Abonner</string>
     <string name="subscribed_button_title">Abonnert</string>
     <string name="channel_unsubscribed">Kanalabonnent oppsagt</string>
     <string name="subscription_change_failed">Klarte ikke å endre abonnement</string>
     <string name="subscription_update_failed">Klarte ikke å oppdatere abonnement</string>
     <string name="tab_subscriptions">Abonnementer</string>
-    <string name="fragment_feed_title">Hva er nytt</string>
     <string name="controls_background_title">Bakgrunn</string>
     <string name="controls_popup_title">Oppsprett</string>
     <string name="popup_remember_size_pos_title">Husk oppsprettsegenskaper</string>
@@ -128,8 +123,6 @@
     <string name="app_description">Fri lett strømming på Android.</string>
     <string name="resume_on_audio_focus_gain_title">Fortsett avspilling</string>
     <string name="resume_on_audio_focus_gain_summary">Fortsett å spille etter avbrytelser (f.eks. telefonsamtaler)</string>
-    <string name="settings_category_player_title">Avspiller</string>
-    <string name="settings_category_player_behavior_title">Oppførsel</string>
     <string name="settings_category_history_title">Historikk og mellomlagring</string>
     <string name="undo">Angre</string>
     <string name="search_no_results">Ingen resultater</string>
@@ -158,8 +151,6 @@
     <string name="action_history">Historikk</string>
     <string name="delete_item_search_history">Ønsker du å slette dette elementet fra søkehistorikken?</string>
     <string name="play_all">Spill av alle</string>
-    <string name="player_stream_failure">Kunne ikke spille av denne strømmen</string>
-    <string name="player_unrecoverable_failure">Uopprettelig avspillerfeil oppstod</string>
     <string name="blank_page_summary">Blank side</string>
     <string name="kiosk_page_summary">Kiosk-side</string>
     <string name="channel_page_summary">Kanalside</string>
@@ -174,7 +165,6 @@
     <string name="show_hold_to_append_title">Vis \"Hold for å legge til\" -tips</string>
     <string name="show_hold_to_append_summary">Vis tips når det trykkes på bakgrunnen eller oppsprettsknappen i videoens «Detaljer:»</string>
     <string name="unknown_content">[Ukjent]</string>
-    <string name="player_recoverable_failure">Gjenoppretter fra spillerfeil</string>
     <string name="main_page_content">Hovedsidens innhold</string>
     <string name="no_channel_subscribed_yet">Abonnerer ikke på noen kanaler enda</string>
     <string name="trending">På vei opp</string>
@@ -194,14 +184,11 @@
     <string name="no_player_found_toast">Ingen strømmespiller installert (du kan installere VLC for å spille den).</string>
     <string name="always">Alltid</string>
     <string name="just_once">Kun én gang</string>
-    <string name="external_player_unsupported_link_type">Eksterne avspillere kan ikke spille lenker av disse typene</string>
     <string name="video_streams_empty">Fant ingen videostrømmer</string>
     <string name="audio_streams_empty">Fant ingen lydstrømmer</string>
     <string name="video_player">Videoavspiller</string>
     <string name="background_player">Bakgrunnsavspiller</string>
     <string name="popup_player">Oppsprettsavspiller</string>
-    <string name="preferred_player_fetcher_notification_title">Henter informasjon…</string>
-    <string name="preferred_player_fetcher_notification_message">Laster forespurt innhold</string>
     <string name="import_data_title">Importer database</string>
     <string name="export_data_title">Eksporter database</string>
     <string name="import_data_summary">Overstyrer din nåværende historikk, abonnementsliste, spillelister og (alternativt) innstillinger</string>
@@ -462,24 +449,7 @@
         <item quantity="one">%d dag</item>
         <item quantity="other">%d dager</item>
     </plurals>
-    <string name="feed_subscription_not_loaded_count">Ikke innlastet: %d</string>
-    <string name="feed_group_dialog_empty_name">Tomt gruppenavn</string>
-    <string name="feed_group_dialog_delete_message">Ønsker du å slette denne gruppen\?</string>
-    <string name="feed_create_new_group_button_title">Ny</string>
     <string name="feed_update_threshold_option_always_update">Alltid oppdater</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d valgt</item>
-        <item quantity="other">%d valgte</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Ingen abonnement valgt</string>
-    <string name="feed_group_dialog_select_subscriptions">Velg abonnementer</string>
-    <string name="feed_groups_header_title">Kanalgrupper</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Skru av hurtigmodus</string>
-    <string name="feed_update_threshold_title">Strømoppdateringsterskel</string>
-    <string name="settings_category_feed_title">Strøm</string>
-    <string name="feed_processing_message">Behandler strøm…</string>
-    <string name="feed_notification_loading">Laster inn strøm…</string>
-    <string name="feed_oldest_subscription_update">Strøm sist oppdatert: %s</string>
     <string name="restricted_video">Denne videoen er aldersbegrenset.
 \n
 \nSkru på «%1$s» i innstillingene hvis du vil se den.</string>
@@ -506,25 +476,11 @@
     <string name="show_original_time_ago_title">Vis opprinnelig tidsforskjell for elementer</string>
     <string name="notification_action_buffering">Bygger mellomlager</string>
     <string name="notification_action_shuffle">Tilfeldig rekkefølge</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Synes du at strøminnlastingen er for treg\? Prøv å skru på rask innlasting (du kan endre det i innstillingene, eller ved å trykke på knappen nedenfor).
-\n
-\nNewPipe tilbyr to strøminnlastingsstrategier:
-\n• Hent hele abonnementskanalen, noe som er tregt, men fullstendig.
-\n• Bruk av et dedikert tjenesteendepunkt, noe som er raskt men vanligvis ikke fullstendig.
-\n
-\nForskjellen mellom dem er at den raske vanligvis mangler info, som elementers varighet eller type (kan ikke skille mellom direktesendinger og normale videoer) og det kan gi færre elementer.
-\n
-\nYouTube er et eksempel på en tjeneste som tilbyr denne raske metoden med sin RSS-informasjonskanal.
-\n
-\nValget koker ned til det du foretrekker: hastighet eller presis info.</string>
     <string name="show_original_time_ago_summary">Originaltekster fra tjenester vil vises for elementer i strømmen</string>
     <string name="error_report_open_github_notice">Sjekk om det allerede eksisterer et problem som diskuterer ditt krasj. Når du oppretter duplikatbilletter, tar du tid fra oss som vi kan bruke på å fikse den faktiske feilen.</string>
     <string name="notification_actions_at_most_three">Du kan maksimalt velge tre handlinger som skal vises i kompaktvarselet!</string>
     <string name="notification_actions_summary">Rediger hver varslingshandling nedenfor ved å trykke på den. Velg opptil tre av dem som skal vises i det kompakte varselet ved å bruke avmerkingsboksene til høyre</string>
     <string name="notification_scale_to_square_image_summary">Beskjær videominiatyrbildet som vises i varselet fra 16:9 til 1:1 sideforhold (kan føre til forvrengninger)</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Tilgjengelig i noen tjenester, det er vanligvis mye raskere, men kan gi et begrenset antall elementer, og ofte ufullstendig informasjon (f.eks. ingen varighet, elementtype, eller sanntidsstatus)</string>
-    <string name="feed_use_dedicated_fetch_method_title">Hent fra dedikert strøm når tilgjengelig</string>
-    <string name="feed_update_threshold_summary">Tid siden siste oppdatering før et abonnement vurderes utdatert — %s</string>
     <string name="new_seek_duration_toast">Som følge av begrensninger i ExoPlayer er blafringsdistansen kun %d sekunder</string>
     <string name="remove_watched_popup_warning">Videoer som har blitt sett før og etter at de er lagt til spillelisten, vil bli fjernet. \nEr du sikker? Dette kan ikke angres!</string>
     <string name="autoplay_summary">Start avspilling automatisk — %s</string>
@@ -534,8 +490,6 @@
 \nStøtte vil forhåpentligvis komme til i en senere versjon.</string>
     <string name="playlist_page_summary">Spillelisteside</string>
     <string name="detail_sub_channel_thumbnail_view_description">Kanalens avatar-miniatyrbilde</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Skru på hurtigmodus</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Vis kun ugrupperte abonnementer</string>
     <string name="title_activity_play_queue">Spill kø</string>
     <string name="no_playlist_bookmarked_yet">Ingen spillelistebokmerker enda</string>
     <string name="copy_for_github">Kopier formatert rapport</string>
@@ -593,15 +547,9 @@
     <string name="disable_media_tunneling_summary">Skru av media-tunnelering hvis du opplever svart skjerm eller videohakking</string>
     <string name="disable_media_tunneling_title">Skru av media-tunnelering</string>
     <string name="description_select_note">Du kan nå velge tekst inne i beskrivelsen. Merk at siden kan flimre og lenker er kanskje ikke klikkbare i utvalgsmodus.</string>
-    <string name="feed_load_error_fast_unknown">Hurtigmodus for informasjonskanal tilbyr ikke mer info om dette.</string>
-    <string name="feed_load_error_terminated">Skaperens konto har blitt terminert.
-\nNewPipe vil ikke kunne laste inn denne informasjonskanalen i fremtiden.
-\nØnsker du å oppheve ditt abonnement på denne kanalen\?</string>
     <string name="description_select_disable">Skru av merking av tekst i beskrivelsen</string>
     <string name="description_select_enable">Skru på merking av tekst i beskrivelsen</string>
     <string name="account_terminated">Konto terminert</string>
-    <string name="feed_load_error_account_info">Kunne ikke laste inn informasjonskanal for «%s».</string>
-    <string name="feed_load_error">Kunne ikke laste inn informasjonskanal</string>
     <string name="downloads_storage_use_saf_summary_api_29">Fra Android 10 er kun «lagringstilgangsrammeverk» støttet</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Du vil bli spurt om hvor du vil lagre hver nedlastning</string>
     <string name="seekbar_preview_thumbnail_title">Forhåndsvisning av miniatyrbilde på spolelinjen</string>
@@ -637,20 +585,14 @@
     <string name="remote_search_suggestions">Søkeforslag annensteds fra</string>
     <string name="local_search_suggestions">Lokale søkeforslag</string>
     <string name="mark_as_watched">Marker som sett</string>
-    <string name="start_main_player_fullscreen_summary">Ikke start videoer i minispilleren, men bytt til fullskjermsmodus direkte dersom auto-rotering er låst. Du har fremdeles tilgang til minispilleren ved å avslutte fullskjermsvisningen</string>
     <string name="detail_heart_img_view_description">Hjertemerket av skaperen</string>
     <string name="main_page_content_swipe_remove">Dra elementer for å fjerne dem</string>
-    <string name="start_main_player_fullscreen_title">Start hovedspiller i fullskjerm</string>
     <string name="enqueue_next_stream">Still i kø neste</string>
     <string name="enqueued_next">I kø neste</string>
     <string name="check_for_updates">Se etter oppdateringer</string>
     <string name="processing_may_take_a_moment">Behandler … Kan ta sin tid</string>
-    <string name="crash_the_player">Krasj avspilleren</string>
-    <string name="show_crash_the_player_title">Vis \"Krasj spilleren\"</string>
     <string name="manual_update_description">Se etter nye versjoner manuelt</string>
-    <string name="feed_new_items">Nye informasjonskanalelementer</string>
     <string name="checking_updates_toast">Ser etter oppdateringer…</string>
-    <string name="show_crash_the_player_summary">Viser et krasjalternativ ved bruk av avspilleren</string>
     <string name="error_report_notification_toast">Det oppsto en feil, se varselet</string>
     <string name="detail_pinned_comment_view_description">Festet kommentar</string>
     <string name="error_report_channel_name">Feilrapport-merknad</string>
@@ -666,7 +608,6 @@
     <string name="progressive_load_interval_exoplayer_default">ExoPlayer-forvalg</string>
     <string name="progressive_load_interval_title">Intervallstørrelse for avspillingsinnlasting</string>
     <string name="progressive_load_interval_summary">Endre størrelsen på lasteintervallet på progressivt innhold (for øyeblikket %s). En lavere verdi kan øke hastigheten på den første videoinnlastingen. Endringer krever omstart av spilleren</string>
-    <string name="settings_category_player_notification_title">Spillervarsel</string>
     <string name="notifications">Varsler</string>
     <string name="streams_notification_channel_name">Nye strømmer</string>
     <string name="streams_notification_channel_description">Varsler om nye strømmer for abonnementer</string>
@@ -675,7 +616,6 @@
         <item quantity="other">%s nye strømmer</item>
     </plurals>
     <string name="enumeration_comma">,</string>
-    <string name="settings_category_player_notification_summary">Konfigurer varsling for gjeldende avspillingsstrøm</string>
     <string name="percent">Prosent</string>
     <string name="semitone">Halvtone</string>
     <string name="selected_stream_external_player_not_supported">Den valgte strømmen støttes ikke av eksterne spillere</string>
@@ -684,7 +624,6 @@
     <string name="notifications_disabled">Varsler er deaktivert</string>
     <string name="you_successfully_subscribed">Du abonnerer nå på denne kanalen</string>
     <string name="streams_not_yet_supported_removed">Strømmer som ennå ikke er støttet av nedlasteren, vises ikke</string>
-    <string name="select_quality_external_players">Velg kvalitet for eksterne spillere</string>
     <string name="no_video_streams_available_for_external_players">Ingen videostrømmer er tilgjengelige for eksterne spillere</string>
     <string name="unknown_format">Ukjent format</string>
     <string name="unknown_quality">Ukjent kvalitet</string>
@@ -714,20 +653,15 @@
     <string name="ignore_hardware_media_buttons_title">Ignorer enhetens fysiske knapper</string>
     <string name="brightness">Lysstyrke</string>
     <string name="left_gesture_control_summary">Velg håndvending for venstre halvdel av avspillerskjermen</string>
-    <string name="feed_show_watched">Fullført</string>
     <string name="right_gesture_control_summary">Velg håndvending for høyre halvdel av avspillerskjermen</string>
     <string name="none">Ingen</string>
     <string name="remove_duplicates">Fjern duplikater</string>
     <string name="remove_duplicates_message">Fjern alle duplikatstrømmer i denne spillelisten\?</string>
-    <string name="feed_show_upcoming">Kommende</string>
     <string name="left_gesture_control_title">Venstre håndvendingshandling</string>
     <string name="right_gesture_control_title">Høyre håndvendingshandling</string>
     <string name="volume">Lydstyrke</string>
     <string name="remove_duplicates_title">Fjern duplikater\?</string>
-    <string name="feed_show_hide_streams">Vis/skjul strømmer</string>
-    <string name="feed_show_partially_watched">Delvis sett</string>
     <string name="ignore_hardware_media_buttons_summary">Nyttig hvis hodsettet ditt har knapper som fungerer dårlig</string>
-    <string name="feed_hide_streams_title">Vis følgende strømmer</string>
     <string name="question_mark">\?</string>
     <string name="metadata_subscribers">Abonnenter</string>
     <string name="share_playlist_content_details">%1$s
@@ -781,13 +715,10 @@
     <string name="share_playlist_with_titles">Del med titler</string>
     <string name="share_playlist_with_list">Del nettadresse først</string>
     <string name="video_details_list_item">- %1$s: %2$s</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer-innstillinger</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_descriptive">beskrivende</string>
     <string name="toggle_fullscreen">Veksle fullskjermsvising</string>
     <string name="toggle_screen_orientation">Bytt skjermretning</string>
     <string name="notification_actions_summary_android13">Rediger hver merknadshandling nedenfor ved å trykke på den. De første tre (spill av/pause, forrige, og neste) kan ikke tilpasses.</string>
-    <string name="use_exoplayer_decoder_fallback_title">Bruk ExoPlayers dekodings-tilbakefall</string>
-    <string name="settings_category_exoplayer_summary">Håndter noen ExoPlayer-innstillinger. Disse endringeren krever omstart av avspilleren.</string>
     <string name="show_channel_tabs_summary">Hvilke faner som vises på kanalsidene</string>
 </resources>

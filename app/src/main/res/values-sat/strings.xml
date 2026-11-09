@@ -9,7 +9,6 @@
     <string name="cancel">ᱵᱟᱹᱰᱨᱟᱹ</string>
     <string name="install">ᱵᱚᱦᱟᱞ</string>
     <string name="main_bg_subtitle">ᱮᱦᱚᱵ ᱞᱟᱹᱜᱤᱫ ᱢᱮᱜᱽᱱᱤᱯᱷᱟᱭᱤᱝ ᱜᱽᱞᱟᱥ ᱨᱮ ᱚᱛᱟᱭ ᱢᱮ ᱾</string>
-    <string name="use_external_video_player_title">ᱵᱟᱦᱨᱮ ᱣᱤᱰᱤᱭᱚ ᱯᱞᱮᱭᱟᱹᱨ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
     <string name="search_showing_result_for">ᱛᱮᱞᱟ ᱫᱮᱠᱷᱟᱣᱜᱽ ᱠᱟᱱᱟᱺ%s</string>
     <string name="did_you_mean">ᱟᱢᱟᱜ ᱚᱨᱛᱷᱚ \"%1$s\" ᱥᱮ\?</string>
     <string name="controls_download_desc">ᱥᱴᱨᱤᱢ ᱨᱮᱫ ᱰᱟᱩᱱᱞᱳᱰ ᱢᱮ</string>
@@ -22,12 +21,10 @@
     <string name="subscribed_button_title">ᱥᱟᱹᱵᱥᱠᱨᱭᱤᱵᱽ ᱮᱱᱟ</string>
     <string name="subscription_change_failed">ᱥᱟᱹᱵᱥᱠᱨᱭᱤᱯᱥᱚᱱ ᱵᱚᱫᱚᱞ ᱵᱟᱭ ᱜᱟᱱᱟᱜᱽ ᱠᱟᱱᱟ</string>
     <string name="channel_unsubscribed">ᱪᱟᱱᱱᱮᱹᱞ ᱟᱹᱱᱥᱟᱹᱵᱥᱠᱨᱟᱭᱤᱵᱽ ᱮᱱᱟ</string>
-    <string name="use_external_audio_player_title">ᱵᱟᱦᱨᱮ ᱟᱹᱰᱤᱭᱚ ᱯᱞᱮᱭᱟᱹᱨ ᱵᱮᱵᱽᱦᱟᱨ ᱢᱮ</string>
     <string name="tab_bookmarks">ᱵᱩᱻᱠᱢᱟᱨᱠ ᱯᱞᱮᱞᱤᱥᱴ ᱠᱚ</string>
     <string name="tab_subscriptions">ᱥᱟᱹᱵᱥᱠᱨᱤᱯᱥᱚᱱ ᱠᱚ</string>
     <string name="show_info">ᱤᱱᱯᱷᱚ ᱫᱮᱠᱷᱟᱣ ᱢᱮ</string>
     <string name="subscription_update_failed">ᱥᱟᱹᱵᱥᱠᱨᱤᱯᱥᱚᱱ ᱵᱟᱝ ᱟᱹᱯᱰᱮᱴ ᱜᱟᱱᱚᱜᱽ ᱱᱟᱠᱟ</string>
-    <string name="use_external_video_player_summary">ᱥᱟᱲᱮ ᱠᱚ ᱛᱤᱱᱟᱹᱝ ᱜᱟᱱ ᱨᱤᱡᱚᱞᱭᱩᱥᱚᱱ ᱠᱚ ᱴᱷᱮᱱ ᱚᱪᱚᱜᱽ ᱟᱭ</string>
     <string name="download_path_title">ᱣᱤᱰᱤᱭᱚ ᱰᱟᱩᱱᱞᱳᱰ ᱯᱚᱴᱚᱢ</string>
     <string name="controls_add_to_playlist_title">ᱥᱮᱞᱮᱫᱽ ᱢᱮ</string>
     <string name="controls_popup_title">ᱯᱳᱯᱟᱹᱯ</string>
@@ -63,7 +60,6 @@
     <string name="ok">ᱴᱷᱤᱠ</string>
     <string name="play_audio">ᱥᱟᱰᱮ</string>
     <string name="mark_as_watched">ᱧᱮᱞ ᱠᱟᱱ ᱞᱮᱠᱷᱟ ᱪᱤᱱᱦᱟᱹ ᱠᱟᱜ ᱢᱮ</string>
-    <string name="crash_the_player">ᱯᱞᱮᱭᱚᱨ ᱠᱨᱟᱥ ᱠᱟᱜ ᱢᱮ</string>
     <string name="theme_title">ᱛᱷᱤᱢ</string>
     <string name="light_theme_title">ᱟᱨᱥᱟᱞ</string>
     <string name="dark_theme_title">ᱧᱩᱛ</string>
@@ -88,7 +84,6 @@
     <string name="delete_downloaded_files">ᱰᱟᱩᱱᱞᱚᱰ ᱟᱠᱟᱱ ᱯᱷᱤᱞᱤᱯ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
     <string name="delete_downloaded_files_confirm">ᱰᱤᱥᱠ ᱠᱷᱚᱱ ᱡᱚᱛᱚ ᱰᱟᱩᱱᱞᱚᱰ ᱟᱠᱟᱱ ᱯᱷᱤᱞ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ?</string>
     <string name="radio">ᱨᱮᱰᱤᱭᱳ</string>
-    <string name="settings_category_player_title">ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ</string>
     <string name="grid">ᱜᱽᱨᱤᱰ</string>
     <string name="stop">ᱥᱴᱚᱯ</string>
     <string name="enable_queue_limit">ᱰᱟᱩᱱᱞᱚᱰ ᱞᱤᱢᱤᱴᱮᱰ ᱠᱩᱣᱮ</string>
@@ -96,7 +91,6 @@
     <string name="blank_page_summary">ᱵᱞᱮᱠ ᱥᱟᱦᱴᱟ</string>
     <string name="card">ᱠᱟᱨᱰ</string>
     <string name="no_video_streams_available_for_external_players">ᱵᱟᱦᱨᱮ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱵᱷᱤᱰᱤᱭᱳ ᱥᱴᱨᱤᱢ ᱵᱟᱭ ᱧᱟᱢᱚᱜ ᱠᱟᱱᱟ</string>
-    <string name="select_quality_external_players">ᱵᱟᱦᱨᱮ ᱮᱱᱮᱡᱤᱭᱟᱹ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱛᱮ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
     <string name="unknown_format">ᱵᱟᱝ ᱵᱟᱰᱟᱭ ᱟᱠᱟᱱ ᱯᱷᱚᱨᱢᱮᱴ</string>
     <string name="no_streams">ᱵᱟᱹᱱᱩᱜᱼᱟ ᱫᱟᱜ</string>
     <string name="msg_popup_permission">ᱱᱚᱶᱟ ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ_x000D_
@@ -111,12 +105,9 @@
     <string name="enqueued">ᱮᱱᱠᱭᱩᱣᱮᱰ</string>
     <string name="start_here_on_background">ᱚᱛᱱᱚ ᱨᱮ ᱥᱮᱞᱮᱫ ᱮᱛᱚᱦᱚᱵ ᱢᱮ</string>
     <string name="always_ask_open_action">ᱡᱚᱛᱚ ᱚᱠᱛᱚ ᱯᱮᱨᱮᱡ ᱢᱮ</string>
-    <string name="preferred_player_fetcher_notification_title">ᱤᱱᱯᱷᱳ ᱧᱟᱢ…</string>
-    <string name="preferred_player_fetcher_notification_message">ᱞᱟᱹᱠᱛᱤ ᱟᱠᱟᱱ ᱥᱟᱦᱴᱟ ᱞᱚᱰ ᱮᱱᱟ</string>
     <string name="name">ᱧᱩᱛᱩᱢ</string>
     <string name="add_to_playlist">ᱥᱮᱨᱮᱧ ᱞᱤᱥᱴᱤ ᱨᱮ ᱥᱮᱞᱮᱫᱽ ᱢᱮ</string>
     <string name="processing_may_take_a_moment">ᱠᱟᱹᱢᱤᱦᱚᱨᱟ... ᱚᱠᱛᱚ ᱫᱷᱟᱹᱵᱤᱡ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ</string>
-    <string name="show_crash_the_player_title">ᱠᱨᱟᱥ ᱴᱷᱮᱱ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ</string>
     <string name="disable_media_tunneling_automatic_info">ᱟᱢᱟᱜ ᱚᱱᱚᱞ ᱨᱮ ᱢᱤᱰᱤᱭᱟ ᱴᱩᱱᱮᱞᱤᱝ ᱫᱚ ᱰᱤᱯᱚᱞᱴ ᱞᱮᱠᱟᱛᱮ ᱵᱚᱫᱚᱞ ᱟᱠᱟᱱᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱟᱢᱟᱜ ᱚᱱᱚᱞ ᱢᱚᱰᱮᱞ ᱱᱚᱶᱟ ᱵᱟᱭ ᱥᱚᱦᱚᱫᱟ ᱾</string>
     <string name="crash_the_app">ᱮᱯᱞᱤᱠᱮᱥᱚᱱ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
     <string name="show_error_snackbar">ᱢᱤᱫ error ᱥᱱᱮᱠᱵᱟᱨ ᱧᱮᱞ ᱢᱮ</string>
@@ -141,7 +132,6 @@
     <string name="error_ssl_exception">ᱥᱤᱠᱷᱱᱟᱹᱛ ᱡᱚᱱᱚᱲᱟᱣ ᱵᱟᱭ ᱛᱮᱭᱟᱨ ᱫᱟᱲᱮᱭᱟᱜ ᱠᱟᱱᱟ</string>
     <string name="downloads_storage_ask_title">ᱡᱟᱦᱟᱸ ᱨᱮ ᱰᱟᱩᱱᱞᱚᱰ ᱢᱮ</string>
     <string name="new_seek_duration_toast">ᱮᱠᱥᱳᱯᱞᱮᱭᱟᱨ ᱞᱟᱹᱠᱛᱤᱭᱟᱜ ᱞᱟᱹᱠᱛᱤᱭᱟᱜ ᱞᱟᱹᱠᱛᱤᱭᱟᱜ ᱚᱠᱛᱚ %d ᱥᱮᱠᱮᱱᱰ ᱨᱮ ᱞᱟᱜᱟᱣ ᱟᱠᱟᱱᱟ</string>
-    <string name="fragment_feed_title">ᱪᱮᱫ ᱱᱟᱣᱟ</string>
     <string name="selected_stream_external_player_not_supported">ᱵᱟᱦᱨᱮ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹᱠᱚ ᱵᱟᱠᱚ ᱥᱚᱦᱚᱫ ᱟᱠᱟᱫ ᱪᱷᱟᱸᱪ</string>
     <string name="no_audio_streams_available_for_external_players">ᱵᱟᱦᱨᱮ ᱯᱞᱮᱭᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱰᱤᱭᱚ ᱥᱴᱨᱤᱢ ᱵᱟᱭ ᱧᱟᱢᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="audio_track_type_original">ᱚᱥᱚᱞ</string>
@@ -171,8 +161,6 @@
     <string name="settings_category_history_title">ᱱᱟᱜᱟᱢ ᱟᱨ ᱠᱷᱟᱪ</string>
     <string name="settings_category_appearance_title">ᱧᱮᱧᱮᱞ</string>
     <string name="settings_category_debug_title">ᱰᱤᱵᱩᱜ</string>
-    <string name="settings_category_player_notification_title">ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱵᱟᱰᱟᱭ</string>
-    <string name="background_player_playing_toast">ᱛᱷᱚᱠ ᱨᱮ ᱥᱮᱞᱮᱫᱚᱜ</string>
     <string name="restricted_video">ᱱᱚᱶᱟ ᱵᱷᱤᱰᱤᱭᱳ ᱫᱚ ᱩᱢᱮᱨ ᱦᱟᱹᱴᱤᱧ ᱠᱟᱱᱟ._x000D_
 \n_x000D_
 \nᱡᱩᱫᱤ ᱟᱢ ᱱᱚᱶᱟ ᱧᱮᱞᱢᱮ ᱠᱷᱟᱱ ᱟᱢᱟᱜ ᱥᱤᱴᱤᱝ ᱨᱮ %1$s\" ᱚᱞ ᱢᱮ ᱾\"</string>
@@ -203,7 +191,6 @@
     <string name="could_not_load_thumbnails">ᱡᱚᱛᱚ ᱪᱤᱛᱟᱹᱨ ᱠᱚ ᱞᱚᱰ ᱵᱟᱝ ᱜᱟᱱᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="parsing_error">ᱣᱮᱵᱽᱥᱟᱭᱤᱴ ᱵᱟᱭ ᱯᱟᱨᱥ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ</string>
     <string name="content_not_available">ᱥᱟᱦᱴᱟ ᱵᱟᱹᱱᱩᱜ-ᱟ</string>
-    <string name="external_player_unsupported_link_type">ᱵᱟᱦᱨᱮ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱠᱚ ᱱᱚᱝᱠᱟᱱ ᱡᱚᱱᱚᱲ ᱠᱚ ᱵᱟᱠᱚ ᱥᱚᱦᱚᱫᱟ</string>
     <string name="video_streams_empty">ᱡᱟᱦᱟᱱ ᱵᱷᱤᱰᱤᱭᱳ ᱥᱴᱨᱤᱢ ᱵᱟᱝ ᱧᱟᱢ ᱟᱠᱟᱱᱟ</string>
     <string name="audio_streams_empty">ᱚᱰᱤᱭᱳ ᱥᱴᱨᱤᱢ ᱵᱟᱝ ᱧᱟᱢ ᱟᱠᱟᱱᱟ</string>
     <string name="error_report_notification_toast">ᱢᱤᱫ ᱵᱷᱩᱞ ᱦᱩᱭ ᱞᱮᱱᱟ, ᱱᱤᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱧᱮᱞ ᱢᱮ</string>
@@ -268,7 +255,6 @@
     <string name="leak_canary_not_available">LeakCanary ᱵᱟᱭ ᱧᱟᱢᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="enable_leak_canary_summary">ᱢᱮᱢᱚᱨᱤ ᱞᱤᱠᱟᱞ ᱢᱚᱱᱤᱴᱚᱨᱤᱝ ᱦᱤᱯ ᱰᱟᱢᱯᱤᱝ ᱚᱠᱛᱚ ᱨᱮ ᱮᱯᱞᱤᱠᱮᱥᱚᱱ ᱨᱟᱥᱴᱨᱤᱭ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ</string>
     <string name="enable_disposed_exceptions_title">ᱡᱤᱭᱚᱱ ᱪᱤᱠᱤ ᱠᱷᱚᱱ ᱵᱟᱦᱨᱮ ᱨᱮ ᱵᱷᱮᱜᱟᱨ ᱠᱚ ᱚᱱᱚᱞ ᱢᱮ</string>
-    <string name="show_crash_the_player_summary">ᱯᱞᱮᱭᱟᱨ ᱵᱮᱵᱷᱟᱨ ᱚᱠᱛᱮ ᱨᱮ ᱠᱨᱟᱥ ᱚᱯᱥᱚᱱ ᱧᱮᱞᱚᱜ ᱠᱟᱱᱟ</string>
     <string name="import_title">ᱤᱢᱯᱳᱨᱴ</string>
     <string name="import_from">ᱤᱢᱯᱚᱨᱴ</string>
     <string name="export_to">ᱮᱥᱯᱳᱨᱴ ᱢᱮ</string>
@@ -313,16 +299,6 @@
     <string name="remove_watched_popup_title">ᱧᱮᱞ ᱟᱠᱟᱱ ᱵᱷᱤᱰᱤᱭᱳ ᱠᱚ ᱪᱷᱩᱴᱟᱹᱣ?</string>
     <string name="remove_duplicates">ᱫᱩᱯᱞᱟᱹᱲ ᱠᱚ ᱦᱮᱡ ᱢᱮ</string>
     <string name="remove_watched_popup_partially_watched_streams">ᱭ, ᱟᱨ ᱵᱷᱤᱰᱤᱭᱳ ᱠᱚ ᱡᱟᱦᱟᱸ ᱞᱮᱠᱟ ᱧᱮᱞᱚᱜᱼᱟ</string>
-    <string name="feed_groups_header_title">ᱪᱟᱱᱮᱞ ᱜᱨᱩᱯ</string>
-    <string name="feed_oldest_subscription_update">ᱯᱷᱤᱰ ᱢᱩᱪᱟᱹᱫ ᱵᱚᱫᱚᱞᱟᱠᱟᱱ: %s</string>
-    <string name="feed_subscription_not_loaded_count">ᱵᱟᱝ ᱞᱚᱰ ᱟᱠᱟᱱᱟ: %d</string>
-    <string name="feed_notification_loading">ᱯᱷᱤᱰ ᱞᱚᱰᱚᱜ ᱠᱟᱱᱟ…</string>
-    <string name="feed_processing_message">ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱡᱚᱢᱟᱜ…</string>
-    <string name="feed_group_dialog_empty_name">ᱜᱩᱴ ᱧᱩᱛᱩᱢ ᱵᱟᱱᱩᱜᱼᱟ</string>
-    <string name="feed_group_dialog_delete_message">ᱟᱢ ᱱᱚᱶᱟ ᱜᱽᱨᱩᱯ ᱵᱚᱫᱚᱞ ᱢᱮᱢᱮ?</string>
-    <string name="feed_create_new_group_button_title">ᱱᱟᱣᱟ</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">ᱦᱟᱹᱴᱤᱧ ᱢᱚᱰ ᱨᱮ ᱥᱮᱞᱮᱫ ᱢᱮ</string>
-    <string name="feed_hide_streams_title">ᱞᱟᱛᱟᱨ ᱨᱮ ᱚᱞ ᱟᱠᱟᱱ ᱥᱴᱨᱤᱢ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
     <string name="feed_fetch_channel_tabs">ᱪᱟᱱᱮᱞ ᱛᱟᱵᱽ ᱠᱚ ᱦᱟᱛᱟᱣ</string>
     <string name="channel_created_by">%s ᱛᱮᱭᱟᱨ ᱟᱠᱟᱱᱟ</string>
     <string name="video_detail_by">%s ᱦᱚᱛᱮᱛᱮ</string>
@@ -342,11 +318,8 @@
     <string name="notifications_disabled">ᱱᱤᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱠᱚ ᱵᱚᱫᱚᱞ ᱟᱠᱟᱱᱟ</string>
     <string name="you_successfully_subscribed">ᱟᱢ ᱱᱤᱛᱚᱜ ᱱᱚᱣᱟ ᱪᱮᱱᱮᱞ ᱨᱮ ᱥᱮᱞᱮᱫ ᱟᱠᱟᱱᱟᱢ</string>
     <string name="enumeration_comma">,</string>
-    <string name="select_audio_track_external_players">ᱵᱟᱦᱨᱮ ᱯᱞᱮᱭᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱚᱰᱤᱭᱚ ᱴᱨᱟᱠ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
     <string name="unknown_quality">ᱵᱟᱝ ᱵᱟᱰᱟᱭ ᱧᱟᱢ ᱟᱠᱟᱱ ᱥᱤᱠᱷᱱᱟᱹᱛ</string>
     <string name="unknown_audio_track">ᱵᱟᱝ ᱵᱟᱰᱟᱭ</string>
-    <string name="feed_show_watched">ᱡᱚᱛᱚ ᱛᱮ ᱧᱮᱞᱚᱜᱼᱟ</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">ExoPlayer ᱨᱮᱭᱟᱜ ᱵᱷᱤᱰᱤᱭᱳ ᱟᱯᱩᱴ ᱥᱩᱨᱥᱩᱯᱩᱨ ᱥᱤᱴᱤᱝ ᱣᱟᱨᱠᱟᱨᱚᱸᱜ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
     <string name="channel_tab_videos">ᱵᱷᱤᱰᱤᱭᱳ</string>
     <string name="channel_tab_tracks">ᱴᱨᱮᱠ</string>
     <string name="channel_tab_shorts">ᱥᱟᱨᱴᱥ</string>
@@ -397,7 +370,6 @@
     <string name="left_gesture_control_title">ᱞᱤᱣᱮᱴ ᱡᱮᱥᱴ ᱮᱠᱥᱚᱱ</string>
     <string name="right_gesture_control_summary">ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱥᱠᱨᱤᱱ ᱨᱮᱱᱟᱜ ᱪᱮᱛᱟᱱ ᱨᱮ ᱪᱤᱱᱦᱟᱹ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
     <string name="right_gesture_control_title">ᱞᱟᱹᱭ ᱪᱤᱠᱤ ᱠᱟᱹᱢᱤ</string>
-    <string name="start_main_player_fullscreen_summary">ᱢᱤᱱᱤ ᱯᱞᱮᱭᱟᱨ ᱨᱮ ᱵᱷᱤᱰᱤᱭᱳ ᱠᱚ ᱮᱛᱚᱦᱚᱵ ᱵᱟᱝ ᱢᱮ, ᱡᱩᱫᱤ ᱚᱴᱚᱯᱷᱤ ᱨᱚᱴᱮᱴ ᱞᱚᱠ ᱟᱠᱟᱱᱟ ᱮᱱᱠᱷᱟᱱ ᱥᱟᱹᱛ ᱥᱠᱨᱤᱱ ᱨᱮ ᱵᱚᱫᱚᱞ ᱢᱮ ᱾ ᱟᱢ ᱢᱤᱱᱤ ᱯᱞᱮᱭᱟᱨ ᱪᱷᱟᱰᱟ ᱠᱟᱛᱮᱜ ᱦᱚᱸ ᱥᱮᱞᱮᱫ ᱫᱟᱲᱮᱭᱟᱜ ᱟ</string>
     <string name="autoplay_title">ᱚᱴᱚᱯᱷᱟᱭ</string>
     <string name="unsupported_url">ᱵᱟᱝ ᱥᱚᱦᱚᱫ ᱟᱠᱟᱱ URL</string>
     <string name="unsupported_url_dialog_message">URL ᱵᱟᱭ ᱧᱟᱢ ᱫᱟᱲᱮᱭᱟᱫᱼᱟ. ᱮᱴᱟᱜ ᱟᱯᱞᱤᱠᱮᱥᱚᱱ ᱛᱮ ᱮᱛᱚᱦᱚᱵ ᱢᱮ?</string>
@@ -408,7 +380,6 @@
     <string name="enable_watch_history_summary">ᱧᱮᱞ ᱟᱠᱟᱱ ᱵᱷᱤᱰᱤᱭᱳ ᱠᱚ ᱪᱮᱛᱟᱱ ᱨᱮ ᱫᱚᱦᱚᱭ ᱢᱮ</string>
     <string name="resume_on_audio_focus_gain_summary">ᱡᱟᱦᱟᱱᱟᱜ ᱵᱚᱫᱚᱞ ᱛᱟᱭᱚᱢ ᱠᱷᱮᱞ ᱫᱚᱦᱚᱭ ᱢᱮ (ᱡᱮᱞᱮᱠᱟ: ᱯᱷᱚᱱ ᱠᱚᱞ)</string>
     <string name="download_dialog_title">ᱰᱟᱩᱱᱞᱚᱰ ᱢᱮ</string>
-    <string name="start_main_player_fullscreen_title">ᱢᱩᱬᱩᱛ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱡᱚᱛᱚ ᱪᱤᱛᱟᱹᱨ ᱨᱮ ᱮᱛᱚᱦᱚᱵ ᱢᱮ</string>
     <string name="content_language_title">ᱰᱤᱯᱷᱚᱞᱴ ᱠᱚᱱᱴᱮᱱᱴ ᱯᱟᱹᱨᱥᱤ</string>
     <string name="peertube_instance_url_title">PeerTube ᱚᱞ ᱠᱚ</string>
     <string name="peertube_instance_url_summary">ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢᱟᱱ PeerTube ᱵᱷᱤᱛᱨᱤ ᱠᱚ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
@@ -416,8 +387,6 @@
     <string name="settings_category_video_audio_title">ᱵᱷᱤᱰᱤᱭᱳ ᱟᱨ ᱚᱰᱤᱭᱳ</string>
     <string name="peertube_instance_add_https_only">HTTPS URL ᱠᱚ ᱜᱮ ᱥᱚᱯᱷᱴᱣᱮᱨ ᱟᱠᱟᱱᱟ</string>
     <string name="peertube_instance_add_exists">ᱤᱱᱥᱴᱮᱱᱥ ᱫᱚ ᱟᱞᱮ ᱢᱮᱱᱟᱜᱼᱟ</string>
-    <string name="settings_category_player_behavior_title">ᱟᱹᱱᱟᱹᱨᱤ</string>
-    <string name="settings_category_player_notification_summary">ᱚᱛᱱᱚᱜ ᱪᱤᱛᱟᱹᱨ ᱠᱷᱚᱸᱫᱽᱨᱚᱸᱫᱽ ᱥᱟᱯᱲᱟᱣ</string>
     <string name="show_age_restricted_content_summary">ᱜᱤᱫᱨᱟᱹ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱝ ᱞᱟᱹᱠᱛᱤᱭᱟᱱ ᱠᱟᱛᱷᱟ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ ᱪᱮᱫᱟᱜ ᱥᱮ ᱱᱚᱣᱟ ᱨᱮ ᱢᱤᱫ ᱩᱢᱮᱨ ᱞᱤᱢᱤᱴ ᱢᱮᱱᱟᱜᱼᱟ (ᱡᱮᱞᱮᱠᱟ ᱑᱘+)</string>
     <string name="youtube_restricted_mode_enabled_summary">ᱭᱩᱴᱭᱩᱵᱽ ᱢᱤᱫ \"Restricted Mode\" ᱮᱢᱚᱜᱼᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱯᱚᱴᱮᱱᱥᱤᱭᱟᱞ ᱢᱚᱰᱩᱞ ᱠᱚᱱᱴᱮᱱᱴ (mature content) ᱫᱚᱦᱚᱭᱟ</string>
     <string name="restricted_video_no_stream">ᱱᱤᱭᱟᱹ ᱵᱷᱤᱰᱤᱭᱳ ᱫᱚ ᱩᱢᱚᱨ ᱞᱟᱹᱜᱤᱫ ᱜᱮ᱾_x000D_
@@ -447,9 +416,6 @@
     <string name="delete_search_history_alert">ᱥᱟᱱᱟᱢ ᱥᱩᱪᱚᱱᱟ ᱱᱟᱜᱟᱢ ᱵᱚᱫᱚᱞ ᱢᱮ?</string>
     <string name="could_not_setup_download_menu">ᱰᱟᱩᱱᱞᱚᱰ ᱢᱮᱱᱩ ᱵᱟᱭ ᱥᱮᱯᱴᱮᱭᱟ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ</string>
     <string name="app_ui_crash">ᱮᱯᱞᱤᱠᱮᱥᱚᱱ/UI ᱠᱨᱟᱥ ᱞᱮᱱᱟ</string>
-    <string name="player_stream_failure">ᱱᱚᱣᱟ ᱥᱴᱨᱤᱢ ᱯᱞᱮ ᱵᱟᱭ ᱫᱟᱲᱮᱭᱟᱜ ᱠᱟᱱᱟ</string>
-    <string name="player_unrecoverable_failure">ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱵᱟᱭ ᱵᱩᱡᱷᱟᱹᱣ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ</string>
-    <string name="player_recoverable_failure">ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱦᱩᱫᱤᱥ ᱠᱷᱚᱱ ᱨᱤᱠᱳᱨᱰ</string>
     <string name="invalid_file">ᱱᱚᱶᱟ ᱯᱷᱤᱞ ᱵᱟᱹᱱᱩᱜᱼᱟ ᱥᱮ ᱱᱚᱶᱟ ᱨᱮ ᱚᱞ ᱟᱨ ᱯᱟᱲᱦᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱫᱟᱣ ᱵᱟᱹᱱᱩᱜᱼᱟ</string>
     <string name="file_name_empty_error">ᱯᱷᱤᱞᱤᱢ ᱧᱩᱛᱩᱢ ᱵᱚᱸᱫᱚ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ ᱵᱟᱝ</string>
     <string name="error_occurred_detail">%1$s ᱢᱤᱫ ᱵᱷᱩᱞ ᱦᱩᱭ ᱞᱮᱱᱟ:</string>
@@ -589,35 +555,6 @@
     <string name="remove_duplicates_title">ᱰᱩᱯᱞᱤᱠᱮᱴ ᱠᱚ ᱪᱷᱩᱴᱟᱹᱣ?</string>
     <string name="remove_duplicates_message">ᱟᱢ ᱱᱚᱶᱟ ᱯᱷᱟᱭᱞᱤᱥᱴ ᱨᱮ ᱡᱚᱛᱚ ᱫᱩᱯᱞᱤᱠᱮᱴ ᱥᱴᱨᱤᱢ ᱠᱚ ᱦᱮᱡ ᱟᱫᱮᱭᱟᱢ ᱥᱮ?</string>
     <string name="remove_watched_popup_warning">ᱥᱮᱨᱮᱧ ᱛᱟᱹᱞᱤᱠᱟ ᱨᱮ ᱥᱮᱞᱮᱫᱚᱜ ᱢᱟᱲᱟᱝ ᱟᱨ ᱛᱟᱭᱚᱢ ᱨᱮ ᱡᱟᱦᱟᱸ ᱵᱷᱤᱰᱤᱣ ᱠᱚ ᱧᱮᱞ ᱟᱠᱟᱱᱟ, ᱚᱱᱟ ᱠᱚ ᱪᱷᱟᱹᱲ ᱮᱢ ᱦᱩᱭᱩᱜᱼᱟ ᱾ ᱟᱢ ᱠᱤ ᱜᱚᱴᱟᱵᱩᱴᱟᱹ ᱠᱟᱱᱟ? ᱱᱚᱶᱟ ᱫᱚ ᱨᱩᱣᱟᱹᱲ ᱵᱟᱝ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
-    <string name="feed_new_items">ᱱᱟᱣᱟ ᱡᱚᱢᱟᱜ ᱡᱤᱱᱤᱥ ᱠᱚ</string>
-    <string name="feed_group_dialog_select_subscriptions">ᱥᱮᱞᱮᱫ ᱠᱚ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
-    <string name="feed_group_dialog_empty_selection">ᱪᱮᱫ ᱦᱚᱸ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">ᱡᱟᱦᱟᱱᱟᱜ ᱵᱟᱝ ᱜᱩᱴ ᱟᱠᱟᱱ ᱥᱚᱵᱥᱠᱨᱟᱭᱵᱮᱥ ᱠᱚ ᱧᱮᱞ ᱢᱮ</string>
-    <string name="settings_category_feed_title">ᱯᱷᱮᱰ</string>
-    <string name="feed_update_threshold_title">ᱯᱷᱤᱰ ᱟᱯᱰᱮᱴ ᱞᱟᱦᱟᱨᱮ</string>
-    <string name="feed_update_threshold_summary">ᱢᱤᱫ ᱥᱚᱵᱥᱠᱨᱟᱭᱵᱽᱥᱚᱱ ᱵᱟᱥᱠᱮᱴᱮᱰ ᱦᱩᱭᱩᱜ ᱢᱟᱬᱟᱝ ᱨᱮ ᱯᱟᱹᱪᱷᱤᱢ ᱩᱫᱩᱜ ᱠᱷᱚᱱ ᱛᱟᱭᱚᱢ ᱚᱠᱛᱚ ⁇ %s</string>
-    <string name="feed_load_error">Error loading feed ᱥᱟᱯᱲᱟᱣ</string>
-    <string name="feed_load_error_account_info">\'%s\' ᱞᱟᱹᱜᱤᱫ ᱯᱷᱤᱰ ᱞᱚᱰ ᱵᱟᱝ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ.</string>
-    <string name="feed_load_error_terminated">ᱮᱠᱴᱚᱨᱟᱜ ᱮᱠᱟᱶᱴ ᱫᱚ ᱛᱷᱟᱯᱚᱱ ᱟᱠᱟᱱᱟ ᱾
-\nNewPipe ᱫᱚ ᱱᱚᱣᱟ ᱯᱷᱤᱰ ᱫᱚ ᱟᱵᱚ ᱦᱟᱵᱤᱡ ᱵᱟᱝ ᱞᱚᱰ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾
-\nᱟᱢ ᱱᱚᱣᱟ ᱪᱟᱱᱮᱨ ᱠᱷᱚᱱ ᱟᱹᱪᱩᱨ ᱚᱪᱚᱜ ᱠᱟᱹᱢᱤᱭᱟᱢ ᱥᱮ?</string>
-    <string name="feed_load_error_fast_unknown">ᱯᱷᱚᱥᱴ ᱯᱷᱤᱰ ᱢᱚᱰ ᱱᱚᱶᱟ ᱨᱮ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱰᱟᱭ ᱮᱢ ᱮᱫᱟ ᱾</string>
-    <string name="feed_use_dedicated_fetch_method_title">ᱡᱩᱫᱤ ᱢᱮᱱᱟᱜᱼᱟ ᱮᱢ ᱟᱠᱟᱱ ᱡᱚᱢᱟᱜ ᱠᱷᱚᱱ ᱦᱟᱛᱟᱣ</string>
-    <string name="feed_use_dedicated_fetch_method_summary">ᱟᱭᱢᱟ ᱥᱮᱵᱟ ᱨᱮ ᱧᱟᱢᱚᱜᱼᱟ, ᱱᱚᱶᱟ ᱫᱚ ᱟᱥᱚᱠᱟᱭ ᱛᱮ ᱟᱹᱰᱤ ᱦᱩᱰᱤᱧ ᱜᱮᱭᱟ ᱢᱮᱱᱠᱷᱟᱱ ᱢᱤᱫ ᱞᱮᱠᱟᱱ ᱤᱱᱴᱮᱢᱥ ᱟᱨ ᱟᱥᱚᱠᱟᱭ ᱛᱮ ᱵᱟᱝ ᱯᱩᱨᱟᱹᱣ ᱟᱠᱟᱱ ᱤᱱᱯᱷᱚᱨᱢᱮᱥᱚᱱ (ᱡᱮᱞᱮᱠᱟ ᱺ ᱚᱠᱛᱚ ᱵᱟᱝ, ᱤᱱᱴᱮᱢᱥ ᱨᱮᱱᱟᱜ ᱞᱮᱠᱷᱟ, ᱚᱞᱤᱵᱽ ᱥᱴᱮᱴᱥ ᱵᱟᱝ) ᱨᱩᱣᱟᱹᱲ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">ᱯᱷᱮᱥᱵᱩᱠ ᱢᱚᱰ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">ᱟᱢᱟᱜ ᱢᱚᱱᱮ ᱨᱮ ᱡᱚᱢᱟᱜ ᱨᱮᱱᱟᱜ ᱞᱚᱰ ᱟᱹᱰᱤ ᱟᱞᱜᱟ ᱜᱮᱭᱟ? ᱡᱩᱫᱤ ᱱᱚᱶᱟ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ, ᱮᱱᱠᱷᱟᱱ ᱥᱯᱤᱰ ᱞᱚᱰ ᱮᱱᱟᱝ ᱮᱱᱮᱡ (ᱡᱟᱦᱟᱸ ᱫᱚ ᱟᱢ ᱥᱤᱴᱤᱝ ᱨᱮ ᱥᱮ ᱞᱟᱛᱟᱨ ᱨᱮᱭᱟᱜ ᱵᱩᱛᱟᱹᱢ ᱚᱞ ᱠᱟᱛᱮᱢ ᱵᱚᱫᱚᱞ ᱫᱟᱲᱮᱭᱟᱜ-ᱟ)
-\n
-\nᱱᱤᱣ ᱯᱟᱭᱤᱯ ᱫᱚ ᱵᱟᱨᱭᱟ ᱯᱷᱤᱰ ᱞᱚᱰ ᱥᱴᱨᱮᱴᱡᱤ ᱮᱢᱚᱜ ᱠᱟᱱᱟ:
-\n• ᱡᱚᱛᱚ ᱥᱚᱵᱽᱥᱠᱨᱟᱭᱵᱽ ᱪᱮᱱᱮᱞ ᱦᱟᱛᱟᱣ, ᱡᱟᱦᱟᱸ ᱫᱚ ᱟᱞᱜᱟ ᱜᱮᱭᱟ ᱢᱮᱱᱠᱷᱟᱱ ᱯᱩᱨᱟᱹᱣᱜᱼᱟ ᱾
-\n• ᱰᱮᱰᱤᱠᱮᱴᱮᱰ ᱥᱮᱵᱟ ᱮᱱᱰ ᱯᱚᱭᱮᱱᱴ ᱵᱮᱵᱷᱟᱨ, ᱡᱟᱦᱟᱸ ᱫᱚ ᱦᱩᱲᱟᱹᱜ ᱜᱮᱭᱟ ᱢᱮᱱᱠᱷᱟᱱ ᱟᱥᱚᱠᱟᱭ ᱛᱮ ᱯᱩᱨᱟᱹᱣ ᱫᱚ ᱵᱟᱝ ᱦᱩᱭᱩᱜᱼᱟ ᱾
-\n
-\nᱵᱟᱨᱭᱟ ᱛᱟᱞᱟᱨᱮᱱᱟᱜ ᱵᱷᱮᱜᱟᱨ ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱡᱮ ᱦᱩᱲᱟᱹᱜ ᱢᱤᱫᱴᱟᱹᱝ ᱜᱮ ᱤᱱᱯᱷᱚᱨᱢᱮᱥᱚᱱ ᱵᱟᱹᱱᱩᱜᱼᱟ, ᱡᱮᱞᱮᱠᱟ ᱤᱢᱮᱠᱥ ᱨᱮᱱᱟᱜ ᱚᱠᱛᱚ ᱥᱮ ᱛᱷᱚᱠ (ᱡᱟᱦᱟᱸ ᱫᱚ ᱞᱟᱭᱤᱵᱷᱤᱰᱤᱭᱳ ᱟᱨ ᱱᱚᱨᱢᱟᱞ ᱨᱮᱱᱟᱜ ᱵᱷᱮᱜᱟᱨ ᱵᱟᱭ ᱵᱟᱰᱟᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ) ᱟᱨ ᱱᱚᱶᱟ ᱠᱚᱢ ᱤᱢᱮᱠᱥ ᱠᱚ ᱨᱩᱣᱟᱹᱲ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾
-\n
-\nᱭᱩᱴᱭᱩᱵᱽ ᱫᱚ ᱢᱤᱫᱴᱮᱱ ᱥᱮᱵᱟ ᱨᱮᱱᱟᱜ ᱢᱤᱫ ᱞᱟᱹᱱᱟᱹᱤ ᱠᱟᱱᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱱᱚᱶᱟ ᱦᱚᱨᱟ ᱟᱡᱟᱜ RSS ᱯᱷᱤᱰ ᱥᱟᱶᱛᱮ ᱮᱢᱚᱜ ᱠᱟᱱᱟ ᱾
-\n
-\nᱚᱱᱟᱛᱮ ᱵᱟᱪᱷᱟᱣ ᱫᱚ ᱟᱢ ᱪᱮᱫ ᱜᱮᱢ ᱵᱷᱟᱹᱵᱤᱛᱟ: ᱦᱩᱲᱟᱹᱜ ᱟᱨᱵᱟᱝ ᱥᱟᱹᱠᱷᱭᱟᱹᱛ ᱠᱟᱛᱷᱟ ᱾</string>
-    <string name="feed_show_hide_streams">ᱥᱴᱨᱤᱢ ᱠᱚ ᱵᱚᱫᱚᱞ/ᱥᱚᱫᱚᱨ ᱢᱮ</string>
-    <string name="feed_fetch_channel_tabs_summary">ᱡᱚᱠᱷᱚᱱ ᱯᱷᱤᱰ ᱚᱯᱰᱮᱴ ᱦᱩᱭᱩᱜᱼᱟ, ᱚᱱᱟ ᱞᱟᱹᱜᱤᱫ ᱛᱮ ᱴᱮᱵᱽ ᱠᱚ ᱦᱟᱛᱟᱣ ᱢᱮ ᱾ ᱡᱩᱫᱤ ᱢᱤᱫ ᱪᱮᱱᱮᱞ ᱫᱚ fast mode ᱵᱮᱵᱷᱟᱨ ᱠᱟᱛᱮ update ᱟᱠᱟᱱᱟ ᱮᱱᱠᱷᱟᱱ ᱱᱚᱶᱟ option ᱫᱚ ᱵᱟᱹᱱᱩᱜ-ᱟ ᱾</string>
     <string name="content_not_supported">ᱱᱩᱣᱟ ᱯᱟᱭᱤᱯ ᱱᱤᱛ ᱦᱟᱹᱵᱤᱡ ᱱᱚᱶᱟ ᱥᱟᱦᱴᱟᱨᱮ ᱥᱚᱯᱷᱴᱣᱮᱭᱟᱨ ᱵᱟᱹᱱᱩᱜ-ᱟ᱾_x000D_
 \n_x000D_
 \nᱱᱚᱶᱟ ᱫᱚ ᱢᱚᱵᱟᱤᱞ ᱣᱟᱨᱥᱚᱱ ᱨᱮ ᱥᱚᱯᱷᱴᱣᱮᱨ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
@@ -653,12 +590,6 @@
     <string name="toggle_all">ᱥᱟᱱᱟᱢ ᱪᱟᱞᱟᱣ ᱢᱮ</string>
     <string name="streams_not_yet_supported_removed">ᱡᱟᱦᱟᱸᱱ ᱥᱴᱨᱤᱢ ᱠᱚ ᱱᱤᱛ ᱫᱷᱟᱹᱵᱤᱡ ᱰᱟᱩᱱᱞᱚᱰᱡᱚᱨ ᱦᱚᱛᱮᱛᱮ ᱥᱚᱯᱷᱴᱣᱮᱰ ᱵᱟᱱᱟᱣ ᱟᱠᱟᱱᱟ ᱚᱱᱟ ᱠᱚ ᱵᱟᱹᱱᱩᱜᱼᱟ</string>
     <string name="audio_track_present_in_video">ᱱᱚᱶᱟ ᱥᱴᱨᱤᱢ ᱨᱮ ᱢᱤᱫᱴᱟᱹᱝ ᱚᱰᱤᱭᱳ ᱴᱨᱟᱠ ᱢᱮᱱᱟᱜ ᱛᱟᱭᱟ</string>
-    <string name="feed_show_partially_watched">ᱡᱟᱹᱥᱛᱤ ᱧᱮᱞ ᱟᱠᱟᱱᱟ</string>
-    <string name="feed_show_upcoming">ᱢᱟᱲᱟᱝ ᱨᱮ</string>
-    <string name="use_exoplayer_decoder_fallback_summary">ᱡᱩᱫᱤ ᱟᱢᱟᱜ ᱰᱤᱠᱳᱰᱟᱨ ᱮᱛᱚᱦᱚᱵ ᱨᱮᱭᱟᱜ ᱞᱟᱹᱞᱤᱥ ᱛᱟᱦᱮᱸᱱᱟ, ᱮᱱᱠᱷᱟᱱ ᱱᱚᱶᱟ ᱵᱟᱪᱷᱱᱟᱣ ᱫᱚ ᱮᱥᱮᱨ ᱢᱮ, ᱡᱟᱦᱟᱫᱚ ᱮᱛᱚᱦᱚᱵ ᱰᱤᱠᱳᱰᱟᱨ ᱮᱛᱚᱦᱚᱵ ᱵᱟᱝ ᱦᱩᱭ ᱞᱮᱱ ᱠᱷᱟᱱ ᱞᱟᱛᱟᱨᱼᱯᱨᱳᱭᱨᱤᱴᱤ ᱰᱤᱠᱳᱰᱟᱨ ᱨᱮ ᱨᱩᱣᱟᱹᱲ ᱦᱮᱡᱚᱜᱼᱟ ᱾ ᱱᱚᱶᱟ ᱨᱮᱭᱟᱜ ᱚᱡᱮ ᱫᱚ ᱮᱛᱚᱦᱚᱵ ᱰᱤᱠᱳᱰᱟᱨ ᱠᱚ ᱵᱮᱣᱦᱟᱨ ᱚᱠᱛᱚ ᱠᱷᱚᱱ ᱵᱮᱼᱲᱤᱪᱟᱹᱲ ᱯᱟᱥᱱᱟᱶ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">ᱱᱚᱶᱟ ᱠᱟᱹᱢᱤ ᱦᱚᱨᱟ ᱫᱚ ᱥᱩᱨᱥᱩᱯᱩᱨ ᱵᱚᱫᱚᱞ ᱦᱩᱭ ᱞᱮᱱ ᱠᱷᱟᱱ ᱵᱷᱤᱰᱤᱭᱳ ᱠᱳᱰᱮᱠ ᱠᱚ ᱵᱚᱫᱚᱞ ᱟᱨ ᱨᱤ-ᱤᱱᱥᱴᱟᱱᱥᱟᱭᱤᱴ (re-instantiates) ᱮᱫᱟ, ᱚᱱᱟ ᱫᱚ ᱥᱩᱨᱥᱩᱯᱩᱨ ᱠᱳᱰᱮᱠ ᱨᱮ ᱞᱟᱹᱜᱤᱫ ᱛᱮ ᱥᱩᱯᱩᱨ ᱥᱩᱯᱩᱨ ᱛᱮ ᱥᱮᱴᱮᱨᱚᱜ ᱨᱮᱱᱟᱜ ᱠᱟᱱᱟ ᱾ ᱱᱚᱶᱟ ᱥᱟᱛᱟᱢ ᱥᱟᱶᱛᱮ ᱮᱠᱥᱳᱯᱞᱮᱭᱟᱨ ᱟᱭᱢᱟ ᱚᱱᱚᱞ ᱨᱮ ᱵᱮᱵᱷᱟᱨ ᱟᱠᱟᱱᱟ, ᱱᱚᱶᱟ ᱥᱤᱴᱤᱝ ᱫᱚ ᱟᱱᱰᱨᱚᱭᱮᱰ ᱖ ᱟᱨ ᱚᱱᱟ ᱠᱷᱚᱱ ᱪᱮᱛᱟᱱ ᱨᱮᱜᱮ ᱟᱯᱷᱮᱠᱴ ᱟᱠᱟᱱᱟ
-\n
-\nᱱᱮᱛᱟᱨᱟᱜ ᱵᱷᱤᱰᱤᱭᱳ ᱯᱞᱮᱭᱟᱨ ᱥᱮ ᱯᱷᱩᱞᱥᱠᱨᱤᱱ ᱨᱮ ᱥᱮᱞᱮᱫᱚᱜ ᱡᱚᱠᱷᱚᱱ ᱱᱚᱶᱟ ᱵᱟᱪᱷᱟᱣ ᱮᱢ ᱫᱚᱦᱚ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ</string>
     <string name="show_channel_tabs_summary">ᱪᱮᱱᱟᱞ ᱥᱟᱦᱴᱟ ᱠᱚᱨᱮ ᱪᱮᱫ ᱴᱮᱵᱽ ᱠᱚ ᱵᱚᱫᱚᱞᱟ</string>
     <string name="open_play_queue">ᱚᱯᱮᱱ ᱯᱞᱮ ᱠᱭᱩᱤ</string>
     <string name="toggle_fullscreen">ᱡᱚᱛᱚ ᱥᱠᱨᱤᱱ ᱨᱮ ᱵᱷᱮᱡᱟ ᱢᱮ</string>
@@ -678,9 +609,6 @@
     <string name="default_content_country_title">ᱰᱤᱯᱷᱚᱞᱴ ᱠᱚᱱᱴᱮᱱᱴ ᱫᱤᱥᱚᱢ</string>
     <string name="playback_pitch">ᱯᱤᱪ</string>
     <string name="metadata_host">ᱦᱳᱥᱴ</string>
-    <string name="use_exoplayer_decoder_fallback_title">ExoPlayer ᱨᱮᱭᱟᱜ ᱰᱤᱠᱚᱰᱟᱨ ᱯᱷᱮᱞᱚᱵᱮᱠ ᱯᱷᱤᱪᱚᱨ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
-    <string name="settings_category_exoplayer_title">ᱮᱠᱥᱳᱯᱞᱮᱭᱟᱨ ᱥᱮᱴᱤᱝ</string>
-    <string name="settings_category_exoplayer_summary">ᱮᱠᱥᱳᱯᱞᱮᱭᱟᱨ ᱥᱮᱴᱤᱸᱜᱽᱥ ᱠᱚ ᱪᱟᱪᱞᱟᱣ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱞᱟᱹᱜᱤᱫ ᱠᱷᱮᱞᱚᱸᱰᱤᱭᱟᱹ ᱠᱚᱣᱟᱜ ᱨᱤᱥᱴᱟᱨᱴ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ</string>
     <string name="audio_track_type_dubbed">ᱰᱟᱵᱞᱤᱝ</string>
     <string name="audio_track_type_descriptive">ᱰᱮᱥᱠᱨᱤᱯᱴᱤᱵ</string>
     <string name="progressive_load_interval_summary">ᱯᱨᱚᱜᱨᱮᱥᱤᱵᱽ ᱠᱚᱴᱮᱱᱴ (ᱱᱤᱛᱚᱜ %s) ᱨᱮ ᱞᱚᱰ ᱤᱱᱴᱟᱨᱵᱷᱮᱞ ᱨᱮᱱᱟᱜ ᱢᱟᱨᱟᱝ ᱮᱢ ᱢᱮ ᱢᱤᱫ ᱠᱚᱢ ᱵᱷᱚᱞᱮᱡᱽ ᱟᱡᱟᱜ ᱮᱛᱚᱦᱚᱵ ᱞᱚᱰᱰᱤᱝ ᱨᱮᱱᱟᱜ ᱟᱯᱞᱚᱰ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ</string>

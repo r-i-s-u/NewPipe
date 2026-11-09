@@ -6,8 +6,6 @@
     <string name="share">Compartir</string>
     <string name="settings">Axustes</string>
     <string name="did_you_mean">¿Quxesti dicir «%1$s»\?</string>
-    <string name="use_external_video_player_title">Usar un reproductor esternu de videu</string>
-    <string name="use_external_audio_player_title">Usar un reproductor esternu d\'audiu</string>
     <string name="default_resolution_title">Resolución predeterminada</string>
     <string name="play_with_kodi_title">Reproducir en Kodi</string>
     <string name="show_play_with_kodi_title">Amosar la opción «Reproducir en Kodi»</string>
@@ -53,18 +51,14 @@
     <string name="show_higher_resolutions_title">Amosar resoluciones más altes</string>
     <string name="show_higher_resolutions_summary">Namás dalgunos preseos puen reproducir videos en 2K/4K</string>
     <string name="clear">Llimpiar</string>
-    <string name="use_external_video_player_summary">Quita l\'audiu en dalgunes resoluciones</string>
     <string name="show_search_suggestions_title">Suxerencies de busca</string>
     <string name="show_search_suggestions_summary">Amosar suxerencies al buscar</string>
     <string name="subscribe_button_title">Soscribise</string>
     <string name="subscription_update_failed">Nun pudo anovase la soscripción</string>
     <string name="tab_subscriptions">Soscripciones</string>
-    <string name="fragment_feed_title">Novedaes</string>
     <string name="enable_search_history_title">Historial de busques</string>
     <string name="resume_on_audio_focus_gain_title">Siguir cola reproducción</string>
     <string name="resume_on_audio_focus_gain_summary">Sigue cola reproducción dempués de les interrupciones (por exemplu, llamaes)</string>
-    <string name="settings_category_player_title">Reproductor</string>
-    <string name="settings_category_player_behavior_title">Comportamientu</string>
     <string name="settings_category_history_title">Historial y caché</string>
     <string name="best_resolution">La meyor resolución</string>
     <string name="notification_channel_name">Avisu permanente de NewPipe</string>
@@ -97,8 +91,6 @@
     <string name="action_history">Historial</string>
     <string name="delete_item_search_history">¿Quies desaniciar esti elementu del historial de busques\?</string>
     <string name="play_all">Reproducir too</string>
-    <string name="player_stream_failure">Nun pudo reproducise esti fluxu</string>
-    <string name="player_unrecoverable_failure">Asocedió un fallu irrecuperable del reproductor</string>
     <string name="main_page_content">Conteníu de la páxina principal</string>
     <string name="blank_page_summary">Páxina balera</string>
     <string name="select_a_kiosk">Esbilla d\'un quioscu</string>
@@ -216,7 +208,6 @@
         <item quantity="one">%s videu</item>
         <item quantity="other">%s vídeos</item>
     </plurals>
-    <string name="preferred_player_fetcher_notification_message">Cargando\'l conteníu solicitáu</string>
     <string name="privacy_policy_title">Política de privacidá de NewPipe</string>
     <string name="error_file_creation">El ficheru nun pue crease</string>
     <string name="error_http_no_content">El sirvidor nun unvia datos</string>
@@ -240,10 +231,8 @@
     <string name="playback_pitch">Tonu</string>
     <string name="decline">Refugar</string>
     <string name="unsupported_url">La URL nun ta sofitada</string>
-    <string name="background_player_playing_toast">Reproduciendo en segundu planu</string>
     <string name="popup_playing_toast">Reproduciendo nel mou ventanu</string>
     <string name="enable_search_history_summary">Atroxa llocalmente les consultes de busca</string>
-    <string name="external_player_unsupported_link_type">Los reproductores esternos nun sofiten esti tipu d\'enllaces</string>
     <string name="export_complete_toast">Esportóse</string>
     <string name="import_complete_toast">Importóse</string>
     <string name="could_not_import_all_files">Alvertencia: nun pudieron importase tolos ficheros.</string>
@@ -261,7 +250,6 @@
         <item quantity="one">%d día</item>
         <item quantity="other">%d díes</item>
     </plurals>
-    <string name="feed_group_dialog_delete_message">¿Quies desaniciar esti grupu\?</string>
     <string name="metadata_cache_wipe_complete_notice">Llimpióse la caché de metadatos</string>
     <string name="metadata_cache_wipe_summary">Desanicia tolos datos na caché de les páxines web</string>
     <string name="metadata_cache_wipe_title">Llimpiar los metadatos de la caché</string>
@@ -278,39 +266,7 @@
     <string name="content_not_supported">Esti conteníu entá nun ta sofitáu por NewPipe.
 \n
 \nQuiciabes nel futuru sí.</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">¿Cuides que la carga del feed ye perlenta\? Si ye asina, activa la carga rápida (pues camudalo nos axustes o primiendo\'l botón d\'embaxo).
-\n
-\nNewPipe ufre dos estratexes de descarga de feeds:
-\n• Dir en cata de tola canal de soscripciones, lo cual ye lento pero completo.
-\n• Usar un serviciu final dedicáu, lo cual ye rápido mas xeneralmente incompleto.
-\n
-\nLa diferencia ente los dos ye qu\'al más rápidu, polo xeneral, fálta-y dalguna información como\'l tipu (nun pue estremar ente vídeos en direuto o normales) o la duración de los elementos (que devuelve menos).
-\n
-\nYouTube ye l\'exemplu d\'un serviciu qu\'ufre esti métodu rápidu col so feed RSS.
-\n
-\nPolo que tu escueyes según lo que prefieras, si velocidá o información precisa.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Desactivar el mou rápidu</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Activar el mou rápidu</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Disponible en dalgunos preseos, suel ser muncho más rápido mas podría devolver un númberu llendáu d\'elementos y davezu información completa (por exemplu, falta de la duración, el tipu d\'elementu o l\'estáu de la tresmisión).</string>
-    <string name="feed_use_dedicated_fetch_method_title">Dir en cata de feeds dedicaos cuando seya posible</string>
     <string name="feed_update_threshold_option_always_update">Anovar siempres</string>
-    <string name="feed_update_threshold_summary">Tiempu que tarda (dende l\'últimu anovamientu) en considerase una soscripción ensin anovar — %s</string>
-    <string name="feed_update_threshold_title">Llende del anovamientu del feed</string>
-    <string name="settings_category_feed_title">Feed</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Amosar namás les soscripciones ensin agrupar</string>
-    <string name="feed_create_new_group_button_title">Nuevu</string>
-    <string name="feed_group_dialog_empty_name">El nome del grupu ta baleru</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d na esbilla</item>
-        <item quantity="other">%d na esbilla</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">Nun s\'esbilló nenguna soscripción</string>
-    <string name="feed_group_dialog_select_subscriptions">Esbillar soscripciones</string>
-    <string name="feed_processing_message">Procesando\'l feed…</string>
-    <string name="feed_notification_loading">Cargando\'l feed…</string>
-    <string name="feed_subscription_not_loaded_count">Númberu d\'elementos que nun cargaron: %d</string>
-    <string name="feed_oldest_subscription_update">Últimu anovamientu del feed: %s</string>
-    <string name="feed_groups_header_title">Grupos de canales</string>
     <string name="new_seek_duration_toast">Pola mor de les torgues d\'ExoPlayer la duración afitóse en %d segundos</string>
     <string name="remove_watched_popup_partially_watched_streams">Sí, y tamién los vistos parcialmente</string>
     <string name="remove_watched_popup_warning">Van desaniciase los vídeos que se vieren enantes y dempués d\'amestase a la llista de reproducción. \n¿De xuru? ¡Esto nun pue desfacese!</string>
@@ -382,7 +338,6 @@
     <string name="unmute">Desactivar el soníu</string>
     <string name="mute">Activar el soníu</string>
     <string name="rename_playlist">Renomar</string>
-    <string name="preferred_player_fetcher_notification_title">Consiguiendo la información…</string>
     <string name="always_ask_open_action">Entrugar siempres</string>
     <string name="popup_player">Reproductor en ventanu</string>
     <string name="background_player">Reproductor en segundu planu</string>
@@ -458,7 +413,6 @@
     <string name="invalid_directory">La carpeta nun esiste</string>
     <string name="audio_streams_empty">Nun s\'atoparon fluxos d\'audiu</string>
     <string name="video_streams_empty">Nun s\'atoparon fluxos de videu</string>
-    <string name="player_recoverable_failure">L\'aplicación ta recuperándose d\'un fallu del reproductor</string>
     <string name="app_ui_crash">L\'aplicación/IU cascó</string>
     <string name="could_not_setup_download_menu">Nun pudo configurase\'l menú de descarga</string>
     <string name="content_not_available">El conteníu nun ta disponible</string>

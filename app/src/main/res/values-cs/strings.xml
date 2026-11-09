@@ -11,8 +11,6 @@
     <string name="settings">Nastavení</string>
     <string name="did_you_mean">Mysleli jste „%1$s“\?</string>
     <string name="share_dialog_title">Sdílet s</string>
-    <string name="use_external_video_player_title">Použít externí přehrávač videí</string>
-    <string name="use_external_audio_player_title">Použít externí audio přehrávač</string>
     <string name="download_path_audio_summary">Sem bude ukládáno stažené audio</string>
     <string name="download_path_audio_dialog_title">Zvolte adresář pro stažené audio soubory</string>
     <string name="download_path_audio_title">Adresář pro stažené audio</string>
@@ -35,7 +33,6 @@
     <string name="content_language_title">Preferovaný jazyk obsahu</string>
     <string name="settings_category_video_audio_title">Video a zvuk</string>
     <string name="settings_category_appearance_title">Vzhled</string>
-    <string name="background_player_playing_toast">Přehrávání na pozadí</string>
     <string name="general_error">Chyba</string>
     <string name="network_error">Chyba sítě</string>
     <string name="could_not_load_thumbnails">Nebylo možné nahrát všechny náhledy</string>
@@ -86,7 +83,6 @@
     <string name="open_in_popup_mode">Otevřít ve vyskakovacím okně</string>
     <string name="msg_popup_permission">Toto oprávnění je vyžadováno
 \npro otevření ve vyskakovacím okně</string>
-    <string name="use_external_video_player_summary">Odstraňuje zvuk v některých rozlišeních</string>
     <string name="show_higher_resolutions_title">Zobrazovat vyšší rozlišení</string>
     <string name="show_higher_resolutions_summary">Pouze některá zařízení dokáží přehrát 2K/4K videa</string>
     <string name="default_video_format_title">Výchozí formát videa</string>
@@ -98,7 +94,6 @@
     <string name="subscription_change_failed">Nelze změnit odběr</string>
     <string name="subscription_update_failed">Nelze aktualizovat odběr</string>
     <string name="tab_subscriptions">Odběry</string>
-    <string name="fragment_feed_title">Co je nového</string>
     <string name="controls_background_title">Na pozadí</string>
     <string name="controls_popup_title">V okně</string>
     <string name="default_popup_resolution_title">Výchozí rozlišení vyskakovacího okna</string>
@@ -110,8 +105,6 @@
     <string name="enable_watch_history_summary">Evidovat zhlédnutá videa</string>
     <string name="resume_on_audio_focus_gain_title">Obnovit přehrávání</string>
     <string name="resume_on_audio_focus_gain_summary">Pokračovat v přehrávání po přerušení (např. hovor)</string>
-    <string name="settings_category_player_title">Přehrávač</string>
-    <string name="settings_category_player_behavior_title">Chování</string>
     <string name="settings_category_history_title">Historie a mezipaměť</string>
     <string name="popup_playing_toast">Přehrávání v okně</string>
     <string name="disabled">Zakázáno</string>
@@ -162,9 +155,6 @@
     <string name="show_hold_to_append_title">Zobrazit tip „Podržte pro zařazení do fronty“</string>
     <string name="show_hold_to_append_summary">Zobrazit tip po klepnutí na pozadí nebo na vyskakovací tlačítko v „Podrobnostech“ videa</string>
     <string name="play_all">Přehrát vše</string>
-    <string name="player_stream_failure">Tento stream nelze přehrát</string>
-    <string name="player_unrecoverable_failure">Došlo k neobnovitelné chybě přehrávače</string>
-    <string name="player_recoverable_failure">Obnovování z chyby přehrávače</string>
     <string name="delete_item_search_history">Odstranit tuto položku z historie vyhledávání?</string>
     <string name="main_page_content">Obsah úvodní obrazovky</string>
     <string name="blank_page_summary">Prázdná stránka</string>
@@ -201,7 +191,6 @@
     <string name="export_data_title">Exportovat databázi</string>
     <string name="import_data_summary">Přepíše Vaši dosavadní historii, odběry, playlisty a (volitelně) nastavení</string>
     <string name="export_data_summary">Exportuje historii, odběry, playlisty a nastavení</string>
-    <string name="external_player_unsupported_link_type">Externí přehrávače nepodporují tyto druhy odkazů</string>
     <string name="video_streams_empty">Nenalezeny žádné video streamy</string>
     <string name="audio_streams_empty">Nenalezeny žádné audio streamy</string>
     <string name="export_complete_toast">Exportováno</string>
@@ -212,8 +201,6 @@
     <string name="video_player">Přehrávač videa</string>
     <string name="background_player">Přehrávač na pozadí</string>
     <string name="popup_player">Přehrávač v okně</string>
-    <string name="preferred_player_fetcher_notification_title">Získávám informace…</string>
-    <string name="preferred_player_fetcher_notification_message">Načítání požadovaného obsahu</string>
     <string name="controls_download_desc">Stáhnout soubor streamu</string>
     <string name="show_info">Zobrazit informace</string>
     <string name="tab_bookmarks">Uložené playlisty</string>
@@ -472,40 +459,7 @@
         <item quantity="few">%d dny</item>
         <item quantity="other">%d dnů</item>
     </plurals>
-    <string name="feed_groups_header_title">Skupiny kanálů</string>
-    <string name="feed_oldest_subscription_update">Novinky naposledy aktualizovány: %s</string>
-    <string name="feed_subscription_not_loaded_count">Nenačteno: %d</string>
-    <string name="feed_notification_loading">Načítám novinky…</string>
-    <string name="feed_processing_message">Zpracovávám novinky…</string>
-    <string name="feed_group_dialog_select_subscriptions">Vybrat odběry</string>
-    <string name="feed_group_dialog_empty_selection">Nebyly vybrány žádné odběry</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d vybrána</item>
-        <item quantity="few">%d vybrány</item>
-        <item quantity="other">%d vybráno</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_name">Prázdné jméno skupiny</string>
-    <string name="feed_group_dialog_delete_message">Přejete si odstranit tuto skupinu?</string>
-    <string name="feed_create_new_group_button_title">Nový</string>
-    <string name="settings_category_feed_title">Novinky</string>
-    <string name="feed_update_threshold_title">Limit aktualizace novinek</string>
-    <string name="feed_update_threshold_summary">Doba po poslední aktualizaci, po níž je odběr považován za zastaralý — %s</string>
     <string name="feed_update_threshold_option_always_update">Vždy aktualizovat</string>
-    <string name="feed_use_dedicated_fetch_method_title">Dodat z vyhrazeného zdroje, je-li dostupný</string>
-    <string name="feed_use_dedicated_fetch_method_summary">K dispozici na některých zařízeních, je obvykle mnohem rychlejší, ale může vrátit omezený počet položek a často neúplné informace (např. bez trvání, typu položky, skutečného stavu)</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Zapnout rychlý režim</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Vypnout rychlý režim</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Zdá se vám načítání příliš pomalé\? Pokud ano, zkuste zapnout rychlé načítání (lze změnit v nastavení nebo stiskem tlačítka níže). 
-\n 
-\nNewPipe nabízí dvě strategie načítání seznamu novinek
-\n• Stažení celého kanálu vašich odběrů, což je pomalé, ale spolehlivé.
-\n• Použití služby k tomu určené, což je rychlé, ale obvykle neobsahuje všechny potřebné informace. 
-\n 
-\nRozdíl mezi těmi dvěma je, že rychlému způsobu obvykle chybí nějaká informace, např. délka videa nebo typ (nemůže rozlišit mezi živým a normálním videem) a patrně vrátí méně položek. 
-\n 
-\nYouTube je příklad služby, která nabízí tuto rychlou metodu pomocí RSS přísunu. 
-\n 
-\nVýběr je vposledku určen tím, čemu dáte přednost: rychlosti nebo přesnosti informací.</string>
     <string name="content_not_supported">Tento obsah ještě není podporován NewPipe.
 \n
 \nSnad bude podporován v budoucnu.</string>
@@ -528,7 +482,6 @@
     <string name="channel_created_by">Vytvořil %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">Ikona kanálu</string>
     <string name="playlist_page_summary">Strana playlistů</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Zobrazit jen neseskupené odběry</string>
     <string name="no_playlist_bookmarked_yet">Zatím žádné záložky playlistů</string>
     <string name="select_a_playlist">Vybrat playlist</string>
     <string name="error_report_open_github_notice">Prosím, ověřte, zda chyba již existuje. Pokud založíte duplikovaný tiket, obíráte nás o čas, který bychom mohli věnovat řešení skutečných chyb.</string>
@@ -619,12 +572,6 @@
     <string name="description_select_enable">Zapnout výběr textu v popisu</string>
     <string name="description_select_note">Nyní můžete vybrat v popisu text. Pamatujte, že v režimu výběru může stránka blikat a odkazy nemusí reagovat na kliknutí.</string>
     <string name="account_terminated">Účet uzavřen</string>
-    <string name="feed_load_error_fast_unknown">Režim rychlého feedu o tom neposkytuje více informací.</string>
-    <string name="feed_load_error_terminated">Autorův účet byl uzavřen.
-\nNewPipe nebude už moci načíst tento feed.
-\nChcete zrušit objednávku tohoto kanálu\?</string>
-    <string name="feed_load_error_account_info">Feed pro \'%s\' nemohl být načten.</string>
-    <string name="feed_load_error">Chyba při načítání feedu</string>
     <string name="downloads_storage_use_saf_summary_api_29">Počínaje systémem Android 10 je podporován pouze „Storage Access Framework“</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Budete dotázáni, kde uložit každý stažený soubor</string>
     <string name="no_dir_yet">Adresář pro stažené soubory dosud nenastaven, zvolte, prosím, výchozí adresář nyní</string>
@@ -650,11 +597,9 @@
     </plurals>
     <string name="remote_search_suggestions">Vzdálené návrhy vyhledávání</string>
     <string name="local_search_suggestions">Lokální návrhy vyhledávání</string>
-    <string name="start_main_player_fullscreen_summary">Pokud je vypnuté automatické otáčení, nespouštět video v mini přehrávači, ale přepnout se přímo do režimu celé obrazovky. Do mini přehrávače se lze i nadále dostat ukončením režimu celé obrazovky</string>
     <string name="enqueued_next">Další ve frontě</string>
     <string name="enqueue_next_stream">Přidat do fronty (další)</string>
     <string name="main_page_content_swipe_remove">Tažením položky odstraníte</string>
-    <string name="start_main_player_fullscreen_title">Spustit hlavní přehrávač na celé obrazovce</string>
     <string name="processing_may_take_a_moment">Zpracovávám... může trvat moment</string>
     <string name="manual_update_description">Ručně zkontrolovat zda je k dispozici nová verze</string>
     <string name="check_for_updates">Kontrola aktualizací</string>
@@ -662,21 +607,16 @@
     <string name="error_report_notification_toast">Došlo k chybě, více v oznámení</string>
     <string name="create_error_notification">Vytvořit oznámení o chybě</string>
     <string name="checking_updates_toast">Kontrola aktualizací…</string>
-    <string name="show_crash_the_player_title">Zobrazit „Shodit přehrávač“</string>
-    <string name="feed_new_items">Nové položky</string>
     <string name="no_appropriate_file_manager_message_android_10">Pro tuto akci nebyl nalezen žádný vhodný správce souborů.
 \nNainstalujte správce souborů kompatibilní se Storage Access Framework</string>
     <string name="error_report_channel_name">Oznámení o hlášení chyb</string>
     <string name="error_report_channel_description">Oznámení za účelem hlášení chyb</string>
     <string name="no_appropriate_file_manager_message">Pro tuto akci nebyl nalezen žádný vhodný správce souborů.
 \nNainstalujte správce souborů nebo zkuste vypnout \'%s\' v nastavení stahování</string>
-    <string name="show_crash_the_player_summary">Ukáže volbu pro zřícení během používání přehrávače</string>
     <string name="show_error_snackbar">Zobrazit krátké oznámení o chybě</string>
     <string name="detail_pinned_comment_view_description">Připnutý komentář</string>
-    <string name="crash_the_player">Shodit přehrávač</string>
     <string name="leak_canary_not_available">LeakCanary není dostupné</string>
     <string name="progressive_load_interval_exoplayer_default">Výchozí ExoPlayer</string>
-    <string name="settings_category_player_notification_summary">Nastavit oznámení o právě přehrávaném streamu</string>
     <string name="enable_streams_notifications_title">Oznámení o nových streamech</string>
     <string name="enable_streams_notifications_summary">Oznámit o nových streamech od vašich odběrů</string>
     <string name="streams_notifications_interval_title">Frekvence kontroly</string>
@@ -688,7 +628,6 @@
     <string name="streams_notification_channel_name">Nové streamy</string>
     <string name="streams_notification_channel_description">Oznámení o nových streamech od odběrů</string>
     <string name="check_new_streams">Spustit kontrolu nových streamů</string>
-    <string name="settings_category_player_notification_title">Upozornění přehrávače</string>
     <string name="notifications">Oznámení</string>
     <string name="loading_stream_details">Načítám podrobnosti o streamu…</string>
     <string name="notifications_disabled">Oznámení jsou vypnuta</string>
@@ -707,7 +646,6 @@
     <string name="unknown_format">Neznámý formát</string>
     <string name="unknown_quality">Neznámá kvalita</string>
     <string name="streams_not_yet_supported_removed">Streamy, které zatím nejsou podporovány systémem stahování, nebudou zobrazeny</string>
-    <string name="select_quality_external_players">Vyberte kvalitu pro externí přehrávače</string>
     <string name="no_video_streams_available_for_external_players">U externích přehrávačů nejsou k dispozici žádné videostreamy</string>
     <string name="faq_title">Často kladené dotazy</string>
     <string name="faq_description">Pokud máte problémy s používáním aplikace, podívejte se na tyto odpovědi, které zodpovídají nejčastější dotazy!</string>
@@ -726,11 +664,6 @@
     <string name="ignore_hardware_media_buttons_title">Ignorovat události hardwarových tlačítek médií</string>
     <string name="ignore_hardware_media_buttons_summary">Užitečné například v případě, že používáte sluchátka s rozbitými fyzickými tlačítky</string>
     <string name="remove_duplicates_title">Odstranit duplicity\?</string>
-    <string name="feed_hide_streams_title">Zobrazit následující streamy</string>
-    <string name="feed_show_hide_streams">Zobrazit/skrýt streamy</string>
-    <string name="feed_show_watched">Celé zhlédnuto</string>
-    <string name="feed_show_partially_watched">Částečně zhlédnuto</string>
-    <string name="feed_show_upcoming">Nadcházející</string>
     <string name="remove_duplicates">Odstranit duplicity</string>
     <string name="remove_duplicates_message">Chcete odstranit všechny duplicitní streamy v tomto playlistu\?</string>
     <string name="left_gesture_control_title">Akce levého gesta</string>
@@ -746,21 +679,12 @@
     <string name="prefer_descriptive_audio_title">Upřednostňovat popisný zvuk</string>
     <string name="prefer_descriptive_audio_summary">Vybrat zvukovou stopu s popisem pro zrakově postižené, pokud je k dispozici</string>
     <string name="unknown_audio_track">Neznámá</string>
-    <string name="settings_category_exoplayer_title">Nastavení přehrávače ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">Správa některých nastavení přehrávače ExoPlayer. Tyto změny vyžadují restartování přehrávače, aby se projevily</string>
-    <string name="use_exoplayer_decoder_fallback_title">Použít funkci náhradního dekodéru přehrávače ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Tuto možnost povolte, pokud máte problémy s inicializací dekodéru. V případě selhání inicializace primárních dekodérů se přehrávač vrátí zpět k dekodérům s nižší prioritou. To může mít za následek nižší výkon přehrávání než při použití primárních dekodérů</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Vždy použít nastavení povrchu výstupu videa v přehrávači ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">původní</string>
     <string name="audio_track_type_dubbed">dabovaná</string>
     <string name="audio_track_type_descriptive">popisná</string>
     <string name="audio_track">Zvuková stopa</string>
     <string name="audio_track_present_in_video">V tomto streamu by již měla být přítomna zvuková stopa</string>
-    <string name="select_audio_track_external_players">Vyberte zvukovou stopu pro externí přehrávače</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Toto obejití uvolní a znovu nainstaluje kodeky videa, když dojde ke změně povrchu, místo aby se povrch nastavil přímo na kodek. Toto nastavení, které již bylo použito v přehrávači ExoPlayer na některých zařízeních s tímto problémem, má vliv pouze na Android 6 a vyšší.
-\n
-\nPovolení této možnosti může zabránit chybám při přehrávání při přepnutí aktuálního přehrávače videa nebo při přepnutí na celou obrazovku</string>
     <string name="play_queue_audio_track">Zvuk: %s</string>
     <string name="main_tabs_position_title">Pozice hlavních karet</string>
     <string name="main_tabs_position_summary">Přesunout výběr hlavní karty dolů</string>
@@ -769,7 +693,6 @@
     <string name="no_live_streams">Žádné živé přenosy</string>
     <string name="loading_metadata_title">Načítání metadat…</string>
     <string name="feed_fetch_channel_tabs">Karty kanálu k načtení</string>
-    <string name="feed_fetch_channel_tabs_summary">Karty, které načíst při aktualizaci odběrů. Tato možnost nemá žádný účinek, pokud je kanál aktualizován pomocí rychlého režimu.</string>
     <string name="metadata_uploader_avatars">Nahrané avatary</string>
     <string name="metadata_thumbnails">Náhledy</string>
     <string name="image_quality_title">Kvalita obrázků</string>
@@ -833,9 +756,6 @@
     <string name="audio_track_type_secondary">sekundární</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Sdílet jako dočasný playlist YouTube</string>
     <string name="tab_bookmarks_short">Playlisty</string>
-    <string name="select_a_feed_group">Vybrat skupinu kanálů</string>
-    <string name="no_feed_group_created_yet">Zatím nebyla vytvořena žádná skupina kanálů</string>
-    <string name="feed_group_page_summary">Stránka skupiny kanálů</string>
     <string name="search_with_service_name">Hledat %1$s</string>
     <string name="search_with_service_name_and_filter">Hledat %1$s (%2$s)</string>
     <string name="channel_tab_likes">Líbí se</string>
@@ -856,9 +776,6 @@
     <string name="delete_entry">Vymazat položku</string>
     <string name="entry_deleted">Položka vymazána</string>
     <string name="account_terminated_service_provides_reason">Ukončení účtu\n\n%1$s uvádí tento důvod: %2$s</string>
-    <string name="player_http_403">Během přehrávání byla ze serveru přijata chyba HTTP 403, pravděpodobně způsobená vypršením platnosti streamingové adresy URL nebo zákazem IP adresy</string>
-    <string name="player_http_invalid_status">Chyba HTTP %1$s obdržená ze serveru během přehrávání</string>
-    <string name="youtube_player_http_403">Chyba HTTP 403 obdržená od serveru během přehrávání, pravděpodobně způsobená zákazem IP adresy nebo problémy s deobfuskací streamovací adresy URL</string>
     <string name="sign_in_confirm_not_bot_error">%1$s odmítl poskytnout data, žádá o přihlášení k potvrzení, že žadatel není bot.\n\nVaše IP adresa mohla být dočasně zablokována službou %1$s, můžete nějakou dobu počkat nebo přepnout na jinou IP adresu (například zapnutím/vypnutím VPN nebo přepnutím z Wi-Fi na mobilní data).\n\nPro více informací si přečtěte <a href="%2$s">tento záznam v FAQ</a>.</string>
     <string name="unsupported_content_in_country">Tento obsah není pro aktuálně vybranou zemi obsahu dostupný.\n\nZměňte výběr v nabídce \"Nastavení &gt; Obsah &gt; Výchozí země obsahu\".</string>
     <string name="kao_dialog_warning">Společnost Google oznámila, že od roku 2026/2027 budou všechny aplikace na certifikovaných zařízeních Android vyžadovat, aby vývojář odeslal své osobní identifikační údaje přímo společnosti Google. Jelikož vývojáři této aplikace s tímto požadavkem nesouhlasí, aplikace po tomto datu přestane na certifikovaných zařízeních Android fungovat.</string>

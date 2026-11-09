@@ -13,16 +13,12 @@
     <string name="settings">Postavke</string>
     <string name="did_you_mean">Misliš li „%1$s”\?</string>
     <string name="share_dialog_title">Dijeli s</string>
-    <string name="use_external_video_player_title">Koristi vanjski video player</string>
-    <string name="use_external_video_player_summary">Uklanja audiosnimku pri nekim rezolucijama</string>
-    <string name="use_external_audio_player_title">Koristi eksterni audio player</string>
     <string name="subscribe_button_title">Pretplati se</string>
     <string name="subscribed_button_title">Pretplaćeno</string>
     <string name="channel_unsubscribed">Pretplata na kanal otkazana</string>
     <string name="subscription_change_failed">Nije bilo moguće promijeniti pretplatu</string>
     <string name="subscription_update_failed">Nije bilo moguće aktualizirati pretplatu</string>
     <string name="tab_subscriptions">Pretplate</string>
-    <string name="fragment_feed_title">Što je novo</string>
     <string name="controls_background_title">Pozadina</string>
     <string name="controls_popup_title">Skočni prozor</string>
     <string name="download_path_title">Mapa za preuzimanje videozapisa</string>
@@ -62,7 +58,6 @@
     <string name="content_language_title">Zadani jezik sadržaja</string>
     <string name="settings_category_video_audio_title">Video i audio</string>
     <string name="settings_category_appearance_title">Izgled</string>
-    <string name="background_player_playing_toast">Reprodukcija u pozadini</string>
     <string name="popup_playing_toast">Reprodukcija u skočnom prozoru</string>
     <string name="content">Sadržaj</string>
     <string name="show_age_restricted_content_title">Prikaži dobno ograničeni sadržaj</string>
@@ -135,8 +130,6 @@
     <string name="action_history">Povijest</string>
     <string name="notification_channel_name">NewPipe obavijest</string>
     <string name="notification_channel_description">Obavijesti za NewPipe playera</string>
-    <string name="settings_category_player_title">Player</string>
-    <string name="settings_category_player_behavior_title">Ponašanje</string>
     <string name="settings_category_history_title">Povijest i predmemorija</string>
     <string name="undo">Poništi</string>
     <string name="search_no_results">Nema rezultata</string>
@@ -160,9 +153,6 @@
         <item quantity="other">%s videa</item>
     </plurals>
     <string name="play_all">Reproduciraj sve</string>
-    <string name="player_stream_failure">Nije bilo moguće reproducirati ovaj tok</string>
-    <string name="player_unrecoverable_failure">Dogodila se neoporavljiva greška playera</string>
-    <string name="player_recoverable_failure">Oporavljanje od greške playera</string>
     <string name="show_hold_to_append_title">Prikaži savjet za držanje</string>
     <string name="show_hold_to_append_summary">Prikaži savjet kad se pritisne gumb za pozadinu ili skočni gumb u videu „Detalji:”</string>
     <string name="delete_item_search_history">Želiš li izbrisati ovu stavku iz povijesti pretrage\?</string>
@@ -191,8 +181,6 @@
     <string name="background_player">Pozadinski player</string>
     <string name="popup_player">Skočni player</string>
     <string name="always_ask_open_action">Uvjek pitaj</string>
-    <string name="preferred_player_fetcher_notification_title">Dohvaćanje podataka …</string>
-    <string name="preferred_player_fetcher_notification_message">Učitavanje traženog sadržaja</string>
     <string name="create_playlist">Nova playlista</string>
     <string name="rename_playlist">Preimenuj</string>
     <string name="name">Ime</string>
@@ -315,7 +303,6 @@
     <string name="settings_category_debug_title">Otkrivanje grešaka</string>
     <string name="app_update_notification_channel_name">Obavijest o novoj verziji aplikacije</string>
     <string name="download_to_sdcard_error_message">Preuzimanje na eksternu SD karticu nije moguće. Ponovo postaviti lokaciju mape za preuzimanje?</string>
-    <string name="external_player_unsupported_link_type">Eksterni playeri ne podržavaju ove vrste poveznica</string>
     <string name="video_streams_empty">Nije pronađen nijedan videozapis</string>
     <string name="audio_streams_empty">Nije pronađena nijedna audiosnimka</string>
     <string name="invalid_source">Nema takve datoteke/izvora sadržaja</string>
@@ -415,12 +402,7 @@
     <string name="videos_string">Videa</string>
     <string name="mute">Isključi zvuk</string>
     <string name="unmute">Uključi</string>
-    <string name="feed_notification_loading">Učitavanje feeda …</string>
-    <string name="feed_group_dialog_delete_message">Želiš li izbrisati ovu grupu\?</string>
-    <string name="feed_create_new_group_button_title">Nova</string>
     <string name="feed_update_threshold_option_always_update">Uvijek aktualiziraj</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">Uključi brzi modus</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">Isključi brzi modus</string>
     <string name="error_insufficient_storage_left">Memorija uređaja je popunjena</string>
     <string name="most_liked">Najomiljeniji</string>
     <string name="subtitle_activity_recaptcha">Pritisni „Gotovo” kad je riješeno</string>
@@ -457,9 +439,6 @@
         <item quantity="few">%d sata</item>
         <item quantity="other">%d sati</item>
     </plurals>
-    <string name="feed_subscription_not_loaded_count">Nije učitano: %d</string>
-    <string name="feed_group_dialog_empty_selection">Nije odabrana nijedna pretplata</string>
-    <string name="feed_group_dialog_select_subscriptions">Odaberi pretplate</string>
     <string name="notification_action_4_title">Gumb pete radnje</string>
     <string name="notification_action_3_title">Gumb četvrte radnje</string>
     <string name="notification_action_2_title">Gumb treće radnje</string>
@@ -487,20 +466,6 @@
     <string name="notification_actions_at_most_three">U kompaktnom prikazu obavijesti mogu se odabrati najviše 3 radnje!</string>
     <string name="video_detail_by">Od %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">Sličica avatara kanala</string>
-    <string name="feed_use_dedicated_fetch_method_title">Dohvati iz određenog feeda kad je dostupno</string>
-    <string name="feed_update_threshold_summary">Vrijeme nakon zadnjeg aktualiziranja prije nego što se pretplata smatra zastarjelom – %s</string>
-    <string name="feed_update_threshold_title">Prag za aktualiziranje feedova</string>
-    <string name="settings_category_feed_title">Feed</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">Prikaži samo negrupirane pretplate</string>
-    <string name="feed_group_dialog_empty_name">Prazno ime grupe</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="one">%d odabrana</item>
-        <item quantity="few">%d odabrane</item>
-        <item quantity="other">%d odabranih</item>
-    </plurals>
-    <string name="feed_processing_message">Obrada feeda u tijeku …</string>
-    <string name="feed_oldest_subscription_update">Zadnje aktualiziranje feeda: %s</string>
-    <string name="feed_groups_header_title">Grupe kanala</string>
     <string name="remove_watched_popup_partially_watched_streams">Da, i djelomično pogledana videa</string>
     <string name="choose_instance_prompt">Odaberi jednu instancu</string>
     <string name="downloads_storage_ask_summary">Aplikacija će te pitati kamo spremati preuzimanja.
@@ -556,18 +521,6 @@
     <string name="show_original_time_ago_title">Prikaži izvorno vrijeme stavki</string>
     <string name="downloads_storage_use_saf_summary">„Storage Access Framework” dozvoljava preuzimanje na eksternu SD karticu</string>
     <string name="show_original_time_ago_summary">Izvorni tekstovi usluga bit će vidljivi u stavkama prijenosa</string>
-    <string name="feed_use_dedicated_fetch_method_summary">Dostupno je u nekim uslugama. Obično je puno brže, ali može dohvatiti ograničenu količinu stavki i često nepotpune podatke (npr. bez trajanja, vrste stavke, bez stanja uživo)</string>
-    <string name="feed_use_dedicated_fetch_method_help_text">Misliš da je učitavanje feeda presporo\? Ako da, pokušaj omogućiti brzo učitavanje (možeš ga promijeniti u postavkama ili pritiskom na donji gumb).
-\n
-\nNewPipe nudi dvije strategije učitavanja feeda:
-\n• Dohvaćanje cijelog pretplatničkog kanala, što je sporo, ali cjelovito.
-\n• Korištenje namjenske krajnje točke usluge, što je brzo, ali obično nepotpuno.
-\n
-\nRazlika je u tome što pri brzom načinu obično nedostaju neke informacije, poput trajanja ili vrste stavki (ne može razlikovati videa uživo od običnih videa), a možda će vratiti i manje stavki.
-\n
-\nYouTube je primjer usluge koja nudi ovaj brzi način sa svojim RSS feedom.
-\n
-\nDakle, izbor se svodi na ono što više voliš: brzinu ili precizne informacije.</string>
     <string name="msg_calculating_hash">Izračunavanje šifre</string>
     <string name="hash_channel_name">Obavijest šifriranja videa</string>
     <string name="hash_channel_description">Obavijesti o napretku šifriranja videa</string>
@@ -619,11 +572,6 @@
     <string name="description_select_disable">Isključi biranje teksta u opisu</string>
     <string name="description_select_enable">Omogući biranje teksta u opisu</string>
     <string name="account_terminated">Račun ukinut</string>
-    <string name="feed_load_error_terminated">Autorov račun je ukinut.
-\nNewPipe ubuduće neće moći učitavati ovaj feed.
-\nŽeliš li otkazati pretplatu na ovaj kanal\?</string>
-    <string name="feed_load_error_account_info">Nije bilo moguće učitati feed za „%s”.</string>
-    <string name="feed_load_error">Pogreška pri učitavanju feeda</string>
     <string name="downloads_storage_use_saf_summary_api_29">Počevši od Androida 10, podržano je samo radno okruženje „Storage Access Framework”</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">Od vas će se tražiti gdje spremiti svako preuzimanje</string>
     <string name="dont_show">Ne prikazuj</string>
@@ -633,7 +581,6 @@
     <string name="no_dir_yet">Mapa za preuzimanje još nije postavljena, odaberi standardnu mapu za preuzimanje</string>
     <string name="comments_are_disabled">Komentari su isključeni</string>
     <string name="mark_as_watched">Označi kao pogledano</string>
-    <string name="feed_load_error_fast_unknown">Brzi modus feeda ne pruža više informacija o ovome.</string>
     <string name="metadata_privacy_internal">Interno</string>
     <string name="metadata_privacy">Privatnost</string>
     <string name="description_select_note">Sada možeš odabrati tekst u opisu. Napomena: stranica će možda treperiti i možda nećeš moći kliknuti poveznice u načinu rada za odabir teksta.</string>
@@ -644,7 +591,6 @@
         <item quantity="few">%s preuzimanja su gotova</item>
         <item quantity="other">%s preuzimanja je gotovo</item>
     </plurals>
-    <string name="start_main_player_fullscreen_title">Pokreni glavni player u cjeloekranskom prikazu</string>
     <string name="enqueue_next_stream">Dodaj u popis kao sljedeći</string>
     <string name="enqueued_next">Dodano u popis kao sljedeći</string>
     <plurals name="deleted_downloads_toast">
@@ -657,16 +603,11 @@
     <string name="checking_updates_toast">Traženje novih verzija …</string>
     <string name="local_search_suggestions">Prijedlozi lokalne pretrage</string>
     <string name="check_for_updates">Traži nove verzije</string>
-    <string name="start_main_player_fullscreen_summary">Nemoj pokretati videa u mini playeru, već izravno pokreni cjeloekranski prikaz, ako je automatsko okretanje zaključano. Mini playeru i dalje možeš pristupiti napuštanjem cjeloekranskog prikaza</string>
-    <string name="feed_new_items">Nove stavke feeda</string>
     <string name="error_report_channel_name">Obavijest o prijavi greške</string>
     <string name="error_report_channel_description">Obavijesti za prijavu grešaka</string>
     <string name="create_error_notification">Stvori obavijest o grešci</string>
     <string name="error_report_notification_title">NewPipe je naišao na grešku, dodirni za prijavu</string>
     <string name="error_report_notification_toast">Došlo je do greške, pogledaj obavijest</string>
-    <string name="crash_the_player">Prekini rad playera</string>
-    <string name="settings_category_player_notification_title">Obavijest playera</string>
-    <string name="settings_category_player_notification_summary">Konfiguriraj obavijest trenutačno reproduciranog toka</string>
     <string name="notifications">Obavijesti</string>
     <string name="streams_notification_channel_name">Novi videozapisi</string>
     <string name="enable_streams_notifications_summary">Obavijesti novih tokova od pretplaćenih kanala</string>
@@ -688,8 +629,6 @@
     <string name="no_appropriate_file_manager_message">Za ovu radnju nije pronađen odgovarajući upravljač datoteka.
 \nInstaliraj upravljač datoteka ili pokušaj isključiti „%s” u postavkama preuzimanja</string>
     <string name="detail_pinned_comment_view_description">Prikvačeni komentar</string>
-    <string name="show_crash_the_player_summary">Prikazuje opciju prekida rada kad se player koristi</string>
-    <string name="show_crash_the_player_title">Prikaži „Prekini rad playera”</string>
     <string name="progressive_load_interval_exoplayer_default">ExoPlayer standard</string>
     <string name="percent">Posto</string>
     <string name="semitone">Poluton</string>
@@ -706,31 +645,23 @@
     <string name="unknown_quality">Nepoznata kvaliteta</string>
     <string name="no_audio_streams_available_for_external_players">Nema audio prijenosa za eksterne playere</string>
     <string name="no_video_streams_available_for_external_players">Nema video prijenosa za eksterne playere</string>
-    <string name="select_quality_external_players">Odaberi kvalitetu za eksterne playere</string>
     <string name="no_appropriate_file_manager_message_android_10">Za ovu radnju nije pronađen odgovrajući upravljač datoteka.
 \nInstaliraj „Storage Access Framework” kompatibilni upravljač datoteka</string>
-    <string name="settings_category_exoplayer_summary">Uredite neke ExoPlayer postavke. Ove promjene zahtjevaju ponovo pokretanje aplikacije</string>
     <string name="right_gesture_control_title">Desna gesta</string>
     <string name="left_gesture_control_summary">Odaberite gestu za lijevu polovicu zaslona</string>
     <string name="left_gesture_control_title">Lijeva gesta</string>
     <string name="brightness">Svjetlina</string>
-    <string name="settings_category_exoplayer_title">ExoPlayer postavke</string>
     <string name="notification_actions_summary_android13">Uredite svaku radnju obavijesti ispod tako da je dodirnete. Prve tri akcije (reprodukcija/pauza, prethodna i sljedeća) postavlja sustav i ne mogu se prilagoditi.</string>
     <string name="right_gesture_control_summary">Odaberite gestu za desnu polovicu zaslona</string>
     <string name="volume">Glasnoća</string>
     <string name="none">Ništa</string>
-    <string name="feed_show_watched">Pregledano</string>
-    <string name="feed_show_partially_watched">Djelomično pregledano</string>
-    <string name="feed_show_upcoming">Najava</string>
     <string name="sort">Razvrstaj</string>
-    <string name="use_exoplayer_decoder_fallback_title">Koristi razervnu funkciju ExoPlayer dekodera</string>
     <string name="ignore_hardware_media_buttons_title">Ignoriraj događaje hardverskih medijskih gumba</string>
     <string name="ignore_hardware_media_buttons_summary">Korisno, na primjer, ako koristite slušalice s pokvarenim fizičkim gumbima</string>
     <string name="prefer_descriptive_audio_summary">Odaberite zvučni zapis s opisima za slabovidne osobe ako je dostupan</string>
     <string name="prefer_original_audio_title">Preferiraj originalni zvuk</string>
     <string name="prefer_original_audio_summary">Odaberite izvorni audio zapis bez obzira na jezik</string>
     <string name="prefer_descriptive_audio_title">Preferirajte opisni zvuk</string>
-    <string name="select_audio_track_external_players">Odaberi audio snimku za eksterne playere</string>
     <string name="unknown_audio_track">Nepoznato</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="no_streams">Nema prijenosa</string>
@@ -752,8 +683,6 @@
     <string name="remove_duplicates">Ukloni duplikate</string>
     <string name="remove_duplicates_title">Ukloniti duplikate?</string>
     <string name="remove_duplicates_message">Želiš li ukloniti sve duple prijenose iz ove playliste?</string>
-    <string name="feed_hide_streams_title">Pokaži sljedeće prijenose</string>
-    <string name="feed_show_hide_streams">Pokaži/Sakrij prijenose</string>
     <string name="feed_fetch_channel_tabs">Kartice za dohvaćanja kanala</string>
     <string name="night_theme_available">Ova je opcija dostupna samo ako je %s odabrano za temu</string>
     <string name="metadata_thumbnails">Minijature</string>
@@ -813,7 +742,6 @@
     <string name="disable_media_tunneling_automatic_info">Tuneliranje medija je standardno deaktivirano na tvom uređaju jer je poznato da model tvog uređaja to ne podržava.</string>
     <string name="yes">Da</string>
     <string name="no">Ne</string>
-    <string name="use_exoplayer_decoder_fallback_summary">Aktiviraj ovu opciju ako imaš problema s inicijaliziranjem dekodera, što vraća dekodere nižeg prioriteta ako inicijaliziranje primarnih dekodera ne uspije. To može rezultirati lošijim performansama reprodukcije u odnosu na korištenje primarnih dekodera</string>
     <string name="error_insufficient_storage">Nedovoljno memorije na uređaju</string>
     <string name="settings_category_backup_restore_title">Spremanje sigurnosne kopije i obnavljanje</string>
     <string name="auto_update_check_description">NewPipe može automatski tražiti nove verzije i obavijestiti te.
@@ -823,8 +751,6 @@
     <string name="reset_all_settings">Obnavljanje svih postavki odbacit će sve tvoje postavljene postavke i aplikacija će se ponovo pokrenuti.
 \n
 \nStvarno želiš nastaviti?</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">Uvijek koristi ExoPlayer postavku zaobilaženja videa za izlaznu površinu</string>
-    <string name="feed_fetch_channel_tabs_summary">Kartice za dohvaćanje prilikom aktualiziranja feeda. Ova opcija nema učinka ako se kanal aktualizira pomoću brzog modusa.</string>
     <string name="audio_track_type_secondary">sekundarno</string>
     <string name="search_with_service_name">Pretraži %1$s</string>
     <string name="search_with_service_name_and_filter">Pretraži %1$s (%2$s)</string>
@@ -836,11 +762,7 @@
     <string name="short_billion">%sB</string>
     <string name="delete_file">Izbriši datoteku</string>
     <string name="delete_entry">Obriši unos</string>
-    <string name="select_a_feed_group">Odaberite grupu feedova</string>
-    <string name="no_feed_group_created_yet">Još nije stvorena nijedna grupa feedova</string>
-    <string name="feed_group_page_summary">Stranica grupe kanala</string>
     <string name="account_terminated_service_provides_reason">Račun ukinut\n\n%1$s navodi ovaj razlog: %2$s</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">Ovo zaobilazno rješenje oslobađa i ponovno instancira video kodeke kada dođe do promjene površine, umjesto da se površina izravno postavlja na kodek. Već se koristi od strane ExoPlayera na nekim uređajima s ovim problemom, ova postavka ima učinak samo na Androidu 6 i novijim verzijama.\n\nOmogućavanje ove opcije može spriječiti pogreške reprodukcije prilikom prebacivanja trenutnog video playera ili prebacivanja na cijeli zaslon</string>
     <string name="channel_tab_likes">Lajkovi</string>
     <string name="share_playlist_as_youtube_temporary_playlist">Podijeli kao privremenu playlistu na YouTubeu</string>
     <string name="import_settings_vulnerable_format">Postavke u izvozu koji se uvozi koriste ranjivi format koji je zastario od verzije NewPipe 0.27.0. Provjerite je li izvoz koji se uvozi iz pouzdanog izvora i u budućnosti radije koristite samo izvoze dobivene iz NewPipe 0.27.0 ili novije verzije. Podrška za uvoz postavki u ovom ranjivom formatu uskoro će biti potpuno uklonjena, a zatim stare verzije NewPipea više neće moći uvoziti postavke izvoza iz novih verzija.</string>
@@ -853,9 +775,6 @@
     <string name="trending_movies">Trendovi u filmovima i serijama</string>
     <string name="trending_music">Glazba u trendu</string>
     <string name="entry_deleted">Unos izbrisan</string>
-    <string name="player_http_403">HTTP greška 403 primljena od poslužitelja tijekom reprodukcije, vjerojatno uzrokovana istekom URL-a za streaming ili zabranom IP adrese</string>
-    <string name="player_http_invalid_status">HTTP greška %1$s primljena od poslužitelja tijekom reprodukcije</string>
-    <string name="youtube_player_http_403">HTTP greška 403 primljena od poslužitelja tijekom reprodukcije, vjerojatno uzrokovana zabranom IP adrese ili problemima s deobfuskacijom URL-a za streaming</string>
     <string name="sign_in_confirm_not_bot_error">%1$s je odbio dati podatke, tražeći prijavu kako bi potvrdio da podnositelj zahtjeva nije bot.\n\nVašu IP adresu je možda privremeno zabranio %1$s, možete pričekati neko vrijeme ili se prebaciti na drugu IP adresu (na primjer uključivanjem/isključivanjem VPN-a ili prebacivanjem s WiFi-ja na mobilne podatke).\n\nZa više informacija pogledajte <a href="%2$s">ovaj unos u često postavljanim pitanjima</a>.</string>
     <string name="unsupported_content_in_country">Ovaj sadržaj nije dostupan za trenutno odabranu zemlju sadržaja.\n\nPromijenite odabir u \"Postavke &gt; Sadržaj &gt; Zadana zemlja sadržaja\".</string>
     <plurals name="export_subscriptions">

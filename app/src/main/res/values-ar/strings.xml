@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="background_player_playing_toast">يتم التشغيل في الخلفية</string>
     <string name="cancel">إلغاء</string>
     <string name="dark_theme_title">داكن</string>
     <string name="default_audio_format_title">صيغة الصوت الافتراضية</string>
@@ -39,8 +38,6 @@
     <string name="theme_title">السمة</string>
     <string name="upload_date_text">منشورة على %1$s</string>
     <string name="unsupported_url">رابط غير مدعوم</string>
-    <string name="use_external_audio_player_title">استخدام مشغل صوت خارجي</string>
-    <string name="use_external_video_player_title">استخدام مشغل فيديو خارجي</string>
     <string name="content_not_available">المحتوى غير متوفر</string>
     <string name="could_not_load_thumbnails">تعذر تحميل كافة الصور المصغرة</string>
     <string name="general_error">خطأ</string>
@@ -49,7 +46,6 @@
     <string name="subscribe_button_title">اشتراك</string>
     <string name="subscribed_button_title">مشترك</string>
     <string name="tab_subscriptions">الاشتراكات</string>
-    <string name="fragment_feed_title">ما الجديد</string>
     <string name="controls_background_title">في الخلفية</string>
     <string name="black_theme_title">أسود</string>
     <string name="enable_watch_history_title">سجل المشاهدة</string>
@@ -64,7 +60,6 @@
     <string name="title_activity_history">السجل</string>
     <string name="action_history">السجل</string>
     <string name="open_in_popup_mode">فتح في الوضع المنبثق</string>
-    <string name="use_external_video_player_summary">يزيل الصوت في بعض الجودات</string>
     <string name="channel_unsubscribed">تم إلغاء الاشتراك في القناة</string>
     <string name="subscription_change_failed">تعذر تغيير حالة الاشتراك</string>
     <string name="subscription_update_failed">تعذر تحديث الاشتراك</string>
@@ -84,8 +79,6 @@
     <string name="resume_on_audio_focus_gain_summary">متابعة التشغيل بعد المقاطعات (مثل المكالمات الهاتفية)</string>
     <string name="show_hold_to_append_title">إظهار تلميح \"اضغط للفتح\"</string>
     <string name="show_hold_to_append_summary">إظهار التلميح عند الضغط على الخلفية أو الزر المنبثق في الفيديو \"التفاصيل:\"</string>
-    <string name="settings_category_player_title">المشغل</string>
-    <string name="settings_category_player_behavior_title">السلوك</string>
     <string name="popup_playing_toast">تشغيل في وضع منبثق</string>
     <string name="show_age_restricted_content_title">محتوى مقيد للبالغين</string>
     <string name="duration_live">بث مباشر</string>
@@ -100,9 +93,6 @@
     <string name="unknown_content">[غير معروف]</string>
     <string name="could_not_setup_download_menu">تعذر إعداد قائمة التنزيل</string>
     <string name="app_ui_crash">تعطل التطبيق / واجهة المستخدم</string>
-    <string name="player_stream_failure">لا يمكن تشغيل هذا البث</string>
-    <string name="player_unrecoverable_failure">حدث خطأ للمشغل غير قابل للاسترداد</string>
-    <string name="player_recoverable_failure">استرداد المشغل من الخطأ</string>
     <string name="sorry_string">عذرًا، لم ينبغِ أن يحدث ذلك.</string>
     <string name="error_report_button_text">الإبلاغ عن طريق البريد الإلكتروني</string>
     <string name="error_snackbar_message">عذرًا، حدث خطأ ما.</string>
@@ -224,8 +214,6 @@
     <string name="could_not_import_all_files">تنبيه: تعذر استيراد كافة الملفات.</string>
     <string name="video_player">مشغل الفيديو</string>
     <string name="always_ask_open_action">السؤال دائمًا</string>
-    <string name="preferred_player_fetcher_notification_title">الحصول على المعلومات…</string>
-    <string name="preferred_player_fetcher_notification_message">تحميل المحتوى المطلوب</string>
     <string name="create_playlist">إنشاء قائمة تشغيل جديدة</string>
     <string name="rename_playlist">إعادة تسمية</string>
     <string name="name">التسمية</string>
@@ -277,7 +265,6 @@
     <string name="clear_search_history_summary">يحذف تاريخ البحث عن الكلمات الرئيسية</string>
     <string name="delete_search_history_alert">حذف سِجل البحث بالكامل؟</string>
     <string name="search_history_deleted">تم حذف سجل البحث</string>
-    <string name="external_player_unsupported_link_type">المشغل الخارجي لا يدعم هذه الأنواع من الروابط</string>
     <string name="invalid_source">لا يوجد الملف/مصدر المحتوى</string>
     <string name="invalid_file">الملف غير موجود أو الإذن بالقراءة أو الكتابة إليه غير موجود</string>
     <string name="no_streams_available_download">لا يوجد بث متاح للتنزيل</string>
@@ -470,43 +457,7 @@
         <item quantity="many">%d ثانية</item>
         <item quantity="other">%d ثانية</item>
     </plurals>
-    <string name="feed_use_dedicated_fetch_method_help_text">هل تعتقد أن تحميل التغذية بطيءٌ جدًا؟ إذا كان الأمر كذلك، فحاول تمكين التحميل السريع (يمكنك تغييره في الإعدادات أو بالضغط على الزر أدناه).
-\n
-\nيقدم NewPipe استراتيجيتين لتحميل الخلاصة:
-\n• جلب قناة الاشتراك بأكملها، وهي بطيئة ولكنها كاملة.
-\n• استخدام نقطة نهاية خدمة مخصصة، وهي سريعة ولكنها عادةً لا تكتمل.
-\n
-\nالفرق بين الاثنين هو أن العنصر السريع عادة ما يفتقر إلى بعض المعلومات، مثل مدة العنصر أو نوعه (لا يمكن التمييز بين مقاطع الفيديو المباشرة والأخرى العادية) وقد يعيد عناصر أقل.
-\n
-\nيوتيوب هو مثال على الخدمة التي تقدمها هذه طريقة سريعة مع تغذية RSS الخاصة بها.
-\n
-\nلذا فإن الاختيار يتلخص في ما تفضله: السرعة أو المعلومات الدقيقة.</string>
-    <string name="feed_use_dedicated_fetch_method_disable_button">تعطيل الوضع السريع</string>
-    <string name="feed_use_dedicated_fetch_method_enable_button">تمكين الوضع السريع</string>
-    <string name="feed_use_dedicated_fetch_method_summary">متوفر في بعض الخدمات، وعادةً ما يكون أسرع بكثير ولكن قد يُرجع كمية محدودة من العناصر وغالبًا ما تكون معلومات غير مكتملة (مثلًا بدون مدة أو نوع عنصر أو حالة مباشرة)</string>
-    <string name="feed_use_dedicated_fetch_method_title">جلب من تغذية مخصصة عندما تكون متاحة</string>
     <string name="feed_update_threshold_option_always_update">تحديث دائمًا</string>
-    <string name="feed_update_threshold_summary">الوقت بعد التحديث الأخير قبل اعتبار الاشتراك قديمًا — %s</string>
-    <string name="feed_update_threshold_title">عتبة تحديث التغذية</string>
-    <string name="settings_category_feed_title">تغذية</string>
-    <string name="feed_create_new_group_button_title">جديد</string>
-    <string name="feed_group_dialog_delete_message">هل تريد حذف هذه المجموعة؟</string>
-    <string name="feed_group_dialog_empty_name">اسم المجموعة فارغ</string>
-    <plurals name="feed_group_dialog_selection_count">
-        <item quantity="zero">لا تحديد</item>
-        <item quantity="one">عنصر واحد محدَّد</item>
-        <item quantity="two">عنصران محدَّدان</item>
-        <item quantity="few">%d عناصر محدَّدة</item>
-        <item quantity="many">%d عنصرًا محدَّدًا</item>
-        <item quantity="other">%d عنصر محدَّد</item>
-    </plurals>
-    <string name="feed_group_dialog_empty_selection">لم يتم تحديد اشتراك</string>
-    <string name="feed_group_dialog_select_subscriptions">حدد الاشتراكات</string>
-    <string name="feed_processing_message">يتم معالجة التغذية…</string>
-    <string name="feed_notification_loading">تحميل التغذية…</string>
-    <string name="feed_subscription_not_loaded_count">غير محمل: %d</string>
-    <string name="feed_oldest_subscription_update">آخر تحديث للتغذية: %s</string>
-    <string name="feed_groups_header_title">مجموعات القنوات</string>
     <plurals name="days">
         <item quantity="zero">%d يوم</item>
         <item quantity="one">%d يوم</item>
@@ -556,7 +507,6 @@
     <string name="channel_created_by">أنشأها %s</string>
     <string name="detail_sub_channel_thumbnail_view_description">الصورة الرمزية للقناة</string>
     <string name="playlist_page_summary">صفحة قائمة التشغيل</string>
-    <string name="feed_group_show_only_ungrouped_subscriptions">إظهار الاشتراكات غير المجمعة فقط</string>
     <string name="no_playlist_bookmarked_yet">لا توجد إشارات مرجعية لقائمة التشغيل حتى الآن</string>
     <string name="select_a_playlist">اختر قائمة تشغيل</string>
     <string name="error_report_open_github_notice">يرجى التحقق أولًا مما إذا كانت هناك مشكلة (issue) مطروحة بالفعل تتناول هذا العطل. إنشاء تذاكر مكررة يستهلك وقتًا كان يمكن استثماره في إصلاح الخطأ نفسه.</string>
@@ -646,12 +596,6 @@
     <string name="description_select_note">يمكنك الآن تحديد نص داخل الوصف. لاحظ أن الصفحة قد تومض وقد لا تكون الروابط قابلة للنقر أثناء وضع التحديد.</string>
     <string name="open_website_license">فتح الموقع</string>
     <string name="account_terminated">تم إنهاء الحساب</string>
-    <string name="feed_load_error_fast_unknown">لا يوفر وضع التغذية السريعة مزيدًا من المعلومات حول هذا الموضوع.</string>
-    <string name="feed_load_error_terminated">حساب منشئ المحتوى قد تم إنهائه.
-\nلن يتمكن NewPipe من تحميل هذه الخلاصة في المستقبل.
-\nهل تريد إلغاء الاشتراك من هذه القناة؟</string>
-    <string name="feed_load_error_account_info">تعذر تحميل تغذية لـ\'%s\'.</string>
-    <string name="feed_load_error">خطأ في تحميل الخلاصة</string>
     <string name="downloads_storage_use_saf_summary_api_29">بدءًا من Android 10، يتم دعم \"Storage Access Framework\" فقط</string>
     <string name="downloads_storage_ask_summary_no_saf_notice">سيتم سؤالك عن مكان حفظ كل تنزيل</string>
     <string name="no_dir_yet">لم يتم تعيين مجلد التحميل، الرجاء اختيار مجلد التحميل الافتراضي الآن</string>
@@ -684,18 +628,12 @@
         <item quantity="many">اكتملت التنزيلات%s</item>
         <item quantity="other">اكتملت التنزيلات%s</item>
     </plurals>
-    <string name="start_main_player_fullscreen_summary">لا تبدأ تشغيل مقاطع الفيديو في المشغل المصغر، ولكن قم بتدوير وضع ملء الشاشة مباشرة، إذا تم تأمين التدوير التلقائي. لا يزال بإمكانك الوصول إلى المشغل المصغر عن طريق الخروج من ملء الشاشة</string>
-    <string name="start_main_player_fullscreen_title">بدء تشغيل المشغل الرئيسي في وضع ملء الشاشة</string>
     <string name="enqueue_next_stream">وضع التالي على قائمة الانتظار</string>
     <string name="enqueued_next">تم وضع التالي على قائمة الانتظار</string>
     <string name="processing_may_take_a_moment">جاري المعالجة ... قد يستغرق لحظة</string>
     <string name="check_for_updates">التحقق من وجود تحديثات</string>
     <string name="manual_update_description">التحقق يدويًا من وجود إصدارات جديدة</string>
     <string name="checking_updates_toast">جاري التحقق من وجود تحديثات…</string>
-    <string name="feed_new_items">عناصر تغذية جديدة</string>
-    <string name="show_crash_the_player_summary">إظهار خيار تعطل عند استخدام المشغل</string>
-    <string name="show_crash_the_player_title">إظهار \"تعطل المشغل\"</string>
-    <string name="crash_the_player">تحطيم المشغل</string>
     <string name="error_report_channel_name">إشعار الإبلاغ عن الأخطاء</string>
     <string name="error_report_channel_description">التنبيهات المتعلقة بالإبلاغ عن الأخطاء</string>
     <string name="error_report_notification_title">واجه NewPipe خطأ، اضغط للتقرير</string>
@@ -709,12 +647,10 @@
     <string name="detail_pinned_comment_view_description">تعليق مثبت</string>
     <string name="leak_canary_not_available">LeakCanary غير متوفر</string>
     <string name="progressive_load_interval_exoplayer_default">الافتراضي ExoPlayer</string>
-    <string name="settings_category_player_notification_summary">تكوين إشعار مشغل البث الحالي</string>
     <string name="notifications">الإشعارات</string>
     <string name="loading_stream_details">تحميل تفاصيل البث…</string>
     <string name="notifications_disabled">تم تعطيل الإشعارات</string>
     <string name="streams_notification_channel_name">بث جديد</string>
-    <string name="settings_category_player_notification_title">إشعار المشغل</string>
     <string name="you_successfully_subscribed">لقد اشتركت الآن في هذه القناة</string>
     <string name="streams_notification_channel_description">الإخطارات حول البثوث الجديدة للاشتراكات</string>
     <string name="enable_streams_notifications_title">إشعارات أحداث البث الجديدة</string>
@@ -741,7 +677,6 @@
     <string name="selected_stream_external_player_not_supported">البث المحدد غير مدعوم من المشغلات الخارجية</string>
     <string name="no_audio_streams_available_for_external_players">لا توجد بثوث صوتية متاحة للمشغلات الخارجية</string>
     <string name="no_video_streams_available_for_external_players">لا تتوفر بثوث فيديو للمشغلات الخارجية</string>
-    <string name="select_quality_external_players">حدد الجودة للمشغلين الخارجيين</string>
     <string name="unknown_format">تنسيق غير معروف</string>
     <string name="unknown_quality">جودة غير معروفة</string>
     <string name="progressive_load_interval_title">حجم الفاصل الزمني لتحميل التشغيل</string>
@@ -762,13 +697,8 @@
     <string name="ignore_hardware_media_buttons_summary">مفيد ، على سبيل المثال ، إذا كنت تستخدم سماعة رأس بأزرار مادية مكسورة</string>
     <string name="ignore_hardware_media_buttons_title">تجاهل ضغطات أزرار الوسائط الفعلية على الجهاز</string>
     <string name="remove_duplicates_message">هل تريد إزالة جميع البثوث المكررة في قائمة التشغيل هذه؟</string>
-    <string name="feed_show_hide_streams">إظهار/إخفاء البثوث</string>
-    <string name="feed_show_partially_watched">تمت مشاهدته جزئيا</string>
-    <string name="feed_show_upcoming">القادمة</string>
     <string name="remove_duplicates">إزالة التكرارات</string>
     <string name="remove_duplicates_title">إزالة التكرارات؟</string>
-    <string name="feed_hide_streams_title">إظهار البثوث التالية</string>
-    <string name="feed_show_watched">شاهدت بالكامل</string>
     <string name="left_gesture_control_title">إجراء الإيماءة اليسرى</string>
     <string name="right_gesture_control_title">إجراء الإيماءة اليمنى</string>
     <string name="brightness">السطوع</string>
@@ -781,11 +711,7 @@
     <string name="play_queue_audio_track">الصوت : %s</string>
     <string name="audio_track">المسار الصوتي</string>
     <string name="audio_track_present_in_video">يجب أن يكون هناك مسار صوتي موجود بالفعل في هذا البث</string>
-    <string name="select_audio_track_external_players">حدد مسار الصوت للمشغلات الخارجية</string>
     <string name="unknown_audio_track">غير معروف</string>
-    <string name="settings_category_exoplayer_title">إعدادات ExoPlayer</string>
-    <string name="settings_category_exoplayer_summary">إدارة بعض إعدادات ExoPlayer. تتطلب هذه التغييرات إعادة تشغيل المشغل لتصبح سارية المفعول</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_title">استخدم دائمًا الحل البديل لإعداد سطح إخراج فيديو ExoPlayer</string>
     <string name="audio_track_name">%1$s %2$s</string>
     <string name="audio_track_type_original">الافتراضي</string>
     <string name="audio_track_type_dubbed">مدبلجة</string>
@@ -793,11 +719,6 @@
     <string name="prefer_original_audio_summary">حدد المسار الصوتي الأصلي بغض النظر عن اللغة</string>
     <string name="prefer_original_audio_title">تفضيل الصوت الأصلي</string>
     <string name="prefer_descriptive_audio_summary">حدد مسارًا صوتيًا يحتوي على أوصاف للأشخاص ضعاف البصر إذا كان ذلك متاحًا</string>
-    <string name="use_exoplayer_decoder_fallback_title">استخدم ميزة فك ترميز وحدة فك التشفير الاحتياطية في ExoPlayer</string>
-    <string name="use_exoplayer_decoder_fallback_summary">قم بتمكين هذا الخيار إذا كانت لديك مشكلات في تهيئة وحدة فك التشفير ، والتي تعود إلى أجهزة فك التشفير ذات الأولوية الأقل إذا فشلت تهيئة وحدات فك التشفير الأولية. قد ينتج عن ذلك أداء تشغيل ضعيف مقارنة باستخدام وحدات فك التشفير الأساسية</string>
-    <string name="always_use_exoplayer_set_output_surface_workaround_summary">يقوم هذا الحل البديل بتحرير وإعادة إنشاء نماذج برامج ترميز الفيديو عند حدوث تغيير في السطح، بدلا من تعيين السطح إلى برنامج الترميز مباشرة. تم استخدام هذا الإعداد بالفعل بواسطة ExoPlayer على بعض الأجهزة التي تعاني من هذه المشكلة ، وهذا الإعداد له تأثير فقط على Android 6 والإصدارات الأحدث
-\n
-\nقد يؤدي تمكين هذا الخيار إلى منع أخطاء التشغيل عند تبديل مشغل الفيديو الحالي أو التبديل إلى وضع ملء الشاشة</string>
     <string name="main_tabs_position_summary">انقل محدد علامة التبويب الرئيسي إلى الأسفل</string>
     <string name="main_tabs_position_title">موضع علامات التبويب الرئيسية</string>
     <string name="disable_media_tunneling_automatic_info">تم تعطيل نفق وسائل الإعلام عن طريق التقصير على جهازك لأن نموذج جهازك معروف بأنه لا يدعمه.</string>
@@ -819,7 +740,6 @@
     <string name="channel_tab_albums">الألبومات</string>
     <string name="rewind">إعادة المحتوى</string>
     <string name="replay">إعادة التشغيل</string>
-    <string name="feed_fetch_channel_tabs_summary">علامات التبويب لجلبها عند تحديث الخلاصة. ليس لهذا الخيار أي تأثير إذا تم تحديث القناة باستخدام الوضع السريع.</string>
     <string name="channel_tab_playlists">قوائم التشغيل</string>
     <string name="play">شغِّل</string>
     <string name="more_options">المزيد من الخيارات</string>
@@ -872,9 +792,6 @@
     <string name="audio_track_type_secondary">الثانوي</string>
     <string name="share_playlist_as_youtube_temporary_playlist">المشاركة كقائمة تشغيل مؤقتة على YouTube</string>
     <string name="tab_bookmarks_short">قوائم التشغيل</string>
-    <string name="feed_group_page_summary">صفحة مجموعة القناة</string>
-    <string name="select_a_feed_group">حدد مجموعة المحتوى</string>
-    <string name="no_feed_group_created_yet">لم تنشئ مجموعة محتوى</string>
     <string name="channel_tab_likes">الإعجابات</string>
     <string name="search_with_service_name">البحث %1$s</string>
     <string name="search_with_service_name_and_filter">البحث %1$s (%2$s)</string>
@@ -895,9 +812,6 @@
     <string name="delete_entry">حذف المدخلات</string>
     <string name="account_terminated_service_provides_reason">تم إنهاء الحساب\n\n%1$s يقدم هذا السبب: %2$s</string>
     <string name="entry_deleted">تم حذف المدخلات</string>
-    <string name="player_http_403">تم تلقي خطأ HTTP 403 من الخادم أثناء التشغيل، ويرجح أن يكون السبب هو انتهاء صلاحية عنوان URL للبث أو حظر عنوان IP</string>
-    <string name="player_http_invalid_status">حدث خطأ HTTP %1$s من الخادم أثناء التشغيل</string>
-    <string name="youtube_player_http_403">تم تلقي خطأ HTTP 403 من الخادم أثناء التشغيل، ويرجح أن يكون السبب هو حظر عنوان IP أو مشكلات في إزالة التعتيم عن عنوان URL للبث</string>
     <string name="sign_in_confirm_not_bot_error">رفض %1$s تقديم البيانات، وطلب تسجيل الدخول للتأكد من أن الطالب ليس روبوتًا.\n\nربما تم حظر عنوان IP الخاص بك مؤقتًا من قبل %1$s، يمكنك الانتظار بعض الوقت أو التبديل إلى عنوان IP مختلف (على سبيل المثال عن طريق تشغيل/إيقاف تشغيل VPN، أو التبديل من WiFi إلى بيانات الهاتف المحمول).\n\nيرجى الاطلاع على <a href="%2$s">هذا السؤال الشائع</a> لمزيد من المعلومات.</string>
     <string name="unsupported_content_in_country">هذا المحتوى غير متاح للبلد المحدد حاليًا.\n\nقم بتغيير اختيارك من ”الإعدادات &gt; المحتوى &gt; البلد الافتراضي للمحتوى“.</string>
     <string name="kao_dialog_warning">أعلنت Google أنه ابتداءً من عام 2026/2027، ستتطلب جميع التطبيقات على الأجهزة المعتمدة من Android من المطورين تقديم معلومات هويتهم الشخصية مباشرةً إلى Google. بما أن مطوري هذا التطبيق لا يوافقون على هذا الشرط، فلن يعمل هذا التطبيق على أجهزة Android المعتمدة بعد ذلك الوقت.</string>

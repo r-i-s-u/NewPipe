@@ -60,13 +60,10 @@
     <string name="show_age_restricted_content_title">বয়স সীমাবদ্ধ কন্টেন্ট দেখাও</string>
     <string name="content">কন্টেন্ট</string>
     <string name="popup_playing_toast">পপআপ মোডে চলছে</string>
-    <string name="background_player_playing_toast">ব্যাকগ্রাউন্ডে চলছে</string>
     <string name="settings_category_debug_title">ডিবাগ</string>
     <string name="settings_category_appearance_title">অ্যাপিয়ারেন্স</string>
     <string name="settings_category_history_title">ইতিহাস ও ক্যচ</string>
     <string name="settings_category_video_audio_title">ভিডিও এবং অডিও</string>
-    <string name="settings_category_player_behavior_title">ব্যাবহার</string>
-    <string name="settings_category_player_title">প্লেয়ার</string>
     <string name="content_language_title">কন্টেন্ট এর জন্য পছন্দসই ভাষা</string>
     <string name="unsupported_url">URL সমর্থিত নয়</string>
     <string name="show_next_and_similar_title">পরবর্তী এবং অনুরূপ ভিডিওগুলি দেখাও</string>
@@ -118,9 +115,6 @@
     <string name="unsubscribe">আনসাবস্ক্রাইব</string>
     <string name="subscribed_button_title">সাবস্ক্রাইব করা আছে</string>
     <string name="subscribe_button_title">সাবস্ক্রাইব</string>
-    <string name="use_external_audio_player_title">বহির্গত অডিও প্লেয়ার ব্যবহার করুন</string>
-    <string name="use_external_video_player_summary">কিছু কিছু রেজোলিউশনে অডিও বন্ধ করে দেয়</string>
-    <string name="use_external_video_player_title">বাইরের ভিডিও প্লেয়ার ব্যবহার করুন</string>
     <string name="share_dialog_title">শেয়ার করুন</string>
     <string name="did_you_mean">আপনি কি বুঝিয়েছেন \"%1$s\"\?</string>
     <string name="settings">সেটিংস</string>
@@ -136,8 +130,6 @@
     <string name="no_player_found">কোন স্ট্রিম প্লেয়ার পাওয়া যায়নি। VLC ইনস্টল করতে চান\?</string>
     <string name="upload_date_text">প্রকাশকাল %1$s</string>
     <string name="main_bg_subtitle">অনুসন্ধান শুরু করুন</string>
-    <string name="feed_create_new_group_button_title">নতুন</string>
-    <string name="fragment_feed_title">নতুন কি</string>
     <string name="app_language_title">অ্যাপ এর ভাষা</string>
     <string name="stop">বন্ধ করুন</string>
     <string name="clear_download_history">ডাওন লোড ইতিহাস মুছুন</string>
@@ -212,8 +204,6 @@
     <string name="error_occurred_detail">একটা এরর হয়েছেঃ %1$s</string>
     <string name="missing_file">ফাইল সরে গেছে না হয় মুছে ফেলা হয়েছে</string>
     <string name="audio_streams_empty">কোন অডিও স্ট্রিম পাওয়া যায় নি</string>
-    <string name="player_recoverable_failure">প্লেয়ার এর এরর থেকে বেরিয়ে আসুন</string>
-    <string name="player_stream_failure">স্ট্রিম টি চালানো গেল না</string>
     <string name="clear_search_history_summary">সার্চের ইতিহাস মোছা হয়</string>
     <string name="watch_history_states_deleted">প্লে ব্যাক এর অবস্থান মোছা হয়েছে</string>
     <string name="delete_playback_states_alert">সমস্ত প্লে লিস্ট এর অবস্থান মুছবেন\?</string>
@@ -262,7 +252,6 @@
     <string name="enable_search_history_summary">সার্চ গুলি স্থানীয় ভাবে জমা করুন</string>
     <string name="show_search_suggestions_summary">সার্চ এর সময় সাজেশন পছন্দ করুন</string>
     <string name="show_search_suggestions_title">সার্চ সাজেশন</string>
-    <string name="feed_notification_loading">ফিড লোড হচ্ছে…</string>
     <string name="show_error">এরর দেখান</string>
     <string name="select_a_playlist">একটি প্লে লিস্ট পছন্দ করুন</string>
     <string name="tab_about">সম্পর্কিত</string>
@@ -296,7 +285,6 @@
     <string name="unsupported_url_dialog_message">URL বোঝা যায় নি, অন্য অ্যাপ এ খুলুন\?</string>
     <string name="error_file_creation">ফাইল তৈরি করা যাচ্ছে না</string>
     <string name="show_description_summary">ভিডিও বিবরণ ও বাড়তি তথ্য বন্ধ করুন</string>
-    <string name="start_main_player_fullscreen_title">মূল প্লেয়ার ফুল স্ক্রীন এ শুরু করুন</string>
     <string name="peertube_instance_add_fail">" "</string>
     <string name="error_connect_host">সার্ভার এর সাথে যোগাযোগ করা যাচ্ছে না</string>
     <string name="notification_action_buffering">বাফার হচ্ছে</string>
