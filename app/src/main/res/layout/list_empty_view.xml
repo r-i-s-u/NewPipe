@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
+        android:id="@+id/empty_subtitle"
         android:text="@string/empty_downloads_subtitle"
         android:textColor="?android:attr/textColorSecondary"
         android:textSize="14sp" />

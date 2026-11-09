@@ -366,7 +366,8 @@
     <string name="mission_today" translatable="false">Today</string>
     <string name="mission_yesterday" translatable="false">Yesterday</string>
     <string name="empty_downloads_title">No downloads yet</string>
-    <string name="empty_downloads_subtitle">Videos and audio you download will appear here</string>
+    <string name="empty_downloads_subtitle">Videos you download will appear here</string>
+    <string name="empty_downloads_subtitle_audio">Audio you download will appear here</string>
     <string name="videos_title">Videos</string>
     <string name="mission_sel_videos" translatable="false">%d video(s)</string>
     <string name="mission_sel_audios" translatable="false">%d audio file(s)</string>

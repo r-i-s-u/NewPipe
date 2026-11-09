@@ -151,6 +151,22 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         mHidden = new ArrayList<>();
 
+        registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                postEmptyCheck();
+            }
+
+            @Override
+            public void onItemRangeInserted(final int positionStart, final int itemCount) {
+                postEmptyCheck();
+            }
+
+            @Override
+            public void onItemRangeRemoved(final int positionStart, final int itemCount) {
+                postEmptyCheck();
+            }
+        });
         checkEmptyMessageVisibility();
         onResume();
     }
@@ -1092,6 +1108,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         mPauseButton = pauseButton;
 
         if (init) checkMasterButtonsVisibility();
+    }
+
+    private void postEmptyCheck() {
+        if (mView != null) {
+            mView.post(this::checkEmptyMessageVisibility);
+        }
     }
 
     private void checkEmptyMessageVisibility() {

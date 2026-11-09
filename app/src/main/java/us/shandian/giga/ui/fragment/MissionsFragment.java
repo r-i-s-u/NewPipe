@@ -97,6 +97,17 @@ public class MissionsFragment extends Fragment {
 
     };
 
+    private void updateEmptyText() {
+        if (mEmpty == null) {
+            return;
+        }
+        final android.widget.TextView sub = mEmpty.findViewById(R.id.empty_subtitle);
+        if (sub != null) {
+            sub.setText(mKind == 1 ? R.string.empty_downloads_subtitle_audio
+                    : R.string.empty_downloads_subtitle);
+        }
+    }
+
     private void switchKind(final boolean toAudio) {
         final int kind = toAudio ? 1 : 2;
         if (kind == mKind || mAdapter == null || mList == null) {
@@ -125,6 +136,7 @@ public class MissionsFragment extends Fragment {
                             mList.getItemAnimator();
                     mList.setItemAnimator(null);
                     mAdapter.setKindFilter(kind);
+                    updateEmptyText();
                     mList.scrollToPosition(0);
                     mList.postDelayed(() -> {
                         if (mList != null) {
@@ -151,6 +163,7 @@ public class MissionsFragment extends Fragment {
 
         // Views
         mEmpty = v.findViewById(R.id.list_empty_view);
+        updateEmptyText();
         mList = v.findViewById(R.id.mission_recycler);
 
         final android.view.GestureDetector swipe = new android.view.GestureDetector(
