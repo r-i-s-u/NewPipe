@@ -136,7 +136,7 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
             final boolean portrait = getResources().getConfiguration().orientation
                     == Configuration.ORIENTATION_PORTRAIT;
             dialog.getBehavior().setFitToContents(false);
-            dialog.getBehavior().setExpandedOffset((int) ((portrait ? 24 : 24)
+            dialog.getBehavior().setExpandedOffset((int) ((portrait ? 48 : 48)
                     * getResources().getDisplayMetrics().density));
             dialog.getBehavior().setState(
                     com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
@@ -146,7 +146,6 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
             dialog.getBehavior().setMaxWidth(-1);
             final Window w = dialog.getWindow();
             if (w != null) {
-                w.setWindowAnimations(0);
                 w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                 w.setDimAmount(0.5f);
             }
