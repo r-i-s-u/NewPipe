@@ -1,6 +1,7 @@
 package org.schabi.newpipe.settings;
 
 import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,10 +121,16 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                     com.google.android.material.R.id.design_bottom_sheet);
             if (sheet != null) {
                 sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-                sheet.setBackgroundTintList(
-                        android.content.res.ColorStateList.valueOf(
-                                androidx.core.content.ContextCompat.getColor(
-                                        requireContext(), R.color.dl_chip_on)));
+                final float radius = 28 * getResources().getDisplayMetrics().density;
+                final GradientDrawable background = new GradientDrawable();
+                background.setColor(
+                        androidx.core.content.ContextCompat.getColor(
+                                requireContext(), R.color.dl_bottom_bg));
+                background.setCornerRadii(new float[]{
+                        radius, radius, radius, radius,
+                        0, 0, 0, 0
+                });
+                sheet.setBackground(background);
                 sheet.requestLayout();
             }
             final boolean portrait = getResources().getConfiguration().orientation
@@ -136,10 +143,10 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
             dialog.getBehavior().setSkipCollapsed(true);
             final boolean land = getResources().getConfiguration().orientation
                     == Configuration.ORIENTATION_LANDSCAPE;
-            dialog.getBehavior().setMaxWidth(land
-                    ? (int) (getResources().getDisplayMetrics().widthPixels * 0.42f) : -1);
+            dialog.getBehavior().setMaxWidth(-1);
             final Window w = dialog.getWindow();
             if (w != null) {
+                w.setWindowAnimations(0);
                 w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                 w.setDimAmount(0.5f);
             }
