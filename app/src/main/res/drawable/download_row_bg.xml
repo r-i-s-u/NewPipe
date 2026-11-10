@@ -2,7 +2,7 @@
 <animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/row_pressed" android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/sheet_row_pressed" />
+            <solid android:color="@android:color/transparent" />
         </shape>
     </item>
     <item android:id="@+id/row_normal">
@@ -12,28 +12,10 @@
     </item>
     <transition android:fromId="@id/row_pressed" android:toId="@id/row_normal">
         <animation-list android:oneshot="true">
-            <item android:duration="120">
-                <layer-list>
-                    <item>
-<shape android:shape="rectangle">
-                    <solid android:color="@color/sheet_row_pressed" />
+            <item android:duration="320">
+                <shape android:shape="rectangle">
+                    <stroke android:width="1dp" android:color="@color/stroke_color" />
                 </shape>
-                    </item>
-                    <item android:left="-2dp" android:right="-2dp">
-                        <shape android:shape="rectangle">
-                            <stroke android:width="1dp" android:color="@color/stroke_color" />
-                        </shape>
-                    </item>
-                </layer-list>
-            </item>
-            <item android:duration="220">
-                <layer-list>
-                    <item android:left="-2dp" android:right="-2dp">
-                        <shape android:shape="rectangle">
-                            <stroke android:width="1dp" android:color="@color/stroke_color" />
-                        </shape>
-                    </item>
-                </layer-list>
             </item>
             <item android:duration="1">
                 <shape android:shape="rectangle">
