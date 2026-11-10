@@ -2,21 +2,35 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/sheet_row_pressed">
     <item>
-        <selector>
-            <item android:state_pressed="true">
-                <inset android:inset="2dp">
-                    <shape android:shape="oval">
-                        <solid android:color="@android:color/transparent" />
-                        <stroke android:width="1dp" android:color="@color/stroke_color" />
-                    </shape>
-                </inset>
-            </item>
-            <item>
+        <animated-selector>
+            <item android:id="@+id/icon_pressed" android:state_pressed="true">
                 <shape android:shape="oval">
                     <solid android:color="@android:color/transparent" />
                 </shape>
             </item>
-        </selector>
+            <item android:id="@+id/icon_normal">
+                <shape android:shape="oval">
+                    <solid android:color="@android:color/transparent" />
+                </shape>
+            </item>
+            <transition android:fromId="@id/icon_pressed" android:toId="@id/icon_normal">
+                <animation-list android:oneshot="true">
+                    <item android:duration="320">
+                        <inset android:inset="2dp">
+                            <shape android:shape="oval">
+                                <solid android:color="@android:color/transparent" />
+                                <stroke android:width="1dp" android:color="@color/stroke_color" />
+                            </shape>
+                        </inset>
+                    </item>
+                    <item android:duration="1">
+                        <shape android:shape="oval">
+                            <solid android:color="@android:color/transparent" />
+                        </shape>
+                    </item>
+                </animation-list>
+            </transition>
+        </animated-selector>
     </item>
     <item android:id="@android:id/mask">
         <inset android:inset="2dp">
