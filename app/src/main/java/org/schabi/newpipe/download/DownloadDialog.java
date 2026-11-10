@@ -1,5 +1,13 @@
 package org.schabi.newpipe.download;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.Button;
+import android.util.TypedValue;
+import android.graphics.drawable.GradientDrawable;
 import static org.schabi.newpipe.extractor.stream.DeliveryMethod.PROGRESSIVE_HTTP;
 import static org.schabi.newpipe.util.ListHelper.getStreamsOfSpecifiedDelivery;
 
@@ -462,38 +470,159 @@ public class DownloadDialog extends BottomSheetDialogFragment
         });
     }
 
+    private int sheetDp(final float value) {
+        return (int) (value * getResources().getDisplayMetrics().density + 0.5f);
+    }
+
+    private BottomSheetDialog createUtilitySheet(final String title,
+                                                  final LinearLayout body) {
+        final BottomSheetDialog dialog =
+                new BottomSheetDialog(requireContext(), R.style.DownloadSheetTheme);
+
+        final LinearLayout root = new LinearLayout(requireContext());
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        final View handle = new View(requireContext());
+        handle.setBackgroundResource(R.drawable.bg_handle);
+        final LinearLayout.LayoutParams handleParams =
+                new LinearLayout.LayoutParams(sheetDp(40), sheetDp(4));
+        handleParams.gravity = android.view.Gravity.CENTER_HORIZONTAL;
+        handleParams.topMargin = sheetDp(8);
+        root.addView(handle, handleParams);
+
+        final LinearLayout toolbar = new LinearLayout(requireContext());
+        toolbar.setGravity(android.view.Gravity.CENTER_VERTICAL);
+        toolbar.setOrientation(LinearLayout.HORIZONTAL);
+        toolbar.setPadding(sheetDp(24), 0, sheetDp(8), 0);
+
+        final TextView heading = new TextView(requireContext());
+        heading.setText(title);
+        heading.setTextSize(22);
+        heading.setTypeface(android.graphics.Typeface.DEFAULT,
+                android.graphics.Typeface.BOLD);
+        heading.setTextColor(androidx.core.content.ContextCompat.getColor(
+                requireContext(), R.color.dl_text_primary));
+        heading.setGravity(android.view.Gravity.CENTER_VERTICAL);
+        toolbar.addView(heading, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.MATCH_PARENT, 1));
+
+        final ImageView close = new ImageView(requireContext());
+        close.setImageResource(R.drawable.ic_close);
+        close.setPadding(sheetDp(12), sheetDp(12), sheetDp(12), sheetDp(12));
+        close.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        close.setContentDescription(getString(android.R.string.cancel));
+        close.setOnClickListener(v -> dialog.dismiss());
+        toolbar.addView(close, new LinearLayout.LayoutParams(
+                sheetDp(48), sheetDp(48)));
+
+        final LinearLayout.LayoutParams toolbarParams =
+                new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, sheetDp(56));
+        toolbarParams.topMargin = sheetDp(16);
+        root.addView(toolbar, toolbarParams);
+
+        root.addView(body, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        root.setPadding(0, 0, 0, sheetDp(16));
+        dialog.setContentView(root);
+
+        dialog.setOnShowListener(d -> {
+            final View sheet = dialog.findViewById(
+                    com.google.android.material.R.id.design_bottom_sheet);
+            if (sheet != null) {
+                final TypedValue colorValue = new TypedValue();
+                requireContext().getTheme().resolveAttribute(
+                        R.attr.dl_bottom_bg, colorValue, true);
+                final int color = colorValue.resourceId != 0
+                        ? androidx.core.content.ContextCompat.getColor(
+                                requireContext(), colorValue.resourceId)
+                        : colorValue.data;
+
+                final GradientDrawable background = new GradientDrawable();
+                background.setColor(color);
+                final float radius = sheetDp(28);
+                background.setCornerRadii(new float[]{
+                        radius, radius, radius, radius, 0, 0, 0, 0
+                });
+                sheet.setBackground(background);
+                sheet.setClipToOutline(true);
+            }
+
+            dialog.getBehavior().setFitToContents(true);
+            dialog.getBehavior().setSkipCollapsed(true);
+            dialog.getBehavior().setState(
+                    com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
+        });
+
+        return dialog;
+    }
+
     private void showRenameDialog() {
-        final android.widget.EditText input = new android.widget.EditText(requireContext());
+        final EditText input = new EditText(requireContext());
         input.setSingleLine(false);
         input.setMaxLines(4);
         input.setText(dialogBinding.fileName.getText());
         input.setSelection(input.getText().length());
 
-        final int pad = (int) (24 * getResources().getDisplayMetrics().density);
-        final android.widget.FrameLayout box = new android.widget.FrameLayout(requireContext());
-        box.setPadding(pad, pad / 2, pad, 0);
-        box.addView(input);
+        final LinearLayout body = new LinearLayout(requireContext());
+        body.setOrientation(LinearLayout.VERTICAL);
+        body.setPadding(sheetDp(24), sheetDp(12), sheetDp(24), 0);
+        body.addView(input, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                .setTitle(R.string.msg_name)
-                .setView(box)
-                .setPositiveButton(android.R.string.ok, (dlg, which) -> {
-                    final String name = input.getText().toString().replace("\n", "").trim();
-                    if (!name.isEmpty() && dialogBinding != null) {
-                        dialogBinding.fileName.setText(name);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        final LinearLayout actions = new LinearLayout(requireContext());
+        actions.setGravity(android.view.Gravity.END | android.view.Gravity.CENTER_VERTICAL);
+        actions.setPadding(0, sheetDp(16), 0, 0);
+
+        final Button cancel = new Button(requireContext());
+        cancel.setText(android.R.string.cancel);
+        cancel.setOnClickListener(v -> {
+            final Object tag = v.getTag();
+            if (tag instanceof BottomSheetDialog) {
+                ((BottomSheetDialog) tag).dismiss();
+            }
+        });
+
+        final Button ok = new Button(requireContext());
+        ok.setText(android.R.string.ok);
+
+        actions.addView(cancel);
+        actions.addView(ok);
+        body.addView(actions);
+
+        final BottomSheetDialog dialog = createUtilitySheet(
+                getString(R.string.msg_name), body);
+        cancel.setTag(dialog);
+
+        ok.setOnClickListener(v -> {
+            final String name = input.getText().toString()
+                    .replace("\n", "").trim();
+            if (!name.isEmpty() && dialogBinding != null) {
+                dialogBinding.fileName.setText(name);
+            }
+            dialog.dismiss();
+        });
+
+        dialog.show();
     }
 
     private void showThreadsDialog() {
-        final android.widget.TextView label = new android.widget.TextView(requireContext());
+        final LinearLayout body = new LinearLayout(requireContext());
+        body.setOrientation(LinearLayout.VERTICAL);
+        body.setPadding(sheetDp(24), sheetDp(12), sheetDp(24), 0);
+
+        final TextView label = new TextView(requireContext());
         label.setTextSize(16);
         final SeekBar bar = new SeekBar(requireContext());
         bar.setMax(dialogBinding.threads.getMax());
         bar.setProgress(dialogBinding.threads.getProgress());
         label.setText(String.valueOf(bar.getProgress() + 1));
+
         bar.setOnSeekBarChangeListener(new SimpleOnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(@NonNull final SeekBar seekbar,
@@ -506,18 +635,23 @@ public class DownloadDialog extends BottomSheetDialogFragment
             }
         });
 
-        final android.widget.LinearLayout box = new android.widget.LinearLayout(requireContext());
-        box.setOrientation(android.widget.LinearLayout.VERTICAL);
-        final int pad = (int) (24 * getResources().getDisplayMetrics().density);
-        box.setPadding(pad, pad / 2, pad, 0);
-        box.addView(label);
-        box.addView(bar);
+        body.addView(label);
+        body.addView(bar, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                .setTitle(R.string.msg_threads)
-                .setView(box)
-                .setPositiveButton(android.R.string.ok, null)
-                .show();
+        final LinearLayout actions = new LinearLayout(requireContext());
+        actions.setGravity(android.view.Gravity.END | android.view.Gravity.CENTER_VERTICAL);
+        actions.setPadding(0, sheetDp(12), 0, 0);
+
+        final Button ok = new Button(requireContext());
+        ok.setText(android.R.string.ok);
+        actions.addView(ok);
+        body.addView(actions);
+
+        final BottomSheetDialog dialog = createUtilitySheet(
+                getString(R.string.msg_threads), body);
+        ok.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
     }
 
     private void showLanguageDialog() {
