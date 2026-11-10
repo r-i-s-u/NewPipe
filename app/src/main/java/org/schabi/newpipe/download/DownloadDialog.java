@@ -474,6 +474,21 @@ public class DownloadDialog extends BottomSheetDialogFragment
         return (int) (value * getResources().getDisplayMetrics().density + 0.5f);
     }
 
+    
+
+    
+
+    private android.content.res.ColorStateList sheetTextColor() {
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        requireContext().getTheme().resolveAttribute(
+                android.R.attr.textColorPrimary, tv, true);
+        if (tv.resourceId != 0) {
+            return androidx.core.content.ContextCompat.getColorStateList(
+                    requireContext(), tv.resourceId);
+        }
+        return android.content.res.ColorStateList.valueOf(tv.data);
+    }
+
     private BottomSheetDialog createUtilitySheet(final String title,
                                                  final LinearLayout body) {
         return createUtilitySheet(title, body, null);
@@ -494,7 +509,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         final View handle = new View(requireContext());
         handle.setBackgroundResource(R.drawable.bg_handle);
         final LinearLayout.LayoutParams handleParams =
-                new LinearLayout.LayoutParams(sheetDp(40), sheetDp(4));
+                new LinearLayout.LayoutParams(sheetDp(36), sheetDp(4));
         handleParams.gravity = android.view.Gravity.CENTER_HORIZONTAL;
         handleParams.topMargin = sheetDp(8);
         root.addView(handle, handleParams);
@@ -502,21 +517,22 @@ public class DownloadDialog extends BottomSheetDialogFragment
         final LinearLayout toolbar = new LinearLayout(requireContext());
         toolbar.setGravity(android.view.Gravity.CENTER_VERTICAL);
         toolbar.setOrientation(LinearLayout.HORIZONTAL);
-        toolbar.setPadding(sheetDp(24), 0, sheetDp(16), 0);
+        toolbar.setPadding(sheetDp(24), sheetDp(12), sheetDp(12), sheetDp(4));
+        toolbar.setMinimumHeight(sheetDp(64));
 
         final TextView heading = new TextView(requireContext());
         heading.setText(title);
-        heading.setTextSize(22);
-        heading.setTextColor(android.graphics.Color.WHITE);
-        heading.setGravity(android.view.Gravity.CENTER_VERTICAL);
+        heading.setTextSize(20);
+        heading.setTextColor(sheetTextColor());
         toolbar.addView(heading, new LinearLayout.LayoutParams(
-                0, ViewGroup.LayoutParams.MATCH_PARENT, 1));
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
         if (onConfirm != null) {
             final ImageView confirm = new ImageView(requireContext());
             confirm.setImageResource(R.drawable.ic_tick);
-            confirm.setPadding(sheetDp(10), sheetDp(10), sheetDp(10), sheetDp(10));
-            confirm.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            confirm.setImageTintList(sheetTextColor());
+            confirm.setBackgroundResource(R.drawable.download_icon_bg);
+            confirm.setPadding(sheetDp(12), sheetDp(12), sheetDp(12), sheetDp(12));
             confirm.setContentDescription(getString(android.R.string.ok));
             confirm.setOnClickListener(v -> {
                 onConfirm.run();
@@ -526,11 +542,9 @@ public class DownloadDialog extends BottomSheetDialogFragment
                     sheetDp(48), sheetDp(48)));
         }
 
-        final LinearLayout.LayoutParams toolbarParams =
-                new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, sheetDp(56));
-        toolbarParams.topMargin = sheetDp(16);
-        root.addView(toolbar, toolbarParams);
+        root.addView(toolbar, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
 
         root.addView(body, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -542,15 +556,40 @@ public class DownloadDialog extends BottomSheetDialogFragment
         dialog.setOnShowListener(d -> {
             final View sheetView = dialog.findViewById(
                     com.google.android.material.R.id.design_bottom_sheet);
+            final android.app.Dialog mainDialog = getDialog();
+            final View mainSheet = mainDialog == null ? null : mainDialog.findViewById(
+                    com.google.android.material.R.id.design_bottom_sheet);
+
             if (sheetView != null) {
-                final GradientDrawable background = new GradientDrawable();
-                background.setColor(android.graphics.Color.BLACK);
-                final float radius = sheetDp(28);
-                background.setCornerRadii(new float[]{
-                        radius, radius, radius, radius, 0, 0, 0, 0
-                });
-                sheetView.setBackground(background);
+                if (mainSheet != null && mainSheet.getBackground() != null
+                        && mainSheet.getBackground().getConstantState() != null) {
+                    sheetView.setBackground(mainSheet.getBackground()
+                            .getConstantState().newDrawable().mutate());
+                } else {
+                    final GradientDrawable background = new GradientDrawable();
+                    background.setColor(androidx.core.content.ContextCompat.getColor(
+                            requireContext(), R.color.dl_bottom_bg));
+                    final float radius = sheetDp(28);
+                    background.setCornerRadii(new float[]{
+                            radius, radius, radius, radius, 0, 0, 0, 0
+                    });
+                    sheetView.setBackground(background);
+                }
                 sheetView.setClipToOutline(true);
+
+                final ViewGroup.LayoutParams lp = sheetView.getLayoutParams();
+                final ViewGroup.LayoutParams mlp =
+                        mainSheet == null ? null : mainSheet.getLayoutParams();
+                if (lp instanceof ViewGroup.MarginLayoutParams
+                        && mlp instanceof ViewGroup.MarginLayoutParams) {
+                    final ViewGroup.MarginLayoutParams a = (ViewGroup.MarginLayoutParams) lp;
+                    final ViewGroup.MarginLayoutParams m = (ViewGroup.MarginLayoutParams) mlp;
+                    a.width = m.width;
+                    a.leftMargin = m.leftMargin;
+                    a.rightMargin = m.rightMargin;
+                    a.bottomMargin = m.bottomMargin;
+                    sheetView.setLayoutParams(a);
+                }
             }
 
             dialog.getBehavior().setFitToContents(true);
@@ -566,13 +605,13 @@ public class DownloadDialog extends BottomSheetDialogFragment
         final EditText input = new EditText(requireContext());
         input.setSingleLine(false);
         input.setMaxLines(4);
-        input.setTextColor(android.graphics.Color.WHITE);
+        input.setTextColor(sheetTextColor());
         input.setText(dialogBinding.fileName.getText());
         input.setSelection(input.getText().length());
 
         final LinearLayout body = new LinearLayout(requireContext());
         body.setOrientation(LinearLayout.VERTICAL);
-        body.setPadding(sheetDp(24), sheetDp(12), sheetDp(24), 0);
+        body.setPadding(sheetDp(24), sheetDp(8), sheetDp(24), 0);
         body.addView(input, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -590,11 +629,11 @@ public class DownloadDialog extends BottomSheetDialogFragment
     private void showThreadsDialog() {
         final LinearLayout body = new LinearLayout(requireContext());
         body.setOrientation(LinearLayout.VERTICAL);
-        body.setPadding(sheetDp(24), sheetDp(12), sheetDp(24), sheetDp(8));
+        body.setPadding(sheetDp(24), sheetDp(8), sheetDp(24), sheetDp(12));
 
         final TextView label = new TextView(requireContext());
         label.setTextSize(16);
-        label.setTextColor(android.graphics.Color.WHITE);
+        label.setTextColor(sheetTextColor());
         final SeekBar bar = new SeekBar(requireContext());
         bar.setMax(dialogBinding.threads.getMax());
         bar.setProgress(dialogBinding.threads.getProgress());
@@ -638,9 +677,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
             rb.setText(org.schabi.newpipe.util.Localization.audioTrackName(
                     requireContext(), audioTrackAdapter.getItem(i).get(0)));
             rb.setTextSize(18);
-            rb.setTextColor(android.graphics.Color.WHITE);
-            rb.setButtonTintList(android.content.res.ColorStateList.valueOf(
-                    android.graphics.Color.WHITE));
+            rb.setTextColor(sheetTextColor());
             rb.setPadding(sheetDp(16), 0, 0, 0);
             rb.setChecked(index == selectedAudioTrackIndex);
             rb.setOnClickListener(v -> {
@@ -663,7 +700,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
         final LinearLayout body = new LinearLayout(requireContext());
         body.setOrientation(LinearLayout.VERTICAL);
-        body.setPadding(sheetDp(24), sheetDp(4), sheetDp(24), 0);
+        body.setPadding(sheetDp(24), 0, sheetDp(24), 0);
         body.addView(scroll, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
