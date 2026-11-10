@@ -120,12 +120,16 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                     com.google.android.material.R.id.design_bottom_sheet);
             if (sheet != null) {
                 sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+                sheet.setBackgroundTintList(
+                        android.content.res.ColorStateList.valueOf(
+                                androidx.core.content.ContextCompat.getColor(
+                                        requireContext(), R.color.dl_chip_on)));
                 sheet.requestLayout();
             }
             final boolean portrait = getResources().getConfiguration().orientation
                     == Configuration.ORIENTATION_PORTRAIT;
             dialog.getBehavior().setFitToContents(false);
-            dialog.getBehavior().setExpandedOffset((int) ((portrait ? 88 : 24)
+            dialog.getBehavior().setExpandedOffset((int) ((portrait ? 24 : 24)
                     * getResources().getDisplayMetrics().density));
             dialog.getBehavior().setState(
                     com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
