@@ -4,6 +4,7 @@
     android:layout_height="48dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
+    android:background="@drawable/mission_menu_row_bg"
     android:paddingLeft="20dp"
     android:paddingRight="24dp">
 
