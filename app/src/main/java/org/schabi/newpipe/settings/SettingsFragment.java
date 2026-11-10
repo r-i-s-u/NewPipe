@@ -289,4 +289,16 @@ public class SettingsFragment extends androidx.preference.PreferenceFragmentComp
         defaultPreferences.edit().putString(key, uri.toString()).apply();
         updatePreferencesSummary();
     }
+
+    @Override
+    public void onDisplayPreferenceDialog(final androidx.preference.Preference preference) {
+        if (preference instanceof androidx.preference.ListPreference) {
+            if (getChildFragmentManager().findFragmentByTag("choice_sheet") == null) {
+                ChoiceSheet.newInstance(preference.getKey())
+                        .show(getChildFragmentManager(), "choice_sheet");
+            }
+            return;
+        }
+        super.onDisplayPreferenceDialog(preference);
+    }
 }
