@@ -636,9 +636,15 @@ public class DownloadDialog extends BottomSheetDialogFragment
         actions.setGravity(android.view.Gravity.END | android.view.Gravity.CENTER_VERTICAL);
         actions.setPadding(0, sheetDp(12), 0, 0);
 
-        final Button ok = new Button(requireContext());
-        ok.setText(android.R.string.ok);
-        actions.addView(ok);
+        final android.widget.ImageButton ok = new android.widget.ImageButton(requireContext());
+        ok.setImageResource(R.drawable.ic_check_fill);
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        requireContext().getTheme().resolveAttribute(
+                android.R.attr.selectableItemBackgroundBorderless, tv, true);
+        ok.setBackgroundResource(tv.resourceId);
+        ok.setContentDescription(getString(android.R.string.ok));
+        ok.setPadding(sheetDp(12), sheetDp(12), sheetDp(12), sheetDp(12));
+        actions.addView(ok, new LinearLayout.LayoutParams(sheetDp(56), sheetDp(56)));
         body.addView(actions);
 
         final BottomSheetDialog dialog = createUtilitySheet(
