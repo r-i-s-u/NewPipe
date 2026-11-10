@@ -9,6 +9,7 @@
     <style name="Base" parent="Base.V21"/>
     <!-- Light Theme -->
     <style name="Base.V21.LightTheme" parent="Base">
+        <item name="alertDialogTheme">@style/AppAlertDialogTheme</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="windowBackground">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
@@ -28,6 +29,7 @@
 
     <!-- Dark Theme -->
     <style name="Base.V21.DarkTheme" parent="Base">
+        <item name="alertDialogTheme">@style/AppAlertDialogTheme</item>
         <item name="android:windowBackground">@android:color/black</item>
         <item name="windowBackground">@android:color/black</item>
         <item name="colorPrimaryDark">@android:color/black</item>
@@ -47,6 +49,7 @@
 
     <!-- Black Theme -->
     <style name="Base.V21.BlackTheme" parent="DarkTheme">
+        <item name="alertDialogTheme">@style/AppAlertDialogTheme</item>
     </style>
     <style name="Base.BlackTheme" parent="Base.V21.BlackTheme" />
     <style name="BlackTheme" parent="Base.BlackTheme"/>
@@ -204,5 +207,41 @@
         <item name="android:background">@drawable/mission_menu_row_bg</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
+    </style>
+    <style name="AppAlertDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+        <item name="android:windowTitleStyle">@style/AppDialogTitle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AppDialogButton.Primary</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AppDialogButton.Neutral</item>
+        <item name="buttonBarNeutralButtonStyle">@style/AppDialogButton.Neutral</item>
+    </style>
+    <style name="AppDialogTitle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+    <style name="AppDialogButton" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:background">@drawable/bg_dialog_pill</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="AppDialogButton.Neutral">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:backgroundTint">@color/dialog_btn_neutral_bg</item>
+        <item name="backgroundTint">@color/dialog_btn_neutral_bg</item>
+    </style>
+    <style name="AppDialogButton.Primary">
+        <item name="android:textColor">@color/dialog_btn_primary_text</item>
+        <item name="android:backgroundTint">@color/dialog_btn_primary_bg</item>
+        <item name="backgroundTint">@color/dialog_btn_primary_bg</item>
     </style>
 </resources>

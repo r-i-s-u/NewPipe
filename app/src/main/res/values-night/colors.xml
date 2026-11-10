@@ -20,4 +20,8 @@
     <color name="mission_popup_bg">#FF000000</color>
     <color name="empty_icon_bg">#FF1F1F1F</color>
     <color name="selection_bar_bg">#FF202124</color>
+    <color name="dialog_bg">#FF212121</color>
+    <color name="dialog_btn_neutral_bg">#FF333333</color>
+    <color name="dialog_btn_primary_bg">#FFF1F1F1</color>
+    <color name="dialog_btn_primary_text">#FF0F0F0F</color>
 </resources>
