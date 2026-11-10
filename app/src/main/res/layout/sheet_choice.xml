@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <View
-        android:layout_width="36dp"
+        android:layout_width="48dp"
         android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
@@ -13,13 +13,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingTop="4dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="4dp">
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/choice_title"
@@ -27,9 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ellipsize="end"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:maxLines="2"
+            android:includeFontPadding="false"
+            android:lineHeight="30sp"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="22sp" />
 
@@ -37,7 +38,7 @@
             android:id="@+id/choice_close"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/download_icon_bg"
+            android:background="@null"
             android:contentDescription="Close"
             android:padding="12dp"
             android:src="@drawable/ic_close"
