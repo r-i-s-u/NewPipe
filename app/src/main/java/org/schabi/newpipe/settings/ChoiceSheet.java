@@ -121,7 +121,7 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                     com.google.android.material.R.id.design_bottom_sheet);
             if (sheet != null) {
                 sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-                final float radius = 28 * getResources().getDisplayMetrics().density;
+                final float radius = 32 * getResources().getDisplayMetrics().density;
                 final GradientDrawable background = new GradientDrawable();
                 background.setColor(
                         androidx.core.content.ContextCompat.getColor(
