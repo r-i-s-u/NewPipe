@@ -503,8 +503,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
         heading.setTextSize(22);
         heading.setTypeface(android.graphics.Typeface.DEFAULT,
                 android.graphics.Typeface.BOLD);
-        heading.setTextColor(androidx.core.content.ContextCompat.getColor(
-                requireContext(), R.color.dl_text_primary));
         heading.setGravity(android.view.Gravity.CENTER_VERTICAL);
         toolbar.addView(heading, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.MATCH_PARENT, 1));
@@ -535,13 +533,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
             final View sheet = dialog.findViewById(
                     com.google.android.material.R.id.design_bottom_sheet);
             if (sheet != null) {
-                final TypedValue colorValue = new TypedValue();
-                requireContext().getTheme().resolveAttribute(
-                        R.attr.dl_bottom_bg, colorValue, true);
-                final int color = colorValue.resourceId != 0
-                        ? androidx.core.content.ContextCompat.getColor(
-                                requireContext(), colorValue.resourceId)
-                        : colorValue.data;
+                final int color = androidx.core.content.ContextCompat.getColor(
+                        requireContext(), R.color.dl_bottom_bg);
 
                 final GradientDrawable background = new GradientDrawable();
                 background.setColor(color);
