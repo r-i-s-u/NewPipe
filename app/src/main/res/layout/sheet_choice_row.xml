@@ -6,25 +6,26 @@
     android:focusable="true"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingLeft="20dp"
+    android:paddingLeft="16dp"
     android:paddingRight="24dp">
 
     <RadioButton
         android:id="@+id/choice_radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:background="@null"
         android:button="@drawable/radio_button_selector"
         android:clickable="false"
         android:focusable="false"
         android:minWidth="0dp"
-        android:minHeight="0dp" />
+        android:minHeight="0dp"
+        android:padding="0dp" />
 
     <TextView
         android:id="@+id/choice_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="8dp"
         android:layout_weight="1"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="16sp" />

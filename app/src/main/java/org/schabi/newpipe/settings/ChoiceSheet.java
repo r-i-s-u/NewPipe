@@ -74,27 +74,33 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
         final CharSequence title = pref.getDialogTitle() != null
                 ? pref.getDialogTitle() : pref.getTitle();
         ((TextView) root.findViewById(R.id.choice_title)).setText(title);
-        root.findViewById(R.id.choice_close).setOnClickListener(v -> dismissAllowingStateLoss());
+        root.findViewById(R.id.choice_close)
+                .setOnClickListener(v -> dismissAllowingStateLoss());
 
         final String current = pref.getValue();
         final LinearLayout list = root.findViewById(R.id.choice_list);
         final int n = Math.min(entries.length, values.length);
         final RadioButton[] radios = new RadioButton[n];
+
         for (int i = 0; i < n; i++) {
             final View row = inflater.inflate(R.layout.sheet_choice_row, list, false);
             ((TextView) row.findViewById(R.id.choice_text)).setText(entries[i]);
+
             final RadioButton radio = row.findViewById(R.id.choice_radio);
             radio.setChecked(values[i].toString().equals(current));
             radios[i] = radio;
+
             final int index = i;
             row.setOnClickListener(v -> {
                 for (final RadioButton r : radios) {
                     r.setChecked(r == radio);
                 }
+
                 final String value = values[index].toString();
                 if (pref.callChangeListener(value)) {
                     pref.setValue(value);
                 }
+
                 v.postDelayed(() -> {
                     if (isAdded()) {
                         dismissAllowingStateLoss();
@@ -105,23 +111,30 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            final int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
-            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), bottom);
+            final int bottom = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
+                    v.getPaddingRight(), bottom);
             return insets;
         });
+
         return root;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         if (getDialog() instanceof BottomSheetDialog) {
             final BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
             final View sheet = dialog.findViewById(
                     com.google.android.material.R.id.design_bottom_sheet);
+
             if (sheet != null) {
                 sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
-                final float radius = 28 * getResources().getDisplayMetrics().density;
+
+                final float radius = 28
+                        * getResources().getDisplayMetrics().density;
                 final GradientDrawable background = new GradientDrawable();
                 background.setColor(
                         androidx.core.content.ContextCompat.getColor(
@@ -130,24 +143,27 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                         radius, radius, radius, radius,
                         0, 0, 0, 0
                 });
+
                 sheet.setBackground(background);
+                sheet.setClipToOutline(true);
                 sheet.requestLayout();
             }
+
             final boolean portrait = getResources().getConfiguration().orientation
                     == Configuration.ORIENTATION_PORTRAIT;
+            final float density = getResources().getDisplayMetrics().density;
+
             dialog.getBehavior().setFitToContents(false);
-            dialog.getBehavior().setExpandedOffset((int) ((portrait ? 48 : 48)
-                    * getResources().getDisplayMetrics().density));
+            dialog.getBehavior().setExpandedOffset((int) (48 * density));
             dialog.getBehavior().setState(
                     com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
             dialog.getBehavior().setSkipCollapsed(true);
-            final boolean land = getResources().getConfiguration().orientation
-                    == Configuration.ORIENTATION_LANDSCAPE;
             dialog.getBehavior().setMaxWidth(-1);
-            final Window w = dialog.getWindow();
-            if (w != null) {
-                w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                w.setDimAmount(0.5f);
+
+            final Window window = dialog.getWindow();
+            if (window != null) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                window.setDimAmount(0.5f);
             }
         }
     }
