@@ -552,6 +552,8 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
         root.setPadding(0, 0, 0, sheetDp(16));
         dialog.setContentView(root);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
 
         dialog.setOnShowListener(d -> {
             final View sheetView = dialog.findViewById(
@@ -678,6 +680,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
                     requireContext(), audioTrackAdapter.getItem(i).get(0)));
             rb.setTextSize(18);
             rb.setTextColor(sheetTextColor());
+            rb.setButtonDrawable(R.drawable.radio_button_selector);
             rb.setPadding(sheetDp(16), 0, 0, 0);
             rb.setChecked(index == selectedAudioTrackIndex);
             rb.setOnClickListener(v -> {
