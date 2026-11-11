@@ -154,7 +154,7 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
             final float density = getResources().getDisplayMetrics().density;
 
             dialog.getBehavior().setFitToContents(false);
-            dialog.getBehavior().setExpandedOffset((int) (48 * density));
+            dialog.getBehavior().setExpandedOffset(0);
             dialog.getBehavior().setState(
                     com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
             dialog.getBehavior().setSkipCollapsed(true);
