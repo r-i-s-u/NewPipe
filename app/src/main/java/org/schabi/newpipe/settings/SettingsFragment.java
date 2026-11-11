@@ -294,9 +294,7 @@ public class SettingsFragment extends androidx.preference.PreferenceFragmentComp
     @Override
     public void onDisplayPreferenceDialog(@NonNull final Preference preference) {
         final String key = preference.getKey();
-        if (preference instanceof ListPreference
-                && (getString(R.string.default_resolution_key).equals(key)
-                || getString(R.string.default_popup_resolution_key).equals(key))) {
+        if (preference instanceof ListPreference) {
             ListPreferenceBottomSheet.show(getParentFragmentManager(),
                     (ListPreference) preference);
             return;
