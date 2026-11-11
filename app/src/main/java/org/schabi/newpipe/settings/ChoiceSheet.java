@@ -145,15 +145,10 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                 });
 
                 sheet.setBackground(background);
-                sheet.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                    @Override
-                    public void onLayoutChange(final View v, final int left, final int top,
-                                               final int right, final int bottom,
-                                               final int oldLeft, final int oldTop,
-                                               final int oldRight, final int oldBottom) {
-                        v.removeOnLayoutChangeListener(this);
-                        v.setBackground(background);
-                        v.setClipToOutline(true);
+                sheet.addOnLayoutChangeListener((lv, x1, x2, x3, x4, x5, x6, x7, x8) -> {
+                    if (lv.getBackground() != background) {
+                        lv.setBackground(background);
+                        lv.setClipToOutline(true);
                     }
                 });
                 sheet.post(() -> sheet.setBackground(background));
