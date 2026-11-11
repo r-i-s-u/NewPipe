@@ -597,7 +597,6 @@ public class DownloadDialog extends BottomSheetDialogFragment
             ((android.widget.TextView) row.findViewById(R.id.lpbs_option_title)).setText(name);
             ((android.widget.RadioButton) row.findViewById(R.id.lpbs_radio))
                     .setChecked(i == selectedAudioTrackIndex);
-            row.setBackgroundResource(tv.resourceId);
             row.setClickable(true);
             row.setFocusable(true);
             final int which = i;

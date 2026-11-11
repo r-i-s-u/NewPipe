@@ -132,6 +132,9 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
     }
 
     private int resolveBackgroundColor() {
+        if (!org.schabi.newpipe.util.ThemeHelper.isLightThemeSelected(requireActivity())) {
+            return 0xFF0F0F0F;
+        }
         final Resources.Theme theme = requireActivity().getTheme();
         final TypedValue value = new TypedValue();
         final int[] attrs = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
