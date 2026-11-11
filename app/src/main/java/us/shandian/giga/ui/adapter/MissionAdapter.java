@@ -710,17 +710,55 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final String base = dot > 0 ? current.substring(0, dot) : current;
         final String ext = dot > 0 ? current.substring(dot) : "";
 
+        final float dens = mContext.getResources().getDisplayMetrics().density;
+        final android.util.TypedValue tvp = new android.util.TypedValue();
+        mContext.getTheme().resolveAttribute(android.R.attr.textColorPrimary, tvp, true);
+        final android.content.res.ColorStateList primary =
+                androidx.appcompat.content.res.AppCompatResources
+                        .getColorStateList(mContext, tvp.resourceId);
+        final android.util.TypedValue tvs = new android.util.TypedValue();
+        mContext.getTheme().resolveAttribute(android.R.attr.textColorSecondary, tvs, true);
+        final android.content.res.ColorStateList secondary =
+                androidx.appcompat.content.res.AppCompatResources
+                        .getColorStateList(mContext, tvs.resourceId);
+
+        final android.widget.TextView label = new android.widget.TextView(mContext);
+        label.setText(R.string.msg_name);
+        label.setTextSize(12);
+        label.setTextColor(primary);
+
         final android.widget.EditText input = new android.widget.EditText(mContext);
+        input.setBackground(null);
+        input.setPadding(0, (int) (2 * dens), 0, 0);
+        input.setTextSize(16);
+        input.setTextColor(primary);
         input.setSingleLine(true);
         input.setText(base);
         input.setSelection(base.length());
 
-        final int pad = (int) (24 * mContext.getResources().getDisplayMetrics().density);
+        final android.widget.LinearLayout field = new android.widget.LinearLayout(mContext);
+        field.setOrientation(android.widget.LinearLayout.VERTICAL);
+        field.setBackgroundResource(R.drawable.bg_edit_field);
+        field.setPadding((int) (16 * dens), (int) (8 * dens), (int) (16 * dens),
+                (int) (10 * dens));
+        field.addView(label);
+        field.addView(input, new android.widget.LinearLayout.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+        field.setActivated(true);
+        field.setOnClickListener(v -> input.requestFocus());
+        input.setOnFocusChangeListener((v, hasFocus) -> {
+            field.setActivated(hasFocus);
+            label.setTextColor(hasFocus ? primary : secondary);
+        });
+
+        final int pad = (int) (24 * dens);
         final android.widget.FrameLayout box = new android.widget.FrameLayout(mContext);
         box.setPadding(pad, pad / 2, pad, 0);
-        box.addView(input);
+        box.addView(field);
 
-        new androidx.appcompat.app.AlertDialog.Builder(mContext)
+        final androidx.appcompat.app.AlertDialog dlg =
+                new androidx.appcompat.app.AlertDialog.Builder(mContext)
                 .setTitle(R.string.mission_rename)
                 .setView(box)
                 .setPositiveButton(android.R.string.ok, (d, w) -> {
@@ -738,7 +776,22 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
-                .show();
+                .create();
+        dlg.show();
+        insetDialogButtons(dlg);
+    }
+
+    private void insetDialogButtons(final androidx.appcompat.app.AlertDialog dialog) {
+        final android.view.View btn = dialog.getButton(
+                androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
+        if (btn == null || !(btn.getParent() instanceof android.view.View)) {
+            return;
+        }
+        final android.view.View bar = (android.view.View) btn.getParent();
+        final float dens = mContext.getResources().getDisplayMetrics().density;
+        bar.setPadding(bar.getPaddingLeft(), bar.getPaddingTop(),
+                bar.getPaddingRight() + (int) (8 * dens),
+                bar.getPaddingBottom() + (int) (19 * dens));
     }
 
     private static android.content.Context popupContext(final android.content.Context base) {
