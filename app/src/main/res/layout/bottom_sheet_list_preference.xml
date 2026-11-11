@@ -40,7 +40,7 @@
             android:layout_gravity="end|center_vertical"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@android:string/cancel"
-            android:src="@drawable/lpbs_ic_close" />
+            android:src="@drawable/ic_close" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
