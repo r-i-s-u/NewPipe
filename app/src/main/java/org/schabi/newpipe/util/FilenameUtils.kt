@@ -30,10 +30,7 @@ object FilenameUtils {
         val charsetMs = context.getString(R.string.charset_most_special_value)
         val defaultCharset = context.getString(R.string.default_file_charset_value)
 
-        val replacementChar = sharedPreferences.getStringSafe(
-            context.getString(R.string.settings_file_replacement_character_key),
-            ""
-        )
+        val replacementChar = ""
         val selectedCharset = sharedPreferences.getStringSafe(
             context.getString(R.string.settings_file_charset_key),
             ""
