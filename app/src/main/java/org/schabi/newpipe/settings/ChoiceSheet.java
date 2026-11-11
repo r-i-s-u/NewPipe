@@ -1,6 +1,7 @@
 package org.schabi.newpipe.settings;
 
-import android.content.res.ColorStateList;
+import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
@@ -21,19 +21,14 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.shape.MaterialShapeDrawable;
-import com.google.android.material.shape.ShapeAppearanceModel;
 
 import org.schabi.newpipe.R;
 
 /** Bottom sheet replacement for ListPreference dialogs (YouTube Studio style). */
 public class ChoiceSheet extends BottomSheetDialogFragment {
     private static final String KEY = "pref_key";
-    private static final float CORNER_DP = 24f;
-    private static final float TOP_OFFSET_DP = 48f;
 
     public static ChoiceSheet newInstance(final String key) {
         final ChoiceSheet sheet = new ChoiceSheet();
@@ -68,7 +63,6 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.sheet_choice, container, false);
-
         final ListPreference pref = preference();
         final CharSequence[] entries = pref == null ? null : pref.getEntries();
         final CharSequence[] values = pref == null ? null : pref.getEntryValues();
@@ -101,10 +95,12 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                 for (final RadioButton r : radios) {
                     r.setChecked(r == radio);
                 }
+
                 final String value = values[index].toString();
                 if (pref.callChangeListener(value)) {
                     pref.setValue(value);
                 }
+
                 v.postDelayed(() -> {
                     if (isAdded()) {
                         dismissAllowingStateLoss();
@@ -115,7 +111,8 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            final int bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            final int bottom = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()).bottom;
             v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
                     v.getPaddingRight(), bottom);
             return insets;
@@ -127,49 +124,54 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (!(getDialog() instanceof BottomSheetDialog)) {
-            return;
-        }
-        final BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
-        final float density = getResources().getDisplayMetrics().density;
 
-        final View sheet = dialog.findViewById(
-                com.google.android.material.R.id.design_bottom_sheet);
-        if (sheet != null) {
-            sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+        if (getDialog() instanceof BottomSheetDialog) {
+            final BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
+            final View sheet = dialog.findViewById(
+                    com.google.android.material.R.id.design_bottom_sheet);
 
-            final float radius = CORNER_DP * density;
-            final MaterialShapeDrawable background = new MaterialShapeDrawable(
-                    new ShapeAppearanceModel().toBuilder()
-                            .setTopLeftCornerSize(radius)
-                            .setTopRightCornerSize(radius)
-                            .setBottomLeftCornerSize(0)
-                            .setBottomRightCornerSize(0)
-                            .build());
-            background.setFillColor(ColorStateList.valueOf(
-                    ContextCompat.getColor(requireContext(), R.color.dl_bottom_bg)));
+            if (sheet != null) {
+                sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
 
-            sheet.setBackground(background);
-            sheet.setClipToOutline(true);
-            sheet.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, or, ob) -> {
-                if (v.getBackground() != background) {
-                    v.setBackground(background);
-                }
-            });
-            sheet.requestLayout();
-        }
+                final float radius = 24
+                        * getResources().getDisplayMetrics().density;
+                final GradientDrawable background = new GradientDrawable();
+                background.setColor(
+                        androidx.core.content.ContextCompat.getColor(
+                                requireContext(), R.color.dl_bottom_bg));
+                background.setCornerRadii(new float[]{
+                        radius, radius, radius, radius,
+                        0, 0, 0, 0
+                });
 
-        final BottomSheetBehavior<?> behavior = dialog.getBehavior();
-        behavior.setFitToContents(false);
-        behavior.setExpandedOffset((int) (TOP_OFFSET_DP * density));
-        behavior.setSkipCollapsed(true);
-        behavior.setMaxWidth(-1);
-        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                sheet.setBackground(background);
+                sheet.addOnLayoutChangeListener((lv, x1, x2, x3, x4, x5, x6, x7, x8) -> {
+                    if (lv.getBackground() != background) {
+                        lv.setBackground(background);
+                        lv.setClipToOutline(true);
+                    }
+                });
+                sheet.post(() -> sheet.setBackground(background));
+                sheet.setClipToOutline(true);
+                sheet.requestLayout();
+            }
 
-        final Window window = dialog.getWindow();
-        if (window != null) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-            window.setDimAmount(0.5f);
+            final boolean portrait = getResources().getConfiguration().orientation
+                    == Configuration.ORIENTATION_PORTRAIT;
+            final float density = getResources().getDisplayMetrics().density;
+
+            dialog.getBehavior().setFitToContents(false);
+            dialog.getBehavior().setExpandedOffset((int) (48 * density));
+            dialog.getBehavior().setState(
+                    com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED);
+            dialog.getBehavior().setSkipCollapsed(true);
+            dialog.getBehavior().setMaxWidth(-1);
+
+            final Window window = dialog.getWindow();
+            if (window != null) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                window.setDimAmount(0.5f);
+            }
         }
     }
 }
