@@ -153,7 +153,7 @@
         <item name="bottomSheetStyle">@style/ChoiceSheetStyle</item>
     </style>
     <style name="ChoiceSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bg_sheet</item>
+        <item name="android:background">@null</item>
         <item name="backgroundTint">@color/dl_bottom_bg</item>
         <item name="shapeAppearance">@style/ChoiceSheetShape</item>
         <item name="shapeAppearanceOverlay">@style/ChoiceSheetShape</item>
