@@ -160,6 +160,32 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
                     == Configuration.ORIENTATION_PORTRAIT;
             final float density = getResources().getDisplayMetrics().density;
 
+            if (sheet != null) {
+                final float r = 12 * getResources().getDisplayMetrics().density;
+                sheet.getViewTreeObserver().addOnGlobalLayoutListener(
+                        new android.view.ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        sheet.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        final android.graphics.drawable.Drawable bg = sheet.getBackground();
+                        if (bg instanceof com.google.android.material.shape.MaterialShapeDrawable) {
+                            final com.google.android.material.shape.MaterialShapeDrawable m =
+                                    (com.google.android.material.shape.MaterialShapeDrawable) bg;
+                            m.setShapeAppearanceModel(m.getShapeAppearanceModel().toBuilder()
+                                    .setTopLeftCornerSize(r).setTopRightCornerSize(r)
+                                    .setBottomLeftCornerSize(0f).setBottomRightCornerSize(0f)
+                                    .build());
+                        } else {
+                            final android.graphics.drawable.GradientDrawable g =
+                                    new android.graphics.drawable.GradientDrawable();
+                            g.setColor(androidx.core.content.ContextCompat.getColor(
+                                    requireContext(), R.color.dl_sheet_bg));
+                            g.setCornerRadii(new float[]{r, r, r, r, 0f, 0f, 0f, 0f});
+                            sheet.setBackground(g);
+                        }
+                    }
+                });
+            }
             dialog.getBehavior().setFitToContents(false);
             dialog.getBehavior().setExpandedOffset((int) (48 * density));
             dialog.getBehavior().setState(
