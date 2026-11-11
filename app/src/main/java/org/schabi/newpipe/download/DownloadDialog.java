@@ -511,15 +511,45 @@ public class DownloadDialog extends BottomSheetDialogFragment
 
     private void showRenameDialog() {
         final android.content.Context ctx = sheetContext();
+        final android.content.res.ColorStateList primary = primaryText(ctx);
+        final android.util.TypedValue tv = new android.util.TypedValue();
+        ctx.getTheme().resolveAttribute(android.R.attr.textColorSecondary, tv, true);
+        final android.content.res.ColorStateList secondary =
+                androidx.appcompat.content.res.AppCompatResources
+                        .getColorStateList(ctx, tv.resourceId);
+
+        final android.widget.TextView label = new android.widget.TextView(ctx);
+        label.setText(R.string.msg_name);
+        label.setTextSize(12);
+        label.setTextColor(primary);
+
         final android.widget.EditText input = new android.widget.EditText(ctx);
+        input.setBackground(null);
+        input.setPadding(0, sheetDp(2), 0, 0);
+        input.setTextSize(16);
+        input.setTextColor(primary);
         input.setSingleLine(false);
         input.setMaxLines(4);
         input.setText(dialogBinding.fileName.getText());
         input.setSelection(input.getText().length());
 
+        final android.widget.LinearLayout field = new android.widget.LinearLayout(ctx);
+        field.setOrientation(android.widget.LinearLayout.VERTICAL);
+        field.setBackgroundResource(R.drawable.bg_edit_field);
+        field.setPadding(sheetDp(16), sheetDp(8), sheetDp(16), sheetDp(10));
+        field.addView(label);
+        field.addView(input, new android.widget.LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        field.setActivated(true);
+        field.setOnClickListener(v -> input.requestFocus());
+        input.setOnFocusChangeListener((v, hasFocus) -> {
+            field.setActivated(hasFocus);
+            label.setTextColor(hasFocus ? primary : secondary);
+        });
+
         final android.widget.FrameLayout box = new android.widget.FrameLayout(ctx);
         box.setPadding(sheetDp(16), sheetDp(8), sheetDp(16), sheetDp(8));
-        box.addView(input);
+        box.addView(field);
 
         openSheet(getString(R.string.msg_name), box, () -> {
             final String name = input.getText().toString().replace("\n", "").trim();

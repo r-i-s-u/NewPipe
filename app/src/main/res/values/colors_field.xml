@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="field_stroke">#33000000</color>
+    <color name="field_stroke_focus">#FF0F0F0F</color>
+</resources>
