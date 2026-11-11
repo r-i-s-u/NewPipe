@@ -21,7 +21,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/choice_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:minHeight="48dp"
         android:paddingLeft="8dp"
@@ -31,7 +31,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -45,6 +45,8 @@
                 android:includeFontPadding="false"
                 android:lineHeight="30sp"
                 android:maxLines="2"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -67,7 +69,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:fillViewport="false">
+        android:fillViewport="false"
+        android:overScrollMode="always">
 
         <LinearLayout
             android:id="@+id/choice_list"
