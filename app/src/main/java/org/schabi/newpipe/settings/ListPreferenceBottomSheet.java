@@ -1,16 +1,23 @@
 package org.schabi.newpipe.settings;
 
 import android.app.Dialog;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.ListPreference;
 
@@ -21,11 +28,13 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import org.schabi.newpipe.R;
 
 /**
- * Shows the options of a {@link ListPreference} in a bottom sheet
+ * Shows the options of any {@link ListPreference} in a bottom sheet
  * (drag handle, title, close button, radio list) instead of the default dialog.
+ * Colors come from the app theme, so it follows light/dark/black themes.
  */
 public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
     private static final String TAG = "ListPreferenceBottomSheet";
+    private static final float CORNER_RADIUS_DP = 28f;
 
     private ListPreference preference;
 
@@ -41,7 +50,11 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.bottom_sheet_list_preference, container, false);
+        // Inflate with the activity theme so text/radio colors match the app theme
+        final View root = LayoutInflater.from(requireActivity())
+                .inflate(R.layout.bottom_sheet_list_preference, container, false);
+        root.setBackground(createBackground());
+        return root;
     }
 
     @Override
@@ -60,10 +73,13 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
         final TextView title = view.findViewById(R.id.lpbs_title);
         title.setText(preference.getDialogTitle() != null
                 ? preference.getDialogTitle() : preference.getTitle());
-        view.findViewById(R.id.lpbs_close).setOnClickListener(v -> dismiss());
+
+        final ImageButton close = view.findViewById(R.id.lpbs_close);
+        ImageViewCompat.setImageTintList(close, title.getTextColors());
+        close.setOnClickListener(v -> dismiss());
 
         final LinearLayout options = view.findViewById(R.id.lpbs_options);
-        final LayoutInflater inflater = LayoutInflater.from(requireContext());
+        final LayoutInflater inflater = LayoutInflater.from(requireActivity());
         final CharSequence[] entries = preference.getEntries();
         final CharSequence[] values = preference.getEntryValues();
         final String current = preference.getValue();
@@ -72,7 +88,7 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
             final String value = values[i].toString();
             final View row = inflater.inflate(R.layout.item_bottom_sheet_option, options, false);
             ((TextView) row.findViewById(R.id.lpbs_option_title)).setText(entries[i]);
-            ((RadioButton) row.findViewById(R.id.lpbs_radio))
+            ((CompoundButton) row.findViewById(R.id.lpbs_radio))
                     .setChecked(value.equals(current));
             row.setOnClickListener(v -> {
                 if (preference.callChangeListener(value)) {
@@ -89,8 +105,38 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
         super.onStart();
         final Dialog dialog = getDialog();
         if (dialog instanceof BottomSheetDialog) {
-            ((BottomSheetDialog) dialog).getBehavior()
-                    .setState(BottomSheetBehavior.STATE_EXPANDED);
+            final BottomSheetDialog sheetDialog = (BottomSheetDialog) dialog;
+            final View sheet = sheetDialog.findViewById(
+                    com.google.android.material.R.id.design_bottom_sheet);
+            if (sheet != null) {
+                // Our root draws the themed, rounded background
+                sheet.setBackgroundColor(Color.TRANSPARENT);
+            }
+            sheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         }
+    }
+
+    private GradientDrawable createBackground() {
+        final float radius = CORNER_RADIUS_DP * getResources().getDisplayMetrics().density;
+        final GradientDrawable drawable = new GradientDrawable();
+        drawable.setColor(resolveBackgroundColor());
+        drawable.setCornerRadii(new float[]{radius, radius, radius, radius, 0, 0, 0, 0});
+        return drawable;
+    }
+
+    private int resolveBackgroundColor() {
+        final Resources.Theme theme = requireActivity().getTheme();
+        final TypedValue value = new TypedValue();
+        final int[] attrs = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                ? new int[]{android.R.attr.colorBackgroundFloating, android.R.attr.colorBackground}
+                : new int[]{android.R.attr.colorBackground};
+        for (final int attr : attrs) {
+            if (theme.resolveAttribute(attr, value, true)
+                    && value.type >= TypedValue.TYPE_FIRST_COLOR_INT
+                    && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+                return value.data;
+            }
+        }
+        return Color.parseColor("#222222");
     }
 }
