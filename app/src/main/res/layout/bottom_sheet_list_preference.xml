@@ -38,7 +38,8 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="end|center_vertical"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/download_icon_bg"
             android:contentDescription="@android:string/cancel"
             android:src="@drawable/ic_close" />
     </androidx.appcompat.widget.Toolbar>

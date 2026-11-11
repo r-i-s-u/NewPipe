@@ -35,7 +35,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="8dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/download_icon_bg"
             android:contentDescription="@android:string/ok"
             android:src="@drawable/sheet_ic_check"
             android:tint="?android:attr/textColorPrimary"
