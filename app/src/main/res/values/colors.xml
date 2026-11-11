@@ -64,4 +64,5 @@
     <color name="dialog_btn_neutral_bg">#FFE0E0E0</color>
     <color name="dialog_btn_primary_bg">#FF0F0F0F</color>
     <color name="dialog_btn_primary_text">#FFFFFFFF</color>
+    <color name="choice_sheet_bg">#FFFFFFFF</color>
 </resources>

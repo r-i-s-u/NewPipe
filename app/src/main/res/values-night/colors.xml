@@ -24,4 +24,5 @@
     <color name="dialog_btn_neutral_bg">#FF333333</color>
     <color name="dialog_btn_primary_bg">#FFF1F1F1</color>
     <color name="dialog_btn_primary_text">#FF0F0F0F</color>
+    <color name="choice_sheet_bg">#FF101010</color>
 </resources>
