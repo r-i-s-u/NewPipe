@@ -8,17 +8,16 @@
     android:paddingBottom="16dp">
 
     <View
-        android:layout_width="32dp"
+        android:layout_width="40dp"
         android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/lpbs_handle" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/lpbs_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="48dp"
         android:background="@android:color/transparent"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp">
@@ -28,27 +27,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="56dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/lpbs_close"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="12dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@android:string/cancel"
             android:src="@drawable/lpbs_ic_close" />
     </androidx.appcompat.widget.Toolbar>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -58,7 +51,6 @@
             android:id="@+id/lpbs_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="8dp" />
+            android:orientation="vertical" />
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
