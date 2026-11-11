@@ -106,6 +106,7 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
         final Dialog dialog = getDialog();
         if (dialog instanceof BottomSheetDialog) {
             final BottomSheetDialog sheetDialog = (BottomSheetDialog) dialog;
+            sheetDialog.setCanceledOnTouchOutside(false);
             final View sheet = sheetDialog.findViewById(
                     com.google.android.material.R.id.design_bottom_sheet);
             if (sheet != null) {
