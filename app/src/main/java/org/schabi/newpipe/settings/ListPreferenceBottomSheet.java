@@ -128,7 +128,7 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
         final Resources.Theme theme = requireActivity().getTheme();
         final TypedValue value = new TypedValue();
         final int[] attrs = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                ? new int[]{android.R.attr.colorBackgroundFloating, android.R.attr.colorBackground}
+                ? new int[]{android.R.attr.colorBackground}
                 : new int[]{android.R.attr.colorBackground};
         for (final int attr : attrs) {
             if (theme.resolveAttribute(attr, value, true)
