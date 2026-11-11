@@ -149,6 +149,22 @@
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
         <item name="bottomSheetStyle">@style/DownloadSheet</item>
     </style>
+    <style name="ChoiceSheetTheme" parent="DownloadSheetTheme">
+        <item name="bottomSheetStyle">@style/ChoiceSheetStyle</item>
+    </style>
+    <style name="ChoiceSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_sheet</item>
+        <item name="backgroundTint">@color/dl_bottom_bg</item>
+        <item name="shapeAppearance">@style/ChoiceSheetShape</item>
+        <item name="shapeAppearanceOverlay">@style/ChoiceSheetShape</item>
+    </style>
+    <style name="ChoiceSheetShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
     <style name="DownloadSheet" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_sheet</item>
     </style>

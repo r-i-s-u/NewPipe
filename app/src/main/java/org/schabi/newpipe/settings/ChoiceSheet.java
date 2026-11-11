@@ -41,7 +41,7 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
     @Override
     public void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NORMAL, R.style.DownloadSheetTheme);
+        setStyle(STYLE_NORMAL, R.style.ChoiceSheetTheme);
     }
 
     @Nullable
@@ -133,7 +133,7 @@ public class ChoiceSheet extends BottomSheetDialogFragment {
             if (sheet != null) {
                 sheet.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
 
-                final float radius = 28
+                final float radius = 24
                         * getResources().getDisplayMetrics().density;
                 final GradientDrawable background = new GradientDrawable();
                 background.setColor(
