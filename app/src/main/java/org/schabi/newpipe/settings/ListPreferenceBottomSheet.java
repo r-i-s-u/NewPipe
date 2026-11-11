@@ -71,6 +71,12 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
         }
 
         final TextView title = view.findViewById(R.id.lpbs_title);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+            title.setTypeface(android.graphics.Typeface.create(
+                    android.graphics.Typeface.DEFAULT, 600, false));
+        } else {
+            title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        }
         title.setText(preference.getDialogTitle() != null
                 ? preference.getDialogTitle() : preference.getTitle());
 
