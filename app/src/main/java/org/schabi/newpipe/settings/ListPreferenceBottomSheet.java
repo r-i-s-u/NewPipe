@@ -34,7 +34,7 @@ import org.schabi.newpipe.R;
  */
 public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
     private static final String TAG = "ListPreferenceBottomSheet";
-    private static final float CORNER_RADIUS_DP = 22f;
+    private static final float CORNER_RADIUS_DP = 18f;
 
     private ListPreference preference;
 
