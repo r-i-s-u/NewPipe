@@ -146,7 +146,7 @@ public final class PermissionHelper {
                                 appNameItalic,
                                 permissionNameItalic
                         );
-                new AlertDialog.Builder(context)
+                org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                         .setTitle(title)
                         .setMessage(Html.fromHtml(message, Html.FROM_HTML_MODE_COMPACT))
                         .setPositiveButton("OK", (dialog, which) -> {
@@ -158,8 +158,7 @@ public final class PermissionHelper {
                             } catch (final ActivityNotFoundException ignored) {
                             }
                         })
-                        .setCancelable(true)
-                        .show();
+                        .setCancelable(true));
                 return false;
             }
 

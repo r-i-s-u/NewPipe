@@ -1046,11 +1046,10 @@ public class DownloadDialog extends BottomSheetDialogFragment
     }
 
     private void showFailedDialog(@StringRes final int msg) {
-        new AlertDialog.Builder(context)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                 .setTitle(R.string.general_error)
                 .setMessage(msg)
-                .setNegativeButton(getString(R.string.ok), null)
-                .show();
+                .setNegativeButton(getString(R.string.ok), null));
     }
 
     private void launchDirectoryPicker(final ActivityResultLauncher<Intent> launcher) {

@@ -39,11 +39,10 @@ public final class NoFileManagerSafeGuard {
         }
 
 
-        new AlertDialog.Builder(context)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                 .setTitle(R.string.no_app_to_open_intent)
                 .setMessage(message)
-                .setPositiveButton(R.string.ok, null)
-                .show();
+                .setPositiveButton(R.string.ok, null));
     }
 
     /**

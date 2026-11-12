@@ -7,19 +7,9 @@
     android:paddingTop="24dp"
     android:paddingEnd="24dp">
 
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center_horizontal"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_delete"
-        android:tint="?android:attr/textColorSecondary" />
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
         android:text="@string/mission_remove_title"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="24sp" />

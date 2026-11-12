@@ -193,11 +193,10 @@ public class SettingsFragment extends androidx.preference.PreferenceFragmentComp
     }
 
     private void showMessageDialog(@StringRes final int title, @StringRes final int message) {
-        new AlertDialog.Builder(ctx)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(ctx)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton(getString(R.string.ok), null)
-                .show();
+                .setPositiveButton(getString(R.string.ok), null));
     }
 
     @Override

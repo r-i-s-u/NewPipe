@@ -201,14 +201,13 @@ public final class NavigationHelper {
                                                      @NonNull final Intent intent) {
         if (!ShareUtils.tryOpenIntentInApp(context, intent)) {
             if (context instanceof Activity) {
-                new AlertDialog.Builder(context)
+                org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                         .setMessage(R.string.no_player_found)
                         .setPositiveButton(R.string.install, (dialog, which) ->
                                 ShareUtils.installApp(context,
                                         context.getString(R.string.vlc_package)))
                         .setNegativeButton(R.string.cancel, (dialog, which) ->
-                                Log.i("NavigationHelper", "You unlocked a secret unicorn."))
-                        .show();
+                                Log.i("NavigationHelper", "You unlocked a secret unicorn.")));
             } else {
                 Toast.makeText(context, R.string.no_player_found_toast, Toast.LENGTH_LONG).show();
             }

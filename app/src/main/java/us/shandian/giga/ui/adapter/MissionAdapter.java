@@ -782,16 +782,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void insetDialogButtons(final androidx.appcompat.app.AlertDialog dialog) {
-        final android.view.View btn = dialog.getButton(
-                androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
-        if (btn == null || !(btn.getParent() instanceof android.view.View)) {
-            return;
-        }
-        final android.view.View bar = (android.view.View) btn.getParent();
-        final float dens = mContext.getResources().getDisplayMetrics().density;
-        bar.setPadding(bar.getPaddingLeft(), bar.getPaddingTop(),
-                bar.getPaddingRight() + (int) (8 * dens),
-                bar.getPaddingBottom() + (int) (19 * dens));
+        org.schabi.newpipe.util.AppDialogs.style(dialog);
     }
 
     private static android.content.Context popupContext(final android.content.Context base) {
@@ -1016,12 +1007,11 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final android.widget.CheckBox cb = v.findViewById(R.id.remove_delete_file);
         cb.setText(mContext.getString(R.string.mission_remove_delete_file,
                 Utility.formatBytes(total)));
-        new AlertDialog.Builder(mContext)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(mContext)
                 .setView(v)
                 .setPositiveButton(R.string.mission_remove_confirm,
                         (dialog, which) -> deleteSelected(cb.isChecked()))
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+                .setNegativeButton(android.R.string.cancel, null));
     }
 
     private void deleteSelected(final boolean deleteFile) {

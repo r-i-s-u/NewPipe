@@ -235,7 +235,7 @@ public class RouterActivity extends AppCompatActivity {
 
     protected void showUnsupportedUrlDialog(final String url) {
         final Context context = getThemeWrapperContext();
-        new AlertDialog.Builder(context)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                 .setTitle(R.string.unsupported_url)
                 .setMessage(R.string.unsupported_url_dialog_message)
                 .setPositiveButton(R.string.open_in_browser,
@@ -243,8 +243,7 @@ public class RouterActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.share,
                         (dialog, which) -> ShareUtils.shareText(this, "", url)) // no subject
                 .setNeutralButton(R.string.cancel, null)
-                .setOnDismissListener(dialog -> finish())
-                .show();
+                .setOnDismissListener(dialog -> finish()));
     }
 
     protected void onSuccess() {
