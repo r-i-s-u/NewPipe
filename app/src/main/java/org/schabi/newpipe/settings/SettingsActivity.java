@@ -17,13 +17,6 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.settings_activity);
         findViewById(R.id.settings_back).setOnClickListener(
                 v -> getOnBackPressedDispatcher().onBackPressed());
-        final android.widget.TextView settingsTitle = findViewById(R.id.settings_title);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-            settingsTitle.setTypeface(android.graphics.Typeface.create(
-                    android.graphics.Typeface.DEFAULT, 600, false));
-        } else {
-            settingsTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
