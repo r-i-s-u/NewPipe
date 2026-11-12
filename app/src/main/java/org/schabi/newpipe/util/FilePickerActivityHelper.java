@@ -109,6 +109,9 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
                                   @Nullable final Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             styleUseButton(view);
+            if (mode == MODE_NEW_FILE) {
+                styleSaveRow(view);
+            }
             androidx.appcompat.widget.Toolbar toolbar = findToolbar(view);
             if (toolbar == null) {
                 toolbar = findToolbar(requireActivity().findViewById(android.R.id.content));
@@ -174,6 +177,65 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
                 }
             }
             return null;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(@NonNull final android.view.MenuItem item) {
+            if (item.getItemId() == com.nononsenseapps.filepicker.R.id.nnf_action_createdir) {
+                NewFolderBottomSheet.show(getParentFragmentManager(),
+                        name -> onNewFolder(name));
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+        private void styleSaveRow(final View root) {
+            final View nameView = root.findViewById(
+                    com.nononsenseapps.filepicker.R.id.nnf_text_filename);
+            final View saveIcon = root.findViewById(
+                    com.nononsenseapps.filepicker.R.id.nnf_button_ok_newfile);
+            if (nameView == null || saveIcon == null
+                    || !(saveIcon.getParent() instanceof android.widget.LinearLayout)) {
+                return;
+            }
+            final android.widget.LinearLayout row =
+                    (android.widget.LinearLayout) saveIcon.getParent();
+            final float dens = getResources().getDisplayMetrics().density;
+            nameView.setVisibility(View.GONE);
+            saveIcon.setVisibility(View.GONE);
+
+            final android.util.TypedValue tv = new android.util.TypedValue();
+            requireContext().getTheme().resolveAttribute(
+                    android.R.attr.colorBackground, tv, true);
+            final int textColor = tv.resourceId != 0
+                    ? androidx.core.content.ContextCompat.getColor(requireContext(), tv.resourceId)
+                    : tv.data;
+
+            final TextView pill = new TextView(requireContext());
+            pill.setText(R.string.file_picker_use_this);
+            pill.setGravity(android.view.Gravity.CENTER);
+            pill.setBackgroundResource(R.drawable.bg_picker_button);
+            pill.setTextColor(textColor);
+            pill.setTextSize(16);
+            pill.setTypeface(android.graphics.Typeface.create("sans-serif-medium",
+                    android.graphics.Typeface.NORMAL));
+            pill.setClickable(true);
+            pill.setOnClickListener(v -> saveIcon.performClick());
+            pill.setOnTouchListener((v, ev) -> {
+                final int act = ev.getActionMasked();
+                if (act == android.view.MotionEvent.ACTION_DOWN) {
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start();
+                } else if (act == android.view.MotionEvent.ACTION_UP
+                        || act == android.view.MotionEvent.ACTION_CANCEL) {
+                    v.animate().scaleX(1f).scaleY(1f).setDuration(150).start();
+                }
+                return false;
+            });
+            final android.widget.LinearLayout.LayoutParams lp =
+                    new android.widget.LinearLayout.LayoutParams(0, (int) (40 * dens), 1f);
+            lp.setMargins((int) (12 * dens), (int) (12 * dens), (int) (12 * dens),
+                    (int) (12 * dens));
+            row.addView(pill, lp);
         }
 
         private static androidx.appcompat.widget.Toolbar findToolbar(final View v) {
