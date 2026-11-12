@@ -242,6 +242,10 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
 
         @Override
         protected boolean isItemVisible(@NonNull final File file) {
+            // in "save" mode only folders are listed
+            if (mode == MODE_NEW_FILE && !file.isDirectory()) {
+                return false;
+            }
             if (file.isDirectory() && file.isHidden()) {
                 return true;
             }
