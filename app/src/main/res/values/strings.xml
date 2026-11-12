@@ -360,7 +360,7 @@
     <string name="entry_deleted">Entry deleted</string>
     <string name="mission_rename" translatable="false">Rename</string>
     <string name="mission_rename_failed" translatable="false">Rename failed</string>
-    <string name="file_picker_use_this" translatable="false">USE THIS</string>
+    <string name="file_picker_use_this" translatable="false">Use This Folder</string>
     <string name="mission_files_deleted" translatable="false">%d files deleted</string>
     <string name="mission_entries_deleted" translatable="false">%d entries removed from history</string>
     <string name="mission_today" translatable="false">Today</string>

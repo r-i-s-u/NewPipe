@@ -54,6 +54,21 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
             return androidx.core.view.WindowInsetsCompat.CONSUMED;
         });
         androidx.core.view.ViewCompat.requestApplyInsets(decor);
+        getSupportFragmentManager().registerFragmentLifecycleCallbacks(
+                new androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks() {
+                    @Override
+                    public void onFragmentStarted(
+                            @NonNull final androidx.fragment.app.FragmentManager fm,
+                            @NonNull final androidx.fragment.app.Fragment f) {
+                        if (f instanceof androidx.fragment.app.DialogFragment) {
+                            final android.app.Dialog d =
+                                    ((androidx.fragment.app.DialogFragment) f).getDialog();
+                            if (d instanceof androidx.appcompat.app.AlertDialog) {
+                                AppDialogs.style((androidx.appcompat.app.AlertDialog) d);
+                            }
+                        }
+                    }
+                }, true);
 
     }
 
@@ -93,6 +108,7 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
         public void onViewCreated(@NonNull final View view,
                                   @Nullable final Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+            styleUseButton(view);
             androidx.appcompat.widget.Toolbar toolbar = findToolbar(view);
             if (toolbar == null) {
                 toolbar = findToolbar(requireActivity().findViewById(android.R.id.content));
@@ -104,6 +120,60 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
                     requireActivity().finish();
                 });
             }
+        }
+
+        private void styleUseButton(final View root) {
+            View btn = root.findViewById(com.nononsenseapps.filepicker.R.id.nnf_button_ok);
+            if (btn == null) {
+                btn = findByText(root, getString(R.string.file_picker_use_this));
+            }
+            if (!(btn instanceof android.widget.TextView)) {
+                return;
+            }
+            final float dens = getResources().getDisplayMetrics().density;
+            final android.widget.TextView tv = (android.widget.TextView) btn;
+            tv.setText(R.string.file_picker_use_this);
+            tv.setTransformationMethod(null);
+            tv.setTypeface(android.graphics.Typeface.create("sans-serif-medium",
+                    android.graphics.Typeface.NORMAL));
+            tv.setTextSize(16);
+            final ViewGroup.LayoutParams lp = tv.getLayoutParams();
+            if (lp != null) {
+                lp.height = (int) (40 * dens);
+                if (lp instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) lp).setMargins((int) (12 * dens),
+                            (int) (12 * dens), (int) (12 * dens), (int) (12 * dens));
+                }
+                tv.setLayoutParams(lp);
+            }
+            tv.setOnTouchListener((v, ev) -> {
+                final int act = ev.getActionMasked();
+                if (act == android.view.MotionEvent.ACTION_DOWN) {
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start();
+                } else if (act == android.view.MotionEvent.ACTION_UP
+                        || act == android.view.MotionEvent.ACTION_CANCEL) {
+                    v.animate().scaleX(1f).scaleY(1f).setDuration(150).start();
+                }
+                return false;
+            });
+        }
+
+        private static View findByText(final View v, final String text) {
+            if (v instanceof android.widget.TextView
+                    && ((android.widget.TextView) v).getText() != null
+                    && text.equalsIgnoreCase(((android.widget.TextView) v).getText().toString())) {
+                return v;
+            }
+            if (v instanceof ViewGroup) {
+                final ViewGroup g = (ViewGroup) v;
+                for (int i = 0; i < g.getChildCount(); i++) {
+                    final View f = findByText(g.getChildAt(i), text);
+                    if (f != null) {
+                        return f;
+                    }
+                }
+            }
+            return null;
         }
 
         private static androidx.appcompat.widget.Toolbar findToolbar(final View v) {

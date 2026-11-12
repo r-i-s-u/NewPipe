@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content">
-	<EditText android:gravity="center_vertical" android:id="@id/edit_text" android:padding="4.0dip" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginLeft="16.0dip" android:layout_marginRight="16.0dip" android:hint="@string/nnf_name" android:maxLines="1" android:singleLine="true" android:inputType="textAutoComplete|textAutoCorrect" android:imeOptions="actionDone" android:fontFamily="light" style="?android:textAppearanceMedium" />
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_edit_field_input"
+        android:gravity="center_vertical"
+        android:hint="@string/nnf_name"
+        android:imeOptions="actionDone"
+        android:inputType="textAutoComplete|textAutoCorrect"
+        android:maxLines="1"
+        android:minHeight="56dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:singleLine="true"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textColorHint="?android:attr/textColorSecondary"
+        android:textSize="16sp" />
 </FrameLayout>

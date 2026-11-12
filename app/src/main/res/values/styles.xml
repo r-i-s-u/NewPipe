@@ -112,9 +112,9 @@
         <item name="colorPrimary">@android:color/black</item>
         <item name="colorAccent">@android:color/white</item>
     </style>
-    <style name="FilePickerAlertDialogThemeLight" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    <style name="FilePickerAlertDialogThemeLight" parent="AppAlertDialogTheme">
     </style>
-    <style name="FilePickerAlertDialogThemeDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    <style name="FilePickerAlertDialogThemeDark" parent="AppAlertDialogTheme">
     </style>
 
     <!-- Router Activity -->
