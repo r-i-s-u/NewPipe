@@ -754,7 +754,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         final int pad = (int) (24 * dens);
         final android.widget.FrameLayout box = new android.widget.FrameLayout(mContext);
-        box.setPadding(pad, pad / 2, pad, 0);
+        box.setPadding(pad, pad / 2, pad, pad / 2);
         box.addView(field);
 
         final androidx.appcompat.app.AlertDialog dlg =
