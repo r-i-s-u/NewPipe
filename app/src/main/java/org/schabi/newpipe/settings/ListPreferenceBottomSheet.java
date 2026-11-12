@@ -119,6 +119,32 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
                 // Our root draws the themed, rounded background
                 sheet.setBackgroundColor(Color.TRANSPARENT);
             }
+            final android.util.DisplayMetrics dm = getResources().getDisplayMetrics();
+            final int sbId = getResources().getIdentifier(
+                    "status_bar_height", "dimen", "android");
+            final int sbH = sbId > 0 ? getResources().getDimensionPixelSize(sbId) : 0;
+            final int sheetH = dm.heightPixels - sbH - (int) (48 * dm.density);
+            if (sheet != null && sheet.getLayoutParams() != null) {
+                sheet.getLayoutParams().height = sheetH;
+                sheet.requestLayout();
+            }
+            final View content = getView();
+            if (content != null) {
+                if (content.getLayoutParams() != null) {
+                    content.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+                }
+                final View opts = content.findViewById(R.id.lpbs_options);
+                if (opts != null && opts.getParent() instanceof View) {
+                    final View scroller = (View) opts.getParent();
+                    final ViewGroup.LayoutParams slp = scroller.getLayoutParams();
+                    if (slp instanceof LinearLayout.LayoutParams) {
+                        slp.height = 0;
+                        ((LinearLayout.LayoutParams) slp).weight = 1f;
+                        scroller.setLayoutParams(slp);
+                    }
+                }
+            }
+            sheetDialog.getBehavior().setSkipCollapsed(true);
             sheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         }
     }
