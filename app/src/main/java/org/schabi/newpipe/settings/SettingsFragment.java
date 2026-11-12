@@ -299,6 +299,11 @@ public class SettingsFragment extends androidx.preference.PreferenceFragmentComp
                     (ListPreference) preference);
             return;
         }
+        if (preference instanceof androidx.preference.EditTextPreference) {
+            EditPreferenceBottomSheet.show(getParentFragmentManager(),
+                    (androidx.preference.EditTextPreference) preference);
+            return;
+        }
         super.onDisplayPreferenceDialog(preference);
     }
 }
