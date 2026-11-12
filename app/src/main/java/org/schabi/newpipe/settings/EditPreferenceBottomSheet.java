@@ -93,6 +93,12 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
         input.setPadding(0, (int) (2 * dens), 0, 0);
         input.setTextSize(18);
         input.setTextColor(primary);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            final GradientDrawable cursor = new GradientDrawable();
+            cursor.setColor(primary.getDefaultColor());
+            cursor.setSize((int) (2 * dens), (int) (24 * dens));
+            input.setTextCursorDrawable(cursor);
+        }
         input.setSingleLine(true);
         input.setImeOptions(EditorInfo.IME_ACTION_DONE);
         final String current = preference.getText() == null ? "" : preference.getText();
@@ -172,6 +178,8 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
                     ViewGroup.LayoutParams.MATCH_PARENT, (int) (40 * dens));
             dlp.setMargins((int) (12 * dens), (int) (12 * dens), (int) (12 * dens),
                     (int) (12 * dens));
+            rootLayout.setPadding(rootLayout.getPaddingLeft(), rootLayout.getPaddingTop(),
+                    rootLayout.getPaddingRight(), 0);
             rootLayout.addView(done, dlp);
         }
         input.setOnEditorActionListener((v, actionId, event) -> {
@@ -224,23 +232,24 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
             if (rootView != null && rootView.getLayoutParams() != null) {
                 rootView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
             }
-            final View container = sheetDialog.findViewById(
-                    com.google.android.material.R.id.container);
-            if (sheet != null) {
+            final View sheetParent = sheet != null && sheet.getParent() instanceof View
+                    ? (View) sheet.getParent() : null;
+            if (sheet != null && sheetParent != null) {
                 final Runnable applyHeight = () -> {
-                    final int avail = container != null && container.getHeight() > 0
-                            ? container.getHeight() : dm.heightPixels;
-                    final int h = avail - topGap;
-                    if (sheet.getLayoutParams() != null && sheet.getLayoutParams().height != h) {
+                    final int[] pl = new int[2];
+                    sheetParent.getLocationOnScreen(pl);
+                    final int h = pl[1] + sheetParent.getHeight() - topGap;
+                    if (h > 0 && sheet.getLayoutParams() != null
+                            && sheet.getLayoutParams().height != h) {
                         sheet.getLayoutParams().height = h;
                         sheet.requestLayout();
                     }
                 };
                 applyHeight.run();
-                if (container != null) {
-                    container.addOnLayoutChangeListener(
-                            (v, l, t, r, b, oL, oT, oR, oB) -> applyHeight.run());
-                }
+                sheetParent.addOnLayoutChangeListener(
+                        (v, l, t, r, b, oL, oT, oR, oB) -> applyHeight.run());
+                sheetParent.getViewTreeObserver().addOnGlobalLayoutListener(applyHeight::run);
+                sheetParent.post(applyHeight);
             }
             sheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
             sheetDialog.getBehavior().setSkipCollapsed(true);
