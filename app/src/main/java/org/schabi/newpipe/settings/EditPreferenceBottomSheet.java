@@ -122,7 +122,47 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
 
         final View tick = view.findViewById(R.id.sheet_tick);
         tick.setVisibility(View.VISIBLE);
-        tick.setOnClickListener(v -> save(input.getText().toString()));
+        ((android.widget.ImageButton) tick).setImageResource(R.drawable.lpbs_ic_close);
+        tick.setOnClickListener(v -> dismiss());
+
+        if (view instanceof LinearLayout) {
+            final LinearLayout rootLayout = (LinearLayout) view;
+            final View sc = view.findViewById(R.id.sheet_content);
+            if (sc != null && sc.getParent() instanceof View) {
+                final View scroller = (View) sc.getParent();
+                final ViewGroup.LayoutParams slp = scroller.getLayoutParams();
+                if (slp instanceof LinearLayout.LayoutParams) {
+                    slp.height = 0;
+                    ((LinearLayout.LayoutParams) slp).weight = 1f;
+                    scroller.setLayoutParams(slp);
+                }
+            }
+            final View divider = new View(requireActivity());
+            divider.setBackgroundColor(androidx.core.content.ContextCompat.getColor(
+                    requireActivity(), R.color.stroke_color));
+            rootLayout.addView(divider, new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, Math.max(1, (int) dens)));
+
+            final TextView done = new TextView(requireActivity());
+            done.setText("Done");
+            done.setTextSize(16);
+            done.setGravity(android.view.Gravity.CENTER);
+            done.setTypeface(android.graphics.Typeface.create("sans-serif-medium",
+                    android.graphics.Typeface.NORMAL));
+            done.setTextColor(androidx.core.content.ContextCompat.getColor(
+                    requireActivity(), R.color.dialog_btn_primary_text));
+            final GradientDrawable pill = new GradientDrawable();
+            pill.setColor(androidx.core.content.ContextCompat.getColor(
+                    requireActivity(), R.color.dialog_btn_primary_bg));
+            pill.setCornerRadius(100 * dens);
+            done.setBackground(pill);
+            done.setClickable(true);
+            done.setOnClickListener(v -> save(input.getText().toString()));
+            final LinearLayout.LayoutParams dlp = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, (int) (50 * dens));
+            dlp.setMargins((int) (16 * dens), (int) (12 * dens), (int) (16 * dens), 0);
+            rootLayout.addView(done, dlp);
+        }
         input.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 save(input.getText().toString());
@@ -163,6 +203,33 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
             if (sheetDialog.getWindow() != null) {
                 sheetDialog.getWindow().setSoftInputMode(
                         WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+            }
+            final android.util.DisplayMetrics dm = getResources().getDisplayMetrics();
+            final int sbId = getResources().getIdentifier(
+                    "status_bar_height", "dimen", "android");
+            final int topGap = (sbId > 0 ? getResources().getDimensionPixelSize(sbId) : 0)
+                    + (int) (48 * dm.density);
+            final View rootView = getView();
+            if (rootView != null && rootView.getLayoutParams() != null) {
+                rootView.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            }
+            final View container = sheetDialog.findViewById(
+                    com.google.android.material.R.id.container);
+            if (sheet != null) {
+                final Runnable applyHeight = () -> {
+                    final int avail = container != null && container.getHeight() > 0
+                            ? container.getHeight() : dm.heightPixels;
+                    final int h = avail - topGap;
+                    if (sheet.getLayoutParams() != null && sheet.getLayoutParams().height != h) {
+                        sheet.getLayoutParams().height = h;
+                        sheet.requestLayout();
+                    }
+                };
+                applyHeight.run();
+                if (container != null) {
+                    container.addOnLayoutChangeListener(
+                            (v, l, t, r, b, oL, oT, oR, oB) -> applyHeight.run());
+                }
             }
             sheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
             sheetDialog.getBehavior().setSkipCollapsed(true);
