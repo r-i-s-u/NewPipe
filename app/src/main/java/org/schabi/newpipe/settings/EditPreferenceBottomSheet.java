@@ -91,7 +91,7 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
         final EditText input = new EditText(requireActivity());
         input.setBackground(null);
         input.setPadding(0, (int) (2 * dens), 0, 0);
-        input.setTextSize(16);
+        input.setTextSize(18);
         input.setTextColor(primary);
         input.setSingleLine(true);
         input.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -101,9 +101,9 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
 
         final LinearLayout field = new LinearLayout(requireActivity());
         field.setOrientation(LinearLayout.VERTICAL);
-        field.setBackgroundResource(R.drawable.bg_edit_field);
-        field.setPadding((int) (16 * dens), (int) (8 * dens), (int) (16 * dens),
-                (int) (10 * dens));
+        field.setBackground(null);
+        field.setPadding(0, 0, 0, 0);
+        label.setVisibility(View.GONE);
         field.addView(label);
         field.addView(input, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -157,10 +157,21 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
             pill.setCornerRadius(100 * dens);
             done.setBackground(pill);
             done.setClickable(true);
+            done.setOnTouchListener((v, ev) -> {
+                final int a = ev.getActionMasked();
+                if (a == android.view.MotionEvent.ACTION_DOWN) {
+                    v.animate().scaleX(0.95f).scaleY(0.95f).setDuration(100).start();
+                } else if (a == android.view.MotionEvent.ACTION_UP
+                        || a == android.view.MotionEvent.ACTION_CANCEL) {
+                    v.animate().scaleX(1f).scaleY(1f).setDuration(150).start();
+                }
+                return false;
+            });
             done.setOnClickListener(v -> save(input.getText().toString()));
             final LinearLayout.LayoutParams dlp = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, (int) (50 * dens));
-            dlp.setMargins((int) (16 * dens), (int) (12 * dens), (int) (16 * dens), 0);
+                    ViewGroup.LayoutParams.MATCH_PARENT, (int) (40 * dens));
+            dlp.setMargins((int) (12 * dens), (int) (12 * dens), (int) (12 * dens),
+                    (int) (12 * dens));
             rootLayout.addView(done, dlp);
         }
         input.setOnEditorActionListener((v, actionId, event) -> {
