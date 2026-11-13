@@ -222,10 +222,6 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
-                <data android:host="soundcloud.com" />
-                <data android:host="m.soundcloud.com" />
-                <data android:host="on.soundcloud.com" />
-                <data android:host="www.soundcloud.com" />
                 <data android:pathPrefix="/" />
             </intent-filter>
 
@@ -247,7 +243,6 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
-                <data android:host="media.ccc.de" />
                 <!-- video prefix -->
                 <data android:pathPrefix="/v/" />
                 <!-- channel prefix-->
@@ -272,11 +267,6 @@
                 <data android:host="indymotion.fr" />
                 <data android:host="media.assassinate-you.net" />
                 <data android:host="media.fsfe.org" />
-                <data android:host="peertube.co.uk" />
-                <data android:host="peertube.cpy.re" />
-                <data android:host="peertube.fr" />
-                <data android:host="peertube.mastodon.host" />
-                <data android:host="peertube.stream" />
                 <data android:host="skeptikon.fr" />
                 <data android:host="tilvids.com" />
                 <data android:host="video.lqdn.fr" />
@@ -303,7 +293,6 @@
 
                 <data android:scheme="http" />
                 <data android:scheme="https" />
-                <data android:host="*.bandcamp.com" />
             </intent-filter>
 
             <!-- Bandcamp filter for radio -->

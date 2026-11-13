@@ -4,6 +4,12 @@ A lightweight, open-source Android application focused on video and audio downlo
 
 NewPipe Downloader is a simplified fork of [NewPipe](https://github.com/TeamNewPipe/NewPipe), adapted to focus on downloading rather than the full streaming experience.
 
+## YT'm
+
+This fork supports only **YouTube** and **YouTube Music**. Support for SoundCloud, media.ccc.de, Bandcamp and PeerTube has been dropped.
+
+Downloads are saved to `Download/NewPipe/Videos` and `Download/NewPipe/Audio`. The folder picker and the replacement character setting have been removed.
+
 ## Features
 
 - Download video and audio in supported formats and available qualities.
@@ -19,10 +25,6 @@ This project is a work in progress. Features, compatibility, and the user interf
 ## Supported Services
 
 * YouTube ([website](https://www.youtube.com/)) and YouTube Music ([website](https://music.youtube.com/)) ([wiki](https://en.wikipedia.org/wiki/YouTube))
-* PeerTube ([website](https://joinpeertube.org/)) and all its instances (open the website to know what that means!) ([wiki](https://en.wikipedia.org/wiki/PeerTube))
-* Bandcamp ([website](https://bandcamp.com/)) ([wiki](https://en.wikipedia.org/wiki/Bandcamp))
-* SoundCloud ([website](https://soundcloud.com/)) ([wiki](https://en.wikipedia.org/wiki/SoundCloud))
-* media.ccc.de ([website](https://media.ccc.de/)) ([wiki](https://en.wikipedia.org/wiki/Chaos_Computer_Club))
 
 
 ## Disclaimer

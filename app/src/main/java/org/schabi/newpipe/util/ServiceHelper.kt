@@ -102,7 +102,7 @@ object ServiceHelper {
 
     @JvmStatic
     fun getNameOfServiceById(serviceId: Int): String {
-        return ServiceList.all().stream()
+        return org.schabi.newpipe.util.SupportedServices.all().stream()
             .filter { it.serviceId == serviceId }
             .findFirst()
             .map(StreamingService::getServiceInfo)
@@ -117,7 +117,7 @@ object ServiceHelper {
      */
     @JvmStatic
     fun getServiceById(serviceId: Int): StreamingService {
-        return ServiceList.all().firstNotNullOf { it.takeIf { it.serviceId == serviceId } }
+        return org.schabi.newpipe.util.SupportedServices.all().firstNotNullOf { it.takeIf { it.serviceId == serviceId } }
     }
 
     @JvmStatic
@@ -143,6 +143,6 @@ object ServiceHelper {
 
     @JvmStatic
     fun initServices(context: Context) {
-        ServiceList.all().forEach { initService(context, it.serviceId) }
+        org.schabi.newpipe.util.SupportedServices.all().forEach { initService(context, it.serviceId) }
     }
 }
