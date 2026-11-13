@@ -32,7 +32,7 @@ include(":app") // androidApp
 
 //    includeBuild("../NewPipeExtractor") {
 //        dependencySubstitution {
-//            substitute(module("com.github.TeamNewPipe:NewPipeExtractor"))
+//            substitute(module("com.github.r-i-s-u:NewPipeExtractor"))
 //                .using(project(":extractor"))
 //        }
 //    }
