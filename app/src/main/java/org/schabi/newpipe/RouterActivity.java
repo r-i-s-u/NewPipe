@@ -233,7 +233,30 @@ public class RouterActivity extends AppCompatActivity {
         }
     }
 
-    protected void showUnsupportedUrlDialog(final String url) {
+    private void showUnsupportedUrlDialog(final String url) {
+        boolean recognized;
+        try {
+            org.schabi.newpipe.extractor.NewPipe.getServiceByUrl(url);
+            recognized = true;
+        } catch (final Exception e) {
+            recognized = false;
+        }
+        boolean online = false;
+        try {
+            final android.net.ConnectivityManager cm = (android.net.ConnectivityManager)
+                    getSystemService(android.content.Context.CONNECTIVITY_SERVICE);
+            final android.net.NetworkInfo info = cm == null ? null : cm.getActiveNetworkInfo();
+            online = info != null && info.isConnected();
+        } catch (final Exception e) {
+            online = true;
+        }
+        final int msg = recognized && !online
+                ? R.string.toast_no_connection : R.string.toast_unsupported_url;
+        android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    protected void showUnsupportedUrlDialogLegacy(final String url) {
         final Context context = getThemeWrapperContext();
         org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
                 .setTitle(R.string.unsupported_url)

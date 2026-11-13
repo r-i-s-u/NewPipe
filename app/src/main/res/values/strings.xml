@@ -375,4 +375,6 @@
     <string name="mission_remove_message" translatable="false">Remove %d item(s) from your download history for good?</string>
     <string name="mission_remove_delete_file" translatable="false">Delete file (%s)</string>
     <string name="mission_remove_confirm" translatable="false">Confirm</string>
+    <string name="toast_no_connection" translatable="false">No connection</string>
+    <string name="toast_unsupported_url" translatable="false">Unsupported</string>
 </resources>
