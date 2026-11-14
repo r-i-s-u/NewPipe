@@ -46,7 +46,6 @@
         @color/m3_timepicker_*,
         
         @drawable/mtrl_checkbox_button_*,
-        
         @drawable/$mtrl_checkbox_button_*,
         @anim/btn_checkbox_*,
         @anim/btn_radio_*,
@@ -63,5 +62,10 @@
         @drawable/abc_cab_background_top_mtrl_alpha*,
         @drawable/abc_ic_commit_search_api_mtrl_alpha*,
         @drawable/abc_list_*,
-        @drawable/mtrl_checkbox_button*,
-        @drawable/$mtrl_checkbox_button*" />
+        @drawable/notification_bg_*,
+        @drawable/notify_panel_*,
+        @drawable/abc_ic_menu_*,
+        @drawable/abc_menu_hardkey_panel_mtrl_*,
+        @drawable/abc_popup_background_mtrl_*,
+        @interpolator/btn_checkbox_checked_*,
+        @interpolator/btn_radio_*" />
