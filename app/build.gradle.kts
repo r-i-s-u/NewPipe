@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.android.legacy.kapt)
     alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.jetbrains.kotlinx.serialization)
-    alias(libs.plugins.sonarqube)
     checkstyle
 }
 
@@ -50,8 +49,6 @@ configure<ApplicationExtension> {
             version = release(NEWPIPE_VERSION_SDK_TARGET)
         }
 
-        resourceConfigurations += listOf("en")
-
         versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: NEWPIPE_VERSION_CODE
 
         versionName = NEWPIPE_VERSION_NAME
@@ -87,22 +84,6 @@ configure<ApplicationExtension> {
             )
         }
 
-        register("continuous") {
-            initWith(getByName("release"))
-            signingConfig = signingConfigs.getByName("debug")
-            isDefault = true
-
-            // suffix the app id and the app name with git branch name
-            if (normalizedWorkingBranch.isEmpty() || workingBranch in defaultBranches) {
-                applicationIdSuffix = ".continuous"
-                resValue("string", "app_name", "NewPipe Continuous")
-            } else {
-                applicationIdSuffix = ".continuous.$normalizedWorkingBranch"
-                resValue("string", "app_name", "NewPipe $workingBranch")
-            }
-        }
-    }
-
     lint {
         lintConfig = file("lint.xml")
         // Continue the debug build even when errors are found
@@ -113,12 +94,6 @@ configure<ApplicationExtension> {
         // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
         encoding = "utf-8"
-    }
-
-    sourceSets {
-        getByName("androidTest") {
-            assets.directories += "$projectDir/schemas"
-        }
     }
 
     androidResources {
@@ -210,14 +185,6 @@ afterEvaluate {
     }
 }
 
-sonar {
-    properties {
-        property("sonar.projectKey", "TeamNewPipe_NewPipe")
-        property("sonar.organization", "teamnewpipe")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
-}
-
 dependencies {
     // Desugaring
     coreLibraryDesugaring(libs.android.desugar)
@@ -261,24 +228,11 @@ dependencies {
     implementation(libs.squareup.okhttp)
     implementation(libs.squareup.okhttp.brotli)
 
-    // Media player
-
-    // Manager for complex RecyclerView layouts
-
-    // Image loading
-
-    // Markdown library for Android
-
-
-    // Properly restarting
-
     // Reactive extensions for Java VM
     implementation(libs.reactivex.rxjava)
     implementation(libs.reactivex.rxandroid)
     // RxJava binding APIs for Android UI widgets
     implementation(libs.jakewharton.rxbinding)
-
-    // Date and time formatting
 
 }
 
