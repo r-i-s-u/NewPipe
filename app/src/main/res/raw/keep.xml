@@ -1,28 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:shrinkMode="strict"
     tools:discard="
         @color/m3_assist_chip_*,
+        
         @color/m3_bottom_sheet_*,
+        
         @color/m3_button_*,
+        
         @color/m3_calendar_*,
+        
         @color/m3_card_*,
+        
         @color/m3_checkbox_*,
+        
         @color/m3_chip_*,
+        
         @color/m3_efab_*,
+        
         @color/m3_fab_*,
+        
         @color/m3_filled_icon_button_*,
+        
         @color/m3_icon_button_*,
+        
         @color/m3_list_item_*,
+        
         @color/m3_navigation_*,
+        
         @color/m3_radiobutton_*,
+        
         @color/m3_segmented_*,
+        
         @color/m3_simple_item_*,
+        
         @color/m3_slider_*,
+        
         @color/m3_standard_toolbar_*,
+        
         @color/m3_tabs_*,
+        
         @color/m3_text_button_*,
+        
         @color/m3_textfield_*,
+        
         @color/m3_timepicker_*,
+        
         @drawable/mtrl_checkbox_button_*,
-        @drawable/$mtrl_checkbox_button_*" />
+        
+        @drawable/$mtrl_checkbox_button_*,
+        @anim/btn_checkbox_*,
+        @anim/btn_radio_*,
+        @drawable/abc_btn_check_to_on_mtrl_*,
+        @drawable/abc_btn_radio_to_on_mtrl_*,
+        @drawable/abc_btn_switch_to_on_mtrl_*,
+        @drawable/abc_scrubber_*,
+        @drawable/abc_spinner_mtrl_am_alpha*,
+        @drawable/abc_switch_track_mtrl_alpha*,
+        @drawable/abc_tab_indicator_mtrl_alpha*,
+        @drawable/abc_text_select_handle_*,
+        @drawable/abc_textfield_*,
+        @drawable/abc_ab_share_pack_mtrl_alpha*,
+        @drawable/abc_cab_background_top_mtrl_alpha*,
+        @drawable/abc_ic_commit_search_api_mtrl_alpha*,
+        @drawable/abc_list_*,
+        @drawable/mtrl_checkbox_button*,
+        @drawable/$mtrl_checkbox_button*" />
