@@ -23,4 +23,6 @@
         @color/m3_tabs_*,
         @color/m3_text_button_*,
         @color/m3_textfield_*,
-        @color/m3_timepicker_*" />
+        @color/m3_timepicker_*,
+        @drawable/mtrl_checkbox_button,
+        @drawable/$mtrl_checkbox_button" />
