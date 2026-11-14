@@ -83,6 +83,7 @@ configure<ApplicationExtension> {
                 "proguard-rules.pro"
             )
         }
+}
 
     lint {
         lintConfig = file("lint.xml")
