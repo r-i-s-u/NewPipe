@@ -56,3 +56,6 @@
 
 -repackageclasses ''
 -allowaccessmodification
+
+# Shrink only (remove unused library classes)
+-dontoptimize
