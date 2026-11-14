@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -139,12 +138,12 @@ public final class MissionMenuPopup {
         pw.setOutsideTouchable(true);
         pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        // spread animation: three-dot ki taraf se phailta hai (neeche ya upar)
-        scroll.setPivotX(Math.max(0f, Math.min(w, loc[0] + anchor.getWidth() / 2f - x)));
-        scroll.setPivotY(below ? 0f : h);
-        scroll.setAlpha(0f);
-        scroll.setScaleX(0.6f);
-        scroll.setScaleY(0.3f);
+        // opens instantly: no spread / fade animation
+        pw.setAnimationStyle(0);
+        if (android.os.Build.VERSION.SDK_INT >= 23) {
+            pw.setEnterTransition(null);
+            pw.setExitTransition(null);
+        }
         pw.showAtLocation(anchor, Gravity.TOP | Gravity.START, x, y);
         final View decor = pw.getContentView().getRootView();
         if (decor.getLayoutParams() instanceof android.view.WindowManager.LayoutParams) {
@@ -158,8 +157,6 @@ public final class MissionMenuPopup {
             ((android.view.WindowManager) ctx.getSystemService(Context.WINDOW_SERVICE))
                     .updateViewLayout(decor, wlp);
         }
-        scroll.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200)
-                .setInterpolator(new DecelerateInterpolator()).start();
     }
 
     /** Pull-to-stretch for the menu rows (like the Android 12 overscroll stretch). */
