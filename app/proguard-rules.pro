@@ -1,5 +1,6 @@
 # https://developer.android.com/build/shrink-code
 
+-dontobfuscate
 
 ## Rules for NewPipeExtractor
 -keep class org.schabi.newpipe.extractor.timeago.patterns.** { *; }
