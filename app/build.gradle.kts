@@ -242,7 +242,6 @@ dependencies {
     implementation(libs.androidx.preference)
     implementation(libs.androidx.recyclerview)
     implementation(libs.google.android.material)
-    implementation(libs.androidx.webkit)
 
     // Coroutines interop
     implementation(libs.kotlinx.coroutines.rx3)
@@ -285,4 +284,8 @@ dependencies {
 
 configurations.all {
     exclude(group = "org.mozilla")
+}
+
+configurations.configureEach {
+    exclude(group = "androidx.webkit", module = "webkit")
 }

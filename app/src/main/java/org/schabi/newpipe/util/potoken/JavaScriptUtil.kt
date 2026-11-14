@@ -1,4 +1,3 @@
-package org.schabi.newpipe.util.potoken
 
 import com.grack.nanojson.JsonObject
 import com.grack.nanojson.JsonParser
@@ -55,7 +54,6 @@ fun parseIntegrityTokenData(rawIntegrityTokenData: String): Pair<String, Long> {
 }
 
 /**
- * Converts a string (usually the identifier used as input to `obtainPoToken`) to a JavaScript
  * `Uint8Array` that can be embedded directly in JavaScript code.
  */
 fun stringToU8(identifier: String): String {
@@ -108,6 +106,5 @@ private fun base64ToByteString(base64: String): ByteArray {
         .replace('_', '/')
         .replace('.', '=')
 
-    return (base64Mod.decodeBase64() ?: throw PoTokenException("Cannot base64 decode"))
         .toByteArray()
 }

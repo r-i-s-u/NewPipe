@@ -26,7 +26,6 @@ import org.schabi.newpipe.util.BridgeStateSaverInitializer
 import org.schabi.newpipe.util.Localization
 import org.schabi.newpipe.util.ServiceHelper
 import org.schabi.newpipe.util.StateSaver
-import org.schabi.newpipe.util.potoken.PoTokenProviderImpl
 
 /*
  * Copyright (C) Hans-Christoph Steiner 2016 <hans@eds.org>
@@ -89,7 +88,6 @@ open class App :
 
         configureRxJavaErrorHandler()
 
-        YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
     }
 
 
