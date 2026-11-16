@@ -34,6 +34,7 @@ import org.schabi.newpipe.R;
  */
 public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
     private static final String TAG = "ListPreferenceBottomSheet";
+    private static final int LANDSCAPE_MAX_WIDTH_DP = 370;
     private static final float CORNER_RADIUS_DP = 10f;
 
     private ListPreference preference;
@@ -145,7 +146,14 @@ public class ListPreferenceBottomSheet extends BottomSheetDialogFragment {
                 }
             }
             sheetDialog.getBehavior().setSkipCollapsed(true);
-            sheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
+            final BottomSheetBehavior<?> behavior = sheetDialog.getBehavior();
+            if (getResources().getConfiguration().orientation
+                    == android.content.res.Configuration.ORIENTATION_LANDSCAPE) {
+                // Centered, narrow sheet in landscape instead of full width
+                behavior.setMaxWidth((int) (LANDSCAPE_MAX_WIDTH_DP
+                        * getResources().getDisplayMetrics().density));
+            }
+            behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
     }
 
