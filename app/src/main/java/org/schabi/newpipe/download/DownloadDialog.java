@@ -568,6 +568,30 @@ public class DownloadDialog extends BottomSheetDialogFragment
         }, 250);
     }
 
+    private void styleFlatSeekBar(final SeekBar bar, final android.widget.TextView label,
+                                  final android.content.Context ctx) {
+        final int color = primaryText(ctx).getDefaultColor();
+        final org.schabi.newpipe.util.FlatSeekBarDrawable d =
+                new org.schabi.newpipe.util.FlatSeekBarDrawable(color, sheetDp(4), sheetDp(8));
+        bar.setThumb(null);
+        bar.setProgressDrawable(d);
+        bar.setPadding(0, 0, 0, 0);
+        bar.setSplitTrack(false);
+        label.setAlpha(0.7f);
+        bar.setOnTouchListener((v, ev) -> {
+            final int act = ev.getActionMasked();
+            if (act == android.view.MotionEvent.ACTION_DOWN) {
+                d.setPressedState(true);
+                label.animate().alpha(1f).setDuration(120).start();
+            } else if (act == android.view.MotionEvent.ACTION_UP
+                    || act == android.view.MotionEvent.ACTION_CANCEL) {
+                d.setPressedState(false);
+                label.animate().alpha(0.7f).setDuration(180).start();
+            }
+            return false;
+        });
+    }
+
     private void showThreadsDialog() {
         final android.content.Context ctx = sheetContext();
         final android.widget.TextView label = new android.widget.TextView(ctx);
@@ -576,6 +600,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         label.setGravity(android.view.Gravity.CENTER);
         label.setMinWidth(sheetDp(32));
         final SeekBar bar = new SeekBar(ctx);
+        styleFlatSeekBar(bar, label, ctx);
         bar.setMax(dialogBinding.threads.getMax());
         bar.setProgress(dialogBinding.threads.getProgress());
         label.setText(String.valueOf(bar.getProgress() + 1));
@@ -599,6 +624,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
                 new android.widget.LinearLayout.LayoutParams(
                         0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f);
         lp.setMarginEnd(sheetDp(12));
+        lp.height = sheetDp(36);
         box.addView(bar, lp);
         box.addView(label);
 
