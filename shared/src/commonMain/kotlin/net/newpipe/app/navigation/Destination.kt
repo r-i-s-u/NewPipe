@@ -7,13 +7,42 @@ package net.newpipe.app.navigation
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
-import net.newpipe.app.model.License
 
 /**
  * Destinations for navigation in compose
  */
 @Serializable
 sealed interface Destination : NavKey {
+
+    @Serializable
+    data object BackupRestoreSettings : Destination
+
+    @Serializable
+    data object PlayerNotificationSettings : Destination
+
+    @Serializable
+    data object UpdateSettings : Destination
+
+    @Serializable
+    data object ContentSettings : Destination
+
+    @Serializable
+    data object HistorySettings : Destination
+
+    @Serializable
+    data object NotificationSettings : Destination
+
+    @Serializable
+    data object DownloadSettings : Destination
+
+    @Serializable
+    data object DebugSettings : Destination
+
+    @Serializable
+    data object PlayerSettings : Destination
+
+    @Serializable
+    data object VideoAudioSettings : Destination
 
     @Serializable
     data object AppearanceSettings : Destination
@@ -24,4 +53,3 @@ sealed interface Destination : NavKey {
     @Serializable
     data object About : Destination
 }
-
