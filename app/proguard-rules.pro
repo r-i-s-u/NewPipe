@@ -2,8 +2,6 @@
 
 -dontobfuscate
 
-## Rules for NewPipeExtractor
--keep class org.schabi.newpipe.extractor.timeago.patterns.** { *; }
 ## Rules for Rhino and Rhino Engine
 -keep class org.mozilla.javascript.* { *; }
 -keep class org.mozilla.javascript.** { *; }
