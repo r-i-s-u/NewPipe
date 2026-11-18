@@ -285,6 +285,33 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void updateProgress(ViewHolderItem h) {
+        updateProgressImpl(h);
+        compactRunningText(h);
+    }
+
+    private void compactRunningText(final ViewHolderItem h) {
+        if (h == null || h.item == null || !(h.item.mission instanceof DownloadMission)) {
+            return;
+        }
+        final DownloadMission m = (DownloadMission) h.item.mission;
+        if (!m.running || m.isPsRunning() || m.isRecovering() || m.isPsFailed()
+                || m.errCode != ERROR_NOTHING) {
+            return;
+        }
+        final StringBuilder sb = new StringBuilder(mContext.getString(R.string.mission_downloading));
+        final long length = m.getLength();
+        if (!m.unknownLength && length > 0) {
+            sb.append(" \u2022 ").append((int) (m.done * 100d / length)).append('%');
+        }
+        final String cur = h.size.getText().toString();
+        final int i = cur.lastIndexOf("  ");
+        if (i >= 0 && cur.endsWith("/s")) {
+            sb.append(" \u2022 ").append(cur.substring(i + 2).trim());
+        }
+        h.size.setText(sb);
+    }
+
+    private void updateProgressImpl(ViewHolderItem h) {
         MissionThumbs.setOverlay(h.icon, h.item.mission);
         applyStatusVisibility(h);
         if (h == null || h.item == null || h.item.mission instanceof FinishedMission) return;

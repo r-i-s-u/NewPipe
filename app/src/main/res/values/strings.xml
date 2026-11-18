@@ -378,4 +378,5 @@
     <string name="toast_no_connection" translatable="false">No connection</string>
     <string name="toast_unsupported_url" translatable="false">Unsupported</string>
     <string name="status_no_connection" translatable="false">No connection. Download paused.</string>
+    <string name="mission_downloading">Downloading</string>
 </resources>
