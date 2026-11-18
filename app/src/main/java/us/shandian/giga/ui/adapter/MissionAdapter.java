@@ -254,12 +254,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         } else {
             h.progress.setMarquee(false);
                 if (h.sweep != null) {
-                    h.sweep.setProgress(0d);
+                    h.sweep.update(0, 0d);
                 }
                 h.progress.setProgress(1.0f);
                 h.status.setVisibility(View.GONE);
                 h.bar.setVisibility(View.GONE);
                 h.size.setText(Utility.formatBytes(item.mission.length));
+                h.size.setTextColor(h.sizeColors);
         }
     }
 
@@ -292,6 +293,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         compactRunningText(h);
     }
 
+    private static final int YT_BLUE = 0xFF3EA6FF;
+
     private static String titleCase(final String in) {
         final String t = in.replace("(", "").replace(")", "").trim();
         final StringBuilder out = new StringBuilder();
@@ -320,13 +323,15 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final StringBuilder sb = new StringBuilder(mContext.getString(R.string.mission_downloading));
         final long length = m.getLength();
         if (!m.unknownLength && length > 0) {
-            sb.append(" \u2022 ").append((int) (m.done * 100d / length)).append('%');
+            sb.append("\u2026 ").append((int) (m.done * 100d / length)).append('%');
         }
         h.size.setText(sb);
+        h.size.setTextColor(YT_BLUE);
     }
 
     private void updateProgressImpl(ViewHolderItem h) {
         if (h.sweep != null) {
+            int mode = 0;
             double sp = 0d;
             if (h.item.mission instanceof DownloadMission) {
                 final DownloadMission dm = (DownloadMission) h.item.mission;
@@ -334,10 +339,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 if (!dm.unknownLength && l > 0) {
                     sp = (double) dm.done / l;
                 }
+                mode = dm.running ? 1 : 2;
             }
             h.sweep.setBounds(0, 0, h.icon.getWidth(), h.icon.getHeight());
-            h.sweep.setProgress(sp);
+            h.sweep.update(mode, sp);
         }
+        h.size.setTextColor(h.sizeColors);
         applyStatusVisibility(h);
         if (h == null || h.item == null || h.item.mission instanceof FinishedMission) return;
 
@@ -389,7 +396,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         if (state != 0) {
             // update state without download speed
-            h.size.setText(sizeStr.concat("\u2022 ").concat(titleCase(mContext.getString(state))));
+            final android.text.SpannableStringBuilder ssb =
+                    new android.text.SpannableStringBuilder(sizeStr.concat("\u2022 "));
+            final int stateStart = ssb.length();
+            ssb.append(titleCase(mContext.getString(state)));
+            ssb.setSpan(new android.text.style.ForegroundColorSpan(YT_BLUE),
+                    stateStart, ssb.length(), 0);
+            h.size.setText(ssb);
             h.resetSpeedMeasure();
             return;
         }
@@ -1308,7 +1321,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         View highlight;
         View bar;
         ProgressDrawable progress;
-        us.shandian.giga.ui.common.SweepDrawable sweep;
+        us.shandian.giga.ui.common.DownloadBadgeDrawable sweep;
+        android.content.res.ColorStateList sizeColors;
 
         PopupMenu popupMenu;
         View menuAnchor;
@@ -1339,11 +1353,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             status = itemView.findViewById(R.id.item_status);
             name = itemView.findViewById(R.id.item_name);
             icon = itemView.findViewById(R.id.item_icon);
-            sweep = new us.shandian.giga.ui.common.SweepDrawable();
+            sweep = new us.shandian.giga.ui.common.DownloadBadgeDrawable();
             icon.getOverlay().add(sweep);
             icon.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, orr, ob) ->
                     sweep.setBounds(0, 0, r - l, b - t));
             size = itemView.findViewById(R.id.item_size);
+            sizeColors = size.getTextColors();
             date = itemView.findViewById(R.id.item_date);
             root = itemView.findViewById(R.id.item_root);
             highlight = itemView.findViewById(R.id.item_highlight);
