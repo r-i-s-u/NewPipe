@@ -1302,7 +1302,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
                     break;
             }
 
-            askDialog.show();
+            org.schabi.newpipe.util.AppDialogs.show(askDialog);
             return;
         }
 
@@ -1346,7 +1346,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
             }
         });
 
-        askDialog.show();
+        org.schabi.newpipe.util.AppDialogs.show(askDialog);
     }
 
     private void continueSelectedDownload(@NonNull final StoredFileHelper storage) {

@@ -321,7 +321,7 @@ public class MissionsFragment extends Fragment {
 
     public void showClearDownloadHistoryPrompt() {
         // ask the user whether he wants to just clear history or instead delete files on disk
-        new AlertDialog.Builder(mContext)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(mContext)
                 .setTitle(R.string.clear_download_history)
                 .setMessage(R.string.confirm_prompt)
                 // Intentionally misusing buttons' purpose in order to achieve good order
@@ -330,17 +330,17 @@ public class MissionsFragment extends Fragment {
                 .setNeutralButton(R.string.cancel, null)
                 .setPositiveButton(R.string.delete_downloaded_files, (dialog, which) ->
                         showDeleteDownloadedFilesConfirmationPrompt())
-                .show();
+                );
     }
 
     public void showDeleteDownloadedFilesConfirmationPrompt() {
         // make sure the user confirms once more before deleting files on disk
-        new AlertDialog.Builder(mContext)
+        org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(mContext)
                 .setTitle(R.string.delete_downloaded_files_confirm)
                 .setNegativeButton(R.string.cancel, null)
                 .setPositiveButton(R.string.ok, (dialog, which) ->
                         mAdapter.clearFinishedDownloads(true))
-                .show();
+                );
     }
 
     private void updateList() {

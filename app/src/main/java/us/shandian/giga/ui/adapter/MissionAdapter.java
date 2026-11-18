@@ -591,9 +591,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         }
 
-        builder.setNegativeButton(R.string.ok, (dialog, which) -> dialog.cancel())
-                .setTitle(mission.storage.getName())
-                .show();
+        org.schabi.newpipe.util.AppDialogs.show(builder
+                .setNegativeButton(R.string.ok, (dialog, which) -> dialog.cancel())
+                .setTitle(mission.storage.getName()));
     }
 
     private void showError(DownloadMission mission, Object action, Object reason) {}

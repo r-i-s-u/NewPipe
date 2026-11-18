@@ -29,6 +29,15 @@ public final class AppDialogs {
         if (neg == null || pos == null || neg.getVisibility() != View.VISIBLE
                 || pos.getVisibility() != View.VISIBLE
                 || (neu != null && neu.getVisibility() == View.VISIBLE)) {
+            final Button any = pos != null && pos.getVisibility() == View.VISIBLE ? pos
+                    : neg != null && neg.getVisibility() == View.VISIBLE ? neg
+                    : neu != null && neu.getVisibility() == View.VISIBLE ? neu : null;
+            if (any != null && any.getParent() instanceof LinearLayout) {
+                final LinearLayout other = (LinearLayout) any.getParent();
+                final float d = dialog.getContext().getResources().getDisplayMetrics().density;
+                other.setPadding(other.getPaddingLeft(), (int) (12 * d),
+                        other.getPaddingRight(), (int) (24 * d));
+            }
             return;
         }
         if (!(pos.getParent() instanceof LinearLayout) || neg.getParent() != pos.getParent()) {
