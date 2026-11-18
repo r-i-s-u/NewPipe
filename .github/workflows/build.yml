@@ -18,7 +18,21 @@ jobs:
           cache: 'gradle'
 
       - name: "Build release APK"
-        run: ./gradlew assembleRelease --stacktrace
+        run: |
+          for attempt in 1 2 3; do
+            if ./gradlew assembleRelease --stacktrace; then
+              exit 0
+            fi
+
+            if [ "$attempt" -eq 3 ]; then
+              echo "Build failed after $attempt attempts"
+              exit 1
+            fi
+
+            delay=$((attempt * 15))
+            echo "Build attempt $attempt failed; retrying in ${delay}s"
+            sleep "$delay"
+          done
 
       - name: "Rename APK"
         run: |
@@ -42,10 +56,9 @@ jobs:
           keyAlias: ${{ secrets.SIGNING_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
           keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          
+
       - name: "Upload APK"
         uses: actions/upload-artifact@v7
         with:
           name: app
           path: ${{ steps.sign_app.outputs.signedFile }}
-          
