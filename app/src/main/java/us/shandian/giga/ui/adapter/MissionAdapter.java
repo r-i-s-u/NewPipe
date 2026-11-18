@@ -335,6 +335,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                     sp = (double) dm.done / l;
                 }
             }
+            h.sweep.setBounds(0, 0, h.icon.getWidth(), h.icon.getHeight());
             h.sweep.setProgress(sp);
         }
         applyStatusVisibility(h);
@@ -1339,9 +1340,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             name = itemView.findViewById(R.id.item_name);
             icon = itemView.findViewById(R.id.item_icon);
             sweep = new us.shandian.giga.ui.common.SweepDrawable();
-            if (android.os.Build.VERSION.SDK_INT >= 23) {
-                icon.setForeground(sweep);
-            }
+            icon.getOverlay().add(sweep);
+            icon.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, orr, ob) ->
+                    sweep.setBounds(0, 0, r - l, b - t));
             size = itemView.findViewById(R.id.item_size);
             date = itemView.findViewById(R.id.item_date);
             root = itemView.findViewById(R.id.item_root);
