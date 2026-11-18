@@ -1,7 +1,5 @@
 # https://developer.android.com/build/shrink-code
 
--dontobfuscate
-
 ## Rules for Rhino and Rhino Engine
 -keep class org.mozilla.javascript.* { *; }
 -keep class org.mozilla.javascript.** { *; }
