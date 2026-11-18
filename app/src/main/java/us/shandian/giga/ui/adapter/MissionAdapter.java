@@ -253,6 +253,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 h.bar.setVisibility(View.VISIBLE);
         } else {
             h.progress.setMarquee(false);
+                if (h.sweep != null) {
+                    h.sweep.setProgress(0d);
+                }
                 h.progress.setProgress(1.0f);
                 h.status.setVisibility(View.GONE);
                 h.bar.setVisibility(View.GONE);
@@ -289,6 +292,22 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         compactRunningText(h);
     }
 
+    private static String titleCase(final String in) {
+        final String t = in.replace("(", "").replace(")", "").trim();
+        final StringBuilder out = new StringBuilder();
+        for (final String w : t.split("[\\s-]+")) {
+            if (w.isEmpty()) {
+                continue;
+            }
+            if (out.length() > 0) {
+                out.append(' ');
+            }
+            out.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1).toLowerCase());
+        }
+        final String r = out.toString();
+        return "Queued".equals(r) ? "Enqueued" : r;
+    }
+
     private void compactRunningText(final ViewHolderItem h) {
         if (h == null || h.item == null || !(h.item.mission instanceof DownloadMission)) {
             return;
@@ -303,16 +322,21 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (!m.unknownLength && length > 0) {
             sb.append(" \u2022 ").append((int) (m.done * 100d / length)).append('%');
         }
-        final String cur = h.size.getText().toString();
-        final int i = cur.lastIndexOf("  ");
-        if (i >= 0 && cur.endsWith("/s")) {
-            sb.append(" \u2022 ").append(cur.substring(i + 2).trim());
-        }
         h.size.setText(sb);
     }
 
     private void updateProgressImpl(ViewHolderItem h) {
-        MissionThumbs.setOverlay(h.icon, h.item.mission);
+        if (h.sweep != null) {
+            double sp = 0d;
+            if (h.item.mission instanceof DownloadMission) {
+                final DownloadMission dm = (DownloadMission) h.item.mission;
+                final long l = dm.getLength();
+                if (!dm.unknownLength && l > 0) {
+                    sp = (double) dm.done / l;
+                }
+            }
+            h.sweep.setProgress(sp);
+        }
         applyStatusVisibility(h);
         if (h == null || h.item == null || h.item.mission instanceof FinishedMission) return;
 
@@ -364,7 +388,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         if (state != 0) {
             // update state without download speed
-            h.size.setText(sizeStr.concat("(").concat(mContext.getString(state)).concat(")"));
+            h.size.setText(sizeStr.concat("\u2022 ").concat(titleCase(mContext.getString(state))));
             h.resetSpeedMeasure();
             return;
         }
@@ -1105,7 +1129,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void bindSelection(final ViewHolderItem h, final boolean animate) {
-        final boolean finished = h.item != null && h.item.mission instanceof FinishedMission;
+        final boolean finished = h.item != null;
         final boolean show = finished && mSelecting;
         final boolean selected = show && mSelected.contains(h.item.mission);
         h.row.setSelecting(show, animate);
@@ -1283,6 +1307,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         View highlight;
         View bar;
         ProgressDrawable progress;
+        us.shandian.giga.ui.common.SweepDrawable sweep;
 
         PopupMenu popupMenu;
         View menuAnchor;
@@ -1313,6 +1338,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             status = itemView.findViewById(R.id.item_status);
             name = itemView.findViewById(R.id.item_name);
             icon = itemView.findViewById(R.id.item_icon);
+            sweep = new us.shandian.giga.ui.common.SweepDrawable();
+            if (android.os.Build.VERSION.SDK_INT >= 23) {
+                icon.setForeground(sweep);
+            }
             size = itemView.findViewById(R.id.item_size);
             date = itemView.findViewById(R.id.item_date);
             root = itemView.findViewById(R.id.item_root);
