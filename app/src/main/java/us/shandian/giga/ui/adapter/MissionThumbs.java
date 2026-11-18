@@ -44,6 +44,7 @@ final class MissionThumbs {
                 }
             };
     private static final Set<String> MISSING = ConcurrentHashMap.newKeySet();
+    private static final ConcurrentHashMap<String, Long> FAILED = new ConcurrentHashMap<>();
     private static final ExecutorService POOL = Executors.newFixedThreadPool(2);
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
 
@@ -70,7 +71,7 @@ final class MissionThumbs {
             view.setForeground(null);
         }
         if (mission instanceof us.shandian.giga.get.DownloadMission) {
-            loadRemote((us.shandian.giga.get.DownloadMission) mission, view, subtitle);
+            loadRemote(context, (us.shandian.giga.get.DownloadMission) mission, view, subtitle);
             return;
         }
 
@@ -117,7 +118,8 @@ final class MissionThumbs {
         });
     }
 
-    private static void loadRemote(final us.shandian.giga.get.DownloadMission mission,
+    private static void loadRemote(final Context context,
+                                   final us.shandian.giga.get.DownloadMission mission,
                                    final ImageView view, final TextView subtitle) {
         boolean audio = false;
         try {
@@ -125,15 +127,24 @@ final class MissionThumbs {
         } catch (final Exception ignored) {
             // treat as video
         }
-        final String url = mission.psAlgorithm == null
+        final Context app = context.getApplicationContext();
+        final String[] stored = us.shandian.giga.get.MissionMeta.get(app, mission.source);
+        String found = mission.psAlgorithm == null
                 ? null : mission.psAlgorithm.thumbnailUrl(audio);
-        if (url == null) {
+        if (found == null && stored != null) {
+            found = stored[1];
+        }
+        final String author = stored != null && stored[0] != null
+                && !stored[0].trim().isEmpty() ? stored[0].trim() : null;
+        if (author != null) {
+            subtitle.setText(author);
+        }
+        if (found == null) {
             return;
         }
-        final String key = "remote#" + url;
-        if (MISSING.contains(key)) {
-            return;
-        }
+        final String url = found;
+        final String diskKey = mission.source != null ? mission.source : url;
+        final String key = "remote#" + diskKey;
         final Meta cached = CACHE.get(key);
         if (cached != null) {
             apply(view, subtitle, cached);
@@ -141,12 +152,23 @@ final class MissionThumbs {
         }
         view.setTag(R.id.tag_thumb_key, key);
         POOL.execute(() -> {
-            final Bitmap bmp = fetchRemote(url);
+            Bitmap bmp = readDiskThumb(app, diskKey);
             if (bmp == null) {
-                MISSING.add(key);
+                final Long failedAt = FAILED.get(key);
+                if (failedAt == null || System.currentTimeMillis() - failedAt > 20_000L) {
+                    bmp = fetchWithFallback(url);
+                    if (bmp != null) {
+                        writeDiskThumb(app, diskKey, bmp);
+                        FAILED.remove(key);
+                    } else {
+                        FAILED.put(key, System.currentTimeMillis());
+                    }
+                }
+            }
+            if (bmp == null) {
                 return;
             }
-            final Meta meta = new Meta(bmp, null);
+            final Meta meta = new Meta(bmp, author);
             CACHE.put(key, meta);
             MAIN.post(() -> {
                 if (key.equals(view.getTag(R.id.tag_thumb_key))) {
@@ -154,6 +176,47 @@ final class MissionThumbs {
                 }
             });
         });
+    }
+
+    private static java.io.File thumbFile(final Context ctx, final String key) {
+        final java.io.File dir = new java.io.File(ctx.getFilesDir(), "dl_thumbs");
+        return new java.io.File(dir, Integer.toHexString(key.hashCode()) + "_" + key.length()
+                + ".jpg");
+    }
+
+    private static Bitmap readDiskThumb(final Context ctx, final String key) {
+        try {
+            final java.io.File f = thumbFile(ctx, key);
+            return f.isFile() ? BitmapFactory.decodeFile(f.getAbsolutePath()) : null;
+        } catch (final Exception e) {
+            return null;
+        }
+    }
+
+    private static void writeDiskThumb(final Context ctx, final String key, final Bitmap bmp) {
+        try {
+            final java.io.File f = thumbFile(ctx, key);
+            final java.io.File dir = f.getParentFile();
+            if (dir != null && !dir.isDirectory() && !dir.mkdirs()) {
+                return;
+            }
+            try (java.io.FileOutputStream out = new java.io.FileOutputStream(f)) {
+                bmp.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            }
+        } catch (final Exception ignored) {
+            // the disk copy is optional
+        }
+    }
+
+    private static Bitmap fetchWithFallback(final String url) {
+        Bitmap b = fetchRemote(url);
+        if (b == null && url.endsWith("/maxresdefault.jpg")) {
+            b = fetchRemote(url.replace("maxresdefault.jpg", "hq720.jpg"));
+            if (b == null) {
+                b = fetchRemote(url.replace("maxresdefault.jpg", "hqdefault.jpg"));
+            }
+        }
+        return b;
     }
 
     private static Meta withStored(final Context ctx, final String source, final Uri uri,

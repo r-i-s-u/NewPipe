@@ -248,7 +248,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             h.pause.setTitle(mission.unknownLength ? R.string.stop : R.string.pause);
             updateProgress(h);
             mPendingDownloadsItems.add(h);
-                h.date.setText("");
+                /* subtitle is set by MissionThumbs */
                 applyStatusVisibility(h);
                 h.bar.setVisibility(View.VISIBLE);
         } else {
@@ -275,6 +275,13 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final boolean err = h.item != null && h.item.mission instanceof DownloadMission
                 && ((DownloadMission) h.item.mission).errCode != ERROR_NOTHING;
         h.status.setVisibility(err ? View.VISIBLE : View.GONE);
+        h.size.setVisibility(err && isConnectionError(
+                ((DownloadMission) h.item.mission).errCode)
+                ? View.GONE : View.VISIBLE);
+    }
+
+    private static boolean isConnectionError(final int code) {
+        return code == ERROR_UNKNOWN_HOST || code == ERROR_CONNECT_HOST || code == ERROR_TIMEOUT;
     }
 
     private void updateProgress(ViewHolderItem h) {
@@ -303,7 +310,8 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         if (hasError) {
             h.progress.setProgress(isNotFinite(progress) ? 1d : progress);
-            h.status.setText(R.string.msg_error);
+            h.status.setText(isConnectionError(mission.errCode)
+                    ? R.string.status_no_connection : R.string.msg_error);
         } else if (isNotFinite(progress)) {
             h.status.setText(UNDEFINED_PROGRESS);
         } else {
