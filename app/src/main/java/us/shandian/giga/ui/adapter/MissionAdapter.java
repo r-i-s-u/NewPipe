@@ -1419,6 +1419,28 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 }
                 return true;
             });
+        
+            final android.view.View.OnLongClickListener selectLongClick = v -> {
+                if (item == null) {
+                    return false;
+                }
+                if (isSelecting()) {
+                    toggleSelection(item.mission);
+                    return true;
+                }
+                mSelecting = true;
+                if (!mSelected.contains(item.mission)) {
+                    toggleSelection(item.mission);
+                }
+                return true;
+            };
+            itemView.setOnLongClickListener(selectLongClick);
+            for (final android.view.View c : new android.view.View[]{row, icon, name, size,
+                    status, date}) {
+                if (c != null && c.hasOnLongClickListeners()) {
+                    c.setOnLongClickListener(selectLongClick);
+                }
+            }
         }
 
         private void showPopupMenu() {
