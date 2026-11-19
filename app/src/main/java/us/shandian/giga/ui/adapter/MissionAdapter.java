@@ -895,7 +895,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void toggleSelection(final Mission mission) {
-        if (!(mission instanceof FinishedMission) || !mSelecting) {
+        if (!mSelecting) {
             return;
         }
         if (!mSelected.remove(mission)) {
@@ -1090,7 +1090,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final ArrayList<Uri> uris = new ArrayList<>();
         String mime = null;
         for (final Mission m : mSelected) {
-            if (checkInvalidFile(m)) {
+            if (!(m instanceof FinishedMission) || checkInvalidFile(m)) {
                 continue;
             }
             uris.add(resolveShareableUri(m));
@@ -1408,7 +1408,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
             itemView.setOnLongClickListener(v -> {
                 v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-                if (item != null && item.mission instanceof FinishedMission) {
+                if (item != null) {
                     if (isSelecting()) {
                         toggleSelection(item.mission);
                     } else if (!beginSelection(item.mission)) {
