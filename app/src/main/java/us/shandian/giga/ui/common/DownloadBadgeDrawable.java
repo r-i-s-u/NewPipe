@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
  * while paused or queued, with a thin progress ring around it.
  */
 public class DownloadBadgeDrawable extends Drawable {
-    private static final int RING_COLOR = 0xFF3EA6FF;
+    private static final int RING_COLOR = 0xFFFFFFFF;
 
     private final Paint fill = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint track = new Paint(Paint.ANTI_ALIAS_FLAG);

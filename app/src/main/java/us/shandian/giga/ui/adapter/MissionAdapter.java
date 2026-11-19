@@ -293,8 +293,6 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         compactRunningText(h);
     }
 
-    private static final int YT_BLUE = 0xFF3EA6FF;
-
     private static String titleCase(final String in) {
         final String t = in.replace("(", "").replace(")", "").trim();
         final StringBuilder out = new StringBuilder();
@@ -323,10 +321,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         final StringBuilder sb = new StringBuilder(mContext.getString(R.string.mission_downloading));
         final long length = m.getLength();
         if (!m.unknownLength && length > 0) {
-            sb.append("\u2026 ").append((int) (m.done * 100d / length)).append('%');
+            sb.append(" \u2022 ").append((int) (m.done * 100d / length)).append('%');
         }
         h.size.setText(sb);
-        h.size.setTextColor(YT_BLUE);
     }
 
     private void updateProgressImpl(ViewHolderItem h) {
@@ -396,13 +393,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
         if (state != 0) {
             // update state without download speed
-            final android.text.SpannableStringBuilder ssb =
-                    new android.text.SpannableStringBuilder(sizeStr.concat("\u2022 "));
-            final int stateStart = ssb.length();
-            ssb.append(titleCase(mContext.getString(state)));
-            ssb.setSpan(new android.text.style.ForegroundColorSpan(YT_BLUE),
-                    stateStart, ssb.length(), 0);
-            h.size.setText(ssb);
+            h.size.setText(titleCase(mContext.getString(state)));
             h.resetSpeedMeasure();
             return;
         }
