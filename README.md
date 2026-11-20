@@ -2,7 +2,7 @@
 
 A lightweight, open-source Android application focused on video and audio downloads.
 
-NewPipe Downloader is a simplified fork of [NewPipe](https://github.com/TeamNewPipe/NewPipe), adapted to focus on downloading rather than the full streaming experience.
+PipeLoad is a simplified fork of [NewPipe](https://github.com/TeamNewPipe/NewPipe), adapted to focus on downloading rather than the full streaming experience.
 
 ## Features
 

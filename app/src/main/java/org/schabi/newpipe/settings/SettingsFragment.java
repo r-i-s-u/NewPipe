@@ -54,7 +54,7 @@ public class SettingsFragment extends androidx.preference.PreferenceFragmentComp
         }
         final java.io.File dir = new java.io.File(
                 android.os.Environment.getExternalStorageDirectory(), dirName);
-        prefs.edit().putString(key, new java.io.File(dir, "NewPipe").toURI().toString()).apply();
+        prefs.edit().putString(key, new java.io.File(dir, "PipeLoad").toURI().toString()).apply();
     }
 
     @Override
