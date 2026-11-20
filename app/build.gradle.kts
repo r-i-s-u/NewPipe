@@ -29,31 +29,31 @@ kotlin {
 
 configure<ApplicationExtension> {
     compileSdk {
-        version = release(NEWPIPE_VERSION_SDK_COMPILE_MAJOR) {
-            minorApiLevel = NEWPIPE_VERSION_SDK_COMPILE_MINOR
+        version = release(PIPELOAD_VERSION_SDK_COMPILE_MAJOR) {
+            minorApiLevel = PIPELOAD_VERSION_SDK_COMPILE_MINOR
         }
     }
-    namespace = NEWPIPE_APPLICATION_ID
+    namespace = PIPELOAD_APPLICATION_ID
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
     }
 
     defaultConfig {
-        applicationId = NEWPIPE_APPLICATION_ID
+        applicationId = PIPELOAD_APPLICATION_ID
         resValue("string", "app_name", "PipeLoad")
         minSdk {
-            version = release(NEWPIPE_VERSION_SDK_MIN)
+            version = release(PIPELOAD_VERSION_SDK_MIN)
         }
         targetSdk {
-            version = release(NEWPIPE_VERSION_SDK_TARGET)
+            version = release(PIPELOAD_VERSION_SDK_TARGET)
         }
 
      resourceConfigurations += listOf("en")
 
-        versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: NEWPIPE_VERSION_CODE
+        versionCode = System.getProperty("versionCodeOverride")?.toInt() ?: PIPELOAD_VERSION_CODE
 
-        versionName = NEWPIPE_VERSION_NAME
+        versionName = PIPELOAD_VERSION_NAME
         System.getProperty("versionNameSuffix")?.let { versionNameSuffix = it }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

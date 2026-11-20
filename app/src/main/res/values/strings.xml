@@ -65,7 +65,7 @@
     <string name="just_once">Just Once</string>
     <string name="file">File</string>
     <string name="notifications">Notifications</string>
-    <string name="notification_channel_name">NewPipe notification</string>
+    <string name="notification_channel_name">PipeLoad notification</string>
     <string name="notification_channel_description">Notifications for NewPipe\'s player</string>
     <string name="app_update_notification_channel_name">App update notification</string>
     <string name="app_update_notification_channel_description">Notifications for new NewPipe versions</string>
@@ -140,7 +140,7 @@
     <string name="msg_name">Filename</string>
     <string name="msg_threads">Threads</string>
     <string name="msg_error">Error</string>
-    <string name="msg_running">NewPipe Downloading</string>
+    <string name="msg_running">PipeLoad Downloading</string>
     <string name="msg_running_detail">Tap for details</string>
     <string name="msg_copied">Copied to clipboard</string>
     <string name="msg_failed_to_copy">Failed to copy to clipboard</string>
@@ -262,7 +262,7 @@
     <string name="error_http_no_content">The server does not send data</string>
     <string name="error_http_unsupported_range">The server does not accept multi-threaded downloads, retry with @string/msg_threads = 1</string>
     <string name="error_http_not_found">Not found</string>
-    <string name="error_postprocessing_stopped">NewPipe was closed while working on the file</string>
+    <string name="error_postprocessing_stopped">PipeLoad was closed while working on the file</string>
     <string name="error_insufficient_storage">Not enough free space on device</string>
     <string name="error_insufficient_storage_left">No space left on device</string>
     <string name="error_progress_lost">Progress lost, because the file was deleted</string>
