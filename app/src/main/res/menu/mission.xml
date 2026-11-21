@@ -45,9 +45,6 @@
         android:icon="@drawable/ic_close"
         android:title="@string/delete_entry" />
 
-    <item
-        android:id="@+id/error_message_view"
-        android:title="@string/show_error" />
 
 
 </menu>

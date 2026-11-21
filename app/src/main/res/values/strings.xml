@@ -253,21 +253,9 @@
     <string name="download_already_running">There is a download in progress with this name</string>
     <string name="download_already_pending">There is a pending download with this name</string>
     <!-- message dialog about download error -->
-    <string name="show_error">Show error</string>
     <string name="error_file_creation">The file cannot be created</string>
     <string name="error_path_creation">The destination folder cannot be created</string>
-    <string name="error_ssl_exception">Could not establish a secure connection</string>
-    <string name="error_unknown_host">Could not find the server</string>
-    <string name="error_connect_host">Cannot connect to the server</string>
-    <string name="error_http_no_content">The server does not send data</string>
-    <string name="error_http_unsupported_range">The server does not accept multi-threaded downloads, retry with @string/msg_threads = 1</string>
-    <string name="error_http_not_found">Not found</string>
-    <string name="error_postprocessing_stopped">PipeLoad was closed while working on the file</string>
     <string name="error_insufficient_storage">Not enough free space on device</string>
-    <string name="error_insufficient_storage_left">No space left on device</string>
-    <string name="error_progress_lost">Progress lost, because the file was deleted</string>
-    <string name="error_timeout">Connection timeout</string>
-    <string name="error_download_resource_gone">Cannot recover this download</string>
     <string name="clear_download_history">Clear download history</string>
     <string name="confirm_prompt">Do you want to clear your download history or delete all downloaded files?</string>
     <string name="delete_downloaded_files">Delete downloaded files</string>
