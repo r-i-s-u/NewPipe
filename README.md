@@ -1,4 +1,4 @@
-# Pipeload
+# PipeLoad
 
 A lightweight, open-source Android application focused on video and audio downloads.
 

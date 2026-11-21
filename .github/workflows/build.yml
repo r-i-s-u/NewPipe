@@ -35,15 +35,9 @@ jobs:
           done
 
       - name: "Rename APK"
-        run: |
-          VERSION_NAME="$(jq -r ".elements[0].versionName" "app/build/outputs/apk/release/output-metadata.json")"
-          echo "Version name: $VERSION_NAME" >> "$GITHUB_STEP_SUMMARY"
-          echo '```json' >> "$GITHUB_STEP_SUMMARY"
-          cat "app/build/outputs/apk/release/output-metadata.json" >> "$GITHUB_STEP_SUMMARY"
-          echo >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+        run: | 
           # assume there is only one APK in that folder
-          mv app/build/outputs/apk/release/*.apk "app/build/outputs/apk/release/PipeLoad_v$VERSION_NAME.apk"
+          mv app/build/outputs/apk/release/*.apk "app/build/outputs/apk/release/PipeLoad-$VERSION_NAME.apk"
 
       - uses: ilharp/sign-android-release@v2
         name: "Sign app APK"
