@@ -19,7 +19,7 @@
             android:background="@drawable/download_icon_bg"
             android:contentDescription="Back"
             android:padding="12dp"
-            android:src="@drawable/sheet_ic_back"
+            android:src="@drawable/abc_vector_test"
             android:tint="?android:attr/textColorPrimary" />
 
         <TextView
