@@ -910,9 +910,12 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             final DownloadManager.MissionItem it = mIterator.getItem(i);
             if (it != null && it.mission instanceof FinishedMission) {
                 finished++;
+                if (!mSelected.contains(it.mission)) {
+                    return false;
+                }
             }
         }
-        return finished > 0 && mSelected.size() >= finished;
+        return finished > 0;
     }
 
     private void selectAll() {
