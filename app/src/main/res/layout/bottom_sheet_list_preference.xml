@@ -41,7 +41,7 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/download_icon_bg"
             android:contentDescription="@android:string/cancel"
-            android:src="@drawable/ic_close" />
+            android:src="@drawable/abc_ic_clear_material" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView

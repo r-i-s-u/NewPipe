@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/cancel"
-        android:icon="@drawable/ic_close"
+        android:icon="@drawable/abc_ic_clear_material"
         android:title="@string/cancel" />
 
     <item
@@ -42,7 +42,7 @@
 
     <item
         android:id="@+id/delete_entry"
-        android:icon="@drawable/ic_close"
+        android:icon="@drawable/abc_ic_clear_material"
         android:title="@string/delete_entry" />
 
 

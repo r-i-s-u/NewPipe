@@ -120,7 +120,7 @@ public class NewFolderBottomSheet extends BottomSheetDialogFragment {
 
         final ImageButton close = view.findViewById(R.id.sheet_tick);
         close.setVisibility(View.VISIBLE);
-        close.setImageResource(R.drawable.ic_close);
+        close.setImageResource(R.drawable.abc_ic_clear_material);
         close.setOnClickListener(v -> dismiss());
 
         if (view instanceof LinearLayout) {

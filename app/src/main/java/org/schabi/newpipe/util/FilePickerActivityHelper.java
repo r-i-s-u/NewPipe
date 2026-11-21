@@ -117,7 +117,7 @@ public class FilePickerActivityHelper extends com.nononsenseapps.filepicker.File
                 toolbar = findToolbar(requireActivity().findViewById(android.R.id.content));
             }
             if (toolbar != null) {
-                toolbar.setNavigationIcon(R.drawable.ic_close);
+                toolbar.setNavigationIcon(R.drawable.abc_ic_clear_material);
                 toolbar.setNavigationOnClickListener(v -> {
                     requireActivity().setResult(android.app.Activity.RESULT_CANCELED);
                     requireActivity().finish();

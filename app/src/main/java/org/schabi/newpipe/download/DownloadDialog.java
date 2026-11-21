@@ -440,13 +440,13 @@ public class DownloadDialog extends BottomSheetDialogFragment
                         ? View.VISIBLE : View.GONE);
 
         dialogBinding.videoChevron.setImageResource(
-                video && show ? R.drawable.chev_up : R.drawable.chev_down);
+                video && show ? R.drawable.chev_up : R.drawable.ic_arrow_down_24dp);
         dialogBinding.audioChevron.setImageResource(
-                audio && show ? R.drawable.chev_up : R.drawable.chev_down);
+                audio && show ? R.drawable.chev_up : R.drawable.ic_arrow_down_24dp);
         dialogBinding.captionsChevron.setImageResource(
-                captions && show ? R.drawable.chev_up : R.drawable.chev_down);
+                captions && show ? R.drawable.chev_up : R.drawable.ic_arrow_down_24dp);
         dialogBinding.langChevron.setImageResource(
-                lang ? R.drawable.chev_up : R.drawable.chev_down);
+                lang ? R.drawable.chev_up : R.drawable.ic_arrow_down_24dp);
 
     }
 

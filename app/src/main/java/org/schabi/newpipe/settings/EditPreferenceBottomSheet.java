@@ -128,7 +128,7 @@ public class EditPreferenceBottomSheet extends BottomSheetDialogFragment {
 
         final View tick = view.findViewById(R.id.sheet_tick);
         tick.setVisibility(View.VISIBLE);
-        ((android.widget.ImageButton) tick).setImageResource(R.drawable.ic_close);
+        ((android.widget.ImageButton) tick).setImageResource(R.drawable.abc_ic_clear_material);
         tick.setOnClickListener(v -> dismiss());
 
         if (view instanceof LinearLayout) {

@@ -118,7 +118,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down"
+                    android:src="@drawable/ic_arrow_down_24dp"
                     android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
@@ -159,7 +159,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down"
+                    android:src="@drawable/ic_arrow_down_24dp"
                     android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
@@ -201,7 +201,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down"
+                    android:src="@drawable/ic_arrow_down_24dp"
                     android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 
@@ -243,7 +243,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="4dp"
-                    android:src="@drawable/chev_down"
+                    android:src="@drawable/ic_arrow_down_24dp"
                     android:tint="?android:attr/textColorPrimary" />
             </LinearLayout>
 

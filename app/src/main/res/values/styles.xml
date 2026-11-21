@@ -170,7 +170,7 @@
     <style name="DownloadsActionMode">
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeStyle">@style/DownloadsActionModeBar</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_close</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_clear_material</item>
     </style>
     <style name="DownloadsActionModeBar" parent="Widget.AppCompat.ActionMode">
         <item name="background">?android:attr/colorBackground</item>
