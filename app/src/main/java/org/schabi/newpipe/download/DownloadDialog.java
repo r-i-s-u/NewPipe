@@ -574,6 +574,7 @@ public class DownloadDialog extends BottomSheetDialogFragment
         final org.schabi.newpipe.util.FlatSeekBarDrawable d =
                 new org.schabi.newpipe.util.FlatSeekBarDrawable(color, sheetDp(4), sheetDp(8));
         bar.setThumb(null);
+        bar.setBackground(null);
         bar.setProgressDrawable(d);
         bar.setPadding(0, 0, 0, 0);
         bar.setSplitTrack(false);
