@@ -241,7 +241,6 @@
     <string name="allow_heap_dumping_key">allow_heap_dumping_key</string>
     <string name="show_memory_leaks_key">show_memory_leaks_key</string>
     <string name="allow_disposed_exceptions_key">allow_disposed_exceptions_key</string>
-    <string name="show_original_time_ago_key">show_original_time_ago_key</string>
     <string name="show_crash_the_player_key">show_crash_the_player_key</string>
     <string name="check_new_streams_key">check_new_streams</string>
     <string name="crash_the_app_key">crash_the_app_key</string>
@@ -343,11 +342,9 @@
     <string name="show_meta_info_key">show_meta_info</string>
     <string name="stream_info_selected_tab_key">stream_info_selected_tab</string>
     <string name="show_hold_to_append_key">show_hold_to_append</string>
-    <string name="content_language_key">content_language</string>
     <string name="peertube_instance_setup_key">peertube_instance_setup</string>
     <string name="peertube_selected_instance_key">peertube_selected_instance</string>
     <string name="peertube_instance_list_key">peertube_instance_list</string>
-    <string name="content_country_key">content_country</string>
     <string name="show_age_restricted_content">show_age_restricted_content</string>
     <string name="youtube_restricted_mode_enabled">youtube_restricted_mode_enabled</string>
     <string name="enable_search_history_key">enable_search_history</string>
@@ -361,7 +358,6 @@
     <string name="playback_pitch_key">playback_pitch_key</string>
     <string name="playback_skip_silence_key">playback_skip_silence_key</string>
 
-    <string name="app_language_key">app_language_key</string>
     <string name="app_language_android_13_and_up_key">app_language_android_13_and_up_key</string>
 
     <string name="feed_update_threshold_key">feed_update_threshold_key</string>
@@ -440,7 +436,6 @@
     <!-- Preferred action on open (open from external app) -->
     <string name="preferred_open_action_key">preferred_open_action_key</string>
     <string name="preferred_open_action_default">@string/always_ask_open_action_key</string>
-    <string name="preferred_open_action_last_selected_key">preferred_open_action_last_selected</string>
 
     <string name="show_info_key">show_info</string>
     <string name="video_player_key">video_player</string>

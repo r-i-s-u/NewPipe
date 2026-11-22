@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="upload_date_text">Published on %1$s</string>
     <string name="no_player_found">No stream player found. Install VLC?</string>
     <string name="no_player_found_toast">No stream player found (you can install VLC to play it).</string>
     <string name="install">Install</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="no">No</string>
-    <string name="open_in_browser">Open in browser</string>
     <string name="open_with">Open with</string>
     <string name="share">Share</string>
     <string name="download">Download</string>
@@ -41,8 +39,6 @@
     <string name="local_search_suggestions">Local search suggestions</string>
     <string name="remote_search_suggestions">Remote search suggestions</string>
     <string name="download_dialog_title">Download</string>
-    <string name="unsupported_url">Unsupported URL</string>
-    <string name="unsupported_url_dialog_message">Could not recognize the URL. Open with another app?</string>
     <string name="content">Content</string>
     <string name="downloads">Downloads</string>
     <string name="loading_metadata_title">Loading Metadata…</string>
@@ -62,7 +58,6 @@
     <string name="undo">Undo</string>
     <string name="file_deleted">File deleted</string>
     <string name="always">Always</string>
-    <string name="just_once">Just Once</string>
     <string name="file">File</string>
     <string name="notifications">Notifications</string>
     <string name="notification_channel_name">PipeLoad notification</string>
@@ -94,33 +89,24 @@
     <string name="video">Video</string>
     <string name="audio">Audio</string>
     <string name="retry">Retry</string>
-    <string name="short_thousand">%sK</string>
-    <string name="short_million">%sM</string>
-    <string name="short_billion">%sB</string>
     <!--Zero don't get selected (in some languages) as it is not a "special case" for android-->
-    <string name="no_subscribers">No subscribers</string>
     <plurals name="subscribers">
         <item quantity="one">%s subscriber</item>
         <item quantity="other">%s subscribers</item>
     </plurals>
-    <string name="no_views">No views</string>
     <plurals name="views">
         <item quantity="one">%s view</item>
         <item quantity="other">%s views</item>
     </plurals>
-    <string name="no_one_watching">No one is watching</string>
     <plurals name="watching">
         <item quantity="one">%s watching</item>
         <item quantity="other">%s watching</item>
     </plurals>
-    <string name="no_one_listening">No one is listening</string>
     <plurals name="listening">
         <item quantity="one">%s listener</item>
         <item quantity="other">%s listeners</item>
     </plurals>
     <string name="no_videos">No videos</string>
-    <string name="more_than_100_videos">100+ videos</string>
-    <string name="infinite_videos">∞ videos</string>
     <plurals name="videos">
         <item quantity="one">%s video</item>
         <item quantity="other">%s videos</item>
@@ -316,13 +302,7 @@
     <string name="no_video_streams_available_for_external_players">No video streams are available for external players</string>
     <string name="unknown_format">Unknown format</string>
     <string name="unknown_quality">Unknown quality</string>
-    <string name="unknown_audio_track">Unknown</string>
     <string name="sort">Sort</string>
-    <string name="audio_track_name">%1$s %2$s</string>
-    <string name="audio_track_type_original">original</string>
-    <string name="audio_track_type_dubbed">dubbed</string>
-    <string name="audio_track_type_descriptive">descriptive</string>
-    <string name="audio_track_type_secondary">secondary</string>
     <string name="channel_tab_videos">Videos</string>
     <string name="channel_tab_tracks">Tracks</string>
     <string name="channel_tab_shorts">Shorts</string>
@@ -363,8 +343,6 @@
     <string name="mission_remove_message" translatable="false">Remove %d item(s) from your download history for good?</string>
     <string name="mission_remove_delete_file" translatable="false">Delete file (%s)</string>
     <string name="mission_remove_confirm" translatable="false">Confirm</string>
-    <string name="toast_no_connection" translatable="false">No connection</string>
-    <string name="toast_unsupported_url" translatable="false">Unsupported</string>
     <string name="status_no_connection" translatable="false">No connection. Download paused.</string>
     <string name="mission_downloading">Downloading</string>
 </resources>

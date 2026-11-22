@@ -23,7 +23,6 @@ import android.widget.Toast;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -250,8 +249,8 @@ public class RouterActivity extends AppCompatActivity {
         } catch (final Exception e) {
             online = true;
         }
-        final int msg = recognized && !online
-                ? R.string.toast_no_connection : R.string.toast_unsupported_url;
+        final String msg = recognized && !online
+                ? "No connection" : "Unsupported";
         android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -259,13 +258,13 @@ public class RouterActivity extends AppCompatActivity {
     protected void showUnsupportedUrlDialogLegacy(final String url) {
         final Context context = getThemeWrapperContext();
         org.schabi.newpipe.util.AppDialogs.show(new AlertDialog.Builder(context)
-                .setTitle(R.string.unsupported_url)
-                .setMessage(R.string.unsupported_url_dialog_message)
-                .setPositiveButton(R.string.open_in_browser,
+                .setTitle("Unsupported URL")
+                .setMessage("Could not recognize the URL. Open with another app?")
+                .setPositiveButton("Open in browser",
                         (dialog, which) -> ShareUtils.openUrlInBrowser(this, url))
-                .setNegativeButton(R.string.share,
+                .setNegativeButton("Share",
                         (dialog, which) -> ShareUtils.shareText(this, "", url)) // no subject
-                .setNeutralButton(R.string.cancel, null)
+                .setNeutralButton("Cancel", null)
                 .setOnDismissListener(dialog -> finish()));
     }
 
@@ -275,13 +274,13 @@ public class RouterActivity extends AppCompatActivity {
 
         final ChoiceAvailabilityChecker choiceChecker = new ChoiceAvailabilityChecker(
                 getChoicesForService(currentLinkType),
-                preferences.getString(getString(R.string.download_key),
-                        getString(R.string.download_key)));
+                preferences.getString("download",
+                        "download"));
 
         // Check for non-player related choices
         if (choiceChecker.isAvailableAndSelected(
-                R.string.show_info_key,
-                R.string.download_key)) {
+                "show_info",
+                "download")) {
             handleChoice(choiceChecker.getSelectedChoiceKey());
             return;
         }
@@ -292,7 +291,7 @@ public class RouterActivity extends AppCompatActivity {
                 handleChoice(availableChoices.get(0).key);
                 break;
             case 0:
-                handleChoice(getString(R.string.show_info_key));
+                handleChoice("show_info");
                 break;
             default:
                 showDialog(availableChoices);
@@ -322,12 +321,12 @@ public class RouterActivity extends AppCompatActivity {
             return selectedChoiceKey;
         }
 
-        public boolean isAvailableAndSelected(@StringRes final int... wantedKeys) {
+        public boolean isAvailableAndSelected(final String... wantedKeys) {
             return Arrays.stream(wantedKeys).anyMatch(this::isAvailableAndSelected);
         }
 
-        public boolean isAvailableAndSelected(@StringRes final int wantedKey) {
-            final String wanted = getString(wantedKey);
+        public boolean isAvailableAndSelected(final String wantedKey) {
+            final String wanted = wantedKey;
             // Check if the wanted option is selected
             if (!selectedChoiceKey.equals(wanted)) {
                 return false;
@@ -357,7 +356,7 @@ public class RouterActivity extends AppCompatActivity {
             // open future streams always like this one, because "always" button was used by user
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 preferences.edit()
-                        .putString(getString(R.string.download_key), choice.key)
+                        .putString("download", choice.key)
                         .apply();
             }
         };
@@ -366,8 +365,8 @@ public class RouterActivity extends AppCompatActivity {
                 .setTitle(R.string.preferred_open_action_share_menu_title)
                 .setView(binding.getRoot())
                 .setCancelable(true)
-                .setNegativeButton(R.string.just_once, dialogButtonsClickListener)
-                .setPositiveButton(R.string.always, dialogButtonsClickListener)
+                .setNegativeButton("Just Once", dialogButtonsClickListener)
+                .setPositiveButton("Always", dialogButtonsClickListener)
                 .setOnDismissListener(dialog -> {
                     if (!selectionIsDownload) {
                         finish();
@@ -412,7 +411,7 @@ public class RouterActivity extends AppCompatActivity {
 
         if (selectedRadioPosition == -1) {
             final String lastSelectedPlayer = preferences.getString(
-                    getString(R.string.preferred_open_action_last_selected_key), null);
+                    "preferred_open_action_last_selected", null);
             if (!TextUtils.isEmpty(lastSelectedPlayer)) {
                 for (int i = 0; i < choices.size(); i++) {
                     final AdapterChoiceItem c = choices.get(i);
@@ -436,11 +435,11 @@ public class RouterActivity extends AppCompatActivity {
 
     private List<AdapterChoiceItem> getChoicesForService(final LinkType linkType) {
         final List<AdapterChoiceItem> items = new ArrayList<>();
-        items.add(new AdapterChoiceItem(getString(R.string.show_info_key),
-                getString(R.string.show_info), 0));
+        items.add(new AdapterChoiceItem("show_info",
+                "Show info", 0));
         if (linkType == LinkType.STREAM) {
-            items.add(new AdapterChoiceItem(getString(R.string.download_key),
-                    getString(R.string.download), R.drawable.ic_file_download));
+            items.add(new AdapterChoiceItem("download",
+                    "Download", R.drawable.ic_file_download));
         }
         return items;
     }
@@ -467,13 +466,12 @@ public class RouterActivity extends AppCompatActivity {
                 .getStringArray(R.array.preferred_open_action_values_list));
         if (validChoicesList.contains(selectedChoiceKey)) {
             PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putString(getString(
-                            R.string.preferred_open_action_last_selected_key), selectedChoiceKey)
+                    .putString("preferred_open_action_last_selected", selectedChoiceKey)
                     .apply();
         }
 
 
-        if (selectedChoiceKey.equals(getString(R.string.download_key))) {
+        if (selectedChoiceKey.equals("download")) {
             if (PermissionHelper.checkStoragePermissions(this,
                     PermissionHelper.DOWNLOAD_DIALOG_REQUEST_CODE)) {
                 selectionIsDownload = true;
@@ -485,7 +483,7 @@ public class RouterActivity extends AppCompatActivity {
 
         // stop and bypass FetcherService if InfoScreen was selected since
         // StreamDetailFragment can fetch data itself
-        if (selectedChoiceKey.equals(getString(R.string.show_info_key))) {
+        if (selectedChoiceKey.equals("show_info")) {
             disposables.add(Observable
                     .fromCallable(() -> NavigationHelper.getIntentByLink(this, currentUrl))
                     .subscribeOn(Schedulers.io())
