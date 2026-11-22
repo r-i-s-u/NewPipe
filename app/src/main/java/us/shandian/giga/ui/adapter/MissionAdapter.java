@@ -763,11 +763,14 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     public void onAttachedToRecyclerView(@NonNull final RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
         mRecycler = recyclerView;
+        recyclerView.addOnItemTouchListener(mDragListener);
     }
 
     @Override
     public void onDetachedFromRecyclerView(@NonNull final RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
+        recyclerView.removeOnItemTouchListener(mDragListener);
+        stopDragSelect();
         if (mRecycler == recyclerView) {
             mRecycler = null;
         }
@@ -781,6 +784,155 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
 
     private boolean recentSwipe() {
         return android.os.SystemClock.uptimeMillis() - mSwipeAt < 500;
+    }
+
+    // ---------------- drag to select ----------------
+    private boolean mDragSelecting;
+    private int mDragAnchor = RecyclerView.NO_POSITION;
+    private int mDragLast = RecyclerView.NO_POSITION;
+    private float mDragY;
+    private int mDragScrollDy;
+    private boolean mDragScrollPosted;
+    private final java.util.HashMap<Integer, Mission> mDragAdded = new java.util.HashMap<>();
+
+    private final Runnable mAutoScroll = new Runnable() {
+        @Override
+        public void run() {
+            if (!mDragSelecting || mRecycler == null || mDragScrollDy == 0) {
+                mDragScrollPosted = false;
+                return;
+            }
+            mRecycler.scrollBy(0, mDragScrollDy);
+            selectUnder(mRecycler, mDragY);
+            mRecycler.postOnAnimation(this);
+        }
+    };
+
+    private final RecyclerView.OnItemTouchListener mDragListener =
+            new RecyclerView.OnItemTouchListener() {
+                @Override
+                public boolean onInterceptTouchEvent(@NonNull final RecyclerView rv,
+                                                     @NonNull final android.view.MotionEvent e) {
+                    if (!mDragSelecting) {
+                        return false;
+                    }
+                    final int a = e.getActionMasked();
+                    if (a == android.view.MotionEvent.ACTION_UP
+                            || a == android.view.MotionEvent.ACTION_CANCEL) {
+                        stopDragSelect();
+                        return false;
+                    }
+                    if (a == android.view.MotionEvent.ACTION_MOVE) {
+                        dragMove(rv, e.getY());
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override
+                public void onTouchEvent(@NonNull final RecyclerView rv,
+                                         @NonNull final android.view.MotionEvent e) {
+                    if (!mDragSelecting) {
+                        return;
+                    }
+                    final int a = e.getActionMasked();
+                    if (a == android.view.MotionEvent.ACTION_UP
+                            || a == android.view.MotionEvent.ACTION_CANCEL) {
+                        stopDragSelect();
+                    } else if (a == android.view.MotionEvent.ACTION_MOVE) {
+                        dragMove(rv, e.getY());
+                    }
+                }
+
+                @Override
+                public void onRequestDisallowInterceptTouchEvent(final boolean disallow) {
+                    // not needed
+                }
+            };
+
+    private void startDragSelect(final int anchor) {
+        if (anchor == RecyclerView.NO_POSITION || mRecycler == null) {
+            return;
+        }
+        mDragSelecting = true;
+        mDragAnchor = anchor;
+        mDragLast = anchor;
+        mDragScrollDy = 0;
+        mDragAdded.clear();
+    }
+
+    private void stopDragSelect() {
+        mDragSelecting = false;
+        mDragAnchor = RecyclerView.NO_POSITION;
+        mDragLast = RecyclerView.NO_POSITION;
+        mDragScrollDy = 0;
+        mDragAdded.clear();
+    }
+
+    private void dragMove(final RecyclerView rv, final float y) {
+        mDragY = y;
+        selectUnder(rv, y);
+        final float density = rv.getResources().getDisplayMetrics().density;
+        final float zone = 72 * density;
+        if (y < zone) {
+            mDragScrollDy = -Math.max(4, (int) ((zone - y) / zone * 24 * density));
+        } else if (y > rv.getHeight() - zone) {
+            mDragScrollDy = Math.max(4, (int) ((y - (rv.getHeight() - zone)) / zone * 24 * density));
+        } else {
+            mDragScrollDy = 0;
+        }
+        if (mDragScrollDy != 0 && !mDragScrollPosted) {
+            mDragScrollPosted = true;
+            rv.postOnAnimation(mAutoScroll);
+        }
+    }
+
+    private void selectUnder(final RecyclerView rv, final float y) {
+        final View child = rv.findChildViewUnder(rv.getWidth() / 2f, y);
+        if (child == null) {
+            return;
+        }
+        final int p = rv.getChildAdapterPosition(child);
+        if (p != RecyclerView.NO_POSITION) {
+            applyDragRange(p);
+        }
+    }
+
+    private void applyDragRange(final int pos) {
+        if (!mSelecting || mDragAnchor == RecyclerView.NO_POSITION || pos == mDragLast) {
+            return;
+        }
+        mDragLast = pos;
+        final int lo = Math.min(mDragAnchor, pos);
+        final int hi = Math.max(mDragAnchor, pos);
+        boolean changed = false;
+
+        final java.util.Iterator<java.util.Map.Entry<Integer, Mission>> it =
+                mDragAdded.entrySet().iterator();
+        while (it.hasNext()) {
+            final java.util.Map.Entry<Integer, Mission> en = it.next();
+            if (en.getKey() < lo || en.getKey() > hi) {
+                mSelected.remove(en.getValue());
+                it.remove();
+                changed = true;
+            }
+        }
+        for (int p = lo; p <= hi; p++) {
+            if (p == mDragAnchor || mDragAdded.containsKey(p) || p < 0 || p >= getItemCount()) {
+                continue;
+            }
+            final DownloadManager.MissionItem mi = mIterator.getItem(p);
+            if (mi == null || mi.mission == null || mSelected.contains(mi.mission)) {
+                continue;
+            }
+            mSelected.add(mi.mission);
+            mDragAdded.put(p, mi.mission);
+            changed = true;
+        }
+        if (changed) {
+            updateSelectionUi();
+            refreshSelectionViews();
+        }
     }
 
     private boolean isSelecting() {
@@ -819,6 +971,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             return;
         }
         mSelecting = false;
+        stopDragSelect();
         mSelected.clear();
         if (mBar != null) {
             mBar.setVisibility(android.view.View.GONE);
@@ -1322,6 +1475,9 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                     }
                 } else {
                     showPopupMenu();
+                }
+                if (item != null && isSelecting() && mSelected.contains(item.mission)) {
+                    startDragSelect(getAdapterPosition());
                 }
                 return true;
             });
