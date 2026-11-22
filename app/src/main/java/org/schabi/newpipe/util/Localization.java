@@ -16,7 +16,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.PluralsRes;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.math.MathUtils;
 import androidx.core.os.LocaleListCompat;
@@ -102,16 +101,16 @@ public final class Localization {
 
     public static ContentCountry getPreferredContentCountry(@NonNull final Context context) {
         final String contentCountry = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getString(R.string.content_country_key),
-                        context.getString(R.string.default_localization_key));
-        if (contentCountry.equals(context.getString(R.string.default_localization_key))) {
+                .getString("content_country",
+                        "system");
+        if (contentCountry.equals("system")) {
             return new ContentCountry(Locale.getDefault().getCountry());
         }
         return new ContentCountry(contentCountry);
     }
 
     public static Locale getPreferredLocale(@NonNull final Context context) {
-        return getLocaleFromPrefs(context, R.string.content_language_key);
+        return getLocaleFromPrefs(context, "content_language");
     }
 
     public static Locale getAppLocale() {
@@ -136,11 +135,11 @@ public final class Localization {
     @SuppressLint("StringFormatInvalid")
     public static String localizeUploadDate(@NonNull final Context context,
                                             @NonNull final OffsetDateTime offsetDateTime) {
-        return context.getString(R.string.upload_date_text, formatDate(offsetDateTime));
+        return String.format("Published on %1$s", formatDate(offsetDateTime));
     }
 
     public static String localizeViewCount(@NonNull final Context context, final long viewCount) {
-        return getQuantity(context, R.plurals.views, R.string.no_views, viewCount,
+        return getQuantity(context, R.plurals.views, "No views", viewCount,
                 localizeNumber(viewCount));
     }
 
@@ -150,11 +149,11 @@ public final class Localization {
             case (int) ListExtractor.ITEM_COUNT_UNKNOWN:
                 return "";
             case (int) ListExtractor.ITEM_COUNT_INFINITE:
-                return context.getString(R.string.infinite_videos);
+                return "∞ videos";
             case (int) ListExtractor.ITEM_COUNT_MORE_THAN_100:
-                return context.getString(R.string.more_than_100_videos);
+                return "100+ videos";
             default:
-                return getQuantity(context, R.plurals.videos, R.string.no_videos, streamCount,
+                return getQuantity(context, R.plurals.videos, "No videos", streamCount,
                         localizeNumber(streamCount));
         }
     }
@@ -165,9 +164,9 @@ public final class Localization {
             case (int) ListExtractor.ITEM_COUNT_UNKNOWN:
                 return "";
             case (int) ListExtractor.ITEM_COUNT_INFINITE:
-                return context.getString(R.string.infinite_videos_mini);
+                return "∞";
             case (int) ListExtractor.ITEM_COUNT_MORE_THAN_100:
-                return context.getString(R.string.more_than_100_videos_mini);
+                return "100+";
             default:
                 return String.valueOf(streamCount);
         }
@@ -175,7 +174,7 @@ public final class Localization {
 
     public static String localizeWatchingCount(@NonNull final Context context,
                                                final long watchingCount) {
-        return getQuantity(context, R.plurals.watching, R.string.no_one_watching, watchingCount,
+        return getQuantity(context, R.plurals.watching, "No one is watching", watchingCount,
                 localizeNumber(watchingCount));
     }
 
@@ -189,58 +188,55 @@ public final class Localization {
         if (count >= 1000000000) {
             final double shortenedValue = value / 1000000000;
             final int scale = shortenedValue >= 100 ? 0 : 1;
-            return context.getString(R.string.short_billion,
-                    localizeNumber(round(shortenedValue, scale)));
+            return String.format("%sB", localizeNumber(round(shortenedValue, scale)));
         } else if (count >= 1000000) {
             final double shortenedValue = value / 1000000;
             final int scale = shortenedValue >= 100 ? 0 : 1;
-            return context.getString(R.string.short_million,
-                    localizeNumber(round(shortenedValue, scale)));
+            return String.format("%sM", localizeNumber(round(shortenedValue, scale)));
         } else if (count >= 1000) {
             final double shortenedValue = value / 1000;
             final int scale = shortenedValue >= 100 ? 0 : 1;
-            return context.getString(R.string.short_thousand,
-                    localizeNumber(round(shortenedValue, scale)));
+            return String.format("%sK", localizeNumber(round(shortenedValue, scale)));
         } else {
             return localizeNumber(value);
         }
     }
 
     public static String listeningCount(@NonNull final Context context, final long listeningCount) {
-        return getQuantity(context, R.plurals.listening, R.string.no_one_listening, listeningCount,
+        return getQuantity(context, R.plurals.listening, "No one is listening", listeningCount,
                 shortCount(context, listeningCount));
     }
 
     public static String shortWatchingCount(@NonNull final Context context,
                                             final long watchingCount) {
-        return getQuantity(context, R.plurals.watching, R.string.no_one_watching, watchingCount,
+        return getQuantity(context, R.plurals.watching, "No one is watching", watchingCount,
                 shortCount(context, watchingCount));
     }
 
     public static String shortViewCount(@NonNull final Context context, final long viewCount) {
-        return getQuantity(context, R.plurals.views, R.string.no_views, viewCount,
+        return getQuantity(context, R.plurals.views, "No views", viewCount,
                 shortCount(context, viewCount));
     }
 
     public static String shortSubscriberCount(@NonNull final Context context,
                                               final long subscriberCount) {
-        return getQuantity(context, R.plurals.subscribers, R.string.no_subscribers, subscriberCount,
+        return getQuantity(context, R.plurals.subscribers, "No subscribers", subscriberCount,
                 shortCount(context, subscriberCount));
     }
 
     public static String downloadCount(@NonNull final Context context, final int downloadCount) {
-        return getQuantity(context, R.plurals.download_finished_notification, 0,
+        return getQuantity(context, R.plurals.download_finished_notification, null,
                 downloadCount, shortCount(context, downloadCount));
     }
 
     public static String deletedDownloadCount(@NonNull final Context context,
                                               final int deletedCount) {
-        return getQuantity(context, R.plurals.deleted_downloads_toast, 0,
+        return getQuantity(context, R.plurals.deleted_downloads_toast, null,
                 deletedCount, shortCount(context, deletedCount));
     }
 
     public static String replyCount(@NonNull final Context context, final int replyCount) {
-        return getQuantity(context, R.plurals.replies, 0, replyCount,
+        return getQuantity(context, R.plurals.replies, null, replyCount,
                 String.valueOf(replyCount));
     }
 
@@ -341,12 +337,12 @@ public final class Localization {
         } else if (track.getAudioTrackName() != null) {
             name = track.getAudioTrackName();
         } else {
-            name = context.getString(R.string.unknown_audio_track);
+            name = "Unknown";
         }
 
         if (track.getAudioTrackType() != null) {
             final String trackType = audioTrackType(context, track.getAudioTrackType());
-            return context.getString(R.string.audio_track_name, name, trackType);
+            return String.format("%1$s %2$s", name, trackType);
         }
         return name;
     }
@@ -355,10 +351,10 @@ public final class Localization {
     private static String audioTrackType(@NonNull final Context context,
                                          @NonNull final AudioTrackType trackType) {
         return switch (trackType) {
-            case ORIGINAL -> context.getString(R.string.audio_track_type_original);
-            case DUBBED -> context.getString(R.string.audio_track_type_dubbed);
-            case DESCRIPTIVE -> context.getString(R.string.audio_track_type_descriptive);
-            case SECONDARY -> context.getString(R.string.audio_track_type_secondary);
+            case ORIGINAL -> "original";
+            case DUBBED -> "dubbed";
+            case DESCRIPTIVE -> "descriptive";
+            case SECONDARY -> "secondary";
         };
     }
 
@@ -397,7 +393,7 @@ public final class Localization {
             return textual;
         } else if (DEBUG && context != null && PreferenceManager
                 .getDefaultSharedPreferences(context)
-                .getBoolean(context.getString(R.string.show_original_time_ago_key), false)) {
+                .getBoolean("show_original_time_ago_key", false)) {
             return relativeTime(parsed.offsetDateTime()) + " (" + textual + ")";
         } else {
             return relativeTime(parsed.offsetDateTime());
@@ -405,10 +401,10 @@ public final class Localization {
     }
 
     private static Locale getLocaleFromPrefs(@NonNull final Context context,
-                                             @StringRes final int prefKey) {
+                                             final String prefKey) {
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        final String defaultKey = context.getString(R.string.default_localization_key);
-        final String languageCode = sp.getString(context.getString(prefKey), defaultKey);
+        final String defaultKey = "system";
+        final String languageCode = sp.getString(prefKey, defaultKey);
 
         if (languageCode.equals(defaultKey)) {
             return Locale.getDefault();
@@ -426,7 +422,7 @@ public final class Localization {
      *
      * @param context the Android context
      * @param pluralId the ID of the plural resource
-     * @param zeroCaseStringId the resource ID of the string to use in case {@code count=0},
+     * @param zeroCaseString the resource ID of the string to use in case {@code count=0},
      *                         or 0 if the plural resource should be used in the zero case too
      * @param count the number that should be used to pick the correct plural form
      * @param formattedCount the formatting parameter to substitute inside the plural resource,
@@ -435,11 +431,11 @@ public final class Localization {
      */
     private static String getQuantity(@NonNull final Context context,
                                       @PluralsRes final int pluralId,
-                                      @StringRes final int zeroCaseStringId,
+                                      final String zeroCaseString,
                                       final long count,
                                       final String formattedCount) {
-        if (count == 0 && zeroCaseStringId != 0) {
-            return context.getString(zeroCaseStringId);
+        if (count == 0 && zeroCaseString != null) {
+            return zeroCaseString;
         }
 
         // As we use the already formatted count
@@ -458,7 +454,7 @@ public final class Localization {
     // https://android-developers.googleblog.com/2022/11/per-app-language-preferences-part-1.html
     public static void migrateAppLanguageSettingIfNecessary(@NonNull final Context context) {
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        final String appLanguageKey = context.getString(R.string.app_language_key);
+        final String appLanguageKey = "app_language_key";
         final String appLanguageValue = sp.getString(appLanguageKey, null);
         if (appLanguageValue != null) {
             // The app language key is used on Android versions < 33
@@ -467,7 +463,7 @@ public final class Localization {
                 sp.edit().remove(appLanguageKey).apply();
             }
             final String appLanguageDefaultValue =
-                    context.getString(R.string.default_localization_key);
+                    "system";
             if (!appLanguageValue.equals(appLanguageDefaultValue)) {
                 try {
                     AppCompatDelegate.setApplicationLocales(
