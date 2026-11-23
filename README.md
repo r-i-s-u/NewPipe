@@ -24,6 +24,21 @@ This project is a work in progress. Features, compatibility, and the user interf
 * SoundCloud ([website](https://soundcloud.com/)) ([wiki](https://en.wikipedia.org/wiki/SoundCloud))
 * media.ccc.de ([website](https://media.ccc.de/)) ([wiki](https://en.wikipedia.org/wiki/Chaos_Computer_Club))
 
+## Screenshots
+  
+<p align="center">
+  <img src="images/light.jpg" width="24%" alt="Light theme">
+  <img src="images/light2.jpg" width="24%" alt="Light theme">
+  <img src="images/light3.jpg" width="24%" alt="Light theme">
+  <img src="images/light4.jpg" width="24%" alt="Light theme">
+</p>
+  
+<p align="center">
+  <img src="images/dark.jpg" width="24%" alt="Dark theme">
+  <img src="images/dark2.jpg" width="24%" alt="Dark theme">
+  <img src="images/dark3.jpg" width="24%" alt="Dark theme">
+  <img src="images/dark4.jpg" width="24%" alt="Dark theme">
+</p>
 
 ## Disclaimer
 
