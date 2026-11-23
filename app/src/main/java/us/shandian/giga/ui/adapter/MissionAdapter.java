@@ -265,6 +265,14 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     @Override
+    public void onViewAttachedToWindow(@NonNull final ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        if (holder instanceof ViewHolderItem) {
+            bindSelection((ViewHolderItem) holder);
+        }
+    }
+
+    @Override
     public int getItemCount() {
         return mIterator.getOldListSize();
     }
@@ -763,6 +771,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     public void onAttachedToRecyclerView(@NonNull final RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
         mRecycler = recyclerView;
+        if (recyclerView.getItemAnimator() instanceof androidx.recyclerview.widget.SimpleItemAnimator) {
+            ((androidx.recyclerview.widget.SimpleItemAnimator) recyclerView.getItemAnimator())
+                    .setSupportsChangeAnimations(false);
+        }
         recyclerView.addOnItemTouchListener(mDragListener);
     }
 
@@ -922,7 +934,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 continue;
             }
             final DownloadManager.MissionItem mi = mIterator.getItem(p);
-            if (mi == null || mi.mission == null || mSelected.contains(mi.mission)) {
+            if (mi == null || mi.mission == null || (findSelected(mi.mission) != null)) {
                 continue;
             }
             mSelected.add(mi.mission);
@@ -933,6 +945,54 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             updateSelectionUi();
             refreshSelectionViews();
         }
+    }
+
+    private static String selKey(final Mission m) {
+        String name = "";
+        try {
+            if (m.storage != null && m.storage.getName() != null) {
+                name = m.storage.getName();
+            }
+        } catch (final Exception ignored) {
+            // keep empty name
+        }
+        return m.timestamp + "|" + name;
+    }
+
+    /** Finds the selected entry for this mission, even if the mission object was replaced. */
+    private Mission findSelected(final Mission m) {
+        if (m == null) {
+            return null;
+        }
+        if (mSelected.contains(m)) {
+            return m;
+        }
+        final String key = selKey(m);
+        for (final Mission sel : mSelected) {
+            if (key.equals(selKey(sel))) {
+                return sel;
+            }
+        }
+        return null;
+    }
+
+    /** Replaces stale selected objects (for example finished downloads) with current ones. */
+    private void syncSelection() {
+        if (mSelected.isEmpty()) {
+            return;
+        }
+        final ArrayList<Mission> fresh = new ArrayList<>();
+        for (int p = 0; p < getItemCount(); p++) {
+            final DownloadManager.MissionItem mi = mIterator.getItem(p);
+            if (mi == null || mi.mission == null) {
+                continue;
+            }
+            if (findSelected(mi.mission) != null) {
+                fresh.add(mi.mission);
+            }
+        }
+        mSelected.clear();
+        mSelected.addAll(fresh);
     }
 
     private boolean isSelecting() {
@@ -955,7 +1015,10 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (!mSelecting) {
             return;
         }
-        if (!mSelected.remove(mission)) {
+        final Mission existing = findSelected(mission);
+        if (existing != null) {
+            mSelected.remove(existing);
+        } else {
             mSelected.add(mission);
         }
         if (mSelected.isEmpty()) {
@@ -1063,7 +1126,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
             final DownloadManager.MissionItem it = mIterator.getItem(i);
             if (it != null && it.mission != null) {
                 finished++;
-                if (!mSelected.contains(it.mission)) {
+                if (!(findSelected(it.mission) != null)) {
                     return false;
                 }
             }
@@ -1117,6 +1180,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void confirmDelete() {
+        syncSelection();
         final int count = mSelected.size();
         if (count == 0) {
             return;
@@ -1140,6 +1204,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void deleteSelected(final boolean deleteFile) {
+        syncSelection();
         final ArrayList<Mission> missions = new ArrayList<>(mSelected);
         finishSelection();
         mDeleter.appendAll(missions, deleteFile);
@@ -1148,6 +1213,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     }
 
     private void shareSelected() {
+        syncSelection();
         final ArrayList<Uri> uris = new ArrayList<>();
         String mime = null;
         for (final Mission m : mSelected) {
@@ -1182,6 +1248,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
         if (mRecycler == null) {
             return;
         }
+        syncSelection();
         for (int i = 0; i < mRecycler.getChildCount(); i++) {
             final ViewHolder vh = mRecycler.getChildViewHolder(mRecycler.getChildAt(i));
             if (vh instanceof ViewHolderItem) {
@@ -1197,7 +1264,15 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
     private void bindSelection(final ViewHolderItem h, final boolean animate) {
         final boolean finished = h.item != null;
         final boolean show = finished && mSelecting;
-        final boolean selected = show && mSelected.contains(h.item.mission);
+        boolean selected = false;
+        if (show) {
+            final Mission sel = findSelected(h.item.mission);
+            if (sel != null && sel != h.item.mission) {
+                mSelected.remove(sel);
+                mSelected.add(h.item.mission);
+            }
+            selected = sel != null;
+        }
         h.row.setSelecting(show, animate);
         h.check.setChecked(selected);
         if (!animate) {
@@ -1476,7 +1551,7 @@ public class MissionAdapter extends Adapter<ViewHolder> implements Handler.Callb
                 } else {
                     showPopupMenu();
                 }
-                if (item != null && isSelecting() && mSelected.contains(item.mission)) {
+                if (item != null && isSelecting() && (findSelected(item.mission) != null)) {
                     startDragSelect(getAdapterPosition());
                 }
                 return true;
