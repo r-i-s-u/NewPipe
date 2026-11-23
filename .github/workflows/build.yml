@@ -49,11 +49,11 @@ jobs:
       - name: "Rename signed APK"
         id: rename_signed
         run: |
-          dir=app/build/outputs/apk/release
-          f=$(ls "$dir"/*-signed.apk | head -n 1)
-          new=$(basename "$f" | sed -e 's/-signed//' -e 's/_v/-v/')
-          mv "$f" "$dir/$new"
-          echo "path=$dir/$new" >> "$GITHUB_OUTPUT"
+          VERSION=$(grep -oP 'versionName\s*=?\s*"\K[^"]+' app/build.gradle* | head -1)
+          f="${{ steps.sign_app.outputs.signedFile }}"
+          new="$(dirname "$f")/PipeLoad-v$VERSION_NAME.apk"
+          mv "$f" "$new"
+          echo "path=$new" >> "$GITHUB_OUTPUT"
 
       - name: "Upload APK"
         uses: actions/upload-artifact@v7
