@@ -51,7 +51,7 @@ jobs:
         run: |
           VERSION=$(grep -oP 'versionName\s*=?\s*"\K[^"]+' app/build.gradle* | head -1)
           f="${{ steps.sign_app.outputs.signedFile }}"
-          new="$(dirname "$f")/PipeLoad-v$VERSION_NAME.apk"
+          new="$(dirname "$f")/PipeLoad.apk"
           mv "$f" "$new"
           echo "path=$new" >> "$GITHUB_OUTPUT"
 
