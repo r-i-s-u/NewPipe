@@ -34,10 +34,14 @@ jobs:
             sleep "$delay"
           done
 
-      - name: "Rename APK"
-        run: | 
-          # assume there is only one APK in that folder
-          mv app/build/outputs/apk/release/*.apk "app/build/outputs/apk/release/PipeLoad-v$VERSION_NAME.apk"
+      - name: "Rename signed APK"
+        id: rename_signed
+        run: |
+          f="${{ steps.sign_app.outputs.signedFile }}"
+          dir=$(dirname "$f")
+          new=$(basename "$f" | sed -e 's/-signed//' -e 's/_v/-v/')
+          mv "$f" "$dir/$new"
+          echo "path=$dir/$new" >> "$GITHUB_OUTPUT"
 
       - uses: ilharp/sign-android-release@v2
         name: "Sign app APK"
