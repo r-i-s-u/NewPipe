@@ -1,0 +1,89 @@
+name: "Latest release"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Stable release tag (for example: v1.0.0)"
+        required: true
+        type: string
+      release_name:
+        description: "Release title"
+        required: false
+        type: string
+      notes:
+        description: "Release notes"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Build release APK
+        run: |
+          for attempt in 1 2 3; do
+            if ./gradlew assembleRelease --stacktrace; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Build failed after $attempt attempts"
+              exit 1
+            fi
+            delay=$((attempt * 15))
+            echo "Build attempt $attempt failed; retrying in ${delay}s"
+            sleep "$delay"
+          done
+
+      - name: Sign app APK
+        uses: ilharp/sign-android-release@v2
+        id: sign_app
+        env:
+          ANDROID_SIGNING_KEY: ${{ secrets.SIGNING_KEY_STORE }}
+        with:
+          releaseDir: app/build/outputs/apk/release
+          signingKey: ${{ secrets.SIGNING_KEY_STORE }}
+          keyAlias: ${{ secrets.SIGNING_KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Rename signed APK
+        id: rename_signed
+        run: |
+          f="${{ steps.sign_app.outputs.signedFile }}"
+          new="$(dirname "$f")/PipeLoad.apk"
+          mv "$f" "$new"
+          echo "path=$new" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          RELEASE_NAME: ${{ inputs.release_name }}
+          NOTES: ${{ inputs.notes }}
+          APK: ${{ steps.rename_signed.outputs.path }}
+        run: |
+          title="${RELEASE_NAME:-$TAG}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release tag $TAG already exists"
+            exit 1
+          fi
+          if [ -n "$NOTES" ]; then
+            gh release create "$TAG" "$APK" --title "$title" --notes "$NOTES" --latest --target main
+          else
+            gh release create "$TAG" "$APK" --title "$title" --generate-notes --latest --target main
+          fi
