@@ -2,6 +2,29 @@ name: "release"
 
 on:
   workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Choose release type"
+        required: true
+        type: choice
+        options:
+          - Pre-release
+          - Latest release
+      tag:
+        description: "Release tag (for example: v1.0.0 or v1.0.0-beta.1)"
+        required: true
+        type: string
+      release_name:
+        description: "Release title (optional)"
+        required: false
+        type: string
+      notes:
+        description: "Release notes (optional; generated automatically if empty)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -10,6 +33,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: 'main'
+          fetch-depth: 0
 
       - uses: actions/setup-java@v5
         with:
@@ -38,7 +62,7 @@ jobs:
         name: "Sign app APK"
         id: sign_app
         env:
-           ANDROID_SIGNING_KEY: ${{ secrets.SIGNING_KEY_STORE }}
+          ANDROID_SIGNING_KEY: ${{ secrets.SIGNING_KEY_STORE }}
         with:
           releaseDir: app/build/outputs/apk/release
           signingKey: ${{ secrets.SIGNING_KEY_STORE }}
@@ -49,14 +73,53 @@ jobs:
       - name: "Rename signed APK"
         id: rename_signed
         run: |
-          VERSION=$(grep -oP 'versionName\s*=?\s*"\K[^"]+' app/build.gradle* | head -1)
           f="${{ steps.sign_app.outputs.signedFile }}"
           new="$(dirname "$f")/PipeLoad.apk"
           mv "$f" "$new"
           echo "path=$new" >> "$GITHUB_OUTPUT"
 
-      - name: "Upload APK"
+      - name: "Upload APK artifact"
         uses: actions/upload-artifact@v7
         with:
           name: app
           path: ${{ steps.rename_signed.outputs.path }}
+
+      - name: "Create GitHub pre-release"
+        if: inputs.release_type == 'Pre-release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          RELEASE_NAME: ${{ inputs.release_name }}
+          NOTES: ${{ inputs.notes }}
+          APK: ${{ steps.rename_signed.outputs.path }}
+        run: |
+          title="${RELEASE_NAME:-$TAG}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release tag $TAG already exists"
+            exit 1
+          fi
+          if [ -n "$NOTES" ]; then
+            gh release create "$TAG" "$APK" --title "$title" --notes "$NOTES" --prerelease --target main
+          else
+            gh release create "$TAG" "$APK" --title "$title" --generate-notes --prerelease --target main
+          fi
+
+      - name: "Create GitHub latest release"
+        if: inputs.release_type == 'Latest release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          RELEASE_NAME: ${{ inputs.release_name }}
+          NOTES: ${{ inputs.notes }}
+          APK: ${{ steps.rename_signed.outputs.path }}
+        run: |
+          title="${RELEASE_NAME:-$TAG}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release tag $TAG already exists"
+            exit 1
+          fi
+          if [ -n "$NOTES" ]; then
+            gh release create "$TAG" "$APK" --title "$title" --notes "$NOTES" --latest --target main
+          else
+            gh release create "$TAG" "$APK" --title "$title" --generate-notes --latest --target main
+          fi
